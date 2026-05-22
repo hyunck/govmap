@@ -1,5 +1,5 @@
 // 공기업 162개 데이터 (공기업 탭 전용)
-// 카카오 Places API로 좌표 자동 변환되므로 lat/lng는 0으로 초기화됨
+// 카카오 Places API로 좌표 자동 변환
 
 const ORGS = [
   {
@@ -84,8 +84,6 @@ const ORGS = [
     "type": "공기업",
     "region": "전라권",
     "address": "전남 나주시 전력로 55",
-    "lat": 35.0263,
-    "lng": 126.7844,
     "startingSalary": 4562,
     "avgSalary": 8948,
     "avgYears": 15.8,
@@ -108,45 +106,31 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (나주)",
-        "address": "전남 나주시 전력로 55",
-        "lat": 35.0263,
-        "lng": 126.7844
+        "address": "전남 나주시 전력로 55"
       },
       {
         "name": "서울본부",
-        "address": "서울 서초구 효령로 257",
-        "lat": 37.483,
-        "lng": 127.0095
+        "address": "서울 서초구 효령로 257"
       },
       {
         "name": "부산울산본부",
-        "address": "부산 동래구 우장춘로 22",
-        "lat": 35.1934,
-        "lng": 129.0834
+        "address": "부산 동래구 우장춘로 22"
       },
       {
         "name": "대구본부",
-        "address": "대구 남구 명덕로 89",
-        "lat": 35.8602,
-        "lng": 128.5928
+        "address": "대구 남구 명덕로 89"
       },
       {
         "name": "광주전남본부",
-        "address": "광주 서구 화운로 198",
-        "lat": 35.153,
-        "lng": 126.8489
+        "address": "광주 서구 화운로 198"
       },
       {
         "name": "경기북부본부",
-        "address": "경기 의정부시 평화로 489",
-        "lat": 37.738,
-        "lng": 127.047
+        "address": "경기 의정부시 평화로 489"
       },
       {
         "name": "강원본부",
-        "address": "강원 춘천시 중앙로 1",
-        "lat": 37.8814,
-        "lng": 127.73
+        "address": "강원 춘천시 중앙로 1"
       }
     ],
     "ncs": [
@@ -173,8 +157,6 @@ const ORGS = [
     "type": "공기업",
     "region": "경상권",
     "address": "경북 경주시 문무대왕면 불국로 1655",
-    "lat": 35.8472,
-    "lng": 129.4317,
     "startingSalary": 4434,
     "avgSalary": 9045,
     "avgYears": 16.8,
@@ -196,33 +178,23 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (경주)",
-        "address": "경북 경주시 문무대왕면 불국로 1655",
-        "lat": 35.8472,
-        "lng": 129.4317
+        "address": "경북 경주시 문무대왕면 불국로 1655"
       },
       {
         "name": "한울원자력본부",
-        "address": "경북 울진군 북면 한울로 84",
-        "lat": 37.093,
-        "lng": 129.3865
+        "address": "경북 울진군 북면 한울로 84"
       },
       {
         "name": "한빛원자력본부",
-        "address": "전남 영광군 홍농읍 한빛로 84",
-        "lat": 35.414,
-        "lng": 126.422
+        "address": "전남 영광군 홍농읍 한빛로 84"
       },
       {
         "name": "고리원자력본부",
-        "address": "부산 기장군 장안읍 고리 661",
-        "lat": 35.322,
-        "lng": 129.292
+        "address": "부산 기장군 장안읍 고리 661"
       },
       {
         "name": "새울원자력본부",
-        "address": "울산 울주군 서생면 해맞이로 200",
-        "lat": 35.336,
-        "lng": 129.306
+        "address": "울산 울주군 서생면 해맞이로 200"
       }
     ],
     "ncs": [
@@ -248,8 +220,6 @@ const ORGS = [
     "type": "공기업",
     "region": "충청권",
     "address": "충남 보령시 보령북로 160",
-    "lat": 36.4068,
-    "lng": 126.5111,
     "startingSalary": 4450,
     "avgSalary": 9145,
     "avgYears": 16.5,
@@ -271,33 +241,23 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (보령)",
-        "address": "충남 보령시 보령북로 160",
-        "lat": 36.4068,
-        "lng": 126.5111
+        "address": "충남 보령시 보령북로 160"
       },
       {
         "name": "보령발전본부",
-        "address": "충남 보령시 주교면 보령북로 160",
-        "lat": 36.4068,
-        "lng": 126.5111
+        "address": "충남 보령시 주교면 보령북로 160"
       },
       {
         "name": "서울발전본부",
-        "address": "서울 마포구 마포대로 24길 7",
-        "lat": 37.5485,
-        "lng": 126.9508
+        "address": "서울 마포구 마포대로 24길 7"
       },
       {
         "name": "인천발전본부",
-        "address": "인천 서구 원당대로 745번길 26",
-        "lat": 37.5455,
-        "lng": 126.6587
+        "address": "인천 서구 원당대로 745번길 26"
       },
       {
         "name": "세종발전본부",
-        "address": "세종 부강면 부강3길 24",
-        "lat": 36.534,
-        "lng": 127.275
+        "address": "세종 부강면 부강3길 24"
       }
     ],
     "ncs": [
@@ -323,8 +283,6 @@ const ORGS = [
     "type": "공기업",
     "region": "충청권",
     "address": "충남 태안군 태안읍 중앙로 285",
-    "lat": 36.747,
-    "lng": 126.2989,
     "startingSalary": 4420,
     "avgSalary": 9046,
     "avgYears": 16.2,
@@ -345,27 +303,19 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (태안)",
-        "address": "충남 태안군 태안읍 중앙로 285",
-        "lat": 36.747,
-        "lng": 126.2989
+        "address": "충남 태안군 태안읍 중앙로 285"
       },
       {
         "name": "태안발전본부",
-        "address": "충남 태안군 원북면 태안로 1455",
-        "lat": 36.8945,
-        "lng": 126.236
+        "address": "충남 태안군 원북면 태안로 1455"
       },
       {
         "name": "평택발전본부",
-        "address": "경기 평택시 포승읍 원정리",
-        "lat": 36.9745,
-        "lng": 126.823
+        "address": "경기 평택시 포승읍 원정리"
       },
       {
         "name": "서인천발전본부",
-        "address": "인천 서구 원창동",
-        "lat": 37.5285,
-        "lng": 126.6395
+        "address": "인천 서구 원창동"
       }
     ],
     "ncs": [
@@ -389,11 +339,9 @@ const ORGS = [
     "type": "공기업",
     "region": "경상권",
     "address": "부산 남구 문현금융로 30",
-    "lat": 35.1413,
-    "lng": 129.0681,
     "startingSalary": 4400,
     "avgSalary": 8850,
-    "avgYears": 15.0,
+    "avgYears": 15,
     "homepage": "https://www.kospo.co.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국남부발전",
     "description": "한전 발전자회사. 하동·삼척 등 화력발전소 및 신재생에너지 사업.",
@@ -411,27 +359,19 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (부산)",
-        "address": "부산 남구 문현금융로 30",
-        "lat": 35.1413,
-        "lng": 129.0681
+        "address": "부산 남구 문현금융로 30"
       },
       {
         "name": "하동화력본부",
-        "address": "경남 하동군 금성면 가덕길 158",
-        "lat": 34.9305,
-        "lng": 127.772
+        "address": "경남 하동군 금성면 가덕길 158"
       },
       {
         "name": "삼척화력본부",
-        "address": "강원 삼척시 적노동 65",
-        "lat": 37.449,
-        "lng": 129.1745
+        "address": "강원 삼척시 적노동 65"
       },
       {
         "name": "신인천복합화력본부",
-        "address": "인천 서구 원창동",
-        "lat": 37.5285,
-        "lng": 126.642
+        "address": "인천 서구 원창동"
       }
     ],
     "ncs": [
@@ -455,8 +395,6 @@ const ORGS = [
     "type": "공기업",
     "region": "경상권",
     "address": "울산 중구 종가로 395",
-    "lat": 35.5723,
-    "lng": 129.3303,
     "startingSalary": 4380,
     "avgSalary": 8967,
     "avgYears": 15.5,
@@ -477,27 +415,19 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (울산)",
-        "address": "울산 중구 종가로 395",
-        "lat": 35.5723,
-        "lng": 129.3303
+        "address": "울산 중구 종가로 395"
       },
       {
         "name": "울산화력본부",
-        "address": "울산 남구 매암동 124",
-        "lat": 35.4805,
-        "lng": 129.3585
+        "address": "울산 남구 매암동 124"
       },
       {
         "name": "당진화력본부",
-        "address": "충남 당진시 석문면 석문방조제로 1693",
-        "lat": 37.009,
-        "lng": 126.5645
+        "address": "충남 당진시 석문면 석문방조제로 1693"
       },
       {
         "name": "동해화력본부",
-        "address": "강원 동해시 호암로 224",
-        "lat": 37.492,
-        "lng": 129.123
+        "address": "강원 동해시 호암로 224"
       }
     ],
     "ncs": [
@@ -522,11 +452,9 @@ const ORGS = [
     "type": "공기업",
     "region": "경상권",
     "address": "경남 진주시 사들로 132번길 14",
-    "lat": 35.1729,
-    "lng": 128.1306,
     "startingSalary": 4380,
     "avgSalary": 8800,
-    "avgYears": 15.0,
+    "avgYears": 15,
     "homepage": "https://www.koenergy.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국남동발전",
     "description": "한전 발전자회사. 삼천포·영흥·여수 등 화력발전소 운영.",
@@ -544,27 +472,19 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (진주)",
-        "address": "경남 진주시 사들로 132번길 14",
-        "lat": 35.1729,
-        "lng": 128.1306
+        "address": "경남 진주시 사들로 132번길 14"
       },
       {
         "name": "삼천포발전본부",
-        "address": "경남 고성군 하이면 하이로 386",
-        "lat": 34.9305,
-        "lng": 128.0735
+        "address": "경남 고성군 하이면 하이로 386"
       },
       {
         "name": "영흥발전본부",
-        "address": "인천 옹진군 영흥면 영흥남로 293",
-        "lat": 37.238,
-        "lng": 126.483
+        "address": "인천 옹진군 영흥면 영흥남로 293"
       },
       {
         "name": "여수발전본부",
-        "address": "전남 여수시 묘도동 묘도2길 71",
-        "lat": 34.8395,
-        "lng": 127.724
+        "address": "전남 여수시 묘도동 묘도2길 71"
       }
     ],
     "ncs": [
@@ -589,8 +509,6 @@ const ORGS = [
     "type": "공기업",
     "region": "수도권",
     "address": "경기 성남시 분당구 분당로 463",
-    "lat": 37.3835,
-    "lng": 127.1219,
     "startingSalary": 4150,
     "avgSalary": 8300,
     "avgYears": 14.5,
@@ -612,33 +530,23 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (성남)",
-        "address": "경기 성남시 분당구 분당로 463",
-        "lat": 37.3835,
-        "lng": 127.1219
+        "address": "경기 성남시 분당구 분당로 463"
       },
       {
         "name": "수도권북부지사",
-        "address": "경기 고양시 일산서구 한류월드로 195",
-        "lat": 37.6735,
-        "lng": 126.747
+        "address": "경기 고양시 일산서구 한류월드로 195"
       },
       {
         "name": "수도권남부지사",
-        "address": "경기 화성시 동탄대로 537",
-        "lat": 37.201,
-        "lng": 127.083
+        "address": "경기 화성시 동탄대로 537"
       },
       {
         "name": "대구지사",
-        "address": "대구 달성군 다사읍",
-        "lat": 35.848,
-        "lng": 128.467
+        "address": "대구 달성군 다사읍"
       },
       {
         "name": "광주전남지사",
-        "address": "광주 광산구 평동산단로 33",
-        "lat": 35.1325,
-        "lng": 126.743
+        "address": "광주 광산구 평동산단로 33"
       }
     ],
     "ncs": [
@@ -663,8 +571,6 @@ const ORGS = [
     "type": "공기업",
     "region": "수도권",
     "address": "인천 중구 공항로 272",
-    "lat": 37.45,
-    "lng": 126.4435,
     "startingSalary": 4900,
     "avgSalary": 9200,
     "avgYears": 13.5,
@@ -686,9 +592,7 @@ const ORGS = [
     "branches": [
       {
         "name": "인천공항 본사",
-        "address": "인천 중구 공항로 272",
-        "lat": 37.45,
-        "lng": 126.4435
+        "address": "인천 중구 공항로 272"
       }
     ],
     "ncs": [
@@ -711,8 +615,6 @@ const ORGS = [
     "type": "공기업",
     "region": "수도권",
     "address": "서울 강서구 하늘길 78",
-    "lat": 37.5586,
-    "lng": 126.7919,
     "startingSalary": 4350,
     "avgSalary": 8700,
     "avgYears": 14.2,
@@ -734,33 +636,23 @@ const ORGS = [
     "branches": [
       {
         "name": "김포공항",
-        "address": "서울 강서구 하늘길 78",
-        "lat": 37.5586,
-        "lng": 126.7919
+        "address": "서울 강서구 하늘길 78"
       },
       {
         "name": "김해공항",
-        "address": "부산 강서구 공항진입로 108",
-        "lat": 35.1796,
-        "lng": 128.938
+        "address": "부산 강서구 공항진입로 108"
       },
       {
         "name": "제주공항",
-        "address": "제주 제주시 공항로 2",
-        "lat": 33.5113,
-        "lng": 126.493
+        "address": "제주 제주시 공항로 2"
       },
       {
         "name": "대구공항",
-        "address": "대구 동구 공항로 221",
-        "lat": 35.8941,
-        "lng": 128.6588
+        "address": "대구 동구 공항로 221"
       },
       {
         "name": "청주공항",
-        "address": "충북 청주시 청원구 내수읍 오창대로 980",
-        "lat": 36.7166,
-        "lng": 127.499
+        "address": "충북 청주시 청원구 내수읍 오창대로 980"
       }
     ],
     "ncs": [
@@ -784,8 +676,6 @@ const ORGS = [
     "type": "공기업",
     "region": "경상권",
     "address": "울산 중구 종가로 415",
-    "lat": 35.5723,
-    "lng": 129.3294,
     "startingSalary": 4350,
     "avgSalary": 8970,
     "avgYears": 14.5,
@@ -806,27 +696,19 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (울산)",
-        "address": "울산 중구 종가로 415",
-        "lat": 35.5723,
-        "lng": 129.3294
+        "address": "울산 중구 종가로 415"
       },
       {
         "name": "구리비축기지",
-        "address": "경기 구리시 갈매동",
-        "lat": 37.652,
-        "lng": 127.139
+        "address": "경기 구리시 갈매동"
       },
       {
         "name": "여수비축기지",
-        "address": "전남 여수시 중흥동",
-        "lat": 34.843,
-        "lng": 127.7095
+        "address": "전남 여수시 중흥동"
       },
       {
         "name": "거제비축기지",
-        "address": "경남 거제시 장목면",
-        "lat": 34.9805,
-        "lng": 128.694
+        "address": "경남 거제시 장목면"
       }
     ],
     "ncs": [
@@ -849,8 +731,6 @@ const ORGS = [
     "type": "공기업",
     "region": "경상권",
     "address": "경남 진주시 충의로 19",
-    "lat": 35.1729,
-    "lng": 128.1066,
     "startingSalary": 3768,
     "avgSalary": 7400,
     "avgYears": 15.5,
@@ -872,39 +752,27 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (진주)",
-        "address": "경남 진주시 충의로 19",
-        "lat": 35.1729,
-        "lng": 128.1066
+        "address": "경남 진주시 충의로 19"
       },
       {
         "name": "서울지역본부",
-        "address": "서울 강남구 일원로 1길 30",
-        "lat": 37.4905,
-        "lng": 127.0865
+        "address": "서울 강남구 일원로 1길 30"
       },
       {
         "name": "경기지역본부",
-        "address": "경기 성남시 분당구 정자일로 95",
-        "lat": 37.3601,
-        "lng": 127.108
+        "address": "경기 성남시 분당구 정자일로 95"
       },
       {
         "name": "인천지역본부",
-        "address": "인천 연수구 컨벤시아대로 165",
-        "lat": 37.3905,
-        "lng": 126.645
+        "address": "인천 연수구 컨벤시아대로 165"
       },
       {
         "name": "부산울산지역본부",
-        "address": "부산 연제구 중앙대로 1090",
-        "lat": 35.1862,
-        "lng": 129.078
+        "address": "부산 연제구 중앙대로 1090"
       },
       {
         "name": "광주전남지역본부",
-        "address": "광주 서구 무진대로 904",
-        "lat": 35.1505,
-        "lng": 126.8395
+        "address": "광주 서구 무진대로 904"
       }
     ],
     "ncs": [
@@ -930,8 +798,6 @@ const ORGS = [
     "type": "공기업",
     "region": "충청권",
     "address": "대전 유성구 과학로 80-67",
-    "lat": 36.3958,
-    "lng": 127.3506,
     "startingSalary": 3850,
     "avgSalary": 7800,
     "avgYears": 15.8,
@@ -953,21 +819,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (대전)",
-        "address": "대전 유성구 과학로 80-67",
-        "lat": 36.3958,
-        "lng": 127.3506
+        "address": "대전 유성구 과학로 80-67"
       },
       {
         "name": "화폐본부 (경산)",
-        "address": "경북 경산시 화랑로 23길 35",
-        "lat": 35.8265,
-        "lng": 128.739
+        "address": "경북 경산시 화랑로 23길 35"
       },
       {
         "name": "ID본부 (대전)",
-        "address": "대전 유성구 과학로 80-67",
-        "lat": 36.3958,
-        "lng": 127.3506
+        "address": "대전 유성구 과학로 80-67"
       }
     ],
     "ncs": [
@@ -990,8 +850,6 @@ const ORGS = [
     "type": "공기업",
     "region": "수도권",
     "address": "경기 과천시 경마공원대로 107",
-    "lat": 37.4254,
-    "lng": 126.9897,
     "startingSalary": 4200,
     "avgSalary": 9230,
     "avgYears": 18.5,
@@ -1013,21 +871,15 @@ const ORGS = [
     "branches": [
       {
         "name": "서울경마공원",
-        "address": "경기 과천시 경마공원대로 107",
-        "lat": 37.4254,
-        "lng": 126.9897
+        "address": "경기 과천시 경마공원대로 107"
       },
       {
         "name": "부산경남경마공원",
-        "address": "부산 강서구 가락대로 929",
-        "lat": 35.162,
-        "lng": 128.883
+        "address": "부산 강서구 가락대로 929"
       },
       {
         "name": "제주경마공원",
-        "address": "제주 제주시 애월읍 평화로 2144",
-        "lat": 33.447,
-        "lng": 126.415
+        "address": "제주 제주시 애월읍 평화로 2144"
       }
     ],
     "ncs": [
@@ -1049,11 +901,9 @@ const ORGS = [
     "type": "공기업",
     "region": "강원권",
     "address": "강원 정선군 사북읍 하이원길 265",
-    "lat": 37.2076,
-    "lng": 128.8222,
     "startingSalary": 4500,
     "avgSalary": 7900,
-    "avgYears": 14.0,
+    "avgYears": 14,
     "homepage": "https://www.kangwonland.high1.com",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=강원랜드",
     "description": "폐광지역 경제 진흥을 위해 설립된 공기업. 카지노·리조트·골프장 운영.",
@@ -1072,9 +922,7 @@ const ORGS = [
     "branches": [
       {
         "name": "하이원리조트",
-        "address": "강원 정선군 고한읍 하이원길 424",
-        "lat": 37.2076,
-        "lng": 128.8222
+        "address": "강원 정선군 고한읍 하이원길 424"
       }
     ],
     "ncs": [
@@ -1097,8 +945,6 @@ const ORGS = [
     "type": "공기업",
     "region": "경상권",
     "address": "경북 김천시 혁신8로 77",
-    "lat": 36.1239,
-    "lng": 128.1729,
     "startingSalary": 4281,
     "avgSalary": 8200,
     "avgYears": 17.5,
@@ -1120,33 +966,23 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (김천)",
-        "address": "경북 김천시 혁신8로 77",
-        "lat": 36.1239,
-        "lng": 128.1729
+        "address": "경북 김천시 혁신8로 77"
       },
       {
         "name": "수도권본부",
-        "address": "경기 성남시 분당구 안양판교로 1186",
-        "lat": 37.3795,
-        "lng": 127.1115
+        "address": "경기 성남시 분당구 안양판교로 1186"
       },
       {
         "name": "부산경남본부",
-        "address": "부산 금정구 중앙대로 1841",
-        "lat": 35.2535,
-        "lng": 129.09
+        "address": "부산 금정구 중앙대로 1841"
       },
       {
         "name": "대전충남본부",
-        "address": "대전 대덕구 신탄진로 593",
-        "lat": 36.4393,
-        "lng": 127.4274
+        "address": "대전 대덕구 신탄진로 593"
       },
       {
         "name": "광주전남본부",
-        "address": "광주 북구 첨단연신로 1",
-        "lat": 35.2208,
-        "lng": 126.841
+        "address": "광주 북구 첨단연신로 1"
       }
     ],
     "ncs": [
@@ -1172,11 +1008,9 @@ const ORGS = [
     "type": "공기업",
     "region": "충청권",
     "address": "대전 동구 중앙로 240",
-    "lat": 36.3323,
-    "lng": 127.4365,
     "startingSalary": 3825,
     "avgSalary": 6900,
-    "avgYears": 16.0,
+    "avgYears": 16,
     "homepage": "https://www.korail.com",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국철도공사",
     "description": "전국 철도 여객·물류 운송을 담당하는 공기업. KTX, ITX 운영.",
@@ -1195,33 +1029,23 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (대전)",
-        "address": "대전 동구 중앙로 240",
-        "lat": 36.3323,
-        "lng": 127.4365
+        "address": "대전 동구 중앙로 240"
       },
       {
         "name": "서울본부",
-        "address": "서울 용산구 한강대로 405",
-        "lat": 37.5298,
-        "lng": 126.9648
+        "address": "서울 용산구 한강대로 405"
       },
       {
         "name": "부산본부",
-        "address": "부산 동구 중앙대로 206",
-        "lat": 35.1145,
-        "lng": 129.0408
+        "address": "부산 동구 중앙대로 206"
       },
       {
         "name": "광주본부",
-        "address": "광주 광산구 송정역광장로 21",
-        "lat": 35.1395,
-        "lng": 126.7929
+        "address": "광주 광산구 송정역광장로 21"
       },
       {
         "name": "대구본부",
-        "address": "대구 북구 태평로 161",
-        "lat": 35.878,
-        "lng": 128.5897
+        "address": "대구 북구 태평로 161"
       }
     ],
     "ncs": [
@@ -1245,8 +1069,6 @@ const ORGS = [
     "type": "공기업",
     "region": "충청권",
     "address": "대전 대덕구 신탄진로 200",
-    "lat": 36.3811,
-    "lng": 127.4111,
     "startingSalary": 4061,
     "avgSalary": 8353,
     "avgYears": 13.3,
@@ -1268,33 +1090,23 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (대전)",
-        "address": "대전 대덕구 신탄진로 200",
-        "lat": 36.3811,
-        "lng": 127.4111
+        "address": "대전 대덕구 신탄진로 200"
       },
       {
         "name": "한강유역본부",
-        "address": "경기 과천시 코오롱로 11",
-        "lat": 37.4292,
-        "lng": 126.9885
+        "address": "경기 과천시 코오롱로 11"
       },
       {
         "name": "낙동강유역본부",
-        "address": "부산 사상구 새벽로 223",
-        "lat": 35.1525,
-        "lng": 128.992
+        "address": "부산 사상구 새벽로 223"
       },
       {
         "name": "금강유역본부",
-        "address": "대전 대덕구 신탄진로 200",
-        "lat": 36.3811,
-        "lng": 127.4111
+        "address": "대전 대덕구 신탄진로 200"
       },
       {
         "name": "영산강·섬진강유역본부",
-        "address": "광주 동구 제봉로 124",
-        "lat": 35.1453,
-        "lng": 126.9215
+        "address": "광주 동구 제봉로 124"
       }
     ],
     "ncs": [
@@ -1317,8 +1129,6 @@ const ORGS = [
     "type": "공기업",
     "region": "수도권",
     "address": "서울 송파구 올림픽로35길 137",
-    "lat": 37.5145,
-    "lng": 127.1059,
     "startingSalary": 4100,
     "avgSalary": 8901,
     "avgYears": 17.2,
@@ -1339,15 +1149,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (서울)",
-        "address": "서울 송파구 올림픽로35길 137",
-        "lat": 37.5145,
-        "lng": 127.1059
+        "address": "서울 송파구 올림픽로35길 137"
       },
       {
         "name": "부산지사",
-        "address": "부산 부산진구 중앙대로 760",
-        "lat": 35.1582,
-        "lng": 129.0596
+        "address": "부산 부산진구 중앙대로 760"
       }
     ],
     "ncs": [
@@ -1370,8 +1176,6 @@ const ORGS = [
     "type": "공기업",
     "region": "제주권",
     "address": "제주 서귀포시 일주서로 654-1",
-    "lat": 33.2521,
-    "lng": 126.4115,
     "startingSalary": 3800,
     "avgSalary": 6876,
     "avgYears": 10.5,
@@ -1392,21 +1196,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (서귀포)",
-        "address": "제주 서귀포시 일주서로 654-1",
-        "lat": 33.2521,
-        "lng": 126.4115
+        "address": "제주 서귀포시 일주서로 654-1"
       },
       {
         "name": "제주공항 면세점",
-        "address": "제주 제주시 공항로 2",
-        "lat": 33.5113,
-        "lng": 126.493
+        "address": "제주 제주시 공항로 2"
       },
       {
         "name": "서울사무소",
-        "address": "서울 중구 청계천로 14",
-        "lat": 37.5685,
-        "lng": 126.981
+        "address": "서울 중구 청계천로 14"
       }
     ],
     "ncs": [
@@ -1428,11 +1226,9 @@ const ORGS = [
     "type": "공기업",
     "region": "경상권",
     "address": "대구 동구 이노밸리로 291",
-    "lat": 35.8682,
-    "lng": 128.6356,
     "startingSalary": 3950,
     "avgSalary": 8966,
-    "avgYears": 14.0,
+    "avgYears": 14,
     "homepage": "https://www.reb.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국부동산원",
     "description": "부동산 시장의 안정과 부동산산업 발전을 위해 설립된 공기업.",
@@ -1450,21 +1246,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (대구)",
-        "address": "대구 동구 이노밸리로 291",
-        "lat": 35.8682,
-        "lng": 128.6356
+        "address": "대구 동구 이노밸리로 291"
       },
       {
         "name": "서울지사",
-        "address": "서울 강남구 테헤란로 114길 14",
-        "lat": 37.505,
-        "lng": 127.057
+        "address": "서울 강남구 테헤란로 114길 14"
       },
       {
         "name": "부산울산지사",
-        "address": "부산 연제구 중앙대로 1090",
-        "lat": 35.186,
-        "lng": 129.078
+        "address": "부산 연제구 중앙대로 1090"
       }
     ],
     "ncs": [
@@ -1487,8 +1277,6 @@ const ORGS = [
     "type": "공기업",
     "region": "수도권",
     "address": "서울 강남구 영동대로 416",
-    "lat": 37.5093,
-    "lng": 127.0631,
     "startingSalary": 4200,
     "avgSalary": 8300,
     "avgYears": 13.5,
@@ -1509,27 +1297,19 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (서울)",
-        "address": "서울 강남구 영동대로 416",
-        "lat": 37.5093,
-        "lng": 127.0631
+        "address": "서울 강남구 영동대로 416"
       },
       {
         "name": "세븐럭 강남COEX점",
-        "address": "서울 강남구 영동대로 513",
-        "lat": 37.5093,
-        "lng": 127.0631
+        "address": "서울 강남구 영동대로 513"
       },
       {
         "name": "세븐럭 서울힐튼점",
-        "address": "서울 중구 소공로 70",
-        "lat": 37.5562,
-        "lng": 126.974
+        "address": "서울 중구 소공로 70"
       },
       {
         "name": "세븐럭 부산롯데점",
-        "address": "부산 부산진구 가야대로 772",
-        "lat": 35.1577,
-        "lng": 129.0598
+        "address": "부산 부산진구 가야대로 772"
       }
     ],
     "ncs": [
@@ -1552,11 +1332,9 @@ const ORGS = [
     "type": "공기업",
     "region": "수도권",
     "address": "인천 연수구 항만대로 366",
-    "lat": 37.3997,
-    "lng": 126.6321,
     "startingSalary": 4300,
     "avgSalary": 8500,
-    "avgYears": 13.0,
+    "avgYears": 13,
     "homepage": "https://www.icpa.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=인천항만공사",
     "description": "인천항 관리·운영을 담당하는 공기업. 컨테이너·여객 항만 운영.",
@@ -1574,21 +1352,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (인천)",
-        "address": "인천 연수구 항만대로 366",
-        "lat": 37.3997,
-        "lng": 126.6321
+        "address": "인천 연수구 항만대로 366"
       },
       {
         "name": "내항사업소",
-        "address": "인천 중구 항동7가 1-43",
-        "lat": 37.4555,
-        "lng": 126.6128
+        "address": "인천 중구 항동7가 1-43"
       },
       {
         "name": "신항만사업소",
-        "address": "인천 연수구 인천신항대로 1086",
-        "lat": 37.358,
-        "lng": 126.6305
+        "address": "인천 연수구 인천신항대로 1086"
       }
     ],
     "ncs": [
@@ -1611,11 +1383,9 @@ const ORGS = [
     "type": "공기업",
     "region": "경상권",
     "address": "부산 동구 충장대로 206",
-    "lat": 35.1193,
-    "lng": 129.0415,
     "startingSalary": 4250,
     "avgSalary": 8400,
-    "avgYears": 13.0,
+    "avgYears": 13,
     "homepage": "https://www.busanpa.com",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=부산항만공사",
     "description": "부산항 관리·운영을 담당하는 공기업. 세계 2위 환적항.",
@@ -1633,21 +1403,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (부산)",
-        "address": "부산 동구 충장대로 206",
-        "lat": 35.1193,
-        "lng": 129.0415
+        "address": "부산 동구 충장대로 206"
       },
       {
         "name": "북항사업소",
-        "address": "부산 중구 충장대로 9길 53",
-        "lat": 35.1193,
-        "lng": 129.0415
+        "address": "부산 중구 충장대로 9길 53"
       },
       {
         "name": "신항사업소",
-        "address": "경남 창원시 진해구 신항로 250",
-        "lat": 35.0945,
-        "lng": 128.7965
+        "address": "경남 창원시 진해구 신항로 250"
       }
     ],
     "ncs": [
@@ -1670,11 +1434,9 @@ const ORGS = [
     "type": "공기업",
     "region": "전라권",
     "address": "전남 여수시 항만2로 12",
-    "lat": 34.7397,
-    "lng": 127.7587,
     "startingSalary": 4100,
     "avgSalary": 8200,
-    "avgYears": 12.0,
+    "avgYears": 12,
     "homepage": "https://www.ygpa.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=여수광양항만공사",
     "description": "여수·광양항 통합 관리하는 공기업. 컨테이너·석유화학 물류 거점.",
@@ -1692,15 +1454,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (여수)",
-        "address": "전남 여수시 항만2로 12",
-        "lat": 34.7397,
-        "lng": 127.7587
+        "address": "전남 여수시 항만2로 12"
       },
       {
         "name": "광양사업소",
-        "address": "전남 광양시 항만대로 465",
-        "lat": 34.9325,
-        "lng": 127.7395
+        "address": "전남 광양시 항만대로 465"
       }
     ],
     "ncs": [
@@ -1723,11 +1481,9 @@ const ORGS = [
     "type": "공기업",
     "region": "경상권",
     "address": "울산 남구 임해1로 71",
-    "lat": 35.4869,
-    "lng": 129.39,
     "startingSalary": 4050,
     "avgSalary": 8100,
-    "avgYears": 11.0,
+    "avgYears": 11,
     "homepage": "https://www.upa.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=울산항만공사",
     "description": "울산항 관리·운영하는 공기업. 액체화물(석유·가스) 처리 1위 항만.",
@@ -1745,9 +1501,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (울산)",
-        "address": "울산 남구 임해1로 71",
-        "lat": 35.4869,
-        "lng": 129.39
+        "address": "울산 남구 임해1로 71"
       }
     ],
     "ncs": [
@@ -1770,8 +1524,6 @@ const ORGS = [
     "type": "공기업",
     "region": "강원권",
     "address": "강원 원주시 배울로 85",
-    "lat": 37.3417,
-    "lng": 127.923,
     "startingSalary": 3900,
     "avgSalary": 7800,
     "avgYears": 13.5,
@@ -1792,21 +1544,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (원주)",
-        "address": "강원 원주시 배울로 85",
-        "lat": 37.3417,
-        "lng": 127.923
+        "address": "강원 원주시 배울로 85"
       },
       {
         "name": "강원지사",
-        "address": "강원 태백시 황지로 95",
-        "lat": 37.1605,
-        "lng": 128.987
+        "address": "강원 태백시 황지로 95"
       },
       {
         "name": "충청지사",
-        "address": "충북 충주시 충원대로 268",
-        "lat": 36.9685,
-        "lng": 127.9285
+        "address": "충북 충주시 충원대로 268"
       }
     ],
     "ncs": [
@@ -1829,11 +1575,9 @@ const ORGS = [
     "type": "공기업",
     "region": "수도권",
     "address": "서울 강남구 수서동 990",
-    "lat": 37.487,
-    "lng": 127.1015,
     "startingSalary": 3900,
     "avgSalary": 7200,
-    "avgYears": 7.0,
+    "avgYears": 7,
     "homepage": "https://www.srail.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=에스알",
     "description": "수서고속철도(SRT)를 운영하는 공기업. 코레일과 함께 KTX 노선 운영.",
@@ -1850,9 +1594,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (수서)",
-        "address": "서울 강남구 수서동 990",
-        "lat": 37.487,
-        "lng": 127.1015
+        "address": "서울 강남구 수서동 990"
       }
     ],
     "ncs": [
@@ -1875,11 +1617,9 @@ const ORGS = [
     "type": "공기업",
     "region": "전라권",
     "address": "전남 나주시 문화로 211",
-    "lat": 35.0247,
-    "lng": 126.7855,
     "startingSalary": 4100,
     "avgSalary": 8800,
-    "avgYears": 17.0,
+    "avgYears": 17,
     "homepage": "https://www.kps.co.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한전KPS",
     "description": "한전 자회사로 발전설비 정비를 전담하는 공기업. 원전·화력 정비 전문.",
@@ -1897,21 +1637,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (나주)",
-        "address": "전남 나주시 문화로 211",
-        "lat": 35.0247,
-        "lng": 126.7855
+        "address": "전남 나주시 문화로 211"
       },
       {
         "name": "원자력사업처",
-        "address": "경북 경주시 양남면",
-        "lat": 35.7345,
-        "lng": 129.487
+        "address": "경북 경주시 양남면"
       },
       {
         "name": "화력사업처",
-        "address": "충남 보령시 주교면",
-        "lat": 36.414,
-        "lng": 126.5113
+        "address": "충남 보령시 주교면"
       }
     ],
     "ncs": [
@@ -1936,8 +1670,6 @@ const ORGS = [
     "type": "공기업",
     "region": "전라권",
     "address": "전남 나주시 빛가람로 720",
-    "lat": 35.0244,
-    "lng": 126.7847,
     "startingSalary": 4000,
     "avgSalary": 6930,
     "avgYears": 12.5,
@@ -1958,21 +1690,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (나주)",
-        "address": "전남 나주시 빛가람로 720",
-        "lat": 35.0244,
-        "lng": 126.7847
+        "address": "전남 나주시 빛가람로 720"
       },
       {
         "name": "서울지사",
-        "address": "서울 강남구 테헤란로 305",
-        "lat": 37.505,
-        "lng": 127.051
+        "address": "서울 강남구 테헤란로 305"
       },
       {
         "name": "대전지사",
-        "address": "대전 유성구 가정북로 96",
-        "lat": 36.3835,
-        "lng": 127.358
+        "address": "대전 유성구 가정북로 96"
       }
     ],
     "ncs": [
@@ -1996,8 +1722,6 @@ const ORGS = [
     "type": "준정부",
     "region": "전라권",
     "address": "전북 전주시 덕진구 기지로 180",
-    "lat": 35.8316,
-    "lng": 127.1391,
     "startingSalary": 3900,
     "avgSalary": 7100,
     "avgYears": 14.5,
@@ -2019,27 +1743,19 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (전주)",
-        "address": "전북 전주시 덕진구 기지로 180",
-        "lat": 35.8316,
-        "lng": 127.1391
+        "address": "전북 전주시 덕진구 기지로 180"
       },
       {
         "name": "기금운용본부",
-        "address": "전북 전주시 덕진구 기지로 180",
-        "lat": 35.8316,
-        "lng": 127.1391
+        "address": "전북 전주시 덕진구 기지로 180"
       },
       {
         "name": "서울북부지역본부",
-        "address": "서울 강북구 도봉로 117",
-        "lat": 37.6386,
-        "lng": 127.025
+        "address": "서울 강북구 도봉로 117"
       },
       {
         "name": "부산지역본부",
-        "address": "부산 부산진구 중앙대로 749",
-        "lat": 35.1577,
-        "lng": 129.061
+        "address": "부산 부산진구 중앙대로 749"
       }
     ],
     "ncs": [
@@ -2063,11 +1779,9 @@ const ORGS = [
     "type": "준정부",
     "region": "제주권",
     "address": "제주 서귀포시 중문관광로 198",
-    "lat": 33.2469,
-    "lng": 126.4137,
     "startingSalary": 3700,
     "avgSalary": 7000,
-    "avgYears": 14.0,
+    "avgYears": 14,
     "homepage": "https://www.geps.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=공무원연금공단",
     "description": "공무원 연금·재해보상·복지 사업을 운영하는 준정부기관. 1960년 설립.",
@@ -2085,15 +1799,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (서귀포)",
-        "address": "제주 서귀포시 중문관광로 198",
-        "lat": 33.2469,
-        "lng": 126.4137
+        "address": "제주 서귀포시 중문관광로 198"
       },
       {
         "name": "서울지부",
-        "address": "서울 마포구 마포대로 130",
-        "lat": 37.543,
-        "lng": 126.951
+        "address": "서울 마포구 마포대로 130"
       }
     ],
     "ncs": [
@@ -2115,8 +1825,6 @@ const ORGS = [
     "type": "준정부",
     "region": "전라권",
     "address": "전남 나주시 빛가람로 640",
-    "lat": 35.0249,
-    "lng": 126.7891,
     "startingSalary": 3650,
     "avgSalary": 7300,
     "avgYears": 13.5,
@@ -2137,15 +1845,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (나주)",
-        "address": "전남 나주시 빛가람로 640",
-        "lat": 35.0249,
-        "lng": 126.7891
+        "address": "전남 나주시 빛가람로 640"
       },
       {
         "name": "서울지부",
-        "address": "서울 영등포구 의사당대로 1",
-        "lat": 37.5285,
-        "lng": 126.9145
+        "address": "서울 영등포구 의사당대로 1"
       }
     ],
     "ncs": [
@@ -2166,11 +1870,9 @@ const ORGS = [
     "type": "준정부",
     "region": "수도권",
     "address": "서울 송파구 올림픽로 424",
-    "lat": 37.5165,
-    "lng": 127.1145,
     "startingSalary": 3850,
     "avgSalary": 7600,
-    "avgYears": 13.0,
+    "avgYears": 13,
     "homepage": "https://www.kspo.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국민체육진흥공단",
     "description": "체육 진흥과 청소년 육성을 위한 준정부기관. 스포츠토토·경륜·경정 사업.",
@@ -2189,21 +1891,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (서울)",
-        "address": "서울 송파구 올림픽로 424",
-        "lat": 37.5165,
-        "lng": 127.1145
+        "address": "서울 송파구 올림픽로 424"
       },
       {
         "name": "광명경륜장",
-        "address": "경기 광명시 광명로 가학로 노온사동 99",
-        "lat": 37.4385,
-        "lng": 126.8395
+        "address": "경기 광명시 광명로 가학로 노온사동 99"
       },
       {
         "name": "미사리경정장",
-        "address": "경기 하남시 미사동 595",
-        "lat": 37.556,
-        "lng": 127.2155
+        "address": "경기 하남시 미사동 595"
       }
     ],
     "ncs": [
@@ -2226,8 +1922,6 @@ const ORGS = [
     "type": "준정부",
     "region": "수도권",
     "address": "서울 종로구 종로 14",
-    "lat": 37.5712,
-    "lng": 126.9764,
     "startingSalary": 4200,
     "avgSalary": 9100,
     "avgYears": 13.5,
@@ -2248,21 +1942,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (서울)",
-        "address": "서울 종로구 종로 14",
-        "lat": 37.5712,
-        "lng": 126.9764
+        "address": "서울 종로구 종로 14"
       },
       {
         "name": "부산지사",
-        "address": "부산 중구 중앙대로 81",
-        "lat": 35.108,
-        "lng": 129.0345
+        "address": "부산 중구 중앙대로 81"
       },
       {
         "name": "대구경북지사",
-        "address": "대구 수성구 동대구로 348",
-        "lat": 35.8693,
-        "lng": 128.631
+        "address": "대구 수성구 동대구로 348"
       }
     ],
     "ncs": [
@@ -2284,8 +1972,6 @@ const ORGS = [
     "type": "준정부",
     "region": "경상권",
     "address": "대구 동구 첨단로 7",
-    "lat": 35.874,
-    "lng": 128.6276,
     "startingSalary": 4500,
     "avgSalary": 9500,
     "avgYears": 13.5,
@@ -2307,27 +1993,19 @@ const ORGS = [
     "branches": [
       {
         "name": "본점 (대구)",
-        "address": "대구 동구 첨단로 7",
-        "lat": 35.874,
-        "lng": 128.6276
+        "address": "대구 동구 첨단로 7"
       },
       {
         "name": "서울영업본부",
-        "address": "서울 마포구 마포대로 122",
-        "lat": 37.545,
-        "lng": 126.9505
+        "address": "서울 마포구 마포대로 122"
       },
       {
         "name": "부산울산영업본부",
-        "address": "부산 중구 중앙대로 81",
-        "lat": 35.108,
-        "lng": 129.0345
+        "address": "부산 중구 중앙대로 81"
       },
       {
         "name": "광주전남영업본부",
-        "address": "광주 서구 화운로 198",
-        "lat": 35.153,
-        "lng": 126.849
+        "address": "광주 서구 화운로 198"
       }
     ],
     "ncs": [
@@ -2350,11 +2028,9 @@ const ORGS = [
     "type": "준정부",
     "region": "수도권",
     "address": "서울 중구 청계천로 30",
-    "lat": 37.5707,
-    "lng": 126.9854,
     "startingSalary": 4700,
     "avgSalary": 9800,
-    "avgYears": 13.0,
+    "avgYears": 13,
     "homepage": "https://www.kdic.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=예금보험공사",
     "description": "예금자 보호와 부실금융기관 정리를 담당하는 금융 준정부기관. 금융 빅5 공기업.",
@@ -2373,9 +2049,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (서울)",
-        "address": "서울 중구 청계천로 30",
-        "lat": 37.5707,
-        "lng": 126.9854
+        "address": "서울 중구 청계천로 30"
       }
     ],
     "ncs": [
@@ -2398,8 +2072,6 @@ const ORGS = [
     "type": "준정부",
     "region": "경상권",
     "address": "부산 남구 문현금융로 40",
-    "lat": 35.1411,
-    "lng": 129.066,
     "startingSalary": 4400,
     "avgSalary": 9200,
     "avgYears": 13.5,
@@ -2421,27 +2093,19 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (부산)",
-        "address": "부산 남구 문현금융로 40",
-        "lat": 35.1411,
-        "lng": 129.066
+        "address": "부산 남구 문현금융로 40"
       },
       {
         "name": "서울지역본부",
-        "address": "서울 강남구 테헤란로 423",
-        "lat": 37.507,
-        "lng": 127.061
+        "address": "서울 강남구 테헤란로 423"
       },
       {
         "name": "대전충청지역본부",
-        "address": "대전 서구 둔산로 100",
-        "lat": 36.3505,
-        "lng": 127.385
+        "address": "대전 서구 둔산로 100"
       },
       {
         "name": "광주전남지역본부",
-        "address": "광주 서구 무진대로 904",
-        "lat": 35.1505,
-        "lng": 126.8395
+        "address": "광주 서구 무진대로 904"
       }
     ],
     "ncs": [
@@ -2464,8 +2128,6 @@ const ORGS = [
     "type": "준정부",
     "region": "경상권",
     "address": "부산 남구 문현금융로 40",
-    "lat": 35.1411,
-    "lng": 129.066,
     "startingSalary": 4150,
     "avgSalary": 8500,
     "avgYears": 11.5,
@@ -2486,21 +2148,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (부산)",
-        "address": "부산 남구 문현금융로 40",
-        "lat": 35.1411,
-        "lng": 129.066
+        "address": "부산 남구 문현금융로 40"
       },
       {
         "name": "서울지사",
-        "address": "서울 중구 세종대로 39",
-        "lat": 37.5635,
-        "lng": 126.9805
+        "address": "서울 중구 세종대로 39"
       },
       {
         "name": "대구지사",
-        "address": "대구 수성구 동대구로 348",
-        "lat": 35.8693,
-        "lng": 128.631
+        "address": "대구 수성구 동대구로 348"
       }
     ],
     "ncs": [
@@ -2523,8 +2179,6 @@ const ORGS = [
     "type": "준정부",
     "region": "경상권",
     "address": "울산 중구 종가로 340",
-    "lat": 35.5723,
-    "lng": 129.3303,
     "startingSalary": 3700,
     "avgSalary": 6800,
     "avgYears": 12.5,
@@ -2545,27 +2199,19 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (울산)",
-        "address": "울산 중구 종가로 340",
-        "lat": 35.5723,
-        "lng": 129.3303
+        "address": "울산 중구 종가로 340"
       },
       {
         "name": "서울지역본부",
-        "address": "서울 영등포구 영등포로 36길 1",
-        "lat": 37.5215,
-        "lng": 126.9085
+        "address": "서울 영등포구 영등포로 36길 1"
       },
       {
         "name": "부산지역본부",
-        "address": "부산 동구 중앙대로 365",
-        "lat": 35.1175,
-        "lng": 129.0398
+        "address": "부산 동구 중앙대로 365"
       },
       {
         "name": "대구지역본부",
-        "address": "대구 남구 명덕로 75",
-        "lat": 35.8605,
-        "lng": 128.592
+        "address": "대구 남구 명덕로 75"
       }
     ],
     "ncs": [
@@ -2587,11 +2233,9 @@ const ORGS = [
     "type": "준정부",
     "region": "경상권",
     "address": "경남 진주시 동진로 430",
-    "lat": 35.1772,
-    "lng": 128.11,
     "startingSalary": 3900,
     "avgSalary": 7900,
-    "avgYears": 13.0,
+    "avgYears": 13,
     "homepage": "https://www.kosmes.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=중소벤처기업진흥공단",
     "description": "중소기업·벤처기업 정책자금 지원 및 경영지원을 담당하는 준정부기관.",
@@ -2609,21 +2253,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (진주)",
-        "address": "경남 진주시 동진로 430",
-        "lat": 35.1772,
-        "lng": 128.11
+        "address": "경남 진주시 동진로 430"
       },
       {
         "name": "서울지역본부",
-        "address": "서울 영등포구 은행로 30",
-        "lat": 37.5215,
-        "lng": 126.9275
+        "address": "서울 영등포구 은행로 30"
       },
       {
         "name": "부산울산지역본부",
-        "address": "부산 동구 충장대로 314",
-        "lat": 35.1145,
-        "lng": 129.043
+        "address": "부산 동구 충장대로 314"
       }
     ],
     "ncs": [
@@ -2646,8 +2284,6 @@ const ORGS = [
     "type": "준정부",
     "region": "전라권",
     "address": "전북 완주군 이서면 안전로 1",
-    "lat": 35.843,
-    "lng": 127.048,
     "startingSalary": 3850,
     "avgSalary": 7600,
     "avgYears": 14.5,
@@ -2668,21 +2304,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (완주)",
-        "address": "전북 완주군 이서면 안전로 1",
-        "lat": 35.843,
-        "lng": 127.048
+        "address": "전북 완주군 이서면 안전로 1"
       },
       {
         "name": "서울지역본부",
-        "address": "서울 마포구 매봉산로 18",
-        "lat": 37.5535,
-        "lng": 126.941
+        "address": "서울 마포구 매봉산로 18"
       },
       {
         "name": "부산지역본부",
-        "address": "부산 부산진구 새싹로 196",
-        "lat": 35.1605,
-        "lng": 129.056
+        "address": "부산 부산진구 새싹로 196"
       }
     ],
     "ncs": [
@@ -2705,8 +2335,6 @@ const ORGS = [
     "type": "준정부",
     "region": "충청권",
     "address": "충북 음성군 맹동면 원중로 1390",
-    "lat": 36.9382,
-    "lng": 127.5434,
     "startingSalary": 3850,
     "avgSalary": 7600,
     "avgYears": 13.5,
@@ -2727,21 +2355,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (음성)",
-        "address": "충북 음성군 맹동면 원중로 1390",
-        "lat": 36.9382,
-        "lng": 127.5434
+        "address": "충북 음성군 맹동면 원중로 1390"
       },
       {
         "name": "서울지역본부",
-        "address": "서울 영등포구 국회대로 800",
-        "lat": 37.5286,
-        "lng": 126.9143
+        "address": "서울 영등포구 국회대로 800"
       },
       {
         "name": "부산지역본부",
-        "address": "부산 사상구 학장로 365",
-        "lat": 35.1535,
-        "lng": 128.992
+        "address": "부산 사상구 학장로 365"
       }
     ],
     "ncs": [
@@ -2764,11 +2386,9 @@ const ORGS = [
     "type": "준정부",
     "region": "경상권",
     "address": "울산 중구 종가로 400",
-    "lat": 35.5723,
-    "lng": 129.3294,
     "startingSalary": 3800,
     "avgSalary": 7500,
-    "avgYears": 13.0,
+    "avgYears": 13,
     "homepage": "https://www.kosha.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국산업안전보건공단",
     "description": "산업재해 예방을 위한 안전보건 사업을 담당하는 준정부기관.",
@@ -2786,21 +2406,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (울산)",
-        "address": "울산 중구 종가로 400",
-        "lat": 35.5723,
-        "lng": 129.3294
+        "address": "울산 중구 종가로 400"
       },
       {
         "name": "서울지역본부",
-        "address": "서울 영등포구 문래로 20길 56",
-        "lat": 37.516,
-        "lng": 126.8915
+        "address": "서울 영등포구 문래로 20길 56"
       },
       {
         "name": "부산지역본부",
-        "address": "부산 부산진구 새싹로 174",
-        "lat": 35.1582,
-        "lng": 129.057
+        "address": "부산 부산진구 새싹로 174"
       }
     ],
     "ncs": [
@@ -2823,8 +2437,6 @@ const ORGS = [
     "type": "준정부",
     "region": "강원권",
     "address": "강원 원주시 혁신로 2",
-    "lat": 37.3329,
-    "lng": 127.9281,
     "startingSalary": 3700,
     "avgSalary": 7100,
     "avgYears": 13.5,
@@ -2845,21 +2457,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (원주)",
-        "address": "강원 원주시 혁신로 2",
-        "lat": 37.3329,
-        "lng": 127.9281
+        "address": "강원 원주시 혁신로 2"
       },
       {
         "name": "서울지부",
-        "address": "서울 마포구 효창원로 64길 17",
-        "lat": 37.5435,
-        "lng": 126.9555
+        "address": "서울 마포구 효창원로 64길 17"
       },
       {
         "name": "부산지부",
-        "address": "부산 동래구 충렬대로 410",
-        "lat": 35.1976,
-        "lng": 129.085
+        "address": "부산 동래구 충렬대로 410"
       }
     ],
     "ncs": [
@@ -2882,11 +2488,9 @@ const ORGS = [
     "type": "준정부",
     "region": "강원권",
     "address": "강원 원주시 단구로 76",
-    "lat": 37.337,
-    "lng": 127.9385,
     "startingSalary": 3650,
     "avgSalary": 6900,
-    "avgYears": 14.0,
+    "avgYears": 14,
     "homepage": "https://www.knps.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립공원공단",
     "description": "전국 22개 국립공원의 관리와 보전을 담당하는 준정부기관.",
@@ -2904,27 +2508,19 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (원주)",
-        "address": "강원 원주시 단구로 76",
-        "lat": 37.337,
-        "lng": 127.9385
+        "address": "강원 원주시 단구로 76"
       },
       {
         "name": "북한산국립공원사무소",
-        "address": "서울 성북구 보국문로 262",
-        "lat": 37.6485,
-        "lng": 127.0145
+        "address": "서울 성북구 보국문로 262"
       },
       {
         "name": "지리산국립공원사무소",
-        "address": "경남 산청군 시천면 지리산대로 320",
-        "lat": 35.334,
-        "lng": 127.7235
+        "address": "경남 산청군 시천면 지리산대로 320"
       },
       {
         "name": "한라산국립공원사무소",
-        "address": "제주 제주시 1100로 2070-61",
-        "lat": 33.422,
-        "lng": 126.5145
+        "address": "제주 제주시 1100로 2070-61"
       }
     ],
     "ncs": [
@@ -2947,8 +2543,6 @@ const ORGS = [
     "type": "준정부",
     "region": "수도권",
     "address": "인천 서구 환경로 42",
-    "lat": 37.5685,
-    "lng": 126.6515,
     "startingSalary": 3800,
     "avgSalary": 7400,
     "avgYears": 13.5,
@@ -2969,21 +2563,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (인천)",
-        "address": "인천 서구 환경로 42",
-        "lat": 37.5685,
-        "lng": 126.6515
+        "address": "인천 서구 환경로 42"
       },
       {
         "name": "수도권동부지사",
-        "address": "경기 성남시 중원구 둔촌대로 545",
-        "lat": 37.44,
-        "lng": 127.139
+        "address": "경기 성남시 중원구 둔촌대로 545"
       },
       {
         "name": "낙동강유역본부",
-        "address": "부산 부산진구 새싹로 232",
-        "lat": 35.161,
-        "lng": 129.058
+        "address": "부산 부산진구 새싹로 232"
       }
     ],
     "ncs": [
@@ -3006,11 +2594,9 @@ const ORGS = [
     "type": "준정부",
     "region": "전라권",
     "address": "전남 나주시 그린로 20",
-    "lat": 35.0228,
-    "lng": 126.7869,
     "startingSalary": 3850,
     "avgSalary": 7400,
-    "avgYears": 17.0,
+    "avgYears": 17,
     "homepage": "https://www.ekr.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국농어촌공사",
     "description": "농어촌 정비, 농지은행, 농업기반시설 관리를 담당하는 준정부기관.",
@@ -3028,27 +2614,19 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (나주)",
-        "address": "전남 나주시 그린로 20",
-        "lat": 35.0228,
-        "lng": 126.7869
+        "address": "전남 나주시 그린로 20"
       },
       {
         "name": "전남지역본부",
-        "address": "광주 서구 화운로 197",
-        "lat": 35.153,
-        "lng": 126.8492
+        "address": "광주 서구 화운로 197"
       },
       {
         "name": "전북지역본부",
-        "address": "전북 전주시 덕진구 백제대로 715",
-        "lat": 35.848,
-        "lng": 127.1325
+        "address": "전북 전주시 덕진구 백제대로 715"
       },
       {
         "name": "경기지역본부",
-        "address": "경기 수원시 권선구 동수원로 145",
-        "lat": 37.271,
-        "lng": 127.0245
+        "address": "경기 수원시 권선구 동수원로 145"
       }
     ],
     "ncs": [
@@ -3071,8 +2649,6 @@ const ORGS = [
     "type": "준정부",
     "region": "충청권",
     "address": "세종 다솜2로 94",
-    "lat": 36.5039,
-    "lng": 127.2611,
     "startingSalary": 3500,
     "avgSalary": 6500,
     "avgYears": 10.5,
@@ -3093,9 +2669,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (세종)",
-        "address": "세종 다솜2로 94",
-        "lat": 36.5039,
-        "lng": 127.2611
+        "address": "세종 다솜2로 94"
       }
     ],
     "ncs": [
@@ -3117,8 +2691,6 @@ const ORGS = [
     "type": "준정부",
     "region": "강원권",
     "address": "강원 원주시 건강로 32",
-    "lat": 37.3354,
-    "lng": 127.9226,
     "startingSalary": 3900,
     "avgSalary": 7400,
     "avgYears": 13.8,
@@ -3140,33 +2712,23 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (원주)",
-        "address": "강원 원주시 건강로 32",
-        "lat": 37.3354,
-        "lng": 127.9226
+        "address": "강원 원주시 건강로 32"
       },
       {
         "name": "서울지역본부",
-        "address": "서울 마포구 독막로 311",
-        "lat": 37.5485,
-        "lng": 126.918
+        "address": "서울 마포구 독막로 311"
       },
       {
         "name": "부산지역본부",
-        "address": "부산 부산진구 새싹로 1",
-        "lat": 35.1577,
-        "lng": 129.0533
+        "address": "부산 부산진구 새싹로 1"
       },
       {
         "name": "광주지역본부",
-        "address": "광주 서구 상무중앙로 110",
-        "lat": 35.153,
-        "lng": 126.8489
+        "address": "광주 서구 상무중앙로 110"
       },
       {
         "name": "대구지역본부",
-        "address": "대구 북구 호국로 9길 73",
-        "lat": 35.8829,
-        "lng": 128.5687
+        "address": "대구 북구 호국로 9길 73"
       }
     ],
     "ncs": [
@@ -3188,8 +2750,6 @@ const ORGS = [
     "type": "준정부",
     "region": "강원권",
     "address": "강원 원주시 혁신로 60",
-    "lat": 37.3398,
-    "lng": 127.9224,
     "startingSalary": 3850,
     "avgSalary": 7300,
     "avgYears": 12.5,
@@ -3211,21 +2771,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (원주)",
-        "address": "강원 원주시 혁신로 60",
-        "lat": 37.3398,
-        "lng": 127.9224
+        "address": "강원 원주시 혁신로 60"
       },
       {
         "name": "서울지원",
-        "address": "서울 서초구 효령로 267",
-        "lat": 37.4831,
-        "lng": 127.0107
+        "address": "서울 서초구 효령로 267"
       },
       {
         "name": "부산지원",
-        "address": "부산 해운대구 센텀동로 99",
-        "lat": 35.169,
-        "lng": 129.1318
+        "address": "부산 해운대구 센텀동로 99"
       }
     ],
     "ncs": [
@@ -3249,8 +2803,6 @@ const ORGS = [
     "type": "준정부",
     "region": "강원권",
     "address": "강원 원주시 세계로 10",
-    "lat": 37.3372,
-    "lng": 127.9219,
     "startingSalary": 3950,
     "avgSalary": 7600,
     "avgYears": 14.5,
@@ -3272,27 +2824,19 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (원주)",
-        "address": "강원 원주시 세계로 10",
-        "lat": 37.3372,
-        "lng": 127.9219
+        "address": "강원 원주시 세계로 10"
       },
       {
         "name": "서울사무소",
-        "address": "서울 중구 청계천로 40",
-        "lat": 37.5697,
-        "lng": 126.9774
+        "address": "서울 중구 청계천로 40"
       },
       {
         "name": "부산사무소",
-        "address": "부산 해운대구 우동",
-        "lat": 35.1631,
-        "lng": 129.1635
+        "address": "부산 해운대구 우동"
       },
       {
         "name": "제주사무소",
-        "address": "제주 제주시 선덕로 23",
-        "lat": 33.489,
-        "lng": 126.4983
+        "address": "제주 제주시 선덕로 23"
       }
     ],
     "ncs": [
@@ -3315,11 +2859,9 @@ const ORGS = [
     "type": "준정부",
     "region": "경상권",
     "address": "경북 김천시 혁신6로 17",
-    "lat": 36.1233,
-    "lng": 128.1745,
     "startingSalary": 3700,
     "avgSalary": 7100,
-    "avgYears": 14.0,
+    "avgYears": 14,
     "homepage": "https://www.kotsa.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국교통안전공단",
     "description": "자동차·항공·철도 교통안전을 담당하는 준정부기관.",
@@ -3337,21 +2879,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (김천)",
-        "address": "경북 김천시 혁신6로 17",
-        "lat": 36.1233,
-        "lng": 128.1745
+        "address": "경북 김천시 혁신6로 17"
       },
       {
         "name": "서울지역본부",
-        "address": "서울 강서구 송정로 64",
-        "lat": 37.557,
-        "lng": 126.8395
+        "address": "서울 강서구 송정로 64"
       },
       {
         "name": "부산지역본부",
-        "address": "부산 사상구 학장로 256",
-        "lat": 35.1535,
-        "lng": 128.987
+        "address": "부산 사상구 학장로 256"
       }
     ],
     "ncs": [
@@ -3374,8 +2910,6 @@ const ORGS = [
     "type": "준정부",
     "region": "경상권",
     "address": "울산 중구 종가로 323",
-    "lat": 35.572,
-    "lng": 129.3318,
     "startingSalary": 3850,
     "avgSalary": 7700,
     "avgYears": 13.5,
@@ -3396,21 +2930,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (울산)",
-        "address": "울산 중구 종가로 323",
-        "lat": 35.572,
-        "lng": 129.3318
+        "address": "울산 중구 종가로 323"
       },
       {
         "name": "서울지역본부",
-        "address": "서울 영등포구 의사당대로 1",
-        "lat": 37.5285,
-        "lng": 126.9145
+        "address": "서울 영등포구 의사당대로 1"
       },
       {
         "name": "부산지역본부",
-        "address": "부산 부산진구 동천로 109",
-        "lat": 35.1535,
-        "lng": 129.0445
+        "address": "부산 부산진구 동천로 109"
       }
     ],
     "ncs": [
@@ -3433,8 +2961,6 @@ const ORGS = [
     "type": "준정부",
     "region": "경상권",
     "address": "대구 동구 첨단로 39",
-    "lat": 35.8767,
-    "lng": 128.6312,
     "startingSalary": 3750,
     "avgSalary": 7200,
     "avgYears": 13.5,
@@ -3455,21 +2981,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (대구)",
-        "address": "대구 동구 첨단로 39",
-        "lat": 35.8767,
-        "lng": 128.6312
+        "address": "대구 동구 첨단로 39"
       },
       {
         "name": "서울지역본부",
-        "address": "서울 금천구 가산디지털1로 168",
-        "lat": 37.4805,
-        "lng": 126.8825
+        "address": "서울 금천구 가산디지털1로 168"
       },
       {
         "name": "부산지역본부",
-        "address": "부산 사상구 학장로 256",
-        "lat": 35.153,
-        "lng": 128.9875
+        "address": "부산 사상구 학장로 256"
       }
     ],
     "ncs": [
@@ -3492,8 +3012,6 @@ const ORGS = [
     "type": "준정부",
     "region": "경상권",
     "address": "울산 중구 종가로 345",
-    "lat": 35.571,
-    "lng": 129.3284,
     "startingSalary": 3750,
     "avgSalary": 7000,
     "avgYears": 13.5,
@@ -3514,21 +3032,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (울산)",
-        "address": "울산 중구 종가로 345",
-        "lat": 35.571,
-        "lng": 129.3284
+        "address": "울산 중구 종가로 345"
       },
       {
         "name": "서울지역본부",
-        "address": "서울 마포구 만리재로 14",
-        "lat": 37.5535,
-        "lng": 126.961
+        "address": "서울 마포구 만리재로 14"
       },
       {
         "name": "부산지역본부",
-        "address": "부산 부산진구 새싹로 1",
-        "lat": 35.1577,
-        "lng": 129.0533
+        "address": "부산 부산진구 새싹로 1"
       }
     ],
     "ncs": [
@@ -3551,11 +3063,9 @@ const ORGS = [
     "type": "준정부",
     "region": "경상권",
     "address": "경남 거창군 거창읍 거함대로 2289",
-    "lat": 35.6859,
-    "lng": 127.918,
     "startingSalary": 3700,
     "avgSalary": 6900,
-    "avgYears": 12.0,
+    "avgYears": 12,
     "homepage": "https://www.koelsa.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국승강기안전공단",
     "description": "승강기 안전 검사·인증·교육을 담당하는 준정부기관.",
@@ -3573,15 +3083,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (거창)",
-        "address": "경남 거창군 거창읍 거함대로 2289",
-        "lat": 35.6859,
-        "lng": 127.918
+        "address": "경남 거창군 거창읍 거함대로 2289"
       },
       {
         "name": "서울지역본부",
-        "address": "서울 강서구 마곡중앙로 161-8",
-        "lat": 37.5605,
-        "lng": 126.829
+        "address": "서울 강서구 마곡중앙로 161-8"
       }
     ],
     "ncs": [
@@ -3604,8 +3110,6 @@ const ORGS = [
     "type": "준정부",
     "region": "충청권",
     "address": "충북 음성군 맹동면 용두로 54",
-    "lat": 36.9356,
-    "lng": 127.5402,
     "startingSalary": 3800,
     "avgSalary": 7400,
     "avgYears": 13.5,
@@ -3626,21 +3130,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (음성)",
-        "address": "충북 음성군 맹동면 용두로 54",
-        "lat": 36.9356,
-        "lng": 127.5402
+        "address": "충북 음성군 맹동면 용두로 54"
       },
       {
         "name": "서울지원",
-        "address": "서울 강남구 테헤란로 305",
-        "lat": 37.505,
-        "lng": 127.051
+        "address": "서울 강남구 테헤란로 305"
       },
       {
         "name": "부산지원",
-        "address": "부산 부산진구 중앙대로 749",
-        "lat": 35.1577,
-        "lng": 129.061
+        "address": "부산 부산진구 중앙대로 749"
       }
     ],
     "ncs": [
@@ -3662,8 +3160,6 @@ const ORGS = [
     "type": "준정부",
     "region": "수도권",
     "address": "서울 영등포구 여의대방로 67",
-    "lat": 37.518,
-    "lng": 126.926,
     "startingSalary": 3500,
     "avgSalary": 6300,
     "avgYears": 9.5,
@@ -3684,9 +3180,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (서울)",
-        "address": "서울 영등포구 여의대방로 67",
-        "lat": 37.518,
-        "lng": 126.926
+        "address": "서울 영등포구 여의대방로 67"
       }
     ],
     "ncs": [
@@ -3708,8 +3202,6 @@ const ORGS = [
     "type": "준정부",
     "region": "전라권",
     "address": "전남 나주시 빛가람로 597",
-    "lat": 35.025,
-    "lng": 126.7926,
     "startingSalary": 3850,
     "avgSalary": 7300,
     "avgYears": 12.5,
@@ -3730,21 +3222,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (나주)",
-        "address": "전남 나주시 빛가람로 597",
-        "lat": 35.025,
-        "lng": 126.7926
+        "address": "전남 나주시 빛가람로 597"
       },
       {
         "name": "서울지사",
-        "address": "서울 서초구 강남대로 27",
-        "lat": 37.494,
-        "lng": 127.0245
+        "address": "서울 서초구 강남대로 27"
       },
       {
         "name": "부산지사",
-        "address": "부산 강서구 명지국제7로 12",
-        "lat": 35.101,
-        "lng": 128.9095
+        "address": "부산 강서구 명지국제7로 12"
       }
     ],
     "ncs": [
@@ -3767,8 +3253,6 @@ const ORGS = [
     "type": "준정부",
     "region": "전라권",
     "address": "전남 나주시 진흥길 9",
-    "lat": 35.0241,
-    "lng": 126.7918,
     "startingSalary": 3850,
     "avgSalary": 7400,
     "avgYears": 12.5,
@@ -3789,15 +3273,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (나주)",
-        "address": "전남 나주시 진흥길 9",
-        "lat": 35.0241,
-        "lng": 126.7918
+        "address": "전남 나주시 진흥길 9"
       },
       {
         "name": "서울사무소",
-        "address": "서울 송파구 송파대로 28길 28",
-        "lat": 37.5095,
-        "lng": 127.101
+        "address": "서울 송파구 송파대로 28길 28"
       }
     ],
     "ncs": [
@@ -3820,8 +3300,6 @@ const ORGS = [
     "type": "준정부",
     "region": "충청권",
     "address": "대전 유성구 가정로 201",
-    "lat": 36.3796,
-    "lng": 127.3658,
     "startingSalary": 3700,
     "avgSalary": 7000,
     "avgYears": 11.5,
@@ -3842,15 +3320,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (대전)",
-        "address": "대전 유성구 가정로 201",
-        "lat": 36.3796,
-        "lng": 127.3658
+        "address": "대전 유성구 가정로 201"
       },
       {
         "name": "서울청사",
-        "address": "서울 서초구 헌릉로 25",
-        "lat": 37.467,
-        "lng": 127.0395
+        "address": "서울 서초구 헌릉로 25"
       }
     ],
     "ncs": [
@@ -3873,8 +3347,6 @@ const ORGS = [
     "type": "준정부",
     "region": "전라권",
     "address": "전남 나주시 진흥길 9",
-    "lat": 35.0241,
-    "lng": 126.7918,
     "startingSalary": 4000,
     "avgSalary": 7800,
     "avgYears": 11.5,
@@ -3895,21 +3367,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (나주)",
-        "address": "전남 나주시 진흥길 9",
-        "lat": 35.0241,
-        "lng": 126.7918
+        "address": "전남 나주시 진흥길 9"
       },
       {
         "name": "서울청사",
-        "address": "서울 송파구 중대로 135",
-        "lat": 37.501,
-        "lng": 127.124
+        "address": "서울 송파구 중대로 135"
       },
       {
         "name": "판교청사",
-        "address": "경기 성남시 분당구 대왕판교로 712번길 22",
-        "lat": 37.399,
-        "lng": 127.108
+        "address": "경기 성남시 분당구 대왕판교로 712번길 22"
       }
     ],
     "ncs": [
@@ -3932,11 +3398,9 @@ const ORGS = [
     "type": "준정부",
     "region": "경상권",
     "address": "대구 동구 첨단로 53",
-    "lat": 35.8767,
-    "lng": 128.6315,
     "startingSalary": 4000,
     "avgSalary": 7800,
-    "avgYears": 12.0,
+    "avgYears": 12,
     "homepage": "https://www.nia.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국지능정보사회진흥원",
     "description": "정보화·디지털 정부·AI 산업 진흥을 담당하는 준정부기관.",
@@ -3954,15 +3418,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (대구)",
-        "address": "대구 동구 첨단로 53",
-        "lat": 35.8767,
-        "lng": 128.6315
+        "address": "대구 동구 첨단로 53"
       },
       {
         "name": "서울사무소",
-        "address": "서울 중구 청계천로 14",
-        "lat": 37.5685,
-        "lng": 126.981
+        "address": "서울 중구 청계천로 14"
       }
     ],
     "ncs": [
@@ -3985,8 +3445,6 @@ const ORGS = [
     "type": "준정부",
     "region": "수도권",
     "address": "서울 중구 세종대로 39",
-    "lat": 37.5636,
-    "lng": 126.9817,
     "startingSalary": 3450,
     "avgSalary": 5800,
     "avgYears": 8.5,
@@ -4007,15 +3465,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (서울)",
-        "address": "서울 중구 세종대로 39",
-        "lat": 37.5636,
-        "lng": 126.9817
+        "address": "서울 중구 세종대로 39"
       },
       {
         "name": "동서울물류센터",
-        "address": "경기 광주시 곤지암읍",
-        "lat": 37.332,
-        "lng": 127.258
+        "address": "경기 광주시 곤지암읍"
       }
     ],
     "ncs": [
@@ -4037,11 +3491,9 @@ const ORGS = [
     "type": "준정부",
     "region": "수도권",
     "address": "서울 종로구 새문안로 92",
-    "lat": 37.571,
-    "lng": 126.9685,
     "startingSalary": 3700,
     "avgSalary": 7000,
-    "avgYears": 11.0,
+    "avgYears": 11,
     "homepage": "https://www.kpf.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=우체국금융개발원",
     "description": "우체국 예금·보험 사업개발을 담당하는 준정부기관.",
@@ -4058,9 +3510,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (서울)",
-        "address": "서울 종로구 새문안로 92",
-        "lat": 37.571,
-        "lng": 126.9685
+        "address": "서울 종로구 새문안로 92"
       }
     ],
     "ncs": [
@@ -4082,8 +3532,6 @@ const ORGS = [
     "type": "준정부",
     "region": "경상권",
     "address": "대구 동구 첨단로 61",
-    "lat": 35.8784,
-    "lng": 128.6324,
     "startingSalary": 3700,
     "avgSalary": 6900,
     "avgYears": 11.5,
@@ -4104,15 +3552,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (대구)",
-        "address": "대구 동구 첨단로 61",
-        "lat": 35.8784,
-        "lng": 128.6324
+        "address": "대구 동구 첨단로 61"
       },
       {
         "name": "서울센터",
-        "address": "서울 중구 청계천로 14",
-        "lat": 37.5685,
-        "lng": 126.981
+        "address": "서울 중구 청계천로 14"
       }
     ],
     "ncs": [
@@ -4134,11 +3578,9 @@ const ORGS = [
     "type": "준정부",
     "region": "경상권",
     "address": "대구 동구 첨단로 17",
-    "lat": 35.8745,
-    "lng": 128.6298,
     "startingSalary": 3600,
     "avgSalary": 6700,
-    "avgYears": 11.0,
+    "avgYears": 11,
     "homepage": "https://www.kasfo.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국사학진흥재단",
     "description": "사립학교 진흥과 사학재정 관리를 담당하는 준정부기관.",
@@ -4156,9 +3598,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (대구)",
-        "address": "대구 동구 첨단로 17",
-        "lat": 35.8745,
-        "lng": 128.6298
+        "address": "대구 동구 첨단로 17"
       }
     ],
     "ncs": [
@@ -4180,8 +3620,6 @@ const ORGS = [
     "type": "준정부",
     "region": "경상권",
     "address": "대구 동구 동내로 64",
-    "lat": 35.8654,
-    "lng": 128.639, 
     "startingSalary": 3750,
     "avgSalary": 7200,
     "avgYears": 12.5,
@@ -4202,15 +3640,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (대구)",
-        "address": "대구 동구 동내로 64",
-        "lat": 35.8654,
-        "lng": 128.639
+        "address": "대구 동구 동내로 64"
       },
       {
         "name": "서울청사",
-        "address": "서울 서초구 헌릉로 25",
-        "lat": 37.467,
-        "lng": 127.0395
+        "address": "서울 서초구 헌릉로 25"
       }
     ],
     "ncs": [
@@ -4233,8 +3667,6 @@ const ORGS = [
     "type": "준정부",
     "region": "경상권",
     "address": "부산 해운대구 센텀중앙로 79",
-    "lat": 35.1685,
-    "lng": 129.1311,
     "startingSalary": 3500,
     "avgSalary": 6300,
     "avgYears": 10.5,
@@ -4254,9 +3686,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (부산)",
-        "address": "부산 해운대구 센텀중앙로 79",
-        "lat": 35.1685,
-        "lng": 129.1311
+        "address": "부산 해운대구 센텀중앙로 79"
       }
     ],
     "ncs": [
@@ -4279,11 +3709,9 @@ const ORGS = [
     "type": "준정부",
     "region": "수도권",
     "address": "서울 서대문구 충정로 53",
-    "lat": 37.561,
-    "lng": 126.9665,
     "startingSalary": 3450,
     "avgSalary": 6200,
-    "avgYears": 10.0,
+    "avgYears": 10,
     "homepage": "https://www.kywa.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국청소년활동진흥원",
     "description": "청소년 활동 진흥과 수련시설 운영을 담당하는 준정부기관.",
@@ -4301,9 +3729,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (서울)",
-        "address": "서울 서대문구 충정로 53",
-        "lat": 37.561,
-        "lng": 126.9665
+        "address": "서울 서대문구 충정로 53"
       }
     ],
     "ncs": [
@@ -4325,11 +3751,9 @@ const ORGS = [
     "type": "준정부",
     "region": "수도권",
     "address": "서울 중구 청계천로 14",
-    "lat": 37.5685,
-    "lng": 126.981,
     "startingSalary": 3600,
     "avgSalary": 6500,
-    "avgYears": 10.0,
+    "avgYears": 10,
     "homepage": "https://www.kordi.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국노인인력개발원",
     "description": "노인일자리 사업을 운영하는 준정부기관.",
@@ -4346,15 +3770,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (서울)",
-        "address": "서울 중구 청계천로 14",
-        "lat": 37.5685,
-        "lng": 126.981
+        "address": "서울 중구 청계천로 14"
       },
       {
         "name": "광주전남지역본부",
-        "address": "광주 서구 화운로 197",
-        "lat": 35.153,
-        "lng": 126.849
+        "address": "광주 서구 화운로 197"
       }
     ],
     "ncs": [
@@ -4376,8 +3796,6 @@ const ORGS = [
     "type": "준정부",
     "region": "수도권",
     "address": "서울 중구 퇴계로 173",
-    "lat": 37.564,
-    "lng": 126.9851,
     "startingSalary": 3700,
     "avgSalary": 6900,
     "avgYears": 10.5,
@@ -4398,9 +3816,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (서울)",
-        "address": "서울 중구 퇴계로 173",
-        "lat": 37.564,
-        "lng": 126.9851
+        "address": "서울 중구 퇴계로 173"
       }
     ],
     "ncs": [
@@ -4423,8 +3839,6 @@ const ORGS = [
     "type": "준정부",
     "region": "충청권",
     "address": "충북 음성군 맹동면 태정로 6",
-    "lat": 36.9386,
-    "lng": 127.5436,
     "startingSalary": 3700,
     "avgSalary": 6800,
     "avgYears": 10.5,
@@ -4445,15 +3859,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (음성)",
-        "address": "충북 음성군 맹동면 태정로 6",
-        "lat": 36.9386,
-        "lng": 127.5436
+        "address": "충북 음성군 맹동면 태정로 6"
       },
       {
         "name": "서울청사",
-        "address": "서울 영등포구 은행로 30",
-        "lat": 37.5215,
-        "lng": 126.9275
+        "address": "서울 영등포구 은행로 30"
       }
     ],
     "ncs": [
@@ -4475,11 +3885,9 @@ const ORGS = [
     "type": "준정부",
     "region": "수도권",
     "address": "인천 부평구 무네미로 478",
-    "lat": 37.4905,
-    "lng": 126.7235,
     "startingSalary": 3800,
     "avgSalary": 6500,
-    "avgYears": 12.0,
+    "avgYears": 12,
     "homepage": "https://www.kopo.ac.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국폴리텍",
     "description": "직업기술 교육을 담당하는 준정부기관. 전국 35개 캠퍼스 운영.",
@@ -4497,33 +3905,23 @@ const ORGS = [
     "branches": [
       {
         "name": "이사회 (인천)",
-        "address": "인천 부평구 무네미로 478",
-        "lat": 37.4905,
-        "lng": 126.7235
+        "address": "인천 부평구 무네미로 478"
       },
       {
         "name": "서울정수캠퍼스",
-        "address": "서울 용산구 보광로 73",
-        "lat": 37.531,
-        "lng": 126.992
+        "address": "서울 용산구 보광로 73"
       },
       {
         "name": "부산캠퍼스",
-        "address": "부산 북구 만덕대로 155번길 99",
-        "lat": 35.215,
-        "lng": 129.0145
+        "address": "부산 북구 만덕대로 155번길 99"
       },
       {
         "name": "광주캠퍼스",
-        "address": "광주 광산구 하남산단6번로 90",
-        "lat": 35.1825,
-        "lng": 126.8055
+        "address": "광주 광산구 하남산단6번로 90"
       },
       {
         "name": "대전캠퍼스",
-        "address": "대전 동구 우암로 352-21",
-        "lat": 36.347,
-        "lng": 127.447
+        "address": "대전 동구 우암로 352-21"
       }
     ],
     "ncs": [
@@ -4546,11 +3944,9 @@ const ORGS = [
     "type": "준정부",
     "region": "수도권",
     "address": "서울 중구 세종대로 39",
-    "lat": 37.5636,
-    "lng": 126.9817,
     "startingSalary": 3400,
     "avgSalary": 5800,
-    "avgYears": 9.0,
+    "avgYears": 9,
     "homepage": "https://www.kpda.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=우편사업진흥원",
     "description": "우편사업 진흥과 우표·우편 관련 사업을 담당하는 준정부기관.",
@@ -4567,9 +3963,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (서울)",
-        "address": "서울 중구 세종대로 39",
-        "lat": 37.5636,
-        "lng": 126.9817
+        "address": "서울 중구 세종대로 39"
       }
     ],
     "ncs": [
@@ -4590,8 +3984,6 @@ const ORGS = [
     "type": "준정부",
     "region": "충청권",
     "address": "충북 청주시 흥덕구 오송읍 오송생명로 173",
-    "lat": 36.6155,
-    "lng": 127.337,
     "startingSalary": 3650,
     "avgSalary": 6700,
     "avgYears": 10.5,
@@ -4611,15 +4003,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (오송)",
-        "address": "충북 청주시 흥덕구 오송읍 오송생명로 173",
-        "lat": 36.6155,
-        "lng": 127.337
+        "address": "충북 청주시 흥덕구 오송읍 오송생명로 173"
       },
       {
         "name": "광주교육센터",
-        "address": "광주 광산구 첨단과기로 208번길 43-22",
-        "lat": 35.2185,
-        "lng": 126.8405
+        "address": "광주 광산구 첨단과기로 208번길 43-22"
       }
     ],
     "ncs": [
@@ -4640,8 +4028,6 @@ const ORGS = [
     "type": "준정부",
     "region": "충청권",
     "address": "세종 한누리대로 422",
-    "lat": 36.4807,
-    "lng": 127.2895,
     "startingSalary": 3600,
     "avgSalary": 6700,
     "avgYears": 11.5,
@@ -4661,15 +4047,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (세종)",
-        "address": "세종 한누리대로 422",
-        "lat": 36.4807,
-        "lng": 127.2895
+        "address": "세종 한누리대로 422"
       },
       {
         "name": "수도권지원",
-        "address": "경기 성남시 분당구 안양판교로 1201",
-        "lat": 37.379,
-        "lng": 127.112
+        "address": "경기 성남시 분당구 안양판교로 1201"
       }
     ],
     "ncs": [
@@ -4691,8 +4073,6 @@ const ORGS = [
     "type": "준정부",
     "region": "수도권",
     "address": "서울 중구 청계천로 14",
-    "lat": 37.5685,
-    "lng": 126.981,
     "startingSalary": 3850,
     "avgSalary": 7400,
     "avgYears": 10.5,
@@ -4712,9 +4092,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (서울)",
-        "address": "서울 중구 청계천로 14",
-        "lat": 37.5685,
-        "lng": 126.981
+        "address": "서울 중구 청계천로 14"
       }
     ],
     "ncs": [
@@ -4736,8 +4114,6 @@ const ORGS = [
     "type": "준정부",
     "region": "충청권",
     "address": "세종 수목원로 136",
-    "lat": 36.4992,
-    "lng": 127.2426,
     "startingSalary": 3500,
     "avgSalary": 6200,
     "avgYears": 8.5,
@@ -4758,15 +4134,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (세종)",
-        "address": "세종 수목원로 136",
-        "lat": 36.4992,
-        "lng": 127.2426
+        "address": "세종 수목원로 136"
       },
       {
         "name": "백두대간수목원",
-        "address": "경북 봉화군 춘양면 춘양로 1501",
-        "lat": 36.921,
-        "lng": 128.9015
+        "address": "경북 봉화군 춘양면 춘양로 1501"
       }
     ],
     "ncs": [
@@ -4788,11 +4160,9 @@ const ORGS = [
     "type": "준정부",
     "region": "충청권",
     "address": "충북 진천군 덕산읍 정통로 10",
-    "lat": 36.8291,
-    "lng": 127.4796,
     "startingSalary": 3800,
     "avgSalary": 7300,
-    "avgYears": 11.0,
+    "avgYears": 11,
     "homepage": "https://www.nipa.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=정보통신산업진흥원",
     "description": "ICT·SW 산업 진흥을 담당하는 준정부기관.",
@@ -4810,15 +4180,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (진천)",
-        "address": "충북 진천군 덕산읍 정통로 10",
-        "lat": 36.8291,
-        "lng": 127.4796
+        "address": "충북 진천군 덕산읍 정통로 10"
       },
       {
         "name": "서울사무소",
-        "address": "서울 송파구 중대로 135",
-        "lat": 37.501,
-        "lng": 127.124
+        "address": "서울 송파구 중대로 135"
       }
     ],
     "ncs": [
@@ -4841,11 +4207,9 @@ const ORGS = [
     "type": "준정부",
     "region": "충청권",
     "address": "대전 서구 둔산로 137",
-    "lat": 36.349,
-    "lng": 127.3768,
     "startingSalary": 3500,
     "avgSalary": 6300,
-    "avgYears": 9.0,
+    "avgYears": 9,
     "homepage": "https://www.fowi.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국산림복지진흥원",
     "description": "산림복지 서비스와 자연휴양림·치유의숲 운영을 담당하는 준정부기관.",
@@ -4863,15 +4227,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (대전)",
-        "address": "대전 서구 둔산로 137",
-        "lat": 36.349,
-        "lng": 127.3768
+        "address": "대전 서구 둔산로 137"
       },
       {
         "name": "국립산림치유원",
-        "address": "경북 영주시 봉현면 백두대간로 967",
-        "lat": 36.945,
-        "lng": 128.5345
+        "address": "경북 영주시 봉현면 백두대간로 967"
       }
     ],
     "ncs": [
@@ -4893,11 +4253,9 @@ const ORGS = [
     "type": "준정부",
     "region": "수도권",
     "address": "서울 동작구 여의대방로 16길 61",
-    "lat": 37.4955,
-    "lng": 126.9269,
     "startingSalary": 3600,
     "avgSalary": 6500,
-    "avgYears": 9.0,
+    "avgYears": 9,
     "homepage": "https://www.kmi.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국기상산업기술원",
     "description": "기상산업 진흥과 기상관측 장비 인증을 담당하는 준정부기관.",
@@ -4915,9 +4273,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (서울)",
-        "address": "서울 동작구 여의대방로 16길 61",
-        "lat": 37.4955,
-        "lng": 126.9269
+        "address": "서울 동작구 여의대방로 16길 61"
       }
     ],
     "ncs": [
@@ -4940,11 +4296,9 @@ const ORGS = [
     "type": "준정부",
     "region": "경상권",
     "address": "경남 진주시 충의로 19",
-    "lat": 35.1735,
-    "lng": 128.1071,
     "startingSalary": 3850,
     "avgSalary": 7400,
-    "avgYears": 12.0,
+    "avgYears": 12,
     "homepage": "https://www.kalis.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국토안전관리원",
     "description": "시설물·건설현장 안전관리를 담당하는 준정부기관.",
@@ -4962,21 +4316,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (진주)",
-        "address": "경남 진주시 충의로 19",
-        "lat": 35.1735,
-        "lng": 128.1071
+        "address": "경남 진주시 충의로 19"
       },
       {
         "name": "서울지역본부",
-        "address": "서울 영등포구 국회대로 800",
-        "lat": 37.5286,
-        "lng": 126.9143
+        "address": "서울 영등포구 국회대로 800"
       },
       {
         "name": "부산지역본부",
-        "address": "부산 연제구 중앙대로 1093",
-        "lat": 35.1865,
-        "lng": 129.078
+        "address": "부산 연제구 중앙대로 1093"
       }
     ],
     "ncs": [
@@ -4999,8 +4347,6 @@ const ORGS = [
     "type": "준정부",
     "region": "수도권",
     "address": "서울 용산구 한강대로 405",
-    "lat": 37.53,
-    "lng": 126.965,
     "startingSalary": 3500,
     "avgSalary": 5800,
     "avgYears": 9.5,
@@ -5020,15 +4366,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (서울)",
-        "address": "서울 용산구 한강대로 405",
-        "lat": 37.53,
-        "lng": 126.965
+        "address": "서울 용산구 한강대로 405"
       },
       {
         "name": "서울본부",
-        "address": "서울 중구 한강대로 405",
-        "lat": 37.53,
-        "lng": 126.965
+        "address": "서울 중구 한강대로 405"
       }
     ],
     "ncs": [
@@ -5049,11 +4391,9 @@ const ORGS = [
     "type": "준정부",
     "region": "충청권",
     "address": "세종 한누리대로 411",
-    "lat": 36.4818,
-    "lng": 127.2895,
     "startingSalary": 3700,
     "avgSalary": 6900,
-    "avgYears": 11.0,
+    "avgYears": 11,
     "homepage": "https://www.komsa.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국해양교통안전공단",
     "description": "선박 검사와 해양사고 조사를 담당하는 준정부기관.",
@@ -5070,21 +4410,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (세종)",
-        "address": "세종 한누리대로 411",
-        "lat": 36.4818,
-        "lng": 127.2895
+        "address": "세종 한누리대로 411"
       },
       {
         "name": "부산지부",
-        "address": "부산 영도구 해양로 301번길 26",
-        "lat": 35.0735,
-        "lng": 129.079
+        "address": "부산 영도구 해양로 301번길 26"
       },
       {
         "name": "인천지부",
-        "address": "인천 중구 항동7가 1-381",
-        "lat": 37.455,
-        "lng": 126.613
+        "address": "인천 중구 항동7가 1-381"
       }
     ],
     "ncs": [
@@ -5107,11 +4441,9 @@ const ORGS = [
     "type": "준정부",
     "region": "수도권",
     "address": "서울 강동구 진황도로 61길 53",
-    "lat": 37.5418,
-    "lng": 127.161,
     "startingSalary": 3650,
     "avgSalary": 6800,
-    "avgYears": 13.0,
+    "avgYears": 13,
     "homepage": "https://www.bohun.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국보훈복지의료공단",
     "description": "보훈대상자 의료·복지를 담당하는 준정부기관. 보훈병원 6곳 운영.",
@@ -5128,33 +4460,23 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (서울)",
-        "address": "서울 강동구 진황도로 61길 53",
-        "lat": 37.5418,
-        "lng": 127.161
+        "address": "서울 강동구 진황도로 61길 53"
       },
       {
         "name": "중앙보훈병원",
-        "address": "서울 강동구 진황도로 61길 53",
-        "lat": 37.5418,
-        "lng": 127.161
+        "address": "서울 강동구 진황도로 61길 53"
       },
       {
         "name": "부산보훈병원",
-        "address": "부산 사상구 백양대로 420",
-        "lat": 35.1555,
-        "lng": 128.9925
+        "address": "부산 사상구 백양대로 420"
       },
       {
         "name": "광주보훈병원",
-        "address": "광주 광산구 첨단월봉로 99",
-        "lat": 35.222,
-        "lng": 126.8425
+        "address": "광주 광산구 첨단월봉로 99"
       },
       {
         "name": "대구보훈병원",
-        "address": "대구 달서구 월곡로 60",
-        "lat": 35.8395,
-        "lng": 128.532
+        "address": "대구 달서구 월곡로 60"
       }
     ],
     "ncs": [
@@ -5178,11 +4500,9 @@ const ORGS = [
     "type": "준정부",
     "region": "경상권",
     "address": "부산 남구 문현금융로 33",
-    "lat": 35.1411,
-    "lng": 129.066,
     "startingSalary": 4400,
     "avgSalary": 9100,
-    "avgYears": 13.0,
+    "avgYears": 13,
     "homepage": "https://www.kibo.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=기술보증기금",
     "description": "중소·벤처기업 기술보증을 담당하는 금융 준정부기관. 신용보증기금과 함께 양대 보증기관.",
@@ -5201,27 +4521,19 @@ const ORGS = [
     "branches": [
       {
         "name": "본점 (부산)",
-        "address": "부산 남구 문현금융로 33",
-        "lat": 35.1411,
-        "lng": 129.066
+        "address": "부산 남구 문현금융로 33"
       },
       {
         "name": "서울지점",
-        "address": "서울 마포구 마포대로 122",
-        "lat": 37.545,
-        "lng": 126.9505
+        "address": "서울 마포구 마포대로 122"
       },
       {
         "name": "대구경북영업본부",
-        "address": "대구 수성구 동대구로 348",
-        "lat": 35.8693,
-        "lng": 128.631
+        "address": "대구 수성구 동대구로 348"
       },
       {
         "name": "광주전남영업본부",
-        "address": "광주 서구 화운로 198",
-        "lat": 35.153,
-        "lng": 126.849
+        "address": "광주 서구 화운로 198"
       }
     ],
     "ncs": [
@@ -5245,8 +4557,6 @@ const ORGS = [
     "type": "기타공공기관",
     "region": "수도권",
     "address": "서울 영등포구 은행로 14",
-    "lat": 37.5215,
-    "lng": 126.9237,
     "startingSalary": 5300,
     "avgSalary": 11200,
     "avgYears": 14.5,
@@ -5268,33 +4578,23 @@ const ORGS = [
     "branches": [
       {
         "name": "본점 (서울 여의도)",
-        "address": "서울 영등포구 은행로 14",
-        "lat": 37.5215,
-        "lng": 126.9237
+        "address": "서울 영등포구 은행로 14"
       },
       {
         "name": "동남권본부",
-        "address": "부산 부산진구 새싹로 174",
-        "lat": 35.158,
-        "lng": 129.057
+        "address": "부산 부산진구 새싹로 174"
       },
       {
         "name": "충청영업본부",
-        "address": "대전 서구 둔산로 100",
-        "lat": 36.3505,
-        "lng": 127.385
+        "address": "대전 서구 둔산로 100"
       },
       {
         "name": "호남영업본부",
-        "address": "광주 서구 무진대로 904",
-        "lat": 35.1505,
-        "lng": 126.8395
+        "address": "광주 서구 무진대로 904"
       },
       {
         "name": "대구경북영업본부",
-        "address": "대구 수성구 달구벌대로 2310",
-        "lat": 35.859,
-        "lng": 128.6285
+        "address": "대구 수성구 달구벌대로 2310"
       }
     ],
     "ncs": [
@@ -5319,8 +4619,6 @@ const ORGS = [
     "type": "기타공공기관",
     "region": "수도권",
     "address": "서울 중구 을지로 79",
-    "lat": 37.568,
-    "lng": 126.9824,
     "startingSalary": 5100,
     "avgSalary": 10500,
     "avgYears": 13.5,
@@ -5342,39 +4640,27 @@ const ORGS = [
     "branches": [
       {
         "name": "본점 (서울 을지로)",
-        "address": "서울 중구 을지로 79",
-        "lat": 37.568,
-        "lng": 126.9824
+        "address": "서울 중구 을지로 79"
       },
       {
         "name": "강남영업부",
-        "address": "서울 강남구 테헤란로 432",
-        "lat": 37.506,
-        "lng": 127.059
+        "address": "서울 강남구 테헤란로 432"
       },
       {
         "name": "부산영업부",
-        "address": "부산 중구 중앙대로 81",
-        "lat": 35.108,
-        "lng": 129.0345
+        "address": "부산 중구 중앙대로 81"
       },
       {
         "name": "대구영업부",
-        "address": "대구 수성구 동대구로 348",
-        "lat": 35.8693,
-        "lng": 128.631
+        "address": "대구 수성구 동대구로 348"
       },
       {
         "name": "광주영업부",
-        "address": "광주 서구 화운로 198",
-        "lat": 35.153,
-        "lng": 126.8489
+        "address": "광주 서구 화운로 198"
       },
       {
         "name": "대전영업부",
-        "address": "대전 서구 둔산로 100",
-        "lat": 36.3505,
-        "lng": 127.385
+        "address": "대전 서구 둔산로 100"
       }
     ],
     "ncs": [
@@ -5397,11 +4683,9 @@ const ORGS = [
     "type": "기타공공기관",
     "region": "수도권",
     "address": "서울 영등포구 은행로 38",
-    "lat": 37.5256,
-    "lng": 126.9266,
     "startingSalary": 5200,
     "avgSalary": 10800,
-    "avgYears": 14.0,
+    "avgYears": 14,
     "homepage": "https://www.koreaexim.go.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국수출입은행",
     "description": "수출입금융과 대외경제협력을 담당하는 정책 금융기관. 금융공기업 A매치 최상위.",
@@ -5420,15 +4704,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본점 (서울 여의도)",
-        "address": "서울 영등포구 은행로 38",
-        "lat": 37.5256,
-        "lng": 126.9266
+        "address": "서울 영등포구 은행로 38"
       },
       {
         "name": "동남권본부",
-        "address": "부산 부산진구 새싹로 174",
-        "lat": 35.158,
-        "lng": 129.057
+        "address": "부산 부산진구 새싹로 174"
       }
     ],
     "ncs": [
@@ -5452,8 +4732,6 @@ const ORGS = [
     "type": "기타공공기관",
     "region": "수도권",
     "address": "서울 중구 청계천로 100",
-    "lat": 37.5705,
-    "lng": 126.976,
     "startingSalary": 5400,
     "avgSalary": 11500,
     "avgYears": 8.5,
@@ -5475,15 +4753,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (서울)",
-        "address": "서울 중구 청계천로 100",
-        "lat": 37.5705,
-        "lng": 126.976
+        "address": "서울 중구 청계천로 100"
       },
       {
         "name": "뉴욕사무소",
-        "address": "(해외)",
-        "lat": 37.5705,
-        "lng": 126.976
+        "address": "(해외)"
       }
     ],
     "ncs": [
@@ -5506,8 +4780,6 @@ const ORGS = [
     "type": "기타공공기관",
     "region": "경상권",
     "address": "부산 남구 문현금융로 40",
-    "lat": 35.1411,
-    "lng": 129.066,
     "startingSalary": 4500,
     "avgSalary": 9200,
     "avgYears": 12.5,
@@ -5529,27 +4801,19 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (부산)",
-        "address": "부산 남구 문현금융로 40",
-        "lat": 35.1411,
-        "lng": 129.066
+        "address": "부산 남구 문현금융로 40"
       },
       {
         "name": "서울영업본부",
-        "address": "서울 영등포구 의사당대로 1",
-        "lat": 37.5285,
-        "lng": 126.9145
+        "address": "서울 영등포구 의사당대로 1"
       },
       {
         "name": "경기영업본부",
-        "address": "경기 성남시 분당구 정자일로 95",
-        "lat": 37.3601,
-        "lng": 127.108
+        "address": "경기 성남시 분당구 정자일로 95"
       },
       {
         "name": "광주전남지사",
-        "address": "광주 서구 무진대로 904",
-        "lat": 35.1505,
-        "lng": 126.8395
+        "address": "광주 서구 무진대로 904"
       }
     ],
     "ncs": [
@@ -5572,11 +4836,9 @@ const ORGS = [
     "type": "기타공공기관",
     "region": "수도권",
     "address": "서울 중구 세종대로 124",
-    "lat": 37.567,
-    "lng": 126.9785,
     "startingSalary": 4100,
     "avgSalary": 7800,
-    "avgYears": 9.0,
+    "avgYears": 9,
     "homepage": "https://www.kinfa.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=서민금융진흥원",
     "description": "서민·취약계층 금융지원을 담당하는 금융 기타공공기관. 햇살론 등 정책서민금융 운영.",
@@ -5594,21 +4856,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (서울)",
-        "address": "서울 중구 세종대로 124",
-        "lat": 37.567,
-        "lng": 126.9785
+        "address": "서울 중구 세종대로 124"
       },
       {
         "name": "부산서민금융통합지원센터",
-        "address": "부산 부산진구 새싹로 196",
-        "lat": 35.1605,
-        "lng": 129.056
+        "address": "부산 부산진구 새싹로 196"
       },
       {
         "name": "대구서민금융통합지원센터",
-        "address": "대구 수성구 동대구로 348",
-        "lat": 35.8693,
-        "lng": 128.631
+        "address": "대구 수성구 동대구로 348"
       }
     ],
     "ncs": [
@@ -5631,8 +4887,6 @@ const ORGS = [
     "type": "기타공공기관",
     "region": "수도권",
     "address": "서울 강남구 테헤란로 124",
-    "lat": 37.5037,
-    "lng": 127.0464,
     "startingSalary": 4500,
     "avgSalary": 9500,
     "avgYears": 7.5,
@@ -5653,9 +4907,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (서울)",
-        "address": "서울 강남구 테헤란로 124",
-        "lat": 37.5037,
-        "lng": 127.0464
+        "address": "서울 강남구 테헤란로 124"
       }
     ],
     "ncs": [
@@ -5677,11 +4929,9 @@ const ORGS = [
     "type": "기타공공기관",
     "region": "수도권",
     "address": "서울 영등포구 의사당대로 97",
-    "lat": 37.5258,
-    "lng": 126.9268,
     "startingSalary": 4200,
     "avgSalary": 8500,
-    "avgYears": 12.0,
+    "avgYears": 12,
     "homepage": "https://www.koscom.co.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=코스콤",
     "description": "자본시장 IT 인프라를 운영하는 기타공공기관. 증권거래 시스템 핵심.",
@@ -5699,15 +4949,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (서울 여의도)",
-        "address": "서울 영등포구 의사당대로 97",
-        "lat": 37.5258,
-        "lng": 126.9268
+        "address": "서울 영등포구 의사당대로 97"
       },
       {
         "name": "송파데이터센터",
-        "address": "서울 송파구 위례성대로 156",
-        "lat": 37.5085,
-        "lng": 127.128
+        "address": "서울 송파구 위례성대로 156"
       }
     ],
     "ncs": [
@@ -5730,8 +4976,6 @@ const ORGS = [
     "type": "기타공공기관",
     "region": "수도권",
     "address": "서울 성북구 화랑로14길 5",
-    "lat": 37.6019,
-    "lng": 127.0464,
     "startingSalary": 4200,
     "avgSalary": 8800,
     "avgYears": 11.5,
@@ -5753,21 +4997,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (서울)",
-        "address": "서울 성북구 화랑로14길 5",
-        "lat": 37.6019,
-        "lng": 127.0464
+        "address": "서울 성북구 화랑로14길 5"
       },
       {
         "name": "강릉분원",
-        "address": "강원 강릉시 강릉대로 305",
-        "lat": 37.772,
-        "lng": 128.8765
+        "address": "강원 강릉시 강릉대로 305"
       },
       {
         "name": "전북분원",
-        "address": "전북 완주군 봉동읍 과학로 92",
-        "lat": 35.932,
-        "lng": 127.1255
+        "address": "전북 완주군 봉동읍 과학로 92"
       }
     ],
     "ncs": [
@@ -5791,8 +5029,6 @@ const ORGS = [
     "type": "기타공공기관",
     "region": "충청권",
     "address": "대전 유성구 가정로 218",
-    "lat": 36.3791,
-    "lng": 127.3645,
     "startingSalary": 4100,
     "avgSalary": 9200,
     "avgYears": 13.5,
@@ -5814,21 +5050,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (대전)",
-        "address": "대전 유성구 가정로 218",
-        "lat": 36.3791,
-        "lng": 127.3645
+        "address": "대전 유성구 가정로 218"
       },
       {
         "name": "호남권연구센터",
-        "address": "광주 북구 첨단과기로 176번길 24",
-        "lat": 35.2195,
-        "lng": 126.8412
+        "address": "광주 북구 첨단과기로 176번길 24"
       },
       {
         "name": "경북권연구센터",
-        "address": "경북 경산시 진량읍 일연로 1085",
-        "lat": 35.8585,
-        "lng": 128.8155
+        "address": "경북 경산시 진량읍 일연로 1085"
       }
     ],
     "ncs": [
@@ -5852,11 +5082,9 @@ const ORGS = [
     "type": "기타공공기관",
     "region": "충청권",
     "address": "대전 유성구 가정로 152",
-    "lat": 36.3812,
-    "lng": 127.3678,
     "startingSalary": 4000,
     "avgSalary": 8500,
-    "avgYears": 13.0,
+    "avgYears": 13,
     "homepage": "https://www.kier.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국에너지기술연구원",
     "description": "에너지 분야 국가 R&D를 담당하는 출연연구기관. 수소·신재생에너지 핵심.",
@@ -5875,15 +5103,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (대전)",
-        "address": "대전 유성구 가정로 152",
-        "lat": 36.3812,
-        "lng": 127.3678
+        "address": "대전 유성구 가정로 152"
       },
       {
         "name": "제주글로벌연구센터",
-        "address": "제주 제주시 행원로 200",
-        "lat": 33.5475,
-        "lng": 126.8265
+        "address": "제주 제주시 행원로 200"
       }
     ],
     "ncs": [
@@ -5906,8 +5130,6 @@ const ORGS = [
     "type": "기타공공기관",
     "region": "충청권",
     "address": "대전 유성구 가정로 141",
-    "lat": 36.3818,
-    "lng": 127.3645,
     "startingSalary": 4000,
     "avgSalary": 8400,
     "avgYears": 12.5,
@@ -5929,15 +5151,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (대전)",
-        "address": "대전 유성구 가정로 141",
-        "lat": 36.3818,
-        "lng": 127.3645
+        "address": "대전 유성구 가정로 141"
       },
       {
         "name": "울산본부",
-        "address": "울산 남구 종가로 45",
-        "lat": 35.568,
-        "lng": 129.329
+        "address": "울산 남구 종가로 45"
       }
     ],
     "ncs": [
@@ -5959,11 +5177,9 @@ const ORGS = [
     "type": "기타공공기관",
     "region": "전라권",
     "address": "전북 완주군 이서면 농생명로 245",
-    "lat": 35.842,
-    "lng": 127.047,
     "startingSalary": 3900,
     "avgSalary": 8000,
-    "avgYears": 12.0,
+    "avgYears": 12,
     "homepage": "https://www.kfri.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국식품연구원",
     "description": "식품 R&D를 담당하는 국가 출연연구기관. 식품안전·기능성식품 핵심.",
@@ -5982,9 +5198,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (완주)",
-        "address": "전북 완주군 이서면 농생명로 245",
-        "lat": 35.842,
-        "lng": 127.047
+        "address": "전북 완주군 이서면 농생명로 245"
       }
     ],
     "ncs": [
@@ -6006,8 +5220,6 @@ const ORGS = [
     "type": "기타공공기관",
     "region": "충청권",
     "address": "충남 천안시 서북구 입장면 양대기로길 89",
-    "lat": 36.945,
-    "lng": 127.2065,
     "startingSalary": 4000,
     "avgSalary": 8300,
     "avgYears": 11.5,
@@ -6029,27 +5241,19 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (천안)",
-        "address": "충남 천안시 서북구 입장면 양대기로길 89",
-        "lat": 36.945,
-        "lng": 127.2065
+        "address": "충남 천안시 서북구 입장면 양대기로길 89"
       },
       {
         "name": "안산지원본부",
-        "address": "경기 안산시 단원구 번영로 156",
-        "lat": 37.307,
-        "lng": 126.778
+        "address": "경기 안산시 단원구 번영로 156"
       },
       {
         "name": "광주지역본부",
-        "address": "광주 북구 첨단과기로 208번길 76",
-        "lat": 35.22,
-        "lng": 126.842
+        "address": "광주 북구 첨단과기로 208번길 76"
       },
       {
         "name": "부산지역본부",
-        "address": "부산 사상구 학장로 256",
-        "lat": 35.153,
-        "lng": 128.9875
+        "address": "부산 사상구 학장로 256"
       }
     ],
     "ncs": [
@@ -6071,11 +5275,9 @@ const ORGS = [
     "type": "기타공공기관",
     "region": "수도권",
     "address": "서울 강남구 테헤란로 305",
-    "lat": 37.5057,
-    "lng": 127.049,
     "startingSalary": 4000,
     "avgSalary": 7900,
-    "avgYears": 11.0,
+    "avgYears": 11,
     "homepage": "https://www.kiat.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국산업기술진흥원",
     "description": "산업기술 R&D 정책·사업기획을 담당하는 기타공공기관. 산자부 산하.",
@@ -6093,15 +5295,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (서울)",
-        "address": "서울 강남구 테헤란로 305",
-        "lat": 37.5057,
-        "lng": 127.049
+        "address": "서울 강남구 테헤란로 305"
       },
       {
         "name": "광주지역본부",
-        "address": "광주 북구 첨단과기로 208번길 43-22",
-        "lat": 35.2185,
-        "lng": 126.8405
+        "address": "광주 북구 첨단과기로 208번길 43-22"
       }
     ],
     "ncs": [
@@ -6124,8 +5322,6 @@ const ORGS = [
     "type": "기타공공기관",
     "region": "수도권",
     "address": "서울 강남구 선릉로 602",
-    "lat": 37.5134,
-    "lng": 127.0481,
     "startingSalary": 3700,
     "avgSalary": 6800,
     "avgYears": 10.5,
@@ -6146,9 +5342,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (서울)",
-        "address": "서울 강남구 선릉로 602",
-        "lat": 37.5134,
-        "lng": 127.0481
+        "address": "서울 강남구 선릉로 602"
       }
     ],
     "ncs": [
@@ -6171,11 +5365,9 @@ const ORGS = [
     "type": "기타공공기관",
     "region": "충청권",
     "address": "충북 진천군 덕산읍 교학로 7",
-    "lat": 36.8274,
-    "lng": 127.4814,
     "startingSalary": 3800,
     "avgSalary": 7400,
-    "avgYears": 11.0,
+    "avgYears": 11,
     "homepage": "https://www.kedi.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국교육개발원",
     "description": "교육정책 R&D를 담당하는 국책 연구기관. 교육 분야 대표 출연연.",
@@ -6193,9 +5385,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (진천)",
-        "address": "충북 진천군 덕산읍 교학로 7",
-        "lat": 36.8274,
-        "lng": 127.4814
+        "address": "충북 진천군 덕산읍 교학로 7"
       }
     ],
     "ncs": [
@@ -6217,8 +5407,6 @@ const ORGS = [
     "type": "기타공공기관",
     "region": "충청권",
     "address": "충북 진천군 덕산읍 교학로 8",
-    "lat": 36.8281,
-    "lng": 127.4823,
     "startingSalary": 3850,
     "avgSalary": 7500,
     "avgYears": 11.5,
@@ -6239,9 +5427,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (진천)",
-        "address": "충북 진천군 덕산읍 교학로 8",
-        "lat": 36.8281,
-        "lng": 127.4823
+        "address": "충북 진천군 덕산읍 교학로 8"
       }
     ],
     "ncs": [
@@ -6263,8 +5449,6 @@ const ORGS = [
     "type": "기타공공기관",
     "region": "충청권",
     "address": "세종 남세종로 263",
-    "lat": 36.4815,
-    "lng": 127.2625,
     "startingSalary": 4000,
     "avgSalary": 8800,
     "avgYears": 11.5,
@@ -6285,9 +5469,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (세종)",
-        "address": "세종 남세종로 263",
-        "lat": 36.4815,
-        "lng": 127.2625
+        "address": "세종 남세종로 263"
       }
     ],
     "ncs": [
@@ -6309,8 +5491,6 @@ const ORGS = [
     "type": "기타공공기관",
     "region": "충청권",
     "address": "세종 시청대로 336",
-    "lat": 36.5028,
-    "lng": 127.263,
     "startingSalary": 3700,
     "avgSalary": 7800,
     "avgYears": 11.5,
@@ -6332,9 +5512,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (세종)",
-        "address": "세종 시청대로 336",
-        "lat": 36.5028,
-        "lng": 127.263
+        "address": "세종 시청대로 336"
       }
     ],
     "ncs": [
@@ -6356,11 +5534,9 @@ const ORGS = [
     "type": "기타공공기관",
     "region": "충청권",
     "address": "세종 시청대로 370",
-    "lat": 36.5037,
-    "lng": 127.262,
     "startingSalary": 3850,
     "avgSalary": 8200,
-    "avgYears": 11.0,
+    "avgYears": 11,
     "homepage": "https://www.kiep.go.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=대외경제정책연구원",
     "description": "대외경제·국제경제 정책 연구기관. 통상·FTA·국제금융 분석.",
@@ -6378,9 +5554,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (세종)",
-        "address": "세종 시청대로 370",
-        "lat": 36.5037,
-        "lng": 127.262
+        "address": "세종 시청대로 370"
       }
     ],
     "ncs": [
@@ -6402,8 +5576,6 @@ const ORGS = [
     "type": "기타공공기관",
     "region": "충청권",
     "address": "세종 시청대로 370",
-    "lat": 36.5045,
-    "lng": 127.263,
     "startingSalary": 3700,
     "avgSalary": 7000,
     "avgYears": 10.5,
@@ -6424,9 +5596,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (세종)",
-        "address": "세종 시청대로 370",
-        "lat": 36.5045,
-        "lng": 127.263
+        "address": "세종 시청대로 370"
       }
     ],
     "ncs": [
@@ -6448,11 +5618,9 @@ const ORGS = [
     "type": "기타공공기관",
     "region": "경상권",
     "address": "경남 진주시 소호로 101",
-    "lat": 35.1645,
-    "lng": 128.0945,
     "startingSalary": 3900,
     "avgSalary": 7800,
-    "avgYears": 11.0,
+    "avgYears": 11,
     "homepage": "https://www.kicet.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국세라믹기술원",
     "description": "세라믹 소재 R&D 출연연구기관. 첨단 세라믹 산업 핵심.",
@@ -6471,15 +5639,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (진주)",
-        "address": "경남 진주시 소호로 101",
-        "lat": 35.1645,
-        "lng": 128.0945
+        "address": "경남 진주시 소호로 101"
       },
       {
         "name": "이천분원",
-        "address": "경기 이천시 경충대로 3321",
-        "lat": 37.2735,
-        "lng": 127.438
+        "address": "경기 이천시 경충대로 3321"
       }
     ],
     "ncs": [
@@ -6500,11 +5664,9 @@ const ORGS = [
     "type": "기타공공기관",
     "region": "충청권",
     "address": "충북 진천군 덕산읍 정통로 18",
-    "lat": 36.8285,
-    "lng": 127.4806,
     "startingSalary": 3900,
     "avgSalary": 8000,
-    "avgYears": 11.0,
+    "avgYears": 11,
     "homepage": "https://www.kisdi.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=정보통신정책연구원",
     "description": "ICT·방송통신 정책 연구기관. 디지털 전환 정책 핵심.",
@@ -6522,9 +5684,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (진천)",
-        "address": "충북 진천군 덕산읍 정통로 18",
-        "lat": 36.8285,
-        "lng": 127.4806
+        "address": "충북 진천군 덕산읍 정통로 18"
       }
     ],
     "ncs": [
@@ -6625,7 +5785,7 @@ const ORGS = [
     "lng": 126.921335,
     "startingSalary": 5200,
     "avgSalary": 10800,
-    "avgYears": 13.0,
+    "avgYears": 13,
     "homepage": "https://www.fss.or.kr",
     "recruitUrl": "https://www.fss.or.kr/fss/main/main.do",
     "description": "금융기관 검사·감독을 담당하는 무자본 특수법인. 금융공기업 A매치 최상위.",
@@ -6689,11 +5849,9 @@ const ORGS = [
     "region": "수도권",
     "industry": "산업·R&D",
     "address": "서울 서초구 헌릉로 13",
-    "lat": 37.4684,
-    "lng": 127.0392,
     "startingSalary": 4100,
     "avgSalary": 8400,
-    "avgYears": 13.0,
+    "avgYears": 13,
     "homepage": "https://www.kotra.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=대한무역투자진흥공사",
     "description": "해외시장 개척과 외국인투자 유치를 담당하는 기타공공기관. 해외 84개국 128개 무역관 운영.",
@@ -6712,27 +5870,19 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (서울)",
-        "address": "서울 서초구 헌릉로 13",
-        "lat": 37.4684,
-        "lng": 127.0392
+        "address": "서울 서초구 헌릉로 13"
       },
       {
         "name": "부산지원본부",
-        "address": "부산 중구 중앙대로 81",
-        "lat": 35.108,
-        "lng": 129.0345
+        "address": "부산 중구 중앙대로 81"
       },
       {
         "name": "대전세종충남지원본부",
-        "address": "대전 유성구 가정북로 96",
-        "lat": 36.3835,
-        "lng": 127.358
+        "address": "대전 유성구 가정북로 96"
       },
       {
         "name": "광주전남지원본부",
-        "address": "광주 서구 무진대로 904",
-        "lat": 35.1505,
-        "lng": 126.8395
+        "address": "광주 서구 무진대로 904"
       }
     ],
     "ncs": [
@@ -6755,8 +5905,6 @@ const ORGS = [
     "region": "경상권",
     "industry": "에너지",
     "address": "경북 김천시 혁신로 269",
-    "lat": 36.1136,
-    "lng": 128.1761,
     "startingSalary": 4500,
     "avgSalary": 9300,
     "avgYears": 14.5,
@@ -6778,15 +5926,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (김천)",
-        "address": "경북 김천시 혁신로 269",
-        "lat": 36.1136,
-        "lng": 128.1761
+        "address": "경북 김천시 혁신로 269"
       },
       {
         "name": "용인사무소",
-        "address": "경기 용인시 처인구 양지면 양지로 90",
-        "lat": 37.228,
-        "lng": 127.282
+        "address": "경기 용인시 처인구 양지면 양지로 90"
       }
     ],
     "ncs": [
@@ -6809,11 +5953,9 @@ const ORGS = [
     "region": "충청권",
     "industry": "에너지",
     "address": "대전 유성구 테크노6로 32",
-    "lat": 36.3823,
-    "lng": 127.3585,
     "startingSalary": 3800,
     "avgSalary": 7200,
-    "avgYears": 13.0,
+    "avgYears": 13,
     "homepage": "https://www.kogast.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국가스기술공사",
     "description": "한국가스공사 자회사. 천연가스 설비 유지보수 및 엔지니어링 전문.",
@@ -6831,21 +5973,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (대전)",
-        "address": "대전 유성구 테크노6로 32",
-        "lat": 36.3823,
-        "lng": 127.3585
+        "address": "대전 유성구 테크노6로 32"
       },
       {
         "name": "평택지사",
-        "address": "경기 평택시 포승읍 평택항만길 73",
-        "lat": 36.976,
-        "lng": 126.8417
+        "address": "경기 평택시 포승읍 평택항만길 73"
       },
       {
         "name": "통영지사",
-        "address": "경남 통영시 광도면 안정공단로 222",
-        "lat": 34.942,
-        "lng": 128.3658
+        "address": "경남 통영시 광도면 안정공단로 222"
       }
     ],
     "ncs": [
@@ -6868,11 +6004,9 @@ const ORGS = [
     "region": "전라권",
     "industry": "SOC·건설",
     "address": "전북 전주시 덕진구 기지로 120",
-    "lat": 35.8454,
-    "lng": 127.1338,
     "startingSalary": 3800,
     "avgSalary": 7200,
-    "avgYears": 16.0,
+    "avgYears": 16,
     "homepage": "https://www.lx.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국국토정보공사",
     "description": "국토·지적 측량과 공간정보를 담당하는 기타공공기관. 디지털 트윈 핵심.",
@@ -6890,27 +6024,19 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (전주)",
-        "address": "전북 전주시 덕진구 기지로 120",
-        "lat": 35.8454,
-        "lng": 127.1338
+        "address": "전북 전주시 덕진구 기지로 120"
       },
       {
         "name": "서울지역본부",
-        "address": "서울 강남구 봉은사로 524",
-        "lat": 37.5095,
-        "lng": 127.0625
+        "address": "서울 강남구 봉은사로 524"
       },
       {
         "name": "부산울산지역본부",
-        "address": "부산 부산진구 새싹로 1",
-        "lat": 35.1577,
-        "lng": 129.0533
+        "address": "부산 부산진구 새싹로 1"
       },
       {
         "name": "광주전남지역본부",
-        "address": "광주 서구 화운로 198",
-        "lat": 35.153,
-        "lng": 126.8489
+        "address": "광주 서구 화운로 198"
       }
     ],
     "ncs": [
@@ -6933,8 +6059,6 @@ const ORGS = [
     "region": "전라권",
     "industry": "교육·문화",
     "address": "전남 나주시 빛가람로 640",
-    "lat": 35.0258,
-    "lng": 126.7891,
     "startingSalary": 3600,
     "avgSalary": 6700,
     "avgYears": 11.5,
@@ -6955,15 +6079,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (나주)",
-        "address": "전남 나주시 빛가람로 640",
-        "lat": 35.0258,
-        "lng": 126.7891
+        "address": "전남 나주시 빛가람로 640"
       },
       {
         "name": "대학로 사무소",
-        "address": "서울 종로구 대학로 100",
-        "lat": 37.5814,
-        "lng": 127.0019
+        "address": "서울 종로구 대학로 100"
       }
     ],
     "ncs": [
@@ -6984,11 +6104,9 @@ const ORGS = [
     "region": "경상권",
     "industry": "교육·문화",
     "address": "부산 해운대구 수영강변대로 130",
-    "lat": 35.1733,
-    "lng": 129.13,
     "startingSalary": 3700,
     "avgSalary": 7000,
-    "avgYears": 11.0,
+    "avgYears": 11,
     "homepage": "https://www.kofic.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=영화진흥위원회",
     "description": "한국영화 진흥과 영화산업 발전을 담당하는 기타공공기관.",
@@ -7006,9 +6124,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (부산)",
-        "address": "부산 해운대구 수영강변대로 130",
-        "lat": 35.1733,
-        "lng": 129.13
+        "address": "부산 해운대구 수영강변대로 130"
       }
     ],
     "ncs": [
@@ -7030,8 +6146,6 @@ const ORGS = [
     "region": "수도권",
     "industry": "교육·문화",
     "address": "서울 중구 세종대로 124",
-    "lat": 37.5689,
-    "lng": 126.9777,
     "startingSalary": 3800,
     "avgSalary": 7400,
     "avgYears": 12.5,
@@ -7052,9 +6166,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (서울)",
-        "address": "서울 중구 세종대로 124",
-        "lat": 37.5689,
-        "lng": 126.9777
+        "address": "서울 중구 세종대로 124"
       }
     ],
     "ncs": [
@@ -7076,8 +6188,6 @@ const ORGS = [
     "region": "경상권",
     "industry": "산업·R&D",
     "address": "경남 진주시 동진로 420",
-    "lat": 35.1722,
-    "lng": 128.0992,
     "startingSalary": 3950,
     "avgSalary": 8100,
     "avgYears": 13.5,
@@ -7098,15 +6208,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (진주)",
-        "address": "경남 진주시 동진로 420",
-        "lat": 35.1722,
-        "lng": 128.0992
+        "address": "경남 진주시 동진로 420"
       },
       {
         "name": "대전사무소",
-        "address": "대전 유성구 가정로 218",
-        "lat": 36.3791,
-        "lng": 127.3645
+        "address": "대전 유성구 가정로 218"
       }
     ],
     "ncs": [
@@ -7128,8 +6234,6 @@ const ORGS = [
     "region": "수도권",
     "industry": "교육·문화",
     "address": "서울 강남구 강남대로 262",
-    "lat": 37.5036,
-    "lng": 127.0264,
     "startingSalary": 3650,
     "avgSalary": 6500,
     "avgYears": 9.5,
@@ -7150,9 +6254,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (서울)",
-        "address": "서울 강남구 강남대로 262",
-        "lat": 37.5036,
-        "lng": 127.0264
+        "address": "서울 강남구 강남대로 262"
       }
     ],
     "ncs": [
@@ -7174,11 +6276,9 @@ const ORGS = [
     "region": "수도권",
     "industry": "교육·문화",
     "address": "서울 서초구 남부순환로 2406",
-    "lat": 37.4796,
-    "lng": 127.0117,
     "startingSalary": 3650,
     "avgSalary": 6800,
-    "avgYears": 13.0,
+    "avgYears": 13,
     "homepage": "https://www.sac.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=예술의전당",
     "description": "한국 최대의 종합 예술 공연·전시 시설을 운영하는 기타공공기관.",
@@ -7196,9 +6296,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (서울)",
-        "address": "서울 서초구 남부순환로 2406",
-        "lat": 37.4796,
-        "lng": 127.0117
+        "address": "서울 서초구 남부순환로 2406"
       }
     ],
     "ncs": [
@@ -7220,11 +6318,9 @@ const ORGS = [
     "region": "수도권",
     "industry": "교육·문화",
     "address": "서울 용산구 서빙고로 137",
-    "lat": 37.5239,
-    "lng": 126.9803,
     "startingSalary": 3500,
     "avgSalary": 6200,
-    "avgYears": 9.0,
+    "avgYears": 9,
     "homepage": "https://www.cultural.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립박물관문화재단",
     "description": "국립박물관 운영 지원과 문화상품·교육 사업을 담당하는 기타공공기관.",
@@ -7242,9 +6338,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (서울)",
-        "address": "서울 용산구 서빙고로 137",
-        "lat": 37.5239,
-        "lng": 126.9803
+        "address": "서울 용산구 서빙고로 137"
       }
     ],
     "ncs": [
@@ -7266,11 +6360,9 @@ const ORGS = [
     "region": "수도권",
     "industry": "교육·문화",
     "address": "서울 서초구 남부순환로 2364",
-    "lat": 37.4796,
-    "lng": 127.0099,
     "startingSalary": 3500,
     "avgSalary": 6200,
-    "avgYears": 11.0,
+    "avgYears": 11,
     "homepage": "https://www.gugak.go.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립국악원",
     "description": "전통음악·무용 전승과 공연을 담당하는 국가기관(기타공공기관).",
@@ -7288,21 +6380,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (서울)",
-        "address": "서울 서초구 남부순환로 2364",
-        "lat": 37.4796,
-        "lng": 127.0099
+        "address": "서울 서초구 남부순환로 2364"
       },
       {
         "name": "남도분원",
-        "address": "전남 진도군 임회면 진도대로 3818",
-        "lat": 34.448,
-        "lng": 126.262
+        "address": "전남 진도군 임회면 진도대로 3818"
       },
       {
         "name": "부산분원",
-        "address": "부산 부산진구 사직동 사직로 100",
-        "lat": 35.1944,
-        "lng": 129.0584
+        "address": "부산 부산진구 사직동 사직로 100"
       }
     ],
     "ncs": [
@@ -7324,8 +6410,6 @@ const ORGS = [
     "region": "수도권",
     "industry": "교육·문화",
     "address": "서울 강서구 금낭화로 154",
-    "lat": 37.5705,
-    "lng": 126.829,
     "startingSalary": 3700,
     "avgSalary": 7000,
     "avgYears": 10.5,
@@ -7346,9 +6430,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (서울)",
-        "address": "서울 강서구 금낭화로 154",
-        "lat": 37.5705,
-        "lng": 126.829
+        "address": "서울 강서구 금낭화로 154"
       }
     ],
     "ncs": [
@@ -7370,8 +6452,6 @@ const ORGS = [
     "region": "전라권",
     "industry": "교육·문화",
     "address": "전북 전주시 덕진구 중동 783-1",
-    "lat": 35.848,
-    "lng": 127.132,
     "startingSalary": 3500,
     "avgSalary": 6300,
     "avgYears": 9.5,
@@ -7392,9 +6472,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (전주)",
-        "address": "전북 전주시 덕진구 중동 783-1",
-        "lat": 35.848,
-        "lng": 127.132
+        "address": "전북 전주시 덕진구 중동 783-1"
       }
     ],
     "ncs": [
@@ -7416,8 +6494,6 @@ const ORGS = [
     "region": "전라권",
     "industry": "교육·문화",
     "address": "전남 나주시 교육길 35",
-    "lat": 35.0157,
-    "lng": 126.7903,
     "startingSalary": 4000,
     "avgSalary": 7700,
     "avgYears": 11.5,
@@ -7438,15 +6514,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (나주)",
-        "address": "전남 나주시 교육길 35",
-        "lat": 35.0157,
-        "lng": 126.7903
+        "address": "전남 나주시 교육길 35"
       },
       {
         "name": "서울청사",
-        "address": "서울 마포구 상암산로 76",
-        "lat": 37.5775,
-        "lng": 126.893
+        "address": "서울 마포구 상암산로 76"
       }
     ],
     "ncs": [
@@ -7468,8 +6540,6 @@ const ORGS = [
     "region": "전라권",
     "industry": "교육·문화",
     "address": "광주 동구 문화전당로 38",
-    "lat": 35.1463,
-    "lng": 126.9226,
     "startingSalary": 3500,
     "avgSalary": 6200,
     "avgYears": 7.5,
@@ -7490,9 +6560,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (광주)",
-        "address": "광주 동구 문화전당로 38",
-        "lat": 35.1463,
-        "lng": 126.9226
+        "address": "광주 동구 문화전당로 38"
       }
     ],
     "ncs": [
@@ -7514,11 +6582,9 @@ const ORGS = [
     "region": "경상권",
     "industry": "산업·R&D",
     "address": "대구 동구 첨단로 38",
-    "lat": 35.877,
-    "lng": 128.632,
     "startingSalary": 4000,
     "avgSalary": 8200,
-    "avgYears": 11.0,
+    "avgYears": 11,
     "homepage": "https://www.keit.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국산업기술기획평가원",
     "description": "산업기술 R&D 기획·관리·평가를 담당하는 기타공공기관.",
@@ -7536,15 +6602,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (대구)",
-        "address": "대구 동구 첨단로 38",
-        "lat": 35.877,
-        "lng": 128.632
+        "address": "대구 동구 첨단로 38"
       },
       {
         "name": "서울사무소",
-        "address": "서울 강남구 테헤란로 305",
-        "lat": 37.5057,
-        "lng": 127.049
+        "address": "서울 강남구 테헤란로 305"
       }
     ],
     "ncs": [
@@ -7566,8 +6628,6 @@ const ORGS = [
     "region": "수도권",
     "industry": "에너지",
     "address": "서울 강남구 테헤란로 114길 14",
-    "lat": 37.5057,
-    "lng": 127.057,
     "startingSalary": 4000,
     "avgSalary": 8100,
     "avgYears": 10.5,
@@ -7588,9 +6648,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (서울)",
-        "address": "서울 강남구 테헤란로 114길 14",
-        "lat": 37.5057,
-        "lng": 127.057
+        "address": "서울 강남구 테헤란로 114길 14"
       }
     ],
     "ncs": [
@@ -7612,8 +6670,6 @@ const ORGS = [
     "region": "충청권",
     "industry": "산업·R&D",
     "address": "충북 음성군 맹동면 원중로 1339",
-    "lat": 36.9395,
-    "lng": 127.5435,
     "startingSalary": 3950,
     "avgSalary": 8000,
     "avgYears": 10.5,
@@ -7634,9 +6690,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (음성)",
-        "address": "충북 음성군 맹동면 원중로 1339",
-        "lat": 36.9395,
-        "lng": 127.5435
+        "address": "충북 음성군 맹동면 원중로 1339"
       }
     ],
     "ncs": [
@@ -7658,8 +6712,6 @@ const ORGS = [
     "region": "충청권",
     "industry": "산업·R&D",
     "address": "대전 유성구 과학로 169-148",
-    "lat": 36.3791,
-    "lng": 127.365,
     "startingSalary": 4000,
     "avgSalary": 8400,
     "avgYears": 12.5,
@@ -7681,15 +6733,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (대전)",
-        "address": "대전 유성구 과학로 169-148",
-        "lat": 36.3791,
-        "lng": 127.365
+        "address": "대전 유성구 과학로 169-148"
       },
       {
         "name": "오창본부",
-        "address": "충북 청주시 청원구 오창읍 양청4길 162",
-        "lat": 36.7222,
-        "lng": 127.454
+        "address": "충북 청주시 청원구 오창읍 양청4길 162"
       }
     ],
     "ncs": [
@@ -7711,11 +6759,9 @@ const ORGS = [
     "region": "충청권",
     "industry": "산업·R&D",
     "address": "대전 유성구 과학로 124",
-    "lat": 36.3858,
-    "lng": 127.37,
     "startingSalary": 4000,
     "avgSalary": 8500,
-    "avgYears": 13.0,
+    "avgYears": 13,
     "homepage": "https://www.kigam.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국지질자원연구원",
     "description": "지질·자원 분야 출연연구기관. 광물자원·지진·환경지질 연구.",
@@ -7734,15 +6780,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (대전)",
-        "address": "대전 유성구 과학로 124",
-        "lat": 36.3858,
-        "lng": 127.37
+        "address": "대전 유성구 과학로 124"
       },
       {
         "name": "포항지질자원실증연구센터",
-        "address": "경북 포항시 남구 청암로 87",
-        "lat": 36.0145,
-        "lng": 129.329
+        "address": "경북 포항시 남구 청암로 87"
       }
     ],
     "ncs": [
@@ -7764,8 +6806,6 @@ const ORGS = [
     "region": "충청권",
     "industry": "산업·R&D",
     "address": "대전 유성구 가정로 267",
-    "lat": 36.3884,
-    "lng": 127.3713,
     "startingSalary": 4050,
     "avgSalary": 8700,
     "avgYears": 13.5,
@@ -7787,9 +6827,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (대전)",
-        "address": "대전 유성구 가정로 267",
-        "lat": 36.3884,
-        "lng": 127.3713
+        "address": "대전 유성구 가정로 267"
       }
     ],
     "ncs": [
@@ -7811,8 +6849,6 @@ const ORGS = [
     "region": "충청권",
     "industry": "산업·R&D",
     "address": "대전 유성구 과학로 169-84",
-    "lat": 36.397,
-    "lng": 127.3697,
     "startingSalary": 4100,
     "avgSalary": 9000,
     "avgYears": 13.5,
@@ -7834,15 +6870,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (대전)",
-        "address": "대전 유성구 과학로 169-84",
-        "lat": 36.397,
-        "lng": 127.3697
+        "address": "대전 유성구 과학로 169-84"
       },
       {
         "name": "나로우주센터",
-        "address": "전남 고흥군 봉래면 하반로 1207",
-        "lat": 34.431,
-        "lng": 127.5345
+        "address": "전남 고흥군 봉래면 하반로 1207"
       }
     ],
     "ncs": [
@@ -7864,11 +6896,9 @@ const ORGS = [
     "region": "충청권",
     "industry": "에너지",
     "address": "대전 유성구 대덕대로 989번길 111",
-    "lat": 36.3936,
-    "lng": 127.364,
     "startingSalary": 4100,
     "avgSalary": 9100,
-    "avgYears": 14.0,
+    "avgYears": 14,
     "homepage": "https://www.kaeri.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국원자력연구원",
     "description": "원자력 R&D를 담당하는 출연연구기관. SMR·연구로·핵연료 핵심.",
@@ -7887,15 +6917,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (대전)",
-        "address": "대전 유성구 대덕대로 989번길 111",
-        "lat": 36.3936,
-        "lng": 127.364
+        "address": "대전 유성구 대덕대로 989번길 111"
       },
       {
         "name": "양성자가속기연구센터",
-        "address": "경북 경주시 양북면 동해안로 181-66",
-        "lat": 35.746,
-        "lng": 129.4865
+        "address": "경북 경주시 양북면 동해안로 181-66"
       }
     ],
     "ncs": [
@@ -7917,8 +6943,6 @@ const ORGS = [
     "region": "충청권",
     "industry": "복지·보건",
     "address": "세종 시청대로 370",
-    "lat": 36.5045,
-    "lng": 127.2625,
     "startingSalary": 3700,
     "avgSalary": 7300,
     "avgYears": 11.5,
@@ -7939,9 +6963,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (세종)",
-        "address": "세종 시청대로 370",
-        "lat": 36.5045,
-        "lng": 127.2625
+        "address": "세종 시청대로 370"
       }
     ],
     "ncs": [
@@ -7963,11 +6985,9 @@ const ORGS = [
     "region": "충청권",
     "industry": "복지·보건",
     "address": "대전 유성구 유성대로 1672",
-    "lat": 36.37,
-    "lng": 127.352,
     "startingSalary": 3950,
     "avgSalary": 8000,
-    "avgYears": 12.0,
+    "avgYears": 12,
     "homepage": "https://www.kiom.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국한의학연구원",
     "description": "한의학·한약 R&D를 담당하는 출연연구기관.",
@@ -7986,9 +7006,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (대전)",
-        "address": "대전 유성구 유성대로 1672",
-        "lat": 36.37,
-        "lng": 127.352
+        "address": "대전 유성구 유성대로 1672"
       }
     ],
     "ncs": [
@@ -8010,11 +7028,9 @@ const ORGS = [
     "region": "충청권",
     "industry": "복지·보건",
     "address": "대전 유성구 과학로 125",
-    "lat": 36.385,
-    "lng": 127.368,
     "startingSalary": 4050,
     "avgSalary": 8700,
-    "avgYears": 13.0,
+    "avgYears": 13,
     "homepage": "https://www.kribb.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국생명공학연구원",
     "description": "생명공학 R&D를 담당하는 출연연구기관. 신약·바이오 핵심.",
@@ -8033,15 +7049,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (대전)",
-        "address": "대전 유성구 과학로 125",
-        "lat": 36.385,
-        "lng": 127.368
+        "address": "대전 유성구 과학로 125"
       },
       {
         "name": "오창분원",
-        "address": "충북 청주시 청원구 오창읍 양청4길 30",
-        "lat": 36.7235,
-        "lng": 127.453
+        "address": "충북 청주시 청원구 오창읍 양청4길 30"
       }
     ],
     "ncs": [
@@ -8063,8 +7075,6 @@ const ORGS = [
     "region": "수도권",
     "industry": "복지·보건",
     "address": "서울 중구 퇴계로 173",
-    "lat": 37.5615,
-    "lng": 126.9925,
     "startingSalary": 3700,
     "avgSalary": 7100,
     "avgYears": 9.5,
@@ -8085,9 +7095,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (서울)",
-        "address": "서울 중구 퇴계로 173",
-        "lat": 37.5615,
-        "lng": 126.9925
+        "address": "서울 중구 퇴계로 173"
       }
     ],
     "ncs": [
@@ -8109,11 +7117,9 @@ const ORGS = [
     "region": "충청권",
     "industry": "복지·보건",
     "address": "충북 청주시 흥덕구 오송읍 오송생명2로 187",
-    "lat": 36.6228,
-    "lng": 127.335,
     "startingSalary": 3800,
     "avgSalary": 7400,
-    "avgYears": 11.0,
+    "avgYears": 11,
     "homepage": "https://www.khidi.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국보건산업진흥원",
     "description": "보건산업 육성과 해외 진출을 담당하는 기타공공기관.",
@@ -8131,15 +7137,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (오송)",
-        "address": "충북 청주시 흥덕구 오송읍 오송생명2로 187",
-        "lat": 36.6228,
-        "lng": 127.335
+        "address": "충북 청주시 흥덕구 오송읍 오송생명2로 187"
       },
       {
         "name": "서울사무소",
-        "address": "서울 중구 청계천로 100",
-        "lat": 37.5705,
-        "lng": 126.981
+        "address": "서울 중구 청계천로 100"
       }
     ],
     "ncs": [
@@ -8161,11 +7163,9 @@ const ORGS = [
     "region": "수도권",
     "industry": "복지·보건",
     "address": "서울 중구 무교로 6",
-    "lat": 37.5663,
-    "lng": 126.9788,
     "startingSalary": 3500,
     "avgSalary": 6200,
-    "avgYears": 7.0,
+    "avgYears": 7,
     "homepage": "https://www.kfsp.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국생명존중희망재단",
     "description": "2025년 신규 지정 기타공공기관. 자살예방·생명존중 사업 담당.",
@@ -8183,9 +7183,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (서울)",
-        "address": "서울 중구 무교로 6",
-        "lat": 37.5663,
-        "lng": 126.9788
+        "address": "서울 중구 무교로 6"
       }
     ],
     "ncs": [
@@ -8206,11 +7204,9 @@ const ORGS = [
     "region": "충청권",
     "industry": "환경·농림",
     "address": "세종 시청대로 370",
-    "lat": 36.505,
-    "lng": 127.263,
     "startingSalary": 3700,
     "avgSalary": 7300,
-    "avgYears": 11.0,
+    "avgYears": 11,
     "homepage": "https://www.kei.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국환경연구원",
     "description": "환경정책 연구를 담당하는 기타공공기관.",
@@ -8228,9 +7224,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (세종)",
-        "address": "세종 시청대로 370",
-        "lat": 36.505,
-        "lng": 127.263
+        "address": "세종 시청대로 370"
       }
     ],
     "ncs": [
@@ -8252,11 +7246,9 @@ const ORGS = [
     "region": "전라권",
     "industry": "환경·농림",
     "address": "전남 나주시 빛가람로 601",
-    "lat": 35.0152,
-    "lng": 126.7898,
     "startingSalary": 3750,
     "avgSalary": 7400,
-    "avgYears": 12.0,
+    "avgYears": 12,
     "homepage": "https://www.krei.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국농촌경제연구원",
     "description": "농업·농촌·식품 정책 연구를 담당하는 기타공공기관.",
@@ -8274,9 +7266,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (나주)",
-        "address": "전남 나주시 빛가람로 601",
-        "lat": 35.0152,
-        "lng": 126.7898
+        "address": "전남 나주시 빛가람로 601"
       }
     ],
     "ncs": [
@@ -8298,11 +7288,9 @@ const ORGS = [
     "region": "충청권",
     "industry": "환경·농림",
     "address": "세종 한누리대로 422",
-    "lat": 36.4815,
-    "lng": 127.2895,
     "startingSalary": 3500,
     "avgSalary": 6200,
-    "avgYears": 7.0,
+    "avgYears": 7,
     "homepage": "https://www.lemi.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=축산환경관리원",
     "description": "축산환경(악취·분뇨) 관리를 담당하는 기타공공기관.",
@@ -8320,9 +7308,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (세종)",
-        "address": "세종 한누리대로 422",
-        "lat": 36.4815,
-        "lng": 127.2895
+        "address": "세종 한누리대로 422"
       }
     ],
     "ncs": [
@@ -8344,8 +7330,6 @@ const ORGS = [
     "region": "충청권",
     "industry": "환경·농림",
     "address": "충남 서천군 마서면 금강로 1210",
-    "lat": 36.0593,
-    "lng": 126.7237,
     "startingSalary": 3500,
     "avgSalary": 6300,
     "avgYears": 8.5,
@@ -8366,9 +7350,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (서천)",
-        "address": "충남 서천군 마서면 금강로 1210",
-        "lat": 36.0593,
-        "lng": 126.7237
+        "address": "충남 서천군 마서면 금강로 1210"
       }
     ],
     "ncs": [
@@ -8390,11 +7372,9 @@ const ORGS = [
     "region": "수도권",
     "industry": "환경·농림",
     "address": "인천 서구 거첨도로 61",
-    "lat": 37.574,
-    "lng": 126.6065,
     "startingSalary": 4100,
     "avgSalary": 8200,
-    "avgYears": 14.0,
+    "avgYears": 14,
     "homepage": "https://www.slc.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=수도권매립지관리공사",
     "description": "수도권 폐기물 매립지 운영을 담당하는 기타공공기관.",
@@ -8412,9 +7392,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (인천)",
-        "address": "인천 서구 거첨도로 61",
-        "lat": 37.574,
-        "lng": 126.6065
+        "address": "인천 서구 거첨도로 61"
       }
     ],
     "ncs": [
@@ -8436,11 +7414,9 @@ const ORGS = [
     "region": "충청권",
     "industry": "교육·문화",
     "address": "충남 천안시 동남구 병천면 충절로 1600",
-    "lat": 36.767,
-    "lng": 127.2845,
     "startingSalary": 3800,
     "avgSalary": 7500,
-    "avgYears": 13.0,
+    "avgYears": 13,
     "homepage": "https://www.koreatech.ac.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국기술교육대학교",
     "description": "산업기술 인력 양성을 위해 설립된 국립 특수대학.",
@@ -8458,9 +7434,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본교 (천안)",
-        "address": "충남 천안시 동남구 병천면 충절로 1600",
-        "lat": 36.767,
-        "lng": 127.2845
+        "address": "충남 천안시 동남구 병천면 충절로 1600"
       }
     ],
     "ncs": [
@@ -8482,8 +7456,6 @@ const ORGS = [
     "region": "충청권",
     "industry": "교육·문화",
     "address": "충북 청주시 청원구 정북동 235-3",
-    "lat": 36.6635,
-    "lng": 127.4485,
     "startingSalary": 3550,
     "avgSalary": 6400,
     "avgYears": 9.5,
@@ -8503,9 +7475,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (청주)",
-        "address": "충북 청주시 청원구 정북동 235-3",
-        "lat": 36.6635,
-        "lng": 127.4485
+        "address": "충북 청주시 청원구 정북동 235-3"
       }
     ],
     "ncs": [
@@ -8526,11 +7496,9 @@ const ORGS = [
     "region": "충청권",
     "industry": "행정·고용",
     "address": "세종 시청대로 370",
-    "lat": 36.5048,
-    "lng": 127.2628,
     "startingSalary": 3750,
     "avgSalary": 7400,
-    "avgYears": 11.0,
+    "avgYears": 11,
     "homepage": "https://www.kli.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국노동연구원",
     "description": "노동·고용 분야 정책 연구를 담당하는 기타공공기관.",
@@ -8547,9 +7515,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (세종)",
-        "address": "세종 시청대로 370",
-        "lat": 36.5048,
-        "lng": 127.2628
+        "address": "세종 시청대로 370"
       }
     ],
     "ncs": [
@@ -8571,11 +7537,9 @@ const ORGS = [
     "region": "수도권",
     "industry": "행정·고용",
     "address": "경기 성남시 분당구 황새울로 360번길 42",
-    "lat": 37.387,
-    "lng": 127.123,
     "startingSalary": 3550,
     "avgSalary": 6500,
-    "avgYears": 9.0,
+    "avgYears": 9,
     "homepage": "https://www.socialenterprise.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국사회적기업진흥원",
     "description": "사회적기업·협동조합 육성을 담당하는 기타공공기관.",
@@ -8592,9 +7556,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (성남)",
-        "address": "경기 성남시 분당구 황새울로 360번길 42",
-        "lat": 37.387,
-        "lng": 127.123
+        "address": "경기 성남시 분당구 황새울로 360번길 42"
       }
     ],
     "ncs": [
@@ -8615,8 +7577,6 @@ const ORGS = [
     "region": "수도권",
     "industry": "행정·고용",
     "address": "서울 중구 마른내로 140",
-    "lat": 37.564,
-    "lng": 126.993,
     "startingSalary": 3700,
     "avgSalary": 7000,
     "avgYears": 10.5,
@@ -8636,9 +7596,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (서울)",
-        "address": "서울 중구 마른내로 140",
-        "lat": 37.564,
-        "lng": 126.993
+        "address": "서울 중구 마른내로 140"
       }
     ],
     "ncs": [
@@ -8660,8 +7618,6 @@ const ORGS = [
     "region": "수도권",
     "industry": "산업·R&D",
     "address": "경기 성남시 분당구 양현로 322",
-    "lat": 37.4032,
-    "lng": 127.0992,
     "startingSalary": 3700,
     "avgSalary": 7000,
     "avgYears": 10.5,
@@ -8682,9 +7638,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (성남)",
-        "address": "경기 성남시 분당구 양현로 322",
-        "lat": 37.4032,
-        "lng": 127.0992
+        "address": "경기 성남시 분당구 양현로 322"
       }
     ],
     "ncs": [
@@ -8706,11 +7660,9 @@ const ORGS = [
     "region": "충청권",
     "industry": "환경·농림",
     "address": "충북 청주시 흥덕구 오송읍 오송생명로 175",
-    "lat": 36.616,
-    "lng": 127.336,
     "startingSalary": 3650,
     "avgSalary": 6700,
-    "avgYears": 10.0,
+    "avgYears": 10,
     "homepage": "https://www.haccp.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국식품안전관리인증원",
     "description": "식품·축산물 HACCP 인증을 담당하는 기타공공기관.",
@@ -8727,15 +7679,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (오송)",
-        "address": "충북 청주시 흥덕구 오송읍 오송생명로 175",
-        "lat": 36.616,
-        "lng": 127.336
+        "address": "충북 청주시 흥덕구 오송읍 오송생명로 175"
       },
       {
         "name": "수도지원",
-        "address": "서울 마포구 양화로 45",
-        "lat": 37.5567,
-        "lng": 126.9135
+        "address": "서울 마포구 양화로 45"
       }
     ],
     "ncs": [
@@ -8757,8 +7705,6 @@ const ORGS = [
     "region": "전라권",
     "industry": "환경·농림",
     "address": "전북 익산시 함열읍 익산대로 727",
-    "lat": 36.0925,
-    "lng": 126.956,
     "startingSalary": 3550,
     "avgSalary": 6400,
     "avgYears": 7.5,
@@ -8779,9 +7725,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (익산)",
-        "address": "전북 익산시 함열읍 익산대로 727",
-        "lat": 36.0925,
-        "lng": 126.956
+        "address": "전북 익산시 함열읍 익산대로 727"
       }
     ],
     "ncs": [
@@ -8803,8 +7747,6 @@ const ORGS = [
     "region": "충청권",
     "industry": "IT·통신",
     "address": "대전 유성구 화암동 58-4",
-    "lat": 36.3855,
-    "lng": 127.3661,
     "startingSalary": 4000,
     "avgSalary": 8000,
     "avgYears": 10.5,
@@ -8825,15 +7767,11 @@ const ORGS = [
     "branches": [
       {
         "name": "본원 (대전)",
-        "address": "대전 유성구 화암동 58-4",
-        "lat": 36.3855,
-        "lng": 127.3661
+        "address": "대전 유성구 화암동 58-4"
       },
       {
         "name": "서울사무소",
-        "address": "서울 송파구 중대로 135",
-        "lat": 37.501,
-        "lng": 127.124
+        "address": "서울 송파구 중대로 135"
       }
     ],
     "ncs": [
@@ -8855,8 +7793,6 @@ const ORGS = [
     "region": "충청권",
     "industry": "SOC·건설",
     "address": "대전 동구 중앙로 242",
-    "lat": 36.332,
-    "lng": 127.4344,
     "startingSalary": 4150,
     "avgSalary": 8400,
     "avgYears": 14.5,
@@ -8877,21 +7813,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (대전)",
-        "address": "대전 동구 중앙로 242",
-        "lat": 36.332,
-        "lng": 127.4344
+        "address": "대전 동구 중앙로 242"
       },
       {
         "name": "수도권본부",
-        "address": "서울 용산구 청파로 297",
-        "lat": 37.544,
-        "lng": 126.969
+        "address": "서울 용산구 청파로 297"
       },
       {
         "name": "영남본부",
-        "address": "경북 김천시 혁신6로 17",
-        "lat": 36.1245,
-        "lng": 128.175
+        "address": "경북 김천시 혁신6로 17"
       }
     ],
     "ncs": [
@@ -8913,8 +7843,6 @@ const ORGS = [
     "region": "전라권",
     "industry": "에너지",
     "address": "전남 나주시 빛가람로 326",
-    "lat": 35.021,
-    "lng": 126.7902,
     "startingSalary": 4350,
     "avgSalary": 9200,
     "avgYears": 14.5,
@@ -8936,21 +7864,15 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (나주)",
-        "address": "전남 나주시 빛가람로 326",
-        "lat": 35.021,
-        "lng": 126.7902
+        "address": "전남 나주시 빛가람로 326"
       },
       {
         "name": "중앙급전소",
-        "address": "전남 나주시 빛가람로 326",
-        "lat": 35.021,
-        "lng": 126.7902
+        "address": "전남 나주시 빛가람로 326"
       },
       {
         "name": "서울지사",
-        "address": "서울 강남구 영동대로 511",
-        "lat": 37.511,
-        "lng": 127.0595
+        "address": "서울 강남구 영동대로 511"
       }
     ],
     "ncs": [
@@ -8974,8 +7896,6 @@ const ORGS = [
     "region": "수도권",
     "industry": "금융",
     "address": "서울 서초구 효령로 304",
-    "lat": 37.4854,
-    "lng": 127.0144,
     "startingSalary": 4000,
     "avgSalary": 7800,
     "avgYears": 11.5,
@@ -8996,9 +7916,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본부 (서울)",
-        "address": "서울 서초구 효령로 304",
-        "lat": 37.4854,
-        "lng": 127.0144
+        "address": "서울 서초구 효령로 304"
       }
     ],
     "ncs": [

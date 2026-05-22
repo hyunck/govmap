@@ -1680,6 +1680,7 @@
             govSelectedId: null,            // 사이드바에서 선택된 부처 ID (null이면 전체 표시)
             govMarkers: {},                 // { govId: { hq: marker, branches: [markers] } }
             govAllMarkers: [],
+            orgGeocoded: false,             // 공기업 좌표 변환 완료 여부
             govGeocoded: false,            // 정부기관 좌표 변환 완료 여부
             govClusterer: null,            // 정부기관 전용 클러스터러
 
@@ -1801,32 +1802,56 @@
         }
 
         async function geocodeAll() {
-            // 공기업은 data-orgs.js의 lat/lng를 그대로 사용 (geocoding 없음)
-            // lat/lng가 없는 항목만 예외적으로 geocoding 처리
-            const missing = [];
+            if (state.orgGeocoded) return;
+            const CACHE_KEY = 'org_geocode_v1_places';
+            let cache = {};
+            try {
+                const raw = localStorage.getItem(CACHE_KEY);
+                if (raw) cache = JSON.parse(raw);
+            } catch (e) { cache = {}; }
+
+            const tasks = [];
             ORGS.forEach(org => {
-                if (!org.lat || !org.lng) missing.push({ target: org, org: org, isHQ: true });
+                // lat/lng가 data-orgs.js에 직접 지정된 항목은 geocoding 제외
+                if (!org.lat || !org.lng) {
+                    tasks.push({ key: `${org.id}_hq_${org.name}`, target: org, org: org, isHQ: true });
+                }
                 (org.branches || []).forEach((br, idx) => {
-                    if (!br.lat || !br.lng) missing.push({ target: br, org: org, isHQ: false });
+                    if (!br.lat || !br.lng) {
+                        tasks.push({ key: `${org.id}_br${idx}_${br.name}`, target: br, org: org, isHQ: false });
+                    }
                 });
             });
 
-            if (missing.length === 0) {
-                console.log(`✅ 공기업 좌표 모두 data-orgs.js에서 직접 로드 (geocoding 없음)`);
+            // 캐시 적용
+            tasks.forEach(t => {
+                if (cache[t.key]) {
+                    t.target.lat = cache[t.key].lat;
+                    t.target.lng = cache[t.key].lng;
+                }
+            });
+
+            const todo = tasks.filter(t => !cache[t.key]);
+            const total = tasks.length;
+            const cached = tasks.length - todo.length;
+
+            if (todo.length === 0) {
+                console.log(`✅ 공기업 좌표 ${cached}개 모두 캐시에서 로드`);
+                state.orgGeocoded = true;
                 return;
             }
 
-            // 좌표 없는 항목만 geocoding
-            console.warn(`⚠️ 좌표 없는 항목 ${missing.length}개 geocoding 시도:`, missing.map(t => t.target.name || t.org.name));
+            // UI 상태
             const statusEl = document.getElementById('geocodeStatus');
-            const progressEl = document.getElementById('geocodeProgress');
             statusEl.classList.add('show');
-            progressEl.textContent = `좌표 없는 항목 ${missing.length}개 변환중...`;
+            statusEl.querySelector('span:first-child').innerHTML = '공기업 위치 검색 중... <span class="progress org-progress"></span>';
+            const newProg = statusEl.querySelector('.org-progress');
+            newProg.textContent = `${cached}/${total}`;
 
             const CHUNK = 5;
             let done = 0;
-            for (let i = 0; i < missing.length; i += CHUNK) {
-                const batch = missing.slice(i, i + CHUNK);
+            for (let i = 0; i < todo.length; i += CHUNK) {
+                const batch = todo.slice(i, i + CHUNK);
                 await Promise.all(batch.map(async t => {
                     const result = t.isHQ
                         ? await geocodeHQ(t.org)
@@ -1834,17 +1859,25 @@
                     if (result) {
                         t.target.lat = result.lat;
                         t.target.lng = result.lng;
+                        cache[t.key] = { lat: result.lat, lng: result.lng, via: result.via };
                     }
                     done++;
-                    progressEl.textContent = `변환중 ${done}/${missing.length}`;
+                    newProg.textContent = `${cached + done}/${total}`;
                 }));
-                if (i + CHUNK < missing.length) {
+                if (i + CHUNK < todo.length) {
                     await new Promise(r => setTimeout(r, 80));
                 }
             }
 
+            try {
+                localStorage.setItem(CACHE_KEY, JSON.stringify(cache));
+            } catch (e) {
+                console.warn('공기업 캐시 저장 실패:', e);
+            }
+
             setTimeout(() => statusEl.classList.remove('show'), 500);
-            console.log(`✅ 좌표 없는 항목 ${done}개 geocoding 완료`);
+            state.orgGeocoded = true;
+            console.log(`✅ 공기업 좌표 변환 완료: 신규 ${done}, 캐시 ${cached}`);
         }
 
         // ====================================================
