@@ -1,0 +1,3080 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공공기관 지도 탐색</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #03c75a;
+            --primary-dark: #02b350;
+            --headquarter: #2563eb;
+            --branch: #f59e0b;
+            --gov-hq: #7c3aed;          /* 정부기관 본청 (보라) */
+            --gov-branch: #a78bfa;      /* 정부기관 소속/지방청 (연보라) */
+            --gov-accent: #6d28d9;      /* 정부기관 강조 (진보라) */
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --text-tertiary: #9ca3af;
+            --border: #e5e7eb;
+            --bg-light: #f9fafb;
+            --bg-hover: #f3f4f6;
+            --nav-bg: #19191a;
+            --nav-active: #03c75a;
+
+            /* === 좌표/레이아웃 === */
+            --nav-width: 64px;
+            --sidebar-width: 420px;
+            --detail-width: 380px;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
+            background: #fff;
+            color: var(--text-primary);
+            overflow: hidden;
+        }
+
+        /* === 앱 컨테이너: 그리드 레이아웃으로 변경 === */
+        .app-container {
+            display: grid;
+            grid-template-columns: var(--nav-width) var(--sidebar-width) 1fr;
+            grid-template-rows: 100vh;
+            height: 100vh;
+            position: relative;
+            transition: grid-template-columns 0.25s ease;
+        }
+
+        .app-container.sidebar-collapsed {
+            grid-template-columns: var(--nav-width) 0 1fr;
+        }
+
+        /* === 네비게이션 바 === */
+        .nav-bar {
+            background: var(--nav-bg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 12px 0;
+            z-index: 200;
+            grid-column: 1;
+        }
+
+        .nav-logo {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 8px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 900;
+            margin-bottom: 16px;
+        }
+
+        .nav-item {
+            width: 100%;
+            padding: 14px 0 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            color: #a3a3a3;
+            transition: all 0.15s ease;
+            position: relative;
+            border: none;
+            background: none;
+            font-family: inherit;
+        }
+
+        .nav-item:hover { color: #fff; }
+
+        .nav-item.active { color: var(--nav-active); }
+
+        .nav-item.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 32px;
+            background: var(--nav-active);
+            border-radius: 0 2px 2px 0;
+        }
+
+        .nav-item .icon { font-size: 22px; line-height: 1; }
+        .nav-item .label { font-size: 10px; font-weight: 600; }
+
+        /* === 사이드바 === */
+        .sidebar {
+            background: #fff;
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+            grid-column: 2;
+            transition: opacity 0.2s ease;
+        }
+
+        .app-container.sidebar-collapsed .sidebar {
+            opacity: 0;
+            pointer-events: none;
+            border-right: none;
+            box-shadow: none;
+        }
+
+        .sidebar-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+            min-width: var(--sidebar-width);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .logo-area .logo-icon { font-size: 22px; }
+
+        .logo-area .logo-text {
+            font-size: 16px;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+        }
+
+        .logo-area .logo-text span { color: var(--primary); }
+
+        .search-box {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 11px 14px 11px 40px;
+            border: 2px solid var(--text-primary);
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .search-box .search-icon {
+            position: absolute;
+            left: 14px;
+            color: var(--text-secondary);
+            pointer-events: none;
+        }
+
+        .search-box .clear-btn {
+            position: absolute;
+            right: 12px;
+            background: none;
+            border: none;
+            color: var(--text-tertiary);
+            cursor: pointer;
+            font-size: 16px;
+            display: none;
+        }
+
+        .search-box .clear-btn.visible { display: block; }
+
+        /* 필터 */
+        .filters {
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-light);
+            min-width: var(--sidebar-width);
+        }
+
+        .filter-group { margin-bottom: 12px; }
+        .filter-group:last-child { margin-bottom: 0; }
+
+        .filter-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }
+
+        .filter-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .filter-chip {
+            padding: 5px 10px;
+            border: 1px solid var(--border);
+            background: #fff;
+            border-radius: 20px;
+            font-size: 11px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.15s ease;
+            font-family: inherit;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .filter-chip:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .filter-chip.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .results-area {
+            flex: 1;
+            overflow-y: auto;
+            background: #fff;
+            min-width: var(--sidebar-width);
+        }
+
+        .results-header {
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            background: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+        }
+
+        .results-count { font-size: 13px; color: var(--text-secondary); }
+        .results-count strong { color: var(--primary); font-weight: 700; }
+
+        .reset-btn {
+            font-size: 12px;
+            color: var(--text-secondary);
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-decoration: underline;
+            font-family: inherit;
+        }
+
+        .org-list { list-style: none; }
+
+        .org-card {
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            display: flex;
+            gap: 12px;
+            transition: background 0.15s ease;
+        }
+
+        .org-card:hover { background: var(--bg-light); }
+
+        .org-card-logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 11px;
+            color: #fff;
+            flex-shrink: 0;
+            text-align: center;
+            line-height: 1.15;
+            padding: 4px;
+        }
+
+        .org-card-info { flex: 1; min-width: 0; }
+
+        .org-card-name {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .org-card-meta {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 4px;
+            flex-wrap: wrap;
+        }
+
+        .org-tag {
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .org-tag.공기업 { background: #dbeafe; color: #1e40af; }
+        .org-tag.준정부 { background: #fef3c7; color: #92400e; }
+        .org-tag.기타공공기관 { background: #e0e7ff; color: #4338ca; }
+        .org-tag.비공공기관 { background: #fee2e2; color: #991b1b; }
+
+        .org-tag.region {
+            background: var(--bg-light);
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+        }
+
+        .org-tag.industry {
+            background: #f0fdf4;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+        }
+
+        .org-card-address {
+            font-size: 12px;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .org-card-salary {
+            font-size: 12px;
+            color: var(--primary);
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .no-results {
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--text-tertiary);
+            font-size: 14px;
+        }
+
+        /* === 상세 패널 === */
+        .detail-panel {
+            position: absolute;
+            top: 0;
+            left: calc(var(--nav-width) + var(--sidebar-width));
+            width: var(--detail-width);
+            height: 100vh;
+            background: #fff;
+            border-right: 1px solid var(--border);
+            z-index: 90;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 4px 0 12px rgba(0, 0, 0, 0.08);
+            transform: translateX(-100%);
+            opacity: 0;
+            transition: transform 0.25s ease, opacity 0.25s ease, left 0.25s ease;
+            overflow: hidden;
+        }
+
+        .app-container.sidebar-collapsed .detail-panel {
+            left: var(--nav-width);
+        }
+
+        .detail-panel.open {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .detail-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-image {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .detail-header { padding: 16px 20px 12px; border-bottom: 1px solid var(--border); }
+
+        .detail-title {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .detail-subtitle {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .detail-actions {
+            display: flex;
+            gap: 8px;
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+            cursor: pointer;
+            font-family: inherit;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .action-btn:hover { background: var(--bg-light); }
+        .action-btn.primary { background: var(--primary); border-color: var(--primary); color: #fff; }
+        .action-btn.primary:hover { background: var(--primary-dark); }
+
+        .detail-tabs { display: flex; border-bottom: 1px solid var(--border); }
+
+        .tab-btn {
+            flex: 1;
+            padding: 12px 8px;
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-family: inherit;
+        }
+
+        .tab-btn.active {
+            color: var(--text-primary);
+            border-bottom-color: var(--text-primary);
+        }
+
+        .tab-content { flex: 1; overflow-y: auto; padding: 16px 20px 24px; }
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; }
+
+        .info-section { margin-bottom: 20px; }
+
+        .info-section h3 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .info-section p { font-size: 14px; line-height: 1.6; }
+
+        .info-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+
+        .info-row .icon { color: var(--text-tertiary); flex-shrink: 0; margin-top: 2px; }
+        .info-row a { color: var(--primary); text-decoration: none; }
+
+        .bullet-list { list-style: none; }
+
+        .bullet-list li {
+            font-size: 13px;
+            line-height: 1.7;
+            padding-left: 14px;
+            position: relative;
+        }
+
+        .bullet-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .salary-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .salary-card {
+            padding: 14px;
+            background: var(--bg-light);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .salary-card.highlight {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border-color: #6ee7b7;
+        }
+
+        .salary-label { font-size: 11px; color: var(--text-secondary); font-weight: 600; margin-bottom: 4px; }
+        .salary-value { font-size: 20px; font-weight: 800; }
+        .salary-value .unit { font-size: 12px; color: var(--text-secondary); margin-left: 2px; }
+
+        .salary-context {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            padding: 10px 12px;
+            background: #fef3c7;
+            border-radius: 6px;
+            border-left: 3px solid #f59e0b;
+        }
+
+        .branch-list { list-style: none; }
+
+        .branch-item {
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            margin-bottom: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .branch-item:hover { background: var(--bg-light); border-color: var(--branch); }
+
+        .branch-marker {
+            width: 8px;
+            height: 8px;
+            background: var(--branch);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .branch-marker.headquarter { background: var(--headquarter); }
+
+        .branch-info { flex: 1; min-width: 0; }
+        .branch-name { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
+        .branch-address { font-size: 11px; color: var(--text-secondary); }
+
+        .subject-section { margin-bottom: 12px; }
+        .subject-section h4 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+        .subject-section p { font-size: 13px; padding: 8px 12px; background: var(--bg-light); border-radius: 6px; line-height: 1.5; }
+
+        .ncs-list { display: flex; flex-wrap: wrap; gap: 6px; }
+
+        .ncs-tag {
+            font-size: 12px;
+            padding: 4px 10px;
+            background: #eff6ff;
+            color: #1e40af;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        /* === 지도 영역 === */
+        .map-area {
+            position: relative;
+            grid-column: 3;
+        }
+
+        #map {
+            width: 100%;
+            height: 100vh;
+        }
+
+        /* 사이드바 토글 버튼 — 지도 영역의 왼쪽 가장자리에 부착 */
+        .sidebar-toggle {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 60px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-left: none;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--text-secondary);
+            z-index: 50;
+            box-shadow: 2px 0 4px rgba(0, 0, 0, 0.08);
+        }
+
+        /* 범례 — 지도 영역 안에 있으므로 사이드바와 상관없이 항상 같은 위치 */
+        .map-legend {
+            position: absolute;
+            bottom: 24px;
+            right: 24px;
+            background: rgba(255, 255, 255, 0.96);
+            padding: 12px 14px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+            font-size: 12px;
+            z-index: 40;
+            border: 1px solid var(--border);
+            min-width: 200px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
+        .legend-item:last-child { margin-bottom: 0; }
+
+        .legend-marker {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .legend-marker.hq {
+            background: var(--headquarter);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.3);
+        }
+
+        .legend-marker.br {
+            background: var(--branch);
+            box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.3);
+        }
+
+        .legend-text {
+            flex: 1;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* 토글 스위치 (레이어 켜기/끄기) */
+        .legend-toggle {
+            position: relative;
+            width: 32px;
+            height: 18px;
+            background: #d1d5db;
+            border-radius: 9px;
+            cursor: pointer;
+            transition: background 0.2s;
+            flex-shrink: 0;
+            border: none;
+            padding: 0;
+        }
+        .legend-toggle::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 14px;
+            height: 14px;
+            background: #fff;
+            border-radius: 50%;
+            transition: transform 0.2s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .legend-toggle.on { background: var(--gov-accent); }
+        .legend-toggle.on::after { transform: translateX(14px); }
+        .legend-toggle.layer-hq.on { background: var(--gov-hq); }
+        .legend-toggle.layer-br.on { background: var(--gov-branch); }
+
+        /* 레이어 꺼졌을 때 텍스트/마커 흐리게 */
+        .legend-item.off .legend-marker,
+        .legend-item.off .legend-text {
+            opacity: 0.35;
+        }
+
+        .map-info-bubble { padding: 10px 14px; min-width: 180px; }
+        .map-info-bubble .info-name { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+        .map-info-bubble .info-type { font-size: 11px; color: var(--text-secondary); }
+
+        /* === 좌표 변환 로딩 인디케이터 === */
+        .geocode-status {
+            position: fixed;
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px 16px;
+            font-size: 13px;
+            color: var(--text-primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 300;
+            display: none;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .geocode-status.show { display: flex; }
+
+        .geocode-status .spinner {
+            width: 16px;
+            height: 16px;
+            border: 2px solid var(--border);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .geocode-status .progress {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* ============================================
+           정부기관 탭 전용 스타일
+           ============================================ */
+        /* 사이드바 전환: nav 탭 모드에 따라 표시 */
+        .sidebar-mode-government .sidebar-company { display: none; }
+        .sidebar-mode-government .sidebar-government { display: flex; }
+        .sidebar-company { display: flex; flex-direction: column; height: 100%; }
+        .sidebar-government { display: none; flex-direction: column; height: 100%; }
+
+        /* 정부기관 사이드바 헤더 */
+        .gov-sidebar-header {
+            padding: 18px 18px 12px;
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+        }
+        .gov-sidebar-header .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+        .gov-sidebar-header .logo-icon { font-size: 22px; }
+        .gov-sidebar-header .logo-text {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+        .gov-sidebar-header .logo-text span { color: var(--gov-accent); }
+        .gov-search-box {
+            position: relative;
+        }
+        .gov-search-box input {
+            width: 100%;
+            padding: 11px 38px 11px 38px;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 14px;
+            background: #fff;
+            transition: border-color 0.15s;
+        }
+        .gov-search-box input:focus {
+            outline: none;
+            border-color: var(--gov-accent);
+        }
+        .gov-search-box .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 15px;
+            color: var(--text-tertiary);
+        }
+        .gov-search-box .clear-btn {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-tertiary);
+            cursor: pointer;
+            font-size: 14px;
+            padding: 4px 8px;
+            display: none;
+        }
+        .gov-search-box .clear-btn.visible { display: block; }
+
+        /* 모드 토글 (부처 선택 / 반경 매칭) */
+        .gov-mode-tabs {
+            display: flex;
+            padding: 12px 16px 0;
+            gap: 6px;
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+        }
+        .gov-mode-tab {
+            flex: 1;
+            padding: 10px 8px;
+            background: var(--bg-light);
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+            border-bottom: none;
+            border-radius: 8px 8px 0 0;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .gov-mode-tab.active {
+            background: #fff;
+            color: var(--gov-accent);
+            border-color: var(--gov-accent);
+            position: relative;
+            z-index: 1;
+            margin-bottom: -1px;
+        }
+        .gov-mode-tab:hover:not(.active) {
+            background: #ede9fe;
+            color: var(--gov-accent);
+        }
+
+        /* 패널 (모드별 본문) */
+        .gov-mode-panel { display: none; flex: 1; overflow-y: auto; padding: 16px; }
+        .gov-mode-panel.active { display: flex; flex-direction: column; }
+
+        /* 카테고리 필터 칩 */
+        .gov-filter-group {
+            margin-bottom: 12px;
+        }
+        .gov-filter-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+            letter-spacing: -0.2px;
+        }
+        .gov-category-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+        .gov-cat-chip {
+            padding: 6px 12px;
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.12s;
+        }
+        .gov-cat-chip:hover { background: #ede9fe; color: var(--gov-accent); }
+        .gov-cat-chip.active {
+            background: var(--gov-accent);
+            color: #fff;
+            border-color: var(--gov-accent);
+        }
+
+        /* 부처 카드 리스트 */
+        .gov-result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 2px 12px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        .gov-result-header strong { color: var(--gov-accent); font-size: 14px; font-weight: 800; }
+        .gov-reset-btn {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            border-radius: 14px;
+            padding: 4px 10px;
+            font-size: 11px;
+            cursor: pointer;
+        }
+        .gov-reset-btn:hover { color: var(--gov-accent); border-color: var(--gov-accent); }
+        .gov-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+        .gov-card {
+            display: flex;
+            gap: 11px;
+            padding: 13px;
+            background: #fff;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .gov-card:hover {
+            border-color: var(--gov-accent);
+            background: #faf5ff;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.08);
+        }
+        .gov-card.selected {
+            border-color: var(--gov-accent);
+            background: #ede9fe;
+            box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.15);
+        }
+        .gov-card-icon {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, #7c3aed, #a78bfa);
+            color: #fff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 800;
+            flex-shrink: 0;
+            text-align: center;
+            line-height: 1.1;
+            padding: 2px;
+        }
+        .gov-card-info { flex: 1; min-width: 0; }
+        .gov-card-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .gov-card-meta {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 4px;
+            flex-wrap: wrap;
+        }
+        .gov-card-tag {
+            font-size: 10px;
+            padding: 2px 7px;
+            border-radius: 8px;
+            font-weight: 600;
+            background: #f3f4f6;
+            color: var(--text-secondary);
+        }
+        .gov-card-tag.rank-min { background: #fef3c7; color: #92400e; }
+        .gov-card-tag.rank-ext { background: #dbeafe; color: #1e40af; }
+        .gov-card-branches {
+            font-size: 11px;
+            color: var(--text-tertiary);
+        }
+        .gov-card-branches strong { color: var(--gov-accent); font-weight: 700; }
+
+        /* 반경 매칭 패널 */
+        .radius-section {
+            margin-bottom: 18px;
+        }
+        .radius-section-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .radius-location-input {
+            position: relative;
+            margin-bottom: 8px;
+        }
+        .radius-location-input input {
+            width: 100%;
+            padding: 11px 38px 11px 14px;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 13px;
+            background: #fff;
+        }
+        .radius-location-input input:focus {
+            outline: none;
+            border-color: var(--gov-accent);
+        }
+        .radius-search-btn {
+            position: absolute;
+            right: 4px;
+            top: 4px;
+            bottom: 4px;
+            padding: 0 12px;
+            background: var(--gov-accent);
+            color: #fff;
+            border: none;
+            border-radius: 7px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .radius-search-btn:hover { background: #5b21b6; }
+
+        .radius-pickmode-btn {
+            width: 100%;
+            padding: 11px;
+            background: #fff;
+            border: 1.5px dashed var(--gov-accent);
+            color: var(--gov-accent);
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .radius-pickmode-btn:hover { background: #faf5ff; }
+        .radius-pickmode-btn.active {
+            background: var(--gov-accent);
+            color: #fff;
+            animation: pulsing 1.5s ease-in-out infinite;
+        }
+        @keyframes pulsing {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.5); }
+            50% { box-shadow: 0 0 0 8px rgba(124, 58, 237, 0); }
+        }
+
+        .radius-current-loc {
+            background: #f5f3ff;
+            border: 1px solid #ddd6fe;
+            border-radius: 10px;
+            padding: 11px 12px;
+            font-size: 12px;
+            color: var(--gov-accent);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .radius-current-loc.empty { color: var(--text-tertiary); background: var(--bg-light); border-style: dashed; }
+        .radius-current-loc strong { font-weight: 700; }
+        .radius-current-loc .clear-loc {
+            margin-left: auto;
+            background: none;
+            border: none;
+            color: var(--gov-accent);
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        /* 반경 슬라이더 */
+        .radius-slider-container {
+            background: var(--bg-light);
+            border-radius: 10px;
+            padding: 14px;
+        }
+        .radius-slider-value {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--gov-accent);
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        .radius-slider-value .unit {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-left: 2px;
+        }
+        input[type=range].radius-slider {
+            width: 100%;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 4px;
+            background: var(--border);
+            border-radius: 2px;
+            outline: none;
+        }
+        input[type=range].radius-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            background: var(--gov-accent);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+        }
+        input[type=range].radius-slider::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            background: var(--gov-accent);
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+        }
+        .radius-slider-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            color: var(--text-tertiary);
+            margin-top: 6px;
+        }
+
+        /* 반경 매칭 결과 */
+        .radius-results {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+        .radius-results-empty {
+            text-align: center;
+            padding: 32px 16px;
+            color: var(--text-tertiary);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* 지도 클릭 모드 활성 시 커서 변경 */
+        .map-area.pickmode #map {
+            cursor: crosshair !important;
+        }
+        .map-area.pickmode #map * {
+            cursor: crosshair !important;
+        }
+        .pickmode-hint {
+            position: absolute;
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gov-accent);
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+            z-index: 70;
+            display: none;
+            animation: slideDown 0.3s ease;
+        }
+        .map-area.pickmode .pickmode-hint { display: block; }
+        @keyframes slideDown {
+            from { transform: translate(-50%, -20px); opacity: 0; }
+            to { transform: translate(-50%, 0); opacity: 1; }
+        }
+
+        /* 정부기관 상세 패널 색조 */
+        .detail-panel.gov-mode .detail-image {
+            background: linear-gradient(135deg, #7c3aed, #a78bfa);
+        }
+        .detail-panel.gov-mode .tab-btn.active {
+            color: var(--gov-accent);
+            border-bottom-color: var(--gov-accent);
+        }
+        .detail-panel.gov-mode .action-btn.primary {
+            background: var(--gov-accent);
+        }
+        .detail-panel.gov-mode .action-btn.primary:hover {
+            background: #5b21b6;
+        }
+
+        /* 정부기관 범례 */
+        .legend-marker.gov-hq { background: var(--gov-hq); }
+        .legend-marker.gov-br { background: var(--gov-branch); }
+        .map-legend.gov-mode .legend-default { display: none; }
+        .map-legend.gov-mode .legend-gov { display: flex; }
+        .legend-gov { display: none; flex-direction: column; gap: 4px; }
+
+        /* ============================================
+           소속기관 탭 (allBranches) 스타일
+           ============================================ */
+        .allbranch-group {
+            margin-bottom: 18px;
+        }
+        .allbranch-group:last-child {
+            margin-bottom: 6px;
+        }
+        .allbranch-group-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--gov-accent);
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            padding: 7px 12px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            letter-spacing: -0.2px;
+            border-left: 3px solid var(--gov-accent);
+        }
+        .allbranch-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .allbranch-item {
+            padding: 8px 10px;
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            transition: all 0.12s;
+        }
+        .allbranch-item.mappable {
+            background: #fff;
+            border-color: #ddd6fe;
+            cursor: pointer;
+        }
+        .allbranch-item.mappable:hover {
+            background: #faf5ff;
+            border-color: var(--gov-accent);
+            transform: translateX(2px);
+        }
+        .allbranch-name {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.4;
+            margin-bottom: 2px;
+        }
+        .allbranch-item.mappable .allbranch-name {
+            color: var(--gov-accent);
+        }
+        .allbranch-addr {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            line-height: 1.4;
+        }
+
+        /* 준비중 오버레이 */
+        .coming-soon-overlay {
+            position: absolute;
+            top: 0;
+            left: var(--nav-width);
+            right: 0;
+            bottom: 0;
+            background: rgba(249, 250, 251, 0.95);
+            backdrop-filter: blur(2px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 80;
+        }
+
+        .coming-soon-overlay.show { display: flex; }
+
+        .coming-soon-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 48px 40px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+            border: 1px solid var(--border);
+            max-width: 480px;
+        }
+
+        .coming-soon-card .emoji { font-size: 56px; margin-bottom: 16px; }
+        .coming-soon-card h2 { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+        .coming-soon-card .subtitle { font-size: 14px; color: var(--primary); font-weight: 600; margin-bottom: 16px; }
+        .coming-soon-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px; }
+
+        .coming-soon-card .feature-list {
+            text-align: left;
+            background: var(--bg-light);
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        .coming-soon-card .feature-list li {
+            font-size: 13px;
+            line-height: 1.8;
+            list-style: none;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .coming-soon-card .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .coming-soon-card .back-btn {
+            padding: 10px 20px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .results-area::-webkit-scrollbar,
+        .tab-content::-webkit-scrollbar { width: 6px; }
+        .results-area::-webkit-scrollbar-thumb,
+        .tab-content::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <!-- 좌표 변환 진행 상태 -->
+    <div class="geocode-status" id="geocodeStatus">
+        <div class="spinner"></div>
+        <span>기관 위치 정밀 검색 중... <span class="progress" id="geocodeProgress">0/0</span></span>
+    </div>
+
+    <div class="app-container" id="appContainer">
+        <nav class="nav-bar">
+            <div class="nav-logo">🗺️</div>
+            <button class="nav-item active" data-nav="company">
+                <span class="icon">🏢</span>
+                <span class="label">공기업</span>
+            </button>
+            <button class="nav-item" data-nav="government">
+                <span class="icon">🏛️</span>
+                <span class="label">정부기관</span>
+            </button>
+            <button class="nav-item" data-nav="compare">
+                <span class="icon">⚖️</span>
+                <span class="label">공기업비교</span>
+            </button>
+        </nav>
+
+        <aside class="sidebar" id="sidebar">
+            <!-- 공기업 탭 사이드바 (기존) -->
+            <div class="sidebar-company">
+            <div class="sidebar-header">
+                <div class="logo-area">
+                    <span class="logo-icon">🏢</span>
+                    <span class="logo-text">공공기관 <span>지도</span></span>
+                </div>
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="searchInput" placeholder="기관명을 검색해보세요">
+                    <button class="clear-btn" id="clearBtn">✕</button>
+                </div>
+            </div>
+
+            <div class="filters">
+                <div class="filter-group">
+                    <div class="filter-label">🏢 기관 유형</div>
+                    <div class="filter-chips">
+                        <button class="filter-chip active" data-filter-type="orgtype" data-value="전체">전체</button>
+                        <button class="filter-chip" data-filter-type="orgtype" data-value="공기업">공기업</button>
+                        <button class="filter-chip" data-filter-type="orgtype" data-value="준정부">준정부</button>
+                        <button class="filter-chip" data-filter-type="orgtype" data-value="기타공공기관">기타공공기관</button>
+                        <button class="filter-chip" data-filter-type="orgtype" data-value="비공공기관">비공공기관</button>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <div class="filter-label">🏭 산업 분야</div>
+                    <div class="filter-chips">
+                        <button class="filter-chip active" data-filter-type="industry" data-value="전체">전체</button>
+                        <button class="filter-chip" data-filter-type="industry" data-value="금융">금융</button>
+                        <button class="filter-chip" data-filter-type="industry" data-value="에너지">에너지</button>
+                        <button class="filter-chip" data-filter-type="industry" data-value="SOC·건설">SOC·건설</button>
+                        <button class="filter-chip" data-filter-type="industry" data-value="IT·통신">IT·통신</button>
+                        <button class="filter-chip" data-filter-type="industry" data-value="복지·보건">복지·보건</button>
+                        <button class="filter-chip" data-filter-type="industry" data-value="교육·문화">교육·문화</button>
+                        <button class="filter-chip" data-filter-type="industry" data-value="산업·R&D">산업·R&D</button>
+                        <button class="filter-chip" data-filter-type="industry" data-value="환경·농림">환경·농림</button>
+                        <button class="filter-chip" data-filter-type="industry" data-value="행정·고용">행정·고용</button>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <div class="filter-label">📍 지역</div>
+                    <div class="filter-chips">
+                        <button class="filter-chip active" data-filter-type="region" data-value="전체">전체</button>
+                        <button class="filter-chip" data-filter-type="region" data-value="수도권">수도권</button>
+                        <button class="filter-chip" data-filter-type="region" data-value="강원권">강원권</button>
+                        <button class="filter-chip" data-filter-type="region" data-value="충청권">충청권</button>
+                        <button class="filter-chip" data-filter-type="region" data-value="전라권">전라권</button>
+                        <button class="filter-chip" data-filter-type="region" data-value="경상권">경상권</button>
+                        <button class="filter-chip" data-filter-type="region" data-value="제주권">제주권</button>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <div class="filter-label">💰 초봉 (세전)</div>
+                    <div class="filter-chips">
+                        <button class="filter-chip active" data-filter-type="salary" data-value="전체">전체</button>
+                        <button class="filter-chip" data-filter-type="salary" data-value="under3000">3천 이하</button>
+                        <button class="filter-chip" data-filter-type="salary" data-value="3000to4000">3~4천</button>
+                        <button class="filter-chip" data-filter-type="salary" data-value="4000to5000">4~5천</button>
+                        <button class="filter-chip" data-filter-type="salary" data-value="over5000">5천 이상</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-area">
+                <div class="results-header">
+                    <div class="results-count"><strong id="resultCount">0</strong>개 기관</div>
+                    <button class="reset-btn" id="resetBtn">필터 초기화</button>
+                </div>
+                <ul class="org-list" id="orgList"></ul>
+            </div>
+            </div>
+            <!-- /sidebar-company -->
+
+            <!-- 정부기관 탭 사이드바 (신규) -->
+            <div class="sidebar-government">
+                <div class="gov-sidebar-header">
+                    <div class="logo-area">
+                        <span class="logo-icon">🏛️</span>
+                        <span class="logo-text">정부<span>기관</span> 지도</span>
+                    </div>
+                    <div class="gov-search-box">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="govSearchInput" placeholder="부처명·청 이름으로 검색">
+                        <button class="clear-btn" id="govClearBtn">✕</button>
+                    </div>
+                </div>
+
+                <!-- 모드 토글: 부처별 vs 반경 매칭 -->
+                <div class="gov-mode-tabs">
+                    <button class="gov-mode-tab active" data-gov-mode="ministry">🏛️ 부처별 보기</button>
+                    <button class="gov-mode-tab" data-gov-mode="radius">📍 내 연고지 반경</button>
+                </div>
+
+                <!-- 부처별 보기 패널 -->
+                <div class="gov-mode-panel active" id="govPanelMinistry">
+                    <div class="gov-filter-group">
+                        <div class="gov-filter-label">🏛️ 분류</div>
+                        <div class="gov-category-filters" id="govRankFilters">
+                            <button class="gov-cat-chip active" data-gov-rank="전체">전체</button>
+                            <button class="gov-cat-chip" data-gov-rank="부">부 (19)</button>
+                            <button class="gov-cat-chip" data-gov-rank="처">처 (6)</button>
+                            <button class="gov-cat-chip" data-gov-rank="청">청 (18)</button>
+                            <button class="gov-cat-chip" data-gov-rank="위원회">위원회 (6)</button>
+                        </div>
+                    </div>
+                    <div class="gov-filter-group">
+                        <div class="gov-filter-label">📂 분야</div>
+                        <div class="gov-category-filters" id="govCategoryFilters">
+                            <button class="gov-cat-chip active" data-gov-cat="전체">전체</button>
+                            <button class="gov-cat-chip" data-gov-cat="경제·재정">경제·재정</button>
+                            <button class="gov-cat-chip" data-gov-cat="법무·치안">법무·치안</button>
+                            <button class="gov-cat-chip" data-gov-cat="외교·안보">외교·안보</button>
+                            <button class="gov-cat-chip" data-gov-cat="사회·복지">사회·복지</button>
+                            <button class="gov-cat-chip" data-gov-cat="산업·R&D">산업·R&D</button>
+                            <button class="gov-cat-chip" data-gov-cat="산업·자원">산업·자원</button>
+                            <button class="gov-cat-chip" data-gov-cat="SOC·건설">SOC·건설</button>
+                            <button class="gov-cat-chip" data-gov-cat="환경">환경</button>
+                            <button class="gov-cat-chip" data-gov-cat="교육·문화">교육·문화</button>
+                            <button class="gov-cat-chip" data-gov-cat="행정·자치">행정·자치</button>
+                        </div>
+                    </div>
+                    <div class="gov-result-header">
+                        <div><strong id="govResultCount">0</strong>개 부처·청</div>
+                        <button class="gov-reset-btn" id="govResetBtn">초기화</button>
+                    </div>
+                    <ul class="gov-list" id="govList"></ul>
+                </div>
+
+                <!-- 반경 매칭 패널 -->
+                <div class="gov-mode-panel" id="govPanelRadius">
+                    <div class="radius-section">
+                        <div class="radius-section-title">📍 1단계: 기준 위치 선택</div>
+                        <div class="radius-current-loc empty" id="radiusCurrentLoc">
+                            <span>📌</span>
+                            <span id="radiusLocText">아직 위치가 선택되지 않았어요</span>
+                        </div>
+                        <div class="radius-location-input">
+                            <input type="text" id="radiusAddrInput" placeholder="예: 대전 유성구 / 서울 강남역">
+                            <button class="radius-search-btn" id="radiusAddrBtn">검색</button>
+                        </div>
+                        <button class="radius-pickmode-btn" id="radiusPickModeBtn">
+                            🎯 지도에서 직접 클릭하기
+                        </button>
+                    </div>
+
+                    <div class="radius-section">
+                        <div class="radius-section-title">📏 2단계: 반경 설정</div>
+                        <div class="radius-slider-container">
+                            <div class="radius-slider-value">
+                                <span id="radiusValueDisplay">20</span><span class="unit">km</span>
+                            </div>
+                            <input type="range" class="radius-slider" id="radiusSlider" min="5" max="200" step="5" value="20">
+                            <div class="radius-slider-labels">
+                                <span>5km</span>
+                                <span>50km</span>
+                                <span>100km</span>
+                                <span>200km</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="radius-results">
+                        <div class="gov-result-header">
+                            <div><strong id="radiusResultCount">0</strong>개 근무지 매칭</div>
+                            <button class="gov-reset-btn" id="radiusResetBtn">초기화</button>
+                        </div>
+                        <ul class="gov-list" id="radiusList"></ul>
+                        <div class="radius-results-empty" id="radiusEmptyMsg">
+                            위치를 먼저 선택해주세요.<br>
+                            검색창에 주소를 입력하거나<br>지도에서 직접 클릭할 수 있어요.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /sidebar-government -->
+        </aside>
+
+        <aside class="detail-panel" id="detailPanel">
+            <button class="detail-close" id="detailClose">✕</button>
+            <div class="detail-image" id="detailImage"></div>
+            <div class="detail-header">
+                <h2 class="detail-title" id="detailTitle"></h2>
+                <div class="detail-subtitle" id="detailSubtitle"></div>
+            </div>
+            <div class="detail-actions">
+                <a class="action-btn primary" id="actionHomepage" target="_blank">🏠 홈페이지</a>
+                <a class="action-btn" id="actionRecruit" target="_blank">📋 채용공고</a>
+            </div>
+            <div class="detail-tabs">
+                <button class="tab-btn active" data-tab="company">기업정보</button>
+                <button class="tab-btn" data-tab="salary">연봉</button>
+                <button class="tab-btn" data-tab="branches">지사정보</button>
+                <button class="tab-btn" data-tab="exam">시험과목</button>
+            </div>
+            <div class="tab-content">
+                <div class="tab-panel active" id="tabCompany"></div>
+                <div class="tab-panel" id="tabSalary"></div>
+                <div class="tab-panel" id="tabBranches"></div>
+                <div class="tab-panel" id="tabExam"></div>
+            </div>
+        </aside>
+
+        <main class="map-area" id="mapArea">
+            <div id="map"></div>
+            <button class="sidebar-toggle" id="sidebarToggle" title="사이드바 토글">‹</button>
+            <div class="pickmode-hint" id="pickmodeHint">🎯 지도 위 원하는 위치를 클릭해주세요</div>
+            <div class="map-legend" id="mapLegend">
+                <div class="legend-default">
+                    <div class="legend-item">
+                        <span class="legend-marker hq"></span>
+                        <span class="legend-text">본사 (162개)</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-marker br"></span>
+                        <span class="legend-text">지사·지역본부</span>
+                    </div>
+                </div>
+                <div class="legend-gov">
+                    <div class="legend-item" id="legendItemGovHq">
+                        <span class="legend-marker gov-hq"></span>
+                        <span class="legend-text">본청 (부·처·청·위원회)</span>
+                        <button class="legend-toggle layer-hq on" id="toggleGovHq" title="본청 레이어 켜기/끄기" aria-label="본청 레이어 토글"></button>
+                    </div>
+                    <div class="legend-item" id="legendItemGovBr">
+                        <span class="legend-marker gov-br"></span>
+                        <span class="legend-text">소속·지방기관</span>
+                        <button class="legend-toggle layer-br on" id="toggleGovBr" title="소속기관 레이어 켜기/끄기" aria-label="소속기관 레이어 토글"></button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="coming-soon-overlay" id="comingSoonOverlay">
+            <div class="coming-soon-card">
+                <div class="emoji" id="csEmoji">🚧</div>
+                <h2 id="csTitle">준비 중입니다</h2>
+                <div class="subtitle" id="csSubtitle">Coming Soon</div>
+                <p id="csDescription"></p>
+                <ul class="feature-list" id="csFeatures"></ul>
+                <button class="back-btn" id="csBack">공기업 탭으로 돌아가기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ⭐ 카카오 SDK + services 라이브러리 (Geocoder 사용) -->
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=249a95c861f3b32c4cfec56a85bf244f&libraries=clusterer,services&autoload=false"></script>
+    <!-- ⭐ 데이터 파일 분리 (공기업 + 정부기관) -->
+    <script src="data-orgs.js"></script>
+    <script src="data-govs.js"></script>
+
+    <script>
+        function getLogoColor(shortName) {
+            const palette = ['#2563eb','#dc2626','#16a34a','#ea580c','#7c3aed','#0891b2','#c026d3','#65a30d','#0d9488','#db2777','#9333ea','#0284c7','#f59e0b','#e11d48','#4f46e5','#059669','#d97706','#475569','#84cc16','#06b6d4'];
+            let hash = 0;
+            for (let i = 0; i < shortName.length; i++) {
+                hash = ((hash << 5) - hash) + shortName.charCodeAt(i);
+                hash |= 0;
+            }
+            return palette[Math.abs(hash) % palette.length];
+        }
+
+        const state = {
+            currentNav: 'company',
+            currentType: '전체',
+            currentIndustry: '전체',
+            currentRegion: '전체',
+            currentSalary: '전체',
+            searchQuery: '',
+            selectedOrgId: null,
+            markers: {},
+            allMarkers: [],
+            map: null,
+            clusterer: null,
+            currentInfoWindow: null,
+            geocoder: null,
+
+            // === 정부기관 탭 전용 상태 ===
+            govMode: 'ministry',           // 'ministry' | 'radius'
+            govRank: '전체',                // 분류 필터: 부/처/청/위원회/전체
+            govCategory: '전체',            // 분야 필터: 경제·재정/사회·복지/...
+            govSearchQuery: '',
+            govSelectedId: null,            // 사이드바에서 선택된 부처 ID (null이면 전체 표시)
+            govMarkers: {},                 // { govId: { hq: marker, branches: [markers] } }
+            govAllMarkers: [],
+            govGeocoded: false,            // 정부기관 좌표 변환 완료 여부
+            govClusterer: null,            // 정부기관 전용 클러스터러
+
+            // 반경 매칭
+            radiusCenter: null,             // { lat, lng, label }
+            radiusKm: 20,
+            radiusCircle: null,             // 카카오맵 Circle 객체
+            radiusCenterMarker: null,      // 기준점 마커
+            radiusPickMode: false,         // 지도 클릭 대기 모드
+            radiusFilteredBranches: [],     // 매칭된 근무지들 [{org, branch, distance}]
+
+            // 정부기관 레이어 토글 (디폴트: 둘 다 켜짐)
+            govLayerHq: true,               // 본청 레이어 표시 여부
+            govLayerBr: true                // 소속·지방기관 레이어 표시 여부
+        };
+
+        // ====================================================
+        // 카카오 SDK 비동기 로드 후 모든 초기화 진행
+        // ====================================================
+        kakao.maps.load(async function () {
+            state.map = new kakao.maps.Map(document.getElementById('map'), {
+                center: new kakao.maps.LatLng(36.2, 127.9),
+                level: 13
+            });
+            state.map.addControl(new kakao.maps.ZoomControl(), kakao.maps.ControlPosition.RIGHT);
+
+            state.clusterer = new kakao.maps.MarkerClusterer({
+                map: state.map,
+                averageCenter: true,
+                minLevel: 7,
+                disableClickZoom: false,
+                styles: [
+                    { width:'40px',height:'40px',background:'rgba(37,99,235,0.85)',borderRadius:'50%',color:'#fff',textAlign:'center',fontWeight:'700',fontSize:'14px',lineHeight:'40px',border:'3px solid rgba(37,99,235,0.3)' },
+                    { width:'50px',height:'50px',background:'rgba(220,38,38,0.85)',borderRadius:'50%',color:'#fff',textAlign:'center',fontWeight:'700',fontSize:'15px',lineHeight:'50px',border:'3px solid rgba(220,38,38,0.3)' },
+                    { width:'60px',height:'60px',background:'rgba(124,58,237,0.85)',borderRadius:'50%',color:'#fff',textAlign:'center',fontWeight:'700',fontSize:'16px',lineHeight:'60px',border:'3px solid rgba(124,58,237,0.3)' }
+                ]
+            });
+
+            state.geocoder = new kakao.maps.services.Geocoder();
+
+            // ⭐ 모든 주소를 카카오맵 정확한 좌표로 변환
+            await geocodeAll();
+
+            // 좌표 변환 후 마커 생성
+            createMarkers();
+            applyFilters();
+
+            console.log(`✅ 로드 완료. 본사 ${ORGS.length}개, 총 마커 ${state.allMarkers.length}개`);
+        });
+
+        // ====================================================
+        // 좌표 자동 변환 (캐싱 포함)
+        // ====================================================
+        // Places API로 키워드 검색 (기관명 우선)
+        function searchByKeyword(keyword) {
+            return new Promise((resolve) => {
+                const ps = new kakao.maps.services.Places();
+                ps.keywordSearch(keyword, function (data, status) {
+                    if (status === kakao.maps.services.Status.OK && data.length > 0) {
+                        resolve({ lat: parseFloat(data[0].y), lng: parseFloat(data[0].x), via: 'place' });
+                    } else {
+                        resolve(null);
+                    }
+                });
+            });
+        }
+
+        // Geocoder로 주소 → 좌표 (폴백용)
+        function searchByAddress(address) {
+            return new Promise((resolve) => {
+                state.geocoder.addressSearch(address, function (result, status) {
+                    if (status === kakao.maps.services.Status.OK && result.length > 0) {
+                        resolve({ lat: parseFloat(result[0].y), lng: parseFloat(result[0].x), via: 'address' });
+                    } else {
+                        resolve(null);
+                    }
+                });
+            });
+        }
+
+        // 본사: 기관명 + 본사 → 기관명 → 주소 순서로 시도
+        async function geocodeHQ(org) {
+            // 1순위: "기관명 본사" 검색 (가장 정확)
+            const cleanName = org.name.replace(/\([^)]*\)/g, '').trim();
+            let result = await searchByKeyword(cleanName + ' 본사');
+            if (result) return result;
+
+            // 2순위: 기관명만으로 검색
+            result = await searchByKeyword(cleanName);
+            if (result) return result;
+
+            // 3순위: 풀네임 (괄호 포함) 검색
+            if (cleanName !== org.name) {
+                result = await searchByKeyword(org.name);
+                if (result) return result;
+            }
+
+            // 4순위: 주소 검색 폴백
+            return await searchByAddress(org.address);
+        }
+
+        // 지사: 기관명 + 지사명 → 지사명 → 주소 순서
+        async function geocodeBranch(org, branch) {
+            const cleanName = org.name.replace(/\([^)]*\)/g, '').trim();
+            const cleanBranchName = branch.name.replace(/\([^)]*\)/g, '').trim();
+
+            // 1순위: "기관명 + 지사명" (예: "한국전력공사 서울본부")
+            let result = await searchByKeyword(cleanName + ' ' + cleanBranchName);
+            if (result) return result;
+
+            // 2순위: 지사명에 본사가 포함되어 있으면 본사 좌표 사용
+            if (branch.name.includes('본사') || branch.name.includes('본부') && branch.address === org.address) {
+                result = await searchByKeyword(cleanName + ' 본사');
+                if (result) return result;
+            }
+
+            // 3순위: 주소 검색
+            return await searchByAddress(branch.address);
+        }
+
+        async function geocodeAll() {
+            // 공기업은 data-orgs.js의 lat/lng를 그대로 사용 (geocoding 없음)
+            // lat/lng가 없는 항목만 예외적으로 geocoding 처리
+            const missing = [];
+            ORGS.forEach(org => {
+                if (!org.lat || !org.lng) missing.push({ target: org, org: org, isHQ: true });
+                (org.branches || []).forEach((br, idx) => {
+                    if (!br.lat || !br.lng) missing.push({ target: br, org: org, isHQ: false });
+                });
+            });
+
+            if (missing.length === 0) {
+                console.log(`✅ 공기업 좌표 모두 data-orgs.js에서 직접 로드 (geocoding 없음)`);
+                return;
+            }
+
+            // 좌표 없는 항목만 geocoding
+            console.warn(`⚠️ 좌표 없는 항목 ${missing.length}개 geocoding 시도:`, missing.map(t => t.target.name || t.org.name));
+            const statusEl = document.getElementById('geocodeStatus');
+            const progressEl = document.getElementById('geocodeProgress');
+            statusEl.classList.add('show');
+            progressEl.textContent = `좌표 없는 항목 ${missing.length}개 변환중...`;
+
+            const CHUNK = 5;
+            let done = 0;
+            for (let i = 0; i < missing.length; i += CHUNK) {
+                const batch = missing.slice(i, i + CHUNK);
+                await Promise.all(batch.map(async t => {
+                    const result = t.isHQ
+                        ? await geocodeHQ(t.org)
+                        : await geocodeBranch(t.org, t.target);
+                    if (result) {
+                        t.target.lat = result.lat;
+                        t.target.lng = result.lng;
+                    }
+                    done++;
+                    progressEl.textContent = `변환중 ${done}/${missing.length}`;
+                }));
+                if (i + CHUNK < missing.length) {
+                    await new Promise(r => setTimeout(r, 80));
+                }
+            }
+
+            setTimeout(() => statusEl.classList.remove('show'), 500);
+            console.log(`✅ 좌표 없는 항목 ${done}개 geocoding 완료`);
+        }
+
+        // ====================================================
+        // 마커 이미지
+        // ====================================================
+        function makeMarkerImage(isHQ) {
+            const svg = isHQ
+                ? `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" viewBox="0 0 32 40"><path d="M16 0C7.2 0 0 7.2 0 16c0 12 16 24 16 24s16-12 16-24c0-8.8-7.2-16-16-16z" fill="#2563eb"/><circle cx="16" cy="16" r="6" fill="#fff"/></svg>`
+                : `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="28" viewBox="0 0 22 28"><path d="M11 0C5 0 0 5 0 11c0 8 11 17 11 17s11-9 11-17c0-6-5-11-11-11z" fill="#f59e0b"/><circle cx="11" cy="11" r="4" fill="#fff"/></svg>`;
+            const url = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+            return new kakao.maps.MarkerImage(url, new kakao.maps.Size(isHQ ? 32 : 22, isHQ ? 40 : 28), { offset: new kakao.maps.Point(isHQ ? 16 : 11, isHQ ? 40 : 28) });
+        }
+
+        let hqMarkerImage, branchMarkerImage;
+
+        function createMarkers() {
+            hqMarkerImage = makeMarkerImage(true);
+            branchMarkerImage = makeMarkerImage(false);
+
+            ORGS.forEach(org => {
+                const hqMarker = new kakao.maps.Marker({
+                    position: new kakao.maps.LatLng(org.lat, org.lng),
+                    image: hqMarkerImage,
+                    title: org.name + ' (본사)',
+                    zIndex: 10
+                });
+                hqMarker._org = org;
+                kakao.maps.event.addListener(hqMarker, 'click', () => {
+                    showInfoWindow(hqMarker, org, null);
+                    openDetailPanel(org);
+                });
+
+                const branchMarkers = (org.branches || []).map((br, idx) => {
+                    if (Math.abs(br.lat - org.lat) < 0.001 && Math.abs(br.lng - org.lng) < 0.001 && br.name.includes('본')) {
+                        return null;
+                    }
+                    const m = new kakao.maps.Marker({
+                        position: new kakao.maps.LatLng(br.lat, br.lng),
+                        image: branchMarkerImage,
+                        title: org.name + ' - ' + br.name,
+                        zIndex: 5
+                    });
+                    m._org = org;
+                    m._branch = br;
+                    kakao.maps.event.addListener(m, 'click', () => {
+                        showInfoWindow(m, org, br);
+                        openDetailPanel(org);
+                    });
+                    return m;
+                }).filter(Boolean);
+
+                state.markers[org.id] = { hq: hqMarker, branches: branchMarkers };
+                state.allMarkers.push(hqMarker, ...branchMarkers);
+            });
+            state.clusterer.addMarkers(state.allMarkers);
+        }
+
+        function showInfoWindow(marker, org, branch) {
+            if (state.currentInfoWindow) state.currentInfoWindow.close();
+            const displayName = branch ? org.name + ' - ' + branch.name : org.name;
+            const typeText = branch ? '지사' : '본사 · ' + org.type;
+            const iw = new kakao.maps.InfoWindow({
+                content: `<div class="map-info-bubble"><div class="info-name">${displayName}</div><div class="info-type">${typeText}</div></div>`,
+                removable: true
+            });
+            iw.open(state.map, marker);
+            state.currentInfoWindow = iw;
+        }
+
+        function getFilteredOrgs() {
+            return ORGS.filter(org => {
+                if (state.currentType !== '전체' && org.type !== state.currentType) return false;
+                if (state.currentIndustry !== '전체' && org.industry !== state.currentIndustry) return false;
+                if (state.currentRegion !== '전체' && org.region !== state.currentRegion) return false;
+                if (state.currentSalary !== '전체') {
+                    const s = org.startingSalary;
+                    if (state.currentSalary === 'under3000' && s >= 3000) return false;
+                    if (state.currentSalary === '3000to4000' && (s < 3000 || s >= 4000)) return false;
+                    if (state.currentSalary === '4000to5000' && (s < 4000 || s >= 5000)) return false;
+                    if (state.currentSalary === 'over5000' && s < 5000) return false;
+                }
+                if (state.searchQuery) {
+                    const q = state.searchQuery.toLowerCase();
+                    if (!org.name.toLowerCase().includes(q) && !(org.shortName || '').toLowerCase().includes(q)) return false;
+                }
+                return true;
+            });
+        }
+
+        function applyFilters() {
+            const filtered = getFilteredOrgs();
+            const filteredIds = new Set(filtered.map(o => o.id));
+
+            state.clusterer.clear();
+            const visibleMarkers = [];
+            ORGS.forEach(org => {
+                const m = state.markers[org.id];
+                if (filteredIds.has(org.id)) {
+                    visibleMarkers.push(m.hq, ...m.branches);
+                }
+            });
+            state.clusterer.addMarkers(visibleMarkers);
+
+            renderList(filtered);
+            document.getElementById('resultCount').textContent = filtered.length;
+        }
+
+        function renderList(orgs) {
+            const list = document.getElementById('orgList');
+            if (orgs.length === 0) {
+                list.innerHTML = '<li class="no-results">검색 결과가 없습니다.<br>필터를 조정해보세요.</li>';
+                return;
+            }
+            list.innerHTML = orgs.map(org => `
+                <li class="org-card" data-org-id="${org.id}">
+                    <div class="org-card-logo" style="background: ${getLogoColor(org.shortName)};">${org.shortName}</div>
+                    <div class="org-card-info">
+                        <div class="org-card-name">${org.name}</div>
+                        <div class="org-card-meta">
+                            <span class="org-tag ${org.type}">${org.type}</span>
+                            <span class="org-tag industry">${org.industry}</span>
+                            <span class="org-tag region">${org.region}</span>
+                        </div>
+                        <div class="org-card-address">📍 ${org.address}</div>
+                        <div class="org-card-salary">💰 초봉 ${org.startingSalary.toLocaleString()}만원</div>
+                    </div>
+                </li>
+            `).join('');
+
+            list.querySelectorAll('.org-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const orgId = parseInt(card.dataset.orgId);
+                    const org = ORGS.find(o => o.id === orgId);
+                    if (org) {
+                        state.map.setLevel(8);
+                        state.map.panTo(new kakao.maps.LatLng(org.lat, org.lng));
+                        setTimeout(() => showInfoWindow(state.markers[org.id].hq, org, null), 300);
+                        openDetailPanel(org);
+                    }
+                });
+            });
+        }
+
+        function openDetailPanel(org) {
+            state.selectedOrgId = org.id;
+            document.getElementById('detailPanel').classList.add('open');
+
+            const logoColor = getLogoColor(org.shortName);
+            const imgDiv = document.getElementById('detailImage');
+            imgDiv.innerHTML = `<div style="width:120px;height:120px;border-radius:24px;background:${logoColor};display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,0.12);"><div style="font-size:26px;font-weight:900;color:white;letter-spacing:-0.5px;text-align:center;padding:6px;">${org.shortName}</div></div>`;
+            imgDiv.style.background = `linear-gradient(135deg, ${logoColor}15 0%, ${logoColor}30 100%)`;
+
+            document.getElementById('detailTitle').textContent = org.name;
+            document.getElementById('detailSubtitle').innerHTML = `
+                <span class="org-tag ${org.type}">${org.type}</span>
+                <span class="org-tag industry">${org.industry}</span>
+                <span class="org-tag region">${org.region}</span>
+            `;
+
+            document.getElementById('actionHomepage').href = org.homepage;
+            document.getElementById('actionRecruit').href = org.recruitUrl;
+
+            renderTabCompany(org);
+            renderTabSalary(org);
+            renderTabBranches(org);
+            renderTabExam(org);
+
+            document.querySelectorAll('.tab-btn').forEach((btn, idx) => btn.classList.toggle('active', idx === 0));
+            document.querySelectorAll('.tab-panel').forEach((p, idx) => p.classList.toggle('active', idx === 0));
+        }
+
+        function renderTabCompany(org) {
+            document.getElementById('tabCompany').innerHTML = `
+                <div class="info-section"><h3>기관 소개</h3><p>${org.description}</p></div>
+                <div class="info-section"><h3>주요 사업</h3><ul class="bullet-list">${org.mainBusiness.map(b => `<li>${b}</li>`).join('')}</ul></div>
+                <div class="info-section"><h3>주요 복지</h3><ul class="bullet-list">${org.welfare.map(w => `<li>${w}</li>`).join('')}</ul></div>
+                <div class="info-section">
+                    <h3>본사 위치</h3>
+                    <div class="info-row"><span class="icon">📍</span><span>${org.address}</span></div>
+                    <div class="info-row"><span class="icon">🔗</span><a href="${org.homepage}" target="_blank">${org.homepage}</a></div>
+                </div>
+            `;
+        }
+
+        function renderTabSalary(org) {
+            const yearsToBeat = Math.round(org.avgYears);
+            document.getElementById('tabSalary').innerHTML = `
+                <div class="salary-cards">
+                    <div class="salary-card highlight">
+                        <div class="salary-label">신입 초봉 (세전)</div>
+                        <div class="salary-value">${org.startingSalary.toLocaleString()}<span class="unit">만원</span></div>
+                    </div>
+                    <div class="salary-card">
+                        <div class="salary-label">직원 평균 급여</div>
+                        <div class="salary-value">${org.avgSalary.toLocaleString()}<span class="unit">만원</span></div>
+                    </div>
+                </div>
+                <div class="salary-cards">
+                    <div class="salary-card">
+                        <div class="salary-label">평균 근속연수</div>
+                        <div class="salary-value">${org.avgYears}<span class="unit">년</span></div>
+                    </div>
+                    <div class="salary-card">
+                        <div class="salary-label">근속 ${yearsToBeat}년차 추정 연봉</div>
+                        <div class="salary-value">${org.avgSalary.toLocaleString()}<span class="unit">만원</span></div>
+                    </div>
+                </div>
+                <div class="salary-context">💡 평균 급여(${org.avgSalary.toLocaleString()}만원)는 평균 근속 ${org.avgYears}년 직원 기준입니다. 즉, ${yearsToBeat}년차쯤 평균 급여 수준에 도달한다고 볼 수 있어요.</div>
+                <div class="info-section" style="margin-top: 16px;">
+                    <h3>📊 데이터 출처</h3>
+                    <p style="font-size: 12px; color: var(--text-secondary);">알리오(alio.go.kr) 공시 데이터 및 캐치/잡코리아 기반 추정치입니다.</p>
+                </div>
+            `;
+        }
+
+        function renderTabBranches(org) {
+            const branches = org.branches || [];
+            document.getElementById('tabBranches').innerHTML = `
+                <div class="info-section">
+                    <h3>전국 지사 (${branches.length}개)</h3>
+                    <ul class="branch-list" id="branchList"></ul>
+                </div>
+            `;
+            const list = document.getElementById('branchList');
+            list.innerHTML = branches.map((br, idx) => {
+                const isHQ = Math.abs(br.lat - org.lat) < 0.001 && Math.abs(br.lng - org.lng) < 0.001;
+                return `<li class="branch-item" data-branch-idx="${idx}">
+                    <span class="branch-marker ${isHQ ? 'headquarter' : ''}"></span>
+                    <div class="branch-info">
+                        <div class="branch-name">${br.name}${isHQ ? ' <span style="color: var(--headquarter); font-size: 10px;">(본사)</span>' : ''}</div>
+                        <div class="branch-address">${br.address}</div>
+                    </div>
+                </li>`;
+            }).join('');
+
+            list.querySelectorAll('.branch-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const idx = parseInt(item.dataset.branchIdx);
+                    const br = branches[idx];
+                    state.map.setLevel(5);
+                    state.map.panTo(new kakao.maps.LatLng(br.lat, br.lng));
+                    const isHQ = Math.abs(br.lat - org.lat) < 0.001 && Math.abs(br.lng - org.lng) < 0.001;
+                    const targetMarker = isHQ
+                        ? state.markers[org.id].hq
+                        : state.markers[org.id].branches.find(m => m._branch && m._branch.name === br.name);
+                    if (targetMarker) setTimeout(() => showInfoWindow(targetMarker, org, isHQ ? null : br), 300);
+                });
+            });
+        }
+
+        function renderTabExam(org) {
+            const subjects = org.majorSubjects || {};
+            const subjectHTML = Object.entries(subjects).map(([cat, content]) => `
+                <div class="subject-section"><h4>${cat}</h4><p>${content}</p></div>
+            `).join('');
+            document.getElementById('tabExam').innerHTML = `
+                <div class="info-section">
+                    <h3>NCS 직업기초능력</h3>
+                    <div class="ncs-list">${(org.ncs || []).map(n => `<span class="ncs-tag">${n}</span>`).join('')}</div>
+                </div>
+                <div class="info-section"><h3>직렬별 전공 시험과목</h3>${subjectHTML}</div>
+                <div class="info-section" style="margin-top:16px;">
+                    <p style="font-size:12px;color:var(--text-secondary);padding:10px 12px;background:var(--bg-light);border-radius:6px;">⚠️ 시험과목은 채용공고마다 변경될 수 있습니다.</p>
+                </div>
+            `;
+        }
+
+        // ===== 이벤트 바인딩 =====
+
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const navType = item.dataset.nav;
+                document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+                item.classList.add('active');
+                state.currentNav = navType;
+
+                const overlay = document.getElementById('comingSoonOverlay');
+                if (navType === 'company') {
+                    overlay.classList.remove('show');
+                    activateCompanyMode();
+                } else if (navType === 'government') {
+                    overlay.classList.remove('show');
+                    activateGovernmentMode();
+                } else if (navType === 'compare') {
+                    showComingSoon({
+                        emoji: '⚖️', title: '공기업 비교 탭', subtitle: '2개 이상 공기업 한눈에 비교',
+                        description: '관심 있는 공기업을 골라 연봉·복지·시험과목·근무지를 나란히 비교할 수 있어요.',
+                        features: ['최대 4개 기관 동시 비교', '초봉·평균연봉·근속연수 차트', '복지·휴가 항목별 비교표', '시험과목·합격 스펙 분석']
+                    });
+                }
+            });
+        });
+
+        function showComingSoon({ emoji, title, subtitle, description, features }) {
+            document.getElementById('csEmoji').textContent = emoji;
+            document.getElementById('csTitle').textContent = title;
+            document.getElementById('csSubtitle').textContent = subtitle;
+            document.getElementById('csDescription').textContent = description;
+            document.getElementById('csFeatures').innerHTML = features.map(f => `<li>${f}</li>`).join('');
+            document.getElementById('comingSoonOverlay').classList.add('show');
+        }
+
+        document.getElementById('csBack').addEventListener('click', () => {
+            document.querySelector('.nav-item[data-nav="company"]').click();
+        });
+
+        document.querySelectorAll('.filter-chip').forEach(chip => {
+            chip.addEventListener('click', () => {
+                const type = chip.dataset.filterType;
+                const value = chip.dataset.value;
+                document.querySelectorAll(`[data-filter-type="${type}"]`).forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                if (type === 'orgtype') state.currentType = value;
+                if (type === 'industry') state.currentIndustry = value;
+                if (type === 'region') state.currentRegion = value;
+                if (type === 'salary') state.currentSalary = value;
+                applyFilters();
+            });
+        });
+
+        const searchInput = document.getElementById('searchInput');
+        const clearBtn = document.getElementById('clearBtn');
+        searchInput.addEventListener('input', (e) => {
+            state.searchQuery = e.target.value.trim();
+            clearBtn.classList.toggle('visible', state.searchQuery.length > 0);
+            applyFilters();
+        });
+        clearBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            state.searchQuery = '';
+            clearBtn.classList.remove('visible');
+            applyFilters();
+        });
+
+        document.getElementById('resetBtn').addEventListener('click', () => {
+            state.currentType = '전체';
+            state.currentIndustry = '전체';
+            state.currentRegion = '전체';
+            state.currentSalary = '전체';
+            state.searchQuery = '';
+            searchInput.value = '';
+            clearBtn.classList.remove('visible');
+            document.querySelectorAll('.filter-chip').forEach(c => c.classList.toggle('active', c.dataset.value === '전체'));
+            applyFilters();
+        });
+
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabName = btn.dataset.tab;
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                document.querySelectorAll('.tab-panel').forEach(p => {
+                    p.classList.toggle('active', p.id === 'tab' + tabName.charAt(0).toUpperCase() + tabName.slice(1));
+                });
+            });
+        });
+
+        document.getElementById('detailClose').addEventListener('click', () => {
+            document.getElementById('detailPanel').classList.remove('open');
+            state.selectedOrgId = null;
+        });
+
+        // ⭐ 사이드바 토글 — grid-template-columns로 사이드바 너비를 0으로 (지도 영역은 그대로 유지)
+        const appContainer = document.getElementById('appContainer');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        sidebarToggle.addEventListener('click', () => {
+            appContainer.classList.toggle('sidebar-collapsed');
+            sidebarToggle.textContent = appContainer.classList.contains('sidebar-collapsed') ? '›' : '‹';
+            // 사이드바 transition 끝난 후 지도 리사이즈 (마커 위치 정확하게 유지)
+            setTimeout(() => {
+                if (state.map) state.map.relayout();
+            }, 280);
+        });
+
+        // ============================================================
+        // ════════════════════ 정부기관 탭 로직 ════════════════════
+        // ============================================================
+
+        // ---------- 정부기관 마커 이미지 ----------
+        let govHqMarkerImage, govBranchMarkerImage;
+        function makeGovMarkerImage(isHQ) {
+            const svg = isHQ
+                ? `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" viewBox="0 0 32 40"><path d="M16 0C7.2 0 0 7.2 0 16c0 12 16 24 16 24s16-12 16-24c0-8.8-7.2-16-16-16z" fill="#7c3aed"/><circle cx="16" cy="16" r="6" fill="#fff"/></svg>`
+                : `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="28" viewBox="0 0 22 28"><path d="M11 0C5 0 0 5 0 11c0 8 11 17 11 17s11-9 11-17c0-6-5-11-11-11z" fill="#a78bfa"/><circle cx="11" cy="11" r="4" fill="#fff"/></svg>`;
+            const url = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+            return new kakao.maps.MarkerImage(url, new kakao.maps.Size(isHQ ? 32 : 22, isHQ ? 40 : 28), { offset: new kakao.maps.Point(isHQ ? 16 : 11, isHQ ? 40 : 28) });
+        }
+
+        // ---------- 정부기관 좌표 자동 변환 ----------
+        async function geocodeGov(gov) {
+            // 본청은 "기관명" 키워드 검색 우선
+            const cleanName = gov.name.replace(/\([^)]*\)/g, '').trim();
+            let r = await searchByKeyword(cleanName);
+            if (r) return r;
+            r = await searchByKeyword(cleanName + ' 본청');
+            if (r) return r;
+            return await searchByAddress(gov.address);
+        }
+
+        async function geocodeGovBranch(gov, branch) {
+            const cleanGov = gov.name.replace(/\([^)]*\)/g, '').trim();
+            const cleanBr = branch.name.replace(/\([^)]*\)/g, '').trim();
+
+            // 1순위: "기관명 + 지사명" (예: "국세청 서울지방국세청")
+            let r = await searchByKeyword(cleanGov + ' ' + cleanBr);
+            if (r) return r;
+            // 2순위: 지사명만으로 (대부분 검색됨)
+            r = await searchByKeyword(cleanBr);
+            if (r) return r;
+            // 3순위: 주소
+            return await searchByAddress(branch.address);
+        }
+
+        async function geocodeAllGov() {
+            if (state.govGeocoded) return;
+            const CACHE_KEY = 'gov_geocode_v14_places';
+            let cache = {};
+            try {
+                const raw = localStorage.getItem(CACHE_KEY);
+                if (raw) cache = JSON.parse(raw);
+            } catch (e) { cache = {}; }
+
+            const tasks = [];
+            GOVS.forEach(gov => {
+                // lat/lng가 data-govs.js에 직접 지정된 항목은 geocoding 제외
+                // (gov 본부: gov.lat/gov.lng, 소속기관: br.lat/br.lng)
+                if (!gov.lat || !gov.lng) {
+                    tasks.push({ key: `${gov.id}_hq_${gov.name}`, target: gov, gov: gov, isHQ: true });
+                }
+                (gov.branches || []).forEach((br, idx) => {
+                    if (!br.lat || !br.lng) {
+                        tasks.push({ key: `${gov.id}_br${idx}_${br.name}`, target: br, gov: gov, isHQ: false });
+                    }
+                });
+            });
+
+            // 캐시 적용 (lat/lng 없는 항목 중 캐시에 있는 것)
+            tasks.forEach(t => {
+                if (cache[t.key]) {
+                    t.target.lat = cache[t.key].lat;
+                    t.target.lng = cache[t.key].lng;
+                }
+            });
+
+            const todo = tasks.filter(t => !cache[t.key]);
+            const total = tasks.length;
+            const cached = tasks.length - todo.length;
+
+            if (todo.length === 0) {
+                console.log(`✅ 정부기관 좌표 ${cached}개 모두 캐시에서 로드`);
+                state.govGeocoded = true;
+                return;
+            }
+
+            // UI 상태
+            const statusEl = document.getElementById('geocodeStatus');
+            statusEl.classList.add('show');
+            statusEl.querySelector('span:first-child').innerHTML = '정부기관 위치 검색 중... <span class="progress gov-progress"></span>';
+            const newProg = statusEl.querySelector('.gov-progress');
+            newProg.textContent = `${cached}/${total}`;
+
+            const CHUNK = 5;
+            let done = 0;
+            for (let i = 0; i < todo.length; i += CHUNK) {
+                const batch = todo.slice(i, i + CHUNK);
+                await Promise.all(batch.map(async t => {
+                    const result = t.isHQ
+                        ? await geocodeGov(t.gov)
+                        : await geocodeGovBranch(t.gov, t.target);
+                    if (result) {
+                        t.target.lat = result.lat;
+                        t.target.lng = result.lng;
+                        cache[t.key] = { lat: result.lat, lng: result.lng, via: result.via };
+                    }
+                    done++;
+                    newProg.textContent = `${cached + done}/${total}`;
+                }));
+                if (i + CHUNK < todo.length) {
+                    await new Promise(r => setTimeout(r, 80));
+                }
+            }
+
+            try {
+                localStorage.setItem(CACHE_KEY, JSON.stringify(cache));
+            } catch (e) {
+                console.warn('정부기관 캐시 저장 실패:', e);
+            }
+
+            setTimeout(() => statusEl.classList.remove('show'), 500);
+            state.govGeocoded = true;
+            console.log(`✅ 정부기관 좌표 변환 완료: 신규 ${done}, 캐시 ${cached}`);
+        }
+
+        // ---------- 정부기관 마커 생성 ----------
+        function createGovMarkers() {
+            if (!govHqMarkerImage) {
+                govHqMarkerImage = makeGovMarkerImage(true);
+                govBranchMarkerImage = makeGovMarkerImage(false);
+            }
+            GOVS.forEach(gov => {
+                if (state.govMarkers[gov.id]) return; // 이미 생성됨
+
+                const hq = new kakao.maps.Marker({
+                    position: new kakao.maps.LatLng(gov.lat || 36.5, gov.lng || 127.5),
+                    image: govHqMarkerImage,
+                    title: gov.name + ' (본청)',
+                    zIndex: 10
+                });
+                hq._gov = gov;
+                kakao.maps.event.addListener(hq, 'click', () => {
+                    showGovInfoWindow(hq, gov, null);
+                    openGovDetailPanel(gov);
+                });
+
+                const branchMarkers = (gov.branches || []).map((br, idx) => {
+                    if (Math.abs((br.lat || 0) - (gov.lat || 0)) < 0.001 && Math.abs((br.lng || 0) - (gov.lng || 0)) < 0.001 && br.name.includes('본')) {
+                        return null;
+                    }
+                    const m = new kakao.maps.Marker({
+                        position: new kakao.maps.LatLng(br.lat || 36.5, br.lng || 127.5),
+                        image: govBranchMarkerImage,
+                        title: gov.name + ' - ' + br.name,
+                        zIndex: 5
+                    });
+                    m._gov = gov;
+                    m._branch = br;
+                    kakao.maps.event.addListener(m, 'click', () => {
+                        showGovInfoWindow(m, gov, br);
+                        openGovDetailPanel(gov);
+                    });
+                    return m;
+                }).filter(Boolean);
+
+                state.govMarkers[gov.id] = { hq, branches: branchMarkers };
+                state.govAllMarkers.push(hq, ...branchMarkers);
+            });
+        }
+
+        function showGovInfoWindow(marker, gov, branch) {
+            if (state.currentInfoWindow) state.currentInfoWindow.close();
+            const displayName = branch ? gov.name + ' - ' + branch.name : gov.name;
+            const typeText = branch ? '소속·지방기관' : '본청 · ' + gov.rank;
+            const iw = new kakao.maps.InfoWindow({
+                content: `<div class="map-info-bubble"><div class="info-name">${displayName}</div><div class="info-type">${typeText}</div></div>`,
+                removable: true
+            });
+            iw.open(state.map, marker);
+            state.currentInfoWindow = iw;
+        }
+
+        // ---------- 정부기관 필터링 (부처별 보기) ----------
+        function getFilteredGovs() {
+            return GOVS.filter(g => {
+                // 분류 필터 (부/처/청/위원회)
+                if (state.govRank !== '전체' && g.rank !== state.govRank) return false;
+                // 분야 필터 (카테고리)
+                if (state.govCategory !== '전체' && g.category !== state.govCategory) return false;
+                // 검색
+                if (state.govSearchQuery) {
+                    const q = state.govSearchQuery.toLowerCase();
+                    if (!g.name.toLowerCase().includes(q) && !(g.shortName || '').toLowerCase().includes(q)) return false;
+                }
+                return true;
+            });
+        }
+
+        function applyGovMinistryFilter() {
+            // selectedId가 있으면 그 부처만 마커 표시. 없으면 필터된 모두 표시
+            const filtered = getFilteredGovs();
+            const filteredIds = new Set(filtered.map(g => g.id));
+
+            const hqMarkers = [];     // 본청 마커들
+            const brMarkers = [];     // 소속·지방기관 마커들
+            GOVS.forEach(gov => {
+                const m = state.govMarkers[gov.id];
+                if (!m) return;
+                const include = state.govSelectedId
+                    ? (gov.id === state.govSelectedId)
+                    : filteredIds.has(gov.id);
+                if (include) {
+                    hqMarkers.push(m.hq);
+                    brMarkers.push(...m.branches);
+                }
+            });
+
+            // 모든 마커 끄기 → 레이어 토글에 따라 켜기
+            state.govAllMarkers.forEach(m => m.setMap(null));
+            if (state.govLayerHq) hqMarkers.forEach(m => m.setMap(state.map));
+            if (state.govLayerBr) brMarkers.forEach(m => m.setMap(state.map));
+
+            renderGovList(filtered);
+            document.getElementById('govResultCount').textContent = filtered.length;
+        }
+
+        function renderGovList(govs) {
+            const list = document.getElementById('govList');
+            if (govs.length === 0) {
+                list.innerHTML = '<li style="padding:32px 16px;text-align:center;color:var(--text-tertiary);font-size:13px;">검색 결과가 없어요.</li>';
+                return;
+            }
+            // rank별 칩 색상 매핑
+            const rankColors = {
+                '부':       { bg: '#fef3c7', fg: '#92400e' },
+                '처':       { bg: '#dcfce7', fg: '#15803d' },
+                '청':       { bg: '#dbeafe', fg: '#1e40af' },
+                '위원회':   { bg: '#fce7f3', fg: '#9d174d' }
+            };
+            list.innerHTML = govs.map(g => {
+                const isSel = state.govSelectedId === g.id;
+                const rc = rankColors[g.rank] || { bg: '#f3f4f6', fg: '#6b7280' };
+                return `
+                <li class="gov-card ${isSel ? 'selected' : ''}" data-gov-id="${g.id}">
+                    <div class="gov-card-icon">${g.shortName}</div>
+                    <div class="gov-card-info">
+                        <div class="gov-card-name">${g.name}</div>
+                        <div class="gov-card-meta">
+                            <span class="gov-card-tag" style="background:${rc.bg};color:${rc.fg};">${g.rank}</span>
+                            <span class="gov-card-tag">${g.category}</span>
+                        </div>
+                        <div class="gov-card-branches"><strong>${(g.branches || []).length}</strong>개 근무지</div>
+                    </div>
+                </li>
+                `;
+            }).join('');
+
+            list.querySelectorAll('.gov-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const id = parseInt(card.dataset.govId);
+                    selectGov(id);
+                });
+            });
+        }
+
+        function selectGov(id) {
+            // 토글: 다시 클릭하면 해제
+            if (state.govSelectedId === id) {
+                state.govSelectedId = null;
+                applyGovMinistryFilter();
+                // 전국 뷰로
+                state.map.setLevel(13);
+                state.map.panTo(new kakao.maps.LatLng(36.2, 127.9));
+                return;
+            }
+            state.govSelectedId = id;
+            applyGovMinistryFilter();
+
+            const gov = GOVS.find(g => g.id === id);
+            if (!gov) return;
+
+            // 본청 + 지사 모두 보이도록 지도 영역 조정 (bounds)
+            const bounds = new kakao.maps.LatLngBounds();
+            bounds.extend(new kakao.maps.LatLng(gov.lat, gov.lng));
+            (gov.branches || []).forEach(br => {
+                if (br.lat && br.lng) bounds.extend(new kakao.maps.LatLng(br.lat, br.lng));
+            });
+            state.map.setBounds(bounds);
+
+            openGovDetailPanel(gov);
+        }
+
+        // ---------- 정부기관 상세 패널 ----------
+        function openGovDetailPanel(gov) {
+            state.selectedOrgId = null; // 공기업 선택 해제
+            const panel = document.getElementById('detailPanel');
+            panel.classList.add('open');
+            panel.classList.add('gov-mode'); // 보라색 톤으로
+
+            document.getElementById('detailTitle').textContent = gov.name;
+            document.getElementById('detailSubtitle').innerHTML = `
+                <span class="detail-tag">${gov.rank}</span>
+                <span class="detail-tag">${gov.category}</span>
+                <span class="detail-tag">${gov.region}</span>
+            `;
+            const img = document.getElementById('detailImage');
+            img.style.background = 'linear-gradient(135deg, #7c3aed, #a78bfa)';
+            img.innerHTML = `<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;color:#fff;font-size:28px;font-weight:800;">${gov.shortName}</div>`;
+
+            document.getElementById('actionHomepage').href = gov.homepage || '#';
+            document.getElementById('actionRecruit').href = 'https://www.gosi.kr/';
+            document.getElementById('actionRecruit').textContent = '📋 사이버국가고시센터';
+
+            // 정부기관 모드: 3번째 탭 라벨을 "소속기관"으로 변경
+            const branchTabBtn = document.querySelector('.tab-btn[data-tab="branches"]');
+            if (branchTabBtn) branchTabBtn.textContent = '소속기관';
+
+            // 탭 콘텐츠 렌더링 - 정부기관 모드에서는 기존 4탭을 재활용
+            // 기업정보 탭
+            document.getElementById('tabCompany').innerHTML = `
+                <div class="company-section">
+                    <div class="section-title">📖 기관 소개</div>
+                    <p class="section-text">${gov.description}</p>
+                </div>
+                <div class="company-section">
+                    <div class="section-title">📌 주요 업무</div>
+                    <ul class="bullet-list">${gov.mainBusiness.map(b => `<li>${b}</li>`).join('')}</ul>
+                </div>
+                <div class="company-section">
+                    <div class="section-title">📍 본청 위치</div>
+                    <p class="section-text">${gov.address}</p>
+                </div>
+            `;
+            // 연봉 탭 자리에 공무원 급여 정보 (간단 안내)
+            document.getElementById('tabSalary').innerHTML = `
+                <div class="salary-info-msg" style="padding:24px 18px;background:linear-gradient(135deg,#f5f3ff,#ede9fe);border-radius:12px;margin-bottom:14px;">
+                    <div style="font-size:14px;font-weight:700;color:var(--gov-accent);margin-bottom:8px;">💼 공무원 보수 (2026년 기준 안내)</div>
+                    <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">공무원 보수는 직급·호봉제에 따라 결정되며, 매년 인사혁신처가 「공무원 보수규정」으로 고시해요. 정확한 호봉표는 사이버국가고시센터·인사혁신처 홈페이지에서 확인할 수 있어요.</p>
+                </div>
+                <div class="company-section">
+                    <div class="section-title">📊 직급별 초임 (참고)</div>
+                    <p class="section-text" style="line-height:1.8;">
+                        • 9급 1호봉: 약 1,900만원 (월 기본급 + 직급보조비)<br>
+                        • 7급 1호봉: 약 2,300만원<br>
+                        • 5급 1호봉: 약 3,000만원<br>
+                        <span style="color:var(--text-tertiary);font-size:11px;">* 각종 수당(정근·정액·가족·시간외 등) 별도. 실제 수령액은 직군·근무지·근무형태에 따라 차이.</span>
+                    </p>
+                </div>
+            `;
+            // 소속기관 탭 — allBranches 데이터로 그룹화된 전체 목록 표시
+            const allBranches = gov.allBranches || [];
+            const mapBranches = gov.branches || [];
+            const totalAllItems = allBranches.reduce((s, g) => s + g.items.length, 0);
+
+            // 지도 표시 가능한 항목 판별용 Set
+            const mappedAddresses = new Set(mapBranches.map(b => b.address));
+            const mappedNames = new Set(mapBranches.map(b => b.name));
+
+            document.getElementById('tabBranches').innerHTML = `
+                <div class="branch-intro" style="padding:12px;background:var(--bg-light);border-radius:8px;margin-bottom:12px;font-size:12px;color:var(--text-secondary);line-height:1.6;">
+                    💡 <strong style="color:var(--gov-accent);">${gov.name}</strong>의 모든 소속기관 (총 <strong style="color:var(--gov-accent);">${totalAllItems}곳</strong>)이에요.<br>
+                    📍 표시된 항목은 지도에서 위치 확인 가능, 그 외는 목록 참고용이에요.
+                </div>
+                ${allBranches.map((group) => `
+                    <div class="allbranch-group">
+                        <div class="allbranch-group-title">${group.groupName}</div>
+                        <ul class="allbranch-list">
+                            ${group.items.map((item) => {
+                                const isMapped = mappedAddresses.has(item.address) || mappedNames.has(item.name);
+                                return `
+                                    <li class="allbranch-item${isMapped ? ' mappable' : ''}"
+                                        data-gov-id="${gov.id}"
+                                        data-item-name="${item.name.replace(/"/g, '&quot;')}"
+                                        data-item-addr="${item.address.replace(/"/g, '&quot;')}">
+                                        <div class="allbranch-name">${isMapped ? '📍 ' : ''}${item.name}</div>
+                                        <div class="allbranch-addr">${item.address}</div>
+                                    </li>
+                                `;
+                            }).join('')}
+                        </ul>
+                    </div>
+                `).join('')}
+            `;
+            // 지도 표시 가능한 항목 클릭 시 지도 이동
+            document.querySelectorAll('#tabBranches .allbranch-item.mappable').forEach(item => {
+                item.addEventListener('click', () => {
+                    const gid = parseInt(item.dataset.govId);
+                    const itemName = item.dataset.itemName;
+                    const itemAddr = item.dataset.itemAddr;
+                    const g = GOVS.find(x => x.id === gid);
+                    if (!g) return;
+                    // 본청인지 지사인지 판별
+                    const isHQ = (itemAddr === g.address && (itemName === g.name || itemName.includes('본')));
+                    const target = isHQ ? g : (g.branches || []).find(b => b.address === itemAddr || b.name === itemName);
+                    if (target && target.lat && target.lng) {
+                        state.map.setLevel(5);
+                        state.map.panTo(new kakao.maps.LatLng(target.lat, target.lng));
+                        const m = state.govMarkers[gid];
+                        if (m) {
+                            if (isHQ) {
+                                setTimeout(() => showGovInfoWindow(m.hq, g, null), 300);
+                            } else {
+                                const brMarker = m.branches.find(mk => mk._branch === target);
+                                if (brMarker) setTimeout(() => showGovInfoWindow(brMarker, g, target), 300);
+                            }
+                        }
+                    }
+                });
+            });
+            // 시험과목 탭
+            document.getElementById('tabExam').innerHTML = `
+                <div class="company-section">
+                    <div class="section-title">📚 채용 트랙 · 직군</div>
+                    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;">
+                        ${gov.examTrack.map(t => `<span class="ncs-tag" style="background:#ede9fe;color:var(--gov-accent);border:1px solid #ddd6fe;">${t}</span>`).join('')}
+                    </div>
+                </div>
+                <div class="company-section">
+                    <div class="section-title">📝 공채 시험 안내</div>
+                    <p class="section-text" style="line-height:1.8;">
+                        <strong>9급 공채</strong>: 국어, 영어, 한국사 + 직렬 전공 2과목<br>
+                        <strong>7급 공채</strong>: 국어, 영어(검정시험 대체), 한국사(검정시험 대체) + PSAT + 직렬 전공 3과목<br>
+                        <strong>5급 공채</strong>: 1차 PSAT → 2차 직렬 전공 → 3차 면접<br>
+                        <span style="color:var(--text-tertiary);font-size:11px;">* 정확한 시험과목·합격선·일정은 사이버국가고시센터(gosi.kr)에서 확인 필수.</span>
+                    </p>
+                </div>
+            `;
+        }
+
+        // ---------- 모드 활성화/비활성화 ----------
+        function activateCompanyMode() {
+            // 사이드바 모드 변경
+            document.getElementById('sidebar').classList.remove('sidebar-mode-government');
+            // 마커 swap: 정부기관 마커 다 끄고, 공기업 마커 다시 켜기
+            state.govAllMarkers.forEach(m => m.setMap(null));
+            // 반경 매칭 정리
+            clearRadiusOverlays();
+            disablePickMode();
+            // map-legend 정상화
+            document.getElementById('mapLegend').classList.remove('gov-mode');
+            // 상세 패널 닫기 (혹시 정부기관 모드 잔재 정리)
+            const panel = document.getElementById('detailPanel');
+            panel.classList.remove('gov-mode');
+            // 탭 라벨 복원: "소속기관" → "지사정보"
+            const branchTabBtn = document.querySelector('.tab-btn[data-tab="branches"]');
+            if (branchTabBtn) branchTabBtn.textContent = '지사정보';
+            // 공기업 클러스터링 복원
+            if (state.clusterer && state.map) {
+                applyFilters();
+            }
+        }
+
+        async function activateGovernmentMode() {
+            document.getElementById('sidebar').classList.add('sidebar-mode-government');
+            document.getElementById('mapLegend').classList.add('gov-mode');
+
+            // 공기업 마커 다 끄기
+            if (state.clusterer) state.clusterer.clear();
+
+            // 상세 패널 닫기
+            document.getElementById('detailPanel').classList.remove('open');
+
+            // 정부기관 좌표 변환 + 마커 생성 (최초 1회)
+            const isFirstEntry = !state.govGeocoded;
+            if (isFirstEntry) {
+                await geocodeAllGov();
+                createGovMarkers();
+                console.log(`✅ 정부기관 ${GOVS.length}개, 총 마커 ${state.govAllMarkers.length}개`);
+                // 첫 진입 시 재정경제부(id=1001) 자동 선택 — 모든 마커가 뜨는 혼잡함 방지
+                state.govSelectedId = 1001;
+            }
+
+            // 현재 모드에 맞게 표시
+            if (state.govMode === 'ministry') {
+                applyGovMinistryFilter();
+                // 첫 진입이면 재정경제부 위치로 지도 이동 (bounds)
+                if (isFirstEntry) {
+                    const firstGov = GOVS.find(g => g.id === 1001);
+                    if (firstGov) {
+                        const bounds = new kakao.maps.LatLngBounds();
+                        if (firstGov.lat && firstGov.lng) {
+                            bounds.extend(new kakao.maps.LatLng(firstGov.lat, firstGov.lng));
+                        }
+                        (firstGov.branches || []).forEach(br => {
+                            if (br.lat && br.lng) bounds.extend(new kakao.maps.LatLng(br.lat, br.lng));
+                        });
+                        if (!bounds.isEmpty()) state.map.setBounds(bounds);
+                    }
+                }
+            } else {
+                applyRadiusFilter();
+            }
+        }
+
+        // ---------- 정부기관 사이드바 이벤트 ----------
+        // 모드 탭 (부처별 ↔ 반경)
+        document.querySelectorAll('.gov-mode-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const mode = tab.dataset.govMode;
+                document.querySelectorAll('.gov-mode-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                state.govMode = mode;
+                document.getElementById('govPanelMinistry').classList.toggle('active', mode === 'ministry');
+                document.getElementById('govPanelRadius').classList.toggle('active', mode === 'radius');
+
+                if (mode === 'ministry') {
+                    clearRadiusOverlays();
+                    disablePickMode();
+                    applyGovMinistryFilter();
+                } else {
+                    state.govSelectedId = null;
+                    applyRadiusFilter();
+                }
+            });
+        });
+
+        // 분류 필터 칩 (부/처/청/위원회)
+        document.querySelectorAll('#govRankFilters .gov-cat-chip').forEach(chip => {
+            chip.addEventListener('click', () => {
+                document.querySelectorAll('#govRankFilters .gov-cat-chip').forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                state.govRank = chip.dataset.govRank;
+                state.govSelectedId = null;
+                applyGovMinistryFilter();
+            });
+        });
+
+        // 분야 필터 칩 (경제·재정, 사회·복지, ...)
+        document.querySelectorAll('#govCategoryFilters .gov-cat-chip').forEach(chip => {
+            chip.addEventListener('click', () => {
+                document.querySelectorAll('#govCategoryFilters .gov-cat-chip').forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                state.govCategory = chip.dataset.govCat;
+                state.govSelectedId = null;
+                applyGovMinistryFilter();
+            });
+        });
+
+        // 정부기관 검색
+        const govSearchInput = document.getElementById('govSearchInput');
+        const govClearBtn = document.getElementById('govClearBtn');
+        govSearchInput.addEventListener('input', e => {
+            state.govSearchQuery = e.target.value.trim();
+            govClearBtn.classList.toggle('visible', state.govSearchQuery.length > 0);
+            applyGovMinistryFilter();
+        });
+        govClearBtn.addEventListener('click', () => {
+            govSearchInput.value = '';
+            state.govSearchQuery = '';
+            govClearBtn.classList.remove('visible');
+            applyGovMinistryFilter();
+        });
+
+        // 정부기관 초기화 버튼
+        document.getElementById('govResetBtn').addEventListener('click', () => {
+            state.govRank = '전체';
+            state.govCategory = '전체';
+            state.govSearchQuery = '';
+            state.govSelectedId = null;
+            govSearchInput.value = '';
+            govClearBtn.classList.remove('visible');
+            document.querySelectorAll('#govRankFilters .gov-cat-chip').forEach(c => c.classList.toggle('active', c.dataset.govRank === '전체'));
+            document.querySelectorAll('#govCategoryFilters .gov-cat-chip').forEach(c => c.classList.toggle('active', c.dataset.govCat === '전체'));
+            applyGovMinistryFilter();
+            state.map.setLevel(13);
+            state.map.panTo(new kakao.maps.LatLng(36.2, 127.9));
+        });
+
+        // ============================================================
+        // 반경 매칭 기능
+        // ============================================================
+        // Haversine 거리 (km)
+        function haversineKm(lat1, lng1, lat2, lng2) {
+            const R = 6371;
+            const toRad = d => d * Math.PI / 180;
+            const dLat = toRad(lat2 - lat1);
+            const dLng = toRad(lng2 - lng1);
+            const a = Math.sin(dLat/2) ** 2 +
+                      Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+                      Math.sin(dLng/2) ** 2;
+            return 2 * R * Math.asin(Math.sqrt(a));
+        }
+
+        // 반경 슬라이더
+        const radiusSlider = document.getElementById('radiusSlider');
+        const radiusValueDisplay = document.getElementById('radiusValueDisplay');
+        radiusSlider.addEventListener('input', e => {
+            state.radiusKm = parseInt(e.target.value);
+            radiusValueDisplay.textContent = state.radiusKm;
+            if (state.radiusCenter) {
+                drawRadiusCircle();
+                applyRadiusFilter();
+            }
+        });
+
+        // 주소 검색
+        document.getElementById('radiusAddrBtn').addEventListener('click', radiusSearchAddress);
+        document.getElementById('radiusAddrInput').addEventListener('keydown', e => {
+            if (e.key === 'Enter') radiusSearchAddress();
+        });
+
+        async function radiusSearchAddress() {
+            const q = document.getElementById('radiusAddrInput').value.trim();
+            if (!q) return;
+            // 키워드 우선, 안 되면 주소
+            let result = await searchByKeyword(q);
+            if (!result) result = await searchByAddress(q);
+            if (!result) {
+                alert('해당 위치를 찾을 수 없어요. 좀 더 구체적으로 입력해보세요.\n예) "대전 유성구청", "강남역", "세종시청"');
+                return;
+            }
+            setRadiusCenter(result.lat, result.lng, q);
+        }
+
+        // 지도 클릭 모드
+        const pickModeBtn = document.getElementById('radiusPickModeBtn');
+        pickModeBtn.addEventListener('click', () => {
+            if (state.radiusPickMode) {
+                disablePickMode();
+            } else {
+                enablePickMode();
+            }
+        });
+
+        function enablePickMode() {
+            state.radiusPickMode = true;
+            pickModeBtn.classList.add('active');
+            pickModeBtn.textContent = '✕ 클릭 모드 취소';
+            document.getElementById('mapArea').classList.add('pickmode');
+        }
+        function disablePickMode() {
+            state.radiusPickMode = false;
+            pickModeBtn.classList.remove('active');
+            pickModeBtn.textContent = '🎯 지도에서 직접 클릭하기';
+            document.getElementById('mapArea').classList.remove('pickmode');
+        }
+
+        // 지도 클릭 시 (정부기관 + 반경 모드일 때만 동작)
+        function bindMapClickForRadius() {
+            kakao.maps.event.addListener(state.map, 'click', function(mouseEvent) {
+                if (!state.radiusPickMode) return;
+                if (state.currentNav !== 'government') return;
+                if (state.govMode !== 'radius') return;
+                const latlng = mouseEvent.latLng;
+                setRadiusCenter(latlng.getLat(), latlng.getLng(), '지도에서 선택한 위치');
+                disablePickMode();
+            });
+        }
+
+        function setRadiusCenter(lat, lng, label) {
+            state.radiusCenter = { lat, lng, label };
+
+            // 사이드바 표시 갱신
+            const locBox = document.getElementById('radiusCurrentLoc');
+            locBox.classList.remove('empty');
+            locBox.innerHTML = `<span>📌</span><span><strong>${label}</strong></span><button class="clear-loc" id="clearLocBtn" title="위치 초기화">✕</button>`;
+            document.getElementById('clearLocBtn').addEventListener('click', clearRadiusCenter);
+
+            drawRadiusCircle();
+
+            // 지도 이동
+            state.map.setLevel(estimateMapLevel(state.radiusKm));
+            state.map.panTo(new kakao.maps.LatLng(lat, lng));
+
+            applyRadiusFilter();
+        }
+
+        function clearRadiusCenter() {
+            state.radiusCenter = null;
+            clearRadiusOverlays();
+            const locBox = document.getElementById('radiusCurrentLoc');
+            locBox.classList.add('empty');
+            locBox.innerHTML = `<span>📌</span><span>아직 위치가 선택되지 않았어요</span>`;
+            applyRadiusFilter();
+        }
+
+        function drawRadiusCircle() {
+            if (state.radiusCircle) state.radiusCircle.setMap(null);
+            if (state.radiusCenterMarker) state.radiusCenterMarker.setMap(null);
+            if (!state.radiusCenter) return;
+
+            const center = new kakao.maps.LatLng(state.radiusCenter.lat, state.radiusCenter.lng);
+            state.radiusCircle = new kakao.maps.Circle({
+                center: center,
+                radius: state.radiusKm * 1000,
+                strokeWeight: 2,
+                strokeColor: '#7c3aed',
+                strokeOpacity: 0.7,
+                strokeStyle: 'dashed',
+                fillColor: '#7c3aed',
+                fillOpacity: 0.08
+            });
+            state.radiusCircle.setMap(state.map);
+
+            // 중심 마커
+            const centerSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="36" height="44" viewBox="0 0 36 44"><path d="M18 0C9 0 2 7 2 16c0 12 16 28 16 28s16-16 16-28c0-9-7-16-16-16z" fill="#dc2626" stroke="#fff" stroke-width="2"/><circle cx="18" cy="16" r="6" fill="#fff"/><text x="18" y="20" font-size="11" font-weight="bold" text-anchor="middle" fill="#dc2626">📍</text></svg>`;
+            const centerImg = new kakao.maps.MarkerImage(
+                'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(centerSvg),
+                new kakao.maps.Size(36, 44),
+                { offset: new kakao.maps.Point(18, 44) }
+            );
+            state.radiusCenterMarker = new kakao.maps.Marker({
+                position: center,
+                image: centerImg,
+                title: state.radiusCenter.label,
+                zIndex: 100
+            });
+            state.radiusCenterMarker.setMap(state.map);
+        }
+
+        function clearRadiusOverlays() {
+            if (state.radiusCircle) { state.radiusCircle.setMap(null); state.radiusCircle = null; }
+            if (state.radiusCenterMarker) { state.radiusCenterMarker.setMap(null); state.radiusCenterMarker = null; }
+        }
+
+        // 반경에 맞춰 지도 줌 추정
+        function estimateMapLevel(km) {
+            if (km <= 5) return 5;
+            if (km <= 10) return 6;
+            if (km <= 20) return 7;
+            if (km <= 50) return 8;
+            if (km <= 100) return 9;
+            return 10;
+        }
+
+        function applyRadiusFilter() {
+            const emptyMsg = document.getElementById('radiusEmptyMsg');
+            const list = document.getElementById('radiusList');
+
+            // 모든 정부기관 마커 끄기
+            state.govAllMarkers.forEach(m => m.setMap(null));
+
+            if (!state.radiusCenter) {
+                emptyMsg.style.display = 'block';
+                list.innerHTML = '';
+                document.getElementById('radiusResultCount').textContent = 0;
+                return;
+            }
+
+            // 모든 정부기관의 본청+지사 중 반경 내 매칭
+            const matches = [];
+            GOVS.forEach(gov => {
+                // 본청 검사
+                if (gov.lat && gov.lng) {
+                    const d = haversineKm(state.radiusCenter.lat, state.radiusCenter.lng, gov.lat, gov.lng);
+                    if (d <= state.radiusKm) {
+                        matches.push({ gov, branch: null, distance: d, isHQ: true });
+                    }
+                }
+                // 지사 검사
+                (gov.branches || []).forEach((br, idx) => {
+                    if (br.lat && br.lng) {
+                        const d = haversineKm(state.radiusCenter.lat, state.radiusCenter.lng, br.lat, br.lng);
+                        if (d <= state.radiusKm) {
+                            // 본청과 좌표 같은 본부는 중복 제외
+                            const sameAsHq = gov.lat && Math.abs(br.lat - gov.lat) < 0.001 && Math.abs(br.lng - gov.lng) < 0.001;
+                            if (!sameAsHq) {
+                                matches.push({ gov, branch: br, branchIdx: idx, distance: d, isHQ: false });
+                            }
+                        }
+                    }
+                });
+            });
+
+            // 거리순 정렬
+            matches.sort((a, b) => a.distance - b.distance);
+            state.radiusFilteredBranches = matches;
+
+            // 마커 표시 (매칭된 것만, 레이어 토글 반영)
+            matches.forEach(m => {
+                const mObj = state.govMarkers[m.gov.id];
+                if (!mObj) return;
+                if (m.isHQ) {
+                    if (state.govLayerHq) mObj.hq.setMap(state.map);
+                } else {
+                    const brMarker = mObj.branches.find(mk => mk._branch === m.branch);
+                    if (brMarker && state.govLayerBr) brMarker.setMap(state.map);
+                }
+            });
+
+            document.getElementById('radiusResultCount').textContent = matches.length;
+
+            if (matches.length === 0) {
+                emptyMsg.style.display = 'block';
+                emptyMsg.innerHTML = `반경 ${state.radiusKm}km 내에 매칭된<br>정부기관 근무지가 없어요.<br><br><span style="color:var(--gov-accent);font-weight:600;">범위를 늘려보세요!</span>`;
+                list.innerHTML = '';
+                return;
+            }
+            emptyMsg.style.display = 'none';
+
+            // 리스트 렌더링 (rank별 색상 매핑)
+            const rankColors2 = {
+                '부':       { bg: '#fef3c7', fg: '#92400e' },
+                '처':       { bg: '#dcfce7', fg: '#15803d' },
+                '청':       { bg: '#dbeafe', fg: '#1e40af' },
+                '위원회':   { bg: '#fce7f3', fg: '#9d174d' }
+            };
+            list.innerHTML = matches.map(m => {
+                const name = m.isHQ ? m.gov.name + ' (본청)' : m.branch.name;
+                const addr = m.isHQ ? m.gov.address : m.branch.address;
+                const rc = rankColors2[m.gov.rank] || { bg: '#f3f4f6', fg: '#6b7280' };
+                return `
+                <li class="gov-card" data-gov-id="${m.gov.id}" data-br-idx="${m.isHQ ? -1 : m.branchIdx}">
+                    <div class="gov-card-icon">${m.gov.shortName}</div>
+                    <div class="gov-card-info">
+                        <div class="gov-card-name">${name}</div>
+                        <div class="gov-card-meta">
+                            <span class="gov-card-tag" style="background:${rc.bg};color:${rc.fg};">${m.gov.name}</span>
+                            <span class="gov-card-tag" style="background:#ede9fe;color:#6d28d9;">📏 ${m.distance.toFixed(1)}km</span>
+                        </div>
+                        <div class="gov-card-branches" style="font-size:11px;color:var(--text-tertiary);">📍 ${addr}</div>
+                    </div>
+                </li>
+                `;
+            }).join('');
+
+            list.querySelectorAll('.gov-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const gid = parseInt(card.dataset.govId);
+                    const brIdx = parseInt(card.dataset.brIdx);
+                    const gov = GOVS.find(g => g.id === gid);
+                    if (!gov) return;
+                    const target = brIdx === -1 ? gov : gov.branches[brIdx];
+                    if (target && target.lat && target.lng) {
+                        state.map.setLevel(5);
+                        state.map.panTo(new kakao.maps.LatLng(target.lat, target.lng));
+                        const mObj = state.govMarkers[gid];
+                        if (mObj) {
+                            if (brIdx === -1) {
+                                setTimeout(() => showGovInfoWindow(mObj.hq, gov, null), 300);
+                            } else {
+                                const brMarker = mObj.branches.find(mk => mk._branch === target);
+                                if (brMarker) setTimeout(() => showGovInfoWindow(brMarker, gov, target), 300);
+                            }
+                        }
+                        openGovDetailPanel(gov);
+                    }
+                });
+            });
+        }
+
+        // 반경 매칭 초기화
+        document.getElementById('radiusResetBtn').addEventListener('click', () => {
+            document.getElementById('radiusAddrInput').value = '';
+            clearRadiusCenter();
+            state.radiusKm = 20;
+            radiusSlider.value = 20;
+            radiusValueDisplay.textContent = 20;
+            disablePickMode();
+        });
+
+        // ============================================================
+        // 정부기관 레이어 토글 (본청 / 소속·지방기관)
+        // ============================================================
+        function refreshGovMarkers() {
+            // 현재 모드에 맞춰 다시 그리기
+            if (state.govMode === 'ministry') {
+                applyGovMinistryFilter();
+            } else {
+                applyRadiusFilter();
+            }
+        }
+
+        document.getElementById('toggleGovHq').addEventListener('click', () => {
+            state.govLayerHq = !state.govLayerHq;
+            const btn = document.getElementById('toggleGovHq');
+            const item = document.getElementById('legendItemGovHq');
+            btn.classList.toggle('on', state.govLayerHq);
+            item.classList.toggle('off', !state.govLayerHq);
+            refreshGovMarkers();
+        });
+
+        document.getElementById('toggleGovBr').addEventListener('click', () => {
+            state.govLayerBr = !state.govLayerBr;
+            const btn = document.getElementById('toggleGovBr');
+            const item = document.getElementById('legendItemGovBr');
+            btn.classList.toggle('on', state.govLayerBr);
+            item.classList.toggle('off', !state.govLayerBr);
+            refreshGovMarkers();
+        });
+
+        // ============================================================
+        // 지도 클릭 리스너 바인딩 (kakao.maps.load 콜백 안에서 실행되도록)
+        // ============================================================
+        // 지도가 준비되었는지 주기적으로 체크 후 바인딩
+        const mapReadyChecker = setInterval(() => {
+            if (state.map) {
+                bindMapClickForRadius();
+                clearInterval(mapReadyChecker);
+            }
+        }, 200);
+
+    </script>
+</body>
+</html>
