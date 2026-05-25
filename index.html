@@ -315,6 +315,11 @@
 
         .org-card:hover { background: var(--bg-light); }
 
+        .org-card.selected {
+            background: #dbeafe;
+            box-shadow: inset 3px 0 0 var(--primary), 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+
         .org-card-logo {
             width: 48px;
             height: 48px;
@@ -1976,7 +1981,12 @@
             const visibleMarkers = [];
             ORGS.forEach(org => {
                 const m = state.markers[org.id];
-                if (filteredIds.has(org.id)) {
+                if (!m) return;
+                // 선택된 공기업이 있으면 그것만, 없으면 필터된 전체
+                const include = state.selectedOrgId
+                    ? (org.id === state.selectedOrgId)
+                    : filteredIds.has(org.id);
+                if (include) {
                     visibleMarkers.push(m.hq, ...m.branches);
                 }
             });
@@ -1992,8 +2002,10 @@
                 list.innerHTML = '<li class="no-results">검색 결과가 없습니다.<br>필터를 조정해보세요.</li>';
                 return;
             }
-            list.innerHTML = orgs.map(org => `
-                <li class="org-card" data-org-id="${org.id}">
+            list.innerHTML = orgs.map(org => {
+                const isSel = state.selectedOrgId === org.id;
+                return `
+                <li class="org-card ${isSel ? 'selected' : ''}" data-org-id="${org.id}">
                     <div class="org-card-logo" style="background: ${getLogoColor(org.shortName)};">${org.shortName}</div>
                     <div class="org-card-info">
                         <div class="org-card-name">${org.name}</div>
@@ -2006,25 +2018,51 @@
                         <div class="org-card-salary">💰 초봉 ${org.startingSalary.toLocaleString()}만원</div>
                     </div>
                 </li>
-            `).join('');
+                `;
+            }).join('');
 
             list.querySelectorAll('.org-card').forEach(card => {
                 card.addEventListener('click', () => {
                     const orgId = parseInt(card.dataset.orgId);
                     const org = ORGS.find(o => o.id === orgId);
-                    if (org) {
-                        state.map.setLevel(8);
-                        state.map.panTo(new kakao.maps.LatLng(org.lat, org.lng));
-                        setTimeout(() => showInfoWindow(state.markers[org.id].hq, org, null), 300);
-                        openDetailPanel(org);
+                    if (!org) return;
+
+                    // 이미 선택된 카드 다시 클릭 → 선택 해제 (전체 보기 복원)
+                    if (state.selectedOrgId === orgId) {
+                        state.selectedOrgId = null;
+                        document.getElementById('detailPanel').classList.remove('open');
+                        applyFilters();
+                        // 전국 뷰로
+                        state.map.setLevel(13);
+                        state.map.panTo(new kakao.maps.LatLng(36.2, 127.9));
+                        return;
                     }
+
+                    // 새로운 공기업 선택 → 본사+지사 모두 보이게 bounds, 패널 열기
+                    state.selectedOrgId = orgId;
+                    applyFilters();
+
+                    const bounds = new kakao.maps.LatLngBounds();
+                    if (org.lat && org.lng) bounds.extend(new kakao.maps.LatLng(org.lat, org.lng));
+                    (org.branches || []).forEach(br => {
+                        if (br.lat && br.lng) bounds.extend(new kakao.maps.LatLng(br.lat, br.lng));
+                    });
+                    if (!bounds.isEmpty()) state.map.setBounds(bounds);
+
+                    setTimeout(() => showInfoWindow(state.markers[org.id].hq, org, null), 300);
+                    openDetailPanel(org);
                 });
             });
         }
 
         function openDetailPanel(org) {
+            const wasSelected = state.selectedOrgId === org.id;
             state.selectedOrgId = org.id;
             document.getElementById('detailPanel').classList.add('open');
+            // 다른 경로(마커 클릭 등)로 들어와도 마커·리스트가 단일 공기업 모드가 되도록 동기화
+            if (!wasSelected && state.currentNav === 'company') {
+                applyFilters();
+            }
 
             const logoColor = getLogoColor(org.shortName);
             const imgDiv = document.getElementById('detailImage');
@@ -2298,6 +2336,10 @@
         document.getElementById('detailClose').addEventListener('click', () => {
             document.getElementById('detailPanel').classList.remove('open');
             state.selectedOrgId = null;
+            // 공기업 탭이면 전체 마커 복원
+            if (state.currentNav === 'company') {
+                applyFilters();
+            }
         });
 
         // ⭐ 사이드바 토글 — grid-template-columns로 사이드바 너비를 0으로 (지도 영역은 그대로 유지)
