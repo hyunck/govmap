@@ -2096,6 +2096,65 @@
 
         function renderTabBranches(org) {
             const branches = org.branches || [];
+            const allBranches = org.allBranches || [];
+
+            // allBranches가 있으면 그룹화 뷰 (국세청 스타일)
+            if (allBranches.length > 0) {
+                const mappedNames = new Set(branches.map(b => b.name));
+                const mappedAddresses = new Set(branches.map(b => b.address));
+                const totalItems = allBranches.reduce((s, g) => s + g.items.length, 0);
+
+                document.getElementById('tabBranches').innerHTML = `
+                    <div class="branch-intro" style="padding:12px;background:var(--bg-light);border-radius:8px;margin-bottom:12px;font-size:12px;color:var(--text-secondary);line-height:1.6;">
+                        💡 <strong style="color:var(--accent);">${org.name}</strong>의 전국 근무지 (총 <strong style="color:var(--accent);">${totalItems}곳</strong>)이에요.<br>
+                        📍 표시된 항목은 지도에서 위치 확인 가능, 그 외는 목록 참고용이에요.
+                    </div>
+                    ${allBranches.map(group => `
+                        <div class="allbranch-group">
+                            <div class="allbranch-group-title">${group.groupName}</div>
+                            <ul class="allbranch-list">
+                                ${group.items.map(item => {
+                                    const isMapped = mappedNames.has(item.name) || mappedAddresses.has(item.address);
+                                    return `<li class="allbranch-item${isMapped ? ' mappable' : ''}"
+                                        data-org-id="${org.id}"
+                                        data-item-name="${item.name.replace(/"/g, '&quot;')}"
+                                        data-item-addr="${item.address.replace(/"/g, '&quot;')}">
+                                        <div class="allbranch-name">${isMapped ? '📍 ' : ''}${item.name}</div>
+                                        <div class="allbranch-addr">${item.address}</div>
+                                    </li>`;
+                                }).join('')}
+                            </ul>
+                        </div>
+                    `).join('')}
+                `;
+
+                // 지도 핀 클릭 이벤트
+                document.querySelectorAll('#tabBranches .allbranch-item.mappable').forEach(item => {
+                    item.addEventListener('click', () => {
+                        const itemName = item.dataset.itemName;
+                        const itemAddr = item.dataset.itemAddr;
+                        const isHQ = itemAddr === org.address || itemName === org.name;
+                        const target = isHQ ? null : branches.find(b => b.name === itemName || b.address === itemAddr);
+                        const targetObj = isHQ ? org : target;
+                        if (targetObj && targetObj.lat && targetObj.lng) {
+                            state.map.setLevel(5);
+                            state.map.panTo(new kakao.maps.LatLng(targetObj.lat, targetObj.lng));
+                            const m = state.markers[org.id];
+                            if (m) {
+                                if (isHQ) {
+                                    setTimeout(() => showInfoWindow(m.hq, org, null), 300);
+                                } else {
+                                    const brMarker = m.branches.find(mk => mk._branch === target);
+                                    if (brMarker) setTimeout(() => showInfoWindow(brMarker, org, target), 300);
+                                }
+                            }
+                        }
+                    });
+                });
+                return;
+            }
+
+            // allBranches 없으면 기존 flat 뷰
             document.getElementById('tabBranches').innerHTML = `
                 <div class="info-section">
                     <h3>전국 지사 (${branches.length}개)</h3>
