@@ -1843,8 +1843,9 @@
 
             // UI 상태
             const statusEl = document.getElementById('geocodeStatus');
+            const statusSpan = statusEl.querySelector('span');
+            statusSpan.innerHTML = '공기업 위치 검색 중... <span class="progress org-progress"></span>';
             statusEl.classList.add('show');
-            statusEl.querySelector('span:first-child').innerHTML = '공기업 위치 검색 중... <span class="progress org-progress"></span>';
             const newProg = statusEl.querySelector('.org-progress');
             newProg.textContent = `${cached}/${total}`;
 
@@ -2334,8 +2335,9 @@
 
             // UI 상태
             const statusEl = document.getElementById('geocodeStatus');
+            const statusSpan = statusEl.querySelector('span');
+            statusSpan.innerHTML = '정부기관 위치 검색 중... <span class="progress gov-progress"></span>';
             statusEl.classList.add('show');
-            statusEl.querySelector('span:first-child').innerHTML = '정부기관 위치 검색 중... <span class="progress gov-progress"></span>';
             const newProg = statusEl.querySelector('.gov-progress');
             newProg.textContent = `${cached}/${total}`;
 
