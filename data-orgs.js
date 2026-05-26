@@ -1538,8 +1538,7 @@ const ORGS = [
           {
             "name": "부산에코델타시티사업단",
             "address": "부산 강서구 낙동남로 877"
-          },
-
+          }
         ]
       },
       {
@@ -2612,7 +2611,7 @@ const ORGS = [
     "id": 34,
     "name": "사립학교교직원연금공단",
     "shortName": "TP",
-    "type": "준정부",
+    "type": "기타공공기관",
     "region": "전라권",
     "address": "전남 나주시 빛가람로 640",
     "startingSalary": 3650,
@@ -3436,7 +3435,7 @@ const ORGS = [
     "id": 50,
     "name": "농림수산식품교육문화정보원",
     "shortName": "EPIS",
-    "type": "준정부",
+    "type": "기타공공기관",
     "region": "충청권",
     "address": "세종 다솜2로 94",
     "startingSalary": 3500,
@@ -3947,7 +3946,7 @@ const ORGS = [
     "id": 60,
     "name": "한국임업진흥원",
     "shortName": "KOFPI",
-    "type": "준정부",
+    "type": "기타공공기관",
     "region": "수도권",
     "address": "서울 영등포구 여의대방로 67",
     "startingSalary": 3500,
@@ -4365,7 +4364,7 @@ const ORGS = [
     "id": 69,
     "name": "한국사학진흥재단",
     "shortName": "KASFO",
-    "type": "준정부",
+    "type": "기타공공기관",
     "region": "경상권",
     "address": "대구 동구 첨단로 17",
     "startingSalary": 3600,
@@ -4407,7 +4406,7 @@ const ORGS = [
     "id": 70,
     "name": "한국교육학술정보원",
     "shortName": "KERIS",
-    "type": "준정부",
+    "type": "기타공공기관",
     "region": "경상권",
     "address": "대구 동구 동내로 64",
     "startingSalary": 3750,
@@ -4454,7 +4453,7 @@ const ORGS = [
     "id": 71,
     "name": "한국청소년상담복지개발원",
     "shortName": "KYCI",
-    "type": "준정부",
+    "type": "기타공공기관",
     "region": "경상권",
     "address": "부산 해운대구 센텀중앙로 79",
     "startingSalary": 3500,
@@ -4496,7 +4495,7 @@ const ORGS = [
     "id": 72,
     "name": "한국청소년활동진흥원",
     "shortName": "KYWA",
-    "type": "준정부",
+    "type": "기타공공기관",
     "region": "수도권",
     "address": "서울 서대문구 충정로 53",
     "startingSalary": 3450,
@@ -4538,7 +4537,7 @@ const ORGS = [
     "id": 73,
     "name": "한국노인인력개발원",
     "shortName": "KORDI",
-    "type": "준정부",
+    "type": "기타공공기관",
     "region": "수도권",
     "address": "서울 중구 청계천로 14",
     "startingSalary": 3600,
@@ -4672,7 +4671,7 @@ const ORGS = [
     "id": 76,
     "name": "한국폴리텍대학",
     "shortName": "KOPO",
-    "type": "준정부",
+    "type": "기타공공기관",
     "region": "수도권",
     "address": "인천 부평구 무네미로 478",
     "startingSalary": 3800,
@@ -4731,7 +4730,7 @@ const ORGS = [
     "id": 77,
     "name": "우편사업진흥원",
     "shortName": "KPDA",
-    "type": "준정부",
+    "type": "기타공공기관",
     "region": "수도권",
     "address": "서울 중구 세종대로 39",
     "startingSalary": 3400,
@@ -4771,7 +4770,7 @@ const ORGS = [
     "id": 78,
     "name": "한국보건복지인재원",
     "shortName": "KOHI",
-    "type": "준정부",
+    "type": "기타공공기관",
     "region": "충청권",
     "address": "충북 청주시 흥덕구 오송읍 오송생명로 173",
     "startingSalary": 3650,
@@ -4947,7 +4946,7 @@ const ORGS = [
     "id": 82,
     "name": "정보통신산업진흥원",
     "shortName": "NIPA",
-    "type": "준정부",
+    "type": "기타공공기관",
     "region": "충청권",
     "address": "충북 진천군 덕산읍 정통로 10",
     "startingSalary": 3800,
@@ -5040,7 +5039,7 @@ const ORGS = [
     "id": 84,
     "name": "한국기상산업기술원",
     "shortName": "KMI",
-    "type": "준정부",
+    "type": "기타공공기관",
     "region": "수도권",
     "address": "서울 동작구 여의대방로 16길 61",
     "startingSalary": 3600,
@@ -5134,7 +5133,7 @@ const ORGS = [
     "id": 86,
     "name": "코레일유통",
     "shortName": "Korail Retail",
-    "type": "준정부",
+    "type": "기타공공기관",
     "region": "수도권",
     "address": "서울 용산구 한강대로 405",
     "startingSalary": 3500,
@@ -6062,7 +6061,7 @@ const ORGS = [
     "id": 104,
     "name": "한국산업기술진흥원",
     "shortName": "KIAT",
-    "type": "기타공공기관",
+    "type": "준정부",
     "region": "수도권",
     "address": "서울 강남구 테헤란로 305",
     "startingSalary": 4000,
@@ -6635,7 +6634,7 @@ const ORGS = [
     "id": 116,
     "name": "대한무역투자진흥공사(KOTRA)",
     "shortName": "KOTRA",
-    "type": "기타공공기관",
+    "type": "준정부",
     "region": "수도권",
     "industry": "산업·R&D",
     "address": "서울 서초구 헌릉로 13",
@@ -6790,7 +6789,7 @@ const ORGS = [
     "id": 119,
     "name": "한국국토정보공사",
     "shortName": "LX",
-    "type": "기타공공기관",
+    "type": "준정부",
     "region": "전라권",
     "industry": "SOC·건설",
     "address": "전북 전주시 덕진구 기지로 120",
@@ -7368,7 +7367,7 @@ const ORGS = [
     "id": 132,
     "name": "한국산업기술기획평가원",
     "shortName": "KEIT",
-    "type": "기타공공기관",
+    "type": "준정부",
     "region": "경상권",
     "industry": "산업·R&D",
     "address": "대구 동구 첨단로 38",
@@ -8116,7 +8115,7 @@ const ORGS = [
     "id": 149,
     "name": "국립생태원",
     "shortName": "NIE",
-    "type": "기타공공기관",
+    "type": "준정부",
     "region": "충청권",
     "industry": "환경·농림",
     "address": "충남 서천군 마서면 금강로 1210",
@@ -8629,7 +8628,7 @@ const ORGS = [
     "id": 162,
     "name": "한국전력거래소",
     "shortName": "KPX",
-    "type": "기타공공기관",
+    "type": "준정부",
     "region": "전라권",
     "industry": "에너지",
     "address": "전남 나주시 빛가람로 326",
@@ -8718,6 +8717,347 @@ const ORGS = [
     "majorSubjects": {
       "금융일반": "경영, 경제, 법, 회계",
       "전산": "전산학"
+    }
+  },
+  {
+    "id": 164,
+    "name": "소상공인시장진흥공단",
+    "shortName": "SEMAS",
+    "type": "준정부",
+    "region": "충청권",
+    "industry": "산업·R&D",
+    "address": "대전 중구 중앙로 110",
+    "startingSalary": 3500,
+    "avgSalary": 6200,
+    "avgYears": 10,
+    "homepage": "https://www.semas.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=소상공인시장진흥공단",
+    "description": "소상공인 및 전통시장 지원을 위한 중소벤처기업부 산하 준정부기관. 소상공인시장진흥기금을 관리하는 기금관리형 준정부기관이다.",
+    "mainBusiness": [
+      "소상공인 정책자금",
+      "전통시장 활성화",
+      "소상공인 경영지원",
+      "폐업 재기 지원"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "의료비 지원",
+      "주택자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (대전)",
+        "address": "대전 중구 중앙로 110"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "수리능력",
+      "문제해결능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 경제, 행정, 회계"
+    }
+  },
+  {
+    "id": 165,
+    "name": "한국국제협력단",
+    "shortName": "KOICA",
+    "type": "준정부",
+    "region": "경기권",
+    "industry": "행정·고용",
+    "address": "경기 성남시 수정구 대왕판교로 825",
+    "startingSalary": 4000,
+    "avgSalary": 7300,
+    "avgYears": 12,
+    "homepage": "https://www.koica.go.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국국제협력단",
+    "description": "개발도상국에 대한 무상 원조와 국제개발협력 사업을 수행하는 외교부 산하 위탁집행형 준정부기관.",
+    "mainBusiness": [
+      "ODA 무상원조",
+      "해외봉사단 파견",
+      "국제개발협력 연구",
+      "글로벌연수"
+    ],
+    "welfare": [
+      "해외파견 기회",
+      "복지포인트",
+      "자녀 학자금",
+      "의료비 지원"
+    ],
+    "branches": [
+      {
+        "name": "본사 (성남)",
+        "address": "경기 성남시 수정구 대왕판교로 825"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "수리능력",
+      "문제해결능력",
+      "정보능력",
+      "조직이해능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 행정, 국제개발, 경제",
+      "외국어": "영어 + 제2외국어 우대"
+    }
+  },
+  {
+    "id": 166,
+    "name": "한국환경산업기술원",
+    "shortName": "KEITI",
+    "type": "준정부",
+    "region": "수도권",
+    "industry": "환경·농림",
+    "address": "서울 서초구 방배로 87",
+    "startingSalary": 3800,
+    "avgSalary": 6800,
+    "avgYears": 11,
+    "homepage": "https://www.keiti.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국환경산업기술원",
+    "description": "환경기술 개발·지원 및 환경산업 육성을 담당하는 기후에너지환경부 산하 위탁집행형 준정부기관.",
+    "mainBusiness": [
+      "환경기술 R&D 지원",
+      "녹색제품 인증",
+      "친환경 생활 확산",
+      "환경산업 육성"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "의료비 지원",
+      "주택자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 서초구 방배로 87"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "수리능력",
+      "문제해결능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 환경, 행정",
+      "기술": "환경공학, 화학공학"
+    }
+  },
+  {
+    "id": 167,
+    "name": "한국원자력환경공단",
+    "shortName": "KORAD",
+    "type": "준정부",
+    "region": "경상권",
+    "industry": "에너지",
+    "address": "경북 경주시 양북면 방폐로 67",
+    "startingSalary": 4000,
+    "avgSalary": 7000,
+    "avgYears": 12,
+    "homepage": "https://www.korad.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국원자력환경공단",
+    "description": "방사성폐기물의 안전한 관리를 담당하는 산업통상자원부 산하 위탁집행형 준정부기관. 경주 방폐장 운영.",
+    "mainBusiness": [
+      "방사성폐기물 처분",
+      "중저준위 방폐장 운영",
+      "방사성폐기물 인도·인수",
+      "원자력환경 연구"
+    ],
+    "welfare": [
+      "주택자금",
+      "복지포인트",
+      "자녀 학자금",
+      "의료비 지원"
+    ],
+    "branches": [
+      {
+        "name": "본사 (경주)",
+        "address": "경북 경주시 양북면 방폐로 67"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "수리능력",
+      "문제해결능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 행정, 경제",
+      "기술": "원자력공학, 환경공학, 전기전자"
+    }
+  },
+  {
+    "id": 168,
+    "name": "한국석유관리원",
+    "shortName": "K-Petro",
+    "type": "준정부",
+    "region": "충청권",
+    "industry": "에너지",
+    "address": "충남 천안시 서북구 성환읍 연암로 260",
+    "startingSalary": 3600,
+    "avgSalary": 6500,
+    "avgYears": 11,
+    "homepage": "https://www.kpetro.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국석유관리원",
+    "description": "석유제품의 품질 검사와 가짜석유 단속을 담당하는 산업통상자원부 산하 위탁집행형 준정부기관.",
+    "mainBusiness": [
+      "석유품질 검사·관리",
+      "가짜석유 단속",
+      "바이오연료 품질관리",
+      "석유시장 조사"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "의료비 지원",
+      "주택자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (천안)",
+        "address": "충남 천안시 서북구 성환읍 연암로 260"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "수리능력",
+      "문제해결능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 행정",
+      "기술": "화학공학, 환경공학, 에너지"
+    }
+  },
+  {
+    "id": 169,
+    "name": "한국장애인고용공단",
+    "shortName": "KEAD",
+    "type": "준정부",
+    "region": "경기권",
+    "industry": "행정·고용",
+    "address": "경기 성남시 분당구 분당수서로 201",
+    "startingSalary": 3400,
+    "avgSalary": 6300,
+    "avgYears": 10,
+    "homepage": "https://www.kead.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국장애인고용공단",
+    "description": "장애인 고용 촉진과 직업 재활을 지원하는 고용노동부 산하 위탁집행형 준정부기관.",
+    "mainBusiness": [
+      "장애인 취업 지원",
+      "장애인 직업재활",
+      "고용부담금 부과·징수",
+      "사업주 지원"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "의료비 지원",
+      "유연근무"
+    ],
+    "branches": [
+      {
+        "name": "본사 (성남)",
+        "address": "경기 성남시 분당구 분당수서로 201"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "수리능력",
+      "문제해결능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 행정, 사회복지, 심리, 경제"
+    }
+  },
+  {
+    "id": 170,
+    "name": "한국법무보호복지공단",
+    "shortName": "KOREHA",
+    "type": "준정부",
+    "region": "수도권",
+    "industry": "복지·보건",
+    "address": "서울 서초구 법원로4길 25",
+    "startingSalary": 3200,
+    "avgSalary": 5500,
+    "avgYears": 9,
+    "homepage": "https://www.koreha.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국법무보호복지공단",
+    "description": "출소자 등 범죄인의 사회복귀를 지원하는 법무부 산하 위탁집행형 준정부기관. 2026년 기타공공기관에서 준정부기관으로 변경.",
+    "mainBusiness": [
+      "출소자 사회복귀 지원",
+      "숙소·취업 연계",
+      "심리치료 프로그램",
+      "법무보호"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "의료비 지원"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 서초구 법원로4길 25"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "수리능력",
+      "문제해결능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "사회복지, 행정, 심리, 법학"
+    }
+  },
+  {
+    "id": 171,
+    "name": "해양환경공단",
+    "shortName": "KOEM",
+    "type": "공기업",
+    "region": "수도권",
+    "industry": "환경·농림",
+    "address": "서울 송파구 송파대로28길 28",
+    "startingSalary": 4200,
+    "avgSalary": 7500,
+    "avgYears": 13,
+    "homepage": "https://www.koem.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=해양환경공단",
+    "description": "해양환경 보전·관리를 위한 해양수산부 산하 준시장형 공기업. 해양오염 방제, 해양생태계 보전 및 전국 주요 무역항 청방선 운용.",
+    "mainBusiness": [
+      "해양오염 방제",
+      "해양환경 모니터링",
+      "해양폐기물 수거",
+      "해양생태계 보전"
+    ],
+    "welfare": [
+      "주택자금 대출",
+      "복지포인트",
+      "자녀 학자금",
+      "의료비 지원"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 송파구 송파대로28길 28"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "수리능력",
+      "문제해결능력",
+      "자원관리능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 환경, 해양",
+      "기술": "환경공학, 해양공학, 기계"
     }
   }
 ];
