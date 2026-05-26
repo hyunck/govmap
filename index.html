@@ -1752,7 +1752,7 @@
 
             // 공기업 상세패널 탭 유지
             activeDetailTab: 'company',      // 마지막으로 선택된 탭 (company/salary/branches/exam)
-            currentExam: '전체'             // 시험과목 필터
+            currentExam: new Set()          // 시험과목 필터 (다중선택, 빈 Set = 전체)
         };
 
         // ====================================================
@@ -2018,8 +2018,8 @@
                     if (state.currentSalary === '4000to5000' && (s < 4000 || s >= 5000)) return false;
                     if (state.currentSalary === 'over5000' && s < 5000) return false;
                 }
-                if (state.currentExam !== '전체') {
-                    if (!org.ncs || !org.ncs.includes(state.currentExam)) return false;
+                if (state.currentExam.size > 0) {
+                    if (!org.ncs || ![...state.currentExam].every(s => org.ncs.includes(s))) return false;
                 }
                 if (state.searchQuery) {
                     const q = state.searchQuery.toLowerCase();
@@ -2359,30 +2359,52 @@
             chip.addEventListener('click', () => {
                 const type = chip.dataset.filterType;
                 const value = chip.dataset.value;
+
+                if (type === 'exam') {
+                    if (value === '전체') {
+                        // 전체 클릭 → 선택 초기화
+                        state.currentExam.clear();
+                        document.querySelectorAll('[data-filter-type="exam"]').forEach(c => c.classList.toggle('active', c.dataset.value === '전체'));
+                    } else {
+                        // 개별 항목 토글
+                        if (state.currentExam.has(value)) {
+                            state.currentExam.delete(value);
+                        } else {
+                            state.currentExam.add(value);
+                        }
+                        // 선택된 게 없으면 전체로 복귀
+                        const examChips = document.querySelectorAll('[data-filter-type="exam"]');
+                        if (state.currentExam.size === 0) {
+                            examChips.forEach(c => c.classList.toggle('active', c.dataset.value === '전체'));
+                        } else {
+                            examChips.forEach(c => {
+                                if (c.dataset.value === '전체') c.classList.remove('active');
+                                else c.classList.toggle('active', state.currentExam.has(c.dataset.value));
+                            });
+                            // 공기업 필터 자동 적용
+                            if (state.currentType === '전체') {
+                                state.currentType = '공기업';
+                                document.querySelectorAll('[data-filter-type="orgtype"]').forEach(c => c.classList.toggle('active', c.dataset.value === '공기업'));
+                            }
+                        }
+                    }
+                    applyFilters();
+                    return;
+                }
+
                 document.querySelectorAll(`[data-filter-type="${type}"]`).forEach(c => c.classList.remove('active'));
                 chip.classList.add('active');
                 if (type === 'orgtype') {
                     state.currentType = value;
                     // 공기업 외 선택 시 시험과목 필터 자동 초기화
                     if (value !== '공기업' && value !== '전체') {
-                        state.currentExam = '전체';
+                        state.currentExam.clear();
                         document.querySelectorAll('[data-filter-type="exam"]').forEach(c => c.classList.toggle('active', c.dataset.value === '전체'));
                     }
                 }
                 if (type === 'industry') state.currentIndustry = value;
                 if (type === 'region') state.currentRegion = value;
                 if (type === 'salary') state.currentSalary = value;
-                if (type === 'exam') {
-                    state.currentExam = value;
-                    // 시험과목 선택 시 자동으로 공기업 필터 적용
-                    if (value !== '전체' && state.currentType === '전체') {
-                        state.currentType = '공기업';
-                        document.querySelectorAll('[data-filter-type="orgtype"]').forEach(c => c.classList.toggle('active', c.dataset.value === '공기업'));
-                    }
-                    if (value === '전체' && state.currentType === '공기업') {
-                        // exam 전체로 돌릴 때는 orgtype 그대로 유지
-                    }
-                }
                 applyFilters();
             });
         });
@@ -2406,7 +2428,7 @@
             state.currentIndustry = '전체';
             state.currentRegion = '전체';
             state.currentSalary = '전체';
-            state.currentExam = '전체';
+            state.currentExam = new Set();
             state.searchQuery = '';
             searchInput.value = '';
             clearBtn.classList.remove('visible');
