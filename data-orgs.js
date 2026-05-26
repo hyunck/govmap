@@ -2654,7 +2654,7 @@ const ORGS = [
   },
   {
     "id": 35,
-    "name": "국민체육진흥공단",
+    "name": "서울올림픽기념국민체육진흥공단",
     "shortName": "KSPO",
     "type": "준정부",
     "region": "수도권",
@@ -3221,7 +3221,7 @@ const ORGS = [
   },
   {
     "id": 46,
-    "name": "도로교통공단",
+    "name": "한국도로교통공단",
     "shortName": "KoROAD",
     "type": "준정부",
     "region": "강원권",
