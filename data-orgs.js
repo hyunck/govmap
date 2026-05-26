@@ -8190,5 +8190,7232 @@ const ORGS = [
       "사무": "경영, 환경, 해양",
       "기술": "환경공학, 해양공학, 기계"
     }
+  },
+  {
+    "id": 172,
+    "name": "(사)남북교류협력지원협회",
+    "shortName": "SONOSA",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "행정·고용",
+    "address": "서울 중구 퇴계로 97",
+    "startingSalary": 3000,
+    "avgSalary": 5000,
+    "avgYears": 8,
+    "homepage": "http://www.sonosa.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=남북교류협력지원협회",
+    "description": "남북교류협력 활성화를 지원하는 통일부 산하 기타공공기관.",
+    "mainBusiness": [
+      "남북교류협력 컨설팅",
+      "대북 지원사업",
+      "남북경협 정보 제공"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 중구 퇴계로 97"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 정치, 북한학"
+    }
+  },
+  {
+    "id": 173,
+    "name": "(재)예술경영지원센터",
+    "shortName": "GOKAMS",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "서울 종로구 대학로 57",
+    "startingSalary": 3200,
+    "avgSalary": 5500,
+    "avgYears": 8,
+    "homepage": "http://www.gokams.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=예술경영지원센터",
+    "description": "예술경영 역량 강화와 예술시장 활성화를 지원하는 문화체육관광부 산하 기타공공기관.",
+    "mainBusiness": [
+      "공연·시각예술 유통 지원",
+      "해외 진출 지원",
+      "예술산업 금융 지원"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 종로구 대학로 57"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 예술경영, 문화"
+    }
+  },
+  {
+    "id": 174,
+    "name": "(재)우체국시설관리단",
+    "shortName": "POMA",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "행정·고용",
+    "address": "서울 중구 명동11길 19",
+    "startingSalary": 3000,
+    "avgSalary": 5200,
+    "avgYears": 9,
+    "homepage": "http://www.poma.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=우체국시설관리단",
+    "description": "우정사업 부동산 관리·운영을 담당하는 과학기술정보통신부 산하 기타공공기관.",
+    "mainBusiness": [
+      "우체국 부동산 관리",
+      "시설 임대·운영",
+      "자산 가치 향상"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 중구 명동11길 19"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "자원관리능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 행정, 건축"
+    }
+  },
+  {
+    "id": 175,
+    "name": "(재)일제강제동원피해자지원재단",
+    "shortName": "FOMO",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "행정·고용",
+    "address": "서울 서초구 남부순환로 2606",
+    "startingSalary": 3000,
+    "avgSalary": 5000,
+    "avgYears": 7,
+    "homepage": "https://www.fomo.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=일제강제동원피해자지원재단",
+    "description": "일제 강제동원 피해자 지원과 역사 조사를 담당하는 행정안전부 산하 기타공공기관.",
+    "mainBusiness": [
+      "강제동원 피해자 지원",
+      "역사 조사·연구",
+      "유해 봉환"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 서초구 남부순환로 2606"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 역사, 법학"
+    }
+  },
+  {
+    "id": 176,
+    "name": "(재)한국보건의료정보원",
+    "shortName": "KHIS",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "복지·보건",
+    "address": "서울 중구 통일로 10",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 8,
+    "homepage": "http://www.khis.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국보건의료정보원",
+    "description": "보건의료 데이터 표준화 및 정보 인프라 구축을 담당하는 보건복지부 산하 기타공공기관.",
+    "mainBusiness": [
+      "의료정보 표준화",
+      "전자건강기록 구축",
+      "보건의료 데이터 연계"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 중구 통일로 10"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "보건행정, 정보, 통계",
+      "기술": "IT, 의료정보"
+    }
+  },
+  {
+    "id": 177,
+    "name": "(재)한국통계정보원",
+    "shortName": "KOSII",
+    "type": "기타공공기관",
+    "region": "대전·충청",
+    "industry": "행정·고용",
+    "address": "대전 서구 청사로 189",
+    "startingSalary": 3000,
+    "avgSalary": 5200,
+    "avgYears": 8,
+    "homepage": "https://www.kosii.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국통계정보원",
+    "description": "통계 정보시스템 구축·운영을 담당하는 국가데이터처 산하 기타공공기관.",
+    "mainBusiness": [
+      "통계 정보시스템 운영",
+      "통계 데이터 품질 관리",
+      "통계 인프라 구축"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (대전)",
+        "address": "대전 서구 청사로 189"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력",
+      "수리능력"
+    ],
+    "majorSubjects": {
+      "사무": "통계, 정보, 행정",
+      "기술": "IT, 데이터"
+    }
+  },
+  {
+    "id": 178,
+    "name": "(재)한국통계진흥원",
+    "shortName": "STAT",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "행정·고용",
+    "address": "서울 종로구 사직로8길 60",
+    "startingSalary": 3000,
+    "avgSalary": 5000,
+    "avgYears": 7,
+    "homepage": "https://www.stat.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국통계진흥원",
+    "description": "통계 교육·홍보 및 민간통계 발전을 지원하는 국가데이터처 산하 기타공공기관.",
+    "mainBusiness": [
+      "통계 교육",
+      "통계 인식 제고",
+      "민간통계 지원"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 종로구 사직로8길 60"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "수리능력"
+    ],
+    "majorSubjects": {
+      "사무": "통계, 경제, 행정"
+    }
+  },
+  {
+    "id": 179,
+    "name": "(주)공영홈쇼핑",
+    "shortName": "공영홈쇼핑",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "산업·R&D",
+    "address": "서울 강남구 도산대로 152",
+    "startingSalary": 3300,
+    "avgSalary": 6000,
+    "avgYears": 9,
+    "homepage": "http://www.gongyoung.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=공영홈쇼핑",
+    "description": "중소기업·농수산물 판로 지원을 위한 공영 TV홈쇼핑. 중소벤처기업부 산하 기타공공기관.",
+    "mainBusiness": [
+      "중소기업 판로 지원",
+      "농수산물 TV홈쇼핑",
+      "온라인 쇼핑 운영"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "의료비 지원"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 강남구 도산대로 152"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "수리능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 유통, 마케팅, 방송"
+    }
+  },
+  {
+    "id": 180,
+    "name": "88관광개발(주)",
+    "shortName": "88CC",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "경기 고양시 덕양구 내곡로 135",
+    "startingSalary": 2800,
+    "avgSalary": 4800,
+    "avgYears": 10,
+    "homepage": "http://www.88countryclub.co.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=88관광개발",
+    "description": "88컨트리클럽 등 체육시설을 운영하는 국가보훈부 산하 기타공공기관.",
+    "mainBusiness": [
+      "골프장 운영",
+      "체육시설 관리",
+      "보훈 복지 지원"
+    ],
+    "welfare": [
+      "복지포인트",
+      "시설 이용 혜택"
+    ],
+    "branches": [
+      {
+        "name": "본사 (고양)",
+        "address": "경기 고양시 덕양구 내곡로 135"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "서비스능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 체육, 관광"
+    }
+  },
+  {
+    "id": 181,
+    "name": "가덕도신공항건설공단",
+    "shortName": "GKAC",
+    "type": "기타공공기관",
+    "region": "경상권",
+    "industry": "SOC·건설",
+    "address": "부산 강서구 명지국제7로 44",
+    "startingSalary": 3500,
+    "avgSalary": 6000,
+    "avgYears": 5,
+    "homepage": "http://www.g-airport.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=가덕도신공항건설공단",
+    "description": "가덕도 신공항 건설을 전담하는 국토교통부 산하 기타공공기관. 2026년 신규 지정.",
+    "mainBusiness": [
+      "신공항 부지 조성",
+      "설계·시공 관리",
+      "개항 준비"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (부산)",
+        "address": "부산 강서구 명지국제7로 44"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력",
+      "자원관리능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 행정",
+      "기술": "토목, 건축, 전기, 기계"
+    }
+  },
+  {
+    "id": 182,
+    "name": "가축위생방역지원본부",
+    "shortName": "LHCA",
+    "type": "기타공공기관",
+    "region": "경기권",
+    "industry": "환경·농림",
+    "address": "경기 안양시 만안구 삼덕로 47",
+    "startingSalary": 3000,
+    "avgSalary": 5500,
+    "avgYears": 9,
+    "homepage": "https://www.lhca.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=가축위생방역지원본부",
+    "description": "가축 방역 및 위생 검사를 지원하는 농림축산식품부 산하 기타공공기관.",
+    "mainBusiness": [
+      "가축방역 지원",
+      "가축질병 예찰",
+      "방역인력 관리"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (안양)",
+        "address": "경기 안양시 만안구 삼덕로 47"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정",
+      "기술": "수의학, 축산, 생물"
+    }
+  },
+  {
+    "id": 183,
+    "name": "강원대학교병원",
+    "shortName": "KNUH",
+    "type": "기타공공기관",
+    "region": "강원권",
+    "industry": "복지·보건",
+    "address": "강원 춘천시 백령로 156",
+    "startingSalary": 3000,
+    "avgSalary": 5500,
+    "avgYears": 9,
+    "homepage": "https://www.knuh.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=강원대학교병원",
+    "description": "강원특별자치도 거점 국립대학 병원. 교육부 산하 기타공공기관.",
+    "mainBusiness": [
+      "진료·의료서비스",
+      "임상 교육",
+      "의학 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "의료비 지원"
+    ],
+    "branches": [
+      {
+        "name": "본원 (춘천)",
+        "address": "강원 춘천시 백령로 156"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 경영",
+      "의료": "의학, 간호, 의료기술"
+    }
+  },
+  {
+    "id": 184,
+    "name": "강원대학교치과병원",
+    "shortName": "KNUDH",
+    "type": "기타공공기관",
+    "region": "강원권",
+    "industry": "복지·보건",
+    "address": "강원 춘천시 백령로 156",
+    "startingSalary": 2900,
+    "avgSalary": 5000,
+    "avgYears": 8,
+    "homepage": "http://www.knudh.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=강원대학교치과병원",
+    "description": "강원대학교 부속 치과병원. 교육부 산하 기타공공기관.",
+    "mainBusiness": [
+      "치과 진료",
+      "치의학 교육",
+      "임상 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "의료비 지원"
+    ],
+    "branches": [
+      {
+        "name": "본원 (춘천)",
+        "address": "강원 춘천시 백령로 156"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정",
+      "의료": "치의학, 간호"
+    }
+  },
+  {
+    "id": 185,
+    "name": "건축공간연구원",
+    "shortName": "AURI",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "SOC·건설",
+    "address": "경기 안양시 동안구 시민대로 254",
+    "startingSalary": 3200,
+    "avgSalary": 6000,
+    "avgYears": 10,
+    "homepage": "https://www.auri.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=건축공간연구원",
+    "description": "건축·공간 환경 정책 연구를 수행하는 국무조정실 산하 기타공공기관.",
+    "mainBusiness": [
+      "건축·도시 정책 연구",
+      "공간복지 연구",
+      "한옥 등 건축문화 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (안양)",
+        "address": "경기 안양시 동안구 시민대로 254"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 경제",
+      "기술": "건축, 도시공학"
+    }
+  },
+  {
+    "id": 186,
+    "name": "게임물관리위원회",
+    "shortName": "GRAC",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "서울 마포구 상암산로 34",
+    "startingSalary": 3100,
+    "avgSalary": 5500,
+    "avgYears": 9,
+    "homepage": "http://www.grac.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=게임물관리위원회",
+    "description": "게임물 등급 분류와 사후 관리를 담당하는 문화체육관광부 산하 기타공공기관.",
+    "mainBusiness": [
+      "게임물 등급 분류",
+      "불법 게임물 단속",
+      "게임 이용자 보호"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 마포구 상암산로 34"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 법학, 행정, IT"
+    }
+  },
+  {
+    "id": 187,
+    "name": "경북대학교병원",
+    "shortName": "KNUH",
+    "type": "기타공공기관",
+    "region": "경상권",
+    "industry": "복지·보건",
+    "address": "대구 중구 동덕로 130",
+    "startingSalary": 3000,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "http://knuh.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=경북대학교병원",
+    "description": "경북권 거점 국립대학 병원. 교육부 산하 기타공공기관.",
+    "mainBusiness": [
+      "진료·의료서비스",
+      "임상 교육",
+      "의학 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "의료비 지원"
+    ],
+    "branches": [
+      {
+        "name": "본원 (대구)",
+        "address": "대구 중구 동덕로 130"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 경영",
+      "의료": "의학, 간호, 의료기술"
+    }
+  },
+  {
+    "id": 188,
+    "name": "경북대학교치과병원",
+    "shortName": "KNUDH",
+    "type": "기타공공기관",
+    "region": "경상권",
+    "industry": "복지·보건",
+    "address": "대구 중구 달성로 2-17",
+    "startingSalary": 2900,
+    "avgSalary": 5000,
+    "avgYears": 8,
+    "homepage": "http://www.knudh.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=경북대학교치과병원",
+    "description": "경북대학교 부속 치과병원. 교육부 산하 기타공공기관.",
+    "mainBusiness": [
+      "치과 진료",
+      "치의학 교육",
+      "임상 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "의료비 지원"
+    ],
+    "branches": [
+      {
+        "name": "본원 (대구)",
+        "address": "대구 중구 달성로 2-17"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정",
+      "의료": "치의학, 간호"
+    }
+  },
+  {
+    "id": 189,
+    "name": "경상국립대학교병원",
+    "shortName": "GNUH",
+    "type": "기타공공기관",
+    "region": "경상권",
+    "industry": "복지·보건",
+    "address": "경남 진주시 강남로 79",
+    "startingSalary": 3000,
+    "avgSalary": 5500,
+    "avgYears": 9,
+    "homepage": "http://www.gnuh.co.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=경상국립대학교병원",
+    "description": "경남권 국립대학 병원. 교육부 산하 기타공공기관.",
+    "mainBusiness": [
+      "진료·의료서비스",
+      "임상 교육",
+      "의학 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "의료비 지원"
+    ],
+    "branches": [
+      {
+        "name": "본원 (진주)",
+        "address": "경남 진주시 강남로 79"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 경영",
+      "의료": "의학, 간호, 의료기술"
+    }
+  },
+  {
+    "id": 190,
+    "name": "경제인문사회연구회",
+    "shortName": "NRC",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "행정·고용",
+    "address": "세종 한누리대로 411",
+    "startingSalary": 3500,
+    "avgSalary": 6500,
+    "avgYears": 11,
+    "homepage": "http://www.nrc.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=경제인문사회연구회",
+    "description": "경제·인문·사회 분야 정부출연연구기관을 관리·지원하는 국무조정실 산하 기타공공기관.",
+    "mainBusiness": [
+      "출연연 관리",
+      "융합연구 지원",
+      "국책연구 조정"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (세종)",
+        "address": "세종 한누리대로 411"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 경영, 경제"
+    }
+  },
+  {
+    "id": 191,
+    "name": "공간정보산업진흥원",
+    "shortName": "Spacen",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "산업·R&D",
+    "address": "경기 성남시 분당구 분당수서로 501",
+    "startingSalary": 3100,
+    "avgSalary": 5500,
+    "avgYears": 8,
+    "homepage": "http://www.spacen.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=공간정보산업진흥원",
+    "description": "공간정보산업 육성과 진흥을 담당하는 국토교통부 산하 기타공공기관.",
+    "mainBusiness": [
+      "공간정보 산업 지원",
+      "공간정보 표준화",
+      "공간정보 기업 육성"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (성남)",
+        "address": "경기 성남시 분당구 분당수서로 501"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 경영",
+      "기술": "지리정보, IT, 공간정보"
+    }
+  },
+  {
+    "id": 192,
+    "name": "공간정보품질관리원",
+    "shortName": "SIQMS",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "산업·R&D",
+    "address": "경기 수원시 영통구 광교중앙로 145",
+    "startingSalary": 3000,
+    "avgSalary": 5200,
+    "avgYears": 8,
+    "homepage": "http://www.siqms.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=공간정보품질관리원",
+    "description": "공간정보 데이터 품질 검사·관리를 담당하는 국토교통부 산하 기타공공기관.",
+    "mainBusiness": [
+      "공간정보 품질검사",
+      "국가기본도 관리",
+      "공간정보 데이터 구축"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (수원)",
+        "address": "경기 수원시 영통구 광교중앙로 145"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정",
+      "기술": "지리정보, 측량, IT"
+    }
+  },
+  {
+    "id": 193,
+    "name": "과학기술사업화진흥원",
+    "shortName": "COMPA",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "산업·R&D",
+    "address": "충북 청주시 흥덕구 오송읍 오송생명로 173",
+    "startingSalary": 3100,
+    "avgSalary": 5500,
+    "avgYears": 8,
+    "homepage": "https://www.compa.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=과학기술사업화진흥원",
+    "description": "연구성과의 사업화·기술이전 촉진을 지원하는 과학기술정보통신부 산하 기타공공기관.",
+    "mainBusiness": [
+      "기술이전 촉진",
+      "연구성과 사업화",
+      "창업·벤처 지원"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (청주)",
+        "address": "충북 청주시 흥덕구 오송읍 오송생명로 173"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 경제, 기술경영"
+    }
+  },
+  {
+    "id": 194,
+    "name": "과학기술정책연구원",
+    "shortName": "STEPI",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "산업·R&D",
+    "address": "세종 시청대로 370",
+    "startingSalary": 3500,
+    "avgSalary": 6500,
+    "avgYears": 11,
+    "homepage": "http://www.stepi.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=과학기술정책연구원",
+    "description": "과학기술혁신 정책 연구를 수행하는 국무조정실 산하 기타공공기관.",
+    "mainBusiness": [
+      "과학기술정책 연구",
+      "기술혁신 분석",
+      "R&D 제도 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (세종)",
+        "address": "세종 시청대로 370"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "경제, 행정, 과학기술"
+    }
+  },
+  {
+    "id": 195,
+    "name": "국가생명윤리정책원",
+    "shortName": "NIBP",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "복지·보건",
+    "address": "서울 중구 퇴계로 173",
+    "startingSalary": 3000,
+    "avgSalary": 5200,
+    "avgYears": 8,
+    "homepage": "https://nibp.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국가생명윤리정책원",
+    "description": "생명윤리 정책 연구·지원을 담당하는 보건복지부 산하 기타공공기관.",
+    "mainBusiness": [
+      "생명윤리 정책 연구",
+      "기관생명윤리위원회 지원",
+      "생명윤리 교육"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 중구 퇴계로 173"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "법학, 보건, 철학, 행정"
+    }
+  },
+  {
+    "id": 196,
+    "name": "국가아동권리보장원",
+    "shortName": "NCRC",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "복지·보건",
+    "address": "서울 마포구 독막로 331",
+    "startingSalary": 3100,
+    "avgSalary": 5500,
+    "avgYears": 8,
+    "homepage": "http://www.ncrc.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국가아동권리보장원",
+    "description": "아동 권리 보장과 복지 정책 지원을 담당하는 보건복지부 산하 기타공공기관.",
+    "mainBusiness": [
+      "아동보호서비스 지원",
+      "입양·가정위탁 지원",
+      "아동권리 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 마포구 독막로 331"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "사회복지, 아동학, 행정"
+    }
+  },
+  {
+    "id": 197,
+    "name": "국가평생교육진흥원",
+    "shortName": "NILE",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "서울 강남구 삼성로 96",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "http://www.nile.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국가평생교육진흥원",
+    "description": "평생교육 진흥과 학점은행제 운영을 담당하는 교육부 산하 기타공공기관.",
+    "mainBusiness": [
+      "평생교육 진흥",
+      "학점은행제 운영",
+      "독학학위제 운영"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 강남구 삼성로 96"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "교육, 행정, 경영"
+    }
+  },
+  {
+    "id": 198,
+    "name": "국립광주과학관",
+    "shortName": "GSCK",
+    "type": "기타공공기관",
+    "region": "전라권",
+    "industry": "교육·문화",
+    "address": "광주 북구 용봉로 113",
+    "startingSalary": 3000,
+    "avgSalary": 5200,
+    "avgYears": 9,
+    "homepage": "http://www.sciencecenter.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립광주과학관",
+    "description": "광주·전남 권역 과학문화 확산을 담당하는 과학기술정보통신부 산하 기타공공기관.",
+    "mainBusiness": [
+      "과학 전시·체험",
+      "과학교육 프로그램",
+      "과학문화 확산"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본관 (광주)",
+        "address": "광주 북구 용봉로 113"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 행정",
+      "기술": "이공계 전반"
+    }
+  },
+  {
+    "id": 199,
+    "name": "국립낙동강생물자원관",
+    "shortName": "NNIBR",
+    "type": "기타공공기관",
+    "region": "경상권",
+    "industry": "환경·농림",
+    "address": "경북 상주시 도남2길 137",
+    "startingSalary": 3100,
+    "avgSalary": 5500,
+    "avgYears": 9,
+    "homepage": "https://www.nnibr.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립낙동강생물자원관",
+    "description": "낙동강 수계 생물자원 조사·연구를 담당하는 기후에너지환경부 산하 기타공공기관.",
+    "mainBusiness": [
+      "담수생물 자원 조사",
+      "생물자원 보전·연구",
+      "생태 교육"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본관 (상주)",
+        "address": "경북 상주시 도남2길 137"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정",
+      "기술": "생물학, 환경, 생태"
+    }
+  },
+  {
+    "id": 200,
+    "name": "국립농업박물관",
+    "shortName": "NAMUK",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "환경·농림",
+    "address": "경기 수원시 권선구 수인로 154",
+    "startingSalary": 3000,
+    "avgSalary": 5200,
+    "avgYears": 7,
+    "homepage": "https://namuk.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립농업박물관",
+    "description": "농업 역사와 문화를 보존·전시하는 농림축산식품부 산하 기타공공기관. 2026년 신규 지정.",
+    "mainBusiness": [
+      "농업 유물 수집·전시",
+      "농업 역사 연구",
+      "농촌 문화 교육"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본관 (수원)",
+        "address": "경기 수원시 권선구 수인로 154"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 역사, 경영"
+    }
+  },
+  {
+    "id": 201,
+    "name": "국립대구과학관",
+    "shortName": "DNSM",
+    "type": "기타공공기관",
+    "region": "경상권",
+    "industry": "교육·문화",
+    "address": "대구 달성군 유가읍 테크노대로 6",
+    "startingSalary": 3000,
+    "avgSalary": 5200,
+    "avgYears": 9,
+    "homepage": "http://www.dnsm.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립대구과학관",
+    "description": "대구·경북 권역 과학문화 확산을 담당하는 과학기술정보통신부 산하 기타공공기관.",
+    "mainBusiness": [
+      "과학 전시·체험",
+      "과학교육 프로그램",
+      "과학문화 확산"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본관 (대구)",
+        "address": "대구 달성군 유가읍 테크노대로 6"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 행정",
+      "기술": "이공계 전반"
+    }
+  },
+  {
+    "id": 202,
+    "name": "국립부산과학관",
+    "shortName": "SCIPORT",
+    "type": "기타공공기관",
+    "region": "경상권",
+    "industry": "교육·문화",
+    "address": "부산 기장군 기장읍 동부산관광로 59",
+    "startingSalary": 3000,
+    "avgSalary": 5200,
+    "avgYears": 9,
+    "homepage": "http://www.sciport.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립부산과학관",
+    "description": "부산·울산·경남 권역 과학문화 확산을 담당하는 과학기술정보통신부 산하 기타공공기관.",
+    "mainBusiness": [
+      "과학 전시·체험",
+      "과학교육 프로그램",
+      "과학문화 확산"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본관 (부산)",
+        "address": "부산 기장군 기장읍 동부산관광로 59"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 행정",
+      "기술": "이공계 전반"
+    }
+  },
+  {
+    "id": 203,
+    "name": "국립암센터",
+    "shortName": "NCC",
+    "type": "기타공공기관",
+    "region": "경기권",
+    "industry": "복지·보건",
+    "address": "경기 고양시 일산동구 일산로 323",
+    "startingSalary": 3200,
+    "avgSalary": 6500,
+    "avgYears": 10,
+    "homepage": "http://www.ncc.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립암센터",
+    "description": "암 연구·예방·치료를 전담하는 보건복지부 산하 기타공공기관.",
+    "mainBusiness": [
+      "암 진료",
+      "암 연구",
+      "국가 암 관리"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "의료비 지원"
+    ],
+    "branches": [
+      {
+        "name": "본원 (고양)",
+        "address": "경기 고양시 일산동구 일산로 323"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 경영",
+      "의료": "의학, 간호, 의료기술"
+    }
+  },
+  {
+    "id": 204,
+    "name": "국립울진해양과학관",
+    "shortName": "KOSM",
+    "type": "기타공공기관",
+    "region": "경상권",
+    "industry": "교육·문화",
+    "address": "경북 울진군 죽변면 해양과학관로 100",
+    "startingSalary": 2900,
+    "avgSalary": 5000,
+    "avgYears": 7,
+    "homepage": "http://www.kosm.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립울진해양과학관",
+    "description": "해양과학 교육·전시를 담당하는 해양수산부 산하 기타공공기관.",
+    "mainBusiness": [
+      "해양과학 전시",
+      "해양교육 프로그램",
+      "해양문화 확산"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본관 (울진)",
+        "address": "경북 울진군 죽변면 해양과학관로 100"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 경영",
+      "기술": "해양, 수산, 이공계"
+    }
+  },
+  {
+    "id": 205,
+    "name": "국립인천해양박물관",
+    "shortName": "INMM",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "인천 중구 신포로 27번길 30",
+    "startingSalary": 3000,
+    "avgSalary": 5200,
+    "avgYears": 6,
+    "homepage": "https://www.inmm.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립인천해양박물관",
+    "description": "인천 해양 역사·문화를 보존·전시하는 해양수산부 산하 기타공공기관. 2026년 신규 지정.",
+    "mainBusiness": [
+      "해양 유물 수집·전시",
+      "해양 역사 연구",
+      "해양 문화 교육"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본관 (인천)",
+        "address": "인천 중구 신포로 27번길 30"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 역사, 경영"
+    }
+  },
+  {
+    "id": 206,
+    "name": "국립중앙의료원",
+    "shortName": "NMC",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "복지·보건",
+    "address": "서울 중구 을지로 245",
+    "startingSalary": 3200,
+    "avgSalary": 6000,
+    "avgYears": 10,
+    "homepage": "http://www.nmc.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립중앙의료원",
+    "description": "공공보건의료 중추기관으로 취약계층 의료서비스를 담당하는 보건복지부 산하 기타공공기관.",
+    "mainBusiness": [
+      "공공의료 서비스",
+      "재난의료 지원",
+      "의료 취약지 지원"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "의료비 지원"
+    ],
+    "branches": [
+      {
+        "name": "본원 (서울)",
+        "address": "서울 중구 을지로 245"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 경영",
+      "의료": "의학, 간호, 의료기술"
+    }
+  },
+  {
+    "id": 207,
+    "name": "국립항공박물관",
+    "shortName": "KAM",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "서울 강서구 하늘길 177",
+    "startingSalary": 3000,
+    "avgSalary": 5200,
+    "avgYears": 6,
+    "homepage": "http://www.aviation.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립항공박물관",
+    "description": "항공 역사·문화를 보존·전시하는 국토교통부 산하 기타공공기관.",
+    "mainBusiness": [
+      "항공 유물 수집·전시",
+      "항공 역사 연구",
+      "항공 교육"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본관 (서울)",
+        "address": "서울 강서구 하늘길 177"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 역사, 경영"
+    }
+  },
+  {
+    "id": 208,
+    "name": "국립해양박물관",
+    "shortName": "MMK",
+    "type": "기타공공기관",
+    "region": "경상권",
+    "industry": "교육·문화",
+    "address": "부산 영도구 해양로 301번길 45",
+    "startingSalary": 3100,
+    "avgSalary": 5500,
+    "avgYears": 9,
+    "homepage": "http://www.mmk.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립해양박물관",
+    "description": "해양 역사·문화를 보존·전시하는 해양수산부 산하 기타공공기관.",
+    "mainBusiness": [
+      "해양 유물 수집·전시",
+      "해양 역사 연구",
+      "해양 교육"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본관 (부산)",
+        "address": "부산 영도구 해양로 301번길 45"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 역사, 경영"
+    }
+  },
+  {
+    "id": 209,
+    "name": "국립해양생물자원관",
+    "shortName": "MABIK",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "환경·농림",
+    "address": "충남 서천군 장항읍 장산로 101번길 75",
+    "startingSalary": 3100,
+    "avgSalary": 5500,
+    "avgYears": 9,
+    "homepage": "http://www.mabik.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립해양생물자원관",
+    "description": "해양생물자원 조사·보전·연구를 담당하는 해양수산부 산하 기타공공기관.",
+    "mainBusiness": [
+      "해양생물 자원 조사",
+      "해양생물 보전·연구",
+      "해양생태 교육"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본관 (서천)",
+        "address": "충남 서천군 장항읍 장산로 101번길 75"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정",
+      "기술": "해양생물, 수산, 생태"
+    }
+  },
+  {
+    "id": 210,
+    "name": "국립호남권생물자원관",
+    "shortName": "HNIBR",
+    "type": "기타공공기관",
+    "region": "전라권",
+    "industry": "환경·농림",
+    "address": "전남 목포시 고하대로 875",
+    "startingSalary": 3100,
+    "avgSalary": 5500,
+    "avgYears": 8,
+    "homepage": "http://hnibr.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립호남권생물자원관",
+    "description": "호남 도서·연안 생물자원 조사·연구를 담당하는 기후에너지환경부 산하 기타공공기관.",
+    "mainBusiness": [
+      "섬·연안 생물자원 조사",
+      "생물자원 보전·연구",
+      "생태 교육"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본관 (목포)",
+        "address": "전남 목포시 고하대로 875"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정",
+      "기술": "생물학, 환경, 생태"
+    }
+  },
+  {
+    "id": 211,
+    "name": "국방과학연구소",
+    "shortName": "ADD",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "산업·R&D",
+    "address": "대전 유성구 과학로 111",
+    "startingSalary": 4000,
+    "avgSalary": 7500,
+    "avgYears": 12,
+    "homepage": "http://www.add.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국방과학연구소",
+    "description": "국방 무기체계 연구개발을 전담하는 방위사업청 산하 기타공공기관.",
+    "mainBusiness": [
+      "무기체계 연구개발",
+      "국방과학기술 연구",
+      "방산 기술 지원"
+    ],
+    "welfare": [
+      "주택자금",
+      "복지포인트",
+      "자녀 학자금",
+      "의료비 지원"
+    ],
+    "branches": [
+      {
+        "name": "본소 (대전)",
+        "address": "대전 유성구 과학로 111"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "기술": "기계, 전기전자, 화학, 컴퓨터, 항공",
+      "사무": "행정"
+    }
+  },
+  {
+    "id": 212,
+    "name": "국방전직교육원",
+    "shortName": "MOTI",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "경기 이천시 설봉로 61",
+    "startingSalary": 3000,
+    "avgSalary": 5200,
+    "avgYears": 8,
+    "homepage": "https://www.moti.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국방전직교육원",
+    "description": "전역 군인의 취업·창업 지원 교육을 담당하는 국방부 산하 기타공공기관.",
+    "mainBusiness": [
+      "전역자 직업교육",
+      "취업·창업 지원",
+      "직무능력 향상"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (이천)",
+        "address": "경기 이천시 설봉로 61"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 교육, 경영"
+    }
+  },
+  {
+    "id": 213,
+    "name": "국악방송",
+    "shortName": "국악방송",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "서울 마포구 상암산로 76",
+    "startingSalary": 3000,
+    "avgSalary": 5500,
+    "avgYears": 9,
+    "homepage": "http://www.igbf.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국악방송",
+    "description": "국악 전문 방송을 운영하는 문화체육관광부 산하 기타공공기관.",
+    "mainBusiness": [
+      "국악 라디오 방송",
+      "국악 영상 제작",
+      "국악 보급·홍보"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 마포구 상암산로 76"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 행정, 방송",
+      "예술": "국악, 음악"
+    }
+  },
+  {
+    "id": 214,
+    "name": "국제방송교류재단",
+    "shortName": "ARIRANG",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "서울 마포구 상암산로 76",
+    "startingSalary": 3100,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "https://www.arirang.com",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국제방송교류재단",
+    "description": "아리랑TV를 운영하며 한국 문화를 해외에 알리는 문화체육관광부 산하 기타공공기관.",
+    "mainBusiness": [
+      "해외 TV 방송",
+      "한국 문화 홍보",
+      "국제 방송 교류"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 마포구 상암산로 76"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 방송, 언론, 외국어"
+    }
+  },
+  {
+    "id": 215,
+    "name": "국제식물검역인증원",
+    "shortName": "IPAB",
+    "type": "기타공공기관",
+    "region": "경기권",
+    "industry": "환경·농림",
+    "address": "경기 성남시 수정구 성남대로 1217",
+    "startingSalary": 3000,
+    "avgSalary": 5300,
+    "avgYears": 8,
+    "homepage": "http://www.ipab.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국제식물검역인증원",
+    "description": "수출 식물의 검역·인증 서비스를 제공하는 농림축산식품부 산하 기타공공기관.",
+    "mainBusiness": [
+      "식물 검역 서비스",
+      "해외 인증 지원",
+      "검역 컨설팅"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (성남)",
+        "address": "경기 성남시 수정구 성남대로 1217"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정",
+      "기술": "식물학, 농학, 생물"
+    }
+  },
+  {
+    "id": 216,
+    "name": "국토교통과학기술진흥원",
+    "shortName": "KAIA",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "SOC·건설",
+    "address": "충북 진천군 덕산읍 두타산로 266",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "http://www.kaia.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국토교통과학기술진흥원",
+    "description": "국토교통 R&D 기획·관리를 담당하는 국토교통부 산하 기타공공기관.",
+    "mainBusiness": [
+      "국토교통 R&D 기획·관리",
+      "교통·건설 기술 지원",
+      "스마트시티 기술 촉진"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (진천)",
+        "address": "충북 진천군 덕산읍 두타산로 266"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 행정",
+      "기술": "토목, 건축, 교통, IT"
+    }
+  },
+  {
+    "id": 217,
+    "name": "국토연구원",
+    "shortName": "KRIHS",
+    "type": "기타공공기관",
+    "region": "경기권",
+    "industry": "SOC·건설",
+    "address": "경기 세종특별자치시 국책연구원로 5",
+    "startingSalary": 3500,
+    "avgSalary": 6800,
+    "avgYears": 11,
+    "homepage": "http://www.krihs.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국토연구원",
+    "description": "국토·도시·주택 분야 정책 연구를 수행하는 국무조정실 산하 기타공공기관.",
+    "mainBusiness": [
+      "국토 정책 연구",
+      "도시·주거 연구",
+      "지역 개발 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (세종)",
+        "address": "세종 국책연구원로 5"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "경제, 행정, 도시공학"
+    }
+  },
+  {
+    "id": 218,
+    "name": "기초과학연구원",
+    "shortName": "IBS",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "산업·R&D",
+    "address": "대전 유성구 엑스포로 55",
+    "startingSalary": 3800,
+    "avgSalary": 7200,
+    "avgYears": 10,
+    "homepage": "http://ibs.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=기초과학연구원",
+    "description": "기초과학 연구 지원·육성을 담당하는 과학기술정보통신부 산하 기타공공기관.",
+    "mainBusiness": [
+      "기초과학 연구",
+      "연구단 운영·지원",
+      "과학 인재 양성"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "주택자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (대전)",
+        "address": "대전 유성구 엑스포로 55"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 경영",
+      "기술": "물리, 화학, 생명, 수학"
+    }
+  },
+  {
+    "id": 219,
+    "name": "노사발전재단",
+    "shortName": "NOSA",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "행정·고용",
+    "address": "서울 중구 퇴계로 173",
+    "startingSalary": 3100,
+    "avgSalary": 5500,
+    "avgYears": 9,
+    "homepage": "https://www.nosa.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=노사발전재단",
+    "description": "노사 협력 문화 조성과 노사관계 선진화를 지원하는 고용노동부 산하 기타공공기관.",
+    "mainBusiness": [
+      "노사관계 컨설팅",
+      "일·가정 양립 지원",
+      "정년연장 지원"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 중구 퇴계로 173"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 노무, 행정, 법학"
+    }
+  },
+  {
+    "id": 220,
+    "name": "농림식품기술기획평가원",
+    "shortName": "IPET",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "환경·농림",
+    "address": "전북 전주시 완산구 혁신로 405",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "https://www.ipet.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=농림식품기술기획평가원",
+    "description": "농림수산식품 분야 R&D 기획·관리·평가를 담당하는 농림축산식품부 산하 기타공공기관.",
+    "mainBusiness": [
+      "농림식품 R&D 기획",
+      "연구과제 관리·평가",
+      "기술 성과 확산"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (전주)",
+        "address": "전북 전주시 완산구 혁신로 405"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 경영",
+      "기술": "농학, 식품, 생명"
+    }
+  },
+  {
+    "id": 221,
+    "name": "농업정책보험금융원",
+    "shortName": "APFS",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "환경·농림",
+    "address": "서울 동작구 여의대방로 67",
+    "startingSalary": 3300,
+    "avgSalary": 6000,
+    "avgYears": 9,
+    "homepage": "http://www.apfs.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=농업정책보험금융원",
+    "description": "농업재해보험과 농업정책금융을 지원하는 농림축산식품부 산하 기타공공기관.",
+    "mainBusiness": [
+      "농업재해보험 운영",
+      "농업정책자금 지원",
+      "농업금융 기획"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 동작구 여의대방로 67"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "수리능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 금융, 보험, 농학"
+    }
+  },
+  {
+    "id": 222,
+    "name": "대구경북첨단의료산업진흥재단",
+    "shortName": "KMEDIHUB",
+    "type": "기타공공기관",
+    "region": "경상권",
+    "industry": "복지·보건",
+    "address": "대구 동구 첨단로 80",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "https://www.kmedihub.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=대구경북첨단의료산업진흥재단",
+    "description": "첨단의료복합단지 내 의료기기·신약 개발 지원을 담당하는 보건복지부 산하 기타공공기관.",
+    "mainBusiness": [
+      "의료기기 개발 지원",
+      "신약 개발 지원",
+      "임상시험 지원"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (대구)",
+        "address": "대구 동구 첨단로 80"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 행정",
+      "기술": "의공학, 생명, 약학"
+    }
+  },
+  {
+    "id": 223,
+    "name": "대한법률구조공단",
+    "shortName": "KLAC",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "행정·고용",
+    "address": "서울 서초구 남부순환로 294길 33",
+    "startingSalary": 3300,
+    "avgSalary": 6200,
+    "avgYears": 10,
+    "homepage": "https://www.klac.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=대한법률구조공단",
+    "description": "법률 취약계층에 법률 서비스를 제공하는 법무부 산하 기타공공기관.",
+    "mainBusiness": [
+      "법률 상담",
+      "소송 대리",
+      "형사 변호"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "주택자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 서초구 남부순환로 294길 33"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "법학, 행정"
+    }
+  },
+  {
+    "id": 224,
+    "name": "대한석탄공사",
+    "shortName": "KOCOAL",
+    "type": "기타공공기관",
+    "region": "강원권",
+    "industry": "에너지",
+    "address": "강원 원주시 중앙로 147",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 12,
+    "homepage": "http://www.kocoal.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=대한석탄공사",
+    "description": "국내 석탄 생산·공급을 담당하는 산업통상자원부 산하 기타공공기관.",
+    "mainBusiness": [
+      "석탄 채굴·생산",
+      "탄광 운영·관리",
+      "광산 안전 관리"
+    ],
+    "welfare": [
+      "주택자금",
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (원주)",
+        "address": "강원 원주시 중앙로 147"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 행정",
+      "기술": "광산, 기계, 전기"
+    }
+  },
+  {
+    "id": 225,
+    "name": "대한장애인체육회",
+    "shortName": "KPC",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "경기 이천시 이섭대천로 1971",
+    "startingSalary": 3000,
+    "avgSalary": 5200,
+    "avgYears": 8,
+    "homepage": "http://www.koreanpc.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=대한장애인체육회",
+    "description": "장애인 스포츠 활성화와 선수 육성을 담당하는 문화체육관광부 산하 기타공공기관.",
+    "mainBusiness": [
+      "장애인 스포츠 지원",
+      "패럴림픽 준비",
+      "장애인 생활체육 진흥"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (이천)",
+        "address": "경기 이천시 이섭대천로 1971"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "체육, 경영, 행정"
+    }
+  },
+  {
+    "id": 226,
+    "name": "대한적십자사",
+    "shortName": "KRC",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "복지·보건",
+    "address": "서울 중구 새문안로 17",
+    "startingSalary": 3000,
+    "avgSalary": 5500,
+    "avgYears": 9,
+    "homepage": "https://www.redcross.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=대한적십자사",
+    "description": "인도주의 활동과 혈액 관리를 담당하는 보건복지부 산하 기타공공기관.",
+    "mainBusiness": [
+      "혈액 수급 관리",
+      "재난 구호",
+      "취약계층 복지"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "의료비 지원"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 중구 새문안로 17"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "사회복지, 행정, 경영, 간호"
+    }
+  },
+  {
+    "id": 227,
+    "name": "대한체육회",
+    "shortName": "KOC",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "서울 송파구 올림픽로 424",
+    "startingSalary": 3200,
+    "avgSalary": 6000,
+    "avgYears": 10,
+    "homepage": "http://www.sports.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=대한체육회",
+    "description": "국내 스포츠 진흥과 올림픽 선수 육성을 담당하는 문화체육관광부 산하 기타공공기관.",
+    "mainBusiness": [
+      "엘리트 체육 지원",
+      "생활체육 진흥",
+      "올림픽 대표팀 관리"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "체육시설 이용"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 송파구 올림픽로 424"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "체육, 경영, 행정"
+    }
+  },
+  {
+    "id": 228,
+    "name": "독립기념관",
+    "shortName": "독립기념관",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "교육·문화",
+    "address": "충남 천안시 동남구 목천읍 삼방로 95",
+    "startingSalary": 3000,
+    "avgSalary": 5500,
+    "avgYears": 10,
+    "homepage": "http://www.i815.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=독립기념관",
+    "description": "독립운동 역사를 보존·전시하는 국가보훈부 산하 기타공공기관.",
+    "mainBusiness": [
+      "독립운동 유물 전시",
+      "역사 교육",
+      "독립운동 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본관 (천안)",
+        "address": "충남 천안시 동남구 목천읍 삼방로 95"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "역사, 행정, 경영"
+    }
+  },
+  {
+    "id": 229,
+    "name": "동북아역사재단",
+    "shortName": "NAHF",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "서울 서대문구 통일로 81",
+    "startingSalary": 3300,
+    "avgSalary": 6200,
+    "avgYears": 10,
+    "homepage": "http://www.nahf.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=동북아역사재단",
+    "description": "동북아 역사 연구·홍보를 담당하는 교육부 산하 기타공공기관.",
+    "mainBusiness": [
+      "동북아 역사 연구",
+      "독도·위안부 대응",
+      "역사 외교 지원"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 서대문구 통일로 81"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "역사, 외교, 정치, 행정"
+    }
+  },
+  {
+    "id": 230,
+    "name": "무역안보관리원",
+    "shortName": "KOSTI",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "산업·R&D",
+    "address": "서울 강남구 영동대로 517",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "http://www.kosti.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=무역안보관리원",
+    "description": "전략물자 수출통제와 무역안보를 지원하는 산업통상자원부 산하 기타공공기관.",
+    "mainBusiness": [
+      "전략물자 수출허가 지원",
+      "무역안보 교육",
+      "관련 정보 제공"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 강남구 영동대로 517"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "무역, 법학, 행정, 경영"
+    }
+  },
+  {
+    "id": 231,
+    "name": "민주화운동기념사업회",
+    "shortName": "KDF",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "경기 의왕시 내손순환로 132",
+    "startingSalary": 3000,
+    "avgSalary": 5500,
+    "avgYears": 9,
+    "homepage": "https://www.kdemo.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=민주화운동기념사업회",
+    "description": "민주화운동 정신 계승·발전을 위한 사업을 담당하는 행정안전부 산하 기타공공기관.",
+    "mainBusiness": [
+      "민주화운동 기념·교육",
+      "민주주의 연구",
+      "관련 유물 보존"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (의왕)",
+        "address": "경기 의왕시 내손순환로 132"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "역사, 행정, 사회"
+    }
+  },
+  {
+    "id": 232,
+    "name": "부산대학교병원",
+    "shortName": "PNUH",
+    "type": "기타공공기관",
+    "region": "경상권",
+    "industry": "복지·보건",
+    "address": "부산 서구 구덕로 179",
+    "startingSalary": 3100,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "http://www.pnuh.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=부산대학교병원",
+    "description": "부산권 거점 국립대학 병원. 교육부 산하 기타공공기관.",
+    "mainBusiness": [
+      "진료·의료서비스",
+      "임상 교육",
+      "의학 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "의료비 지원"
+    ],
+    "branches": [
+      {
+        "name": "본원 (부산)",
+        "address": "부산 서구 구덕로 179"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 경영",
+      "의료": "의학, 간호, 의료기술"
+    }
+  },
+  {
+    "id": 233,
+    "name": "부산대학교치과병원",
+    "shortName": "PNUDH",
+    "type": "기타공공기관",
+    "region": "경상권",
+    "industry": "복지·보건",
+    "address": "부산 서구 구덕로 179",
+    "startingSalary": 2900,
+    "avgSalary": 5000,
+    "avgYears": 8,
+    "homepage": "http://www.pnudh.co.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=부산대학교치과병원",
+    "description": "부산대학교 부속 치과병원. 교육부 산하 기타공공기관.",
+    "mainBusiness": [
+      "치과 진료",
+      "치의학 교육",
+      "임상 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "의료비 지원"
+    ],
+    "branches": [
+      {
+        "name": "본원 (부산)",
+        "address": "부산 서구 구덕로 179"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정",
+      "의료": "치의학, 간호"
+    }
+  },
+  {
+    "id": 234,
+    "name": "북한이탈주민지원재단",
+    "shortName": "KOREAHANA",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "행정·고용",
+    "address": "서울 양천구 목동동로 375",
+    "startingSalary": 3000,
+    "avgSalary": 5300,
+    "avgYears": 8,
+    "homepage": "http://www.koreahana.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=북한이탈주민지원재단",
+    "description": "북한이탈주민의 사회 정착을 지원하는 통일부 산하 기타공공기관.",
+    "mainBusiness": [
+      "탈북민 정착 지원",
+      "취업·교육 지원",
+      "심리 상담"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 양천구 목동동로 375"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "사회복지, 심리, 행정, 북한학"
+    }
+  },
+  {
+    "id": 235,
+    "name": "산업연구원",
+    "shortName": "KIET",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "산업·R&D",
+    "address": "세종 한누리대로 402",
+    "startingSalary": 3500,
+    "avgSalary": 6800,
+    "avgYears": 11,
+    "homepage": "http://www.kiet.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=산업연구원",
+    "description": "산업·통상 정책 연구를 수행하는 국무조정실 산하 기타공공기관.",
+    "mainBusiness": [
+      "산업·통상 정책 연구",
+      "산업구조 분석",
+      "통상전략 수립 지원"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (세종)",
+        "address": "세종 한누리대로 402"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "경제, 경영, 행정, 산업공학"
+    }
+  },
+  {
+    "id": 236,
+    "name": "새만금개발공사",
+    "shortName": "SDCO",
+    "type": "기타공공기관",
+    "region": "전라권",
+    "industry": "SOC·건설",
+    "address": "전북 전주시 완산구 콩쥐팥쥐로 111",
+    "startingSalary": 3300,
+    "avgSalary": 6000,
+    "avgYears": 7,
+    "homepage": "https://www.sdco.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=새만금개발공사",
+    "description": "새만금 간척지 개발과 투자 유치를 담당하는 국토교통부 산하 기타공공기관.",
+    "mainBusiness": [
+      "새만금 개발·운영",
+      "투자 유치",
+      "스마트 그린 산단 조성"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (전주)",
+        "address": "전북 전주시 완산구 콩쥐팥쥐로 111"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 행정, 경제",
+      "기술": "토목, 건축, 환경"
+    }
+  },
+  {
+    "id": 237,
+    "name": "서울대학교병원",
+    "shortName": "SNUH",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "복지·보건",
+    "address": "서울 종로구 대학로 101",
+    "startingSalary": 3300,
+    "avgSalary": 7000,
+    "avgYears": 10,
+    "homepage": "http://snuh.org",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=서울대학교병원",
+    "description": "국내 최고 수준의 국립대학 병원. 교육부 산하 기타공공기관.",
+    "mainBusiness": [
+      "진료·의료서비스",
+      "임상 교육",
+      "의학 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "의료비 지원"
+    ],
+    "branches": [
+      {
+        "name": "본원 (서울)",
+        "address": "서울 종로구 대학로 101"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 경영",
+      "의료": "의학, 간호, 의료기술"
+    }
+  },
+  {
+    "id": 238,
+    "name": "서울대학교치과병원",
+    "shortName": "SNUDH",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "복지·보건",
+    "address": "서울 종로구 대학로 101",
+    "startingSalary": 3100,
+    "avgSalary": 6000,
+    "avgYears": 9,
+    "homepage": "http://www.snudh.org",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=서울대학교치과병원",
+    "description": "서울대학교 부속 치과병원. 교육부 산하 기타공공기관.",
+    "mainBusiness": [
+      "치과 진료",
+      "치의학 교육",
+      "임상 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "의료비 지원"
+    ],
+    "branches": [
+      {
+        "name": "본원 (서울)",
+        "address": "서울 종로구 대학로 101"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정",
+      "의료": "치의학, 간호"
+    }
+  },
+  {
+    "id": 239,
+    "name": "세종학당재단",
+    "shortName": "KSIF",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "서울 종로구 필운대로 5",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "http://www.ksif.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=세종학당재단",
+    "description": "전 세계 한국어·한국문화 보급을 위한 세종학당을 운영하는 문화체육관광부 산하 기타공공기관.",
+    "mainBusiness": [
+      "세종학당 운영",
+      "한국어 교육 지원",
+      "한국 문화 보급"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 종로구 필운대로 5"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "한국어교육, 경영, 행정, 외국어"
+    }
+  },
+  {
+    "id": 240,
+    "name": "스포츠윤리센터",
+    "shortName": "K-SEC",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "서울 강남구 봉은사로 525",
+    "startingSalary": 3000,
+    "avgSalary": 5200,
+    "avgYears": 7,
+    "homepage": "https://www.k-sec.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=스포츠윤리센터",
+    "description": "스포츠 비리 신고·조사와 윤리 문화 확산을 담당하는 문화체육관광부 산하 기타공공기관.",
+    "mainBusiness": [
+      "스포츠 비리 조사",
+      "피해자 지원",
+      "스포츠 윤리 교육"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 강남구 봉은사로 525"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "법학, 체육, 행정, 사회복지"
+    }
+  },
+  {
+    "id": 241,
+    "name": "시청자미디어재단",
+    "shortName": "KCMF",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "서울 마포구 매봉산로 31",
+    "startingSalary": 3100,
+    "avgSalary": 5500,
+    "avgYears": 9,
+    "homepage": "http://www.kcmf.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=시청자미디어재단",
+    "description": "시청자 권익 보호와 미디어 교육을 담당하는 방송미디어통신위원회 산하 기타공공기관.",
+    "mainBusiness": [
+      "미디어 교육",
+      "시청자 제작 지원",
+      "미디어 리터러시 증진"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 마포구 매봉산로 31"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 미디어, 방송, 행정"
+    }
+  },
+  {
+    "id": 242,
+    "name": "식품안전정보원",
+    "shortName": "FOODINFO",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "복지·보건",
+    "address": "서울 서초구 방배로 10길 23",
+    "startingSalary": 3100,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "http://www.foodinfo.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=식품안전정보원",
+    "description": "식품 안전 정보 수집·분석·제공을 담당하는 식품의약품안전처 산하 기타공공기관.",
+    "mainBusiness": [
+      "식품 안전 정보 제공",
+      "위해식품 정보 분석",
+      "식품 안전 교육"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 서초구 방배로 10길 23"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "식품, 보건, 행정, 경영"
+    }
+  },
+  {
+    "id": 243,
+    "name": "신용보증재단중앙회",
+    "shortName": "KOREG",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "금융",
+    "address": "서울 중구 남대문로 92",
+    "startingSalary": 3300,
+    "avgSalary": 6200,
+    "avgYears": 10,
+    "homepage": "http://www.koreg.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=신용보증재단중앙회",
+    "description": "지역신용보증재단을 관리·지원하는 중소벤처기업부 산하 기타공공기관.",
+    "mainBusiness": [
+      "지역신보 관리·지원",
+      "소기업·소상공인 보증",
+      "신용보증 정책 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 중구 남대문로 92"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "수리능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 금융, 경제, 법학"
+    }
+  },
+  {
+    "id": 244,
+    "name": "아시아·태평양경제협력체 기후센터",
+    "shortName": "APCC",
+    "type": "기타공공기관",
+    "region": "경상권",
+    "industry": "환경·농림",
+    "address": "부산 해운대구 센텀서로 30",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "http://www.apcc21.org",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=APCC기후센터",
+    "description": "APEC 회원국 기후변화 대응 정보 제공을 담당하는 기상청 산하 기타공공기관.",
+    "mainBusiness": [
+      "APEC 기후예측 서비스",
+      "기후변화 연구",
+      "국제 기후 협력"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (부산)",
+        "address": "부산 해운대구 센텀서로 30"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "대기과학, 환경, 행정",
+      "기술": "기상학, 기후학"
+    }
+  },
+  {
+    "id": 245,
+    "name": "양육비이행관리원",
+    "shortName": "CHILDSUPPORT",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "복지·보건",
+    "address": "서울 서초구 효령로 307",
+    "startingSalary": 3000,
+    "avgSalary": 5200,
+    "avgYears": 7,
+    "homepage": "https://www.childsupport.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=양육비이행관리원",
+    "description": "양육비 이행 확보 지원을 담당하는 성평등가족부 산하 기타공공기관. 2026년 신규 지정.",
+    "mainBusiness": [
+      "양육비 이행 상담",
+      "법적 지원 연계",
+      "양육비 채권 추심"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 서초구 효령로 307"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "사회복지, 법학, 행정"
+    }
+  },
+  {
+    "id": 246,
+    "name": "에너지경제연구원",
+    "shortName": "KEEI",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "에너지",
+    "address": "울산 종가로 405-11",
+    "startingSalary": 3500,
+    "avgSalary": 6800,
+    "avgYears": 11,
+    "homepage": "http://www.keei.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=에너지경제연구원",
+    "description": "에너지·자원 분야 정책 연구를 수행하는 국무조정실 산하 기타공공기관.",
+    "mainBusiness": [
+      "에너지 정책 연구",
+      "에너지 수요·공급 분석",
+      "기후에너지 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (울산)",
+        "address": "울산 종가로 405-11"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "경제, 행정, 에너지"
+    }
+  },
+  {
+    "id": 247,
+    "name": "연구개발특구진흥재단",
+    "shortName": "INNOPOLIS",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "산업·R&D",
+    "address": "대전 유성구 엑스포로 123",
+    "startingSalary": 3300,
+    "avgSalary": 6200,
+    "avgYears": 10,
+    "homepage": "https://www.innopolis.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=연구개발특구진흥재단",
+    "description": "연구개발특구 육성 및 기술 사업화 지원을 담당하는 과학기술정보통신부 산하 기타공공기관.",
+    "mainBusiness": [
+      "특구 입주기업 지원",
+      "기술 사업화 촉진",
+      "첨단 산업 클러스터 육성"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (대전)",
+        "address": "대전 유성구 엑스포로 123"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 경제, 기술경영"
+    }
+  },
+  {
+    "id": 248,
+    "name": "영상물등급위원회",
+    "shortName": "KMRB",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "서울 마포구 성암로 267",
+    "startingSalary": 3100,
+    "avgSalary": 5500,
+    "avgYears": 9,
+    "homepage": "http://www.kmrb.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=영상물등급위원회",
+    "description": "영화·비디오·광고 영상물 등급 분류를 담당하는 문화체육관광부 산하 기타공공기관.",
+    "mainBusiness": [
+      "영화 등급 분류",
+      "비디오물 등급 심의",
+      "광고 심의"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 마포구 성암로 267"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "법학, 행정, 영화·영상"
+    }
+  },
+  {
+    "id": 249,
+    "name": "오송첨단의료산업진흥재단",
+    "shortName": "KBIO",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "복지·보건",
+    "address": "충북 청주시 흥덕구 오송읍 오송생명로 123",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "http://www.kbiohealth.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=오송첨단의료산업진흥재단",
+    "description": "오송 첨단의료복합단지 내 의약품·의료기기 개발 지원을 담당하는 보건복지부 산하 기타공공기관.",
+    "mainBusiness": [
+      "신약 개발 지원",
+      "의료기기 개발 지원",
+      "임상시험 인프라 제공"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (청주)",
+        "address": "충북 청주시 흥덕구 오송읍 오송생명로 123"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 행정",
+      "기술": "약학, 의공학, 생명"
+    }
+  },
+  {
+    "id": 250,
+    "name": "의료기관평가인증원",
+    "shortName": "KOIHA",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "복지·보건",
+    "address": "서울 중구 퇴계로 173",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "http://www.koiha.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=의료기관평가인증원",
+    "description": "의료기관 인증 심사를 담당하는 보건복지부 산하 기타공공기관.",
+    "mainBusiness": [
+      "의료기관 인증 심사",
+      "환자안전 기준 관리",
+      "의료 질 향상 지원"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 중구 퇴계로 173"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "보건행정, 경영",
+      "의료": "의학, 간호, 보건"
+    }
+  },
+  {
+    "id": 251,
+    "name": "자동차손해배상진흥원",
+    "shortName": "TACSS",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "금융",
+    "address": "서울 강남구 테헤란로 301",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "https://www.tacss.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=자동차손해배상진흥원",
+    "description": "자동차 손해배상 보장 업무와 피해자 지원을 담당하는 국토교통부 산하 기타공공기관.",
+    "mainBusiness": [
+      "자동차사고 피해자 지원",
+      "뺑소니·무보험 보상",
+      "자동차보험 정책 지원"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 강남구 테헤란로 301"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "수리능력"
+    ],
+    "majorSubjects": {
+      "사무": "법학, 보험, 경영, 행정"
+    }
+  },
+  {
+    "id": 252,
+    "name": "재단법인 건설기술교육원",
+    "shortName": "KICTE",
+    "type": "기타공공기관",
+    "region": "경기권",
+    "industry": "SOC·건설",
+    "address": "경기 고양시 일산서구 덕산로 277",
+    "startingSalary": 3000,
+    "avgSalary": 5500,
+    "avgYears": 9,
+    "homepage": "https://www.kicte.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=건설기술교육원",
+    "description": "건설 기술인 교육·훈련을 담당하는 국토교통부 산하 기타공공기관.",
+    "mainBusiness": [
+      "건설기술인 법정교육",
+      "건설안전 교육",
+      "건설 자격 관리"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (고양)",
+        "address": "경기 고양시 일산서구 덕산로 277"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 교육",
+      "기술": "토목, 건축"
+    }
+  },
+  {
+    "id": 253,
+    "name": "재단법인 대한건설기계안전관리원",
+    "shortName": "KCESI",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "SOC·건설",
+    "address": "서울 강서구 마곡중앙2로 15",
+    "startingSalary": 3000,
+    "avgSalary": 5500,
+    "avgYears": 9,
+    "homepage": "http://www.kcesi.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=대한건설기계안전관리원",
+    "description": "건설기계 안전검사와 등록 업무를 담당하는 국토교통부 산하 기타공공기관.",
+    "mainBusiness": [
+      "건설기계 안전검사",
+      "건설기계 등록 관리",
+      "건설기계 교육"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 강서구 마곡중앙2로 15"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정",
+      "기술": "기계, 건설"
+    }
+  },
+  {
+    "id": 254,
+    "name": "재단법인 장애인기업종합지원센터",
+    "shortName": "DEBC",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "행정·고용",
+    "address": "서울 영등포구 선유로 146",
+    "startingSalary": 3000,
+    "avgSalary": 5200,
+    "avgYears": 8,
+    "homepage": "http://www.debc.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=장애인기업종합지원센터",
+    "description": "장애인 창업·경영 지원을 담당하는 중소벤처기업부 산하 기타공공기관.",
+    "mainBusiness": [
+      "장애인 창업 지원",
+      "장애인기업 판로 지원",
+      "경영 컨설팅"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 영등포구 선유로 146"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 사회복지, 행정"
+    }
+  },
+  {
+    "id": 255,
+    "name": "재단법인 한국공공조직은행",
+    "shortName": "KPTB",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "복지·보건",
+    "address": "서울 중구 소월로2길 37",
+    "startingSalary": 3000,
+    "avgSalary": 5200,
+    "avgYears": 8,
+    "homepage": "https://kptb.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국공공조직은행",
+    "description": "인체 조직 기증·이식 지원을 담당하는 보건복지부 산하 기타공공기관.",
+    "mainBusiness": [
+      "인체 조직 기증 관리",
+      "조직 이식 연계",
+      "조직 기증 홍보"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 중구 소월로2길 37"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "보건, 사회복지, 행정"
+    }
+  },
+  {
+    "id": 256,
+    "name": "재단법인 한국에너지재단",
+    "shortName": "KOREF",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "에너지",
+    "address": "서울 강남구 논현로 430",
+    "startingSalary": 3000,
+    "avgSalary": 5200,
+    "avgYears": 8,
+    "homepage": "http://www.koref.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국에너지재단",
+    "description": "에너지 취약계층 지원과 에너지 복지 확대를 담당하는 기후에너지환경부 산하 기타공공기관.",
+    "mainBusiness": [
+      "에너지 취약계층 지원",
+      "에너지 효율 개선",
+      "에너지 복지 사업"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 강남구 논현로 430"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "에너지, 사회복지, 행정"
+    }
+  },
+  {
+    "id": 257,
+    "name": "재단법인 한국자활복지개발원",
+    "shortName": "KDISSW",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "복지·보건",
+    "address": "충북 청주시 흥덕구 오송읍 오송생명로 187",
+    "startingSalary": 3000,
+    "avgSalary": 5200,
+    "avgYears": 8,
+    "homepage": "https://www.kdissw.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국자활복지개발원",
+    "description": "저소득층 자활 지원 사업 개발·관리를 담당하는 보건복지부 산하 기타공공기관.",
+    "mainBusiness": [
+      "자활근로 사업 지원",
+      "자활기업 육성",
+      "자활 정책 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (청주)",
+        "address": "충북 청주시 흥덕구 오송읍 오송생명로 187"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "사회복지, 행정, 경영"
+    }
+  },
+  {
+    "id": 258,
+    "name": "재단법인 한국장기조직기증원",
+    "shortName": "KODA",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "복지·보건",
+    "address": "서울 중구 을지로 245",
+    "startingSalary": 3000,
+    "avgSalary": 5200,
+    "avgYears": 8,
+    "homepage": "http://www.koda1458.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국장기조직기증원",
+    "description": "장기 기증 활성화와 이식 연계를 지원하는 보건복지부 산하 기타공공기관.",
+    "mainBusiness": [
+      "장기 기증 홍보",
+      "뇌사자 장기 기증 관리",
+      "이식 대기자 연계"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 중구 을지로 245"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "보건, 사회복지, 행정"
+    }
+  },
+  {
+    "id": 259,
+    "name": "재외동포협력센터",
+    "shortName": "OKOCC",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "행정·고용",
+    "address": "서울 서초구 남부순환로 2526",
+    "startingSalary": 3000,
+    "avgSalary": 5300,
+    "avgYears": 8,
+    "homepage": "http://www.okocc.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=재외동포협력센터",
+    "description": "재외동포 지원과 교류 협력을 담당하는 재외동포청 산하 기타공공기관.",
+    "mainBusiness": [
+      "재외동포 교류 사업",
+      "동포 귀국 지원",
+      "동포 네트워크 구축"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 서초구 남부순환로 2526"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 외교, 한국학"
+    }
+  },
+  {
+    "id": 260,
+    "name": "전국재해구호협회",
+    "shortName": "HOPEBRIDGE",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "행정·고용",
+    "address": "서울 서초구 사평대로 344",
+    "startingSalary": 3000,
+    "avgSalary": 5500,
+    "avgYears": 9,
+    "homepage": "https://hopebridge.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=전국재해구호협회",
+    "description": "재해 구호 물자 관리와 이재민 지원을 담당하는 행정안전부 산하 기타공공기관. 2026년 신규 지정.",
+    "mainBusiness": [
+      "재해 구호 물자 관리",
+      "이재민 생활 지원",
+      "재난 대응 협력"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 서초구 사평대로 344"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "자원관리능력"
+    ],
+    "majorSubjects": {
+      "사무": "사회복지, 행정"
+    }
+  },
+  {
+    "id": 261,
+    "name": "전남대학교병원",
+    "shortName": "CNUH",
+    "type": "기타공공기관",
+    "region": "전라권",
+    "industry": "복지·보건",
+    "address": "광주 동구 제봉로 42",
+    "startingSalary": 3100,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "http://www.cnuh.com",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=전남대학교병원",
+    "description": "광주·전남권 거점 국립대학 병원. 교육부 산하 기타공공기관.",
+    "mainBusiness": [
+      "진료·의료서비스",
+      "임상 교육",
+      "의학 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "의료비 지원"
+    ],
+    "branches": [
+      {
+        "name": "본원 (광주)",
+        "address": "광주 동구 제봉로 42"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 경영",
+      "의료": "의학, 간호, 의료기술"
+    }
+  },
+  {
+    "id": 262,
+    "name": "전북대학교병원",
+    "shortName": "JBUH",
+    "type": "기타공공기관",
+    "region": "전라권",
+    "industry": "복지·보건",
+    "address": "전북 전주시 덕진구 구지로 20",
+    "startingSalary": 3100,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "https://www.jbuh.co.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=전북대학교병원",
+    "description": "전북권 거점 국립대학 병원. 교육부 산하 기타공공기관.",
+    "mainBusiness": [
+      "진료·의료서비스",
+      "임상 교육",
+      "의학 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "의료비 지원"
+    ],
+    "branches": [
+      {
+        "name": "본원 (전주)",
+        "address": "전북 전주시 덕진구 구지로 20"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 경영",
+      "의료": "의학, 간호, 의료기술"
+    }
+  },
+  {
+    "id": 263,
+    "name": "전쟁기념사업회",
+    "shortName": "전쟁기념사업회",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "서울 용산구 이태원로 29",
+    "startingSalary": 3000,
+    "avgSalary": 5500,
+    "avgYears": 10,
+    "homepage": "http://www.warmemo.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=전쟁기념사업회",
+    "description": "호국정신 고양과 전쟁 역사 보존을 담당하는 국방부 산하 기타공공기관.",
+    "mainBusiness": [
+      "전쟁기념관 운영",
+      "호국 역사 교육",
+      "유물 수집·전시"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 용산구 이태원로 29"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "역사, 행정, 경영"
+    }
+  },
+  {
+    "id": 264,
+    "name": "정부법무공단",
+    "shortName": "KGLS",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "행정·고용",
+    "address": "서울 서초구 법원로 15",
+    "startingSalary": 3300,
+    "avgSalary": 6500,
+    "avgYears": 10,
+    "homepage": "http://www.kgls.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=정부법무공단",
+    "description": "정부 법무 서비스 제공을 담당하는 법무부 산하 기타공공기관.",
+    "mainBusiness": [
+      "정부 소송 대리",
+      "법령 해석 지원",
+      "국제 법무 자문"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 서초구 법원로 15"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "법학, 행정"
+    }
+  },
+  {
+    "id": 265,
+    "name": "제주대학교병원",
+    "shortName": "JEJUNUH",
+    "type": "기타공공기관",
+    "region": "제주권",
+    "industry": "복지·보건",
+    "address": "제주 제주시 아란13길 15",
+    "startingSalary": 3100,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "http://www.jejunuh.co.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=제주대학교병원",
+    "description": "제주 거점 국립대학 병원. 교육부 산하 기타공공기관.",
+    "mainBusiness": [
+      "진료·의료서비스",
+      "임상 교육",
+      "의학 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "의료비 지원"
+    ],
+    "branches": [
+      {
+        "name": "본원 (제주)",
+        "address": "제주 제주시 아란13길 15"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 경영",
+      "의료": "의학, 간호, 의료기술"
+    }
+  },
+  {
+    "id": 266,
+    "name": "주택관리공단(주)",
+    "shortName": "KOHOM",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "SOC·건설",
+    "address": "서울 강남구 광평로56길 8",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 10,
+    "homepage": "http://www.kohom.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=주택관리공단",
+    "description": "영구임대주택 등 공공임대주택 관리를 담당하는 국토교통부 산하 기타공공기관.",
+    "mainBusiness": [
+      "공공임대주택 관리",
+      "주거복지 서비스",
+      "시설 유지보수"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 강남구 광평로56길 8"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "자원관리능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 경영",
+      "기술": "건축, 전기, 기계"
+    }
+  },
+  {
+    "id": 267,
+    "name": "중소기업기술정보진흥원",
+    "shortName": "TIPA",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "산업·R&D",
+    "address": "서울 강남구 논현로 432",
+    "startingSalary": 3200,
+    "avgSalary": 6000,
+    "avgYears": 9,
+    "homepage": "http://www.tipa.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=중소기업기술정보진흥원",
+    "description": "중소기업 기술 혁신 R&D 지원을 담당하는 중소벤처기업부 산하 기타공공기관.",
+    "mainBusiness": [
+      "중소기업 R&D 기획·관리",
+      "기술정보 제공",
+      "중소기업 기술력 강화"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 강남구 논현로 432"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 기술경영",
+      "기술": "이공계 전반"
+    }
+  },
+  {
+    "id": 268,
+    "name": "중소기업은행",
+    "shortName": "IBK",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "금융",
+    "address": "서울 중구 을지로 79",
+    "startingSalary": 4200,
+    "avgSalary": 8500,
+    "avgYears": 14,
+    "homepage": "http://www.ibk.co.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=IBK기업은행",
+    "description": "중소기업 전문 정책금융기관. 금융위원회 산하 기타공공기관.",
+    "mainBusiness": [
+      "중소기업 금융 지원",
+      "창업 기업 대출",
+      "정책 금융 공급"
+    ],
+    "welfare": [
+      "주택자금",
+      "복지포인트",
+      "자녀 학자금",
+      "의료비 지원"
+    ],
+    "branches": [
+      {
+        "name": "본점 (서울)",
+        "address": "서울 중구 을지로 79"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "수리능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 경제, 금융, 회계"
+    }
+  },
+  {
+    "id": 269,
+    "name": "중소벤처기업연구원",
+    "shortName": "KOSI",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "산업·R&D",
+    "address": "서울 동작구 보라매로5길 15",
+    "startingSalary": 3500,
+    "avgSalary": 6500,
+    "avgYears": 10,
+    "homepage": "http://www.kosi.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=중소벤처기업연구원",
+    "description": "중소·벤처기업 정책 연구를 수행하는 중소벤처기업부 산하 기타공공기관.",
+    "mainBusiness": [
+      "중소·벤처기업 정책 연구",
+      "창업 생태계 분석",
+      "소상공인 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (서울)",
+        "address": "서울 동작구 보라매로5길 15"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "경제, 경영, 행정"
+    }
+  },
+  {
+    "id": 270,
+    "name": "중앙사회서비스원",
+    "shortName": "KCPASS",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "복지·보건",
+    "address": "충북 청주시 흥덕구 오송읍 오송생명로 187",
+    "startingSalary": 3000,
+    "avgSalary": 5200,
+    "avgYears": 6,
+    "homepage": "https://www.kcpass.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=중앙사회서비스원",
+    "description": "사회서비스 품질 향상과 지원 체계 구축을 담당하는 보건복지부 산하 기타공공기관. 2026년 신규 지정.",
+    "mainBusiness": [
+      "사회서비스 지원 체계 구축",
+      "사회서비스 질 관리",
+      "종사자 역량 강화"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (청주)",
+        "address": "충북 청주시 흥덕구 오송읍 오송생명로 187"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "사회복지, 행정"
+    }
+  },
+  {
+    "id": 271,
+    "name": "차세대수치예보모델개발사업단",
+    "shortName": "KIAPS",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "환경·농림",
+    "address": "서울 동작구 여의대방로16길 61",
+    "startingSalary": 3500,
+    "avgSalary": 6500,
+    "avgYears": 9,
+    "homepage": "https://www.kiaps.org",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=차세대수치예보모델개발사업단",
+    "description": "한국형 수치예보모델 개발을 전담하는 기상청 산하 기타공공기관.",
+    "mainBusiness": [
+      "수치예보모델 개발",
+      "기상예측 시스템 고도화",
+      "기상 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 동작구 여의대방로16길 61"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "기술": "대기과학, 수학, 컴퓨터",
+      "사무": "행정"
+    }
+  },
+  {
+    "id": 272,
+    "name": "창업진흥원",
+    "shortName": "KISED",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "산업·R&D",
+    "address": "충북 청주시 흥덕구 오송읍 오송생명로 173",
+    "startingSalary": 3200,
+    "avgSalary": 6000,
+    "avgYears": 9,
+    "homepage": "https://www.kised.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=창업진흥원",
+    "description": "창업 생태계 조성과 창업기업 성장을 지원하는 중소벤처기업부 산하 기타공공기관.",
+    "mainBusiness": [
+      "창업 교육·멘토링",
+      "창업 공간 지원",
+      "스타트업 투자 연계"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (청주)",
+        "address": "충북 청주시 흥덕구 오송읍 오송생명로 173"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 경제, 기술경영"
+    }
+  },
+  {
+    "id": 273,
+    "name": "충남대학교병원",
+    "shortName": "CNUH",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "복지·보건",
+    "address": "대전 중구 문화로 282",
+    "startingSalary": 3100,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "http://www.cnuh.co.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=충남대학교병원",
+    "description": "대전·충남권 거점 국립대학 병원. 교육부 산하 기타공공기관.",
+    "mainBusiness": [
+      "진료·의료서비스",
+      "임상 교육",
+      "의학 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "의료비 지원"
+    ],
+    "branches": [
+      {
+        "name": "본원 (대전)",
+        "address": "대전 중구 문화로 282"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 경영",
+      "의료": "의학, 간호, 의료기술"
+    }
+  },
+  {
+    "id": 274,
+    "name": "충북대학교병원",
+    "shortName": "CBNUH",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "복지·보건",
+    "address": "충북 청주시 서원구 1순환로 776",
+    "startingSalary": 3100,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "http://www.cbnuh.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=충북대학교병원",
+    "description": "충북권 거점 국립대학 병원. 교육부 산하 기타공공기관.",
+    "mainBusiness": [
+      "진료·의료서비스",
+      "임상 교육",
+      "의학 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "의료비 지원"
+    ],
+    "branches": [
+      {
+        "name": "본원 (청주)",
+        "address": "충북 청주시 서원구 1순환로 776"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 경영",
+      "의료": "의학, 간호, 의료기술"
+    }
+  },
+  {
+    "id": 275,
+    "name": "코레일관광개발(주)",
+    "shortName": "코레일관광개발",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "서울 중구 통일로 87",
+    "startingSalary": 2800,
+    "avgSalary": 4800,
+    "avgYears": 9,
+    "homepage": "http://www.korailtravel.com",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=코레일관광개발",
+    "description": "철도 연계 여행·숙박 서비스를 운영하는 국토교통부 산하 기타공공기관.",
+    "mainBusiness": [
+      "철도여행 패키지",
+      "관광열차 운영",
+      "레일·여행 상품"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 중구 통일로 87"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "서비스능력"
+    ],
+    "majorSubjects": {
+      "사무": "관광, 경영, 경제"
+    }
+  },
+  {
+    "id": 276,
+    "name": "코레일네트웍스(주)",
+    "shortName": "코레일네트웍스",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "SOC·건설",
+    "address": "서울 중구 통일로 87",
+    "startingSalary": 2800,
+    "avgSalary": 5000,
+    "avgYears": 9,
+    "homepage": "http://www.korailnetworks.com",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=코레일네트웍스",
+    "description": "철도역 광고·편의점·부동산 임대를 운영하는 국토교통부 산하 기타공공기관.",
+    "mainBusiness": [
+      "역사 광고 운영",
+      "역사 편의시설 운영",
+      "철도 부동산 임대"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 중구 통일로 87"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "서비스능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 유통, 행정"
+    }
+  },
+  {
+    "id": 277,
+    "name": "코레일로지스(주)",
+    "shortName": "코레일로지스",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "SOC·건설",
+    "address": "서울 중구 통일로 87",
+    "startingSalary": 2900,
+    "avgSalary": 5200,
+    "avgYears": 10,
+    "homepage": "https://www.koraillogis.com",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=코레일로지스",
+    "description": "철도 물류 운송·하역 서비스를 담당하는 국토교통부 산하 기타공공기관.",
+    "mainBusiness": [
+      "철도 화물 운송",
+      "물류 하역 서비스",
+      "물류 창고 운영"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 중구 통일로 87"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "사무": "물류, 경영",
+      "기술": "기계, 전기"
+    }
+  },
+  {
+    "id": 278,
+    "name": "코레일테크(주)",
+    "shortName": "코레일테크",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "SOC·건설",
+    "address": "서울 중구 통일로 87",
+    "startingSalary": 2900,
+    "avgSalary": 5200,
+    "avgYears": 10,
+    "homepage": "http://www.korailtech.com",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=코레일테크",
+    "description": "철도 차량 정비·검사를 담당하는 국토교통부 산하 기타공공기관.",
+    "mainBusiness": [
+      "철도차량 정비·검사",
+      "철도 시설 유지보수",
+      "철도 안전 점검"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 중구 통일로 87"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "기술": "기계, 전기, 철도",
+      "사무": "경영"
+    }
+  },
+  {
+    "id": 279,
+    "name": "태권도진흥재단",
+    "shortName": "TPF",
+    "type": "기타공공기관",
+    "region": "전라권",
+    "industry": "교육·문화",
+    "address": "전북 무주군 설천면 무설로 1482",
+    "startingSalary": 3000,
+    "avgSalary": 5200,
+    "avgYears": 9,
+    "homepage": "https://www.tpf.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=태권도진흥재단",
+    "description": "태권도 세계화와 태권도원 운영을 담당하는 문화체육관광부 산하 기타공공기관.",
+    "mainBusiness": [
+      "태권도원 운영",
+      "태권도 세계화 지원",
+      "태권도 교육"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (무주)",
+        "address": "전북 무주군 설천면 무설로 1482"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "체육, 경영, 행정"
+    }
+  },
+  {
+    "id": 280,
+    "name": "통일연구원",
+    "shortName": "KINU",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "행정·고용",
+    "address": "서울 은평구 진흥로 217",
+    "startingSalary": 3500,
+    "avgSalary": 6500,
+    "avgYears": 11,
+    "homepage": "http://www.kinu.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=통일연구원",
+    "description": "남북관계·통일 분야 정책 연구를 수행하는 국무조정실 산하 기타공공기관.",
+    "mainBusiness": [
+      "남북관계 연구",
+      "통일 정책 연구",
+      "북한 체제 분석"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (서울)",
+        "address": "서울 은평구 진흥로 217"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "정치, 외교, 행정, 북한학"
+    }
+  },
+  {
+    "id": 281,
+    "name": "한국건강가정진흥원",
+    "shortName": "KIHF",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "복지·보건",
+    "address": "서울 중구 청계천로 40",
+    "startingSalary": 3000,
+    "avgSalary": 5300,
+    "avgYears": 8,
+    "homepage": "http://www.kihf.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국건강가정진흥원",
+    "description": "가족 서비스 지원과 다문화가족 지원 사업을 담당하는 성평등가족부 산하 기타공공기관.",
+    "mainBusiness": [
+      "가족센터 운영 지원",
+      "다문화가족 지원",
+      "건강가정 프로그램"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 중구 청계천로 40"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "사회복지, 가족학, 행정"
+    }
+  },
+  {
+    "id": 282,
+    "name": "한국건강증진개발원",
+    "shortName": "KHEPI",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "복지·보건",
+    "address": "충북 청주시 흥덕구 오송읍 오송생명로 200",
+    "startingSalary": 3100,
+    "avgSalary": 5600,
+    "avgYears": 9,
+    "homepage": "https://www.khepi.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국건강증진개발원",
+    "description": "건강증진 사업 기획·지원을 담당하는 보건복지부 산하 기타공공기관.",
+    "mainBusiness": [
+      "건강증진 사업 지원",
+      "금연 지원 사업",
+      "국민건강 정책 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (청주)",
+        "address": "충북 청주시 흥덕구 오송읍 오송생명로 200"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "보건, 행정, 경영"
+    }
+  },
+  {
+    "id": 283,
+    "name": "한국고전번역원",
+    "shortName": "ITKC",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "서울 종로구 사직로8길 4",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 10,
+    "homepage": "http://www.itkc.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국고전번역원",
+    "description": "한국 고전 번역·보급을 담당하는 교육부 산하 기타공공기관.",
+    "mainBusiness": [
+      "고전 번역·출판",
+      "고전 정보화",
+      "고전 교육"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (서울)",
+        "address": "서울 종로구 사직로8길 4"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "국문학, 한문학, 역사, 행정"
+    }
+  },
+  {
+    "id": 284,
+    "name": "한국공예디자인문화진흥원",
+    "shortName": "KCDF",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "서울 종로구 인사동길 35",
+    "startingSalary": 3100,
+    "avgSalary": 5600,
+    "avgYears": 9,
+    "homepage": "http://www.kcdf.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국공예디자인문화진흥원",
+    "description": "공예·디자인 산업 육성과 문화 진흥을 담당하는 문화체육관광부 산하 기타공공기관.",
+    "mainBusiness": [
+      "공예·디자인 전시",
+      "공예·디자인 지원 사업",
+      "관련 인재 육성"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 종로구 인사동길 35"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 행정",
+      "예술": "공예, 디자인"
+    }
+  },
+  {
+    "id": 285,
+    "name": "한국공정거래조정원",
+    "shortName": "KOFAIR",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "행정·고용",
+    "address": "서울 서초구 법원로 4길 20",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "http://www.kofair.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국공정거래조정원",
+    "description": "공정거래 분쟁 조정과 하도급 피해 구제를 담당하는 공정거래위원회 산하 기타공공기관.",
+    "mainBusiness": [
+      "분쟁 조정",
+      "하도급 분쟁 처리",
+      "가맹·유통 분쟁 조정"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 서초구 법원로 4길 20"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "법학, 행정, 경영"
+    }
+  },
+  {
+    "id": 286,
+    "name": "한국관세정보원",
+    "shortName": "KCITS",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "행정·고용",
+    "address": "서울 강남구 영동대로 517",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "https://kcits.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국관세정보원",
+    "description": "관세 정보화 시스템 구축·운영을 담당하는 관세청 산하 기타공공기관.",
+    "mainBusiness": [
+      "관세 정보 시스템 운영",
+      "통관 정보 서비스",
+      "세관 통계 관리"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 강남구 영동대로 517"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 관세, IT"
+    }
+  },
+  {
+    "id": 287,
+    "name": "한국교통연구원",
+    "shortName": "KOTI",
+    "type": "기타공공기관",
+    "region": "경기권",
+    "industry": "SOC·건설",
+    "address": "세종 국책연구원로 5",
+    "startingSalary": 3500,
+    "avgSalary": 6800,
+    "avgYears": 11,
+    "homepage": "https://www.koti.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국교통연구원",
+    "description": "교통·물류 정책 연구를 수행하는 국무조정실 산하 기타공공기관.",
+    "mainBusiness": [
+      "교통 정책 연구",
+      "도로·철도 분석",
+      "물류 시스템 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (세종)",
+        "address": "세종 국책연구원로 5"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "교통공학, 경제, 행정"
+    }
+  },
+  {
+    "id": 288,
+    "name": "한국국방연구원",
+    "shortName": "KIDA",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "산업·R&D",
+    "address": "서울 동대문구 청계천로 557",
+    "startingSalary": 3800,
+    "avgSalary": 7000,
+    "avgYears": 11,
+    "homepage": "https://www.kida.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국국방연구원",
+    "description": "국방 정책 연구를 수행하는 국방부 산하 기타공공기관.",
+    "mainBusiness": [
+      "국방 정책 연구",
+      "군사전략 분석",
+      "국방 예산 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "주택자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (서울)",
+        "address": "서울 동대문구 청계천로 557"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 정치, 경제, 법학"
+    }
+  },
+  {
+    "id": 289,
+    "name": "한국국제교류재단",
+    "shortName": "KF",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "서울 서초구 남부순환로 2558",
+    "startingSalary": 3500,
+    "avgSalary": 6500,
+    "avgYears": 10,
+    "homepage": "http://www.kf.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국국제교류재단",
+    "description": "한국과 해외 상호이해 증진을 위한 교류 사업을 담당하는 외교부 산하 기타공공기관.",
+    "mainBusiness": [
+      "문화 교류 사업",
+      "한국학 지원",
+      "국제 교류 장학"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "해외파견 기회"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 서초구 남부순환로 2558"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "외교, 한국학, 행정, 외국어"
+    }
+  },
+  {
+    "id": 290,
+    "name": "한국국제보건의료재단",
+    "shortName": "KOFIH",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "복지·보건",
+    "address": "서울 강남구 언주로 711",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "http://www.kofih.org",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국국제보건의료재단",
+    "description": "개발도상국 보건의료 지원을 담당하는 보건복지부 산하 기타공공기관.",
+    "mainBusiness": [
+      "ODA 보건의료 사업",
+      "해외 의료봉사",
+      "국제 보건 협력"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 강남구 언주로 711"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "보건, 국제개발, 행정",
+      "의료": "의학, 간호"
+    }
+  },
+  {
+    "id": 291,
+    "name": "한국나노기술원",
+    "shortName": "KANC",
+    "type": "기타공공기관",
+    "region": "경기권",
+    "industry": "산업·R&D",
+    "address": "경기 수원시 영통구 광교로 109",
+    "startingSalary": 3300,
+    "avgSalary": 6000,
+    "avgYears": 10,
+    "homepage": "https://www.kanc.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국나노기술원",
+    "description": "나노 기술 연구개발과 기업 지원을 담당하는 과학기술정보통신부 산하 기타공공기관.",
+    "mainBusiness": [
+      "나노 소자 개발 지원",
+      "나노 장비 공동 활용",
+      "나노 기술 교육"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (수원)",
+        "address": "경기 수원시 영통구 광교로 109"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "기술": "나노공학, 물리, 화학, 재료",
+      "사무": "행정"
+    }
+  },
+  {
+    "id": 292,
+    "name": "한국농업기술진흥원",
+    "shortName": "KOAT",
+    "type": "기타공공기관",
+    "region": "전라권",
+    "industry": "환경·농림",
+    "address": "전북 전주시 완산구 농생명로 300",
+    "startingSalary": 3100,
+    "avgSalary": 5600,
+    "avgYears": 9,
+    "homepage": "https://www.koat.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국농업기술진흥원",
+    "description": "농업 기술 보급과 농업인 역량 강화를 지원하는 농촌진흥청 산하 기타공공기관.",
+    "mainBusiness": [
+      "농업 기술 이전",
+      "농업인 교육",
+      "스마트팜 보급"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (전주)",
+        "address": "전북 전주시 완산구 농생명로 300"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 경영",
+      "기술": "농학, 원예, 식품"
+    }
+  },
+  {
+    "id": 293,
+    "name": "한국데이터산업진흥원",
+    "shortName": "KDATA",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "IT-통신",
+    "address": "서울 강남구 테헤란로 518",
+    "startingSalary": 3300,
+    "avgSalary": 6200,
+    "avgYears": 9,
+    "homepage": "https://www.kdata.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국데이터산업진흥원",
+    "description": "데이터 산업 육성과 데이터 경제 활성화를 담당하는 과학기술정보통신부 산하 기타공공기관.",
+    "mainBusiness": [
+      "데이터 산업 지원",
+      "데이터 거래 활성화",
+      "데이터 전문인력 양성"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 강남구 테헤란로 518"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, IT, 통계",
+      "기술": "데이터, 컴퓨터"
+    }
+  },
+  {
+    "id": 294,
+    "name": "한국도로공사서비스(주)",
+    "shortName": "EXservice",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "SOC·건설",
+    "address": "경북 김천시 혁신6로 17",
+    "startingSalary": 2800,
+    "avgSalary": 4800,
+    "avgYears": 10,
+    "homepage": "http://www.exservice.co.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국도로공사서비스",
+    "description": "고속도로 휴게소·주유소 운영을 담당하는 국토교통부 산하 기타공공기관.",
+    "mainBusiness": [
+      "고속도로 휴게소 운영",
+      "주유소 운영",
+      "편의시설 관리"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (김천)",
+        "address": "경북 김천시 혁신6로 17"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "서비스능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 유통, 식품"
+    }
+  },
+  {
+    "id": 295,
+    "name": "한국도박문제예방치유원",
+    "shortName": "KCGP",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "복지·보건",
+    "address": "서울 영등포구 선유로 130",
+    "startingSalary": 3000,
+    "avgSalary": 5300,
+    "avgYears": 8,
+    "homepage": "https://www.kcgp.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국도박문제예방치유원",
+    "description": "도박 중독 예방·치유 지원을 담당하는 문화체육관광부 산하 기타공공기관.",
+    "mainBusiness": [
+      "도박 중독 예방 교육",
+      "치유 상담",
+      "도박 문제 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 영등포구 선유로 130"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "사회복지, 심리, 행정"
+    }
+  },
+  {
+    "id": 296,
+    "name": "한국등산·트레킹지원센터",
+    "shortName": "KOMOUNT",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "환경·농림",
+    "address": "서울 성동구 아차산로 7나길 18",
+    "startingSalary": 3000,
+    "avgSalary": 5200,
+    "avgYears": 8,
+    "homepage": "https://komount.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국등산트레킹지원센터",
+    "description": "등산·트레킹 문화 진흥과 안전 지원을 담당하는 산림청 산하 기타공공기관.",
+    "mainBusiness": [
+      "등산로 정비 지원",
+      "등산 문화 진흥",
+      "트레킹 안전 관리"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 성동구 아차산로 7나길 18"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "자원관리능력"
+    ],
+    "majorSubjects": {
+      "사무": "산림, 체육, 행정"
+    }
+  },
+  {
+    "id": 297,
+    "name": "한국로봇산업진흥원",
+    "shortName": "KIRIA",
+    "type": "기타공공기관",
+    "region": "경상권",
+    "industry": "산업·R&D",
+    "address": "대구 달서구 성서공단로 10길 5",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "http://www.kiria.org",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국로봇산업진흥원",
+    "description": "로봇 산업 육성과 로봇 기술 보급을 담당하는 산업통상자원부 산하 기타공공기관.",
+    "mainBusiness": [
+      "로봇 산업 지원",
+      "로봇 실증·테스트베드",
+      "로봇 기술 인증"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (대구)",
+        "address": "대구 달서구 성서공단로 10길 5"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "기술": "기계, 전기전자, 로봇공학",
+      "사무": "경영, 행정"
+    }
+  },
+  {
+    "id": 298,
+    "name": "한국마약퇴치운동본부",
+    "shortName": "DRUGFREE",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "복지·보건",
+    "address": "서울 서초구 반포대로 217",
+    "startingSalary": 2900,
+    "avgSalary": 5000,
+    "avgYears": 8,
+    "homepage": "http://drugfree.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국마약퇴치운동본부",
+    "description": "마약류 오남용 예방 교육과 중독 상담을 담당하는 식품의약품안전처 산하 기타공공기관.",
+    "mainBusiness": [
+      "마약 예방 교육",
+      "중독 상담·치료 연계",
+      "캠페인 운영"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 서초구 반포대로 217"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "사회복지, 심리, 행정"
+    }
+  },
+  {
+    "id": 299,
+    "name": "한국문학번역원",
+    "shortName": "LTI KOREA",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "서울 마포구 독막로 320",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "https://www.ltikorea.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국문학번역원",
+    "description": "한국문학의 해외 번역·보급을 담당하는 문화체육관광부 산하 기타공공기관.",
+    "mainBusiness": [
+      "한국문학 번역 지원",
+      "번역가 육성",
+      "해외 출판 지원"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 마포구 독막로 320"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "문학, 외국어, 행정, 경영"
+    }
+  },
+  {
+    "id": 300,
+    "name": "한국문화예술교육진흥원",
+    "shortName": "ARTE",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "서울 마포구 잔다리로 35",
+    "startingSalary": 3100,
+    "avgSalary": 5600,
+    "avgYears": 9,
+    "homepage": "http://www.arte.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국문화예술교육진흥원",
+    "description": "문화예술교육 진흥과 지원을 담당하는 문화체육관광부 산하 기타공공기관.",
+    "mainBusiness": [
+      "예술강사 지원",
+      "문화예술교육 사업",
+      "교육 콘텐츠 개발"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 마포구 잔다리로 35"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "교육, 예술, 행정, 경영"
+    }
+  },
+  {
+    "id": 301,
+    "name": "한국문화정보원",
+    "shortName": "KCISA",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "서울 마포구 월드컵북로 400",
+    "startingSalary": 3100,
+    "avgSalary": 5600,
+    "avgYears": 9,
+    "homepage": "http://www.kcisa.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국문화정보원",
+    "description": "문화 분야 정보화와 공공데이터 개방을 담당하는 문화체육관광부 산하 기타공공기관.",
+    "mainBusiness": [
+      "문화 공공데이터 개방",
+      "문화 정보 시스템 운영",
+      "디지털 문화 서비스"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 마포구 월드컵북로 400"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, IT, 행정"
+    }
+  },
+  {
+    "id": 302,
+    "name": "한국문화진흥주식회사",
+    "shortName": "뉴서울CC",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "경기 안성시 일죽면 금일로 565",
+    "startingSalary": 2800,
+    "avgSalary": 4800,
+    "avgYears": 10,
+    "homepage": "https://newseoulgolf.co.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국문화진흥",
+    "description": "뉴서울컨트리클럽 등 체육문화시설을 운영하는 문화체육관광부 산하 기타공공기관.",
+    "mainBusiness": [
+      "골프장 운영",
+      "문화체육시설 관리"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (안성)",
+        "address": "경기 안성시 일죽면 금일로 565"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "서비스능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 체육, 관광"
+    }
+  },
+  {
+    "id": 303,
+    "name": "한국물기술인증원",
+    "shortName": "KWTC",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "환경·농림",
+    "address": "충북 청주시 흥덕구 오송읍 오송생명로 187",
+    "startingSalary": 3100,
+    "avgSalary": 5600,
+    "avgYears": 8,
+    "homepage": "https://www.kwtc.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국물기술인증원",
+    "description": "물 기술 제품 인증과 검증을 담당하는 기후에너지환경부 산하 기타공공기관.",
+    "mainBusiness": [
+      "물 관련 제품 인증",
+      "물 기술 검증",
+      "물 산업 진흥"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (청주)",
+        "address": "충북 청주시 흥덕구 오송읍 오송생명로 187"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "기술": "환경공학, 토목, 화학",
+      "사무": "행정"
+    }
+  },
+  {
+    "id": 304,
+    "name": "한국발명진흥회",
+    "shortName": "KIPA",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "산업·R&D",
+    "address": "서울 강남구 테헤란로 131",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "http://www.kipa.org",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국발명진흥회",
+    "description": "발명 장려와 지식재산 교육을 담당하는 지식재산처 산하 기타공공기관.",
+    "mainBusiness": [
+      "발명 교육·경진대회",
+      "IP 창업 지원",
+      "지식재산 교육"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 강남구 테헤란로 131"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 법학, 행정"
+    }
+  },
+  {
+    "id": 305,
+    "name": "한국법제연구원",
+    "shortName": "KLRI",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "행정·고용",
+    "address": "세종 국책연구원로 5",
+    "startingSalary": 3500,
+    "avgSalary": 6500,
+    "avgYears": 11,
+    "homepage": "http://www.klri.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국법제연구원",
+    "description": "법령 연구와 법제 지원을 담당하는 국무조정실 산하 기타공공기관.",
+    "mainBusiness": [
+      "법령 연구·분석",
+      "입법 지원",
+      "남북법제 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (세종)",
+        "address": "세종 국책연구원로 5"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "법학, 행정, 정치"
+    }
+  },
+  {
+    "id": 306,
+    "name": "한국보건의료인국가시험원",
+    "shortName": "KUKSIWON",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "복지·보건",
+    "address": "서울 광진구 자양로 45",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "https://www.kuksiwon.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국보건의료인국가시험원",
+    "description": "의사·간호사·약사 등 보건의료인 국가시험을 담당하는 보건복지부 산하 기타공공기관.",
+    "mainBusiness": [
+      "보건의료인 국가시험 출제·시행",
+      "시험 관련 연구",
+      "자격 정보 관리"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (서울)",
+        "address": "서울 광진구 자양로 45"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "보건행정, 교육, 행정",
+      "의료": "의학, 간호"
+    }
+  },
+  {
+    "id": 307,
+    "name": "한국사회복지협의회",
+    "shortName": "BOKJI",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "복지·보건",
+    "address": "서울 마포구 백범로 35",
+    "startingSalary": 3000,
+    "avgSalary": 5300,
+    "avgYears": 9,
+    "homepage": "http://www.bokji.net",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국사회복지협의회",
+    "description": "사회복지 증진과 민간 사회복지 지원을 담당하는 보건복지부 산하 기타공공기관.",
+    "mainBusiness": [
+      "사회복지 진흥",
+      "자원봉사 지원",
+      "사회복지 교육"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 마포구 백범로 35"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "사회복지, 행정, 경영"
+    }
+  },
+  {
+    "id": 308,
+    "name": "한국산업기술시험원",
+    "shortName": "KTL",
+    "type": "기타공공기관",
+    "region": "경상권",
+    "industry": "산업·R&D",
+    "address": "경남 진주시 동진로 71",
+    "startingSalary": 3300,
+    "avgSalary": 6200,
+    "avgYears": 10,
+    "homepage": "http://www.ktl.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국산업기술시험원",
+    "description": "제품 시험·인증·검사 서비스를 제공하는 산업통상자원부 산하 기타공공기관.",
+    "mainBusiness": [
+      "제품 시험·인증",
+      "산업 현장 검사",
+      "시험 인프라 구축"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (진주)",
+        "address": "경남 진주시 동진로 71"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "기술": "전기전자, 기계, 화학, 환경",
+      "사무": "행정"
+    }
+  },
+  {
+    "id": 309,
+    "name": "한국상하수도협회",
+    "shortName": "KWWA",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "환경·농림",
+    "address": "서울 송파구 중대로 135",
+    "startingSalary": 3000,
+    "avgSalary": 5500,
+    "avgYears": 9,
+    "homepage": "http://www.kwwa.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국상하수도협회",
+    "description": "상하수도 기술 진흥과 관련 교육을 담당하는 기후에너지환경부 산하 기타공공기관.",
+    "mainBusiness": [
+      "상하수도 기술 연구",
+      "수도 관련 교육·훈련",
+      "국제 교류"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 송파구 중대로 135"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "기술": "환경공학, 토목",
+      "사무": "행정"
+    }
+  },
+  {
+    "id": 310,
+    "name": "한국소방산업기술원",
+    "shortName": "KFI",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "행정·고용",
+    "address": "경기 용인시 기흥구 중부대로 948",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "http://www.kfi.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국소방산업기술원",
+    "description": "소방 제품 검정·인증과 소방 기술 연구를 담당하는 소방청 산하 기타공공기관.",
+    "mainBusiness": [
+      "소방 제품 검정·인증",
+      "소방 기술 연구",
+      "소방 관련 교육"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (용인)",
+        "address": "경기 용인시 기흥구 중부대로 948"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "기술": "소방, 전기, 기계, 화학",
+      "사무": "행정"
+    }
+  },
+  {
+    "id": 311,
+    "name": "한국수산자원공단",
+    "shortName": "FIRA",
+    "type": "기타공공기관",
+    "region": "경상권",
+    "industry": "환경·농림",
+    "address": "부산 기장군 기장읍 반송로 116",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 10,
+    "homepage": "http://www.fira.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국수산자원공단",
+    "description": "수산자원 조성·회복과 어업인 지원을 담당하는 해양수산부 산하 기타공공기관.",
+    "mainBusiness": [
+      "수산자원 조성",
+      "바다목장 운영",
+      "수산생물 보전"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (부산)",
+        "address": "부산 기장군 기장읍 반송로 116"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "기술": "수산학, 해양, 생물",
+      "사무": "행정, 경영"
+    }
+  },
+  {
+    "id": 312,
+    "name": "한국수자원조사기술원",
+    "shortName": "KIHS",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "환경·농림",
+    "address": "대전 유성구 대덕대로 512",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "http://www.kihs.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국수자원조사기술원",
+    "description": "수자원 조사·분석과 수문 정보 제공을 담당하는 기후에너지환경부 산하 기타공공기관.",
+    "mainBusiness": [
+      "수자원 조사·측정",
+      "홍수 예경보 지원",
+      "수문 정보 제공"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (대전)",
+        "address": "대전 유성구 대덕대로 512"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "기술": "토목, 환경공학, 수문학",
+      "사무": "행정"
+    }
+  },
+  {
+    "id": 313,
+    "name": "한국스포츠레저(주)",
+    "shortName": "KOSPOLE",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "경기 용인시 처인구 모현읍 왕산로 55",
+    "startingSalary": 2800,
+    "avgSalary": 4800,
+    "avgYears": 10,
+    "homepage": "http://www.kospole.co.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국스포츠레저",
+    "description": "체육시설 운영을 담당하는 문화체육관광부 산하 기타공공기관.",
+    "mainBusiness": [
+      "골프장 운영",
+      "스포츠레저시설 관리"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (용인)",
+        "address": "경기 용인시 처인구 모현읍 왕산로 55"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "서비스능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 체육, 관광"
+    }
+  },
+  {
+    "id": 314,
+    "name": "한국양성평등교육진흥원",
+    "shortName": "KIGEPE",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "서울 중구 을지로 12",
+    "startingSalary": 3100,
+    "avgSalary": 5600,
+    "avgYears": 9,
+    "homepage": "http://www.kigepe.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국양성평등교육진흥원",
+    "description": "성평등 교육 진흥과 성희롱 예방 교육을 담당하는 성평등가족부 산하 기타공공기관.",
+    "mainBusiness": [
+      "성평등 교육 지원",
+      "성희롱 예방 교육",
+      "양성평등 정책 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 중구 을지로 12"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "여성학, 교육, 행정"
+    }
+  },
+  {
+    "id": 315,
+    "name": "한국어촌어항공단",
+    "shortName": "FIPA",
+    "type": "기타공공기관",
+    "region": "전라권",
+    "industry": "환경·농림",
+    "address": "전남 여수시 돌산읍 진두4길 5",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 10,
+    "homepage": "http://www.fipa.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국어촌어항공단",
+    "description": "어촌·어항 개발 및 어촌관광 진흥을 담당하는 해양수산부 산하 기타공공기관.",
+    "mainBusiness": [
+      "어항 개발·관리",
+      "어촌 뉴딜 지원",
+      "어촌관광 활성화"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (여수)",
+        "address": "전남 여수시 돌산읍 진두4길 5"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "기술": "토목, 해양, 환경",
+      "사무": "행정, 경영"
+    }
+  },
+  {
+    "id": 316,
+    "name": "한국에너지정보문화재단",
+    "shortName": "E-POLICY",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "에너지",
+    "address": "서울 강남구 역삼로 180",
+    "startingSalary": 3000,
+    "avgSalary": 5200,
+    "avgYears": 8,
+    "homepage": "https://e-policy.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국에너지정보문화재단",
+    "description": "에너지 정보 제공과 에너지 문화 확산을 담당하는 기후에너지환경부 산하 기타공공기관.",
+    "mainBusiness": [
+      "에너지 정보 제공",
+      "에너지 절약 캠페인",
+      "에너지 문화 교육"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 강남구 역삼로 180"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 언론, 에너지, 행정"
+    }
+  },
+  {
+    "id": 317,
+    "name": "한국여성과학기술인육성재단",
+    "shortName": "WISET",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "산업·R&D",
+    "address": "서울 마포구 월드컵북로 400",
+    "startingSalary": 3100,
+    "avgSalary": 5600,
+    "avgYears": 9,
+    "homepage": "https://www.wiset.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국여성과학기술인육성재단",
+    "description": "여성 과학기술인 지원과 육성을 담당하는 과학기술정보통신부 산하 기타공공기관.",
+    "mainBusiness": [
+      "여성 이공계 장학·지원",
+      "여성 과학기술인 경력 복귀",
+      "젠더 혁신 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 마포구 월드컵북로 400"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "여성학, 행정, 이공계"
+    }
+  },
+  {
+    "id": 318,
+    "name": "한국여성인권진흥원",
+    "shortName": "STOP",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "복지·보건",
+    "address": "서울 영등포구 의사당대로 22",
+    "startingSalary": 3100,
+    "avgSalary": 5600,
+    "avgYears": 9,
+    "homepage": "https://www.stop.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국여성인권진흥원",
+    "description": "성매매 피해 지원과 성폭력 예방을 담당하는 성평등가족부 산하 기타공공기관.",
+    "mainBusiness": [
+      "성매매 피해자 지원",
+      "성폭력 예방 교육",
+      "여성인권 증진"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 영등포구 의사당대로 22"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "사회복지, 여성학, 행정"
+    }
+  },
+  {
+    "id": 319,
+    "name": "한국여성정책연구원",
+    "shortName": "KWDI",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "행정·고용",
+    "address": "서울 은평구 진흥로 235",
+    "startingSalary": 3500,
+    "avgSalary": 6500,
+    "avgYears": 11,
+    "homepage": "http://www.kwdi.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국여성정책연구원",
+    "description": "여성·가족 정책 연구를 수행하는 국무조정실 산하 기타공공기관.",
+    "mainBusiness": [
+      "여성 정책 연구",
+      "젠더 통계 분석",
+      "여성 인력 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (서울)",
+        "address": "서울 은평구 진흥로 235"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "여성학, 사회학, 행정, 경제"
+    }
+  },
+  {
+    "id": 320,
+    "name": "한국영상자료원",
+    "shortName": "KOFA",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "서울 마포구 월드컵북로 400",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 10,
+    "homepage": "http://www.koreafilm.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국영상자료원",
+    "description": "한국 영상 문화유산 수집·보존·활용을 담당하는 문화체육관광부 산하 기타공공기관.",
+    "mainBusiness": [
+      "영화 필름 수집·보존",
+      "시네마테크 운영",
+      "영상 문화유산 디지털화"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (서울)",
+        "address": "서울 마포구 월드컵북로 400"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "영화, 문화, 행정, 경영"
+    }
+  },
+  {
+    "id": 321,
+    "name": "한국영유아보육·교육진흥원",
+    "shortName": "KCPI",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "서울 강남구 봉은사로 418",
+    "startingSalary": 3000,
+    "avgSalary": 5300,
+    "avgYears": 8,
+    "homepage": "http://www.kcpi.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국영유아보육교육진흥원",
+    "description": "어린이집·유치원 보육·교육 질 향상을 지원하는 교육부 산하 기타공공기관.",
+    "mainBusiness": [
+      "보육·교육 평가",
+      "보육교사 교육",
+      "영유아 교육 정책 지원"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 강남구 봉은사로 418"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "유아교육, 아동학, 행정"
+    }
+  },
+  {
+    "id": 322,
+    "name": "한국예술인복지재단",
+    "shortName": "KAWF",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "서울 마포구 동교로 34",
+    "startingSalary": 3100,
+    "avgSalary": 5600,
+    "avgYears": 9,
+    "homepage": "http://www.kawf.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국예술인복지재단",
+    "description": "예술인 복지 증진과 창작 지원을 담당하는 문화체육관광부 산하 기타공공기관.",
+    "mainBusiness": [
+      "예술인 복지 지원",
+      "창작준비금 지원",
+      "예술인 고용보험"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 마포구 동교로 34"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "사회복지, 예술, 행정"
+    }
+  },
+  {
+    "id": 323,
+    "name": "한국원산지정보원",
+    "shortName": "ORIGIN",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "행정·고용",
+    "address": "서울 강남구 테헤란로 316",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "http://www.origin.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국원산지정보원",
+    "description": "FTA 원산지 증명과 원산지 정보 지원을 담당하는 관세청 산하 기타공공기관.",
+    "mainBusiness": [
+      "원산지 증명 지원",
+      "FTA 활용 지원",
+      "원산지 교육"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 강남구 테헤란로 316"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "무역, 관세, 행정, 경영"
+    }
+  },
+  {
+    "id": 324,
+    "name": "한국원자력안전기술원",
+    "shortName": "KINS",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "에너지",
+    "address": "대전 유성구 대덕대로 989번길 111",
+    "startingSalary": 3800,
+    "avgSalary": 7200,
+    "avgYears": 11,
+    "homepage": "http://www.kins.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국원자력안전기술원",
+    "description": "원자력 안전 규제 기술 지원과 방사선 안전 관리를 담당하는 원자력안전위원회 산하 기타공공기관.",
+    "mainBusiness": [
+      "원자력 안전 규제 지원",
+      "방사선 방호 연구",
+      "핵비확산 기술 지원"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "주택자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (대전)",
+        "address": "대전 유성구 대덕대로 989번길 111"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "기술": "원자력, 핵공학, 물리, 화학",
+      "사무": "행정"
+    }
+  },
+  {
+    "id": 325,
+    "name": "한국원자력안전재단",
+    "shortName": "KOFONS",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "에너지",
+    "address": "서울 강남구 봉은사로 511",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "http://www.kofons.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국원자력안전재단",
+    "description": "방사선 안전 문화 확산과 원자력 안전 교육을 담당하는 원자력안전위원회 산하 기타공공기관.",
+    "mainBusiness": [
+      "원자력 안전 교육",
+      "방사선 안전 홍보",
+      "원자력 정보 제공"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 강남구 봉은사로 511"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "원자력, 교육, 행정"
+    }
+  },
+  {
+    "id": 326,
+    "name": "한국원자력의학원",
+    "shortName": "KIRAMS",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "복지·보건",
+    "address": "서울 노원구 노원로 75",
+    "startingSalary": 3500,
+    "avgSalary": 6800,
+    "avgYears": 11,
+    "homepage": "http://www.kirams.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국원자력의학원",
+    "description": "방사선 의학 연구와 방사선 암 치료를 담당하는 과학기술정보통신부 산하 기타공공기관.",
+    "mainBusiness": [
+      "방사선 암 치료",
+      "방사선 의학 연구",
+      "방사성의약품 개발"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "의료비 지원"
+    ],
+    "branches": [
+      {
+        "name": "본원 (서울)",
+        "address": "서울 노원구 노원로 75"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "기술": "의학, 방사선, 간호",
+      "사무": "행정, 경영"
+    }
+  },
+  {
+    "id": 327,
+    "name": "한국원자력통제기술원",
+    "shortName": "KINAC",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "에너지",
+    "address": "대전 유성구 엑스포로 242",
+    "startingSalary": 3800,
+    "avgSalary": 7000,
+    "avgYears": 11,
+    "homepage": "https://www.kinac.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국원자력통제기술원",
+    "description": "핵물질 및 원자력시설 물리적방호와 국제 핵비확산 체제 지원을 담당하는 원자력안전위원회 산하 기타공공기관.",
+    "mainBusiness": [
+      "핵비확산 기술 지원",
+      "핵물질 계량 관리",
+      "물리적방호 평가"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "주택자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (대전)",
+        "address": "대전 유성구 엑스포로 242"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "기술": "핵공학, 물리, 화학",
+      "사무": "행정"
+    }
+  },
+  {
+    "id": 328,
+    "name": "한국의료기기안전정보원",
+    "shortName": "NIDS",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "복지·보건",
+    "address": "서울 강남구 테헤란로 114",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "http://www.nids.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국의료기기안전정보원",
+    "description": "의료기기 안전 정보 관리와 부작용 모니터링을 담당하는 식품의약품안전처 산하 기타공공기관.",
+    "mainBusiness": [
+      "의료기기 안전 정보 관리",
+      "부작용 모니터링",
+      "의료기기 허가 지원"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 강남구 테헤란로 114"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "보건행정, 의공학, IT"
+    }
+  },
+  {
+    "id": 329,
+    "name": "한국의료분쟁조정중재원",
+    "shortName": "K-MEDI",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "복지·보건",
+    "address": "서울 중구 세종대로 135",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "https://www.k-medi.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국의료분쟁조정중재원",
+    "description": "의료사고 피해 구제와 분쟁 조정을 담당하는 보건복지부 산하 기타공공기관.",
+    "mainBusiness": [
+      "의료분쟁 조정·중재",
+      "의료사고 감정",
+      "피해자 지원"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 중구 세종대로 135"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "법학, 보건, 행정",
+      "의료": "의학, 간호"
+    }
+  },
+  {
+    "id": 330,
+    "name": "한국의약품안전관리원",
+    "shortName": "DRUGSAFE",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "복지·보건",
+    "address": "서울 성동구 살곶이길 200",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "https://www.drugsafe.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국의약품안전관리원",
+    "description": "의약품 부작용 모니터링과 의약품 안전 정보 관리를 담당하는 식품의약품안전처 산하 기타공공기관.",
+    "mainBusiness": [
+      "의약품 이상사례 모니터링",
+      "약물 안전 정보 제공",
+      "의약품 안전 교육"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 성동구 살곶이길 200"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "약학, 보건, 행정"
+    }
+  },
+  {
+    "id": 331,
+    "name": "한국잡월드",
+    "shortName": "KJOBWORLD",
+    "type": "기타공공기관",
+    "region": "경기권",
+    "industry": "교육·문화",
+    "address": "경기 성남시 분당구 분당수서로 501",
+    "startingSalary": 3000,
+    "avgSalary": 5200,
+    "avgYears": 8,
+    "homepage": "http://www.koreajobworld.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국잡월드",
+    "description": "청소년 직업 체험과 진로 교육을 담당하는 고용노동부 산하 기타공공기관.",
+    "mainBusiness": [
+      "청소년 직업 체험",
+      "진로 상담 교육",
+      "직업 정보 제공"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (성남)",
+        "address": "경기 성남시 분당구 분당수서로 501"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "교육, 행정, 경영"
+    }
+  },
+  {
+    "id": 332,
+    "name": "한국장애인개발원",
+    "shortName": "KODDI",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "복지·보건",
+    "address": "서울 중구 퇴계로 173",
+    "startingSalary": 3100,
+    "avgSalary": 5600,
+    "avgYears": 9,
+    "homepage": "https://www.koddi.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국장애인개발원",
+    "description": "장애인 복지 정책 연구와 장애인 서비스 지원을 담당하는 보건복지부 산하 기타공공기관.",
+    "mainBusiness": [
+      "장애인 복지 정책 연구",
+      "활동지원 사업 관리",
+      "장애인 통계 생산"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 중구 퇴계로 173"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "대인관계능력"
+    ],
+    "majorSubjects": {
+      "사무": "사회복지, 행정, 심리"
+    }
+  },
+  {
+    "id": 333,
+    "name": "한국저작권보호원",
+    "shortName": "KCOPA",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "서울 강남구 논현로 430",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "http://www.kcopa.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국저작권보호원",
+    "description": "저작권 침해 단속과 보호 업무를 담당하는 문화체육관광부 산하 기타공공기관.",
+    "mainBusiness": [
+      "온라인 저작권 침해 단속",
+      "저작권 보호 교육",
+      "국제 저작권 보호 협력"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 강남구 논현로 430"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "법학, 행정, IT"
+    }
+  },
+  {
+    "id": 334,
+    "name": "한국저작권위원회",
+    "shortName": "KCC",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "서울 강남구 역삼로 190",
+    "startingSalary": 3300,
+    "avgSalary": 6000,
+    "avgYears": 10,
+    "homepage": "http://www.copyright.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국저작권위원회",
+    "description": "저작권 분쟁 조정과 저작권 등록·교육을 담당하는 문화체육관광부 산하 기타공공기관.",
+    "mainBusiness": [
+      "저작권 분쟁 조정",
+      "저작권 등록 관리",
+      "저작권 교육"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 강남구 역삼로 190"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "법학, 행정, IT"
+    }
+  },
+  {
+    "id": 335,
+    "name": "한국전력국제원자력대학원대학교",
+    "shortName": "KINGS",
+    "type": "기타공공기관",
+    "region": "경상권",
+    "industry": "에너지",
+    "address": "경북 경주시 문무대왕로 658-91",
+    "startingSalary": 3500,
+    "avgSalary": 6500,
+    "avgYears": 10,
+    "homepage": "https://kings.ac.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국전력국제원자력대학원대학교",
+    "description": "원자력 분야 국제 전문인력 양성을 담당하는 기후에너지환경부 산하 기타공공기관.",
+    "mainBusiness": [
+      "원자력 전문인력 교육",
+      "국제 원자력 대학원 운영",
+      "원자력 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본교 (경주)",
+        "address": "경북 경주시 문무대왕로 658-91"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "기술": "원자력, 핵공학, 에너지",
+      "사무": "행정"
+    }
+  },
+  {
+    "id": 336,
+    "name": "한국제품안전관리원",
+    "shortName": "KIPS",
+    "type": "기타공공기관",
+    "region": "경기권",
+    "industry": "산업·R&D",
+    "address": "경기 안산시 상록구 해안로 705",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "http://www.kips.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국제품안전관리원",
+    "description": "제품 안전 검사·인증과 리콜 관리를 담당하는 산업통상자원부 산하 기타공공기관.",
+    "mainBusiness": [
+      "제품 안전 검사",
+      "리콜 관리·지원",
+      "제품 안전 교육"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (안산)",
+        "address": "경기 안산시 상록구 해안로 705"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "기술": "기계, 전기전자, 화학",
+      "사무": "행정"
+    }
+  },
+  {
+    "id": 337,
+    "name": "한국중소벤처기업유통원",
+    "shortName": "KODMA",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "산업·R&D",
+    "address": "서울 마포구 마포대로 174",
+    "startingSalary": 3100,
+    "avgSalary": 5600,
+    "avgYears": 9,
+    "homepage": "http://www.kodma.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국중소벤처기업유통원",
+    "description": "중소기업 판로 개척과 유통 지원을 담당하는 중소벤처기업부 산하 기타공공기관.",
+    "mainBusiness": [
+      "중소기업 판로 지원",
+      "온라인 유통 지원",
+      "해외 수출 연계"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 마포구 마포대로 174"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 유통, 마케팅"
+    }
+  },
+  {
+    "id": 338,
+    "name": "한국지식재산보호원",
+    "shortName": "KOIPA",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "산업·R&D",
+    "address": "서울 강남구 테헤란로 131",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "https://www.koipa.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국지식재산보호원",
+    "description": "지식재산 침해 방지와 보호 지원을 담당하는 지식재산처 산하 기타공공기관.",
+    "mainBusiness": [
+      "지식재산 침해 조사",
+      "IP 보호 지원",
+      "IP 교육·홍보"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 강남구 테헤란로 131"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "법학, 행정, 경영"
+    }
+  },
+  {
+    "id": 339,
+    "name": "한국지식재산연구원",
+    "shortName": "KIIP",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "산업·R&D",
+    "address": "서울 강남구 테헤란로 131",
+    "startingSalary": 3500,
+    "avgSalary": 6500,
+    "avgYears": 11,
+    "homepage": "http://www.kiip.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국지식재산연구원",
+    "description": "지식재산 정책 연구를 수행하는 지식재산처 산하 기타공공기관.",
+    "mainBusiness": [
+      "지식재산 정책 연구",
+      "특허 제도 연구",
+      "IP 통계 분석"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (서울)",
+        "address": "서울 강남구 테헤란로 131"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "법학, 경제, 행정"
+    }
+  },
+  {
+    "id": 340,
+    "name": "한국청소년정책연구원",
+    "shortName": "NYPI",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "세종 시청대로 370",
+    "startingSalary": 3500,
+    "avgSalary": 6500,
+    "avgYears": 11,
+    "homepage": "http://www.nypi.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국청소년정책연구원",
+    "description": "청소년 정책 연구를 수행하는 국무조정실 산하 기타공공기관.",
+    "mainBusiness": [
+      "청소년 정책 연구",
+      "청소년 실태 조사",
+      "청소년 지표 개발"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (세종)",
+        "address": "세종 시청대로 370"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "사회학, 교육, 행정"
+    }
+  },
+  {
+    "id": 341,
+    "name": "한국체육산업개발(주)",
+    "shortName": "KSPONCO",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "교육·문화",
+    "address": "서울 송파구 올림픽로 424",
+    "startingSalary": 3000,
+    "avgSalary": 5200,
+    "avgYears": 9,
+    "homepage": "https://www.ksponco.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국체육산업개발",
+    "description": "올림픽공원과 체육시설을 운영하는 문화체육관광부 산하 기타공공기관.",
+    "mainBusiness": [
+      "올림픽공원 운영",
+      "체육시설 관리",
+      "스포츠 이벤트 개최"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "체육시설 이용"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 송파구 올림픽로 424"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "자원관리능력"
+    ],
+    "majorSubjects": {
+      "사무": "체육, 경영, 행정"
+    }
+  },
+  {
+    "id": 342,
+    "name": "한국치산기술협회",
+    "shortName": "KAFET",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "환경·농림",
+    "address": "서울 강남구 논현로 157",
+    "startingSalary": 3000,
+    "avgSalary": 5200,
+    "avgYears": 9,
+    "homepage": "https://www.kafet.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국치산기술협회",
+    "description": "사방·산지 보전 기술 보급과 교육을 담당하는 산림청 산하 기타공공기관.",
+    "mainBusiness": [
+      "사방공사 기술 지원",
+      "산지 재해 예방",
+      "치산 기술 교육"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 강남구 논현로 157"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "기술": "산림, 토목, 환경",
+      "사무": "행정"
+    }
+  },
+  {
+    "id": 343,
+    "name": "한국탄소산업진흥원",
+    "shortName": "KCTECH",
+    "type": "기타공공기관",
+    "region": "전라권",
+    "industry": "산업·R&D",
+    "address": "전북 전주시 완산구 홍산로 167",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 8,
+    "homepage": "http://www.kcarbon.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국탄소산업진흥원",
+    "description": "탄소 소재 산업 육성과 기업 지원을 담당하는 산업통상자원부 산하 기타공공기관.",
+    "mainBusiness": [
+      "탄소 소재 R&D 지원",
+      "탄소 산업 기업 육성",
+      "탄소 기술 인증"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (전주)",
+        "address": "전북 전주시 완산구 홍산로 167"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "기술": "재료공학, 화학, 기계",
+      "사무": "행정, 경영"
+    }
+  },
+  {
+    "id": 344,
+    "name": "한국특허기술진흥원",
+    "shortName": "KIPRO",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "산업·R&D",
+    "address": "서울 강남구 테헤란로 131",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "http://www.kipro.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국특허기술진흥원",
+    "description": "특허 기술 사업화와 발명 진흥을 지원하는 지식재산처 산하 기타공공기관.",
+    "mainBusiness": [
+      "특허 기술 사업화 지원",
+      "발명 진흥 사업",
+      "IP 거래 중개"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 강남구 테헤란로 131"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "법학, 경영, 기술경영"
+    }
+  },
+  {
+    "id": 345,
+    "name": "한국특허전략개발원",
+    "shortName": "KISTA",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "산업·R&D",
+    "address": "서울 강남구 테헤란로 131",
+    "startingSalary": 3200,
+    "avgSalary": 6000,
+    "avgYears": 9,
+    "homepage": "http://www.kista.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국특허전략개발원",
+    "description": "국가 특허 전략 수립과 IP 정보 분석을 담당하는 지식재산처 산하 기타공공기관.",
+    "mainBusiness": [
+      "국가 특허 전략 수립",
+      "IP 정보 분석",
+      "특허 맵 구축"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 강남구 테헤란로 131"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "법학, 이공계, 경영"
+    }
+  },
+  {
+    "id": 346,
+    "name": "한국특허정보원",
+    "shortName": "KIPI",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "산업·R&D",
+    "address": "대전 서구 청사로 189",
+    "startingSalary": 3300,
+    "avgSalary": 6200,
+    "avgYears": 10,
+    "homepage": "http://www.kipi.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국특허정보원",
+    "description": "특허 정보 시스템 구축·운영과 특허 데이터 제공을 담당하는 지식재산처 산하 기타공공기관.",
+    "mainBusiness": [
+      "특허 정보 시스템 운영",
+      "특허 데이터 관리",
+      "IP 정보 서비스"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (대전)",
+        "address": "대전 서구 청사로 189"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, IT",
+      "기술": "컴퓨터, 데이터"
+    }
+  },
+  {
+    "id": 347,
+    "name": "한국학중앙연구원",
+    "shortName": "AKS",
+    "type": "기타공공기관",
+    "region": "경기권",
+    "industry": "교육·문화",
+    "address": "경기 성남시 분당구 하오개로 323",
+    "startingSalary": 3500,
+    "avgSalary": 6500,
+    "avgYears": 11,
+    "homepage": "http://www.aks.ac.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국학중앙연구원",
+    "description": "한국학 연구와 한국학대학원 운영을 담당하는 교육부 산하 기타공공기관.",
+    "mainBusiness": [
+      "한국학 연구",
+      "한국학 대학원 운영",
+      "한국 문화 아카이브"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (성남)",
+        "address": "경기 성남시 분당구 하오개로 323"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "한국학, 역사, 문학, 행정"
+    }
+  },
+  {
+    "id": 348,
+    "name": "한국한의약진흥원",
+    "shortName": "NIKOM",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "복지·보건",
+    "address": "충남 천안시 동남구 충절로 1167",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "http://www.nikom.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국한의약진흥원",
+    "description": "한의약 연구·산업화와 한의약 세계화를 담당하는 보건복지부 산하 기타공공기관.",
+    "mainBusiness": [
+      "한의약 R&D 지원",
+      "한의약 산업화",
+      "전통의학 국제 교류"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (천안)",
+        "address": "충남 천안시 동남구 충절로 1167"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "기술": "한의학, 생명, 약학",
+      "사무": "행정, 경영"
+    }
+  },
+  {
+    "id": 349,
+    "name": "한국항로표지기술원",
+    "shortName": "KATON",
+    "type": "기타공공기관",
+    "region": "전라권",
+    "industry": "SOC·건설",
+    "address": "전남 여수시 국동2길 24",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 10,
+    "homepage": "http://www.katon.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국항로표지기술원",
+    "description": "항로표지 시설 개발·유지와 항해 안전 지원을 담당하는 해양수산부 산하 기타공공기관.",
+    "mainBusiness": [
+      "항로표지 시설 관리",
+      "등대 운영·유지",
+      "항해 안전 기술 개발"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (여수)",
+        "address": "전남 여수시 국동2길 24"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "기술": "전기전자, 해양, 토목",
+      "사무": "행정"
+    }
+  },
+  {
+    "id": 350,
+    "name": "한국해양과학기술원",
+    "shortName": "KIOST",
+    "type": "기타공공기관",
+    "region": "경상권",
+    "industry": "환경·농림",
+    "address": "부산 영도구 해양로 385",
+    "startingSalary": 3800,
+    "avgSalary": 7000,
+    "avgYears": 11,
+    "homepage": "http://www.kiost.ac.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국해양과학기술원",
+    "description": "해양 과학기술 연구를 수행하는 해양수산부 산하 기타공공기관.",
+    "mainBusiness": [
+      "해양 기초과학 연구",
+      "해양 환경 연구",
+      "극지 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "주택자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (부산)",
+        "address": "부산 영도구 해양로 385"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "기술": "해양학, 지구과학, 화학, 생물",
+      "사무": "행정"
+    }
+  },
+  {
+    "id": 351,
+    "name": "한국해양수산개발원",
+    "shortName": "KMI",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "환경·농림",
+    "address": "세종 다솜로 130",
+    "startingSalary": 3500,
+    "avgSalary": 6800,
+    "avgYears": 11,
+    "homepage": "http://www.kmi.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국해양수산개발원",
+    "description": "해양·수산·항만 분야 정책 연구를 수행하는 국무조정실 산하 기타공공기관.",
+    "mainBusiness": [
+      "해양·수산 정책 연구",
+      "항만 물류 연구",
+      "해운 산업 분석"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (세종)",
+        "address": "세종 다솜로 130"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "경제, 행정, 해양"
+    }
+  },
+  {
+    "id": 352,
+    "name": "한국해양수산연수원",
+    "shortName": "SEAMAN",
+    "type": "기타공공기관",
+    "region": "경상권",
+    "industry": "교육·문화",
+    "address": "부산 영도구 해양로 367",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 10,
+    "homepage": "http://www.seaman.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국해양수산연수원",
+    "description": "해기사와 항만 인력 교육·훈련을 담당하는 해양수산부 산하 기타공공기관.",
+    "mainBusiness": [
+      "해기사 교육·훈련",
+      "항만 인력 양성",
+      "해사 안전 교육"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (부산)",
+        "address": "부산 영도구 해양로 367"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "기술": "항해, 기관, 해양",
+      "사무": "행정, 경영"
+    }
+  },
+  {
+    "id": 353,
+    "name": "한국해양조사협회",
+    "shortName": "KHRA",
+    "type": "기타공공기관",
+    "region": "경상권",
+    "industry": "환경·농림",
+    "address": "부산 강서구 제도로 13",
+    "startingSalary": 3100,
+    "avgSalary": 5600,
+    "avgYears": 9,
+    "homepage": "http://www.khra.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국해양조사협회",
+    "description": "해양 조사와 해양 공간 정보 서비스를 담당하는 해양수산부 산하 기타공공기관.",
+    "mainBusiness": [
+      "해양 수심 측량",
+      "해양 환경 조사",
+      "해양 공간 데이터 관리"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (부산)",
+        "address": "부산 강서구 제도로 13"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "기술": "해양학, 측량, 지구과학",
+      "사무": "행정"
+    }
+  },
+  {
+    "id": 354,
+    "name": "한국해양진흥공사",
+    "shortName": "KOBC",
+    "type": "기타공공기관",
+    "region": "경상권",
+    "industry": "금융",
+    "address": "부산 중구 중앙대로 39",
+    "startingSalary": 3800,
+    "avgSalary": 7000,
+    "avgYears": 10,
+    "homepage": "http://www.kobc.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국해양진흥공사",
+    "description": "해운 기업 금융 지원과 해운 산업 경쟁력 강화를 담당하는 해양수산부 산하 기타공공기관.",
+    "mainBusiness": [
+      "해운 기업 보증",
+      "선박 금융 지원",
+      "해운 재건 지원"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (부산)",
+        "address": "부산 중구 중앙대로 39"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "수리능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 금융, 경제, 해양"
+    }
+  },
+  {
+    "id": 355,
+    "name": "한국해외인프라도시개발지원공사",
+    "shortName": "KIND",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "SOC·건설",
+    "address": "서울 종로구 새문안로 76",
+    "startingSalary": 3800,
+    "avgSalary": 7200,
+    "avgYears": 10,
+    "homepage": "https://www.kindkorea.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국해외인프라도시개발지원공사",
+    "description": "해외 인프라·도시 개발 사업 지원과 투자를 담당하는 국토교통부 산하 기타공공기관.",
+    "mainBusiness": [
+      "해외 인프라 사업 지원",
+      "해외 도시 개발 투자",
+      "PPP 사업 지원"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "해외파견 기회"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 종로구 새문안로 76"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "경영, 경제, 법학, 외국어",
+      "기술": "토목, 건축"
+    }
+  },
+  {
+    "id": 356,
+    "name": "한국행정연구원",
+    "shortName": "KIPA",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "행정·고용",
+    "address": "세종 국책연구원로 5",
+    "startingSalary": 3500,
+    "avgSalary": 6800,
+    "avgYears": 11,
+    "homepage": "http://www.kipa.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국행정연구원",
+    "description": "행정·정책 분야 연구를 수행하는 국무조정실 산하 기타공공기관.",
+    "mainBusiness": [
+      "행정 정책 연구",
+      "정부 혁신 연구",
+      "규제 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (세종)",
+        "address": "세종 국책연구원로 5"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "행정, 정치, 경제"
+    }
+  },
+  {
+    "id": 357,
+    "name": "한국형사·법무정책연구원",
+    "shortName": "KICJ",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "행정·고용",
+    "address": "서울 노원구 동일로 174길 27",
+    "startingSalary": 3500,
+    "avgSalary": 6500,
+    "avgYears": 11,
+    "homepage": "http://www.kicj.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국형사법무정책연구원",
+    "description": "형사사법 정책 연구를 수행하는 국무조정실 산하 기타공공기관.",
+    "mainBusiness": [
+      "형사 정책 연구",
+      "범죄 예방 연구",
+      "교정·보호 정책 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (서울)",
+        "address": "서울 노원구 동일로 174길 27"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "사무": "법학, 행정, 사회학"
+    }
+  },
+  {
+    "id": 358,
+    "name": "한국환경보전원",
+    "shortName": "KECI",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "환경·농림",
+    "address": "서울 중구 세종대로 110",
+    "startingSalary": 3200,
+    "avgSalary": 5800,
+    "avgYears": 9,
+    "homepage": "http://www.keci.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국환경보전원",
+    "description": "환경 보전 교육과 환경 문화 확산을 담당하는 기후에너지환경부 산하 기타공공기관.",
+    "mainBusiness": [
+      "환경 교육·체험",
+      "환경 리더 양성",
+      "환경 정보 제공"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 중구 세종대로 110"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "환경, 교육, 행정"
+    }
+  },
+  {
+    "id": 359,
+    "name": "한식진흥원",
+    "shortName": "HANSIK",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "환경·농림",
+    "address": "서울 중구 퇴계로 173",
+    "startingSalary": 3100,
+    "avgSalary": 5600,
+    "avgYears": 9,
+    "homepage": "https://www.hansik.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한식진흥원",
+    "description": "한식 세계화와 한식 산업 육성을 담당하는 농림축산식품부 산하 기타공공기관.",
+    "mainBusiness": [
+      "한식 세계화 지원",
+      "한식 조리사 교육",
+      "한식 관련 연구"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 중구 퇴계로 173"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "정보능력"
+    ],
+    "majorSubjects": {
+      "사무": "식품, 조리, 경영, 행정"
+    }
+  },
+  {
+    "id": 360,
+    "name": "한전MCS(주)",
+    "shortName": "KEPCOMCS",
+    "type": "기타공공기관",
+    "region": "수도권",
+    "industry": "에너지",
+    "address": "서울 강남구 영동대로 517",
+    "startingSalary": 3000,
+    "avgSalary": 5500,
+    "avgYears": 10,
+    "homepage": "https://www.kepcomcs.co.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한전MCS",
+    "description": "전력 설비 유지보수와 검침 서비스를 담당하는 기후에너지환경부 산하 기타공공기관.",
+    "mainBusiness": [
+      "전력 설비 유지보수",
+      "전기 검침 서비스",
+      "전력 시설 안전 점검"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본사 (서울)",
+        "address": "서울 강남구 영동대로 517"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "기술": "전기, 전자, 기계",
+      "사무": "경영"
+    }
+  },
+  {
+    "id": 361,
+    "name": "한전원자력연료주식회사",
+    "shortName": "KNFC",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "에너지",
+    "address": "대전 유성구 대덕대로 1047",
+    "startingSalary": 4000,
+    "avgSalary": 7500,
+    "avgYears": 12,
+    "homepage": "http://www.knfc.co.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한전원자력연료",
+    "description": "원자력 발전용 핵연료를 제조·공급하는 기후에너지환경부 산하 기타공공기관.",
+    "mainBusiness": [
+      "핵연료 제조·공급",
+      "우라늄 가공",
+      "핵연료 기술 개발"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금",
+      "주택자금",
+      "의료비 지원"
+    ],
+    "branches": [
+      {
+        "name": "본사 (대전)",
+        "address": "대전 유성구 대덕대로 1047"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "기술": "원자력, 핵공학, 화학, 기계",
+      "사무": "행정"
+    }
+  },
+  {
+    "id": 362,
+    "name": "항공안전기술원",
+    "shortName": "KIAST",
+    "type": "기타공공기관",
+    "region": "충청권",
+    "industry": "SOC·건설",
+    "address": "충남 논산시 연무읍 연무로 242",
+    "startingSalary": 3500,
+    "avgSalary": 6500,
+    "avgYears": 10,
+    "homepage": "http://www.kiast.or.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=항공안전기술원",
+    "description": "항공 안전 기술 개발과 항공기 인증 지원을 담당하는 국토교통부 산하 기타공공기관.",
+    "mainBusiness": [
+      "항공기 인증 기술 지원",
+      "항공 안전 연구",
+      "드론 안전 기준 개발"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (논산)",
+        "address": "충남 논산시 연무읍 연무로 242"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "기술능력"
+    ],
+    "majorSubjects": {
+      "기술": "항공, 기계, 전기전자",
+      "사무": "행정"
+    }
+  },
+  {
+    "id": 363,
+    "name": "해양수산과학기술진흥원",
+    "shortName": "KIMST",
+    "type": "기타공공기관",
+    "region": "경상권",
+    "industry": "환경·농림",
+    "address": "부산 강서구 과학산단1로 60",
+    "startingSalary": 3500,
+    "avgSalary": 6500,
+    "avgYears": 10,
+    "homepage": "https://www.kimst.re.kr",
+    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=해양수산과학기술진흥원",
+    "description": "해양수산 R&D 기획·관리·평가를 담당하는 해양수산부 산하 기타공공기관.",
+    "mainBusiness": [
+      "해양수산 R&D 기획·관리",
+      "해양 기술 성과 확산",
+      "해양 인프라 지원"
+    ],
+    "welfare": [
+      "복지포인트",
+      "자녀 학자금"
+    ],
+    "branches": [
+      {
+        "name": "본원 (부산)",
+        "address": "부산 강서구 과학산단1로 60"
+      }
+    ],
+    "ncs": [
+      "의사소통능력",
+      "문제해결능력"
+    ],
+    "majorSubjects": {
+      "기술": "해양, 수산, 환경",
+      "사무": "행정, 경영"
+    }
   }
 ];
