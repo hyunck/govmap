@@ -232,8 +232,12 @@
         .filter-group:last-child { margin-bottom: 0; }
         .exam-filter-note { font-size: 11px; color: var(--text-secondary); font-weight: 400; margin-left: 4px; }
         .exam-chips { gap: 5px; }
-        .filter-chip[data-filter-type="exam"].active { background: #7c3aed; color: #fff; border-color: #7c3aed; }
-        .filter-chip[data-filter-type="exam"]:hover:not(.active) { border-color: #7c3aed; color: #7c3aed; }
+        .filter-chip[data-filter-type="exam"].active { background: var(--primary); color: #fff; border-color: var(--primary); }
+        .filter-chip[data-filter-type="exam"]:hover:not(.active) { border-color: var(--primary); color: var(--primary); }
+        .exam-filter-header { display: flex; align-items: center; justify-content: space-between; cursor: pointer; user-select: none; }
+        .exam-collapse-btn { font-size: 11px; color: var(--text-secondary); background: none; border: none; cursor: pointer; padding: 0; font-family: inherit; }
+        .exam-chips-wrapper { overflow: hidden; transition: max-height 0.25s ease; }
+        .exam-chips-wrapper.collapsed { max-height: 0 !important; }
 
         .filter-label {
             font-size: 11px;
@@ -1277,11 +1281,9 @@
         .allbranch-toggle-icon {
             font-size: 11px;
             color: var(--gov-accent);
-            transition: transform 0.2s;
             flex-shrink: 0;
         }
         .allbranch-toggle-icon.collapsed {
-            transform: rotate(-90deg);
         }
         .allbranch-list.collapsed {
             display: none;
@@ -1489,29 +1491,24 @@
                     </div>
                 </div>
                 <div class="filter-group" id="examSubjectFilterGroup">
-                    <div class="filter-label">📚 시험과목 <span class="exam-filter-note">(공기업만 적용)</span></div>
-                    <div class="filter-chips exam-chips">
+                    <div class="exam-filter-header" id="examFilterHeader">
+                        <div class="filter-label">📚 NCS 시험과목 <span class="exam-filter-note">(공기업만 적용)</span></div>
+                        <button class="exam-collapse-btn" id="examCollapseBtn">▲ 접기</button>
+                    </div>
+                    <div class="exam-chips-wrapper" id="examChipsWrapper" style="max-height: 200px;">
+                    <div class="filter-chips exam-chips" style="margin-top:6px;">
                         <button class="filter-chip active" data-filter-type="exam" data-value="전체">전체</button>
-                        <button class="filter-chip" data-filter-type="exam" data-value="경영학">경영학</button>
-                        <button class="filter-chip" data-filter-type="exam" data-value="경제학">경제학</button>
-                        <button class="filter-chip" data-filter-type="exam" data-value="법학">법학</button>
-                        <button class="filter-chip" data-filter-type="exam" data-value="행정학">행정학</button>
-                        <button class="filter-chip" data-filter-type="exam" data-value="회계학">회계학</button>
-                        <button class="filter-chip" data-filter-type="exam" data-value="전기공학">전기공학</button>
-                        <button class="filter-chip" data-filter-type="exam" data-value="기계공학">기계공학</button>
-                        <button class="filter-chip" data-filter-type="exam" data-value="화학공학">화학공학</button>
-                        <button class="filter-chip" data-filter-type="exam" data-value="토목공학">토목공학</button>
-                        <button class="filter-chip" data-filter-type="exam" data-value="건축공학">건축공학</button>
-                        <button class="filter-chip" data-filter-type="exam" data-value="전산/IT">전산/IT</button>
-                        <button class="filter-chip" data-filter-type="exam" data-value="원자력공학">원자력공학</button>
-                        <button class="filter-chip" data-filter-type="exam" data-value="자원/지질">자원/지질</button>
-                        <button class="filter-chip" data-filter-type="exam" data-value="환경공학">환경공학</button>
-                        <button class="filter-chip" data-filter-type="exam" data-value="해양공학">해양공학</button>
-                        <button class="filter-chip" data-filter-type="exam" data-value="도시공학">도시공학</button>
-                        <button class="filter-chip" data-filter-type="exam" data-value="감정평가">감정평가</button>
-                        <button class="filter-chip" data-filter-type="exam" data-value="철도공학">철도공학</button>
-                        <button class="filter-chip" data-filter-type="exam" data-value="축산/수의">축산/수의</button>
-                        <button class="filter-chip" data-filter-type="exam" data-value="관광학">관광학</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="의사소통능력">의사소통능력</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="수리능력">수리능력</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="문제해결능력">문제해결능력</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="자원관리능력">자원관리능력</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="정보능력">정보능력</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="기술능력">기술능력</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="조직이해능력">조직이해능력</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="대인관계능력">대인관계능력</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="직업윤리">직업윤리</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="서비스능력">서비스능력</button>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -1531,7 +1528,7 @@
                 <div class="gov-sidebar-header">
                     <div class="logo-area">
                         <span class="logo-icon">🏛️</span>
-                        <span class="logo-text">정부<span>기관</span> 지도</span>
+                        <span class="logo-text">정부기관 <span>지도</span></span>
                     </div>
                     <div class="gov-search-box">
                         <span class="search-icon">🔍</span>
@@ -2022,7 +2019,7 @@
                     if (state.currentSalary === 'over5000' && s < 5000) return false;
                 }
                 if (state.currentExam !== '전체') {
-                    if (!org.examSubjects || !org.examSubjects.includes(state.currentExam)) return false;
+                    if (!org.ncs || !org.ncs.includes(state.currentExam)) return false;
                 }
                 if (state.searchQuery) {
                     const q = state.searchQuery.toLowerCase();
@@ -2212,7 +2209,7 @@
                         <div class="allbranch-group">
                             <div class="allbranch-group-title${isCollapsible ? ' collapsible' : ''}" ${isCollapsible ? 'data-collapsible="true"' : ''}>
                                 <span>${group.groupName}</span>
-                                ${isCollapsible ? '<span class="allbranch-toggle-icon collapsed">▼</span>' : ''}
+                            ${isCollapsible ? '<span class="allbranch-toggle-icon collapsed">▼</span>' : ''}
                             </div>
                             <ul class="allbranch-list${isCollapsible ? ' collapsed' : ''}">
                                 ${group.items.map(item => {
@@ -2238,6 +2235,7 @@
                         const isCollapsed = list.classList.contains('collapsed');
                         list.classList.toggle('collapsed', !isCollapsed);
                         icon.classList.toggle('collapsed', !isCollapsed);
+                        icon.textContent = isCollapsed ? '▲' : '▼';
                     });
                 });
 
@@ -2415,6 +2413,26 @@
             document.querySelectorAll('.filter-chip').forEach(c => c.classList.toggle('active', c.dataset.value === '전체'));
             applyFilters();
         });
+
+        // NCS 시험과목 필터 접기/펼치기
+        (function() {
+            const header = document.getElementById('examFilterHeader');
+            const wrapper = document.getElementById('examChipsWrapper');
+            const btn = document.getElementById('examCollapseBtn');
+            let collapsed = false;
+            header.addEventListener('click', () => {
+                collapsed = !collapsed;
+                if (collapsed) {
+                    wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
+                    requestAnimationFrame(() => { wrapper.classList.add('collapsed'); });
+                    btn.textContent = '▼ 펼치기';
+                } else {
+                    wrapper.classList.remove('collapsed');
+                    wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
+                    btn.textContent = '▲ 접기';
+                }
+            });
+        })();
 
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.addEventListener('click', () => {
@@ -2840,6 +2858,7 @@
                     const isCollapsed = list.classList.contains('collapsed');
                     list.classList.toggle('collapsed', !isCollapsed);
                     icon.classList.toggle('collapsed', !isCollapsed);
+                    icon.textContent = isCollapsed ? '▲' : '▼';
                 });
             });
             // 지도 표시 가능한 항목 클릭 시 지도 이동
