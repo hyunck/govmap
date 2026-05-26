@@ -1495,6 +1495,7 @@
                         <div class="filter-label">📚 NCS 시험과목 <span class="exam-filter-note">(공기업만 적용)</span></div>
                         <button class="exam-collapse-btn" id="examCollapseBtn">▲ 접기</button>
                     </div>
+                    <div style="font-size:10px;color:var(--text-tertiary);margin-bottom:5px;line-height:1.4;">⚠️ 2026년 4월 개편으로 10개→7개로 축소 중. 기관별 실제 시험과목은 채용공고 확인 필수.</div>
                     <div class="exam-chips-wrapper" id="examChipsWrapper" style="max-height: 200px;">
                     <div class="filter-chips exam-chips" style="margin-top:6px;">
                         <button class="filter-chip active" data-filter-type="exam" data-value="전체">전체</button>
@@ -2381,11 +2382,7 @@
                                 if (c.dataset.value === '전체') c.classList.remove('active');
                                 else c.classList.toggle('active', state.currentExam.has(c.dataset.value));
                             });
-                            // 공기업 필터 자동 적용
-                            if (state.currentType === '전체') {
-                                state.currentType = '공기업';
-                                document.querySelectorAll('[data-filter-type="orgtype"]').forEach(c => c.classList.toggle('active', c.dataset.value === '공기업'));
-                            }
+
                         }
                     }
                     applyFilters();
