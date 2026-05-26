@@ -1259,6 +1259,28 @@
             margin-bottom: 8px;
             letter-spacing: -0.2px;
             border-left: 3px solid var(--gov-accent);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .allbranch-group-title.collapsible {
+            cursor: pointer;
+            user-select: none;
+        }
+        .allbranch-group-title.collapsible:hover {
+            background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+        }
+        .allbranch-toggle-icon {
+            font-size: 11px;
+            color: var(--gov-accent);
+            transition: transform 0.2s;
+            flex-shrink: 0;
+        }
+        .allbranch-toggle-icon.collapsed {
+            transform: rotate(-90deg);
+        }
+        .allbranch-list.collapsed {
+            display: none;
         }
         .allbranch-list {
             list-style: none;
@@ -1699,7 +1721,10 @@
 
             // 정부기관 레이어 토글 (디폴트: 둘 다 켜짐)
             govLayerHq: true,               // 본청 레이어 표시 여부
-            govLayerBr: true                // 소속·지방기관 레이어 표시 여부
+            govLayerBr: true,               // 소속·지방기관 레이어 표시 여부
+
+            // 공기업 상세패널 탭 유지
+            activeDetailTab: 'company'      // 마지막으로 선택된 탭 (company/salary/branches/exam)
         };
 
         // ====================================================
@@ -2084,8 +2109,8 @@
             renderTabBranches(org);
             renderTabExam(org);
 
-            document.querySelectorAll('.tab-btn').forEach((btn, idx) => btn.classList.toggle('active', idx === 0));
-            document.querySelectorAll('.tab-panel').forEach((p, idx) => p.classList.toggle('active', idx === 0));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.tab === state.activeDetailTab));
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('active', p.id === 'tab' + state.activeDetailTab.charAt(0).toUpperCase() + state.activeDetailTab.slice(1)));
         }
 
         function renderTabCompany(org) {
@@ -2147,10 +2172,15 @@
                         💡 <strong style="color:var(--accent);">${org.name}</strong>의 전국 근무지 (총 <strong style="color:var(--accent);">${totalItems}곳</strong>)이에요.<br>
                         📍 표시된 항목은 지도에서 위치 확인 가능, 그 외는 목록 참고용이에요.
                     </div>
-                    ${allBranches.map(group => `
+                    ${allBranches.map(group => {
+                        const isCollapsible = group.items.length >= 5;
+                        return `
                         <div class="allbranch-group">
-                            <div class="allbranch-group-title">${group.groupName}</div>
-                            <ul class="allbranch-list">
+                            <div class="allbranch-group-title${isCollapsible ? ' collapsible' : ''}" ${isCollapsible ? 'data-collapsible="true"' : ''}>
+                                <span>${group.groupName}</span>
+                                ${isCollapsible ? '<span class="allbranch-toggle-icon collapsed">▼</span>' : ''}
+                            </div>
+                            <ul class="allbranch-list${isCollapsible ? ' collapsed' : ''}">
                                 ${group.items.map(item => {
                                     const isMapped = mappedNames.has(item.name) || mappedAddresses.has(item.address);
                                     return `<li class="allbranch-item${isMapped ? ' mappable' : ''}"
@@ -2163,8 +2193,19 @@
                                 }).join('')}
                             </ul>
                         </div>
-                    `).join('')}
+                    `}).join('')}
                 `;
+
+                // 그룹 접기/펼치기 이벤트
+                document.querySelectorAll('#tabBranches .allbranch-group-title[data-collapsible]').forEach(title => {
+                    title.addEventListener('click', () => {
+                        const list = title.nextElementSibling;
+                        const icon = title.querySelector('.allbranch-toggle-icon');
+                        const isCollapsed = list.classList.contains('collapsed');
+                        list.classList.toggle('collapsed', !isCollapsed);
+                        icon.classList.toggle('collapsed', !isCollapsed);
+                    });
+                });
 
                 // 지도 핀 클릭 이벤트
                 document.querySelectorAll('#tabBranches .allbranch-item.mappable').forEach(item => {
@@ -2325,6 +2366,7 @@
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const tabName = btn.dataset.tab;
+                state.activeDetailTab = tabName;
                 document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 document.querySelectorAll('.tab-panel').forEach(p => {
@@ -2712,10 +2754,15 @@
                     💡 <strong style="color:var(--gov-accent);">${gov.name}</strong>의 모든 소속기관 (총 <strong style="color:var(--gov-accent);">${totalAllItems}곳</strong>)이에요.<br>
                     📍 표시된 항목은 지도에서 위치 확인 가능, 그 외는 목록 참고용이에요.
                 </div>
-                ${allBranches.map((group) => `
+                ${allBranches.map((group) => {
+                    const isCollapsible = group.items.length >= 5;
+                    return `
                     <div class="allbranch-group">
-                        <div class="allbranch-group-title">${group.groupName}</div>
-                        <ul class="allbranch-list">
+                        <div class="allbranch-group-title${isCollapsible ? ' collapsible' : ''}" ${isCollapsible ? 'data-collapsible="true"' : ''}>
+                            <span>${group.groupName}</span>
+                            ${isCollapsible ? '<span class="allbranch-toggle-icon collapsed">▼</span>' : ''}
+                        </div>
+                        <ul class="allbranch-list${isCollapsible ? ' collapsed' : ''}">
                             ${group.items.map((item) => {
                                 const isMapped = mappedAddresses.has(item.address) || mappedNames.has(item.name);
                                 return `
@@ -2730,8 +2777,18 @@
                             }).join('')}
                         </ul>
                     </div>
-                `).join('')}
+                `}).join('')}
             `;
+            // 그룹 접기/펼치기 이벤트
+            document.querySelectorAll('#tabBranches .allbranch-group-title[data-collapsible]').forEach(title => {
+                title.addEventListener('click', () => {
+                    const list = title.nextElementSibling;
+                    const icon = title.querySelector('.allbranch-toggle-icon');
+                    const isCollapsed = list.classList.contains('collapsed');
+                    list.classList.toggle('collapsed', !isCollapsed);
+                    icon.classList.toggle('collapsed', !isCollapsed);
+                });
+            });
             // 지도 표시 가능한 항목 클릭 시 지도 이동
             document.querySelectorAll('#tabBranches .allbranch-item.mappable').forEach(item => {
                 item.addEventListener('click', () => {
