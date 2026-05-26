@@ -230,6 +230,10 @@
 
         .filter-group { margin-bottom: 12px; }
         .filter-group:last-child { margin-bottom: 0; }
+        .exam-filter-note { font-size: 11px; color: var(--text-secondary); font-weight: 400; margin-left: 4px; }
+        .exam-chips { gap: 5px; }
+        .filter-chip[data-filter-type="exam"].active { background: #7c3aed; color: #fff; border-color: #7c3aed; }
+        .filter-chip[data-filter-type="exam"]:hover:not(.active) { border-color: #7c3aed; color: #7c3aed; }
 
         .filter-label {
             font-size: 11px;
@@ -1484,6 +1488,32 @@
                         <button class="filter-chip" data-filter-type="salary" data-value="over5000">5천 이상</button>
                     </div>
                 </div>
+                <div class="filter-group" id="examSubjectFilterGroup">
+                    <div class="filter-label">📚 시험과목 <span class="exam-filter-note">(공기업만 적용)</span></div>
+                    <div class="filter-chips exam-chips">
+                        <button class="filter-chip active" data-filter-type="exam" data-value="전체">전체</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="경영학">경영학</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="경제학">경제학</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="법학">법학</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="행정학">행정학</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="회계학">회계학</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="전기공학">전기공학</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="기계공학">기계공학</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="화학공학">화학공학</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="토목공학">토목공학</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="건축공학">건축공학</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="전산/IT">전산/IT</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="원자력공학">원자력공학</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="자원/지질">자원/지질</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="환경공학">환경공학</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="해양공학">해양공학</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="도시공학">도시공학</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="감정평가">감정평가</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="철도공학">철도공학</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="축산/수의">축산/수의</button>
+                        <button class="filter-chip" data-filter-type="exam" data-value="관광학">관광학</button>
+                    </div>
+                </div>
             </div>
 
             <div class="results-area">
@@ -1724,7 +1754,8 @@
             govLayerBr: true,               // 소속·지방기관 레이어 표시 여부
 
             // 공기업 상세패널 탭 유지
-            activeDetailTab: 'company'      // 마지막으로 선택된 탭 (company/salary/branches/exam)
+            activeDetailTab: 'company',      // 마지막으로 선택된 탭 (company/salary/branches/exam)
+            currentExam: '전체'             // 시험과목 필터
         };
 
         // ====================================================
@@ -1989,6 +2020,9 @@
                     if (state.currentSalary === '3000to4000' && (s < 3000 || s >= 4000)) return false;
                     if (state.currentSalary === '4000to5000' && (s < 4000 || s >= 5000)) return false;
                     if (state.currentSalary === 'over5000' && s < 5000) return false;
+                }
+                if (state.currentExam !== '전체') {
+                    if (!org.examSubjects || !org.examSubjects.includes(state.currentExam)) return false;
                 }
                 if (state.searchQuery) {
                     const q = state.searchQuery.toLowerCase();
@@ -2329,10 +2363,28 @@
                 const value = chip.dataset.value;
                 document.querySelectorAll(`[data-filter-type="${type}"]`).forEach(c => c.classList.remove('active'));
                 chip.classList.add('active');
-                if (type === 'orgtype') state.currentType = value;
+                if (type === 'orgtype') {
+                    state.currentType = value;
+                    // 공기업 외 선택 시 시험과목 필터 자동 초기화
+                    if (value !== '공기업' && value !== '전체') {
+                        state.currentExam = '전체';
+                        document.querySelectorAll('[data-filter-type="exam"]').forEach(c => c.classList.toggle('active', c.dataset.value === '전체'));
+                    }
+                }
                 if (type === 'industry') state.currentIndustry = value;
                 if (type === 'region') state.currentRegion = value;
                 if (type === 'salary') state.currentSalary = value;
+                if (type === 'exam') {
+                    state.currentExam = value;
+                    // 시험과목 선택 시 자동으로 공기업 필터 적용
+                    if (value !== '전체' && state.currentType === '전체') {
+                        state.currentType = '공기업';
+                        document.querySelectorAll('[data-filter-type="orgtype"]').forEach(c => c.classList.toggle('active', c.dataset.value === '공기업'));
+                    }
+                    if (value === '전체' && state.currentType === '공기업') {
+                        // exam 전체로 돌릴 때는 orgtype 그대로 유지
+                    }
+                }
                 applyFilters();
             });
         });
@@ -2356,6 +2408,7 @@
             state.currentIndustry = '전체';
             state.currentRegion = '전체';
             state.currentSalary = '전체';
+            state.currentExam = '전체';
             state.searchQuery = '';
             searchInput.value = '';
             clearBtn.classList.remove('visible');
