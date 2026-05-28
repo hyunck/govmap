@@ -75,10 +75,32 @@ function buildPage(org) {
     `<tr><td>${escHtml(dir)}</td><td>${escHtml((org.majorSubjects||{})[dir])}</td></tr>`
   ).join('');
 
-  // 지점 목록
+  // 지점 목록 (allBranches 그룹 우선, 없으면 branches flat)
+  const allBranches = org.allBranches || [];
   const branchItems = (org.branches || []).map(b =>
     `<li><strong>${escHtml(b.name)}</strong> — ${escHtml(b.address)}</li>`
   ).join('');
+
+  // 그룹화된 전국 근무지 HTML
+  const allBranchesHtml = allBranches.length > 0 ? (() => {
+    const totalItems = allBranches.reduce((s, g) => s + g.items.length, 0);
+    return `
+    <div class="branch-intro">
+      💡 <strong>${escHtml(org.name)}</strong>의 전국 근무지 (총 <strong>${totalItems}곳</strong>)<br>
+      📍 표시된 항목은 지도에서 위치 확인 가능, 그 외는 목록 참고용
+    </div>
+    ${allBranches.map(group => `
+      <div class="allbranch-group">
+        <div class="allbranch-group-title">${escHtml(group.groupName)} <span class="allbranch-count">(${group.items.length})</span></div>
+        <ul class="allbranch-list">
+          ${group.items.map(item => `
+            <li class="allbranch-item">
+              <div class="allbranch-name">${escHtml(item.name)}</div>
+              ${item.address ? `<div class="allbranch-addr">${escHtml(item.address)}</div>` : ''}
+            </li>`).join('')}
+        </ul>
+      </div>`).join('')}`;
+  })() : '';
 
   // 관련 기관 카드
   const relatedCards = related.map(r =>
@@ -187,6 +209,20 @@ function buildPage(org) {
     .branch-list li { padding: 9px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; }
     .branch-list li:last-child { border-bottom: none; }
     .branch-list strong { color: #111827; }
+    /* allBranches 그룹 */
+    .branch-intro { padding: 10px 12px; background: #f0fdf4; border-radius: 8px;
+                    margin-bottom: 14px; font-size: 12px; color: #374151; line-height: 1.6; }
+    .branch-intro strong { color: #03c75a; }
+    .allbranch-group { margin-bottom: 14px; }
+    .allbranch-group-title { font-size: 13px; font-weight: 700; color: #1f2937;
+                             background: #f3f4f6; padding: 7px 12px; border-radius: 6px;
+                             margin-bottom: 6px; }
+    .allbranch-count { font-weight: 400; color: #6b7280; font-size: 12px; }
+    .allbranch-list { list-style: none; margin: 0; padding: 0; }
+    .allbranch-item { padding: 6px 8px; border-bottom: 1px solid #f3f4f6; font-size: 13px; }
+    .allbranch-item:last-child { border-bottom: none; }
+    .allbranch-name { color: #111827; font-weight: 500; }
+    .allbranch-addr { color: #6b7280; font-size: 11px; margin-top: 2px; }
     /* 관련 기관 */
     .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
     @media(max-width:540px){ .related-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -295,7 +331,10 @@ function buildPage(org) {
   </div>` : ''}
 
   <!-- 전국 사업장·지점 -->
-  ${branchItems ? `<div class="card">
+  ${allBranchesHtml ? `<div class="card">
+    <div class="card-title">전국 본사·지점·사업소</div>
+    ${allBranchesHtml}
+  </div>` : branchItems ? `<div class="card">
     <div class="card-title">전국 본사·지점·사업소</div>
     <ul class="branch-list">${branchItems}</ul>
   </div>` : ''}
