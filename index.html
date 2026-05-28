@@ -258,10 +258,14 @@
             padding-top: 7px;
             margin-top: 4px;
         }
-        .filter-chip[data-filter-type="exam_old"].active { background: #7c3aed; color: #fff; border-color: #7c3aed; }
-        .filter-chip[data-filter-type="exam_old"]:hover:not(.active) { border-color: #7c3aed; color: #7c3aed; }
+        .filter-chip[data-filter-type="exam_old"].active { background: var(--primary); color: #fff; border-color: var(--primary); }
+        .filter-chip[data-filter-type="exam_old"]:hover:not(.active) { border-color: var(--primary); color: var(--primary); }
         .filter-chip.exam-old-removed { opacity: 0.55; font-style: italic; }
         .filter-chip.exam-old-removed.active { background: #9ca3af; border-color: #9ca3af; opacity: 1; font-style: italic; }
+        .ncs-sector-list { display: flex; flex-direction: column; gap: 7px; }
+        .ncs-sector-row { display: flex; align-items: flex-start; gap: 8px; }
+        .ncs-sector-label { flex-shrink: 0; font-size: 11px; font-weight: 600; color: var(--text-secondary); background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; padding: 2px 7px; line-height: 22px; white-space: nowrap; }
+        .ncs-sector-tags { display: flex; flex-wrap: wrap; gap: 4px; }
 
         .filter-label {
             font-size: 11px;
@@ -1517,9 +1521,9 @@
                 <div class="filter-group" id="examSubjectFilterGroup">
                     <div class="exam-filter-header" id="examFilterHeader">
                         <div class="filter-label">📚 NCS 시험과목 <span class="exam-filter-note">(공기업만 적용)</span></div>
-                        <button class="exam-collapse-btn" id="examCollapseBtn">▲ 접기</button>
+                        <button class="exam-collapse-btn" id="examCollapseBtn">▼ 펼치기</button>
                     </div>
-                    <div class="exam-chips-wrapper" id="examChipsWrapper" style="max-height: 500px;">
+                    <div class="exam-chips-wrapper collapsed" id="examChipsWrapper">
                         <div class="exam-section-label">✅ 2026년 4월 개편 — 직업공통능력 7개 영역</div>
                         <div class="filter-chips exam-chips">
                             <button class="filter-chip active" data-filter-type="exam" data-value="전체">전체</button>
@@ -2075,15 +2079,25 @@
                 if (state.currentExam.size > 0) {
                     if (!org.ncs || ![...state.currentExam].every(s => org.ncs.includes(s))) return false;
                 }
-                // 개편 이전 NCS 필터 (매핑 사용)
+                // 개편 이전 NCS 필터
                 if (state.currentExamOld.size > 0) {
-                    const mappedNew = [];
-                    for (const s of state.currentExamOld) {
-                        const mapped = OLD_NCS_MAP[s];
-                        if (mapped === null) return false; // 삭제된 과목 → 매칭 불가
-                        if (mapped) mappedNew.push(mapped);
+                    if (org.ncsOld && Object.keys(org.ncsOld).length > 0) {
+                        // ncsOld 데이터가 있으면 직접 비교: 하나 이상의 직렬에서 선택 과목 전부 포함해야 통과
+                        const sectorLists = Object.values(org.ncsOld);
+                        const matches = sectorLists.some(list =>
+                            [...state.currentExamOld].every(s => list.includes(s))
+                        );
+                        if (!matches) return false;
+                    } else {
+                        // ncsOld 없으면 개편 후 ncs로 매핑 비교 (fallback)
+                        const mappedNew = [];
+                        for (const s of state.currentExamOld) {
+                            const mapped = OLD_NCS_MAP[s];
+                            if (mapped === null) return false; // 삭제된 과목 → 매칭 불가
+                            if (mapped) mappedNew.push(mapped);
+                        }
+                        if (!org.ncs || !mappedNew.every(s => org.ncs.includes(s))) return false;
                     }
-                    if (!org.ncs || !mappedNew.every(s => org.ncs.includes(s))) return false;
                 }
                 if (state.searchQuery) {
                     const q = state.searchQuery.toLowerCase();
@@ -2368,10 +2382,27 @@
             const subjectHTML = Object.entries(subjects).map(([cat, content]) => `
                 <div class="subject-section"><h4>${cat}</h4><p>${content}</p></div>
             `).join('');
+
+            // NCS 직업기초능력 섹션: ncsOld(직렬별 구분) 우선, 없으면 ncs 단일 목록
+            let ncsHTML = '';
+            if (org.ncsOld && Object.keys(org.ncsOld).length > 0) {
+                const sectorRows = Object.entries(org.ncsOld).map(([sector, items]) => `
+                    <div class="ncs-sector-row">
+                        <span class="ncs-sector-label">${sector}</span>
+                        <span class="ncs-sector-tags">${items.map(n => `<span class="ncs-tag">${n}</span>`).join('')}</span>
+                    </div>
+                `).join('');
+                ncsHTML = `<div class="ncs-sector-list">${sectorRows}</div>`;
+            } else if (org.ncs && org.ncs.length > 0) {
+                ncsHTML = `<div class="ncs-list">${org.ncs.map(n => `<span class="ncs-tag">${n}</span>`).join('')}</div>`;
+            } else {
+                ncsHTML = `<p style="font-size:13px;color:var(--text-secondary);">정보 없음</p>`;
+            }
+
             document.getElementById('tabExam').innerHTML = `
                 <div class="info-section">
                     <h3>NCS 직업기초능력</h3>
-                    <div class="ncs-list">${(org.ncs || []).map(n => `<span class="ncs-tag">${n}</span>`).join('')}</div>
+                    ${ncsHTML}
                 </div>
                 <div class="info-section"><h3>직렬별 전공 시험과목</h3>${subjectHTML}</div>
                 <div class="info-section" style="margin-top:16px;">
@@ -2524,7 +2555,7 @@
             const header = document.getElementById('examFilterHeader');
             const wrapper = document.getElementById('examChipsWrapper');
             const btn = document.getElementById('examCollapseBtn');
-            let collapsed = false;
+            let collapsed = true;
             header.addEventListener('click', () => {
                 collapsed = !collapsed;
                 if (collapsed) {
