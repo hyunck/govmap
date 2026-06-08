@@ -491,8 +491,11 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        /* 모바일 전용 — 사진과 시트 사이 여백 + 뒤로가기/닫기 버튼 (데스크탑에서는 숨김) */
-        .detail-sheet-toolbar { display: none; }
+        /* 모바일 전용 — 사진과 시트 사이 여백 + 뒤로가기/닫기 버튼
+           데스크탑에서는 래퍼 박스 자체를 없애 자식(.detail-close 등)이 기존처럼
+           .detail-panel의 직계 자식으로 렌더링되도록 함 (display:none이면 자식까지 숨겨져
+           사진 위 축소(닫기) 버튼이 사라지는 문제가 있었음) */
+        .detail-sheet-toolbar { display: contents; }
         .detail-back { display: none; }
 
         .detail-image {
