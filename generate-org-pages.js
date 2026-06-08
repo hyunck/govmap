@@ -68,7 +68,7 @@ function buildPage(org) {
   const desc = `${org.name} 위치·주소·연봉·시험과목 정보. `
     + `${org.region} ${org.type}. 주소: ${org.address}. `
     + `초임 ${salary(org.startingSalary)}, 평균연봉 ${salary(org.avgSalary)}. `
-    + (examStr ? `전공시험: ${examStr.substring(0, 60)}.` : '');
+    + (examStr ? `전공시험: ${examStr.substring(0, 60).replace(/,\s*$/, '')}.` : '');
 
   // 직렬 + 전공 테이블 행
   const majorRows = majorDirs.map(dir =>

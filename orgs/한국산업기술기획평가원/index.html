@@ -96,6 +96,20 @@
     .branch-list li { padding: 9px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; }
     .branch-list li:last-child { border-bottom: none; }
     .branch-list strong { color: #111827; }
+    /* allBranches 그룹 */
+    .branch-intro { padding: 10px 12px; background: #f0fdf4; border-radius: 8px;
+                    margin-bottom: 14px; font-size: 12px; color: #374151; line-height: 1.6; }
+    .branch-intro strong { color: #03c75a; }
+    .allbranch-group { margin-bottom: 14px; }
+    .allbranch-group-title { font-size: 13px; font-weight: 700; color: #1f2937;
+                             background: #f3f4f6; padding: 7px 12px; border-radius: 6px;
+                             margin-bottom: 6px; }
+    .allbranch-count { font-weight: 400; color: #6b7280; font-size: 12px; }
+    .allbranch-list { list-style: none; margin: 0; padding: 0; }
+    .allbranch-item { padding: 6px 8px; border-bottom: 1px solid #f3f4f6; font-size: 13px; }
+    .allbranch-item:last-child { border-bottom: none; }
+    .allbranch-name { color: #111827; font-weight: 500; }
+    .allbranch-addr { color: #6b7280; font-size: 11px; margin-top: 2px; }
     /* 관련 기관 */
     .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
     @media(max-width:540px){ .related-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -182,7 +196,7 @@
   <div class="card">
     <div class="card-title">NCS 직업기초능력 시험과목</div>
     <div class="tags">
-      <span class="tag tag-blue">의사소통능력</span><span class="tag tag-blue">수리능력</span><span class="tag tag-blue">문제해결능력</span><span class="tag tag-blue">디지털능력</span>
+      <span class="tag tag-blue">의사소통능력</span><span class="tag tag-blue">수리능력</span><span class="tag tag-blue">문제해결능력</span><span class="tag tag-blue">정보능력</span>
     </div>
   </div>
 
@@ -222,30 +236,30 @@
   <!-- 관련 기관 -->
   <div class="card">
     <div class="card-title">같은 유형의 다른 기관</div>
-    <div class="related-grid"><a href="https://govmap.kr/orgs/%EC%98%88%EA%B8%88%EB%B3%B4%ED%97%98%EA%B3%B5%EC%82%AC/" class="rel-card">
+    <div class="related-grid"><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B5%AD%EC%A0%9C%ED%98%91%EB%A0%A5%EB%8B%A8/" class="rel-card">
        <span class="rel-badge" style="background:#7c3aed">준정부</span>
-       <span class="rel-name">예금보험공사</span>
-       <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%9E%90%EC%82%B0%EA%B4%80%EB%A6%AC%EA%B3%B5%EC%82%AC/" class="rel-card">
+       <span class="rel-name">한국국제협력단</span>
+       <span class="rel-region">경기권</span>
+     </a><a href="https://govmap.kr/orgs/%EA%B5%AD%EB%AF%BC%EC%97%B0%EA%B8%88%EA%B3%B5%EB%8B%A8/" class="rel-card">
        <span class="rel-badge" style="background:#7c3aed">준정부</span>
-       <span class="rel-name">한국자산관리공사</span>
+       <span class="rel-name">국민연금공단</span>
+       <span class="rel-region">전라권</span>
+     </a><a href="https://govmap.kr/orgs/%EA%B3%B5%EB%AC%B4%EC%9B%90%EC%97%B0%EA%B8%88%EA%B3%B5%EB%8B%A8/" class="rel-card">
+       <span class="rel-badge" style="background:#7c3aed">준정부</span>
+       <span class="rel-name">공무원연금공단</span>
+       <span class="rel-region">제주권</span>
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A0%84%EA%B8%B0%EC%95%88%EC%A0%84%EA%B3%B5%EC%82%AC/" class="rel-card">
+       <span class="rel-badge" style="background:#7c3aed">준정부</span>
+       <span class="rel-name">한국전기안전공사</span>
+       <span class="rel-region">전라권</span>
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%9E%A5%EC%95%A0%EC%9D%B8%EA%B3%A0%EC%9A%A9%EA%B3%B5%EB%8B%A8/" class="rel-card">
+       <span class="rel-badge" style="background:#7c3aed">준정부</span>
+       <span class="rel-name">한국장애인고용공단</span>
+       <span class="rel-region">경기권</span>
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B5%90%ED%86%B5%EC%95%88%EC%A0%84%EA%B3%B5%EB%8B%A8/" class="rel-card">
+       <span class="rel-badge" style="background:#7c3aed">준정부</span>
+       <span class="rel-name">한국교통안전공단</span>
        <span class="rel-region">경상권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%9E%AC%EC%A0%95%EC%A0%95%EB%B3%B4%EC%9B%90/" class="rel-card">
-       <span class="rel-badge" style="background:#7c3aed">준정부</span>
-       <span class="rel-name">한국재정정보원</span>
-       <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%9E%A5%ED%95%99%EC%9E%AC%EB%8B%A8/" class="rel-card">
-       <span class="rel-badge" style="background:#7c3aed">준정부</span>
-       <span class="rel-name">한국장학재단</span>
-       <span class="rel-region">경상권</span>
-     </a><a href="https://govmap.kr/orgs/%EA%B5%AD%EB%A6%BD%EA%B3%B5%EC%9B%90%EA%B3%B5%EB%8B%A8/" class="rel-card">
-       <span class="rel-badge" style="background:#7c3aed">준정부</span>
-       <span class="rel-name">국립공원공단</span>
-       <span class="rel-region">강원권</span>
-     </a><a href="https://govmap.kr/orgs/%EA%B5%AD%EA%B0%80%EC%B2%A0%EB%8F%84%EA%B3%B5%EB%8B%A8/" class="rel-card">
-       <span class="rel-badge" style="background:#7c3aed">준정부</span>
-       <span class="rel-name">국가철도공단</span>
-       <span class="rel-region">충청권</span>
      </a></div>
   </div>
 
