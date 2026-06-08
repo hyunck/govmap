@@ -1485,6 +1485,10 @@
                 width: 100%;
                 height: 80vh;
                 max-height: 80vh;
+                /* 실제 기기에서는 주소창 등 브라우저 UI 때문에 100vh가 보이는 영역보다 커서
+                   여백(상단 갭)이 사라지는 문제가 있음 — dvh를 지원하면 실제 보이는 높이 기준으로 계산 */
+                height: 80dvh;
+                max-height: 80dvh;
                 border-right: none;
                 border-radius: 16px 16px 0 0;
                 box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.16);
@@ -1519,6 +1523,20 @@
                 max-height: 100dvh;
                 border-radius: 0;
                 z-index: 720;
+            }
+
+            /* 지사·본사 항목을 눌러 지도가 이동할 때 — 화면 전체로 확장돼있던 설명창을
+               화면 절반 정도만 채우도록 내려서 지도와 함께 보이게 함 (네이버 지도 모바일 스타일) */
+            .detail-panel.open.sheet-half {
+                transform: translateY(0);
+                top: auto;
+                bottom: 58px;
+                height: 50vh;
+                height: 50dvh;
+                max-height: 50vh;
+                max-height: 50dvh;
+                border-radius: 16px 16px 0 0;
+                z-index: 620;
             }
 
             /* 드래그 핸들 */
@@ -2589,6 +2607,7 @@
                         const target = isHQ ? null : branches.find(b => b.name === itemName || b.address === itemAddr);
                         const targetObj = isHQ ? org : target;
                         if (targetObj && targetObj.lat && targetObj.lng) {
+                            shrinkDetailPanelOnBranchSelect();
                             state.map.setLevel(5);
                             state.map.panTo(new kakao.maps.LatLng(targetObj.lat, targetObj.lng));
                             const m = state.markers[org.id];
@@ -2629,6 +2648,7 @@
                 item.addEventListener('click', () => {
                     const idx = parseInt(item.dataset.branchIdx);
                     const br = branches[idx];
+                    shrinkDetailPanelOnBranchSelect();
                     state.map.setLevel(5);
                     state.map.panTo(new kakao.maps.LatLng(br.lat, br.lng));
                     const isHQ = Math.abs(br.lat - org.lat) < 0.001 && Math.abs(br.lng - org.lng) < 0.001;
@@ -2814,6 +2834,10 @@
             state.searchQuery = e.target.value.trim();
             clearBtn.classList.toggle('visible', state.searchQuery.length > 0);
             applyFilters();
+            // 모바일: 검색어를 입력하면 결과 목록이 보이도록 사이드바 시트를 펼침
+            if (isMobile() && state.searchQuery) {
+                setSheetState(document.getElementById('sidebar'), 'expanded');
+            }
         });
         clearBtn.addEventListener('click', () => {
             searchInput.value = '';
@@ -2913,6 +2937,16 @@
             panel.classList.remove('sheet-expanded', 'sheet-collapsed', 'sheet-hidden');
             panel.classList.add('sheet-' + stateName);
             panel.style.transform = '';
+        }
+
+        // 모바일에서 지사·본사 항목을 눌러 지도가 이동할 때, 화면 전체로 확장돼있던
+        // 설명창(상세패널)을 절반 정도만 보이게 내려 지도와 함께 보이도록 함
+        function shrinkDetailPanelOnBranchSelect() {
+            if (!isMobile()) return;
+            const panel = document.getElementById('detailPanel');
+            if (panel && panel.classList.contains('open') && panel.classList.contains('sheet-expanded')) {
+                setSheetState(panel, 'half');
+            }
         }
 
         // 시트가 '미리보기' 상태일 때 화면에 드러나는 높이(px)
@@ -3452,6 +3486,7 @@
                     const isHQ = (itemAddr === g.address && (itemName === g.name || itemName.includes('본')));
                     const target = isHQ ? g : (g.branches || []).find(b => b.address === itemAddr || b.name === itemName);
                     if (target && target.lat && target.lng) {
+                        shrinkDetailPanelOnBranchSelect();
                         state.map.setLevel(5);
                         state.map.panTo(new kakao.maps.LatLng(target.lat, target.lng));
                         const m = state.govMarkers[gid];
@@ -3605,6 +3640,10 @@
             state.govSearchQuery = e.target.value.trim();
             govClearBtn.classList.toggle('visible', state.govSearchQuery.length > 0);
             applyGovMinistryFilter();
+            // 모바일: 검색어를 입력하면 결과 목록이 보이도록 사이드바 시트를 펼침
+            if (isMobile() && state.govSearchQuery) {
+                setSheetState(document.getElementById('sidebar'), 'expanded');
+            }
         });
         govClearBtn.addEventListener('click', () => {
             govSearchInput.value = '';
