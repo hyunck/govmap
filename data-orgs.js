@@ -5078,18 +5078,18 @@ const ORGS = [
     "avgYears": 14.5,
     "homepage": "https://kto.visitkorea.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국관광공사",
-    "description": "한국 관광의 글로벌 경쟁력 강화를 위해 설립된 준정부기관.",
+    "description": "1962년 「국제관광공사법」에 따라 국제관광공사로 출범했고 1982년 현재 명칭으로 변경된 문화체육관광부 산하 위탁집행형 준정부기관. 해외 관광시장 개척과 한국 방문 마케팅, 국제회의(MICE) 유치·지원을 전담하며, 국내 8개 지사와 해외 30개 지사(15개국)를 운영한다.",
     "mainBusiness": [
-      "해외 관광마케팅",
-      "국내관광 활성화",
-      "관광콘텐츠 개발",
-      "MICE 산업 지원"
+      "해외 관광시장 개척 및 방한 관광 마케팅·홍보",
+      "국제회의(MICE) 유치·지원 및 국제협력",
+      "국내관광 활성화 및 관광콘텐츠·상품 개발",
+      "관광 자원 개발, 관광 인력 양성 및 연구개발"
     ],
     "welfare": [
-      "주택자금",
+      "주택자금 대출 지원",
       "복지포인트",
-      "자녀 학자금",
-      "해외연수 기회"
+      "자녀 학자금 지원",
+      "해외지사 주재원 파견 기회"
     ],
     "branches": [
       {
@@ -5097,38 +5097,110 @@ const ORGS = [
         "address": "강원 원주시 세계로 10"
       },
       {
-        "name": "서울사무소",
-        "address": "서울 중구 청계천로 40"
+        "name": "경인지사",
+        "address": "인천 연수구 센트럴로 123 (송도컨벤시아 3층)"
       },
       {
-        "name": "부산사무소",
-        "address": "부산 해운대구 우동"
+        "name": "세종충북지사",
+        "address": "충북 청주시 흥덕구 가경로161번길 20 (KT 5층)"
       },
       {
-        "name": "제주사무소",
-        "address": "제주 제주시 선덕로 23"
+        "name": "대전충남지사",
+        "address": "대전 서구 청사로 136 (대전무역회관 7층)"
+      },
+      {
+        "name": "전북지사",
+        "address": "전북 전주시 완산구 마전들로 66 (KT&G 3층)"
+      },
+      {
+        "name": "광주전남지사",
+        "address": "광주 서구 상무중앙로 110 (우체국보험광주회관 7층)"
+      },
+      {
+        "name": "부산울산경남지사",
+        "address": "부산 해운대구 센텀중앙로 48 (에이스하이테크21 1911호)"
+      },
+      {
+        "name": "대구경북지사",
+        "address": "대구 중구 동덕로 167 (KT대구타워 5층)"
+      },
+      {
+        "name": "제주지사",
+        "address": "제주 서귀포시 중문관광로72번길 60"
       }
     ],
     "ncs": [
       "의사소통능력",
-      "수리능력",
       "문제해결능력",
-      "자기개발능력",
-      "대인관계능력",
-      "정보능력"
+      "자원관리능력",
+      "수리능력"
     ],
     "ncsOld": {
-      "사무": ["의사소통능력", "수리능력", "문제해결능력", "자기개발능력", "대인관계능력", "정보능력"]
+      "공통 (일반직·전문직)": ["의사소통능력", "문제해결능력", "자원관리능력", "수리능력"]
     },
     "majorSubjects": {
-      "사무": "관광, 경영, 경제, 법학, 어학"
+      "일반직(사무)": "경영학·경제학·법학 중 택1 (관광·어학 등 유관 전공 우대)",
+      "전문직 IT": "전산학 (정보처리기사 등 관련 자격 필수)",
+      "전문직 회계": "회계학"
     },
     "industry": "교육·문화",
     "examSubjects": [
-      "법학",
       "경영학",
       "경제학",
-      "관광학"
+      "법학",
+      "전산학",
+      "회계학"
+    ],
+    "allBranches": [
+      {
+        "groupName": "본사 및 국내지사 (9곳)",
+        "items": [
+          { "name": "본사 (원주)", "address": "강원 원주시 세계로 10" },
+          { "name": "경인지사", "address": "인천 연수구 센트럴로 123 (송도컨벤시아 3층)" },
+          { "name": "세종충북지사", "address": "충북 청주시 흥덕구 가경로161번길 20 (KT 5층)" },
+          { "name": "대전충남지사", "address": "대전 서구 청사로 136 (대전무역회관 7층)" },
+          { "name": "전북지사", "address": "전북 전주시 완산구 마전들로 66 (KT&G 3층)" },
+          { "name": "광주전남지사", "address": "광주 서구 상무중앙로 110 (우체국보험광주회관 7층)" },
+          { "name": "부산울산경남지사", "address": "부산 해운대구 센텀중앙로 48 (에이스하이테크21 1911호)" },
+          { "name": "대구경북지사", "address": "대구 중구 동덕로 167 (KT대구타워 5층)" },
+          { "name": "제주지사", "address": "제주 서귀포시 중문관광로72번길 60" }
+        ]
+      },
+      {
+        "groupName": "해외지사 (30개, 15개국)",
+        "items": [
+          { "name": "도쿄지사 (일본)", "address": "Tokyo, Japan" },
+          { "name": "오사카지사 (일본)", "address": "Osaka, Japan" },
+          { "name": "후쿠오카지사 (일본)", "address": "Fukuoka, Japan" },
+          { "name": "베이징지사 (중국)", "address": "Beijing, China" },
+          { "name": "상하이지사 (중국)", "address": "Shanghai, China" },
+          { "name": "광저우지사 (중국)", "address": "Guangzhou, China" },
+          { "name": "선양지사 (중국)", "address": "Shenyang, China" },
+          { "name": "청두지사 (중국)", "address": "Chengdu, China" },
+          { "name": "홍콩지사 (홍콩)", "address": "Hong Kong" },
+          { "name": "타이베이지사 (대만)", "address": "Taipei, Taiwan" },
+          { "name": "방콕지사 (태국)", "address": "Bangkok, Thailand" },
+          { "name": "쿠알라룸푸르지사 (말레이시아)", "address": "Kuala Lumpur, Malaysia" },
+          { "name": "싱가포르지사 (싱가포르)", "address": "Singapore" },
+          { "name": "두바이지사 (UAE)", "address": "Dubai, UAE" },
+          { "name": "뉴델리지사 (인도)", "address": "New Delhi, India" },
+          { "name": "하노이지사 (베트남)", "address": "Hanoi, Vietnam" },
+          { "name": "자카르타지사 (인도네시아)", "address": "Jakarta, Indonesia" },
+          { "name": "마닐라지사 (필리핀)", "address": "Manila, Philippines" },
+          { "name": "알마티지사 (카자흐스탄)", "address": "Almaty, Kazakhstan" },
+          { "name": "울란바토르지사 (몽골)", "address": "Ulaanbaatar, Mongolia" },
+          { "name": "로스앤젤레스지사 (미국)", "address": "Los Angeles, USA" },
+          { "name": "뉴욕지사 (미국)", "address": "New York, USA" },
+          { "name": "멕시코시티지사 (멕시코)", "address": "Mexico City, Mexico" },
+          { "name": "토론토지사 (캐나다)", "address": "Toronto, Canada" },
+          { "name": "시드니지사 (호주)", "address": "Sydney, Australia" },
+          { "name": "프랑크푸르트지사 (독일)", "address": "Frankfurt, Germany" },
+          { "name": "파리지사 (프랑스)", "address": "Paris, France" },
+          { "name": "런던지사 (영국)", "address": "London, UK" },
+          { "name": "모스크바지사 (러시아)", "address": "Moscow, Russia" },
+          { "name": "블라디보스토크지사 (러시아)", "address": "Vladivostok, Russia" }
+        ]
+      }
     ]
   },
   {
