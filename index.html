@@ -229,11 +229,20 @@
         .search-box .clear-btn.visible { display: block; }
 
         /* 필터 */
+        .sidebar-scroll-area {
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
+
         .filters {
             padding: 14px 20px;
             border-bottom: 1px solid var(--border);
             background: var(--bg-light);
             min-width: var(--sidebar-width);
+            flex-shrink: 0;
         }
 
         .filter-group { margin-bottom: 12px; }
@@ -307,8 +316,6 @@
         }
 
         .results-area {
-            flex: 1;
-            overflow-y: auto;
             background: #fff;
             min-width: var(--sidebar-width);
         }
@@ -483,6 +490,10 @@
             z-index: 10;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+
+        /* 모바일 전용 — 사진과 시트 사이 여백 + 뒤로가기/닫기 버튼 (데스크탑에서는 숨김) */
+        .detail-sheet-toolbar { display: none; }
+        .detail-back { display: none; }
 
         .detail-image {
             width: 100%;
@@ -1425,10 +1436,237 @@
             font-family: inherit;
         }
 
-        .results-area::-webkit-scrollbar,
+        .sidebar-scroll-area::-webkit-scrollbar,
         .tab-content::-webkit-scrollbar { width: 6px; }
-        .results-area::-webkit-scrollbar-thumb,
+        .sidebar-scroll-area::-webkit-scrollbar-thumb,
         .tab-content::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+        /* ============================================================
+           모바일 레이아웃 — 네이버 지도 모바일 스타일
+           · 상단 네비게이션 → 하단 탭바
+           · 사이드바·상세패널 → 드래그 가능한 바텀시트
+           ============================================================ */
+        .sheet-handle { display: none; }
+        .mobile-topbar { display: none; }
+
+        @media (max-width: 768px) {
+            .app-container { display: block; height: 100vh; height: 100dvh; }
+            .map-area { position: fixed; inset: 0; grid-column: auto; }
+            #map { height: 100%; }
+            .sidebar-toggle { display: none; }
+
+            /* 하단 탭바 */
+            .nav-bar {
+                position: fixed;
+                left: 0; right: 0; bottom: 0;
+                width: 100%;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+                padding: 6px 0 calc(6px + env(safe-area-inset-bottom));
+                height: 58px;
+                z-index: 700;
+                box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
+            }
+            .nav-logo { display: none; }
+            .nav-item { width: auto; flex: 1; padding: 4px 0 2px; }
+            .nav-item .icon { font-size: 20px; }
+            .nav-item .label { font-size: 10px; }
+            .nav-item.active::before {
+                left: 50%; top: 0; transform: translateX(-50%);
+                width: 28px; height: 3px;
+                border-radius: 0 0 3px 3px;
+            }
+
+            /* 바텀시트 공통 (사이드바 · 상세패널) */
+            .sidebar, .detail-panel {
+                position: fixed !important;
+                left: 0 !important; right: 0; top: auto; bottom: 58px;
+                width: 100%;
+                height: 80vh;
+                max-height: 80vh;
+                border-right: none;
+                border-radius: 16px 16px 0 0;
+                box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.16);
+                z-index: 600;
+                opacity: 1 !important;
+                pointer-events: auto !important;
+                transition: transform 0.32s cubic-bezier(0.32, 0.72, 0, 1);
+            }
+            .app-container.sidebar-collapsed .sidebar { box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.16); }
+
+            /* 사이드바 — 기본은 살짝 보이는 '미리보기' 상태 */
+            .sidebar { transform: translateY(calc(100% - 120px)); }
+            .sidebar.sheet-expanded { transform: translateY(0); }
+            .sidebar.sheet-collapsed { transform: translateY(calc(100% - 120px)); }
+            .sidebar.sheet-hidden { transform: translateY(100%); }
+
+            /* 상세패널 — 닫혀있을 땐 화면 밖, 열리면 '기본 정보'(사진·제목·태그·버튼)만 보이는 미리보기로 등장
+               --sheet-peek-height 는 JS가 기본 정보 영역의 실제 높이를 측정해 동적으로 채움 */
+            .detail-panel { transform: translateY(100%); }
+            .detail-panel.open { transform: translateY(calc(100% - var(--sheet-peek-height, 320px))); }
+            .detail-panel.open.sheet-collapsed { transform: translateY(calc(100% - var(--sheet-peek-height, 320px))); }
+            .detail-panel.open.sheet-hidden { transform: translateY(100%); }
+
+            /* 더 위로 올리면 화면 전체를 가득 채움 (네이버 지도 모바일 스타일) */
+            .detail-panel.open.sheet-expanded {
+                transform: translateY(0);
+                top: 0;
+                bottom: 0;
+                height: 100vh;
+                height: 100dvh;
+                max-height: 100vh;
+                max-height: 100dvh;
+                border-radius: 0;
+                z-index: 720;
+            }
+
+            /* 드래그 핸들 */
+            .sheet-handle {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 9px 0 6px;
+                cursor: grab;
+                touch-action: none;
+                flex-shrink: 0;
+            }
+            .sheet-handle::before {
+                content: '';
+                width: 36px; height: 4px;
+                background: var(--border);
+                border-radius: 2px;
+            }
+            .sheet-handle:active { cursor: grabbing; }
+
+            .sidebar-company, .sidebar-government {
+                height: auto;
+                flex: 1;
+                min-height: 0;
+            }
+            .sidebar-header { min-width: 0; }
+            .filters { min-width: 0; }
+            .results-area { min-width: 0; }
+            .sidebar-scroll-area { min-width: 0; }
+
+            .detail-image { height: 130px; }
+
+            /* 사진과 드래그 시트 사이의 흰 여백 영역 — 뒤로가기(확장 시에만)·닫기 버튼이 위치 */
+            .detail-sheet-toolbar {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 2px 14px 10px;
+                background: #fff;
+                flex-shrink: 0;
+            }
+            .detail-back {
+                display: flex;
+                visibility: hidden;
+                pointer-events: none;
+                align-items: center;
+                justify-content: center;
+                width: 32px; height: 32px;
+                border-radius: 50%;
+                background: var(--bg-light);
+                border: 1px solid var(--border);
+                color: var(--text-secondary);
+                font-size: 20px;
+                font-family: inherit;
+                cursor: pointer;
+            }
+            /* 화면 전체로 확장됐을 때만 뒤로가기 버튼 노출 — X 버튼과 동일하게 동작 */
+            .detail-panel.open.sheet-expanded .detail-back {
+                visibility: visible;
+                pointer-events: auto;
+            }
+            .detail-sheet-toolbar .detail-close {
+                position: static;
+            }
+
+            /* ===== 모바일 상단 바 — 검색창을 사이드바에서 떼어내 페이지 상단에 고정 ===== */
+            .sidebar-header .logo-area,
+            .gov-sidebar-header .logo-area { display: none; }
+
+            .mobile-topbar {
+                display: block;
+                position: fixed;
+                top: 0; left: 0; right: 0;
+                z-index: 750;
+                padding: calc(10px + env(safe-area-inset-top)) 14px 0;
+                pointer-events: none;
+            }
+            .mobile-search-slot { display: none; pointer-events: auto; }
+            .mobile-search-slot.active { display: block; }
+
+            /* 사이드바 검색창 → 상단으로 이동 시 디자인 통일 (모드별 색상만 차이) */
+            .mobile-search-slot .search-box,
+            .mobile-search-slot .gov-search-box {
+                position: relative;
+                display: flex;
+                align-items: center;
+                background: #fff;
+                border-radius: 24px;
+                box-shadow: 0 2px 14px rgba(0, 0, 0, 0.16);
+            }
+            .mobile-search-slot .search-box input,
+            .mobile-search-slot .gov-search-box input {
+                width: 100%;
+                border: none;
+                border-radius: 24px;
+                background: transparent;
+                padding: 13px 40px 13px 42px;
+                font-size: 14px;
+                outline: none;
+                font-family: inherit;
+                box-shadow: none;
+            }
+            .mobile-search-slot .search-box .search-icon,
+            .mobile-search-slot .gov-search-box .search-icon {
+                position: absolute;
+                left: 16px;
+                font-size: 14px;
+                color: var(--text-tertiary);
+                pointer-events: none;
+            }
+            .mobile-search-slot .search-box .clear-btn,
+            .mobile-search-slot .gov-search-box .clear-btn {
+                position: absolute;
+                right: 12px;
+                font-size: 15px;
+            }
+            .mobile-search-slot.company-slot .search-box input:focus { box-shadow: inset 0 0 0 1.5px var(--primary); }
+            .mobile-search-slot.gov-slot .gov-search-box input:focus { box-shadow: inset 0 0 0 1.5px var(--gov-accent); }
+
+            /* 범례 — 상단 검색창의 왼쪽 아래로 이동, 가리지 않도록 축소 */
+            .map-legend {
+                top: 64px;
+                bottom: auto;
+                right: auto;
+                left: 14px;
+                max-width: 42vw;
+                font-size: 10px;
+                padding: 7px 9px;
+                min-width: 0;
+                border-radius: 10px;
+            }
+            .legend-item { margin-bottom: 3px; gap: 5px; }
+            .legend-marker { width: 8px; height: 8px; }
+            .legend-text { font-size: 10px; }
+            .legend-toggle { width: 26px; height: 15px; }
+            .legend-toggle::after { width: 11px; height: 11px; }
+            .legend-toggle.on::after { transform: translateX(11px); }
+
+            /* 준비 중(공기업 비교 등) 오버레이 — 사이드바·하단 탭바까지 모두 가려 화면 전체를 채움 */
+            .coming-soon-overlay {
+                left: 0;
+                z-index: 900;
+            }
+            .coming-soon-card {
+                max-width: 88vw;
+                padding: 36px 26px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1456,6 +1694,7 @@
         </nav>
 
         <aside class="sidebar" id="sidebar">
+            <div class="sheet-handle" id="sidebarSheetHandle"></div>
             <!-- 공기업 탭 사이드바 (기존) -->
             <div class="sidebar-company">
             <div class="sidebar-header">
@@ -1470,6 +1709,7 @@
                 </div>
             </div>
 
+            <div class="sidebar-scroll-area">
             <div class="filters">
                 <div class="filter-group">
                     <div class="filter-label">🏢 기관 유형</div>
@@ -1561,6 +1801,8 @@
                 </div>
                 <ul class="org-list" id="orgList"></ul>
             </div>
+            </div>
+            <!-- /sidebar-scroll-area -->
             </div>
             <!-- /sidebar-company -->
 
@@ -1669,7 +1911,11 @@
         </aside>
 
         <aside class="detail-panel" id="detailPanel">
-            <button class="detail-close" id="detailClose">✕</button>
+            <div class="sheet-handle" id="detailSheetHandle"></div>
+            <div class="detail-sheet-toolbar">
+                <button class="detail-back" id="detailBack" title="뒤로 가기" aria-label="뒤로 가기">‹</button>
+                <button class="detail-close" id="detailClose">✕</button>
+            </div>
             <div class="detail-image" id="detailImage"></div>
             <div class="detail-header">
                 <h2 class="detail-title" id="detailTitle"></h2>
@@ -1696,6 +1942,11 @@
         <main class="map-area" id="mapArea">
             <div id="map"></div>
             <button class="sidebar-toggle" id="sidebarToggle" title="사이드바 토글">‹</button>
+            <!-- 모바일 전용 상단 바 — 검색창을 사이드바에서 분리해 페이지 상단에 고정 (네이버 지도 스타일) -->
+            <div class="mobile-topbar" id="mobileTopbar">
+                <div class="mobile-search-slot company-slot active" id="mobileSearchSlotCompany"></div>
+                <div class="mobile-search-slot gov-slot" id="mobileSearchSlotGov"></div>
+            </div>
             <div class="pickmode-hint" id="pickmodeHint">🎯 지도 위 원하는 위치를 클릭해주세요</div>
             <div class="map-legend" id="mapLegend">
                 <div class="legend-default">
@@ -1805,7 +2056,10 @@
                 center: new kakao.maps.LatLng(36.2, 127.9),
                 level: 13
             });
-            state.map.addControl(new kakao.maps.ZoomControl(), kakao.maps.ControlPosition.RIGHT);
+            // 모바일에서는 확대/축소 플로팅 컨트롤을 표시하지 않음 (네이버 지도 모바일 스타일)
+            if (!window.matchMedia('(max-width: 768px)').matches) {
+                state.map.addControl(new kakao.maps.ZoomControl(), kakao.maps.ControlPosition.RIGHT);
+            }
 
             state.clusterer = new kakao.maps.MarkerClusterer({
                 map: state.map,
@@ -2198,6 +2452,12 @@
                 applyFilters();
             }
 
+            // 모바일: 상세패널 바텀시트가 보이도록 사이드바 시트는 살짝 접고, 상세패널은 미리보기 상태로
+            if (isMobile()) {
+                setSheetState(document.getElementById('sidebar'), 'collapsed');
+                setSheetState(document.getElementById('detailPanel'), 'collapsed');
+            }
+
             const logoColor = getLogoColor(org.shortName);
             const imgDiv = document.getElementById('detailImage');
             imgDiv.innerHTML = `<div style="width:120px;height:120px;border-radius:24px;background:${logoColor};display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,0.12);"><div style="font-size:26px;font-weight:900;color:white;letter-spacing:-0.5px;text-align:center;padding:6px;">${org.shortName}</div></div>`;
@@ -2220,6 +2480,9 @@
 
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.tab === state.activeDetailTab));
             document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('active', p.id === 'tab' + state.activeDetailTab.charAt(0).toUpperCase() + state.activeDetailTab.slice(1)));
+
+            // 모바일: '기본 정보'(사진·제목·태그·버튼)만 보이는 미리보기 높이를 새 콘텐츠 기준으로 재계산
+            if (isMobile()) updateDetailPreviewHeight();
         }
 
         function renderTabCompany(org) {
@@ -2428,11 +2691,34 @@
                     overlay.classList.remove('show');
                     activateGovernmentMode();
                 } else if (navType === 'compare') {
+                    // 🐛 수정: 비교 탭으로 전환할 때 열려있던 설명창(상세패널)이 그대로 남아있던 버그 — 닫아줌
+                    const detailPanelEl = document.getElementById('detailPanel');
+                    if (detailPanelEl.classList.contains('open')) {
+                        document.getElementById('detailClose').click();
+                    }
                     showComingSoon({
                         emoji: '⚖️', title: '공기업 비교 탭', subtitle: '2개 이상 공기업 한눈에 비교',
                         description: '관심 있는 공기업을 골라 연봉·복지·시험과목·근무지를 나란히 비교할 수 있어요.',
                         features: ['최대 4개 기관 동시 비교', '초봉·평균연봉·근속연수 차트', '복지·휴가 항목별 비교표', '시험과목·합격 스펙 분석']
                     });
+                }
+
+                // 모바일: 상단 검색바를 현재 탭에 맞는 검색창으로 전환하고,
+                // 설명창(사이드바)이 완전히 내려가 있었다면 다시 올라오게 함
+                if (typeof isMobile === 'function' && isMobile()) {
+                    const slotCompany = document.getElementById('mobileSearchSlotCompany');
+                    const slotGov = document.getElementById('mobileSearchSlotGov');
+                    if (slotCompany && slotGov) {
+                        slotCompany.classList.toggle('active', navType === 'company');
+                        slotGov.classList.toggle('active', navType === 'government');
+                    }
+
+                    if (navType === 'company' || navType === 'government') {
+                        const sidebar = document.getElementById('sidebar');
+                        if (sidebar && (sidebar.classList.contains('sheet-hidden') || (!sidebar.classList.contains('sheet-expanded') && !sidebar.classList.contains('sheet-collapsed')))) {
+                            setSheetState(sidebar, 'collapsed');
+                        }
+                    }
                 }
             });
         });
@@ -2583,12 +2869,23 @@
         });
 
         document.getElementById('detailClose').addEventListener('click', () => {
-            document.getElementById('detailPanel').classList.remove('open');
+            const detailPanel = document.getElementById('detailPanel');
+            detailPanel.classList.remove('open');
+            detailPanel.classList.remove('sheet-expanded', 'sheet-collapsed', 'sheet-hidden');
             state.selectedOrgId = null;
             // 공기업 탭이면 전체 마커 복원
             if (state.currentNav === 'company') {
                 applyFilters();
             }
+            // 모바일: 상세패널을 닫으면 사이드바 시트를 다시 미리보기 상태로 복원
+            if (isMobile()) {
+                setSheetState(document.getElementById('sidebar'), 'collapsed');
+            }
+        });
+
+        // 뒤로가기 버튼(전체 화면으로 확장됐을 때만 노출) — 닫기(X) 버튼과 완전히 동일하게 동작
+        document.getElementById('detailBack').addEventListener('click', () => {
+            document.getElementById('detailClose').click();
         });
 
         // ⭐ 사이드바 토글 — grid-template-columns로 사이드바 너비를 0으로 (지도 영역은 그대로 유지)
@@ -2602,6 +2899,146 @@
                 if (state.map) state.map.relayout();
             }, 280);
         });
+
+        // ============================================================
+        // ════════════════ 모바일 바텀시트 (네이버 지도 스타일) ════════════════
+        // 사이드바 · 상세패널을 하단에서 드래그로 펼치고 접을 수 있는 시트로 동작시킴
+        // 상태: collapsed(미리보기) · expanded(전체 펼침) · hidden(완전히 숨김)
+        // ============================================================
+        function isMobile() {
+            return window.matchMedia('(max-width: 768px)').matches;
+        }
+
+        function setSheetState(panel, stateName) {
+            panel.classList.remove('sheet-expanded', 'sheet-collapsed', 'sheet-hidden');
+            panel.classList.add('sheet-' + stateName);
+            panel.style.transform = '';
+        }
+
+        // 시트가 '미리보기' 상태일 때 화면에 드러나는 높이(px)
+        // · 사이드바는 고정 120px(살짝 보이는 정도)
+        // · 상세패널은 '기본 정보' 영역(사진·제목·태그·버튼)의 실제 높이를 따름 — updateDetailPreviewHeight()가 채워줌
+        function getPeekPx(panel) {
+            if (panel.id === 'detailPanel') {
+                const v = parseFloat(getComputedStyle(panel).getPropertyValue('--sheet-peek-height'));
+                return isNaN(v) ? 320 : v;
+            }
+            return 120;
+        }
+
+        // 상세패널의 '기본 정보' 영역(사진+제목/태그+버튼) 높이를 측정해
+        // 미리보기 상태에서 딱 그만큼만 드러나도록 --sheet-peek-height 값을 갱신 (네이버 지도 모바일 스타일)
+        function updateDetailPreviewHeight() {
+            const panel = document.getElementById('detailPanel');
+            const actions = panel.querySelector('.detail-actions');
+            if (!panel || !actions) return;
+            requestAnimationFrame(() => {
+                const panelTop = panel.getBoundingClientRect().top;
+                const actionsBottom = actions.getBoundingClientRect().bottom;
+                const height = Math.ceil(actionsBottom - panelTop) + 10;
+                if (height > 0) panel.style.setProperty('--sheet-peek-height', height + 'px');
+            });
+        }
+
+        function initBottomSheet(panel, handle, defaultState) {
+            let dragging = false;
+            let startY = 0;
+            let startTranslate = 0;
+            let panelHeight = 0;
+
+            function currentTranslateY() {
+                const t = getComputedStyle(panel).transform;
+                if (t === 'none') return 0;
+                const m = t.match(/matrix\(([^)]+)\)/);
+                if (!m) return 0;
+                return parseFloat(m[1].split(',')[5]) || 0;
+            }
+
+            function onPointerDown(e) {
+                if (!isMobile()) return;
+                dragging = true;
+                const point = e.touches ? e.touches[0] : e;
+                startY = point.clientY;
+                panelHeight = panel.offsetHeight;
+                startTranslate = currentTranslateY();
+                panel.style.transition = 'none';
+                document.addEventListener('mousemove', onPointerMove);
+                document.addEventListener('mouseup', onPointerUp);
+                document.addEventListener('touchmove', onPointerMove, { passive: false });
+                document.addEventListener('touchend', onPointerUp);
+            }
+
+            function onPointerMove(e) {
+                if (!dragging) return;
+                const point = e.touches ? e.touches[0] : e;
+                const deltaY = point.clientY - startY;
+                const peekTranslate = panelHeight - getPeekPx(panel);
+                let next = startTranslate + deltaY;
+                next = Math.max(0, Math.min(next, peekTranslate + 80));
+                panel.style.transform = `translateY(${next}px)`;
+                if (e.cancelable) e.preventDefault();
+            }
+
+            function onPointerUp() {
+                if (!dragging) return;
+                dragging = false;
+
+                const peekTranslate = panelHeight - getPeekPx(panel);
+                // ⚠️ 인라인 transform을 지우기 전에 드래그가 끝난 실제 위치를 먼저 읽어야 함
+                const lastY = currentTranslateY();
+
+                panel.style.transition = '';
+                panel.style.transform = '';
+
+                document.removeEventListener('mousemove', onPointerMove);
+                document.removeEventListener('mouseup', onPointerUp);
+                document.removeEventListener('touchmove', onPointerMove);
+                document.removeEventListener('touchend', onPointerUp);
+
+                if (lastY < panelHeight * 0.18) {
+                    setSheetState(panel, 'expanded');
+                } else if (lastY > peekTranslate + 40) {
+                    setSheetState(panel, 'hidden');
+                    if (panel.id === 'detailPanel') {
+                        document.getElementById('detailClose').click();
+                    }
+                } else {
+                    setSheetState(panel, 'collapsed');
+                }
+            }
+
+            // 핸들을 탭하면 collapsed ↔ expanded 토글
+            handle.addEventListener('click', () => {
+                if (!isMobile()) return;
+                if (panel.classList.contains('sheet-expanded')) {
+                    setSheetState(panel, 'collapsed');
+                } else {
+                    setSheetState(panel, 'expanded');
+                }
+            });
+
+            handle.addEventListener('mousedown', onPointerDown);
+            handle.addEventListener('touchstart', onPointerDown, { passive: true });
+
+            if (defaultState) setSheetState(panel, defaultState);
+        }
+
+        initBottomSheet(document.getElementById('sidebar'), document.getElementById('sidebarSheetHandle'), 'collapsed');
+        initBottomSheet(document.getElementById('detailPanel'), document.getElementById('detailSheetHandle'), 'collapsed');
+
+        // ============================================================
+        // 모바일: 검색창을 사이드바에서 떼어내 페이지 상단 바로 이동
+        // (네이버 지도 모바일처럼 설명창과 검색 영역을 분리)
+        // 기존 입력창 DOM을 그대로 옮기므로 기존 검색 로직(이벤트 리스너)이 그대로 동작함
+        // ============================================================
+        if (isMobile()) {
+            const companyBox = document.querySelector('.sidebar-header .search-box');
+            const govBox = document.querySelector('.gov-sidebar-header .gov-search-box');
+            const slotCompany = document.getElementById('mobileSearchSlotCompany');
+            const slotGov = document.getElementById('mobileSearchSlotGov');
+            if (companyBox && slotCompany) slotCompany.appendChild(companyBox);
+            if (govBox && slotGov) slotGov.appendChild(govBox);
+        }
 
         // ============================================================
         // ════════════════════ 정부기관 탭 로직 ════════════════════
@@ -2897,6 +3334,12 @@
             panel.classList.add('open');
             panel.classList.add('gov-mode'); // 보라색 톤으로
 
+            // 모바일: 상세패널 바텀시트가 보이도록 사이드바 시트는 살짝 접고, 상세패널은 '기본 정보' 미리보기 상태로
+            if (isMobile()) {
+                setSheetState(document.getElementById('sidebar'), 'collapsed');
+                setSheetState(panel, 'collapsed');
+            }
+
             document.getElementById('detailTitle').textContent = gov.name;
             document.getElementById('detailSubtitle').innerHTML = `
                 <span class="detail-tag">${gov.rank}</span>
@@ -3041,6 +3484,9 @@
                     </p>
                 </div>
             `;
+
+            // 모바일: '기본 정보'(사진·제목·태그·버튼)만 보이는 미리보기 높이를 새 콘텐츠 기준으로 재계산
+            if (isMobile()) updateDetailPreviewHeight();
         }
 
         // ---------- 모드 활성화/비활성화 ----------
