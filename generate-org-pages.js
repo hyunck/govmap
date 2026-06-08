@@ -64,11 +64,12 @@ function buildPage(org) {
   const mainBiz     = (org.mainBusiness || []).join(' · ');
   const welStr      = (org.welfare || []).join(' · ');
 
-  // 메타 description
-  const desc = `${org.name} 위치·주소·연봉·시험과목 정보. `
-    + `${org.region} ${org.type}. 주소: ${org.address}. `
-    + `초임 ${salary(org.startingSalary)}, 평균연봉 ${salary(org.avgSalary)}. `
-    + (examStr ? `전공시험: ${examStr.substring(0, 60).replace(/,\s*$/, '')}.` : '');
+  // 메타 description — "OOO 연봉", "OOO 위치" 검색 의도에 맞춰 핵심 수치를 앞쪽에 명시
+  const desc = `${org.name} 평균연봉 ${salary(org.avgSalary)}(초임 ${salary(org.startingSalary)}), `
+    + `위치: ${org.region} · ${org.address}. `
+    + `${org.type} 기관 정보와 `
+    + (examStr ? `시험과목(${examStr.substring(0, 40).replace(/,\s*$/, '')} 등), ` : '')
+    + `채용·발령지 정보를 한눈에 확인하세요.`;
 
   // 직렬 + 전공 테이블 행
   const majorRows = majorDirs.map(dir =>
@@ -124,14 +125,14 @@ function buildPage(org) {
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${escHtml(org.name)} 위치·주소·연봉·시험과목 | GovMap 공공기관 지도</title>
+  <title>${escHtml(org.name)} 연봉 ${salary(org.avgSalary)}·위치(${escHtml(org.region)}) | GovMap</title>
   <meta name="description" content="${escHtml(desc)}">
-  <meta name="keywords" content="${escHtml(org.name)}, ${escHtml(org.name)} 위치, ${escHtml(org.name)} 주소, ${escHtml(org.name)} 연봉, ${escHtml(org.name)} 시험과목, ${escHtml(org.name)} NCS, ${escHtml(org.name)} 채용, ${escHtml(org.name)} 발령지, ${escHtml(org.shortName||'')}">
+  <meta name="keywords" content="${escHtml(org.name)}, ${escHtml(org.name)} 연봉, ${escHtml(org.name)} 위치, ${escHtml(org.name)} 주소, ${escHtml(org.name)} 초임, ${escHtml(org.name)} 시험과목, ${escHtml(org.name)} NCS, ${escHtml(org.name)} 채용, ${escHtml(org.name)} 발령지, ${escHtml(org.shortName||'')}">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="${BASE_URL}/orgs/${encodeURIComponent(org.name)}/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="${BASE_URL}/orgs/${encodeURIComponent(org.name)}/">
-  <meta property="og:title" content="${escHtml(org.name)} 위치·주소·연봉·시험과목 | GovMap">
+  <meta property="og:title" content="${escHtml(org.name)} 연봉 ${salary(org.avgSalary)}·위치(${escHtml(org.region)}) | GovMap">
   <meta property="og:description" content="${escHtml(desc)}">
   <meta property="og:locale" content="ko_KR">
   <script type="application/ld+json">

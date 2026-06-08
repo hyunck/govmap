@@ -85,11 +85,10 @@ function buildPage(gov) {
   const mainBiz      = (gov.mainBusiness || []).join(' · ');
   const examStr      = (gov.examTrack || []).join(', ');
 
-  // 메타 description
-  const desc = `${gov.name} 소속기관·지방청 전국 목록과 주소. `
+  // 메타 description — "OOO 위치/주소" 검색 의도에 맞춰 주소를 앞쪽에 명시
+  const desc = `${gov.name} 위치·주소: ${gov.address} (${gov.region}). `
     + `${gov.rank} 단위 ${gov.category} 정부기관. `
-    + `본청: ${gov.address}. `
-    + (totalItems > 1 ? `소속·산하기관 ${totalItems}개 위치 정보.` : '');
+    + (totalItems > 1 ? `소속·산하기관 ${totalItems}개 전국 위치를 지도에서 한눈에 확인하세요.` : '지도에서 위치를 바로 확인하세요.');
 
   // allBranches 그룹 → 섹션 HTML
   const branchSections = (gov.allBranches || []).map(group => {
@@ -134,14 +133,14 @@ function buildPage(gov) {
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${escHtml(gov.name)} ${subLabel} 전국 목록·주소 | GovMap 공공기관 지도</title>
+  <title>${escHtml(gov.name)} 위치·주소(${escHtml(gov.region)}) - ${subLabel} ${totalItems}개 | GovMap</title>
   <meta name="description" content="${escHtml(desc)}">
-  <meta name="keywords" content="${escHtml(gov.name)}, ${escHtml(gov.name)} 소속기관, ${escHtml(gov.name)} 위치, ${escHtml(gov.name)} 주소, ${escHtml(gov.name)} 발령지, ${escHtml(gov.name)} 근무지, ${escHtml(gov.name)} 채용, ${escHtml(extraKw)}, 정부기관 발령지, 공무원 발령지">
+  <meta name="keywords" content="${escHtml(gov.name)}, ${escHtml(gov.name)} 위치, ${escHtml(gov.name)} 주소, ${escHtml(gov.name)} 소속기관, ${escHtml(gov.name)} 발령지, ${escHtml(gov.name)} 근무지, ${escHtml(gov.name)} 채용, ${escHtml(extraKw)}, 정부기관 발령지, 공무원 발령지">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="${BASE_URL}/govs/${encodeURIComponent(gov.name)}/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="${BASE_URL}/govs/${encodeURIComponent(gov.name)}/">
-  <meta property="og:title" content="${escHtml(gov.name)} ${subLabel} 전국 목록 | GovMap">
+  <meta property="og:title" content="${escHtml(gov.name)} 위치·주소(${escHtml(gov.region)}) | GovMap">
   <meta property="og:description" content="${escHtml(desc)}">
   <meta property="og:locale" content="ko_KR">
   <script type="application/ld+json">
