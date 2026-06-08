@@ -64,6 +64,27 @@ function buildPage(org) {
   const mainBiz     = (org.mainBusiness || []).join(' · ');
   const welStr      = (org.welfare || []).join(' · ');
 
+  // NCS 직업기초능력 섹션: ncsOld(직렬별 구분) 우선, 없으면 ncs 단일 목록 — 본페이지(index.html)와 동일한 우선순위
+  let ncsHtml = '';
+  if (org.ncsOld && Object.keys(org.ncsOld).length > 0) {
+    const sectorRows = Object.entries(org.ncsOld).map(([sector, items]) => `
+      <div style="margin-bottom:10px;">
+        <div style="font-size:13px;font-weight:700;color:#374151;margin-bottom:6px;">${escHtml(sector)}</div>
+        <div class="tags">${items.map(n=>`<span class="tag tag-blue">${escHtml(n)}</span>`).join('')}</div>
+      </div>`).join('');
+    ncsHtml = `<div class="card">
+    <div class="card-title">NCS 직업기초능력 시험과목 (직렬별)</div>
+    ${sectorRows}
+  </div>`;
+  } else if (ncsStr) {
+    ncsHtml = `<div class="card">
+    <div class="card-title">NCS 직업기초능력 시험과목</div>
+    <div class="tags">
+      ${(org.ncs||[]).map(n=>`<span class="tag tag-blue">${escHtml(n)}</span>`).join('')}
+    </div>
+  </div>`;
+  }
+
   // 메타 description — "OOO 연봉", "OOO 위치" 검색 의도에 맞춰 핵심 수치를 앞쪽에 명시
   const desc = `${org.name} 평균연봉 ${salary(org.avgSalary)}(초임 ${salary(org.startingSalary)}), `
     + `위치: ${org.region} · ${org.address}. `
@@ -307,12 +328,7 @@ function buildPage(org) {
   </div>` : ''}
 
   <!-- NCS 시험과목 -->
-  ${ncsStr ? `<div class="card">
-    <div class="card-title">NCS 직업기초능력 시험과목</div>
-    <div class="tags">
-      ${(org.ncs||[]).map(n=>`<span class="tag tag-blue">${escHtml(n)}</span>`).join('')}
-    </div>
-  </div>` : ''}
+  ${ncsHtml}
 
   <!-- 직렬별 전공과목 -->
   ${majorDirs.length ? `<div class="card">
