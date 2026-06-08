@@ -2611,7 +2611,8 @@
                 document.getElementById('tabBranches').innerHTML = `
                     <div class="branch-intro" style="padding:12px;background:var(--bg-light);border-radius:8px;margin-bottom:12px;font-size:12px;color:var(--text-secondary);line-height:1.6;">
                         💡 <strong style="color:var(--accent);">${org.name}</strong>의 전국 근무지 (총 <strong style="color:var(--accent);">${totalItems}곳</strong>)이에요.<br>
-                        📍 표시된 항목은 지도에서 위치 확인 가능, 그 외는 목록 참고용이에요.
+                        📍 표시된 항목은 지도에서 위치 확인 가능, 그 외는 목록 참고용이에요.<br>
+                        ⚠️ 국가보안시설 등 기관 사정으로 지도에 표시되지 않은 사업장·지점이 있을 수 있어요.
                     </div>
                     ${allBranches.map(group => {
                         const isCollapsible = group.items.length >= 5;
@@ -2680,6 +2681,9 @@
             document.getElementById('tabBranches').innerHTML = `
                 <div class="info-section">
                     <h3>전국 지사 (${branches.length}개)</h3>
+                    <div class="branch-intro" style="padding:10px 12px;background:var(--bg-light);border-radius:8px;margin-bottom:10px;font-size:12px;color:var(--text-secondary);line-height:1.6;">
+                        ⚠️ 국가보안시설 등 기관 사정으로 지도에 표시되지 않은 사업장·지점이 있을 수 있어요.
+                    </div>
                     <ul class="branch-list" id="branchList"></ul>
                 </div>
             `;
