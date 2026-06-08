@@ -1585,11 +1585,12 @@
                 align-items: center;
                 justify-content: center;
                 width: 32px; height: 32px;
+                line-height: 1;
                 border-radius: 50%;
                 background: var(--bg-light);
                 border: 1px solid var(--border);
                 color: var(--text-secondary);
-                font-size: 20px;
+                font-size: 18px;
                 font-family: inherit;
                 cursor: pointer;
             }
@@ -1597,6 +1598,13 @@
             .detail-panel.open.sheet-expanded .detail-back {
                 visibility: visible;
                 pointer-events: auto;
+            }
+            /* 화면 전체로 확장됐을 때는 두 버튼 모두 원형 배경 없이 아이콘만 표시 (네이버 지도 스타일) */
+            .detail-panel.open.sheet-expanded .detail-back,
+            .detail-panel.open.sheet-expanded .detail-close {
+                background: transparent;
+                border: none;
+                box-shadow: none;
             }
             .detail-sheet-toolbar .detail-close {
                 position: static;
@@ -1655,6 +1663,42 @@
             }
             .mobile-search-slot.company-slot .search-box input:focus { box-shadow: inset 0 0 0 1.5px var(--primary); }
             .mobile-search-slot.gov-slot .gov-search-box input:focus { box-shadow: inset 0 0 0 1.5px var(--gov-accent); }
+
+            /* 검색창 바로 아래에 뜨는 자동완성(검색 가능 내역) — 크롬 주소창 스타일 */
+            .mobile-search-suggest {
+                display: none;
+                position: absolute;
+                top: calc(100% + 6px);
+                left: 0; right: 0;
+                margin: 0; padding: 6px 0;
+                background: #fff;
+                border-radius: 14px;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+                max-height: 48vh;
+                overflow-y: auto;
+                z-index: 20;
+                list-style: none;
+            }
+            .mobile-search-suggest.show { display: block; }
+            .mobile-search-suggest li {
+                padding: 11px 18px;
+                font-size: 13px;
+                color: var(--text-primary);
+                cursor: pointer;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .mobile-search-suggest li:active,
+            .mobile-search-suggest li:hover { background: var(--bg-light); }
+            .mobile-search-suggest li .suggest-name { font-weight: 600; }
+            .mobile-search-suggest li .suggest-meta { color: var(--text-tertiary); font-size: 11px; margin-left: 8px; }
+            .mobile-search-suggest li.no-suggest {
+                color: var(--text-tertiary);
+                text-align: center;
+                cursor: default;
+            }
+            .mobile-search-suggest li.no-suggest:hover { background: transparent; }
 
             /* 범례 — 상단 검색창의 왼쪽 아래로 이동, 가리지 않도록 축소 */
             .map-legend {
@@ -2834,10 +2878,6 @@
             state.searchQuery = e.target.value.trim();
             clearBtn.classList.toggle('visible', state.searchQuery.length > 0);
             applyFilters();
-            // 모바일: 검색어를 입력하면 결과 목록이 보이도록 사이드바 시트를 펼침
-            if (isMobile() && state.searchQuery) {
-                setSheetState(document.getElementById('sidebar'), 'expanded');
-            }
         });
         clearBtn.addEventListener('click', () => {
             searchInput.value = '';
@@ -2989,7 +3029,7 @@
             }
 
             function onPointerDown(e) {
-                if (!isMobile()) return;
+                if (!isMobile() || dragging) return;
                 dragging = true;
                 const point = e.touches ? e.touches[0] : e;
                 startY = point.clientY;
@@ -3054,6 +3094,22 @@
             handle.addEventListener('mousedown', onPointerDown);
             handle.addEventListener('touchstart', onPointerDown, { passive: true });
 
+            // 설명창(상세패널)은 핸들뿐 아니라 패널의 어느 부분을 잡고 끌어도 오르내릴 수 있도록 허용
+            // (버튼·링크·탭·스크롤 영역 등 상호작용 요소 위에서는 드래그를 시작하지 않음)
+            if (panel.id === 'detailPanel') {
+                const isDragSurface = (target) => !target.closest(
+                    'a, button, input, textarea, select, .tab-content, .detail-tabs, .detail-actions'
+                );
+                const onPanelPointerDown = (e) => {
+                    if (!isMobile() || dragging) return;
+                    if (handle.contains(e.target)) return; // 핸들은 이미 자체 리스너로 처리됨
+                    if (!isDragSurface(e.target)) return;
+                    onPointerDown(e);
+                };
+                panel.addEventListener('mousedown', onPanelPointerDown);
+                panel.addEventListener('touchstart', onPanelPointerDown, { passive: true });
+            }
+
             if (defaultState) setSheetState(panel, defaultState);
         }
 
@@ -3072,6 +3128,96 @@
             const slotGov = document.getElementById('mobileSearchSlotGov');
             if (companyBox && slotCompany) slotCompany.appendChild(companyBox);
             if (govBox && slotGov) slotGov.appendChild(govBox);
+
+            // ----------------------------------------------------------
+            // 모바일: 크롬 주소창처럼 검색창 바로 아래에 자동완성(검색 가능 내역) 목록 표시
+            // 항목을 누르면 해당 기관/부처를 바로 선택해 지도·설명창을 띄움
+            // ----------------------------------------------------------
+            function selectOrgFromSearch(orgId) {
+                const org = ORGS.find(o => o.id === orgId);
+                if (!org) return;
+                state.selectedOrgId = orgId;
+                applyFilters();
+                const bounds = new kakao.maps.LatLngBounds();
+                if (org.lat && org.lng) bounds.extend(new kakao.maps.LatLng(org.lat, org.lng));
+                (org.branches || []).forEach(br => {
+                    if (br.lat && br.lng) bounds.extend(new kakao.maps.LatLng(br.lat, br.lng));
+                });
+                if (!bounds.isEmpty()) state.map.setBounds(bounds);
+                const m = state.markers[org.id];
+                if (m) setTimeout(() => showInfoWindow(m.hq, org, null), 300);
+                openDetailPanel(org);
+            }
+
+            function setupMobileSearchSuggest(input, box, getMatches, onPick) {
+                if (!input || !box) return;
+                const list = document.createElement('ul');
+                list.className = 'mobile-search-suggest';
+                box.appendChild(list);
+
+                function hide() {
+                    list.classList.remove('show');
+                    list.innerHTML = '';
+                }
+                function render(query) {
+                    const matches = getMatches(query).slice(0, 8);
+                    if (!matches.length) {
+                        list.innerHTML = '<li class="no-suggest">검색 결과가 없습니다</li>';
+                    } else {
+                        list.innerHTML = matches.map(m =>
+                            `<li data-id="${m.id}"><span class="suggest-name">${m.name}</span><span class="suggest-meta">${m.meta || ''}</span></li>`
+                        ).join('');
+                        list.querySelectorAll('li[data-id]').forEach(li => {
+                            li.addEventListener('click', () => {
+                                const id = parseInt(li.dataset.id);
+                                const picked = matches.find(m => m.id === id);
+                                if (picked) input.value = picked.name;
+                                hide();
+                                input.blur();
+                                onPick(id);
+                            });
+                        });
+                    }
+                    list.classList.add('show');
+                }
+                input.addEventListener('input', () => {
+                    if (!isMobile()) return;
+                    const q = input.value.trim();
+                    if (!q) { hide(); return; }
+                    render(q);
+                });
+                input.addEventListener('focus', () => {
+                    if (!isMobile()) return;
+                    const q = input.value.trim();
+                    if (q) render(q);
+                });
+                document.addEventListener('click', (e) => {
+                    if (!box.contains(e.target)) hide();
+                });
+                const clearBtnEl = box.querySelector('.clear-btn');
+                if (clearBtnEl) clearBtnEl.addEventListener('click', hide);
+            }
+
+            setupMobileSearchSuggest(
+                document.getElementById('searchInput'),
+                companyBox,
+                (q) => {
+                    const ql = q.toLowerCase();
+                    return ORGS.filter(o => o.name.toLowerCase().includes(ql) || (o.shortName || '').toLowerCase().includes(ql))
+                               .map(o => ({ id: o.id, name: o.name, meta: o.region || '' }));
+                },
+                (id) => selectOrgFromSearch(id)
+            );
+            setupMobileSearchSuggest(
+                document.getElementById('govSearchInput'),
+                govBox,
+                (q) => {
+                    const ql = q.toLowerCase();
+                    return GOVS.filter(g => g.name.toLowerCase().includes(ql) || (g.shortName || '').toLowerCase().includes(ql))
+                               .map(g => ({ id: g.id, name: g.name, meta: g.category || '' }));
+                },
+                (id) => selectGov(id)
+            );
         }
 
         // ============================================================
@@ -3640,10 +3786,6 @@
             state.govSearchQuery = e.target.value.trim();
             govClearBtn.classList.toggle('visible', state.govSearchQuery.length > 0);
             applyGovMinistryFilter();
-            // 모바일: 검색어를 입력하면 결과 목록이 보이도록 사이드바 시트를 펼침
-            if (isMobile() && state.govSearchQuery) {
-                setSheetState(document.getElementById('sidebar'), 'expanded');
-            }
         });
         govClearBtn.addEventListener('click', () => {
             govSearchInput.value = '';
