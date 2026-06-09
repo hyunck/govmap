@@ -1,4 +1,4 @@
-// generate-org-pages.js
+﻿// generate-org-pages.js
 // data-orgs.js를 읽어 기관별 정적 HTML 페이지 생성 + sitemap.xml 업데이트
 // 실행: node generate-org-pages.js
 
@@ -110,7 +110,7 @@ function buildPage(org) {
     <div class="branch-intro">
       💡 <strong>${escHtml(org.name)}</strong>의 전국 근무지 (총 <strong>${totalItems}곳</strong>)<br>
       📍 표시된 항목은 지도에서 위치 확인 가능, 그 외는 목록 참고용<br>
-      ⚠️ 국가보안시설 등 기관 사정으로 지도에 표시되지 않은 사업장·지점이 있을 수 있어요.
+      ⚠️ 국가중요시설 및 기관 사정으로 지도에 표시되지 않거나 불명확하게 표시되는 사업장·지사가 있을 수 있어요.
     </div>
     ${allBranches.map(group => `
       <div class="allbranch-group">
@@ -354,7 +354,7 @@ function buildPage(org) {
     ${allBranchesHtml}
   </div>` : branchItems ? `<div class="card">
     <div class="card-title">전국 본사·지점·사업소</div>
-    <div class="branch-intro">⚠️ 국가보안시설 등 기관 사정으로 지도에 표시되지 않은 사업장·지점이 있을 수 있어요.</div>
+    <div class="branch-intro">⚠️ 국가중요시설 및 기관 사정으로 지도에 표시되지 않거나 불명확하게 표시되는 사업장·지사가 있을 수 있어요.</div>
     <ul class="branch-list">${branchItems}</ul>
   </div>` : ''}
 
