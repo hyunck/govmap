@@ -1815,7 +1815,7 @@ const ORGS = [
     "shortName": "IIAC",
     "type": "공기업",
     "region": "수도권",
-    "address": "인천 중구 공항로 272",
+    "address": "인천 중구 공항로 424번길 47",
     "startingSalary": 4900,
     "avgSalary": 9200,
     "avgYears": 13.5,
@@ -1838,8 +1838,8 @@ const ORGS = [
     ],
     "branches": [
       {
-        "name": "본사 (제1여객터미널)",
-        "address": "인천 중구 공항로 272"
+        "name": "본사",
+        "address": "인천 중구 공항로 424번길 47"
       },
       {
         "name": "제1여객터미널",
