@@ -1320,6 +1320,12 @@
         .allbranch-group-title.collapsible:hover {
             background: linear-gradient(135deg, #ede9fe, #ddd6fe);
         }
+        .allbranch-count {
+            font-weight: 400;
+            color: #9ca3af;
+            font-size: 11px;
+            margin-left: 4px;
+        }
         .allbranch-toggle-icon {
             font-size: 11px;
             color: var(--gov-accent);
@@ -2619,7 +2625,7 @@
                         return `
                         <div class="allbranch-group">
                             <div class="allbranch-group-title${isCollapsible ? ' collapsible' : ''}" ${isCollapsible ? 'data-collapsible="true"' : ''}>
-                                <span>${group.groupName}</span>
+                                <span>${group.groupName}<span class="allbranch-count">(${group.items.length}개)</span></span>
                             ${isCollapsible ? '<span class="allbranch-toggle-icon collapsed">▼</span>' : ''}
                             </div>
                             <ul class="allbranch-list${isCollapsible ? ' collapsed' : ''}">
