@@ -19772,9 +19772,9 @@ const ORGS = [
     "region": "충청권",
     "industry": "에너지",
     "address": "대전 유성구 대덕대로989번길 242",
-    "startingSalary": 4100,
-    "avgSalary": 8200,
-    "avgYears": 14.0,
+    "startingSalary": 3851,
+    "avgSalary": 6310,
+    "avgYears": 15.5,
     "homepage": "https://www.knfc.co.kr",
     "recruitUrl": "https://knfc.saramin.co.kr",
     "description": "1982년 설립된 한국전력공사 자회사이자 산업통상자원부 산하 기타공공기관. 대한민국 유일의 원자력 연료 설계·제조 전문 기업으로, 경수로 연료(연간 550톤-U)와 중수로 연료(연간 400톤-U)를 생산해 국내 원전 24기에 공급한다. 세계에서 유일하게 두 종류의 원자력 연료를 동시 생산하며, 핵연료 국산화와 원자력 연료주기 기술 자립을 핵심 사명으로 삼고 있다.",
@@ -19795,7 +19795,8 @@ const ORGS = [
     "branches": [
       {"name": "본사 (대전)", "address": "대전 유성구 대덕대로989번길 242"},
       {"name": "TSA Plant (대전)", "address": "대전 유성구 테크노6로 8"},
-      {"name": "NSA Plant (논산)", "address": "충남 논산시 성동면 산업단지로5길 23"}
+      {"name": "NSA Plant (논산)", "address": "충남 논산시 성동면 산업단지로5길 23"},
+      {"name": "경주지사", "address": "경상북도 경주시 양정로 254"}
     ],
     "allBranches": [
       {
@@ -19809,6 +19810,12 @@ const ORGS = [
         "groupName": "충남",
         "items": [
           {"name": "NSA Plant (논산)", "address": "충남 논산시 성동면 산업단지로5길 23"}
+        ]
+      },
+      {
+        "groupName": "경북",
+        "items": [
+          {"name": "경주지사", "address": "경상북도 경주시 양정로 254"}
         ]
       }
     ],
