@@ -2,7 +2,7 @@
 // 좌표가 잘못된 경우: data-orgs.js 또는 data-govs.js에 "lat"/"lng" 직접 추가하면 이 캐시를 덮어씁니다.
 // 재생성 방법: 브라우저 콘솔에서 exportCoordsCache() 실행 → 다운로드된 파일로 교체 후 커밋
 // 생성일시: 2026. 6. 12. 오전 12:04:19 | 총 2336개 좌표
-const COORDS_CACHE = {
+window.COORDS_CACHE = {
   "2_br2_부산울산본부": {
     "lat": 35.15273580902599,
     "lng": 129.06152218669723,

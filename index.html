@@ -4189,7 +4189,7 @@
                 '// 좌표가 잘못된 경우: data-orgs.js 또는 data-govs.js에 "lat"/"lng" 직접 추가하면 이 캐시를 덮어씁니다.',
                 '// 재생성 방법: 브라우저 콘솔에서 exportCoordsCache() 실행 → 다운로드된 파일로 교체 후 커밋',
                 `// 생성일시: ${new Date().toLocaleString('ko-KR')} | 총 ${total}개 좌표`,
-                'const COORDS_CACHE = ' + JSON.stringify(merged, null, 2) + ';'
+                'window.COORDS_CACHE = ' + JSON.stringify(merged, null, 2) + ';'
             ];
 
             const blob = new Blob([lines.join('\n')], { type: 'text/javascript' });
