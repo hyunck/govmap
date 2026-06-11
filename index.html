@@ -2066,6 +2066,8 @@
     <!-- ⭐ 데이터 파일 분리 (공기업 + 정부기관) -->
     <script src="data-orgs.js"></script>
     <script src="data-govs.js"></script>
+    <!-- ⭐ 번들 좌표 캐시 (자동 생성 — coords-cache.js) -->
+    <script src="coords-cache.js"></script>
 
     <script>
         function getLogoColor(shortName) {
@@ -2252,15 +2254,24 @@
                 });
             });
 
-            // 캐시 적용
+            // 1순위: COORDS_CACHE (번들 파일 — coords-cache.js)
+            const bundledCache = window.COORDS_CACHE || {};
             tasks.forEach(t => {
-                if (cache[t.key]) {
+                if (bundledCache[t.key]) {
+                    t.target.lat = bundledCache[t.key].lat;
+                    t.target.lng = bundledCache[t.key].lng;
+                }
+            });
+
+            // 2순위: localStorage 캐시 (번들에 없는 항목만)
+            tasks.forEach(t => {
+                if (!t.target.lat && cache[t.key]) {
                     t.target.lat = cache[t.key].lat;
                     t.target.lng = cache[t.key].lng;
                 }
             });
 
-            const todo = tasks.filter(t => !cache[t.key]);
+            const todo = tasks.filter(t => !t.target.lat || !t.target.lng);
             const total = tasks.length;
             const cached = tasks.length - todo.length;
 
@@ -3299,15 +3310,24 @@
                 });
             });
 
-            // 캐시 적용 (lat/lng 없는 항목 중 캐시에 있는 것)
+            // 1순위: COORDS_CACHE (번들 파일 — coords-cache.js)
+            const bundledCacheGov = window.COORDS_CACHE || {};
             tasks.forEach(t => {
-                if (cache[t.key]) {
+                if (bundledCacheGov[t.key]) {
+                    t.target.lat = bundledCacheGov[t.key].lat;
+                    t.target.lng = bundledCacheGov[t.key].lng;
+                }
+            });
+
+            // 2순위: localStorage 캐시 (번들에 없는 항목만)
+            tasks.forEach(t => {
+                if (!t.target.lat && cache[t.key]) {
                     t.target.lat = cache[t.key].lat;
                     t.target.lng = cache[t.key].lng;
                 }
             });
 
-            const todo = tasks.filter(t => !cache[t.key]);
+            const todo = tasks.filter(t => !t.target.lat || !t.target.lng);
             const total = tasks.length;
             const cached = tasks.length - todo.length;
 
@@ -4149,6 +4169,39 @@
                 clearInterval(mapReadyChecker);
             }
         }, 200);
+
+        // ============================================================
+        // coords-cache.js 재생성용 내보내기 함수
+        // 사용법: 브라우저 콘솔에서 exportCoordsCache() 실행
+        // → coords-cache.js 파일이 다운로드됨 → 기존 파일 교체 후 커밋
+        // ============================================================
+        window.exportCoordsCache = function () {
+            let orgCache = {};
+            let govCache = {};
+            try { orgCache = JSON.parse(localStorage.getItem('org_geocode_v1_places') || '{}'); } catch (e) {}
+            try { govCache = JSON.parse(localStorage.getItem('gov_geocode_v14_places') || '{}'); } catch (e) {}
+
+            const merged = Object.assign({}, orgCache, govCache);
+            const total = Object.keys(merged).length;
+
+            const lines = [
+                '// ⚠️ 자동 생성 파일 — 직접 수정하지 마세요.',
+                '// 좌표가 잘못된 경우: data-orgs.js 또는 data-govs.js에 "lat"/"lng" 직접 추가하면 이 캐시를 덮어씁니다.',
+                '// 재생성 방법: 브라우저 콘솔에서 exportCoordsCache() 실행 → 다운로드된 파일로 교체 후 커밋',
+                `// 생성일시: ${new Date().toLocaleString('ko-KR')} | 총 ${total}개 좌표`,
+                'const COORDS_CACHE = ' + JSON.stringify(merged, null, 2) + ';'
+            ];
+
+            const blob = new Blob([lines.join('\n')], { type: 'text/javascript' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'coords-cache.js';
+            a.click();
+            URL.revokeObjectURL(url);
+            console.log(`✅ coords-cache.js 다운로드 완료 (총 ${total}개 좌표)`);
+            console.log('→ 다운로드된 파일로 기존 coords-cache.js를 교체 후 커밋하세요.');
+        };
 
     </script>
 </body>
