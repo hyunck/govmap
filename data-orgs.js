@@ -6160,7 +6160,6 @@ const ORGS = [
       {
         "groupName": "부산·울산",
         "items": [
-          { "name": "본사 (부산)", "address": "부산 남구 문현금융로 40" },
           { "name": "부산지역본부", "address": "부산 남구 수영로 350" },
           { "name": "울산지사", "address": "울산 남구 삼산로 176" }
         ]
