@@ -6118,6 +6118,12 @@ const ORGS = [
     ],
     "allBranches": [
       {
+        "groupName": "본사",
+        "items": [
+          { "name": "본사 (부산)", "address": "부산 남구 문현금융로 40" }
+        ]
+      },
+      {
         "groupName": "서울·수도권",
         "items": [
           { "name": "서울동부지역본부", "address": "서울 강남구 강남대로 262" },
