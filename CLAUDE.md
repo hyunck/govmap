@@ -1,7 +1,7 @@
 # 공공기관 지도 프로젝트 — Claude 작업 가이드
 
 > 새 세션에서 이어서 작업할 때 반드시 읽어야 하는 문서입니다.
-> 마지막 업데이트: 2026-06-11
+> 마지막 업데이트: 2026-06-17
 
 ---
 
@@ -153,7 +153,7 @@ fs.writeFileSync('_gen_xxx.js',code);" && node _gen_xxx.js && rm _gen_xxx.js
 | 한국가스기술공사 | KOGAS-Tech | `2e67728` | 주소 정정(대덕대로 1227), homepage 정정, branches 14개 |
 | 해양환경공단 | KOEM | `eacd649` | branches 13개, allBranches 4그룹 |
 
-### 세션 4 (준정부 2차) — 현재 세션
+### 세션 4 (준정부 2차)
 
 | 기관 | shortName | 커밋 | 주요 변경 |
 |------|-----------|------|-----------|
@@ -163,6 +163,27 @@ fs.writeFileSync('_gen_xxx.js',code);" && node _gen_xxx.js && rm _gen_xxx.js
 | 한국무역보험공사 | K-SURE | `cbb73df` | branches 3→18개, allBranches 5그룹, 부산·대구 주소 정정 |
 | 신용보증기금 | KODIT | `b84e4c6` | branches 4→86개, allBranches 10그룹, 영업본부 8개+전국 영업점 |
 | 예금보험공사 | KDIC | `70bff64` | 국내 지사 없음 확인, NCS 3개로 정정, 직렬별 전공범위 상세화 |
+
+### 세션 5 (준정부 3차 + coords-cache 업데이트)
+
+| 기관 | shortName | 커밋 | 주요 변경 |
+|------|-----------|------|-----------|
+| (전체) | — | `65c3999` | coords-cache.js 전체 좌표 2336개 업데이트, const→window 버그 수정 |
+| 한국자산관리공사 | KAMCO | `144e3f6`+fixes | 부산 본사, 전국 40개 지사, allBranches 7그룹 |
+| 한국주택금융공사 | HF | `7319441` | 부산 본사, 전국 지사 업데이트 |
+| 한국전력거래소 | KPX | `5f02139` | 중앙급전소 포함 branches 업데이트 |
+
+### 세션 6 (준정부 4차 + 외부기관)
+
+| 기관 | shortName | 커밋 | 주요 변경 |
+|------|-----------|------|-----------|
+| 한국소비자원 | KCA | `85fdec8` | 본사(음성), 지원 8개, allBranches 2그룹, NCS 4모듈, 논술시험 |
+| 한국연구재단 | NRF | `74f2380` | 대전·세종 2개 청사, allBranches 2그룹, NCS 7모듈, 전공시험 없음 |
+| 한국사회보장정보원 | SSiS | `eb1946b` | 주소 정정(광진구 능동로 400), branches 1→4, allBranches 2그룹 |
+| 대한무역투자진흥공사 | KOTRA | `ea57e01`+`30708ac`+`76a8511` | 지방지원본부 명칭 정정, branches 4→17, allBranches 2그룹 |
+| 한국은행 | BOK | `86b1889` | branches 5→17, allBranches 5그룹, NCS 없음·논술/전공 시험구조 |
+| 금융감독원 | FSS | `d81db40` | branches 4→12, allBranches 2그룹, NCS 1차+전공주관식 2차 |
+| 근로복지공단 | COMWEL | `511abf5`+`4991720` | branches 18→84개, allBranches 11그룹, 서울·강원 본부 주소 정정 |
 
 ### 전체 기관 일괄 수정
 
@@ -212,21 +233,19 @@ fs.writeFileSync('_gen_xxx.js',code);" && node _gen_xxx.js && rm _gen_xxx.js
 > 연봉은 사용자가 ALIO 공시 기준으로 직접 수정하므로 **연봉 제외하고 수정**.
 
 ### 현재 작업 위치
-- **마지막 완료**: 예금보험공사(KDIC, id:38)
-- **다음 후보**: 한국자산관리공사(KAMCO, id:39) — 사용자 요청 시 즉시 착수
+- **마지막 완료**: 근로복지공단(COMWEL) — `4991720`
+- **다음 후보**: 사용자 요청에 따라 준정부기관 계속 or GA/서치콘솔 데이터 검토
 
-### 아직 수정 안 된 주요 준정부기관 (data-orgs.js id 순)
+### 아직 수정 안 된 주요 준정부기관 (data-orgs.js 순)
 
-| id | 기관 | shortName | 비고 |
-|----|------|-----------|------|
-| 34 | 사립학교교직원연금공단 | TP | 세션4에서 건너뜀 |
-| 39 | 한국자산관리공사 | KAMCO | 부산 남구 문현금융로 40 |
-| 40 | 한국주택금융공사 | HF | 부산 |
-| 41 | 기술보증기금 | KIBO | 부산 |
-| 42 | 중소벤처기업진흥공단 | KOSME | 진주 |
-| 43 | 한국벤처투자 | KVIC | 서울 |
-| 44 | 소상공인시장진흥공단 | SEMAS | 대전 |
-| 이후 | 계속... | - | 사용자 요청에 따라 결정 |
+| 기관 | shortName | 본사 위치 | 비고 |
+|------|-----------|---------|------|
+| 사립학교교직원연금공단 | TP | 서울 | 세션4에서 건너뜀 |
+| 기술보증기금 | KIBO | 부산 | — |
+| 중소벤처기업진흥공단 | KOSME | 진주 | — |
+| 한국벤처투자 | KVIC | 서울 | — |
+| 소상공인시장진흥공단 | SEMAS | 대전 | — |
+| 이후 계속 | — | — | 사용자 요청에 따라 결정 |
 
 ---
 
@@ -252,7 +271,37 @@ fs.writeFileSync('_gen_xxx.js',code);" && node _gen_xxx.js && rm _gen_xxx.js
 
 ---
 
-## 8. 관련 MD 파일
+## 8. Google Analytics / Search Console 데이터 검토
+
+> 새 세션에서 트래픽 데이터를 검토할 때 이 섹션을 참고.
+
+### 접근 방법
+- **Google Analytics**: https://analytics.google.com/ → 속성: govmap (GA4)
+- **Google Search Console**: https://search.google.com/search-console/ → 속성: govmap.kr
+
+### 주요 확인 지표
+
+**Analytics (GA4)**
+- 실시간 사용자 수 / 일별·주별 활성 사용자 추이
+- 유입 경로 (organic search, direct, referral 비중)
+- 가장 많이 조회된 기관 페이지 (`orgs/*/index.html`)
+- 기기별 비중 (모바일 vs 데스크탑) — 모바일 비중이 높으면 UI 최적화 우선순위 결정에 활용
+- 이벤트: 지도 마커 클릭, 지사 탭 클릭, 채용 링크 클릭 등
+
+**Search Console**
+- 검색 노출·클릭 추이 (기간 비교: 전주/전월 대비)
+- 상위 검색 쿼리 — "공기업 지도", "[기관명] 지사" 등 실제 진입 키워드 파악
+- 상위 페이지 — 어느 기관 페이지가 검색 유입 많은지 확인
+- Core Web Vitals / 모바일 사용성 이슈
+
+### 데이터 기반 액션 연결
+- 특정 기관 페이지 유입이 많으면 → 해당 기관 데이터 품질 우선 업데이트
+- 모바일 이탈률 높으면 → `MOBILE_UI_NOTES.md` 작업 우선
+- 특정 지역 쿼리 많으면 → 해당 지역 기관 branches 보강
+
+---
+
+## 9. 관련 MD 파일
 
 - **`CLAUDE.md`** (이 파일): 전체 프로젝트 맥락·데이터 업데이트 가이드
 - **`MOBILE_UI_NOTES.md`**: 모바일 UI 개선 작업 전용 노트 (바텀시트, 검색 자동완성 등)
