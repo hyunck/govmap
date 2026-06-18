@@ -73,8 +73,33 @@ function buildPage(org) {
     .filter(o => o.industry === org.industry && o.startingSalary)
     .sort((a, b) => b.startingSalary - a.startingSalary);
   const industryRank = industryPeers.findIndex(o => o.id === org.id) + 1;
-  const salaryBarMax = Math.max(...industryPeers.map(o => o.startingSalary), org.startingSalary || 6000);
-  const avgBarMax    = Math.max(...industryPeers.map(o => o.avgSalary || 0), org.avgSalary || 10000);
+
+  // 세로 막대 그래프용 히스토리 (나중에 org.startingSalaryHistory / avgSalaryHistory 필드 추가 예정)
+  const CHART_PX = 100;
+  const startHist = (org.startingSalaryHistory && org.startingSalaryHistory.length)
+    ? org.startingSalaryHistory
+    : (org.startingSalary ? [{ year: 2025, val: org.startingSalary }] : []);
+  const avgHist = (org.avgSalaryHistory && org.avgSalaryHistory.length)
+    ? org.avgSalaryHistory
+    : (org.avgSalary ? [{ year: 2025, val: org.avgSalary }] : []);
+  const startHistMax = startHist.length ? Math.max(...startHist.map(d => d.val)) : 1;
+  const avgHistMax   = avgHist.length   ? Math.max(...avgHist.map(d => d.val))   : 1;
+  const startBarsHtml = startHist.map(d =>
+    `<div class="vc-col">
+       <div class="vc-col-inner">
+         <div class="vc-val-tag">${d.val.toLocaleString('ko-KR')}</div>
+         <div class="vc-bar vc-bar-start" style="height:${Math.round(d.val/startHistMax*CHART_PX)}px"></div>
+       </div>
+       <div class="vc-year-tag">${d.year}년</div>
+     </div>`).join('');
+  const avgBarsHtml = avgHist.map(d =>
+    `<div class="vc-col">
+       <div class="vc-col-inner">
+         <div class="vc-val-tag">${d.val.toLocaleString('ko-KR')}</div>
+         <div class="vc-bar vc-bar-avg" style="height:${Math.round(d.val/avgHistMax*CHART_PX)}px"></div>
+       </div>
+       <div class="vc-year-tag">${d.year}년</div>
+     </div>`).join('');
 
   const ncsStr      = (org.ncs || []).join(', ');
   const examStr     = (org.examSubjects || []).join(', ');
@@ -152,7 +177,7 @@ function buildPage(org) {
       <div class="${collapsible ? 'allbranch-group group-collapsible group-collapsed' : 'allbranch-group'}">
         <div class="allbranch-group-title"${collapsible ? ' onclick="toggleGroup(this)"' : ''}>
           <span>${escHtml(group.groupName)} <span class="allbranch-count">(${group.items.length})</span></span>
-          ${collapsible ? '<span class="toggle-icon">▶</span>' : ''}
+          ${collapsible ? '<span class="toggle-icon">▼</span>' : ''}
         </div>
         <ul class="allbranch-list">
           ${group.items.map(item => `
@@ -297,25 +322,41 @@ function buildPage(org) {
                  padding: 2px 8px; border-radius: 20px; width: fit-content; }
     .rel-name   { font-size: 13px; font-weight: 700; color: #111827; line-height: 1.3; }
     .rel-region { font-size: 11px; color: #9ca3af; }
-    /* 연봉 시각화 */
-    .salary-viz { display: flex; flex-direction: column; gap: 14px; }
-    .sv-row { display: flex; align-items: center; gap: 12px; }
-    .sv-label { font-size: 12px; color: #6b7280; width: 68px; flex-shrink: 0; }
-    .sv-bar-wrap { flex: 1; background: #f3f4f6; border-radius: 6px; height: 10px; overflow: hidden; }
-    .sv-bar { height: 100%; border-radius: 6px; background: #2563eb; }
-    .sv-bar-avg { background: #03c75a; }
-    .sv-bar-years { background: #7c3aed; }
-    .sv-val { font-size: 14px; color: #111827; min-width: 90px; text-align: right; flex-shrink: 0; }
-    .sv-rank { margin-top: 14px; font-size: 13px; color: #374151;
+    /* 세로 막대 그래프 */
+    .vchart { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 4px 0 8px; }
+    @media(max-width:500px){ .vchart { grid-template-columns: 1fr; } }
+    .vc-block { border: 1px solid #e5e7eb; border-radius: 10px; padding: 14px 12px 10px; }
+    .vc-block-title { font-size: 13px; font-weight: 700; color: #111827;
+                      border-left: 3px solid #1e3a5f; padding-left: 8px; margin-bottom: 12px; }
+    .vc-block-title.avg-title { border-left-color: #2563eb; }
+    .vc-bars-wrap { display: flex; align-items: flex-end; justify-content: center;
+                    gap: 10px; height: 130px; }
+    .vc-col { display: flex; flex-direction: column; align-items: center; flex: 1; max-width: 70px; }
+    .vc-col-inner { flex: 1; display: flex; flex-direction: column;
+                    align-items: center; justify-content: flex-end; width: 100%; }
+    .vc-val-tag { font-size: 11px; font-weight: 700; color: #374151; margin-bottom: 4px; white-space: nowrap; }
+    .vc-bar { width: 36px; border-radius: 4px 4px 0 0; }
+    .vc-bar-start { background: #1e3a5f; }
+    .vc-bar-avg   { background: #2563eb; }
+    .vc-year-tag  { font-size: 11px; color: #9ca3af; margin-top: 6px; }
+    .vc-big { font-size: 20px; font-weight: 800; color: #1e3a5f; text-align: right;
+              margin-top: 10px; padding-top: 8px; border-top: 1px solid #f3f4f6; }
+    .vc-big.avg-big { color: #2563eb; }
+    .vc-big span { font-size: 12px; font-weight: 400; color: #9ca3af; }
+    .sv-rank { margin-top: 12px; font-size: 13px; color: #374151;
                background: #eff6ff; border-radius: 8px; padding: 10px 14px; }
+    /* 페이지네이션 */
+    .rank-pager { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; }
+    .rp-btn { border: 1px solid #e5e7eb; background: #fff; color: #374151;
+              font-size: 12px; padding: 4px 9px; border-radius: 4px; cursor: pointer; }
+    .rp-btn:hover { background: #f3f4f6; }
+    .rp-active { background: #2563eb !important; color: #fff !important; border-color: #2563eb !important; }
     /* 접기/펼치기 */
     .allbranch-group-title { cursor: default; }
     .group-collapsible .allbranch-group-title { cursor: pointer; user-select: none;
       display: flex; align-items: center; justify-content: space-between; }
     .group-collapsible .allbranch-group-title:hover { background: #e9eaec; }
-    .toggle-icon { font-size: 11px; color: #9ca3af;
-                   display: inline-block; transition: transform .2s; }
-    .group-collapsible:not(.group-collapsed) .toggle-icon { transform: rotate(90deg); }
+    .toggle-icon { font-size: 11px; color: #9ca3af; }
     .group-collapsed .allbranch-list { display: none; }
     /* 업종 연봉 순위 */
     .rank-me td { background: #eff6ff; font-weight: 700; color: #1d4ed8; }
@@ -382,27 +423,22 @@ function buildPage(org) {
     </div>
   </div>
 
-  <!-- 연봉 시각화 -->
+  <!-- 연봉 시각화 (세로 막대) -->
   ${org.avgSalary ? `<div class="card">
     <div class="card-title">연봉 정보 (ALIO 공시 기준)</div>
-    <div class="salary-viz">
-      <div class="sv-row">
-        <div class="sv-label">신입 초봉</div>
-        <div class="sv-bar-wrap"><div class="sv-bar" style="width:${Math.round((org.startingSalary/salaryBarMax)*100)}%"></div></div>
-        <div class="sv-val"><strong>${salary(org.startingSalary)}</strong></div>
+    <div class="vchart">
+      <div class="vc-block">
+        <div class="vc-block-title">신입 초봉</div>
+        <div class="vc-bars-wrap">${startBarsHtml}</div>
+        <div class="vc-big">${salary(org.startingSalary)}<span> 단위: 만원</span></div>
       </div>
-      <div class="sv-row">
-        <div class="sv-label">평균 연봉</div>
-        <div class="sv-bar-wrap"><div class="sv-bar sv-bar-avg" style="width:${Math.round((org.avgSalary/avgBarMax)*100)}%"></div></div>
-        <div class="sv-val"><strong>${salary(org.avgSalary)}</strong></div>
+      <div class="vc-block">
+        <div class="vc-block-title avg-title">평균 연봉</div>
+        <div class="vc-bars-wrap">${avgBarsHtml}</div>
+        <div class="vc-big avg-big">${salary(org.avgSalary)}<span> 단위: 만원</span></div>
       </div>
-      ${org.avgYears ? `<div class="sv-row">
-        <div class="sv-label">평균 근속</div>
-        <div class="sv-bar-wrap"><div class="sv-bar sv-bar-years" style="width:${Math.min(Math.round((org.avgYears/30)*100),100)}%"></div></div>
-        <div class="sv-val"><strong>${org.avgYears}년</strong></div>
-      </div>` : ''}
     </div>
-    ${industryRank > 0 ? `<div class="sv-rank">📊 <strong>${escHtml(org.industry)}</strong> 계열 신입연봉 <strong>${industryPeers.length}개 기관 중 ${industryRank}위</strong></div>` : ''}
+    ${industryRank > 0 ? `<div class="sv-rank">📊 <strong>${escHtml(org.industry)}</strong> 공기업 신입연봉 <strong>${industryPeers.length}개 기관 중 ${industryRank}위</strong></div>` : ''}
   </div>` : ''}
 
   <!-- 주요 사업 -->
@@ -460,28 +496,22 @@ function buildPage(org) {
 
   <!-- 업종 연봉 순위 -->
   ${industryPeers.length > 1 ? `<div class="card">
-    <div class="card-title">${escHtml(org.industry)} 계열 신입연봉 순위</div>
-    <table class="rank-table">
+    <div class="card-title">${escHtml(org.industry)} 공기업 신입 연봉 순위</div>
+    <table class="rank-table" id="rt-${org.id}">
       <thead><tr><th>순위</th><th>기관명</th><th>신입연봉</th><th>평균연봉</th></tr></thead>
       <tbody>
-        ${industryPeers.slice(0, 10).map((p, i) => `
-        <tr class="${p.id === org.id ? 'rank-me' : ''}">
+        ${industryPeers.map((p, i) => `
+        <tr class="${p.id === org.id ? 'rank-me' : ''}" data-ri="${i}">
           <td>${i + 1}</td>
-          <td><a href="${BASE_URL}/orgs/${encodeURIComponent(p.name)}/">${escHtml(p.name)}${p.id === org.id ? ' <span style="font-size:11px;color:#2563eb">(현재)</span>' : ''}</a></td>
+          <td><a href="${BASE_URL}/orgs/${encodeURIComponent(p.name)}/">${escHtml(p.name)}${p.id === org.id ? ' <span style="font-size:11px">(현재)</span>' : ''}</a></td>
           <td>${salary(p.startingSalary)}</td>
           <td>${salary(p.avgSalary)}</td>
         </tr>`).join('')}
-        ${industryRank > 10 ? `
-        <tr><td colspan="4" style="text-align:center;color:#9ca3af;font-size:12px;padding:6px">⋯</td></tr>
-        <tr class="rank-me">
-          <td>${industryRank}</td>
-          <td>${escHtml(org.name)} <span style="font-size:11px;color:#2563eb">(현재)</span></td>
-          <td>${salary(org.startingSalary)}</td>
-          <td>${salary(org.avgSalary)}</td>
-        </tr>` : ''}
       </tbody>
     </table>
-  </div>` : ''}
+    <div class="rank-pager" id="rp-${org.id}"></div>
+  </div>
+  <script>initRankPager('rt-${org.id}','rp-${org.id}',${Math.max(1,Math.ceil((industryRank||1)/10))});</script>` : ''}
 
   <!-- 관련 기관 -->
   ${related.length ? `<div class="card">
@@ -498,7 +528,36 @@ function buildPage(org) {
 
 <script>
 function toggleGroup(el) {
-  el.parentElement.classList.toggle('group-collapsed');
+  var group = el.parentElement;
+  group.classList.toggle('group-collapsed');
+  var icon = el.querySelector('.toggle-icon');
+  if (icon) icon.textContent = group.classList.contains('group-collapsed') ? '▼' : '▲';
+}
+function initRankPager(tableId, pagerId, startPage) {
+  var tbl = document.getElementById(tableId);
+  var pager = document.getElementById(pagerId);
+  if (!tbl || !pager) return;
+  var rows = Array.from(tbl.querySelectorAll('tbody tr'));
+  var PER = 10, pages = Math.ceil(rows.length / PER), cur = startPage || 1;
+  function show(p) {
+    cur = p;
+    rows.forEach(function(r) {
+      var idx = parseInt(r.getAttribute('data-ri'), 10);
+      r.style.display = (idx >= (p-1)*PER && idx < p*PER) ? '' : 'none';
+    });
+    if (pages <= 1) { pager.style.display = 'none'; return; }
+    var b = '';
+    for (var i = 1; i <= pages; i++) {
+      b += '<button class="rp-btn' + (i === cur ? ' rp-active' : '') + '" onclick="(function(p){' +
+           'var t=document.getElementById(\'' + tableId + '\');' +
+           'var rws=Array.from(t.querySelectorAll(\'tbody tr\'));' +
+           'rws.forEach(function(r){var idx=parseInt(r.getAttribute(\'data-ri\'),10);r.style.display=(idx>=(p-1)*10&&idx<p*10)?\'\':\' none\';});' +
+           'document.getElementById(\'' + pagerId + '\').querySelectorAll(\'.rp-btn\').forEach(function(b){b.classList.toggle(\'rp-active\',parseInt(b.textContent)===p);});' +
+           '})(' + i + ')">' + i + '</button>';
+    }
+    pager.innerHTML = b;
+  }
+  show(cur);
 }
 </script>
 </body>
