@@ -121,6 +121,32 @@
                  padding: 2px 8px; border-radius: 20px; width: fit-content; }
     .rel-name   { font-size: 13px; font-weight: 700; color: #111827; line-height: 1.3; }
     .rel-region { font-size: 11px; color: #9ca3af; }
+    /* 연봉 시각화 */
+    .salary-viz { display: flex; flex-direction: column; gap: 14px; }
+    .sv-row { display: flex; align-items: center; gap: 12px; }
+    .sv-label { font-size: 12px; color: #6b7280; width: 68px; flex-shrink: 0; }
+    .sv-bar-wrap { flex: 1; background: #f3f4f6; border-radius: 6px; height: 10px; overflow: hidden; }
+    .sv-bar { height: 100%; border-radius: 6px; background: #2563eb; }
+    .sv-bar-avg { background: #03c75a; }
+    .sv-bar-years { background: #7c3aed; }
+    .sv-val { font-size: 14px; color: #111827; min-width: 90px; text-align: right; flex-shrink: 0; }
+    .sv-rank { margin-top: 14px; font-size: 13px; color: #374151;
+               background: #eff6ff; border-radius: 8px; padding: 10px 14px; }
+    /* 접기/펼치기 */
+    .allbranch-group-title { cursor: default; }
+    .group-collapsible .allbranch-group-title { cursor: pointer; user-select: none;
+      display: flex; align-items: center; justify-content: space-between; }
+    .group-collapsible .allbranch-group-title:hover { background: #e9eaec; }
+    .toggle-icon { font-size: 11px; color: #9ca3af;
+                   display: inline-block; transition: transform .2s; }
+    .group-collapsible:not(.group-collapsed) .toggle-icon { transform: rotate(90deg); }
+    .group-collapsed .allbranch-list { display: none; }
+    /* 업종 연봉 순위 */
+    .rank-me td { background: #eff6ff; font-weight: 700; color: #1d4ed8; }
+    .rank-table td:first-child { text-align: center; color: #9ca3af; font-size: 13px; }
+    .rank-me td:first-child { color: #1d4ed8; }
+    .rank-table a { color: inherit; }
+    .rank-table a:hover { color: #2563eb; text-decoration: underline; }
     /* 푸터 */
     .site-footer { text-align: center; font-size: 12px; color: #9ca3af;
                    padding: 32px 16px; border-top: 1px solid #e5e7eb; margin-top: 40px; }
@@ -175,6 +201,29 @@
       <div class="info-item"><label>평균 근속연수</label><span>9년</span></div>
       <div class="info-item"><label>산업 분야</label><span>복지·보건</span></div>
     </div>
+  </div>
+
+  <!-- 연봉 시각화 -->
+  <div class="card">
+    <div class="card-title">연봉 정보 (ALIO 공시 기준)</div>
+    <div class="salary-viz">
+      <div class="sv-row">
+        <div class="sv-label">신입 초봉</div>
+        <div class="sv-bar-wrap"><div class="sv-bar" style="width:74%"></div></div>
+        <div class="sv-val"><strong>3,200만원</strong></div>
+      </div>
+      <div class="sv-row">
+        <div class="sv-label">평균 연봉</div>
+        <div class="sv-bar-wrap"><div class="sv-bar sv-bar-avg" style="width:76%"></div></div>
+        <div class="sv-val"><strong>5,800만원</strong></div>
+      </div>
+      <div class="sv-row">
+        <div class="sv-label">평균 근속</div>
+        <div class="sv-bar-wrap"><div class="sv-bar sv-bar-years" style="width:30%"></div></div>
+        <div class="sv-val"><strong>9년</strong></div>
+      </div>
+    </div>
+    <div class="sv-rank">📊 <strong>복지·보건</strong> 계열 신입연봉 <strong>61개 기관 중 27위</strong></div>
   </div>
 
   <!-- 주요 사업 -->
@@ -235,32 +284,111 @@
     </div>
   </div>
 
+  <!-- 업종 연봉 순위 -->
+  <div class="card">
+    <div class="card-title">복지·보건 계열 신입연봉 순위</div>
+    <table class="rank-table">
+      <thead><tr><th>순위</th><th>기관명</th><th>신입연봉</th><th>평균연봉</th></tr></thead>
+      <tbody>
+        
+        <tr class="">
+          <td>1</td>
+          <td><a href="https://govmap.kr/orgs/%EA%B5%AD%EB%AF%BC%EA%B1%B4%EA%B0%95%EB%B3%B4%ED%97%98%EA%B3%B5%EB%8B%A8/">국민건강보험공단</a></td>
+          <td>4,320만원</td>
+          <td>7,040만원</td>
+        </tr>
+        <tr class="">
+          <td>2</td>
+          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%86%8C%EB%B9%84%EC%9E%90%EC%9B%90/">한국소비자원</a></td>
+          <td>4,230만원</td>
+          <td>6,639만원</td>
+        </tr>
+        <tr class="">
+          <td>3</td>
+          <td><a href="https://govmap.kr/orgs/%EA%B1%B4%EA%B0%95%EB%B3%B4%ED%97%98%EC%8B%AC%EC%82%AC%ED%8F%89%EA%B0%80%EC%9B%90/">건강보험심사평가원</a></td>
+          <td>4,200만원</td>
+          <td>6,956만원</td>
+        </tr>
+        <tr class="">
+          <td>4</td>
+          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%B3%B4%ED%9B%88%EB%B3%B5%EC%A7%80%EC%9D%98%EB%A3%8C%EA%B3%B5%EB%8B%A8/">한국보훈복지의료공단</a></td>
+          <td>4,170만원</td>
+          <td>7,172만원</td>
+        </tr>
+        <tr class="">
+          <td>5</td>
+          <td><a href="https://govmap.kr/orgs/%EA%B3%B5%EB%AC%B4%EC%9B%90%EC%97%B0%EA%B8%88%EA%B3%B5%EB%8B%A8/">공무원연금공단</a></td>
+          <td>4,112만원</td>
+          <td>7,490만원</td>
+        </tr>
+        <tr class="">
+          <td>6</td>
+          <td><a href="https://govmap.kr/orgs/%EA%B5%AD%EB%AF%BC%EC%97%B0%EA%B8%88%EA%B3%B5%EB%8B%A8/">국민연금공단</a></td>
+          <td>4,104만원</td>
+          <td>7,645만원</td>
+        </tr>
+        <tr class="">
+          <td>7</td>
+          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%B3%B4%EA%B1%B4%EC%82%B0%EC%97%85%EC%A7%84%ED%9D%A5%EC%9B%90/">한국보건산업진흥원</a></td>
+          <td>3,800만원</td>
+          <td>7,400만원</td>
+        </tr>
+        <tr class="">
+          <td>8</td>
+          <td><a href="https://govmap.kr/orgs/(%EC%9E%AC)%ED%95%9C%EA%B5%AD%EB%B3%B4%EA%B1%B4%EC%9D%98%EB%A3%8C%EC%A0%95%EB%B3%B4%EC%9B%90/">(재)한국보건의료정보원</a></td>
+          <td>3,795만원</td>
+          <td>6,051만원</td>
+        </tr>
+        <tr class="">
+          <td>9</td>
+          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%B3%B4%EA%B1%B4%EC%82%AC%ED%9A%8C%EC%97%B0%EA%B5%AC%EC%9B%90/">한국보건사회연구원</a></td>
+          <td>3,700만원</td>
+          <td>7,300만원</td>
+        </tr>
+        <tr class="">
+          <td>10</td>
+          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%B3%B4%EA%B1%B4%EC%9D%98%EB%A3%8C%EC%97%B0%EA%B5%AC%EC%9B%90/">한국보건의료연구원</a></td>
+          <td>3,700만원</td>
+          <td>7,100만원</td>
+        </tr>
+        
+        <tr><td colspan="4" style="text-align:center;color:#9ca3af;font-size:12px;padding:6px">⋯</td></tr>
+        <tr class="rank-me">
+          <td>27</td>
+          <td>한국국제보건의료재단 <span style="font-size:11px;color:#2563eb">(현재)</span></td>
+          <td>3,200만원</td>
+          <td>5,800만원</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
   <!-- 관련 기관 -->
   <div class="card">
     <div class="card-title">같은 유형의 다른 기관</div>
-    <div class="related-grid"><a href="https://govmap.kr/orgs/%EC%9E%90%EB%8F%99%EC%B0%A8%EC%86%90%ED%95%B4%EB%B0%B0%EC%83%81%EC%A7%84%ED%9D%A5%EC%9B%90/" class="rel-card">
+    <div class="related-grid"><a href="https://govmap.kr/orgs/%EC%A4%91%EC%86%8C%EB%B2%A4%EC%B2%98%EA%B8%B0%EC%97%85%EC%97%B0%EA%B5%AC%EC%9B%90/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">자동차손해배상진흥원</span>
+       <span class="rel-name">중소벤처기업연구원</span>
        <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%B2%B4%EC%9C%A1%EC%82%B0%EC%97%85%EA%B0%9C%EB%B0%9C(%EC%A3%BC)/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%9E%84%EC%97%85%EC%A7%84%ED%9D%A5%EC%9B%90/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">한국체육산업개발(주)</span>
+       <span class="rel-name">한국임업진흥원</span>
        <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%AC%BC%EA%B8%B0%EC%88%A0%EC%9D%B8%EC%A6%9D%EC%9B%90/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%B6%9C%ED%8C%90%EB%AC%B8%ED%99%94%EC%82%B0%EC%97%85%EC%A7%84%ED%9D%A5%EC%9B%90/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">한국물기술인증원</span>
-       <span class="rel-region">충청권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%9D%98%EC%95%BD%ED%92%88%EC%95%88%EC%A0%84%EA%B4%80%EB%A6%AC%EC%9B%90/" class="rel-card">
+       <span class="rel-name">한국출판문화산업진흥원</span>
+       <span class="rel-region">전라권</span>
+     </a><a href="https://govmap.kr/orgs/%ED%95%99%EA%B5%90%EB%B2%95%EC%9D%B8%ED%95%9C%EA%B5%AD%ED%8F%B4%EB%A6%AC%ED%85%8D/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">한국의약품안전관리원</span>
+       <span class="rel-name">학교법인한국폴리텍</span>
        <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%ED%96%89%EC%A0%95%EC%97%B0%EA%B5%AC%EC%9B%90/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%EC%98%88%EC%88%A0%EC%9D%98%EC%A0%84%EB%8B%B9/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">한국행정연구원</span>
-       <span class="rel-region">충청권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A0%80%EC%9E%91%EA%B6%8C%EB%B3%B4%ED%98%B8%EC%9B%90/" class="rel-card">
+       <span class="rel-name">예술의전당</span>
+       <span class="rel-region">수도권</span>
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%82%B0%EC%97%85%EC%9D%80%ED%96%89/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">한국저작권보호원</span>
+       <span class="rel-name">한국산업은행</span>
        <span class="rel-region">수도권</span>
      </a></div>
   </div>
@@ -272,5 +400,10 @@
   <p style="margin-top:6px">데이터 기준: 2026년 공채 공고 / 오류 제보 환영</p>
 </footer>
 
+<script>
+function toggleGroup(el) {
+  el.parentElement.classList.toggle('group-collapsed');
+}
+</script>
 </body>
 </html>

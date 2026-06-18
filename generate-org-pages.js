@@ -68,6 +68,14 @@ function buildPage(org) {
   const badge   = typeBadge[org.type] || org.type;
   const related = getRelated(org);
 
+  // 같은 업종 신입연봉 순위 (연봉 데이터 있는 기관만)
+  const industryPeers = ORGS
+    .filter(o => o.industry === org.industry && o.startingSalary)
+    .sort((a, b) => b.startingSalary - a.startingSalary);
+  const industryRank = industryPeers.findIndex(o => o.id === org.id) + 1;
+  const salaryBarMax = Math.max(...industryPeers.map(o => o.startingSalary), org.startingSalary || 6000);
+  const avgBarMax    = Math.max(...industryPeers.map(o => o.avgSalary || 0), org.avgSalary || 10000);
+
   const ncsStr      = (org.ncs || []).join(', ');
   const examStr     = (org.examSubjects || []).join(', ');
   const majorDirs   = Object.keys(org.majorSubjects || {});
@@ -138,9 +146,14 @@ function buildPage(org) {
       📍 표시된 항목은 지도에서 위치 확인 가능, 그 외는 목록 참고용<br>
       ⚠️ 국가중요시설 및 기관 사정으로 지도에 표시되지 않거나 불명확하게 표시되는 사업장·지사가 있을 수 있어요.
     </div>
-    ${allBranches.map(group => `
-      <div class="allbranch-group">
-        <div class="allbranch-group-title">${escHtml(group.groupName)} <span class="allbranch-count">(${group.items.length})</span></div>
+    ${allBranches.map(group => {
+      const collapsible = group.items.length >= 5;
+      return `
+      <div class="${collapsible ? 'allbranch-group group-collapsible group-collapsed' : 'allbranch-group'}">
+        <div class="allbranch-group-title"${collapsible ? ' onclick="toggleGroup(this)"' : ''}>
+          <span>${escHtml(group.groupName)} <span class="allbranch-count">(${group.items.length})</span></span>
+          ${collapsible ? '<span class="toggle-icon">▶</span>' : ''}
+        </div>
         <ul class="allbranch-list">
           ${group.items.map(item => `
             <li class="allbranch-item">
@@ -148,7 +161,8 @@ function buildPage(org) {
               ${item.address ? `<div class="allbranch-addr">${escHtml(item.address)}</div>` : ''}
             </li>`).join('')}
         </ul>
-      </div>`).join('')}`;
+      </div>`;
+    }).join('')}`;
   })() : '';
 
   // 관련 기관 카드
@@ -283,6 +297,32 @@ function buildPage(org) {
                  padding: 2px 8px; border-radius: 20px; width: fit-content; }
     .rel-name   { font-size: 13px; font-weight: 700; color: #111827; line-height: 1.3; }
     .rel-region { font-size: 11px; color: #9ca3af; }
+    /* 연봉 시각화 */
+    .salary-viz { display: flex; flex-direction: column; gap: 14px; }
+    .sv-row { display: flex; align-items: center; gap: 12px; }
+    .sv-label { font-size: 12px; color: #6b7280; width: 68px; flex-shrink: 0; }
+    .sv-bar-wrap { flex: 1; background: #f3f4f6; border-radius: 6px; height: 10px; overflow: hidden; }
+    .sv-bar { height: 100%; border-radius: 6px; background: #2563eb; }
+    .sv-bar-avg { background: #03c75a; }
+    .sv-bar-years { background: #7c3aed; }
+    .sv-val { font-size: 14px; color: #111827; min-width: 90px; text-align: right; flex-shrink: 0; }
+    .sv-rank { margin-top: 14px; font-size: 13px; color: #374151;
+               background: #eff6ff; border-radius: 8px; padding: 10px 14px; }
+    /* 접기/펼치기 */
+    .allbranch-group-title { cursor: default; }
+    .group-collapsible .allbranch-group-title { cursor: pointer; user-select: none;
+      display: flex; align-items: center; justify-content: space-between; }
+    .group-collapsible .allbranch-group-title:hover { background: #e9eaec; }
+    .toggle-icon { font-size: 11px; color: #9ca3af;
+                   display: inline-block; transition: transform .2s; }
+    .group-collapsible:not(.group-collapsed) .toggle-icon { transform: rotate(90deg); }
+    .group-collapsed .allbranch-list { display: none; }
+    /* 업종 연봉 순위 */
+    .rank-me td { background: #eff6ff; font-weight: 700; color: #1d4ed8; }
+    .rank-table td:first-child { text-align: center; color: #9ca3af; font-size: 13px; }
+    .rank-me td:first-child { color: #1d4ed8; }
+    .rank-table a { color: inherit; }
+    .rank-table a:hover { color: #2563eb; text-decoration: underline; }
     /* 푸터 */
     .site-footer { text-align: center; font-size: 12px; color: #9ca3af;
                    padding: 32px 16px; border-top: 1px solid #e5e7eb; margin-top: 40px; }
@@ -342,6 +382,29 @@ function buildPage(org) {
     </div>
   </div>
 
+  <!-- 연봉 시각화 -->
+  ${org.avgSalary ? `<div class="card">
+    <div class="card-title">연봉 정보 (ALIO 공시 기준)</div>
+    <div class="salary-viz">
+      <div class="sv-row">
+        <div class="sv-label">신입 초봉</div>
+        <div class="sv-bar-wrap"><div class="sv-bar" style="width:${Math.round((org.startingSalary/salaryBarMax)*100)}%"></div></div>
+        <div class="sv-val"><strong>${salary(org.startingSalary)}</strong></div>
+      </div>
+      <div class="sv-row">
+        <div class="sv-label">평균 연봉</div>
+        <div class="sv-bar-wrap"><div class="sv-bar sv-bar-avg" style="width:${Math.round((org.avgSalary/avgBarMax)*100)}%"></div></div>
+        <div class="sv-val"><strong>${salary(org.avgSalary)}</strong></div>
+      </div>
+      ${org.avgYears ? `<div class="sv-row">
+        <div class="sv-label">평균 근속</div>
+        <div class="sv-bar-wrap"><div class="sv-bar sv-bar-years" style="width:${Math.min(Math.round((org.avgYears/30)*100),100)}%"></div></div>
+        <div class="sv-val"><strong>${org.avgYears}년</strong></div>
+      </div>` : ''}
+    </div>
+    ${industryRank > 0 ? `<div class="sv-rank">📊 <strong>${escHtml(org.industry)}</strong> 계열 신입연봉 <strong>${industryPeers.length}개 기관 중 ${industryRank}위</strong></div>` : ''}
+  </div>` : ''}
+
   <!-- 주요 사업 -->
   ${mainBiz ? `<div class="card">
     <div class="card-title">주요 사업</div>
@@ -395,6 +458,31 @@ function buildPage(org) {
     </div>
   </div>
 
+  <!-- 업종 연봉 순위 -->
+  ${industryPeers.length > 1 ? `<div class="card">
+    <div class="card-title">${escHtml(org.industry)} 계열 신입연봉 순위</div>
+    <table class="rank-table">
+      <thead><tr><th>순위</th><th>기관명</th><th>신입연봉</th><th>평균연봉</th></tr></thead>
+      <tbody>
+        ${industryPeers.slice(0, 10).map((p, i) => `
+        <tr class="${p.id === org.id ? 'rank-me' : ''}">
+          <td>${i + 1}</td>
+          <td><a href="${BASE_URL}/orgs/${encodeURIComponent(p.name)}/">${escHtml(p.name)}${p.id === org.id ? ' <span style="font-size:11px;color:#2563eb">(현재)</span>' : ''}</a></td>
+          <td>${salary(p.startingSalary)}</td>
+          <td>${salary(p.avgSalary)}</td>
+        </tr>`).join('')}
+        ${industryRank > 10 ? `
+        <tr><td colspan="4" style="text-align:center;color:#9ca3af;font-size:12px;padding:6px">⋯</td></tr>
+        <tr class="rank-me">
+          <td>${industryRank}</td>
+          <td>${escHtml(org.name)} <span style="font-size:11px;color:#2563eb">(현재)</span></td>
+          <td>${salary(org.startingSalary)}</td>
+          <td>${salary(org.avgSalary)}</td>
+        </tr>` : ''}
+      </tbody>
+    </table>
+  </div>` : ''}
+
   <!-- 관련 기관 -->
   ${related.length ? `<div class="card">
     <div class="card-title">같은 유형의 다른 기관</div>
@@ -408,6 +496,11 @@ function buildPage(org) {
   <p style="margin-top:6px">데이터 기준: 2026년 공채 공고 / 오류 제보 환영</p>
 </footer>
 
+<script>
+function toggleGroup(el) {
+  el.parentElement.classList.toggle('group-collapsed');
+}
+</script>
 </body>
 </html>`;
 }
