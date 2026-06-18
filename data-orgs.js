@@ -11,6 +11,18 @@ const ORGS = [
     "startingSalary": 5084,
     "avgSalary": 10608,
     "avgYears": 16.7,
+    "startingSalaryHistory": [
+      {"year": 2023, "val": 4683},
+      {"year": 2024, "val": 4796},
+      {"year": 2025, "val": 5085},
+      {"year": 2026, "val": 5263}
+    ],
+    "avgSalaryHistory": [
+      {"year": 2023, "val": 9559},
+      {"year": 2024, "val": 9402},
+      {"year": 2025, "val": 10609},
+      {"year": 2026, "val": 10318}
+    ],
     "homepage": "https://www.kogas.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국가스공사",
     "description": "1983년 설립된 시장형 공기업으로, 해외에서 LNG를 도입해 전국에 공급하는 국내 천연가스 사업의 핵심 축. 세계 최대 수준의 LNG 저장설비를 보유하고 있으며 일본 JERA와 함께 세계 1~2위 LNG 구매자로 꼽힌다. 공기업 중 평균 연봉 최상위권.",
