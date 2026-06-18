@@ -336,10 +336,10 @@ function buildPage(org) {
                     align-items: center; justify-content: flex-end; width: 100%; }
     .vc-val-tag { font-size: 11px; font-weight: 700; color: #374151; margin-bottom: 4px; white-space: nowrap; }
     .vc-bar { width: 36px; border-radius: 4px 4px 0 0; }
-    .vc-bar-start { background: #1e3a5f; }
-    .vc-bar-avg   { background: #2563eb; }
-    .vc-bar-current-start { background: #3b82f6; }
-    .vc-bar-current-avg   { background: #38bdf8; }
+    .vc-bar-start { background: #1a6b46; }
+    .vc-bar-avg   { background: #1a346b; }
+    .vc-bar-current-start { background: #2ab374; }
+    .vc-bar-current-avg   { background: #2f5dbf; }
     .vc-year-tag  { font-size: 11px; color: #9ca3af; margin-top: 6px; }
     .vc-year-current { color: #1d4ed8; font-weight: 700; }
     .vc-note { font-size: 11px; color: #9ca3af; margin-top: 8px; }
