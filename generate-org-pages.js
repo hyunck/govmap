@@ -44,6 +44,16 @@ function escHtml(s) {
 
 function salary(n) { return n ? n.toLocaleString('ko-KR') + '만원' : '-'; }
 
+function cityFromAddress(addr) {
+  if (!addr) return '';
+  const metros = ['서울','부산','대구','인천','광주','대전','울산'];
+  for (const m of metros) { if (addr.startsWith(m)) return m; }
+  if (addr.startsWith('세종')) return '세종';
+  const m2 = addr.match(/(?:도|특별자치도)\s+([가-힣]+(?:시|군))/);
+  if (m2) return m2[1].replace(/[시군]$/, '');
+  return '';
+}
+
 // ── 관련 기관 (같은 type 중 무작위 6개) ─────────────────────
 function getRelated(org) {
   return ORGS
@@ -85,12 +95,28 @@ function buildPage(org) {
   </div>`;
   }
 
-  // 메타 description — "OOO 연봉", "OOO 위치" 검색 의도에 맞춰 핵심 수치를 앞쪽에 명시
-  const desc = `${org.name} 평균연봉 ${salary(org.avgSalary)}(초임 ${salary(org.startingSalary)}), `
-    + `위치: ${org.region} · ${org.address}. `
-    + `${org.type} 기관 정보와 `
-    + (examStr ? `시험과목(${examStr.substring(0, 40).replace(/,\s*$/, '')} 등), ` : '')
-    + `채용·발령지 정보를 한눈에 확인하세요.`;
+  // totalBranchCount는 desc와 HTML 본문 모두에서 사용되므로 먼저 계산
+  const totalBranchCount = (org.allBranches||[]).length > 0
+    ? (org.allBranches||[]).reduce((s, g) => s + g.items.length, 0)
+    : (org.branches || []).length;
+
+  // 메타 description — 연봉/위치/발령지 각 검색 의도를 모두 커버하되 자연스럽게
+  const city = cityFromAddress(org.address);
+  const locationStr = city ? `${city}(${org.region})` : org.region;
+  const branchSuffix = totalBranchCount > 1 ? ` 전국 ${totalBranchCount}개 지사·근무지를 지도로 확인.` : '';
+  let desc;
+  if (org.avgSalary) {
+    desc = `${org.name} 초봉 ${salary(org.startingSalary)} · 평균연봉 ${salary(org.avgSalary)}`
+      + (org.avgYears ? ` · 근속 ${org.avgYears}년` : '')
+      + `. ${locationStr} 소재 ${org.type}.`
+      + branchSuffix
+      + ` 발령지·시험과목·NCS·채용 정보 한눈에.`;
+  } else {
+    desc = `${org.name}의 본사 위치 및${totalBranchCount > 1 ? ` 전국 ${totalBranchCount}개` : ''} 지사·근무지를 지도로 확인.`
+      + ` ${locationStr} 소재 ${org.type}.`
+      + (mainBiz ? ` ${(org.mainBusiness||[]).slice(0,2).join(', ')} 등 주요 사업.` : '')
+      + ` 발령지·시험과목·채용 정보 한눈에.`;
+  }
 
   // 직렬 + 전공 테이블 행
   const majorRows = majorDirs.map(dir =>
@@ -147,14 +173,14 @@ function buildPage(org) {
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${escHtml(org.name)} 연봉 ${salary(org.avgSalary)}·위치(${escHtml(org.region)}) | GovMap</title>
+  <title>${escHtml(org.name)}${org.avgSalary ? ` 연봉 ${salary(org.avgSalary)} ·` : ''} 발령지·지사 지도 | GovMap</title>
   <meta name="description" content="${escHtml(desc)}">
   <meta name="keywords" content="${escHtml(org.name)}, ${escHtml(org.name)} 연봉, ${escHtml(org.name)} 위치, ${escHtml(org.name)} 주소, ${escHtml(org.name)} 초임, ${escHtml(org.name)} 시험과목, ${escHtml(org.name)} NCS, ${escHtml(org.name)} 채용, ${escHtml(org.name)} 발령지, ${escHtml(org.shortName||'')}">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="${BASE_URL}/orgs/${encodeURIComponent(org.name)}/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="${BASE_URL}/orgs/${encodeURIComponent(org.name)}/">
-  <meta property="og:title" content="${escHtml(org.name)} 연봉 ${salary(org.avgSalary)}·위치(${escHtml(org.region)}) | GovMap">
+  <meta property="og:title" content="${escHtml(org.name)}${org.avgSalary ? ` 연봉 ${salary(org.avgSalary)} ·` : ''} 발령지·지사 지도 | GovMap">
   <meta property="og:description" content="${escHtml(desc)}">
   <meta property="og:locale" content="ko_KR">
   <script type="application/ld+json">
@@ -290,6 +316,10 @@ function buildPage(org) {
   <!-- 기본 정보 -->
   <div class="card">
     <div class="card-title">기관 기본 정보</div>
+    ${org.avgSalary
+      ? `<p style="font-size:14px;color:#374151;line-height:1.7;margin-bottom:16px;">${escHtml(org.name)} 평균연봉은 <strong>${salary(org.avgSalary)}</strong>이며, 초봉 <strong>${salary(org.startingSalary)}</strong>${org.avgYears ? `, 평균 근속연수 <strong>${org.avgYears}년</strong>` : ''}입니다 (ALIO 공시 기준). ${escHtml(locationStr)} 소재 ${escHtml(org.type)}입니다.</p>`
+      : `<p style="font-size:14px;color:#374151;line-height:1.7;margin-bottom:16px;">${escHtml(org.name)}은(는) ${escHtml(locationStr)} 소재 ${escHtml(org.type)}으로, ${escHtml(org.address)}에 위치합니다.${totalBranchCount > 1 ? ` 전국 ${totalBranchCount}개 지사·근무지를 지도로 확인할 수 있습니다.` : ''}</p>`
+    }
     <div class="info-grid">
       <div class="info-item">
         <label>본사 주소</label>
@@ -349,13 +379,10 @@ function buildPage(org) {
   </div>` : ''}
 
   <!-- 전국 사업장·지점 -->
-  ${allBranchesHtml ? `<div class="card">
+  ${(allBranchesHtml || branchItems) ? `<div class="card">
     <div class="card-title">전국 본사·지점·사업소</div>
-    ${allBranchesHtml}
-  </div>` : branchItems ? `<div class="card">
-    <div class="card-title">전국 본사·지점·사업소</div>
-    <div class="branch-intro">⚠️ 국가중요시설 및 기관 사정으로 지도에 표시되지 않거나 불명확하게 표시되는 사업장·지사가 있을 수 있어요.</div>
-    <ul class="branch-list">${branchItems}</ul>
+    <p style="font-size:14px;color:#374151;line-height:1.7;margin-bottom:12px;">${escHtml(org.name)} 본사는 <strong>${escHtml(org.address)}</strong>에 위치합니다.${totalBranchCount > 1 ? ` 합격 후 발령 가능한 전국 근무지는 총 <strong>${totalBranchCount}개소</strong>이며, 지사·사업소별 위치를 지도에서 확인할 수 있습니다.` : ''}</p>
+    ${allBranchesHtml || `<div class="branch-intro">⚠️ 국가중요시설 및 기관 사정으로 지도에 표시되지 않거나 불명확하게 표시되는 사업장·지사가 있을 수 있어요.</div><ul class="branch-list">${branchItems}</ul>`}
   </div>` : ''}
 
   <!-- 링크 -->
