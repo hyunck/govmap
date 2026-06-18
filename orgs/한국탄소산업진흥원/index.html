@@ -568,37 +568,36 @@
         </tr>
       </tbody>
     </table>
-    <div class="rank-pager" id="rp-343"></div>
+    <div class="rank-pager" id="rp-343" data-table="rt-343" data-start="4"></div>
   </div>
-  <script>initRankPager('rt-343','rp-343',4);</script>
 
   <!-- 관련 기관 -->
   <div class="card">
     <div class="card-title">같은 유형의 다른 기관</div>
-    <div class="related-grid"><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%ED%8A%B9%ED%97%88%EC%A0%95%EB%B3%B4%EC%9B%90/" class="rel-card">
+    <div class="related-grid"><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%8B%9D%ED%92%88%EC%95%88%EC%A0%84%EA%B4%80%EB%A6%AC%EC%9D%B8%EC%A6%9D%EC%9B%90/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">한국특허정보원</span>
+       <span class="rel-name">한국식품안전관리인증원</span>
        <span class="rel-region">충청권</span>
-     </a><a href="https://govmap.kr/orgs/%EA%B5%AD%EC%95%85%EB%B0%A9%EC%86%A1/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%EC%8A%A4%ED%8F%AC%EC%B8%A0%EC%9C%A4%EB%A6%AC%EC%84%BC%ED%84%B0/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">국악방송</span>
+       <span class="rel-name">스포츠윤리센터</span>
        <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%EA%B5%AD%EB%B0%A9%EA%B3%BC%ED%95%99%EC%97%B0%EA%B5%AC%EC%86%8C/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B1%B4%EA%B0%95%EC%A6%9D%EC%A7%84%EA%B0%9C%EB%B0%9C%EC%9B%90/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">국방과학연구소</span>
+       <span class="rel-name">한국건강증진개발원</span>
        <span class="rel-region">충청권</span>
-     </a><a href="https://govmap.kr/orgs/%EA%B2%BD%EC%83%81%EA%B5%AD%EB%A6%BD%EB%8C%80%ED%95%99%EA%B5%90%EB%B3%91%EC%9B%90/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%97%90%EB%84%88%EC%A7%80%EC%A0%95%EB%B3%B4%EB%AC%B8%ED%99%94%EC%9E%AC%EB%8B%A8/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">경상국립대학교병원</span>
-       <span class="rel-region">경상권</span>
-     </a><a href="https://govmap.kr/orgs/(%EC%A3%BC)%EA%B3%B5%EC%98%81%ED%99%88%EC%87%BC%ED%95%91/" class="rel-card">
-       <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">(주)공영홈쇼핑</span>
+       <span class="rel-name">한국에너지정보문화재단</span>
        <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%EB%8C%80%ED%95%9C%EC%84%9D%ED%83%84%EA%B3%B5%EC%82%AC/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%ED%8A%B9%ED%97%88%EA%B8%B0%EC%88%A0%EC%A7%84%ED%9D%A5%EC%9B%90/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">대한석탄공사</span>
-       <span class="rel-region">강원권</span>
+       <span class="rel-name">한국특허기술진흥원</span>
+       <span class="rel-region">수도권</span>
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%AC%B8%ED%99%94%EC%A7%84%ED%9D%A5%EC%A3%BC%EC%8B%9D%ED%9A%8C%EC%82%AC/" class="rel-card">
+       <span class="rel-badge" style="background:#059669">기타공공기관</span>
+       <span class="rel-name">한국문화진흥주식회사</span>
+       <span class="rel-region">수도권</span>
      </a></div>
   </div>
 
@@ -616,32 +615,41 @@ function toggleGroup(el) {
   var icon = el.querySelector('.toggle-icon');
   if (icon) icon.textContent = group.classList.contains('group-collapsed') ? '▼' : '▲';
 }
-function initRankPager(tableId, pagerId, startPage) {
-  var tbl = document.getElementById(tableId);
-  var pager = document.getElementById(pagerId);
-  if (!tbl || !pager) return;
-  var rows = Array.from(tbl.querySelectorAll('tbody tr'));
-  var PER = 10, pages = Math.ceil(rows.length / PER), cur = startPage || 1;
-  function show(p) {
-    cur = p;
-    rows.forEach(function(r) {
-      var idx = parseInt(r.getAttribute('data-ri'), 10);
-      r.style.display = (idx >= (p-1)*PER && idx < p*PER) ? '' : 'none';
-    });
+
+function showRankPage(pager, p) {
+  var tbl = document.getElementById(pager.getAttribute('data-table'));
+  if (!tbl) return;
+  var PER = 10;
+  Array.from(tbl.querySelectorAll('tbody tr')).forEach(function(r) {
+    var idx = parseInt(r.getAttribute('data-ri'), 10);
+    r.style.display = (idx >= (p - 1) * PER && idx < p * PER) ? '' : 'none';
+  });
+  Array.from(pager.querySelectorAll('.rp-btn')).forEach(function(btn) {
+    btn.classList.toggle('rp-active', parseInt(btn.getAttribute('data-page'), 10) === p);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.rank-pager[data-table]').forEach(function(pager) {
+    var tbl = document.getElementById(pager.getAttribute('data-table'));
+    if (!tbl) return;
+    var totalRows = tbl.querySelectorAll('tbody tr').length;
+    var pages = Math.ceil(totalRows / 10);
     if (pages <= 1) { pager.style.display = 'none'; return; }
+    var sp = parseInt(pager.getAttribute('data-start'), 10) || 1;
     var b = '';
     for (var i = 1; i <= pages; i++) {
-      b += '<button class="rp-btn' + (i === cur ? ' rp-active' : '') + '" onclick="(function(p){' +
-           'var t=document.getElementById('' + tableId + '');' +
-           'var rws=Array.from(t.querySelectorAll('tbody tr'));' +
-           'rws.forEach(function(r){var idx=parseInt(r.getAttribute('data-ri'),10);r.style.display=(idx>=(p-1)*10&&idx<p*10)?'':' none';});' +
-           'document.getElementById('' + pagerId + '').querySelectorAll('.rp-btn').forEach(function(b){b.classList.toggle('rp-active',parseInt(b.textContent)===p);});' +
-           '})(' + i + ')">' + i + '</button>';
+      b += '<button class="rp-btn' + (i === sp ? ' rp-active' : '') + '" data-page="' + i + '">' + i + '</button>';
     }
     pager.innerHTML = b;
-  }
-  show(cur);
-}
+    pager.addEventListener('click', function(e) {
+      var btn = e.target.closest ? e.target.closest('.rp-btn') : (e.target.classList.contains('rp-btn') ? e.target : null);
+      if (!btn) return;
+      showRankPage(pager, parseInt(btn.getAttribute('data-page'), 10));
+    });
+    showRankPage(pager, sp);
+  });
+});
 </script>
 </body>
 </html>
