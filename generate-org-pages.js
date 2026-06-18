@@ -327,7 +327,7 @@ function buildPage(org) {
     @media(max-width:500px){ .vchart { grid-template-columns: 1fr; } }
     .vc-block { border: 1px solid #e5e7eb; border-radius: 10px; padding: 14px 12px 10px; }
     .vc-block-title { font-size: 13px; font-weight: 700; color: #111827;
-                      border-left: 3px solid #1e3a5f; padding-left: 8px; margin-bottom: 12px; }
+                      border-left: 3px solid #1e3a5f; padding-left: 8px; margin-bottom: 24px; }
     .vc-block-title.avg-title { border-left-color: #2563eb; }
     .vc-bars-wrap { display: flex; align-items: flex-end; justify-content: center;
                     gap: 10px; height: 130px; }
