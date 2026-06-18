@@ -85,10 +85,10 @@ function buildPage(gov) {
   const mainBiz      = (gov.mainBusiness || []).join(' · ');
   const examStr      = (gov.examTrack || []).join(', ');
 
-  // 메타 description — "OOO 위치/주소" 검색 의도에 맞춰 주소를 앞쪽에 명시
-  const desc = `${gov.name} 위치·주소: ${gov.address} (${gov.region}). `
-    + `${gov.rank} 단위 ${gov.category} 정부기관. `
-    + (totalItems > 1 ? `소속·산하기관 ${totalItems}개 전국 위치를 지도에서 한눈에 확인하세요.` : '지도에서 위치를 바로 확인하세요.');
+  // 메타 description — 발령지/근무지 검색 의도 우선, 주소·소속기관 수도 커버
+  const desc = totalItems > 1
+    ? `${gov.name} 합격 후 발령 가능한 전국 ${subLabel} ${totalItems}개 위치를 지도로 확인. ${gov.address} 소재 ${gov.rank}. 근무지·시험 직렬 정보 한눈에.`
+    : `${gov.name} 위치: ${gov.address} (${gov.region}). ${gov.category} ${gov.rank}. 공무원 채용·발령지 정보 한눈에.`;
 
   // allBranches 그룹 → 섹션 HTML
   const branchSections = (gov.allBranches || []).map(group => {
@@ -133,14 +133,14 @@ function buildPage(gov) {
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${escHtml(gov.name)} 위치·주소(${escHtml(gov.region)}) - ${subLabel} ${totalItems}개 | GovMap</title>
+  <title>${escHtml(gov.name)} 발령지·${subLabel} ${totalItems}개 지도 | GovMap</title>
   <meta name="description" content="${escHtml(desc)}">
   <meta name="keywords" content="${escHtml(gov.name)}, ${escHtml(gov.name)} 위치, ${escHtml(gov.name)} 주소, ${escHtml(gov.name)} 소속기관, ${escHtml(gov.name)} 발령지, ${escHtml(gov.name)} 근무지, ${escHtml(gov.name)} 채용, ${escHtml(extraKw)}, 정부기관 발령지, 공무원 발령지">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="${BASE_URL}/govs/${encodeURIComponent(gov.name)}/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="${BASE_URL}/govs/${encodeURIComponent(gov.name)}/">
-  <meta property="og:title" content="${escHtml(gov.name)} 위치·주소(${escHtml(gov.region)}) | GovMap">
+  <meta property="og:title" content="${escHtml(gov.name)} 발령지·${subLabel} ${totalItems}개 지도 | GovMap">
   <meta property="og:description" content="${escHtml(desc)}">
   <meta property="og:locale" content="ko_KR">
   <script type="application/ld+json">
@@ -286,6 +286,7 @@ function buildPage(gov) {
   <!-- 기본 정보 -->
   <div class="card">
     <div class="card-title">기관 기본 정보</div>
+    <p style="font-size:14px;color:#374151;line-height:1.7;margin-bottom:16px;">${escHtml(gov.name)} 본청은 <strong>${escHtml(gov.address)}</strong>에 위치합니다.${totalItems > 1 ? ` 공무원 시험 합격 후 전국 ${escHtml(subLabel)} <strong>${totalItems}개소</strong> 중 발령을 받게 됩니다.` : ''}</p>
     <div class="info-grid">
       <div class="info-item">
         <label>본청 주소</label>
@@ -318,6 +319,7 @@ function buildPage(gov) {
   ${gov.allBranches && gov.allBranches.length ? `
   <div class="card">
     <div class="card-title">${escHtml(gov.name)} ${subLabel} 전국 목록·주소</div>
+    <p style="font-size:14px;color:#374151;line-height:1.7;margin-bottom:16px;">합격 후 발령 가능한 전국 근무지(${escHtml(subLabel)})는 총 <strong>${totalItems}개소</strong>입니다. 기관명·주소를 아래에서 확인하고, <a href="${BASE_URL}" style="color:#7c3aed;text-decoration:underline;">GovMap 지도</a>에서 위치를 직접 찾아보세요.</p>
     ${branchSections}
   </div>` : ''}
 
