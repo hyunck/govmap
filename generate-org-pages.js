@@ -88,17 +88,17 @@ function buildPage(org) {
     `<div class="vc-col">
        <div class="vc-col-inner">
          <div class="vc-val-tag">${d.val.toLocaleString('ko-KR')}</div>
-         <div class="vc-bar vc-bar-start" style="height:${Math.round(d.val/startHistMax*CHART_PX)}px"></div>
+         <div class="vc-bar ${d.year === 2025 ? 'vc-bar-current-start' : 'vc-bar-start'}" style="height:${Math.round(d.val/startHistMax*CHART_PX)}px"></div>
        </div>
-       <div class="vc-year-tag">${d.year}년</div>
+       <div class="vc-year-tag${d.year === 2025 ? ' vc-year-current' : ''}">${d.year}년</div>
      </div>`).join('');
   const avgBarsHtml = avgHist.map(d =>
     `<div class="vc-col">
        <div class="vc-col-inner">
          <div class="vc-val-tag">${d.val.toLocaleString('ko-KR')}</div>
-         <div class="vc-bar vc-bar-avg" style="height:${Math.round(d.val/avgHistMax*CHART_PX)}px"></div>
+         <div class="vc-bar ${d.year === 2025 ? 'vc-bar-current-avg' : 'vc-bar-avg'}" style="height:${Math.round(d.val/avgHistMax*CHART_PX)}px"></div>
        </div>
-       <div class="vc-year-tag">${d.year}년</div>
+       <div class="vc-year-tag${d.year === 2025 ? ' vc-year-current' : ''}">${d.year}년</div>
      </div>`).join('');
 
   const ncsStr      = (org.ncs || []).join(', ');
@@ -338,7 +338,11 @@ function buildPage(org) {
     .vc-bar { width: 36px; border-radius: 4px 4px 0 0; }
     .vc-bar-start { background: #1e3a5f; }
     .vc-bar-avg   { background: #2563eb; }
+    .vc-bar-current-start { background: #3b82f6; }
+    .vc-bar-current-avg   { background: #38bdf8; }
     .vc-year-tag  { font-size: 11px; color: #9ca3af; margin-top: 6px; }
+    .vc-year-current { color: #1d4ed8; font-weight: 700; }
+    .vc-note { font-size: 11px; color: #9ca3af; margin-top: 8px; }
     .vc-big { font-size: 20px; font-weight: 800; color: #1e3a5f; text-align: right;
               margin-top: 10px; padding-top: 8px; border-top: 1px solid #f3f4f6; }
     .vc-big.avg-big { color: #2563eb; }
@@ -439,6 +443,7 @@ function buildPage(org) {
       </div>
     </div>
     ${industryRank > 0 ? `<div class="sv-rank">📊 <strong>${escHtml(org.industry)}</strong> 공기업 신입연봉 <strong>${industryPeers.length}개 기관 중 ${industryRank}위</strong></div>` : ''}
+    ${avgHist.some(d => d.year === 2026) ? `<p class="vc-note">* 2026년 평균 연봉은 경영평가 성과급이 미반영된 예산 기준으로, 실제 지급액과 차이가 있을 수 있습니다.</p>` : ''}
   </div>` : ''}
 
   <!-- 주요 사업 -->
