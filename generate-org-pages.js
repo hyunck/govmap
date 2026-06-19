@@ -472,10 +472,11 @@ function buildPage(org) {
   <!-- 순환근무 -->
   ${org.rotation ? `<div class="card">
     <div class="card-title">순환근무</div>
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:${org.rotation.note ? '8px' : '12px'};">
       <span class="rot-badge ${org.rotation.type === '전국순환' ? 'rot-national' : org.rotation.type === '권역순환' ? 'rot-regional' : 'rot-none'}">${escHtml(org.rotation.type)}</span>
       ${org.rotation.period ? `<span style="font-size:14px;color:#1f2937;">주기 <strong>${escHtml(org.rotation.period)}</strong></span>` : ''}
     </div>
+    ${org.rotation.note ? `<p style="font-size:13px;color:#6b7280;line-height:1.6;margin-bottom:12px;">${escHtml(org.rotation.note)}</p>` : ''}
     <p style="font-size:12px;color:#9ca3af;line-height:1.6;padding-top:10px;border-top:1px solid #f3f4f6;">
       출처: ${escHtml(org.rotation.source || '기관 공개자료')} &nbsp;·&nbsp; 내부 운영기준에 따라 변경될 수 있으며, 정확한 내용은 채용공고 또는 기관에 직접 문의하세요.
     </p>
