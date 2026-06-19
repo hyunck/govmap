@@ -287,6 +287,13 @@ function buildPage(org) {
     .tag-blue   { background: #eff6ff; color: #1d4ed8; }
     .tag-purple { background: #f5f3ff; color: #6d28d9; }
     .tag-green  { background: #ecfdf5; color: #065f46; }
+    /* 순환근무 뱃지 */
+    .rot-badge { display:inline-block; font-size:12px; font-weight:700; padding:4px 14px; border-radius:20px; vertical-align:middle; }
+    .rot-national { background:#fef2f2; color:#dc2626; border:1px solid #fecaca; }
+    .rot-regional { background:#fffbeb; color:#d97706; border:1px solid #fde68a; }
+    .rot-none     { background:#f0fdf4; color:#16a34a; border:1px solid #bbf7d0; }
+    .rot-row { display:flex; align-items:baseline; gap:8px; margin-bottom:8px; font-size:14px; }
+    .rot-label { color:#9ca3af; font-size:12px; font-weight:600; min-width:60px; }
     /* 테이블 */
     table { width: 100%; border-collapse: collapse; font-size: 14px; }
     th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #f3f4f6; }
@@ -460,6 +467,16 @@ function buildPage(org) {
     <div class="tags">
       ${(org.welfare||[]).map(w=>`<span class="tag tag-green">${escHtml(w)}</span>`).join('')}
     </div>
+  </div>` : ''}
+
+  <!-- 순환근무 -->
+  ${org.rotation ? `<div class="card">
+    <div class="card-title">순환근무</div>
+    <div style="margin-bottom:${org.rotation.details ? '12px' : '0'}">
+      <span class="rot-badge ${org.rotation.type === '전국순환' ? 'rot-national' : org.rotation.type === '권역순환' ? 'rot-regional' : 'rot-none'}">${escHtml(org.rotation.type)}</span>
+      ${org.rotation.period ? `<span style="font-size:14px;color:#374151;margin-left:10px;">주기: <strong>${escHtml(org.rotation.period)}</strong></span>` : ''}
+    </div>
+    ${org.rotation.details ? `<p style="font-size:14px;color:#374151;line-height:1.75;margin-top:10px;padding-top:10px;border-top:1px solid #f3f4f6;">${escHtml(org.rotation.details)}</p>` : ''}
   </div>` : ''}
 
   <!-- NCS 시험과목 -->
