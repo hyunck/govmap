@@ -2377,7 +2377,7 @@ const ORGS = [
     "shortName": "KOMSCO",
     "type": "공기업",
     "evalGrade": "A",
-    "evalYear": 2025,
+    "evalYear": 2026,
     "region": "충청권",
     "address": "대전 유성구 과학로 80-67",
     "startingSalary": 4084,
