@@ -32,8 +32,8 @@ function gradeSummary() {
 function gradeSection(grade) {
   const orgs = byGrade(grade);
   if (!orgs.length) return '';
-  const pub  = orgs.filter(o => o.type === '공기업');
-  const semi = orgs.filter(o => o.type !== '공기업');
+  const pub  = orgs.filter(o => (o.evalType || o.type) === '공기업');
+  const semi = orgs.filter(o => (o.evalType || o.type) !== '공기업');
   const noPay = grade === 'D' || grade === 'E';
 
   const GRADE_ORDER = {S:0, A:1, B:2, C:3, D:4, E:5};

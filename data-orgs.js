@@ -4079,6 +4079,7 @@ const ORGS = [
     "type": "기타공공기관",
     "evalGrade": "E",
       "prevEvalGrade": "D",
+      "evalType": "공기업",
     "evalYear": 2025,
     "region": "수도권",
     "address": "서울 송파구 올림픽로35길 137",
