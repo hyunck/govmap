@@ -1,7 +1,7 @@
 # 공공기관 지도 프로젝트 — Claude 작업 가이드
 
 > 새 세션에서 이어서 작업할 때 반드시 읽어야 하는 문서입니다.
-> 마지막 업데이트: 2026-06-17
+> 마지막 업데이트: 2026-06-20
 
 ---
 
@@ -26,7 +26,9 @@
   - `data-orgs.js` — ORGS 배열, 모든 기관 데이터 (CRLF, ~600KB+)
   - `index.html` — 메인 지도 앱 (~4000줄)
   - `generate-org-pages.js` — 상세 페이지 일괄 생성 스크립트
+  - `generate-eval-page.js` — 경영평가 랜딩페이지 생성 스크립트 (세션7 신규)
   - `orgs/[기관명]/index.html` — 기관별 상세 페이지 (generate-org-pages.js로 생성)
+  - `eval/index.html` — 경영평가 결과 랜딩페이지 (세션7 신규, generate-eval-page.js로 생성)
   - `MOBILE_UI_NOTES.md` — 모바일 UI 작업 전용 노트
 
 ---
@@ -47,6 +49,16 @@
   "startingSalary": 만원,   // ⚠️ 수정 금지 (사용자 직접 관리)
   "avgSalary": 만원,        // ⚠️ 수정 금지
   "avgYears": 년,           // ⚠️ 수정 금지
+  "evalGrade": "S"|"A"|"B"|"C"|"D"|"E",  // 2025년도 경영실적 평가등급 (2026년 발표)
+  "evalYear": 2025,                       // 평가 대상 연도 (발표 연도 아님)
+  "prevEvalGrade": "A"|"B"|...,           // 2024년도 경영실적 평가등급 (2025년 발표)
+  "evalType": "공기업",                   // 선택. type이 변경된 기관의 eval 페이지 표시용 override
+                                          // (예: 한국방송광고진흥공사 — 현재 기타공공기관이나 평가 당시 공기업)
+  "rotation": {                           // 선택. 순환근무 정보
+    "type": "전국순환" | "권역순환" | "비순환",
+    "note": "설명 문자열" | ["줄1", "줄2"],  // 배열로 쓰면 CRLF 인코딩 문제 방지
+    "source": "출처"
+  },
   "homepage": "https://...",
   "recruitUrl": "https://...",
   "description": "2~3문장 설명",
@@ -67,8 +79,7 @@
   "majorSubjects": {               // 직렬별 전공과목
     "직렬명": "과목 설명"
   },
-  "examSubjects": ["과목1", ...],
-  "industry": "분류"
+  "examSubjects": ["과목1", ...]
 }
 ```
 
@@ -97,24 +108,63 @@ if (Math.abs(br.lat - org.lat) < 0.001 &&
 ### org-level lat/lng 직접 지정
 
 ```js
-// data-orgs.js에서 org 객체에 추가
 "lat": 37.5645,
 "lng": 126.9762,
 ```
-→ geocoding 건너뜀, HQ 마커 위치 완전 고정. 2사옥이 HQ로 잘못 잡히는 등의 문제 해결 시 사용.
+→ geocoding 건너뜀, HQ 마커 위치 완전 고정.
 
 ### 단일 기관 페이지 생성 패턴
 
-```bash
-node -e "const fs=require('fs');let src=fs.readFileSync('generate-org-pages.js','utf8');
-const cut=src.indexOf('\n// ── 페이지 생성 루프');
-const code=src.slice(0,cut)+'\nconst target=ORGS.find(o=>o.shortName===\"XXX\");
-const html=buildPage(target);const dir=path.join(ORGS_DIR,target.name);
-if(!fs.existsSync(dir))fs.mkdirSync(dir,{recursive:true});
-fs.writeFileSync(path.join(dir,\"index.html\"),html);
-console.log(\"Generated:\",target.name);';
-fs.writeFileSync('_gen_xxx.js',code);" && node _gen_xxx.js && rm _gen_xxx.js
+```js
+// _gen_xxx.js 파일로 만들어서 실행하는 방식 권장 (인라인 -e는 한글 파싱 오류 위험)
+const fs = require('fs'), path = require('path');
+let src = fs.readFileSync('generate-org-pages.js','utf8');
+let dataSrc = fs.readFileSync('data-orgs.js','utf8')
+  .replace(/^const ORGS\s*=/, 'var ORGS =')
+  .replace(/^window\.ORGS\s*=/, 'var ORGS =');
+eval(dataSrc);
+const cut = src.indexOf('\n// ── 페이지 생성 루프');
+const code = src.slice(0, cut) + `
+const target = ORGS.find(o => o.name === "기관명");
+const html = buildPage(target);
+const dir = path.join(ORGS_DIR, target.name);
+if (!fs.existsSync(dir)) fs.mkdirSync(dir, {recursive:true});
+fs.writeFileSync(path.join(dir, "index.html"), html);
+console.log("Generated:", target.name);`;
+fs.writeFileSync('_gen_xxx.js', code);
+// → node _gen_xxx.js && rm _gen_xxx.js
 ```
+
+### 경영평가 랜딩페이지 재생성
+
+```bash
+node generate-eval-page.js
+# → eval/index.html 재생성
+```
+- `generate-eval-page.js`가 `data-orgs.js`에서 evalGrade 있는 기관을 자동 집계
+- evalGrade, prevEvalGrade, startingSalary, avgSalary, evalType 모두 반영
+
+### rotation.note 배열 패턴 (CRLF 파일 인코딩 주의)
+
+```json
+"rotation": {
+  "type": "전국순환",
+  "note": ["• 줄1 내용", "• 줄2 내용"],
+  "source": "출처"
+}
+```
+- `note`를 단일 문자열에 `\n` 넣으면 CRLF 파일에서 파싱 오류 → **배열로 저장**
+- 템플릿: `(Array.isArray(org.rotation.note) ? org.rotation.note : [org.rotation.note]).map(escHtml).join('<br>')`
+
+### evalType 오버라이드 패턴
+
+기관의 `type`이 바뀌었지만 경영평가 시점에는 다른 분류였을 때:
+```json
+"type": "기타공공기관",
+"evalType": "공기업"
+```
+- `generate-eval-page.js`에서 `(o.evalType || o.type) === '공기업'`으로 그룹핑
+- 적용 사례: 한국방송광고진흥공사 (현재 기타공공기관, 평가 당시 공기업)
 
 ### 안내 문구 (전체 기관 공통)
 
@@ -185,15 +235,52 @@ fs.writeFileSync('_gen_xxx.js',code);" && node _gen_xxx.js && rm _gen_xxx.js
 | 금융감독원 | FSS | `d81db40` | branches 4→12, allBranches 2그룹, NCS 1차+전공주관식 2차 |
 | 근로복지공단 | COMWEL | `511abf5`+`4991720` | branches 18→84개, allBranches 11그룹, 서울·강원 본부 주소 정정 |
 
+### 세션 7 (경영평가·순환근무·KOBACO)
+
+| 기관/작업 | 커밋 | 주요 변경 |
+|-----------|------|-----------|
+| 한국가스공사(KOGAS) | — | rotation 순환근무 필드 추가 (전국순환) |
+| 한국전력공사(KEPCO) | `d7a8e19` | rotation 2트랙 분리: 전국권(전국순환) + 지역전문사원(권역순환), 신설규정(2026.6.5) 포함 |
+| 경영평가 등급 전체 | — | evalGrade + evalYear(2025) → 88개 기관 일괄 적용 (공기업31+준정부57) |
+| 전년도 경영평가 | — | prevEvalGrade → 86개 기관 적용 (2024년도 실적, 2025년 발표) |
+| eval 랜딩페이지 | `5d9f236`~`a821497` | `/eval/` 신규 생성, 등급별 목록+초봉·평균연봉+전년비교 |
+| 한국방송광고진흥공사 | `79e3979`+`cedf66b` | 주소 정정(중구 세종대로 124), branches 2→9개, evalType 공기업 override |
+
 ### 전체 기관 일괄 수정
 
 | 변경 | 커밋 |
 |------|------|
 | 지사 안내 문구: "국가보안시설" → "국가중요시설 및 기관 사정으로... 불명확하게 표시되는" (346개 파일) | `268a8f7` |
+| evalYear 2026→2025 정정 + 개별 페이지 표시 "2025년도 실적 (2026년 발표)" (88개) | `9305e92` |
 
 ---
 
-## 5. 기관 데이터 업데이트 표준 절차
+## 5. 경영평가(evalGrade) 관련 데이터
+
+### 2025년도 경영실적 평가 (2026.06.19 기획재정부 발표)
+
+- **공기업 31개 + 준정부기관 57개 = 88개** 모두 `evalGrade` + `evalYear: 2025` 적용 완료
+- `prevEvalGrade`: 2024년도 경영실적 (2025년 발표) — 86개 적용 (대한석탄공사는 evalGrade 없어서 제외)
+- 등급: S(탁월)·A(우수)·B(양호)·C(보통)·D(미흡)·E(아주미흡)
+- 성과급: D·E = 미지급 / A·B·C = 지급 (공기업 최대 250%, 준정부 최대 100%)
+
+### evalType 적용 기관
+
+| 기관 | type | evalType | 이유 |
+|------|------|----------|------|
+| 한국방송광고진흥공사 | 기타공공기관 | 공기업 | 평가 당시 공기업이었다가 기타공공기관으로 강등됨 |
+
+### eval 랜딩페이지 재생성 시 필수
+
+```bash
+node generate-eval-page.js   # eval/index.html 재생성
+# 이후 반드시 커밋·푸시
+git add eval/index.html generate-eval-page.js
+```
+
+---
+
+## 6. 기관 데이터 업데이트 표준 절차
 
 ### 한 기관을 완벽하게 업데이트하는 체크리스트
 
@@ -203,15 +290,12 @@ fs.writeFileSync('_gen_xxx.js',code);" && node _gen_xxx.js && rm _gen_xxx.js
    - **연봉(startingSalary/avgSalary/avgYears)은 조사·수정 제외**
 
 2. **data-orgs.js 수정**:
-   - 기존 엔트리 Read → Edit
+   - 기존 엔트리 Read → Edit (또는 업데이트 스크립트 작성)
    - mainBusiness 5개, welfare 5개, branches 전체 (주소 검증 필수)
    - allBranches 그룹화 (5개 이상 항목이 있는 그룹은 기본 접힘)
    - recruitUrl: ALIO 링크 → 공식 채용페이지로 교체
 
-3. **상세 페이지 재생성**:
-   ```bash
-   node _gen_xxx.js  # 위 단일 기관 생성 패턴 사용
-   ```
+3. **상세 페이지 재생성** (위 "단일 기관 페이지 생성 패턴" 참고)
 
 4. **커밋 & 푸시**:
    ```bash
@@ -227,14 +311,14 @@ fs.writeFileSync('_gen_xxx.js',code);" && node _gen_xxx.js && rm _gen_xxx.js
 
 ---
 
-## 6. 다음 작업 예정 기관
+## 7. 다음 작업 예정 기관
 
 > 사용자가 "이어서 [기관명]의 모든 정보를..." 패턴으로 요청함.
 > 연봉은 사용자가 ALIO 공시 기준으로 직접 수정하므로 **연봉 제외하고 수정**.
 
 ### 현재 작업 위치
-- **마지막 완료**: 근로복지공단(COMWEL) — `4991720`
-- **다음 후보**: 사용자 요청에 따라 준정부기관 계속 or GA/서치콘솔 데이터 검토
+- **마지막 완료**: 한국방송광고진흥공사(KOBACO) 전면 업데이트 — `cedf66b`
+- **다음**: 준정부기관 데이터 업데이트 계속
 
 ### 아직 수정 안 된 주요 준정부기관 (data-orgs.js 순)
 
@@ -245,11 +329,14 @@ fs.writeFileSync('_gen_xxx.js',code);" && node _gen_xxx.js && rm _gen_xxx.js
 | 중소벤처기업진흥공단 | KOSME | 진주 | — |
 | 한국벤처투자 | KVIC | 서울 | — |
 | 소상공인시장진흥공단 | SEMAS | 대전 | — |
+| 한국장학재단 | KOSAF | 대구 | — |
+| 한국산업인력공단 | HRD | 울산 | — |
+| 한국고용정보원 | KEIS | 음성 | — |
 | 이후 계속 | — | — | 사용자 요청에 따라 결정 |
 
 ---
 
-## 7. 알려진 버그 / 주의사항
+## 8. 알려진 버그 / 주의사항
 
 ### Dedup 오작동 패턴
 - **증상**: 본사가 아닌 2사옥/별관이 파란 HQ 마커로 표시됨
@@ -269,39 +356,28 @@ fs.writeFileSync('_gen_xxx.js',code);" && node _gen_xxx.js && rm _gen_xxx.js
 - **해결**: branches[]에는 하나만 포함, allBranches[]에는 둘 다 표시
 - **적용 사례**: KODIT (신용보증기금) — 영업본부+지점 동일 주소 처리
 
+### data-orgs.js 업데이트 스크립트 주의
+- JSON 블록 교체 시 regex가 중첩 `}`를 잘못 매칭해 이전 데이터 잔재가 남을 수 있음
+- 스크립트 실행 후 `node -e "eval(src); console.log(ORGS.find(...))"` 로 파싱 오류 반드시 확인
+- 오류 시 잔재 블록을 Edit 도구로 직접 제거
+
 ---
 
-## 8. Google Analytics / Search Console 데이터 검토
-
-> 새 세션에서 트래픽 데이터를 검토할 때 이 섹션을 참고.
+## 9. Google Analytics / Search Console 데이터 검토
 
 ### 접근 방법
 - **Google Analytics**: https://analytics.google.com/ → 속성: govmap (GA4)
 - **Google Search Console**: https://search.google.com/search-console/ → 속성: govmap.kr
+- **네이버 서치어드바이저**: searchadvisor.naver.com → 웹마스터 도구
 
-### 주요 확인 지표
-
-**Analytics (GA4)**
-- 실시간 사용자 수 / 일별·주별 활성 사용자 추이
-- 유입 경로 (organic search, direct, referral 비중)
-- 가장 많이 조회된 기관 페이지 (`orgs/*/index.html`)
-- 기기별 비중 (모바일 vs 데스크탑) — 모바일 비중이 높으면 UI 최적화 우선순위 결정에 활용
-- 이벤트: 지도 마커 클릭, 지사 탭 클릭, 채용 링크 클릭 등
-
-**Search Console**
-- 검색 노출·클릭 추이 (기간 비교: 전주/전월 대비)
-- 상위 검색 쿼리 — "공기업 지도", "[기관명] 지사" 등 실제 진입 키워드 파악
-- 상위 페이지 — 어느 기관 페이지가 검색 유입 많은지 확인
-- Core Web Vitals / 모바일 사용성 이슈
-
-### 데이터 기반 액션 연결
-- 특정 기관 페이지 유입이 많으면 → 해당 기관 데이터 품질 우선 업데이트
-- 모바일 이탈률 높으면 → `MOBILE_UI_NOTES.md` 작업 우선
-- 특정 지역 쿼리 많으면 → 해당 지역 기관 branches 보강
+### SEO 현황 (2026-06-20 기준)
+- `eval/index.html` — 구글 색인 요청 완료, 네이버 색인 완료 (네이버 검색 3페이지 노출 확인)
+- sitemap.xml — 346개 페이지, 구글·네이버 모두 제출 완료
+- 메인 페이지 사이드바에 `/eval/` 배너 링크 추가 (내부 링크 신호)
 
 ---
 
-## 9. 관련 MD 파일
+## 10. 관련 MD 파일
 
 - **`CLAUDE.md`** (이 파일): 전체 프로젝트 맥락·데이터 업데이트 가이드
 - **`MOBILE_UI_NOTES.md`**: 모바일 UI 개선 작업 전용 노트 (바텀시트, 검색 자동완성 등)
