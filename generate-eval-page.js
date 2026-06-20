@@ -36,6 +36,19 @@ function gradeSection(grade) {
   const semi = orgs.filter(o => o.type !== '공기업');
   const noPay = grade === 'D' || grade === 'E';
 
+  const GRADE_ORDER = {S:0, A:1, B:2, C:3, D:4, E:5};
+
+  function prevGradeHtml(o) {
+    if (!o.prevEvalGrade) return '';
+    const cur = GRADE_ORDER[o.evalGrade] ?? 99;
+    const prv = GRADE_ORDER[o.prevEvalGrade] ?? 99;
+    let arrow = '';
+    if (cur < prv) arrow = `<span class="arrow-up">▲</span> `;
+    else if (cur > prv) arrow = `<span class="arrow-dn">▼</span> `;
+    else arrow = `<span style="color:#d1d5db;">= </span>`;
+    return `<span class="prev-grade">${arrow}전년 ${o.prevEvalGrade}등급</span>`;
+  }
+
   function orgList(list) {
     return list.map(o => {
       const hasSalary = o.startingSalary || o.avgSalary;
@@ -53,6 +66,7 @@ function gradeSection(grade) {
           ${salaryHtml}
         </div>
         <div class="org-row-right">
+          ${prevGradeHtml(o)}
           <span class="bonus-badge ${noPay ? 'no' : 'yes'}">${noPay ? '성과급 미지급' : '성과급 지급'}</span>
         </div>
       </a>`;
@@ -164,6 +178,9 @@ const html = `<!DOCTYPE html>
     .bonus-badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:10px;white-space:nowrap;}
     .bonus-badge.yes{background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0;}
     .bonus-badge.no{background:#fef2f2;color:#dc2626;border:1px solid #fecaca;}
+    .prev-grade{font-size:11px;color:#9ca3af;white-space:nowrap;}
+    .prev-grade .arrow-up{color:#15803d;font-weight:700;}
+    .prev-grade .arrow-dn{color:#dc2626;font-weight:700;}
     @media(max-width:400px){.org-row-salary{display:none;}}
     @media(max-width:500px){
       .hero{padding:24px 20px 20px;}
