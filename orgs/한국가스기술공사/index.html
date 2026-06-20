@@ -86,6 +86,21 @@
     .tag-blue   { background: #eff6ff; color: #1d4ed8; }
     .tag-purple { background: #f5f3ff; color: #6d28d9; }
     .tag-green  { background: #ecfdf5; color: #065f46; }
+    /* 경영평가 등급 뱃지 */
+    .eval-badge { display:inline-block; font-size:13px; font-weight:700; padding:3px 12px; border-radius:6px; }
+    .eval-S { background:#faf5ff; color:#7c3aed; border:1px solid #ddd6fe; }
+    .eval-A { background:#f0fdf4; color:#15803d; border:1px solid #bbf7d0; }
+    .eval-B { background:#eff6ff; color:#1d4ed8; border:1px solid #bfdbfe; }
+    .eval-C { background:#f9fafb; color:#4b5563; border:1px solid #e5e7eb; }
+    .eval-D { background:#fff7ed; color:#c2410c; border:1px solid #fed7aa; }
+    .eval-E { background:#fef2f2; color:#dc2626; border:1px solid #fecaca; }
+    /* 순환근무 뱃지 */
+    .rot-badge { display:inline-block; font-size:12px; font-weight:700; padding:4px 14px; border-radius:20px; vertical-align:middle; }
+    .rot-national { background:#fef2f2; color:#dc2626; border:1px solid #fecaca; }
+    .rot-regional { background:#fffbeb; color:#d97706; border:1px solid #fde68a; }
+    .rot-none     { background:#f0fdf4; color:#16a34a; border:1px solid #bbf7d0; }
+    .rot-row { display:flex; align-items:baseline; gap:8px; margin-bottom:8px; font-size:14px; }
+    .rot-label { color:#9ca3af; font-size:12px; font-weight:600; min-width:60px; }
     /* 테이블 */
     table { width: 100%; border-collapse: collapse; font-size: 14px; }
     th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #f3f4f6; }
@@ -220,6 +235,7 @@
       </div>
       <div class="info-item"><label>평균 근속연수</label><span>15.2년</span></div>
       <div class="info-item"><label>산업 분야</label><span>에너지</span></div>
+      <div class="info-item"><label>경영평가 등급</label><span><span class="eval-badge eval-C">C등급</span><span style="font-size:12px;color:#9ca3af;margin-left:8px;">보통 · 2026년</span></span></div>
     </div>
   </div>
 
@@ -305,6 +321,9 @@
       <span class="tag tag-green">생활안정자금 대출 (최대 2,000만원, 최장 11년 상환)</span><span class="tag tag-green">자녀 학자금 지원 (대학생 연 최대 1,152만원)</span><span class="tag tag-green">건강검진비 지원 (직원 1인당 연 30만원)</span><span class="tag tag-green">선택적 복지포인트 (문화·체육·여행 등 자율 사용)</span><span class="tag tag-green">출산·육아 지원 — 출산휴가 90일, 배우자 출산휴가 10일, 난임치료휴가</span>
     </div>
   </div>
+
+  <!-- 순환근무 -->
+  
 
   <!-- NCS 시험과목 -->
   <div class="card">
@@ -492,15 +511,15 @@
         </tr>
         <tr class="" data-ri="3">
           <td>4</td>
-          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A0%84%EB%A0%A5%EA%B1%B0%EB%9E%98%EC%86%8C/">한국전력거래소</a></td>
-          <td>5,051만원</td>
-          <td>10,210만원</td>
-        </tr>
-        <tr class="" data-ri="4">
-          <td>5</td>
           <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%84%9C%EB%B6%80%EB%B0%9C%EC%A0%84/">한국서부발전</a></td>
           <td>4,981만원</td>
           <td>9,795만원</td>
+        </tr>
+        <tr class="" data-ri="4">
+          <td>5</td>
+          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A0%84%EB%A0%A5%EA%B1%B0%EB%9E%98%EC%86%8C/">한국전력거래소</a></td>
+          <td>4,881만원</td>
+          <td>9,865만원</td>
         </tr>
         <tr class="" data-ri="5">
           <td>6</td>
@@ -612,57 +631,57 @@
         </tr>
         <tr class="" data-ri="23">
           <td>24</td>
+          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B4%91%ED%95%B4%EA%B4%91%EC%97%85%EA%B3%B5%EB%8B%A8/">한국광해광업공단</a></td>
+          <td>3,819만원</td>
+          <td>8,376만원</td>
+        </tr>
+        <tr class="" data-ri="24">
+          <td>25</td>
           <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%9B%90%EC%9E%90%EB%A0%A5%ED%86%B5%EC%A0%9C%EA%B8%B0%EC%88%A0%EC%9B%90/">한국원자력통제기술원</a></td>
           <td>3,800만원</td>
           <td>7,000만원</td>
         </tr>
-        <tr class="" data-ri="24">
-          <td>25</td>
-          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EC%A0%84KDN/">한전KDN</a></td>
-          <td>3,729만원</td>
-          <td>8,275만원</td>
-        </tr>
         <tr class="" data-ri="25">
           <td>26</td>
           <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A7%80%EC%97%AD%EB%82%9C%EB%B0%A9%EA%B3%B5%EC%82%AC/">한국지역난방공사</a></td>
-          <td>3,628만원</td>
+          <td>3,788만원</td>
           <td>8,802만원</td>
         </tr>
         <tr class="" data-ri="26">
           <td>27</td>
-          <td><a href="https://govmap.kr/orgs/%EB%8C%80%ED%95%9C%EC%84%9D%ED%83%84%EA%B3%B5%EC%82%AC/">대한석탄공사</a></td>
-          <td>3,200만원</td>
-          <td>5,800만원</td>
+          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EC%A0%84KDN/">한전KDN</a></td>
+          <td>3,729만원</td>
+          <td>8,275만원</td>
         </tr>
         <tr class="" data-ri="27">
           <td>28</td>
-          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%9B%90%EC%9E%90%EB%A0%A5%EC%95%88%EC%A0%84%EC%9E%AC%EB%8B%A8/">한국원자력안전재단</a></td>
+          <td><a href="https://govmap.kr/orgs/%EB%8C%80%ED%95%9C%EC%84%9D%ED%83%84%EA%B3%B5%EC%82%AC/">대한석탄공사</a></td>
           <td>3,200만원</td>
           <td>5,800만원</td>
         </tr>
         <tr class="" data-ri="28">
           <td>29</td>
-          <td><a href="https://govmap.kr/orgs/%EC%9E%AC%EB%8B%A8%EB%B2%95%EC%9D%B8%20%ED%95%9C%EA%B5%AD%EC%97%90%EB%84%88%EC%A7%80%EC%9E%AC%EB%8B%A8/">재단법인 한국에너지재단</a></td>
-          <td>3,000만원</td>
-          <td>5,200만원</td>
+          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%9B%90%EC%9E%90%EB%A0%A5%EC%95%88%EC%A0%84%EC%9E%AC%EB%8B%A8/">한국원자력안전재단</a></td>
+          <td>3,200만원</td>
+          <td>5,800만원</td>
         </tr>
         <tr class="" data-ri="29">
           <td>30</td>
-          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%97%90%EB%84%88%EC%A7%80%EC%A0%95%EB%B3%B4%EB%AC%B8%ED%99%94%EC%9E%AC%EB%8B%A8/">한국에너지정보문화재단</a></td>
+          <td><a href="https://govmap.kr/orgs/%EC%9E%AC%EB%8B%A8%EB%B2%95%EC%9D%B8%20%ED%95%9C%EA%B5%AD%EC%97%90%EB%84%88%EC%A7%80%EC%9E%AC%EB%8B%A8/">재단법인 한국에너지재단</a></td>
           <td>3,000만원</td>
           <td>5,200만원</td>
         </tr>
         <tr class="" data-ri="30">
           <td>31</td>
-          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EC%A0%84MCS(%EC%A3%BC)/">한전MCS(주)</a></td>
+          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%97%90%EB%84%88%EC%A7%80%EC%A0%95%EB%B3%B4%EB%AC%B8%ED%99%94%EC%9E%AC%EB%8B%A8/">한국에너지정보문화재단</a></td>
           <td>3,000만원</td>
-          <td>5,500만원</td>
+          <td>5,200만원</td>
         </tr>
         <tr class="" data-ri="31">
           <td>32</td>
-          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B4%91%ED%95%B4%EA%B4%91%EC%97%85%EA%B3%B5%EB%8B%A8/">한국광해광업공단</a></td>
-          <td>2,783만원</td>
-          <td>8,376만원</td>
+          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EC%A0%84MCS(%EC%A3%BC)/">한전MCS(주)</a></td>
+          <td>3,000만원</td>
+          <td>5,500만원</td>
         </tr>
       </tbody>
     </table>
@@ -672,30 +691,30 @@
   <!-- 관련 기관 -->
   <div class="card">
     <div class="card-title">같은 유형의 다른 기관</div>
-    <div class="related-grid"><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A1%B0%ED%8F%90%EA%B3%B5%EC%82%AC/" class="rel-card">
+    <div class="related-grid"><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%B6%80%EB%8F%99%EC%82%B0%EC%9B%90/" class="rel-card">
        <span class="rel-badge" style="background:#2563eb">공기업</span>
-       <span class="rel-name">한국조폐공사</span>
-       <span class="rel-region">충청권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B0%80%EC%8A%A4%EA%B3%B5%EC%82%AC/" class="rel-card">
-       <span class="rel-badge" style="background:#2563eb">공기업</span>
-       <span class="rel-name">한국가스공사</span>
+       <span class="rel-name">한국부동산원</span>
        <span class="rel-region">경상권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A0%84%EB%A0%A5%EA%B3%B5%EC%82%AC/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A4%91%EB%B6%80%EB%B0%9C%EC%A0%84/" class="rel-card">
        <span class="rel-badge" style="background:#2563eb">공기업</span>
-       <span class="rel-name">한국전력공사</span>
-       <span class="rel-region">전라권</span>
+       <span class="rel-name">한국중부발전</span>
+       <span class="rel-region">충청권</span>
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B3%B5%ED%95%AD%EA%B3%B5%EC%82%AC/" class="rel-card">
+       <span class="rel-badge" style="background:#2563eb">공기업</span>
+       <span class="rel-name">한국공항공사</span>
+       <span class="rel-region">수도권</span>
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%8F%99%EC%84%9C%EB%B0%9C%EC%A0%84/" class="rel-card">
+       <span class="rel-badge" style="background:#2563eb">공기업</span>
+       <span class="rel-name">한국동서발전</span>
+       <span class="rel-region">경상권</span>
      </a><a href="https://govmap.kr/orgs/%EC%9D%B8%EC%B2%9C%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD%EA%B3%B5%EC%82%AC/" class="rel-card">
        <span class="rel-badge" style="background:#2563eb">공기업</span>
        <span class="rel-name">인천국제공항공사</span>
        <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%82%A8%EB%8F%99%EB%B0%9C%EC%A0%84/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%ED%95%B4%EC%96%91%ED%99%98%EA%B2%BD%EA%B3%B5%EB%8B%A8/" class="rel-card">
        <span class="rel-badge" style="background:#2563eb">공기업</span>
-       <span class="rel-name">한국남동발전</span>
-       <span class="rel-region">경상권</span>
-     </a><a href="https://govmap.kr/orgs/%EC%A0%9C%EC%A3%BC%EA%B5%AD%EC%A0%9C%EC%9E%90%EC%9C%A0%EB%8F%84%EC%8B%9C%EA%B0%9C%EB%B0%9C%EC%84%BC%ED%84%B0/" class="rel-card">
-       <span class="rel-badge" style="background:#2563eb">공기업</span>
-       <span class="rel-name">제주국제자유도시개발센터</span>
-       <span class="rel-region">제주권</span>
+       <span class="rel-name">해양환경공단</span>
+       <span class="rel-region">수도권</span>
      </a></div>
   </div>
 

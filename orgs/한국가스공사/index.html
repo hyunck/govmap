@@ -86,6 +86,14 @@
     .tag-blue   { background: #eff6ff; color: #1d4ed8; }
     .tag-purple { background: #f5f3ff; color: #6d28d9; }
     .tag-green  { background: #ecfdf5; color: #065f46; }
+    /* 경영평가 등급 뱃지 */
+    .eval-badge { display:inline-block; font-size:13px; font-weight:700; padding:3px 12px; border-radius:6px; }
+    .eval-S { background:#faf5ff; color:#7c3aed; border:1px solid #ddd6fe; }
+    .eval-A { background:#f0fdf4; color:#15803d; border:1px solid #bbf7d0; }
+    .eval-B { background:#eff6ff; color:#1d4ed8; border:1px solid #bfdbfe; }
+    .eval-C { background:#f9fafb; color:#4b5563; border:1px solid #e5e7eb; }
+    .eval-D { background:#fff7ed; color:#c2410c; border:1px solid #fed7aa; }
+    .eval-E { background:#fef2f2; color:#dc2626; border:1px solid #fecaca; }
     /* 순환근무 뱃지 */
     .rot-badge { display:inline-block; font-size:12px; font-weight:700; padding:4px 14px; border-radius:20px; vertical-align:middle; }
     .rot-national { background:#fef2f2; color:#dc2626; border:1px solid #fecaca; }
@@ -227,6 +235,7 @@
       </div>
       <div class="info-item"><label>평균 근속연수</label><span>16.7년</span></div>
       <div class="info-item"><label>산업 분야</label><span>에너지</span></div>
+      <div class="info-item"><label>경영평가 등급</label><span><span class="eval-badge eval-C">C등급</span><span style="font-size:12px;color:#9ca3af;margin-left:8px;">보통 · 2026년</span></span></div>
     </div>
   </div>
 
@@ -2595,30 +2604,30 @@
   <!-- 관련 기관 -->
   <div class="card">
     <div class="card-title">같은 유형의 다른 기관</div>
-    <div class="related-grid"><a href="https://govmap.kr/orgs/%EC%A0%9C%EC%A3%BC%EA%B5%AD%EC%A0%9C%EC%9E%90%EC%9C%A0%EB%8F%84%EC%8B%9C%EA%B0%9C%EB%B0%9C%EC%84%BC%ED%84%B0/" class="rel-card">
+    <div class="related-grid"><a href="https://govmap.kr/orgs/%ED%95%B4%EC%96%91%ED%99%98%EA%B2%BD%EA%B3%B5%EB%8B%A8/" class="rel-card">
        <span class="rel-badge" style="background:#2563eb">공기업</span>
-       <span class="rel-name">제주국제자유도시개발센터</span>
-       <span class="rel-region">제주권</span>
+       <span class="rel-name">해양환경공단</span>
+       <span class="rel-region">수도권</span>
      </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A0%84%EB%A0%A5%EA%B3%B5%EC%82%AC/" class="rel-card">
        <span class="rel-badge" style="background:#2563eb">공기업</span>
        <span class="rel-name">한국전력공사</span>
        <span class="rel-region">전라권</span>
-     </a><a href="https://govmap.kr/orgs/%EC%97%90%EC%8A%A4%EC%95%8C(SR)/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B4%91%ED%95%B4%EA%B4%91%EC%97%85%EA%B3%B5%EB%8B%A8/" class="rel-card">
        <span class="rel-badge" style="background:#2563eb">공기업</span>
-       <span class="rel-name">에스알(SR)</span>
-       <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%88%98%EC%9E%90%EC%9B%90%EA%B3%B5%EC%82%AC/" class="rel-card">
+       <span class="rel-name">한국광해광업공단</span>
+       <span class="rel-region">강원권</span>
+     </a><a href="https://govmap.kr/orgs/%EC%A3%BC%ED%83%9D%EB%8F%84%EC%8B%9C%EB%B3%B4%EC%A6%9D%EA%B3%B5%EC%82%AC/" class="rel-card">
        <span class="rel-badge" style="background:#2563eb">공기업</span>
-       <span class="rel-name">한국수자원공사</span>
-       <span class="rel-region">충청권</span>
-     </a><a href="https://govmap.kr/orgs/%EC%9D%B8%EC%B2%9C%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD%EA%B3%B5%EC%82%AC/" class="rel-card">
-       <span class="rel-badge" style="background:#2563eb">공기업</span>
-       <span class="rel-name">인천국제공항공사</span>
-       <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%8F%99%EC%84%9C%EB%B0%9C%EC%A0%84/" class="rel-card">
-       <span class="rel-badge" style="background:#2563eb">공기업</span>
-       <span class="rel-name">한국동서발전</span>
+       <span class="rel-name">주택도시보증공사</span>
        <span class="rel-region">경상권</span>
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%88%98%EB%A0%A5%EC%9B%90%EC%9E%90%EB%A0%A5/" class="rel-card">
+       <span class="rel-badge" style="background:#2563eb">공기업</span>
+       <span class="rel-name">한국수력원자력</span>
+       <span class="rel-region">경상권</span>
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A4%91%EB%B6%80%EB%B0%9C%EC%A0%84/" class="rel-card">
+       <span class="rel-badge" style="background:#2563eb">공기업</span>
+       <span class="rel-name">한국중부발전</span>
+       <span class="rel-region">충청권</span>
      </a></div>
   </div>
 
