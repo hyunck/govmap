@@ -37,11 +37,26 @@ function gradeSection(grade) {
   const noPay = grade === 'D' || grade === 'E';
 
   function orgList(list) {
-    return list.map(o => `
+    return list.map(o => {
+      const hasSalary = o.startingSalary || o.avgSalary;
+      const salaryHtml = hasSalary
+        ? `<span class="org-row-salary">`
+          + (o.startingSalary ? `초봉 <strong>${o.startingSalary.toLocaleString()}만원</strong>` : '')
+          + (o.startingSalary && o.avgSalary ? ' &nbsp;·&nbsp; ' : '')
+          + (o.avgSalary ? `평균 <strong>${o.avgSalary.toLocaleString()}만원</strong>` : '')
+          + `</span>`
+        : '';
+      return `
       <a href="${BASE_URL}/orgs/${encodeURIComponent(o.name)}/" class="org-row">
-        <span class="org-row-name">${o.name}</span>
-        <span class="bonus-badge ${noPay ? 'no' : 'yes'}">${noPay ? '성과급 미지급' : '성과급 지급'}</span>
-      </a>`).join('');
+        <div class="org-row-left">
+          <span class="org-row-name">${o.name}</span>
+          ${salaryHtml}
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge ${noPay ? 'no' : 'yes'}">${noPay ? '성과급 미지급' : '성과급 지급'}</span>
+        </div>
+      </a>`;
+    }).join('');
   }
 
   return `
@@ -139,12 +154,17 @@ const html = `<!DOCTYPE html>
     .org-group{margin-top:14px;}
     .group-label{font-size:11px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;padding-left:2px;}
     .org-list{display:flex;flex-direction:column;gap:5px;}
-    .org-row{display:flex;align-items:center;justify-content:space-between;padding:9px 14px;background:#f9fafb;border-radius:10px;border:1px solid #f3f4f6;transition:background .15s;}
+    .org-row{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:#f9fafb;border-radius:10px;border:1px solid #f3f4f6;transition:background .15s;gap:10px;}
     .org-row:hover{background:#f3f4f6;border-color:#e5e7eb;}
-    .org-row-name{font-size:14px;font-weight:600;color:#111827;}
-    .bonus-badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:10px;flex-shrink:0;margin-left:8px;}
+    .org-row-left{display:flex;flex-direction:column;gap:3px;min-width:0;}
+    .org-row-name{font-size:14px;font-weight:600;color:#111827;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .org-row-salary{font-size:12px;color:#6b7280;}
+    .org-row-salary strong{color:#374151;font-weight:600;}
+    .org-row-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0;}
+    .bonus-badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:10px;white-space:nowrap;}
     .bonus-badge.yes{background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0;}
     .bonus-badge.no{background:#fef2f2;color:#dc2626;border:1px solid #fecaca;}
+    @media(max-width:400px){.org-row-salary{display:none;}}
     @media(max-width:500px){
       .hero{padding:24px 20px 20px;}
       .hero-title{font-size:22px;}

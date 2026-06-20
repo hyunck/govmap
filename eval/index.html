@@ -74,12 +74,17 @@
     .org-group{margin-top:14px;}
     .group-label{font-size:11px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;padding-left:2px;}
     .org-list{display:flex;flex-direction:column;gap:5px;}
-    .org-row{display:flex;align-items:center;justify-content:space-between;padding:9px 14px;background:#f9fafb;border-radius:10px;border:1px solid #f3f4f6;transition:background .15s;}
+    .org-row{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:#f9fafb;border-radius:10px;border:1px solid #f3f4f6;transition:background .15s;gap:10px;}
     .org-row:hover{background:#f3f4f6;border-color:#e5e7eb;}
-    .org-row-name{font-size:14px;font-weight:600;color:#111827;}
-    .bonus-badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:10px;flex-shrink:0;margin-left:8px;}
+    .org-row-left{display:flex;flex-direction:column;gap:3px;min-width:0;}
+    .org-row-name{font-size:14px;font-weight:600;color:#111827;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .org-row-salary{font-size:12px;color:#6b7280;}
+    .org-row-salary strong{color:#374151;font-weight:600;}
+    .org-row-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0;}
+    .bonus-badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:10px;white-space:nowrap;}
     .bonus-badge.yes{background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0;}
     .bonus-badge.no{background:#fef2f2;color:#dc2626;border:1px solid #fecaca;}
+    @media(max-width:400px){.org-row-salary{display:none;}}
     @media(max-width:500px){
       .hero{padding:24px 20px 20px;}
       .hero-title{font-size:22px;}
@@ -143,68 +148,143 @@
         <div class="group-label">공기업 (6개)</div>
         <div class="org-list">
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A0%84%EB%A0%A5%EA%B3%B5%EC%82%AC/" class="org-row">
-        <span class="org-row-name">한국전력공사</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국전력공사</span>
+          <span class="org-row-salary">초봉 <strong>4,721만원</strong> &nbsp;·&nbsp; 평균 <strong>9,638만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%88%98%EB%A0%A5%EC%9B%90%EC%9E%90%EB%A0%A5/" class="org-row">
-        <span class="org-row-name">한국수력원자력</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국수력원자력</span>
+          <span class="org-row-salary">초봉 <strong>4,441만원</strong> &nbsp;·&nbsp; 평균 <strong>10,846만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%82%A8%EB%B6%80%EB%B0%9C%EC%A0%84/" class="org-row">
-        <span class="org-row-name">한국남부발전</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국남부발전</span>
+          <span class="org-row-salary">초봉 <strong>4,697만원</strong> &nbsp;·&nbsp; 평균 <strong>10,126만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%82%A8%EB%8F%99%EB%B0%9C%EC%A0%84/" class="org-row">
-        <span class="org-row-name">한국남동발전</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국남동발전</span>
+          <span class="org-row-salary">초봉 <strong>4,488만원</strong> &nbsp;·&nbsp; 평균 <strong>9,963만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A1%B0%ED%8F%90%EA%B3%B5%EC%82%AC/" class="org-row">
-        <span class="org-row-name">한국조폐공사</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국조폐공사</span>
+          <span class="org-row-salary">초봉 <strong>4,084만원</strong> &nbsp;·&nbsp; 평균 <strong>9,389만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EC%A0%84KDN/" class="org-row">
-        <span class="org-row-name">한전KDN</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한전KDN</span>
+          <span class="org-row-salary">초봉 <strong>3,729만원</strong> &nbsp;·&nbsp; 평균 <strong>8,275만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a></div>
       </div>
       <div class="org-group">
         <div class="group-label">준정부기관 (9개)</div>
         <div class="org-list">
       <a href="https://govmap.kr/orgs/%EA%B5%AD%EB%AF%BC%EC%97%B0%EA%B8%88%EA%B3%B5%EB%8B%A8/" class="org-row">
-        <span class="org-row-name">국민연금공단</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">국민연금공단</span>
+          <span class="org-row-salary">초봉 <strong>4,104만원</strong> &nbsp;·&nbsp; 평균 <strong>7,645만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%AC%B4%EC%97%AD%EB%B3%B4%ED%97%98%EA%B3%B5%EC%82%AC/" class="org-row">
-        <span class="org-row-name">한국무역보험공사</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국무역보험공사</span>
+          <span class="org-row-salary">초봉 <strong>4,669만원</strong> &nbsp;·&nbsp; 평균 <strong>10,207만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%EC%98%88%EA%B8%88%EB%B3%B4%ED%97%98%EA%B3%B5%EC%82%AC/" class="org-row">
-        <span class="org-row-name">예금보험공사</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">예금보험공사</span>
+          <span class="org-row-salary">초봉 <strong>5,131만원</strong> &nbsp;·&nbsp; 평균 <strong>10,028만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%EA%B7%BC%EB%A1%9C%EB%B3%B5%EC%A7%80%EA%B3%B5%EB%8B%A8/" class="org-row">
-        <span class="org-row-name">근로복지공단</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">근로복지공단</span>
+          <span class="org-row-salary">초봉 <strong>3,663만원</strong> &nbsp;·&nbsp; 평균 <strong>6,828만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B0%80%EC%8A%A4%EC%95%88%EC%A0%84%EA%B3%B5%EC%82%AC/" class="org-row">
-        <span class="org-row-name">한국가스안전공사</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국가스안전공사</span>
+          <span class="org-row-salary">초봉 <strong>4,408만원</strong> &nbsp;·&nbsp; 평균 <strong>7,683만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%EA%B1%B4%EA%B0%95%EB%B3%B4%ED%97%98%EC%8B%AC%EC%82%AC%ED%8F%89%EA%B0%80%EC%9B%90/" class="org-row">
-        <span class="org-row-name">건강보험심사평가원</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">건강보험심사평가원</span>
+          <span class="org-row-salary">초봉 <strong>4,200만원</strong> &nbsp;·&nbsp; 평균 <strong>7,333만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B5%90%ED%86%B5%EC%95%88%EC%A0%84%EA%B3%B5%EB%8B%A8/" class="org-row">
-        <span class="org-row-name">한국교통안전공단</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국교통안전공단</span>
+          <span class="org-row-salary">초봉 <strong>4,433만원</strong> &nbsp;·&nbsp; 평균 <strong>8,021만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%82%B0%EC%97%85%EA%B8%B0%EC%88%A0%EC%A7%84%ED%9D%A5%EC%9B%90/" class="org-row">
-        <span class="org-row-name">한국산업기술진흥원</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국산업기술진흥원</span>
+          <span class="org-row-salary">초봉 <strong>4,165만원</strong> &nbsp;·&nbsp; 평균 <strong>8,123만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%EB%8C%80%ED%95%9C%EB%AC%B4%EC%97%AD%ED%88%AC%EC%9E%90%EC%A7%84%ED%9D%A5%EA%B3%B5%EC%82%AC(KOTRA)/" class="org-row">
-        <span class="org-row-name">대한무역투자진흥공사(KOTRA)</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">대한무역투자진흥공사(KOTRA)</span>
+          <span class="org-row-salary">초봉 <strong>3,817만원</strong> &nbsp;·&nbsp; 평균 <strong>10,940만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a></div>
       </div>
     </div>
@@ -219,124 +299,269 @@
         <div class="group-label">공기업 (10개)</div>
         <div class="org-list">
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A4%91%EB%B6%80%EB%B0%9C%EC%A0%84/" class="org-row">
-        <span class="org-row-name">한국중부발전</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국중부발전</span>
+          <span class="org-row-salary">초봉 <strong>4,744만원</strong> &nbsp;·&nbsp; 평균 <strong>10,233만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A7%80%EC%97%AD%EB%82%9C%EB%B0%A9%EA%B3%B5%EC%82%AC/" class="org-row">
-        <span class="org-row-name">한국지역난방공사</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국지역난방공사</span>
+          <span class="org-row-salary">초봉 <strong>3,788만원</strong> &nbsp;·&nbsp; 평균 <strong>8,802만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%EC%9D%B8%EC%B2%9C%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD%EA%B3%B5%EC%82%AC/" class="org-row">
-        <span class="org-row-name">인천국제공항공사</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">인천국제공항공사</span>
+          <span class="org-row-salary">초봉 <strong>4,888만원</strong> &nbsp;·&nbsp; 평균 <strong>9,718만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%ED%86%A0%EC%A7%80%EC%A3%BC%ED%83%9D%EA%B3%B5%EC%82%AC/" class="org-row">
-        <span class="org-row-name">한국토지주택공사</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국토지주택공사</span>
+          <span class="org-row-salary">초봉 <strong>4,118만원</strong> &nbsp;·&nbsp; 평균 <strong>8,407만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%A7%88%EC%82%AC%ED%9A%8C/" class="org-row">
-        <span class="org-row-name">한국마사회</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국마사회</span>
+          <span class="org-row-salary">초봉 <strong>4,744만원</strong> &nbsp;·&nbsp; 평균 <strong>9,726만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%8F%84%EB%A1%9C%EA%B3%B5%EC%82%AC/" class="org-row">
-        <span class="org-row-name">한국도로공사</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국도로공사</span>
+          <span class="org-row-salary">초봉 <strong>4,236만원</strong> &nbsp;·&nbsp; 평균 <strong>9,069만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%88%98%EC%9E%90%EC%9B%90%EA%B3%B5%EC%82%AC/" class="org-row">
-        <span class="org-row-name">한국수자원공사</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국수자원공사</span>
+          <span class="org-row-salary">초봉 <strong>4,171만원</strong> &nbsp;·&nbsp; 평균 <strong>8,228만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%B6%80%EB%8F%99%EC%82%B0%EC%9B%90/" class="org-row">
-        <span class="org-row-name">한국부동산원</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국부동산원</span>
+          <span class="org-row-salary">초봉 <strong>5,190만원</strong> &nbsp;·&nbsp; 평균 <strong>9,360만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EC%A0%84KPS/" class="org-row">
-        <span class="org-row-name">한전KPS</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한전KPS</span>
+          <span class="org-row-salary">초봉 <strong>4,456만원</strong> &nbsp;·&nbsp; 평균 <strong>8,802만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%EC%A3%BC%ED%83%9D%EB%8F%84%EC%8B%9C%EB%B3%B4%EC%A6%9D%EA%B3%B5%EC%82%AC/" class="org-row">
-        <span class="org-row-name">주택도시보증공사</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">주택도시보증공사</span>
+          <span class="org-row-salary">초봉 <strong>4,771만원</strong> &nbsp;·&nbsp; 평균 <strong>8,212만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a></div>
       </div>
       <div class="org-group">
         <div class="group-label">준정부기관 (19개)</div>
         <div class="org-list">
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A3%BC%ED%83%9D%EA%B8%88%EC%9C%B5%EA%B3%B5%EC%82%AC/" class="org-row">
-        <span class="org-row-name">한국주택금융공사</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국주택금융공사</span>
+          <span class="org-row-salary">초봉 <strong>4,224만원</strong> &nbsp;·&nbsp; 평균 <strong>9,567만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%EC%A4%91%EC%86%8C%EB%B2%A4%EC%B2%98%EA%B8%B0%EC%97%85%EC%A7%84%ED%9D%A5%EA%B3%B5%EB%8B%A8/" class="org-row">
-        <span class="org-row-name">중소벤처기업진흥공단</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">중소벤처기업진흥공단</span>
+          <span class="org-row-salary">초봉 <strong>4,406만원</strong> &nbsp;·&nbsp; 평균 <strong>8,838만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A0%84%EA%B8%B0%EC%95%88%EC%A0%84%EA%B3%B5%EC%82%AC/" class="org-row">
-        <span class="org-row-name">한국전기안전공사</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국전기안전공사</span>
+          <span class="org-row-salary">초봉 <strong>4,321만원</strong> &nbsp;·&nbsp; 평균 <strong>7,131만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%82%B0%EC%97%85%EC%95%88%EC%A0%84%EB%B3%B4%EA%B1%B4%EA%B3%B5%EB%8B%A8/" class="org-row">
-        <span class="org-row-name">한국산업안전보건공단</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국산업안전보건공단</span>
+          <span class="org-row-salary">초봉 <strong>3,699만원</strong> &nbsp;·&nbsp; 평균 <strong>7,233만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%ED%99%98%EA%B2%BD%EA%B3%B5%EB%8B%A8/" class="org-row">
-        <span class="org-row-name">한국환경공단</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국환경공단</span>
+          <span class="org-row-salary">초봉 <strong>3,688만원</strong> &nbsp;·&nbsp; 평균 <strong>6,572만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B4%80%EA%B4%91%EA%B3%B5%EC%82%AC/" class="org-row">
-        <span class="org-row-name">한국관광공사</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국관광공사</span>
+          <span class="org-row-salary">초봉 <strong>3,780만원</strong> &nbsp;·&nbsp; 평균 <strong>8,335만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%97%90%EB%84%88%EC%A7%80%EA%B3%B5%EB%8B%A8/" class="org-row">
-        <span class="org-row-name">한국에너지공단</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국에너지공단</span>
+          <span class="org-row-salary">초봉 <strong>4,243만원</strong> &nbsp;·&nbsp; 평균 <strong>7,102만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%82%B0%EC%97%85%EB%8B%A8%EC%A7%80%EA%B3%B5%EB%8B%A8/" class="org-row">
-        <span class="org-row-name">한국산업단지공단</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국산업단지공단</span>
+          <span class="org-row-salary">초봉 <strong>4,975만원</strong> &nbsp;·&nbsp; 평균 <strong>7,945만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%86%8C%EB%B9%84%EC%9E%90%EC%9B%90/" class="org-row">
-        <span class="org-row-name">한국소비자원</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국소비자원</span>
+          <span class="org-row-salary">초봉 <strong>4,230만원</strong> &nbsp;·&nbsp; 평균 <strong>6,639만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%86%8D%EC%88%98%EC%82%B0%EC%8B%9D%ED%92%88%EC%9C%A0%ED%86%B5%EA%B3%B5%EC%82%AC/" class="org-row">
-        <span class="org-row-name">한국농수산식품유통공사</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국농수산식품유통공사</span>
+          <span class="org-row-salary">초봉 <strong>3,901만원</strong> &nbsp;·&nbsp; 평균 <strong>7,864만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A7%80%EB%8A%A5%EC%A0%95%EB%B3%B4%EC%82%AC%ED%9A%8C%EC%A7%84%ED%9D%A5%EC%9B%90/" class="org-row">
-        <span class="org-row-name">한국지능정보사회진흥원</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국지능정보사회진흥원</span>
+          <span class="org-row-salary">초봉 <strong>3,788만원</strong> &nbsp;·&nbsp; 평균 <strong>7,490만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%9E%A5%ED%95%99%EC%9E%AC%EB%8B%A8/" class="org-row">
-        <span class="org-row-name">한국장학재단</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국장학재단</span>
+          <span class="org-row-salary">초봉 <strong>4,646만원</strong> &nbsp;·&nbsp; 평균 <strong>8,443만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%82%AC%ED%9A%8C%EB%B3%B4%EC%9E%A5%EC%A0%95%EB%B3%B4%EC%9B%90/" class="org-row">
-        <span class="org-row-name">한국사회보장정보원</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국사회보장정보원</span>
+          <span class="org-row-salary">초봉 <strong>3,626만원</strong> &nbsp;·&nbsp; 평균 <strong>6,346만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%9E%AC%EC%A0%95%EC%A0%95%EB%B3%B4%EC%9B%90/" class="org-row">
-        <span class="org-row-name">한국재정정보원</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국재정정보원</span>
+          <span class="org-row-salary">초봉 <strong>4,283만원</strong> &nbsp;·&nbsp; 평균 <strong>7,446만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%B3%B4%ED%9B%88%EB%B3%B5%EC%A7%80%EC%9D%98%EB%A3%8C%EA%B3%B5%EB%8B%A8/" class="org-row">
-        <span class="org-row-name">한국보훈복지의료공단</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국보훈복지의료공단</span>
+          <span class="org-row-salary">초봉 <strong>4,170만원</strong> &nbsp;·&nbsp; 평균 <strong>7,172만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%82%B0%EC%97%85%EA%B8%B0%EC%88%A0%EA%B8%B0%ED%9A%8D%ED%8F%89%EA%B0%80%EC%9B%90/" class="org-row">
-        <span class="org-row-name">한국산업기술기획평가원</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국산업기술기획평가원</span>
+          <span class="org-row-salary">초봉 <strong>4,437만원</strong> &nbsp;·&nbsp; 평균 <strong>9,453만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A0%84%EB%A0%A5%EA%B1%B0%EB%9E%98%EC%86%8C/" class="org-row">
-        <span class="org-row-name">한국전력거래소</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국전력거래소</span>
+          <span class="org-row-salary">초봉 <strong>4,881만원</strong> &nbsp;·&nbsp; 평균 <strong>9,865만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%EC%86%8C%EC%83%81%EA%B3%B5%EC%9D%B8%EC%8B%9C%EC%9E%A5%EC%A7%84%ED%9D%A5%EA%B3%B5%EB%8B%A8/" class="org-row">
-        <span class="org-row-name">소상공인시장진흥공단</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">소상공인시장진흥공단</span>
+          <span class="org-row-salary">초봉 <strong>3,591만원</strong> &nbsp;·&nbsp; 평균 <strong>5,644만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%9B%90%EC%9E%90%EB%A0%A5%ED%99%98%EA%B2%BD%EA%B3%B5%EB%8B%A8/" class="org-row">
-        <span class="org-row-name">한국원자력환경공단</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국원자력환경공단</span>
+          <span class="org-row-salary">초봉 <strong>4,581만원</strong> &nbsp;·&nbsp; 평균 <strong>8,511만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a></div>
       </div>
     </div>
@@ -351,120 +576,260 @@
         <div class="group-label">공기업 (10개)</div>
         <div class="org-list">
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B0%80%EC%8A%A4%EA%B3%B5%EC%82%AC/" class="org-row">
-        <span class="org-row-name">한국가스공사</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국가스공사</span>
+          <span class="org-row-salary">초봉 <strong>5,084만원</strong> &nbsp;·&nbsp; 평균 <strong>10,608만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%84%9C%EB%B6%80%EB%B0%9C%EC%A0%84/" class="org-row">
-        <span class="org-row-name">한국서부발전</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국서부발전</span>
+          <span class="org-row-salary">초봉 <strong>4,981만원</strong> &nbsp;·&nbsp; 평균 <strong>9,795만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%8F%99%EC%84%9C%EB%B0%9C%EC%A0%84/" class="org-row">
-        <span class="org-row-name">한국동서발전</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국동서발전</span>
+          <span class="org-row-salary">초봉 <strong>4,754만원</strong> &nbsp;·&nbsp; 평균 <strong>9,899만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B3%B5%ED%95%AD%EA%B3%B5%EC%82%AC/" class="org-row">
-        <span class="org-row-name">한국공항공사</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국공항공사</span>
+          <span class="org-row-salary">초봉 <strong>4,076만원</strong> &nbsp;·&nbsp; 평균 <strong>7,358만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%EA%B0%95%EC%9B%90%EB%9E%9C%EB%93%9C/" class="org-row">
-        <span class="org-row-name">강원랜드</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">강원랜드</span>
+          <span class="org-row-salary">초봉 <strong>4,044만원</strong> &nbsp;·&nbsp; 평균 <strong>8,533만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%B2%A0%EB%8F%84%EA%B3%B5%EC%82%AC(%EC%BD%94%EB%A0%88%EC%9D%BC)/" class="org-row">
-        <span class="org-row-name">한국철도공사(코레일)</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국철도공사(코레일)</span>
+          <span class="org-row-salary">초봉 <strong>3,917만원</strong> &nbsp;·&nbsp; 평균 <strong>7,738만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%EA%B7%B8%EB%9E%9C%EB%93%9C%EC%BD%94%EB%A6%AC%EC%95%84%EB%A0%88%EC%A0%80/" class="org-row">
-        <span class="org-row-name">그랜드코리아레저</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">그랜드코리아레저</span>
+          <span class="org-row-salary">초봉 <strong>4,278만원</strong> &nbsp;·&nbsp; 평균 <strong>7,238만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A0%84%EB%A0%A5%EA%B8%B0%EC%88%A0/" class="org-row">
-        <span class="org-row-name">한국전력기술</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국전력기술</span>
+          <span class="org-row-salary">초봉 <strong>4,313만원</strong> &nbsp;·&nbsp; 평균 <strong>10,097만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B0%80%EC%8A%A4%EA%B8%B0%EC%88%A0%EA%B3%B5%EC%82%AC/" class="org-row">
-        <span class="org-row-name">한국가스기술공사</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국가스기술공사</span>
+          <span class="org-row-salary">초봉 <strong>4,201만원</strong> &nbsp;·&nbsp; 평균 <strong>7,867만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%B4%EC%96%91%ED%99%98%EA%B2%BD%EA%B3%B5%EB%8B%A8/" class="org-row">
-        <span class="org-row-name">해양환경공단</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">해양환경공단</span>
+          <span class="org-row-salary">초봉 <strong>3,971만원</strong> &nbsp;·&nbsp; 평균 <strong>7,282만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a></div>
       </div>
       <div class="org-group">
         <div class="group-label">준정부기관 (18개)</div>
         <div class="org-list">
       <a href="https://govmap.kr/orgs/%EA%B3%B5%EB%AC%B4%EC%9B%90%EC%97%B0%EA%B8%88%EA%B3%B5%EB%8B%A8/" class="org-row">
-        <span class="org-row-name">공무원연금공단</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">공무원연금공단</span>
+          <span class="org-row-salary">초봉 <strong>4,112만원</strong> &nbsp;·&nbsp; 평균 <strong>7,490만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%EC%8B%A0%EC%9A%A9%EB%B3%B4%EC%A6%9D%EA%B8%B0%EA%B8%88/" class="org-row">
-        <span class="org-row-name">신용보증기금</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">신용보증기금</span>
+          <span class="org-row-salary">초봉 <strong>5,404만원</strong> &nbsp;·&nbsp; 평균 <strong>9,981만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%8F%84%EB%A1%9C%EA%B5%90%ED%86%B5%EA%B3%B5%EB%8B%A8/" class="org-row">
-        <span class="org-row-name">한국도로교통공단</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국도로교통공단</span>
+          <span class="org-row-salary">초봉 <strong>3,261만원</strong> &nbsp;·&nbsp; 평균 <strong>6,897만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%86%8D%EC%96%B4%EC%B4%8C%EA%B3%B5%EC%82%AC/" class="org-row">
-        <span class="org-row-name">한국농어촌공사</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국농어촌공사</span>
+          <span class="org-row-salary">초봉 <strong>3,724만원</strong> &nbsp;·&nbsp; 평균 <strong>7,418만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%EA%B5%AD%EB%AF%BC%EA%B1%B4%EA%B0%95%EB%B3%B4%ED%97%98%EA%B3%B5%EB%8B%A8/" class="org-row">
-        <span class="org-row-name">국민건강보험공단</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">국민건강보험공단</span>
+          <span class="org-row-salary">초봉 <strong>4,320만원</strong> &nbsp;·&nbsp; 평균 <strong>7,040만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%B0%A9%EC%86%A1%ED%86%B5%EC%8B%A0%EC%A0%84%ED%8C%8C%EC%A7%84%ED%9D%A5%EC%9B%90/" class="org-row">
-        <span class="org-row-name">한국방송통신전파진흥원</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국방송통신전파진흥원</span>
+          <span class="org-row-salary">초봉 <strong>3,941만원</strong> &nbsp;·&nbsp; 평균 <strong>7,537만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%EC%9A%B0%EC%B2%B4%EA%B5%AD%EB%AC%BC%EB%A5%98%EC%A7%80%EC%9B%90%EB%8B%A8/" class="org-row">
-        <span class="org-row-name">우체국물류지원단</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">우체국물류지원단</span>
+          <span class="org-row-salary">초봉 <strong>4,353만원</strong> &nbsp;·&nbsp; 평균 <strong>6,066만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%EC%9A%B0%EC%B2%B4%EA%B5%AD%EA%B8%88%EC%9C%B5%EA%B0%9C%EB%B0%9C%EC%9B%90/" class="org-row">
-        <span class="org-row-name">우체국금융개발원</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">우체국금융개발원</span>
+          <span class="org-row-salary">초봉 <strong>3,460만원</strong> &nbsp;·&nbsp; 평균 <strong>5,814만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B3%A0%EC%9A%A9%EC%A0%95%EB%B3%B4%EC%9B%90/" class="org-row">
-        <span class="org-row-name">한국고용정보원</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국고용정보원</span>
+          <span class="org-row-salary">초봉 <strong>4,376만원</strong> &nbsp;·&nbsp; 평균 <strong>7,000만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%EC%B6%95%EC%82%B0%EB%AC%BC%ED%92%88%EC%A7%88%ED%8F%89%EA%B0%80%EC%9B%90/" class="org-row">
-        <span class="org-row-name">축산물품질평가원</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">축산물품질평가원</span>
+          <span class="org-row-salary">초봉 <strong>3,632만원</strong> &nbsp;·&nbsp; 평균 <strong>6,549만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%88%98%EB%AA%A9%EC%9B%90%EC%A0%95%EC%9B%90%EA%B4%80%EB%A6%AC%EC%9B%90/" class="org-row">
-        <span class="org-row-name">한국수목원정원관리원</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국수목원정원관리원</span>
+          <span class="org-row-salary">초봉 <strong>3,946만원</strong> &nbsp;·&nbsp; 평균 <strong>6,144만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%82%B0%EB%A6%BC%EB%B3%B5%EC%A7%80%EC%A7%84%ED%9D%A5%EC%9B%90/" class="org-row">
-        <span class="org-row-name">한국산림복지진흥원</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국산림복지진흥원</span>
+          <span class="org-row-salary">초봉 <strong>3,594만원</strong> &nbsp;·&nbsp; 평균 <strong>5,979만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%EA%B5%AD%ED%86%A0%EC%95%88%EC%A0%84%EA%B4%80%EB%A6%AC%EC%9B%90/" class="org-row">
-        <span class="org-row-name">국토안전관리원</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">국토안전관리원</span>
+          <span class="org-row-salary">초봉 <strong>4,203만원</strong> &nbsp;·&nbsp; 평균 <strong>7,120만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%EA%B8%B0%EC%88%A0%EB%B3%B4%EC%A6%9D%EA%B8%B0%EA%B8%88/" class="org-row">
-        <span class="org-row-name">기술보증기금</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">기술보증기금</span>
+          <span class="org-row-salary">초봉 <strong>5,349만원</strong> &nbsp;·&nbsp; 평균 <strong>10,018만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%EA%B5%AD%EB%A6%BD%EC%83%9D%ED%83%9C%EC%9B%90/" class="org-row">
-        <span class="org-row-name">국립생태원</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">국립생태원</span>
+          <span class="org-row-salary">초봉 <strong>4,676만원</strong> &nbsp;·&nbsp; 평균 <strong>7,350만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%EA%B5%AD%EA%B0%80%EC%B2%A0%EB%8F%84%EA%B3%B5%EB%8B%A8/" class="org-row">
-        <span class="org-row-name">국가철도공단</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">국가철도공단</span>
+          <span class="org-row-salary">초봉 <strong>4,334만원</strong> &nbsp;·&nbsp; 평균 <strong>8,089만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%84%9D%EC%9C%A0%EA%B4%80%EB%A6%AC%EC%9B%90/" class="org-row">
-        <span class="org-row-name">한국석유관리원</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국석유관리원</span>
+          <span class="org-row-salary">초봉 <strong>4,198만원</strong> &nbsp;·&nbsp; 평균 <strong>6,978만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%9E%A5%EC%95%A0%EC%9D%B8%EA%B3%A0%EC%9A%A9%EA%B3%B5%EB%8B%A8/" class="org-row">
-        <span class="org-row-name">한국장애인고용공단</span>
-        <span class="bonus-badge yes">성과급 지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국장애인고용공단</span>
+          <span class="org-row-salary">초봉 <strong>3,279만원</strong> &nbsp;·&nbsp; 평균 <strong>6,132만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge yes">성과급 지급</span>
+        </div>
       </a></div>
       </div>
     </div>
@@ -479,60 +844,125 @@
         <div class="group-label">공기업 (4개)</div>
         <div class="org-list">
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%84%9D%EC%9C%A0%EA%B3%B5%EC%82%AC/" class="org-row">
-        <span class="org-row-name">한국석유공사</span>
-        <span class="bonus-badge no">성과급 미지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국석유공사</span>
+          <span class="org-row-salary">초봉 <strong>3,927만원</strong> &nbsp;·&nbsp; 평균 <strong>9,659만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge no">성과급 미지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%EC%A0%9C%EC%A3%BC%EA%B5%AD%EC%A0%9C%EC%9E%90%EC%9C%A0%EB%8F%84%EC%8B%9C%EA%B0%9C%EB%B0%9C%EC%84%BC%ED%84%B0/" class="org-row">
-        <span class="org-row-name">제주국제자유도시개발센터</span>
-        <span class="bonus-badge no">성과급 미지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">제주국제자유도시개발센터</span>
+          <span class="org-row-salary">초봉 <strong>3,720만원</strong> &nbsp;·&nbsp; 평균 <strong>6,637만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge no">성과급 미지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B4%91%ED%95%B4%EA%B4%91%EC%97%85%EA%B3%B5%EB%8B%A8/" class="org-row">
-        <span class="org-row-name">한국광해광업공단</span>
-        <span class="bonus-badge no">성과급 미지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국광해광업공단</span>
+          <span class="org-row-salary">초봉 <strong>3,819만원</strong> &nbsp;·&nbsp; 평균 <strong>8,376만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge no">성과급 미지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%EC%97%90%EC%8A%A4%EC%95%8C(SR)/" class="org-row">
-        <span class="org-row-name">에스알(SR)</span>
-        <span class="bonus-badge no">성과급 미지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">에스알(SR)</span>
+          <span class="org-row-salary">초봉 <strong>4,039만원</strong> &nbsp;·&nbsp; 평균 <strong>7,265만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge no">성과급 미지급</span>
+        </div>
       </a></div>
       </div>
       <div class="org-group">
         <div class="group-label">준정부기관 (9개)</div>
         <div class="org-list">
       <a href="https://govmap.kr/orgs/%EC%84%9C%EC%9A%B8%EC%98%AC%EB%A6%BC%ED%94%BD%EA%B8%B0%EB%85%90%EA%B5%AD%EB%AF%BC%EC%B2%B4%EC%9C%A1%EC%A7%84%ED%9D%A5%EA%B3%B5%EB%8B%A8/" class="org-row">
-        <span class="org-row-name">서울올림픽기념국민체육진흥공단</span>
-        <span class="bonus-badge no">성과급 미지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">서울올림픽기념국민체육진흥공단</span>
+          <span class="org-row-salary">초봉 <strong>4,532만원</strong> &nbsp;·&nbsp; 평균 <strong>7,582만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge no">성과급 미지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%9E%90%EC%82%B0%EA%B4%80%EB%A6%AC%EA%B3%B5%EC%82%AC/" class="org-row">
-        <span class="org-row-name">한국자산관리공사</span>
-        <span class="bonus-badge no">성과급 미지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국자산관리공사</span>
+          <span class="org-row-salary">초봉 <strong>4,865만원</strong> &nbsp;·&nbsp; 평균 <strong>9,203만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge no">성과급 미지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%82%B0%EC%97%85%EC%9D%B8%EB%A0%A5%EA%B3%B5%EB%8B%A8/" class="org-row">
-        <span class="org-row-name">한국산업인력공단</span>
-        <span class="bonus-badge no">성과급 미지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국산업인력공단</span>
+          <span class="org-row-salary">초봉 <strong>3,609만원</strong> &nbsp;·&nbsp; 평균 <strong>6,766만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge no">성과급 미지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%8A%B9%EA%B0%95%EA%B8%B0%EC%95%88%EC%A0%84%EA%B3%B5%EB%8B%A8/" class="org-row">
-        <span class="org-row-name">한국승강기안전공단</span>
-        <span class="bonus-badge no">성과급 미지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국승강기안전공단</span>
+          <span class="org-row-salary">초봉 <strong>4,195만원</strong> &nbsp;·&nbsp; 평균 <strong>5,966만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge no">성과급 미지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%97%B0%EA%B5%AC%EC%9E%AC%EB%8B%A8/" class="org-row">
-        <span class="org-row-name">한국연구재단</span>
-        <span class="bonus-badge no">성과급 미지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국연구재단</span>
+          <span class="org-row-salary">초봉 <strong>5,387만원</strong> &nbsp;·&nbsp; 평균 <strong>9,576만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge no">성과급 미지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%9D%B8%ED%84%B0%EB%84%B7%EC%A7%84%ED%9D%A5%EC%9B%90/" class="org-row">
-        <span class="org-row-name">한국인터넷진흥원</span>
-        <span class="bonus-badge no">성과급 미지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국인터넷진흥원</span>
+          <span class="org-row-salary">초봉 <strong>3,922만원</strong> &nbsp;·&nbsp; 평균 <strong>7,414만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge no">성과급 미지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%ED%95%B4%EC%96%91%EA%B5%90%ED%86%B5%EC%95%88%EC%A0%84%EA%B3%B5%EB%8B%A8/" class="org-row">
-        <span class="org-row-name">한국해양교통안전공단</span>
-        <span class="bonus-badge no">성과급 미지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국해양교통안전공단</span>
+          <span class="org-row-salary">초봉 <strong>4,238만원</strong> &nbsp;·&nbsp; 평균 <strong>6,649만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge no">성과급 미지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B5%AD%ED%86%A0%EC%A0%95%EB%B3%B4%EA%B3%B5%EC%82%AC/" class="org-row">
-        <span class="org-row-name">한국국토정보공사</span>
-        <span class="bonus-badge no">성과급 미지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국국토정보공사</span>
+          <span class="org-row-salary">초봉 <strong>4,687만원</strong> &nbsp;·&nbsp; 평균 <strong>8,189만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge no">성과급 미지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%ED%99%98%EA%B2%BD%EC%82%B0%EC%97%85%EA%B8%B0%EC%88%A0%EC%9B%90/" class="org-row">
-        <span class="org-row-name">한국환경산업기술원</span>
-        <span class="bonus-badge no">성과급 미지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국환경산업기술원</span>
+          <span class="org-row-salary">초봉 <strong>4,633만원</strong> &nbsp;·&nbsp; 평균 <strong>7,877만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge no">성과급 미지급</span>
+        </div>
       </a></div>
       </div>
     </div>
@@ -548,16 +978,31 @@
         <div class="group-label">준정부기관 (3개)</div>
         <div class="org-list">
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%B0%A9%EC%86%A1%EA%B4%91%EA%B3%A0%EC%A7%84%ED%9D%A5%EA%B3%B5%EC%82%AC/" class="org-row">
-        <span class="org-row-name">한국방송광고진흥공사</span>
-        <span class="bonus-badge no">성과급 미지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국방송광고진흥공사</span>
+          <span class="org-row-salary">초봉 <strong>4,560만원</strong> &nbsp;·&nbsp; 평균 <strong>8,890만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge no">성과급 미지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%EA%B5%AD%EB%A6%BD%EA%B3%B5%EC%9B%90%EA%B3%B5%EB%8B%A8/" class="org-row">
-        <span class="org-row-name">국립공원공단</span>
-        <span class="bonus-badge no">성과급 미지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">국립공원공단</span>
+          <span class="org-row-salary">초봉 <strong>3,780만원</strong> &nbsp;·&nbsp; 평균 <strong>6,217만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge no">성과급 미지급</span>
+        </div>
       </a>
       <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B5%AD%EC%A0%9C%ED%98%91%EB%A0%A5%EB%8B%A8/" class="org-row">
-        <span class="org-row-name">한국국제협력단</span>
-        <span class="bonus-badge no">성과급 미지급</span>
+        <div class="org-row-left">
+          <span class="org-row-name">한국국제협력단</span>
+          <span class="org-row-salary">초봉 <strong>4,001만원</strong> &nbsp;·&nbsp; 평균 <strong>7,469만원</strong></span>
+        </div>
+        <div class="org-row-right">
+          <span class="bonus-badge no">성과급 미지급</span>
+        </div>
       </a></div>
       </div>
     </div>
