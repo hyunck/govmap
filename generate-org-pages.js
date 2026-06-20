@@ -287,6 +287,14 @@ function buildPage(org) {
     .tag-blue   { background: #eff6ff; color: #1d4ed8; }
     .tag-purple { background: #f5f3ff; color: #6d28d9; }
     .tag-green  { background: #ecfdf5; color: #065f46; }
+    /* 경영평가 등급 뱃지 */
+    .eval-badge { display:inline-block; font-size:13px; font-weight:700; padding:3px 12px; border-radius:6px; }
+    .eval-S { background:#faf5ff; color:#7c3aed; border:1px solid #ddd6fe; }
+    .eval-A { background:#f0fdf4; color:#15803d; border:1px solid #bbf7d0; }
+    .eval-B { background:#eff6ff; color:#1d4ed8; border:1px solid #bfdbfe; }
+    .eval-C { background:#f9fafb; color:#4b5563; border:1px solid #e5e7eb; }
+    .eval-D { background:#fff7ed; color:#c2410c; border:1px solid #fed7aa; }
+    .eval-E { background:#fef2f2; color:#dc2626; border:1px solid #fecaca; }
     /* 순환근무 뱃지 */
     .rot-badge { display:inline-block; font-size:12px; font-weight:700; padding:4px 14px; border-radius:20px; vertical-align:middle; }
     .rot-national { background:#fef2f2; color:#dc2626; border:1px solid #fecaca; }
@@ -431,6 +439,7 @@ function buildPage(org) {
       </div>
       ${org.avgYears ? `<div class="info-item"><label>평균 근속연수</label><span>${org.avgYears}년</span></div>` : ''}
       ${org.industry ? `<div class="info-item"><label>산업 분야</label><span>${escHtml(org.industry)}</span></div>` : ''}
+      ${org.evalGrade ? `<div class="info-item"><label>경영평가 등급</label><span><span class="eval-badge eval-${escHtml(org.evalGrade)}">${escHtml(org.evalGrade)}등급</span><span style="font-size:12px;color:#9ca3af;margin-left:8px;">${{'S':'탁월','A':'우수','B':'양호','C':'보통','D':'미흡','E':'아주미흡'}[org.evalGrade]||''} · ${org.evalYear||2025}년</span></span></div>` : ''}
     </div>
   </div>
 
