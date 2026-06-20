@@ -439,7 +439,7 @@ function buildPage(org) {
       </div>
       ${org.avgYears ? `<div class="info-item"><label>평균 근속연수</label><span>${org.avgYears}년</span></div>` : ''}
       ${org.industry ? `<div class="info-item"><label>산업 분야</label><span>${escHtml(org.industry)}</span></div>` : ''}
-      ${org.evalGrade ? `<div class="info-item"><label>경영평가 등급</label><span><span class="eval-badge eval-${escHtml(org.evalGrade)}">${escHtml(org.evalGrade)}등급</span><span style="font-size:12px;color:#9ca3af;margin-left:8px;">${{'S':'탁월','A':'우수','B':'양호','C':'보통','D':'미흡','E':'아주미흡'}[org.evalGrade]||''} · ${org.evalYear||2025}년</span></span></div>` : ''}
+      ${org.evalGrade ? `<div class="info-item"><label>경영평가 등급</label><span><span class="eval-badge eval-${escHtml(org.evalGrade)}">${escHtml(org.evalGrade)}등급</span><span style="font-size:12px;color:#9ca3af;margin-left:8px;">${{'S':'탁월','A':'우수','B':'양호','C':'보통','D':'미흡','E':'아주미흡'}[org.evalGrade]||''} · ${org.evalYear||2025}년도 실적 (${(org.evalYear||2025)+1}년 발표)</span></span></div>` : ''}
     </div>
   </div>
 
