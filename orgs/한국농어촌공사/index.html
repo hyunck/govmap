@@ -86,6 +86,21 @@
     .tag-blue   { background: #eff6ff; color: #1d4ed8; }
     .tag-purple { background: #f5f3ff; color: #6d28d9; }
     .tag-green  { background: #ecfdf5; color: #065f46; }
+    /* 경영평가 등급 뱃지 */
+    .eval-badge { display:inline-block; font-size:13px; font-weight:700; padding:3px 12px; border-radius:6px; }
+    .eval-S { background:#faf5ff; color:#7c3aed; border:1px solid #ddd6fe; }
+    .eval-A { background:#f0fdf4; color:#15803d; border:1px solid #bbf7d0; }
+    .eval-B { background:#eff6ff; color:#1d4ed8; border:1px solid #bfdbfe; }
+    .eval-C { background:#f9fafb; color:#4b5563; border:1px solid #e5e7eb; }
+    .eval-D { background:#fff7ed; color:#c2410c; border:1px solid #fed7aa; }
+    .eval-E { background:#fef2f2; color:#dc2626; border:1px solid #fecaca; }
+    /* 순환근무 뱃지 */
+    .rot-badge { display:inline-block; font-size:12px; font-weight:700; padding:4px 14px; border-radius:20px; vertical-align:middle; }
+    .rot-national { background:#fef2f2; color:#dc2626; border:1px solid #fecaca; }
+    .rot-regional { background:#fffbeb; color:#d97706; border:1px solid #fde68a; }
+    .rot-none     { background:#f0fdf4; color:#16a34a; border:1px solid #bbf7d0; }
+    .rot-row { display:flex; align-items:baseline; gap:8px; margin-bottom:8px; font-size:14px; }
+    .rot-label { color:#9ca3af; font-size:12px; font-weight:600; min-width:60px; }
     /* 테이블 */
     table { width: 100%; border-collapse: collapse; font-size: 14px; }
     th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #f3f4f6; }
@@ -220,6 +235,7 @@
       </div>
       <div class="info-item"><label>평균 근속연수</label><span>17.3년</span></div>
       <div class="info-item"><label>산업 분야</label><span>SOC·건설</span></div>
+      <div class="info-item"><label>경영평가 등급</label><span><span class="eval-badge eval-C">C등급</span><span style="font-size:12px;color:#9ca3af;margin-left:8px;">보통 · 2026년</span></span></div>
     </div>
   </div>
 
@@ -286,7 +302,7 @@
         <div class="vc-big avg-big">7,418만원<span> 단위: 만원</span></div>
       </div>
     </div>
-    <div class="sv-rank">📊 <strong>SOC·건설</strong> 공기업 신입연봉 <strong>39개 기관 중 19위</strong></div>
+    <div class="sv-rank">📊 <strong>SOC·건설</strong> 공기업 신입연봉 <strong>38개 기관 중 19위</strong></div>
     <p class="vc-note">* 2026년 평균 연봉은 경영평가 성과급이 미반영된 예산 기준으로, 실제 지급액과 차이가 있을 수 있습니다.</p>
   </div>
 
@@ -305,6 +321,9 @@
       <span class="tag tag-green">주택자금</span><span class="tag tag-green">복지포인트</span><span class="tag tag-green">자녀 학자금</span>
     </div>
   </div>
+
+  <!-- 순환근무 -->
+  
 
   <!-- NCS 시험과목 -->
   <div class="card">
@@ -487,114 +506,108 @@
         </tr>
         <tr class="" data-ri="20">
           <td>21</td>
-          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%82%B0%EC%97%85%EC%95%88%EC%A0%84%EB%B3%B4%EA%B1%B4%EA%B3%B5%EB%8B%A8/">한국산업안전보건공단</a></td>
-          <td>3,699만원</td>
-          <td>7,233만원</td>
-        </tr>
-        <tr class="" data-ri="21">
-          <td>22</td>
           <td><a href="https://govmap.kr/orgs/%EC%9D%B8%EC%B2%9C%ED%95%AD%EB%A7%8C%EA%B3%B5%EC%82%AC/">인천항만공사</a></td>
           <td>3,686만원</td>
           <td>9,667만원</td>
         </tr>
-        <tr class="" data-ri="22">
-          <td>23</td>
+        <tr class="" data-ri="21">
+          <td>22</td>
           <td><a href="https://govmap.kr/orgs/%EB%B6%80%EC%82%B0%ED%95%AD%EB%A7%8C%EA%B3%B5%EC%82%AC/">부산항만공사</a></td>
           <td>3,681만원</td>
           <td>9,118만원</td>
         </tr>
-        <tr class="" data-ri="23">
-          <td>24</td>
+        <tr class="" data-ri="22">
+          <td>23</td>
           <td><a href="https://govmap.kr/orgs/%EC%BD%94%EB%A0%88%EC%9D%BC%EC%9C%A0%ED%86%B5/">코레일유통</a></td>
           <td>3,500만원</td>
           <td>5,800만원</td>
         </tr>
+        <tr class="" data-ri="23">
+          <td>24</td>
+          <td><a href="https://govmap.kr/orgs/%EA%B5%AD%ED%86%A0%EC%97%B0%EA%B5%AC%EC%9B%90/">국토연구원</a></td>
+          <td>3,500만원</td>
+          <td>6,800만원</td>
+        </tr>
         <tr class="" data-ri="24">
           <td>25</td>
-          <td><a href="https://govmap.kr/orgs/%EA%B5%AD%ED%86%A0%EC%97%B0%EA%B5%AC%EC%9B%90/">국토연구원</a></td>
+          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B5%90%ED%86%B5%EC%97%B0%EA%B5%AC%EC%9B%90/">한국교통연구원</a></td>
           <td>3,500만원</td>
           <td>6,800만원</td>
         </tr>
         <tr class="" data-ri="25">
           <td>26</td>
-          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B5%90%ED%86%B5%EC%97%B0%EA%B5%AC%EC%9B%90/">한국교통연구원</a></td>
-          <td>3,500만원</td>
-          <td>6,800만원</td>
-        </tr>
-        <tr class="" data-ri="26">
-          <td>27</td>
           <td><a href="https://govmap.kr/orgs/%ED%95%AD%EA%B3%B5%EC%95%88%EC%A0%84%EA%B8%B0%EC%88%A0%EC%9B%90/">항공안전기술원</a></td>
           <td>3,500만원</td>
           <td>6,500만원</td>
         </tr>
-        <tr class="" data-ri="27">
-          <td>28</td>
+        <tr class="" data-ri="26">
+          <td>27</td>
           <td><a href="https://govmap.kr/orgs/%EC%83%88%EB%A7%8C%EA%B8%88%EA%B0%9C%EB%B0%9C%EA%B3%B5%EC%82%AC/">새만금개발공사</a></td>
           <td>3,300만원</td>
           <td>6,000만원</td>
         </tr>
-        <tr class="" data-ri="28">
-          <td>29</td>
+        <tr class="" data-ri="27">
+          <td>28</td>
           <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%8F%84%EB%A1%9C%EA%B5%90%ED%86%B5%EA%B3%B5%EB%8B%A8/">한국도로교통공단</a></td>
           <td>3,261만원</td>
           <td>6,897만원</td>
         </tr>
-        <tr class="" data-ri="29">
-          <td>30</td>
+        <tr class="" data-ri="28">
+          <td>29</td>
           <td><a href="https://govmap.kr/orgs/%EA%B1%B4%EC%B6%95%EA%B3%B5%EA%B0%84%EC%97%B0%EA%B5%AC%EC%9B%90/">건축공간연구원</a></td>
           <td>3,200만원</td>
           <td>6,000만원</td>
         </tr>
+        <tr class="" data-ri="29">
+          <td>30</td>
+          <td><a href="https://govmap.kr/orgs/%EA%B5%AD%ED%86%A0%EA%B5%90%ED%86%B5%EA%B3%BC%ED%95%99%EA%B8%B0%EC%88%A0%EC%A7%84%ED%9D%A5%EC%9B%90/">국토교통과학기술진흥원</a></td>
+          <td>3,200만원</td>
+          <td>5,800만원</td>
+        </tr>
         <tr class="" data-ri="30">
           <td>31</td>
-          <td><a href="https://govmap.kr/orgs/%EA%B5%AD%ED%86%A0%EA%B5%90%ED%86%B5%EA%B3%BC%ED%95%99%EA%B8%B0%EC%88%A0%EC%A7%84%ED%9D%A5%EC%9B%90/">국토교통과학기술진흥원</a></td>
+          <td><a href="https://govmap.kr/orgs/%EC%A3%BC%ED%83%9D%EA%B4%80%EB%A6%AC%EA%B3%B5%EB%8B%A8(%EC%A3%BC)/">주택관리공단(주)</a></td>
           <td>3,200만원</td>
           <td>5,800만원</td>
         </tr>
         <tr class="" data-ri="31">
           <td>32</td>
-          <td><a href="https://govmap.kr/orgs/%EC%A3%BC%ED%83%9D%EA%B4%80%EB%A6%AC%EA%B3%B5%EB%8B%A8(%EC%A3%BC)/">주택관리공단(주)</a></td>
+          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%ED%95%AD%EB%A1%9C%ED%91%9C%EC%A7%80%EA%B8%B0%EC%88%A0%EC%9B%90/">한국항로표지기술원</a></td>
           <td>3,200만원</td>
           <td>5,800만원</td>
         </tr>
         <tr class="" data-ri="32">
           <td>33</td>
-          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%ED%95%AD%EB%A1%9C%ED%91%9C%EC%A7%80%EA%B8%B0%EC%88%A0%EC%9B%90/">한국항로표지기술원</a></td>
-          <td>3,200만원</td>
-          <td>5,800만원</td>
+          <td><a href="https://govmap.kr/orgs/%EC%9E%AC%EB%8B%A8%EB%B2%95%EC%9D%B8%20%EA%B1%B4%EC%84%A4%EA%B8%B0%EC%88%A0%EA%B5%90%EC%9C%A1%EC%9B%90/">재단법인 건설기술교육원</a></td>
+          <td>3,000만원</td>
+          <td>5,500만원</td>
         </tr>
         <tr class="" data-ri="33">
           <td>34</td>
-          <td><a href="https://govmap.kr/orgs/%EC%9E%AC%EB%8B%A8%EB%B2%95%EC%9D%B8%20%EA%B1%B4%EC%84%A4%EA%B8%B0%EC%88%A0%EA%B5%90%EC%9C%A1%EC%9B%90/">재단법인 건설기술교육원</a></td>
+          <td><a href="https://govmap.kr/orgs/%EC%9E%AC%EB%8B%A8%EB%B2%95%EC%9D%B8%20%EB%8C%80%ED%95%9C%EA%B1%B4%EC%84%A4%EA%B8%B0%EA%B3%84%EC%95%88%EC%A0%84%EA%B4%80%EB%A6%AC%EC%9B%90/">재단법인 대한건설기계안전관리원</a></td>
           <td>3,000만원</td>
           <td>5,500만원</td>
         </tr>
         <tr class="" data-ri="34">
           <td>35</td>
-          <td><a href="https://govmap.kr/orgs/%EC%9E%AC%EB%8B%A8%EB%B2%95%EC%9D%B8%20%EB%8C%80%ED%95%9C%EA%B1%B4%EC%84%A4%EA%B8%B0%EA%B3%84%EC%95%88%EC%A0%84%EA%B4%80%EB%A6%AC%EC%9B%90/">재단법인 대한건설기계안전관리원</a></td>
-          <td>3,000만원</td>
-          <td>5,500만원</td>
+          <td><a href="https://govmap.kr/orgs/%EC%BD%94%EB%A0%88%EC%9D%BC%EB%A1%9C%EC%A7%80%EC%8A%A4(%EC%A3%BC)/">코레일로지스(주)</a></td>
+          <td>2,900만원</td>
+          <td>5,200만원</td>
         </tr>
         <tr class="" data-ri="35">
           <td>36</td>
-          <td><a href="https://govmap.kr/orgs/%EC%BD%94%EB%A0%88%EC%9D%BC%EB%A1%9C%EC%A7%80%EC%8A%A4(%EC%A3%BC)/">코레일로지스(주)</a></td>
+          <td><a href="https://govmap.kr/orgs/%EC%BD%94%EB%A0%88%EC%9D%BC%ED%85%8C%ED%81%AC(%EC%A3%BC)/">코레일테크(주)</a></td>
           <td>2,900만원</td>
           <td>5,200만원</td>
         </tr>
         <tr class="" data-ri="36">
           <td>37</td>
-          <td><a href="https://govmap.kr/orgs/%EC%BD%94%EB%A0%88%EC%9D%BC%ED%85%8C%ED%81%AC(%EC%A3%BC)/">코레일테크(주)</a></td>
-          <td>2,900만원</td>
-          <td>5,200만원</td>
-        </tr>
-        <tr class="" data-ri="37">
-          <td>38</td>
           <td><a href="https://govmap.kr/orgs/%EC%BD%94%EB%A0%88%EC%9D%BC%EB%84%A4%ED%8A%B8%EC%9B%8D%EC%8A%A4(%EC%A3%BC)/">코레일네트웍스(주)</a></td>
           <td>2,800만원</td>
           <td>5,000만원</td>
         </tr>
-        <tr class="" data-ri="38">
-          <td>39</td>
+        <tr class="" data-ri="37">
+          <td>38</td>
           <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%8F%84%EB%A1%9C%EA%B3%B5%EC%82%AC%EC%84%9C%EB%B9%84%EC%8A%A4(%EC%A3%BC)/">한국도로공사서비스(주)</a></td>
           <td>2,800만원</td>
           <td>4,800만원</td>
@@ -607,29 +620,29 @@
   <!-- 관련 기관 -->
   <div class="card">
     <div class="card-title">같은 유형의 다른 기관</div>
-    <div class="related-grid"><a href="https://govmap.kr/orgs/%EA%B5%AD%EB%A6%BD%EA%B3%B5%EC%9B%90%EA%B3%B5%EB%8B%A8/" class="rel-card">
+    <div class="related-grid"><a href="https://govmap.kr/orgs/%EA%B5%AD%EB%AF%BC%EC%97%B0%EA%B8%88%EA%B3%B5%EB%8B%A8/" class="rel-card">
        <span class="rel-badge" style="background:#7c3aed">준정부</span>
-       <span class="rel-name">국립공원공단</span>
-       <span class="rel-region">강원권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A7%80%EB%8A%A5%EC%A0%95%EB%B3%B4%EC%82%AC%ED%9A%8C%EC%A7%84%ED%9D%A5%EC%9B%90/" class="rel-card">
+       <span class="rel-name">국민연금공단</span>
+       <span class="rel-region">전라권</span>
+     </a><a href="https://govmap.kr/orgs/%EA%B7%BC%EB%A1%9C%EB%B3%B5%EC%A7%80%EA%B3%B5%EB%8B%A8/" class="rel-card">
        <span class="rel-badge" style="background:#7c3aed">준정부</span>
-       <span class="rel-name">한국지능정보사회진흥원</span>
+       <span class="rel-name">근로복지공단</span>
        <span class="rel-region">경상권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%ED%99%98%EA%B2%BD%EC%82%B0%EC%97%85%EA%B8%B0%EC%88%A0%EC%9B%90/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%9B%90%EC%9E%90%EB%A0%A5%ED%99%98%EA%B2%BD%EA%B3%B5%EB%8B%A8/" class="rel-card">
        <span class="rel-badge" style="background:#7c3aed">준정부</span>
-       <span class="rel-name">한국환경산업기술원</span>
-       <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%9E%A5%EC%95%A0%EC%9D%B8%EA%B3%A0%EC%9A%A9%EA%B3%B5%EB%8B%A8/" class="rel-card">
+       <span class="rel-name">한국원자력환경공단</span>
+       <span class="rel-region">경상권</span>
+     </a><a href="https://govmap.kr/orgs/%EA%B5%AD%EB%A6%BD%EC%83%9D%ED%83%9C%EC%9B%90/" class="rel-card">
        <span class="rel-badge" style="background:#7c3aed">준정부</span>
-       <span class="rel-name">한국장애인고용공단</span>
-       <span class="rel-region">경기권</span>
-     </a><a href="https://govmap.kr/orgs/%EA%B5%AD%EA%B0%80%EC%B2%A0%EB%8F%84%EA%B3%B5%EB%8B%A8/" class="rel-card">
-       <span class="rel-badge" style="background:#7c3aed">준정부</span>
-       <span class="rel-name">국가철도공단</span>
+       <span class="rel-name">국립생태원</span>
        <span class="rel-region">충청권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%ED%95%B4%EC%96%91%EA%B5%90%ED%86%B5%EC%95%88%EC%A0%84%EA%B3%B5%EB%8B%A8/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%82%B0%EB%A6%BC%EB%B3%B5%EC%A7%80%EC%A7%84%ED%9D%A5%EC%9B%90/" class="rel-card">
        <span class="rel-badge" style="background:#7c3aed">준정부</span>
-       <span class="rel-name">한국해양교통안전공단</span>
+       <span class="rel-name">한국산림복지진흥원</span>
+       <span class="rel-region">충청권</span>
+     </a><a href="https://govmap.kr/orgs/%EC%86%8C%EC%83%81%EA%B3%B5%EC%9D%B8%EC%8B%9C%EC%9E%A5%EC%A7%84%ED%9D%A5%EA%B3%B5%EB%8B%A8/" class="rel-card">
+       <span class="rel-badge" style="background:#7c3aed">준정부</span>
+       <span class="rel-name">소상공인시장진흥공단</span>
        <span class="rel-region">충청권</span>
      </a></div>
   </div>
