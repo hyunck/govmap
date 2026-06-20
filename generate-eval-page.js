@@ -75,15 +75,22 @@ const html = `<!DOCTYPE html>
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>2026년 공공기관 경영평가 결과 | 공기업·준정부기관 등급·성과급 총정리 | GovMap</title>
-  <meta name="description" content="2026년 기획재정부 공공기관 경영평가(경평) 결과 발표. 공기업 31개·준정부기관 57개 총 88개 기관의 A(우수)·B(양호)·C(보통)·D(미흡)·E(아주미흡) 등급과 성과급 지급 여부를 한눈에 확인하세요.">
+  <!-- 검색 결과 (데스크탑·모바일 공통) -->
+  <title>2026 공공기관 경영평가 결과 | 등급·성과급 총정리 | GovMap</title>
+  <meta name="description" content="공기업·준정부기관 88개 경영평가 등급 공개(2026, 기획재정부). A우수·B양호·C보통·D미흡·E아주미흡 전체 목록과 성과급 지급 여부를 확인하세요.">
   <meta name="keywords" content="공공기관 경영평가 결과,공공기관 경영평가 결과 2026,2026 경영평가,공기업 경영평가,준정부기관 경영평가,기획재정부 경영평가,경평 결과,경영평가 등급,경영평가 순위,경영평가 발표,공공기관 성과급,공기업 성과급,준정부기관 성과급,경영평가 성과급,경영평가 우수,경영평가 양호,경영평가 보통,경영평가 미흡,경영평가 아주미흡,A등급 공기업,B등급 공기업,D등급 공기업,공기업 취업">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="${BASE_URL}/eval/">
+  <!-- OG (SNS·모바일 공유 — 짧고 핵심만) -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="${BASE_URL}/eval/">
-  <meta property="og:title" content="2026년 공공기관 경영평가 결과 | 공기업·준정부기관 등급·성과급 총정리">
-  <meta property="og:description" content="기획재정부 2026년 공공기관 경영평가(경평) 결과. 88개 기관 A~E등급과 성과급 지급 여부를 한눈에 확인하세요.">
+  <meta property="og:title" content="2026 공공기관 경영평가 결과 | GovMap">
+  <meta property="og:description" content="공기업·준정부기관 88개 A~E등급 공개. 성과급 지급 여부까지 한눈에 확인하세요.">
+  <meta property="og:locale" content="ko_KR">
+  <!-- Twitter Card (X·카카오톡 등 모바일 앱 공유) -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="2026 공공기관 경영평가 결과">
+  <meta name="twitter:description" content="공기업·준정부기관 88개 A~E등급 + 성과급 지급 여부 | GovMap">
   <meta property="og:locale" content="ko_KR">
   <script type="application/ld+json">
   {
