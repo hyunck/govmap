@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5Y011TCG81"></script>
+  <script>
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js',new Date());
+    gtag('config','G-5Y011TCG81');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>2026년 공공기관 경영평가 결과 — 등급별 기관 목록 | GovMap</title>
+  <meta name="description" content="2026년 공기업·준정부기관 경영평가 결과 전체 공개. A등급 우수기관부터 E등급 아주미흡까지 88개 기관의 등급과 성과급 지급 여부를 한눈에 확인하세요.">
+  <meta name="keywords" content="공공기관 경영평가 결과 2026,공기업 경영평가,준정부기관 경영평가,공공기관 성과급,경영평가 등급,공기업 취업">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://govmap.kr/eval/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://govmap.kr/eval/">
+  <meta property="og:title" content="2026년 공공기관 경영평가 결과 | GovMap">
+  <meta property="og:description" content="2026년 공기업·준정부기관 88개 경영평가 결과 — 등급별 기관 목록과 성과급 지급 여부">
+  <meta property="og:locale" content="ko_KR">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "2026년 공공기관 경영평가 결과",
+    "url": "https://govmap.kr/eval/",
+    "description": "2026년 공기업·준정부기관 경영평가 결과 전체 목록",
+    "publisher": { "@type": "Organization", "name": "GovMap", "url": "https://govmap.kr" }
+  }
+  </script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Pretendard',-apple-system,'Malgun Gothic',sans-serif;background:#f9fafb;color:#1f2937;line-height:1.6;}
+    a{color:inherit;text-decoration:none;}
+    .site-header{background:#fff;border-bottom:1px solid #e5e7eb;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;}
+    .logo{font-size:18px;font-weight:700;color:#03c75a;}
+    .logo span{color:#1f2937;}
+    .back-btn{font-size:13px;color:#6b7280;background:#f3f4f6;padding:6px 14px;border-radius:20px;}
+    .back-btn:hover{background:#e5e7eb;}
+    .container{max-width:800px;margin:32px auto;padding:0 16px 80px;}
+    .breadcrumb{font-size:13px;color:#9ca3af;margin-bottom:20px;}
+    .breadcrumb a{color:#6b7280;}
+    .breadcrumb a:hover{color:#03c75a;}
+    /* 히어로 */
+    .hero{background:#fff;border-radius:16px;border:1px solid #e5e7eb;padding:32px 28px 28px;margin-bottom:16px;}
+    .hero-eyebrow{font-size:12px;font-weight:700;color:#03c75a;letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px;}
+    .hero-title{font-size:28px;font-weight:800;margin-bottom:10px;line-height:1.3;}
+    .hero-sub{font-size:14px;color:#6b7280;margin-bottom:24px;line-height:1.75;}
+    /* 요약 칩 */
+    .summary-row{display:flex;flex-wrap:wrap;gap:10px;}
+    .sum-chip{display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:12px;transition:opacity .15s;}
+    .sum-chip:hover{opacity:.75;}
+    .sum-grade{font-size:18px;font-weight:900;}
+    .sum-label{font-size:13px;font-weight:600;}
+    .sum-cnt{font-size:12px;opacity:.7;}
+    /* 안내 */
+    .info-note{font-size:12px;color:#6b7280;background:#fff;border-radius:12px;padding:14px 18px;border:1px solid #e5e7eb;margin-bottom:16px;line-height:1.75;}
+    /* 등급 섹션 */
+    .grade-section{background:#fff;border-radius:16px;border:1px solid #e5e7eb;margin-bottom:14px;overflow:hidden;}
+    .grade-header{display:flex;align-items:center;gap:14px;padding:18px 24px;}
+    .grade-badge{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;font-size:20px;font-weight:900;color:#fff;flex-shrink:0;}
+    .grade-title{font-size:18px;font-weight:700;}
+    .grade-cnt{font-size:13px;font-weight:500;margin-left:8px;opacity:.65;}
+    .grade-body{padding:4px 20px 20px;}
+    .org-group{margin-top:14px;}
+    .group-label{font-size:11px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;padding-left:2px;}
+    .org-list{display:flex;flex-direction:column;gap:5px;}
+    .org-row{display:flex;align-items:center;justify-content:space-between;padding:9px 14px;background:#f9fafb;border-radius:10px;border:1px solid #f3f4f6;transition:background .15s;}
+    .org-row:hover{background:#f3f4f6;border-color:#e5e7eb;}
+    .org-row-name{font-size:14px;font-weight:600;color:#111827;}
+    .bonus-badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:10px;flex-shrink:0;margin-left:8px;}
+    .bonus-badge.yes{background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0;}
+    .bonus-badge.no{background:#fef2f2;color:#dc2626;border:1px solid #fecaca;}
+    @media(max-width:500px){
+      .hero{padding:24px 20px 20px;}
+      .hero-title{font-size:22px;}
+      .grade-header{padding:14px 16px;}
+      .grade-body{padding:4px 14px 16px;}
+      .sum-chip{padding:7px 12px;}
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="https://govmap.kr">Gov<span>Map</span></a>
+    <a class="back-btn" href="https://govmap.kr">← 지도로 돌아가기</a>
+  </header>
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="https://govmap.kr">GovMap</a> &rsaquo; 2026년 경영평가 결과
+    </div>
+
+    <div class="hero">
+      <div class="hero-eyebrow">기획재정부 · 2026.06.19 발표</div>
+      <h1 class="hero-title">2026년 공공기관 경영평가 결과</h1>
+      <p class="hero-sub">공기업 31개 · 준정부기관 57개 등 총 <strong>88개 기관</strong> 등급 공개.<br>기관명을 클릭하면 연봉·지사·시험과목 상세 정보를 확인할 수 있습니다.</p>
+      <div class="summary-row">
+        <a href="#grade-A" class="sum-chip" style="background:#f0fdf4;border:1px solid #bbf7d0;color:#15803d;">
+      <span class="sum-grade">A</span>
+      <span class="sum-label">우수</span>
+      <span class="sum-cnt">15개</span>
+    </a><a href="#grade-B" class="sum-chip" style="background:#eff6ff;border:1px solid #bfdbfe;color:#1d4ed8;">
+      <span class="sum-grade">B</span>
+      <span class="sum-label">양호</span>
+      <span class="sum-cnt">29개</span>
+    </a><a href="#grade-C" class="sum-chip" style="background:#f9fafb;border:1px solid #e5e7eb;color:#4b5563;">
+      <span class="sum-grade">C</span>
+      <span class="sum-label">보통</span>
+      <span class="sum-cnt">28개</span>
+    </a><a href="#grade-D" class="sum-chip" style="background:#fff7ed;border:1px solid #fed7aa;color:#c2410c;">
+      <span class="sum-grade">D</span>
+      <span class="sum-label">미흡</span>
+      <span class="sum-cnt">13개</span>
+    </a><a href="#grade-E" class="sum-chip" style="background:#fef2f2;border:1px solid #fecaca;color:#dc2626;">
+      <span class="sum-grade">E</span>
+      <span class="sum-label">아주미흡</span>
+      <span class="sum-cnt">3개</span>
+    </a>
+      </div>
+    </div>
+
+    <div class="info-note">
+      💡 <strong>성과급 지급 기준</strong> — D·E등급은 성과급 미지급, A·B·C등급은 성과급 지급. 공기업 최대 250%, 준정부기관 최대 100% 수준이나 등급별 정확한 지급률은 기관 내부 기준에 따라 다릅니다.
+    </div>
+
+    
+  <div class="grade-section" id="grade-A">
+    <div class="grade-header" style="background:#f0fdf4;border-bottom:1px solid #bbf7d0;">
+      <span class="grade-badge" style="background:#15803d;">A</span>
+      <span class="grade-title" style="color:#15803d;">우수 <span class="grade-cnt">15개 기관</span></span>
+    </div>
+    <div class="grade-body">
+      <div class="org-group">
+        <div class="group-label">공기업 (6개)</div>
+        <div class="org-list">
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A0%84%EB%A0%A5%EA%B3%B5%EC%82%AC/" class="org-row">
+        <span class="org-row-name">한국전력공사</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%88%98%EB%A0%A5%EC%9B%90%EC%9E%90%EB%A0%A5/" class="org-row">
+        <span class="org-row-name">한국수력원자력</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%82%A8%EB%B6%80%EB%B0%9C%EC%A0%84/" class="org-row">
+        <span class="org-row-name">한국남부발전</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%82%A8%EB%8F%99%EB%B0%9C%EC%A0%84/" class="org-row">
+        <span class="org-row-name">한국남동발전</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A1%B0%ED%8F%90%EA%B3%B5%EC%82%AC/" class="org-row">
+        <span class="org-row-name">한국조폐공사</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EC%A0%84KDN/" class="org-row">
+        <span class="org-row-name">한전KDN</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a></div>
+      </div>
+      <div class="org-group">
+        <div class="group-label">준정부기관 (9개)</div>
+        <div class="org-list">
+      <a href="https://govmap.kr/orgs/%EA%B5%AD%EB%AF%BC%EC%97%B0%EA%B8%88%EA%B3%B5%EB%8B%A8/" class="org-row">
+        <span class="org-row-name">국민연금공단</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%AC%B4%EC%97%AD%EB%B3%B4%ED%97%98%EA%B3%B5%EC%82%AC/" class="org-row">
+        <span class="org-row-name">한국무역보험공사</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%EC%98%88%EA%B8%88%EB%B3%B4%ED%97%98%EA%B3%B5%EC%82%AC/" class="org-row">
+        <span class="org-row-name">예금보험공사</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%EA%B7%BC%EB%A1%9C%EB%B3%B5%EC%A7%80%EA%B3%B5%EB%8B%A8/" class="org-row">
+        <span class="org-row-name">근로복지공단</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B0%80%EC%8A%A4%EC%95%88%EC%A0%84%EA%B3%B5%EC%82%AC/" class="org-row">
+        <span class="org-row-name">한국가스안전공사</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%EA%B1%B4%EA%B0%95%EB%B3%B4%ED%97%98%EC%8B%AC%EC%82%AC%ED%8F%89%EA%B0%80%EC%9B%90/" class="org-row">
+        <span class="org-row-name">건강보험심사평가원</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B5%90%ED%86%B5%EC%95%88%EC%A0%84%EA%B3%B5%EB%8B%A8/" class="org-row">
+        <span class="org-row-name">한국교통안전공단</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%82%B0%EC%97%85%EA%B8%B0%EC%88%A0%EC%A7%84%ED%9D%A5%EC%9B%90/" class="org-row">
+        <span class="org-row-name">한국산업기술진흥원</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%EB%8C%80%ED%95%9C%EB%AC%B4%EC%97%AD%ED%88%AC%EC%9E%90%EC%A7%84%ED%9D%A5%EA%B3%B5%EC%82%AC(KOTRA)/" class="org-row">
+        <span class="org-row-name">대한무역투자진흥공사(KOTRA)</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a></div>
+      </div>
+    </div>
+  </div>
+  <div class="grade-section" id="grade-B">
+    <div class="grade-header" style="background:#eff6ff;border-bottom:1px solid #bfdbfe;">
+      <span class="grade-badge" style="background:#1d4ed8;">B</span>
+      <span class="grade-title" style="color:#1d4ed8;">양호 <span class="grade-cnt">29개 기관</span></span>
+    </div>
+    <div class="grade-body">
+      <div class="org-group">
+        <div class="group-label">공기업 (10개)</div>
+        <div class="org-list">
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A4%91%EB%B6%80%EB%B0%9C%EC%A0%84/" class="org-row">
+        <span class="org-row-name">한국중부발전</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A7%80%EC%97%AD%EB%82%9C%EB%B0%A9%EA%B3%B5%EC%82%AC/" class="org-row">
+        <span class="org-row-name">한국지역난방공사</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%EC%9D%B8%EC%B2%9C%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD%EA%B3%B5%EC%82%AC/" class="org-row">
+        <span class="org-row-name">인천국제공항공사</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%ED%86%A0%EC%A7%80%EC%A3%BC%ED%83%9D%EA%B3%B5%EC%82%AC/" class="org-row">
+        <span class="org-row-name">한국토지주택공사</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%A7%88%EC%82%AC%ED%9A%8C/" class="org-row">
+        <span class="org-row-name">한국마사회</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%8F%84%EB%A1%9C%EA%B3%B5%EC%82%AC/" class="org-row">
+        <span class="org-row-name">한국도로공사</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%88%98%EC%9E%90%EC%9B%90%EA%B3%B5%EC%82%AC/" class="org-row">
+        <span class="org-row-name">한국수자원공사</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%B6%80%EB%8F%99%EC%82%B0%EC%9B%90/" class="org-row">
+        <span class="org-row-name">한국부동산원</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EC%A0%84KPS/" class="org-row">
+        <span class="org-row-name">한전KPS</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%EC%A3%BC%ED%83%9D%EB%8F%84%EC%8B%9C%EB%B3%B4%EC%A6%9D%EA%B3%B5%EC%82%AC/" class="org-row">
+        <span class="org-row-name">주택도시보증공사</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a></div>
+      </div>
+      <div class="org-group">
+        <div class="group-label">준정부기관 (19개)</div>
+        <div class="org-list">
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A3%BC%ED%83%9D%EA%B8%88%EC%9C%B5%EA%B3%B5%EC%82%AC/" class="org-row">
+        <span class="org-row-name">한국주택금융공사</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%EC%A4%91%EC%86%8C%EB%B2%A4%EC%B2%98%EA%B8%B0%EC%97%85%EC%A7%84%ED%9D%A5%EA%B3%B5%EB%8B%A8/" class="org-row">
+        <span class="org-row-name">중소벤처기업진흥공단</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A0%84%EA%B8%B0%EC%95%88%EC%A0%84%EA%B3%B5%EC%82%AC/" class="org-row">
+        <span class="org-row-name">한국전기안전공사</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%82%B0%EC%97%85%EC%95%88%EC%A0%84%EB%B3%B4%EA%B1%B4%EA%B3%B5%EB%8B%A8/" class="org-row">
+        <span class="org-row-name">한국산업안전보건공단</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%ED%99%98%EA%B2%BD%EA%B3%B5%EB%8B%A8/" class="org-row">
+        <span class="org-row-name">한국환경공단</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B4%80%EA%B4%91%EA%B3%B5%EC%82%AC/" class="org-row">
+        <span class="org-row-name">한국관광공사</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%97%90%EB%84%88%EC%A7%80%EA%B3%B5%EB%8B%A8/" class="org-row">
+        <span class="org-row-name">한국에너지공단</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%82%B0%EC%97%85%EB%8B%A8%EC%A7%80%EA%B3%B5%EB%8B%A8/" class="org-row">
+        <span class="org-row-name">한국산업단지공단</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%86%8C%EB%B9%84%EC%9E%90%EC%9B%90/" class="org-row">
+        <span class="org-row-name">한국소비자원</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%86%8D%EC%88%98%EC%82%B0%EC%8B%9D%ED%92%88%EC%9C%A0%ED%86%B5%EA%B3%B5%EC%82%AC/" class="org-row">
+        <span class="org-row-name">한국농수산식품유통공사</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A7%80%EB%8A%A5%EC%A0%95%EB%B3%B4%EC%82%AC%ED%9A%8C%EC%A7%84%ED%9D%A5%EC%9B%90/" class="org-row">
+        <span class="org-row-name">한국지능정보사회진흥원</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%9E%A5%ED%95%99%EC%9E%AC%EB%8B%A8/" class="org-row">
+        <span class="org-row-name">한국장학재단</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%82%AC%ED%9A%8C%EB%B3%B4%EC%9E%A5%EC%A0%95%EB%B3%B4%EC%9B%90/" class="org-row">
+        <span class="org-row-name">한국사회보장정보원</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%9E%AC%EC%A0%95%EC%A0%95%EB%B3%B4%EC%9B%90/" class="org-row">
+        <span class="org-row-name">한국재정정보원</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%B3%B4%ED%9B%88%EB%B3%B5%EC%A7%80%EC%9D%98%EB%A3%8C%EA%B3%B5%EB%8B%A8/" class="org-row">
+        <span class="org-row-name">한국보훈복지의료공단</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%82%B0%EC%97%85%EA%B8%B0%EC%88%A0%EA%B8%B0%ED%9A%8D%ED%8F%89%EA%B0%80%EC%9B%90/" class="org-row">
+        <span class="org-row-name">한국산업기술기획평가원</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A0%84%EB%A0%A5%EA%B1%B0%EB%9E%98%EC%86%8C/" class="org-row">
+        <span class="org-row-name">한국전력거래소</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%EC%86%8C%EC%83%81%EA%B3%B5%EC%9D%B8%EC%8B%9C%EC%9E%A5%EC%A7%84%ED%9D%A5%EA%B3%B5%EB%8B%A8/" class="org-row">
+        <span class="org-row-name">소상공인시장진흥공단</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%9B%90%EC%9E%90%EB%A0%A5%ED%99%98%EA%B2%BD%EA%B3%B5%EB%8B%A8/" class="org-row">
+        <span class="org-row-name">한국원자력환경공단</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a></div>
+      </div>
+    </div>
+  </div>
+  <div class="grade-section" id="grade-C">
+    <div class="grade-header" style="background:#f9fafb;border-bottom:1px solid #e5e7eb;">
+      <span class="grade-badge" style="background:#4b5563;">C</span>
+      <span class="grade-title" style="color:#4b5563;">보통 <span class="grade-cnt">28개 기관</span></span>
+    </div>
+    <div class="grade-body">
+      <div class="org-group">
+        <div class="group-label">공기업 (10개)</div>
+        <div class="org-list">
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B0%80%EC%8A%A4%EA%B3%B5%EC%82%AC/" class="org-row">
+        <span class="org-row-name">한국가스공사</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%84%9C%EB%B6%80%EB%B0%9C%EC%A0%84/" class="org-row">
+        <span class="org-row-name">한국서부발전</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%8F%99%EC%84%9C%EB%B0%9C%EC%A0%84/" class="org-row">
+        <span class="org-row-name">한국동서발전</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B3%B5%ED%95%AD%EA%B3%B5%EC%82%AC/" class="org-row">
+        <span class="org-row-name">한국공항공사</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%EA%B0%95%EC%9B%90%EB%9E%9C%EB%93%9C/" class="org-row">
+        <span class="org-row-name">강원랜드</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%B2%A0%EB%8F%84%EA%B3%B5%EC%82%AC(%EC%BD%94%EB%A0%88%EC%9D%BC)/" class="org-row">
+        <span class="org-row-name">한국철도공사(코레일)</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%EA%B7%B8%EB%9E%9C%EB%93%9C%EC%BD%94%EB%A6%AC%EC%95%84%EB%A0%88%EC%A0%80/" class="org-row">
+        <span class="org-row-name">그랜드코리아레저</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A0%84%EB%A0%A5%EA%B8%B0%EC%88%A0/" class="org-row">
+        <span class="org-row-name">한국전력기술</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B0%80%EC%8A%A4%EA%B8%B0%EC%88%A0%EA%B3%B5%EC%82%AC/" class="org-row">
+        <span class="org-row-name">한국가스기술공사</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%B4%EC%96%91%ED%99%98%EA%B2%BD%EA%B3%B5%EB%8B%A8/" class="org-row">
+        <span class="org-row-name">해양환경공단</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a></div>
+      </div>
+      <div class="org-group">
+        <div class="group-label">준정부기관 (18개)</div>
+        <div class="org-list">
+      <a href="https://govmap.kr/orgs/%EA%B3%B5%EB%AC%B4%EC%9B%90%EC%97%B0%EA%B8%88%EA%B3%B5%EB%8B%A8/" class="org-row">
+        <span class="org-row-name">공무원연금공단</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%EC%8B%A0%EC%9A%A9%EB%B3%B4%EC%A6%9D%EA%B8%B0%EA%B8%88/" class="org-row">
+        <span class="org-row-name">신용보증기금</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%8F%84%EB%A1%9C%EA%B5%90%ED%86%B5%EA%B3%B5%EB%8B%A8/" class="org-row">
+        <span class="org-row-name">한국도로교통공단</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%86%8D%EC%96%B4%EC%B4%8C%EA%B3%B5%EC%82%AC/" class="org-row">
+        <span class="org-row-name">한국농어촌공사</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%EA%B5%AD%EB%AF%BC%EA%B1%B4%EA%B0%95%EB%B3%B4%ED%97%98%EA%B3%B5%EB%8B%A8/" class="org-row">
+        <span class="org-row-name">국민건강보험공단</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%B0%A9%EC%86%A1%ED%86%B5%EC%8B%A0%EC%A0%84%ED%8C%8C%EC%A7%84%ED%9D%A5%EC%9B%90/" class="org-row">
+        <span class="org-row-name">한국방송통신전파진흥원</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%EC%9A%B0%EC%B2%B4%EA%B5%AD%EB%AC%BC%EB%A5%98%EC%A7%80%EC%9B%90%EB%8B%A8/" class="org-row">
+        <span class="org-row-name">우체국물류지원단</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%EC%9A%B0%EC%B2%B4%EA%B5%AD%EA%B8%88%EC%9C%B5%EA%B0%9C%EB%B0%9C%EC%9B%90/" class="org-row">
+        <span class="org-row-name">우체국금융개발원</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B3%A0%EC%9A%A9%EC%A0%95%EB%B3%B4%EC%9B%90/" class="org-row">
+        <span class="org-row-name">한국고용정보원</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%EC%B6%95%EC%82%B0%EB%AC%BC%ED%92%88%EC%A7%88%ED%8F%89%EA%B0%80%EC%9B%90/" class="org-row">
+        <span class="org-row-name">축산물품질평가원</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%88%98%EB%AA%A9%EC%9B%90%EC%A0%95%EC%9B%90%EA%B4%80%EB%A6%AC%EC%9B%90/" class="org-row">
+        <span class="org-row-name">한국수목원정원관리원</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%82%B0%EB%A6%BC%EB%B3%B5%EC%A7%80%EC%A7%84%ED%9D%A5%EC%9B%90/" class="org-row">
+        <span class="org-row-name">한국산림복지진흥원</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%EA%B5%AD%ED%86%A0%EC%95%88%EC%A0%84%EA%B4%80%EB%A6%AC%EC%9B%90/" class="org-row">
+        <span class="org-row-name">국토안전관리원</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%EA%B8%B0%EC%88%A0%EB%B3%B4%EC%A6%9D%EA%B8%B0%EA%B8%88/" class="org-row">
+        <span class="org-row-name">기술보증기금</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%EA%B5%AD%EB%A6%BD%EC%83%9D%ED%83%9C%EC%9B%90/" class="org-row">
+        <span class="org-row-name">국립생태원</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%EA%B5%AD%EA%B0%80%EC%B2%A0%EB%8F%84%EA%B3%B5%EB%8B%A8/" class="org-row">
+        <span class="org-row-name">국가철도공단</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%84%9D%EC%9C%A0%EA%B4%80%EB%A6%AC%EC%9B%90/" class="org-row">
+        <span class="org-row-name">한국석유관리원</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%9E%A5%EC%95%A0%EC%9D%B8%EA%B3%A0%EC%9A%A9%EA%B3%B5%EB%8B%A8/" class="org-row">
+        <span class="org-row-name">한국장애인고용공단</span>
+        <span class="bonus-badge yes">성과급 지급</span>
+      </a></div>
+      </div>
+    </div>
+  </div>
+  <div class="grade-section" id="grade-D">
+    <div class="grade-header" style="background:#fff7ed;border-bottom:1px solid #fed7aa;">
+      <span class="grade-badge" style="background:#c2410c;">D</span>
+      <span class="grade-title" style="color:#c2410c;">미흡 <span class="grade-cnt">13개 기관</span></span>
+    </div>
+    <div class="grade-body">
+      <div class="org-group">
+        <div class="group-label">공기업 (4개)</div>
+        <div class="org-list">
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%84%9D%EC%9C%A0%EA%B3%B5%EC%82%AC/" class="org-row">
+        <span class="org-row-name">한국석유공사</span>
+        <span class="bonus-badge no">성과급 미지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%EC%A0%9C%EC%A3%BC%EA%B5%AD%EC%A0%9C%EC%9E%90%EC%9C%A0%EB%8F%84%EC%8B%9C%EA%B0%9C%EB%B0%9C%EC%84%BC%ED%84%B0/" class="org-row">
+        <span class="org-row-name">제주국제자유도시개발센터</span>
+        <span class="bonus-badge no">성과급 미지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B4%91%ED%95%B4%EA%B4%91%EC%97%85%EA%B3%B5%EB%8B%A8/" class="org-row">
+        <span class="org-row-name">한국광해광업공단</span>
+        <span class="bonus-badge no">성과급 미지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%EC%97%90%EC%8A%A4%EC%95%8C(SR)/" class="org-row">
+        <span class="org-row-name">에스알(SR)</span>
+        <span class="bonus-badge no">성과급 미지급</span>
+      </a></div>
+      </div>
+      <div class="org-group">
+        <div class="group-label">준정부기관 (9개)</div>
+        <div class="org-list">
+      <a href="https://govmap.kr/orgs/%EC%84%9C%EC%9A%B8%EC%98%AC%EB%A6%BC%ED%94%BD%EA%B8%B0%EB%85%90%EA%B5%AD%EB%AF%BC%EC%B2%B4%EC%9C%A1%EC%A7%84%ED%9D%A5%EA%B3%B5%EB%8B%A8/" class="org-row">
+        <span class="org-row-name">서울올림픽기념국민체육진흥공단</span>
+        <span class="bonus-badge no">성과급 미지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%9E%90%EC%82%B0%EA%B4%80%EB%A6%AC%EA%B3%B5%EC%82%AC/" class="org-row">
+        <span class="org-row-name">한국자산관리공사</span>
+        <span class="bonus-badge no">성과급 미지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%82%B0%EC%97%85%EC%9D%B8%EB%A0%A5%EA%B3%B5%EB%8B%A8/" class="org-row">
+        <span class="org-row-name">한국산업인력공단</span>
+        <span class="bonus-badge no">성과급 미지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%8A%B9%EA%B0%95%EA%B8%B0%EC%95%88%EC%A0%84%EA%B3%B5%EB%8B%A8/" class="org-row">
+        <span class="org-row-name">한국승강기안전공단</span>
+        <span class="bonus-badge no">성과급 미지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%97%B0%EA%B5%AC%EC%9E%AC%EB%8B%A8/" class="org-row">
+        <span class="org-row-name">한국연구재단</span>
+        <span class="bonus-badge no">성과급 미지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%9D%B8%ED%84%B0%EB%84%B7%EC%A7%84%ED%9D%A5%EC%9B%90/" class="org-row">
+        <span class="org-row-name">한국인터넷진흥원</span>
+        <span class="bonus-badge no">성과급 미지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%ED%95%B4%EC%96%91%EA%B5%90%ED%86%B5%EC%95%88%EC%A0%84%EA%B3%B5%EB%8B%A8/" class="org-row">
+        <span class="org-row-name">한국해양교통안전공단</span>
+        <span class="bonus-badge no">성과급 미지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B5%AD%ED%86%A0%EC%A0%95%EB%B3%B4%EA%B3%B5%EC%82%AC/" class="org-row">
+        <span class="org-row-name">한국국토정보공사</span>
+        <span class="bonus-badge no">성과급 미지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%ED%99%98%EA%B2%BD%EC%82%B0%EC%97%85%EA%B8%B0%EC%88%A0%EC%9B%90/" class="org-row">
+        <span class="org-row-name">한국환경산업기술원</span>
+        <span class="bonus-badge no">성과급 미지급</span>
+      </a></div>
+      </div>
+    </div>
+  </div>
+  <div class="grade-section" id="grade-E">
+    <div class="grade-header" style="background:#fef2f2;border-bottom:1px solid #fecaca;">
+      <span class="grade-badge" style="background:#dc2626;">E</span>
+      <span class="grade-title" style="color:#dc2626;">아주미흡 <span class="grade-cnt">3개 기관</span></span>
+    </div>
+    <div class="grade-body">
+      
+      <div class="org-group">
+        <div class="group-label">준정부기관 (3개)</div>
+        <div class="org-list">
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%B0%A9%EC%86%A1%EA%B4%91%EA%B3%A0%EC%A7%84%ED%9D%A5%EA%B3%B5%EC%82%AC/" class="org-row">
+        <span class="org-row-name">한국방송광고진흥공사</span>
+        <span class="bonus-badge no">성과급 미지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%EA%B5%AD%EB%A6%BD%EA%B3%B5%EC%9B%90%EA%B3%B5%EB%8B%A8/" class="org-row">
+        <span class="org-row-name">국립공원공단</span>
+        <span class="bonus-badge no">성과급 미지급</span>
+      </a>
+      <a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B5%AD%EC%A0%9C%ED%98%91%EB%A0%A5%EB%8B%A8/" class="org-row">
+        <span class="org-row-name">한국국제협력단</span>
+        <span class="bonus-badge no">성과급 미지급</span>
+      </a></div>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+</html>
