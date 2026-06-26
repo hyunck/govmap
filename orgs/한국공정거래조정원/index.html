@@ -26,14 +26,14 @@
     "@context": "https://schema.org",
     "@type": "GovernmentOrganization",
     "name": "한국공정거래조정원",
-    "url": "http://www.kofair.or.kr",
+    "url": "https://www.kofair.or.kr",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "서울 서초구 법원로 4길 20",
+      "addressLocality": "서울 중구 세종대로 39",
       "addressCountry": "KR"
     },
-    "description": "공정거래 분쟁 조정과 하도급 피해 구제를 담당하는 공정거래위원회 산하 기타공공기관.",
-    "sameAs": "http://www.kofair.or.kr"
+    "description": "공정거래·하도급·가맹사업·대규모유통업·대리점·약관 분야의 분쟁조정과 공정거래 연구·교육을 수행하는 공정거래위원회 산하 기타공공기관이다. 분쟁조정협의회를 통해 불공정거래 분쟁을 신속히 해결하며, 공정거래 자율준수 프로그램(CP) 등급 평가와 동의의결 이행관리 업무도 공정위로부터 위탁받아 수행한다.",
+    "sameAs": "https://www.kofair.or.kr"
   }
   </script>
   <style>
@@ -86,6 +86,21 @@
     .tag-blue   { background: #eff6ff; color: #1d4ed8; }
     .tag-purple { background: #f5f3ff; color: #6d28d9; }
     .tag-green  { background: #ecfdf5; color: #065f46; }
+    /* 경영평가 등급 뱃지 */
+    .eval-badge { display:inline-block; font-size:13px; font-weight:700; padding:3px 12px; border-radius:6px; }
+    .eval-S { background:#faf5ff; color:#7c3aed; border:1px solid #ddd6fe; }
+    .eval-A { background:#f0fdf4; color:#15803d; border:1px solid #bbf7d0; }
+    .eval-B { background:#eff6ff; color:#1d4ed8; border:1px solid #bfdbfe; }
+    .eval-C { background:#f9fafb; color:#4b5563; border:1px solid #e5e7eb; }
+    .eval-D { background:#fff7ed; color:#c2410c; border:1px solid #fed7aa; }
+    .eval-E { background:#fef2f2; color:#dc2626; border:1px solid #fecaca; }
+    /* 순환근무 뱃지 */
+    .rot-badge { display:inline-block; font-size:12px; font-weight:700; padding:4px 14px; border-radius:20px; vertical-align:middle; }
+    .rot-national { background:#fef2f2; color:#dc2626; border:1px solid #fecaca; }
+    .rot-regional { background:#fffbeb; color:#d97706; border:1px solid #fde68a; }
+    .rot-none     { background:#f0fdf4; color:#16a34a; border:1px solid #bbf7d0; }
+    .rot-row { display:flex; align-items:baseline; gap:8px; margin-bottom:8px; font-size:14px; }
+    .rot-label { color:#9ca3af; font-size:12px; font-weight:600; min-width:60px; }
     /* 테이블 */
     table { width: 100%; border-collapse: collapse; font-size: 14px; }
     th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #f3f4f6; }
@@ -126,7 +141,7 @@
     @media(max-width:500px){ .vchart { grid-template-columns: 1fr; } }
     .vc-block { border: 1px solid #e5e7eb; border-radius: 10px; padding: 14px 12px 10px; }
     .vc-block-title { font-size: 13px; font-weight: 700; color: #111827;
-                      border-left: 3px solid #1e3a5f; padding-left: 8px; margin-bottom: 12px; }
+                      border-left: 3px solid #1e3a5f; padding-left: 8px; margin-bottom: 24px; }
     .vc-block-title.avg-title { border-left-color: #2563eb; }
     .vc-bars-wrap { display: flex; align-items: flex-end; justify-content: center;
                     gap: 10px; height: 130px; }
@@ -135,9 +150,13 @@
                     align-items: center; justify-content: flex-end; width: 100%; }
     .vc-val-tag { font-size: 11px; font-weight: 700; color: #374151; margin-bottom: 4px; white-space: nowrap; }
     .vc-bar { width: 36px; border-radius: 4px 4px 0 0; }
-    .vc-bar-start { background: #1e3a5f; }
-    .vc-bar-avg   { background: #2563eb; }
+    .vc-bar-start { background: #1a6b46; }
+    .vc-bar-avg   { background: #1a346b; }
+    .vc-bar-current-start { background: #2ab374; }
+    .vc-bar-current-avg   { background: #2f5dbf; }
     .vc-year-tag  { font-size: 11px; color: #9ca3af; margin-top: 6px; }
+    .vc-year-current { color: #1d4ed8; font-weight: 700; }
+    .vc-note { font-size: 11px; color: #9ca3af; margin-top: 8px; }
     .vc-big { font-size: 20px; font-weight: 800; color: #1e3a5f; text-align: right;
               margin-top: 10px; padding-top: 8px; border-top: 1px solid #f3f4f6; }
     .vc-big.avg-big { color: #2563eb; }
@@ -187,7 +206,7 @@
   <div class="title-card">
     <span class="badge" style="background:#059669">기타공공기관</span>
     <div class="org-name">한국공정거래조정원 <small style="font-size:16px;color:#6b7280">(KOFAIR)</small></div>
-    <p class="org-desc">공정거래 분쟁 조정과 하도급 피해 구제를 담당하는 공정거래위원회 산하 기타공공기관.</p>
+    <p class="org-desc">공정거래·하도급·가맹사업·대규모유통업·대리점·약관 분야의 분쟁조정과 공정거래 연구·교육을 수행하는 공정거래위원회 산하 기타공공기관이다. 분쟁조정협의회를 통해 불공정거래 분쟁을 신속히 해결하며, 공정거래 자율준수 프로그램(CP) 등급 평가와 동의의결 이행관리 업무도 공정위로부터 위탁받아 수행한다.</p>
     <a class="map-btn" href="https://govmap.kr">
       🗺 지도에서 위치 보기
     </a>
@@ -200,7 +219,7 @@
     <div class="info-grid">
       <div class="info-item">
         <label>본사 주소</label>
-        <span>서울 서초구 법원로 4길 20</span>
+        <span>서울 중구 세종대로 39</span>
       </div>
       <div class="info-item">
         <label>지역</label>
@@ -216,6 +235,7 @@
       </div>
       <div class="info-item"><label>평균 근속연수</label><span>9년</span></div>
       <div class="info-item"><label>산업 분야</label><span>행정·고용</span></div>
+      
     </div>
   </div>
 
@@ -228,9 +248,9 @@
         <div class="vc-bars-wrap"><div class="vc-col">
        <div class="vc-col-inner">
          <div class="vc-val-tag">3,200</div>
-         <div class="vc-bar vc-bar-start" style="height:100px"></div>
+         <div class="vc-bar vc-bar-current-start" style="height:100px"></div>
        </div>
-       <div class="vc-year-tag">2025년</div>
+       <div class="vc-year-tag vc-year-current">2025년</div>
      </div></div>
         <div class="vc-big">3,200만원<span> 단위: 만원</span></div>
       </div>
@@ -239,21 +259,22 @@
         <div class="vc-bars-wrap"><div class="vc-col">
        <div class="vc-col-inner">
          <div class="vc-val-tag">5,800</div>
-         <div class="vc-bar vc-bar-avg" style="height:100px"></div>
+         <div class="vc-bar vc-bar-current-avg" style="height:100px"></div>
        </div>
-       <div class="vc-year-tag">2025년</div>
+       <div class="vc-year-tag vc-year-current">2025년</div>
      </div></div>
         <div class="vc-big avg-big">5,800만원<span> 단위: 만원</span></div>
       </div>
     </div>
     <div class="sv-rank">📊 <strong>행정·고용</strong> 공기업 신입연봉 <strong>30개 기관 중 17위</strong></div>
+    
   </div>
 
   <!-- 주요 사업 -->
   <div class="card">
     <div class="card-title">주요 사업</div>
     <div class="tags">
-      <span class="tag">분쟁 조정</span><span class="tag">하도급 분쟁 처리</span><span class="tag">가맹·유통 분쟁 조정</span>
+      <span class="tag">분쟁조정 (공정거래·하도급·가맹·유통·대리점·약관 분야)</span><span class="tag">공정거래 자율준수 프로그램(CP) 등급 평가</span><span class="tag">공정거래협약 이행평가 (대·중견기업-중소기업 간)</span><span class="tag">동의의결 이행관리 (공정거래위원회 위탁)</span><span class="tag">공정거래 연구·교육 (공정거래교육센터 운영)</span>
     </div>
   </div>
 
@@ -261,48 +282,45 @@
   <div class="card">
     <div class="card-title">복리후생</div>
     <div class="tags">
-      <span class="tag tag-green">복지포인트</span><span class="tag tag-green">자녀 학자금</span>
+      <span class="tag tag-green">선택적 복리후생 (복지포인트)</span><span class="tag tag-green">자녀 학자금 지원</span><span class="tag tag-green">퇴직연금</span><span class="tag tag-green">가족수당·직책수당 등 각종 수당</span><span class="tag tag-green">유연근무제 운영 (워라밸 보장)</span>
     </div>
   </div>
+
+  <!-- 순환근무 -->
+  
 
   <!-- NCS 시험과목 -->
   <div class="card">
     <div class="card-title">NCS 직업기초능력 시험과목</div>
     <div class="tags">
-      <span class="tag tag-blue">의사소통능력</span><span class="tag tag-blue">대인관계능력</span>
+      <span class="tag tag-blue">의사소통능력</span><span class="tag tag-blue">수리능력</span><span class="tag tag-blue">문제해결능력</span><span class="tag tag-blue">자원관리능력</span><span class="tag tag-blue">대인관계능력</span><span class="tag tag-blue">조직이해능력</span>
     </div>
   </div>
 
   <!-- 직렬별 전공과목 -->
-  <div class="card">
-    <div class="card-title">직렬별 전공과목</div>
-    <table>
-      <thead><tr><th>직렬</th><th>관련 전공</th></tr></thead>
-      <tbody><tr><td>사무</td><td>법학, 행정, 경영</td></tr></tbody>
-    </table>
-  </div>
+  
 
   <!-- 전공 시험과목 -->
   <div class="card">
     <div class="card-title">전공 시험과목</div>
     <div class="tags">
-      <span class="tag tag-purple">법학</span><span class="tag tag-purple">경영학</span><span class="tag tag-purple">행정학</span>
+      <span class="tag tag-purple">NCS 직업기초능력 (6개 모듈)</span><span class="tag tag-purple">경험면접·상황면접 (전공 필기시험 없음)</span>
     </div>
   </div>
 
   <!-- 전국 사업장·지점 -->
   <div class="card">
     <div class="card-title">전국 본사·지점·사업소</div>
-    <p style="font-size:14px;color:#374151;line-height:1.7;margin-bottom:12px;">한국공정거래조정원 본사는 <strong>서울 서초구 법원로 4길 20</strong>에 위치합니다.</p>
-    <div class="branch-intro">⚠️ 국가중요시설 및 기관 사정으로 지도에 표시되지 않거나 불명확하게 표시되는 사업장·지사가 있을 수 있어요.</div><ul class="branch-list"><li><strong>본사 (서울)</strong> — 서울 서초구 법원로 4길 20</li></ul>
+    <p style="font-size:14px;color:#374151;line-height:1.7;margin-bottom:12px;">한국공정거래조정원 본사는 <strong>서울 중구 세종대로 39</strong>에 위치합니다.</p>
+    <div class="branch-intro">⚠️ 국가중요시설 및 기관 사정으로 지도에 표시되지 않거나 불명확하게 표시되는 사업장·지사가 있을 수 있어요.</div><ul class="branch-list"><li><strong>본사 (서울)</strong> — 서울 중구 세종대로 39</li></ul>
   </div>
 
   <!-- 링크 -->
   <div class="card">
     <div class="card-title">바로가기</div>
     <div class="tags">
-      <a href="http://www.kofair.or.kr" target="_blank" rel="noopener" class="tag">🏛 공식 홈페이지</a>
-      <a href="https://job.alio.go.kr/recruit.do?keyword=한국공정거래조정원" target="_blank" rel="noopener" class="tag">📋 채용공고</a>
+      <a href="https://www.kofair.or.kr" target="_blank" rel="noopener" class="tag">🏛 공식 홈페이지</a>
+      <a href="https://kofair.fairyhr.com/" target="_blank" rel="noopener" class="tag">📋 채용공고</a>
       <a href="https://govmap.kr" class="tag">🗺 GovMap 지도</a>
     </div>
   </div>
@@ -506,26 +524,26 @@
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
        <span class="rel-name">한국어촌어항공단</span>
        <span class="rel-region">전라권</span>
-     </a><a href="https://govmap.kr/orgs/%EB%8F%99%EB%B6%81%EC%95%84%EC%97%AD%EC%82%AC%EC%9E%AC%EB%8B%A8/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%EB%B6%80%EC%82%B0%ED%95%AD%EB%A7%8C%EA%B3%B5%EC%82%AC/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">동북아역사재단</span>
-       <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%EA%B0%80%EB%8D%95%EB%8F%84%EC%8B%A0%EA%B3%B5%ED%95%AD%EA%B1%B4%EC%84%A4%EA%B3%B5%EB%8B%A8/" class="rel-card">
-       <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">가덕도신공항건설공단</span>
+       <span class="rel-name">부산항만공사</span>
        <span class="rel-region">경상권</span>
-     </a><a href="https://govmap.kr/orgs/%EA%B5%AD%EC%A0%9C%EB%B0%A9%EC%86%A1%EA%B5%90%EB%A5%98%EC%9E%AC%EB%8B%A8/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%EB%8C%80%ED%95%9C%EC%A0%81%EC%8B%AD%EC%9E%90%EC%82%AC/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">국제방송교류재단</span>
+       <span class="rel-name">대한적십자사</span>
        <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%EB%AF%BC%EC%A3%BC%ED%99%94%EC%9A%B4%EB%8F%99%EA%B8%B0%EB%85%90%EC%82%AC%EC%97%85%ED%9A%8C/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%EA%B5%AD%EB%A6%BD%EC%95%84%EC%8B%9C%EC%95%84%EB%AC%B8%ED%99%94%EC%A0%84%EB%8B%B9%EC%9E%AC%EB%8B%A8/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">민주화운동기념사업회</span>
-       <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%EA%B5%AD%EA%B0%80%ED%8F%89%EC%83%9D%EA%B5%90%EC%9C%A1%EC%A7%84%ED%9D%A5%EC%9B%90/" class="rel-card">
+       <span class="rel-name">국립아시아문화전당재단</span>
+       <span class="rel-region">전라권</span>
+     </a><a href="https://govmap.kr/orgs/%EC%9A%B8%EC%82%B0%ED%95%AD%EB%A7%8C%EA%B3%B5%EC%82%AC/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">국가평생교육진흥원</span>
-       <span class="rel-region">수도권</span>
+       <span class="rel-name">울산항만공사</span>
+       <span class="rel-region">경상권</span>
+     </a><a href="https://govmap.kr/orgs/(%EC%9E%AC)%ED%95%9C%EA%B5%AD%ED%86%B5%EA%B3%84%EC%A0%95%EB%B3%B4%EC%9B%90/" class="rel-card">
+       <span class="rel-badge" style="background:#059669">기타공공기관</span>
+       <span class="rel-name">(재)한국통계정보원</span>
+       <span class="rel-region">대전·충청</span>
      </a></div>
   </div>
 
