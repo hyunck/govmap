@@ -19338,6 +19338,22 @@ const ORGS = [
     "startingSalary": 3838,
     "avgSalary": 6189,
     "avgYears": 6.2,
+    "startingSalaryHistory": [
+      {"year": 2021, "val": 3466},
+      {"year": 2022, "val": 3511},
+      {"year": 2023, "val": 3516},
+      {"year": 2024, "val": 3584},
+      {"year": 2025, "val": 3838},
+      {"year": 2026, "val": 3872}
+    ],
+    "avgSalaryHistory": [
+      {"year": 2021, "val": 5404},
+      {"year": 2022, "val": 5423},
+      {"year": 2023, "val": 5677},
+      {"year": 2024, "val": 5944},
+      {"year": 2025, "val": 6189},
+      {"year": 2026, "val": 6548}
+    ],
     "homepage": "https://www.kofair.or.kr",
     "recruitUrl": "https://kofair.fairyhr.com/",
     "description": "공정거래·하도급·가맹사업·대규모유통업·대리점·약관 분야의 분쟁조정과 공정거래 연구·교육을 수행하는 공정거래위원회 산하 기타공공기관이다. 분쟁조정협의회를 통해 불공정거래 분쟁을 신속히 해결하며, 공정거래 자율준수 프로그램(CP) 등급 평가와 동의의결 이행관리 업무도 공정위로부터 위탁받아 수행한다.",
