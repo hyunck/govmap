@@ -19339,16 +19339,12 @@ const ORGS = [
     "avgSalary": 6189,
     "avgYears": 6.2,
     "startingSalaryHistory": [
-      {"year": 2021, "val": 3466},
-      {"year": 2022, "val": 3511},
       {"year": 2023, "val": 3516},
       {"year": 2024, "val": 3584},
       {"year": 2025, "val": 3838},
       {"year": 2026, "val": 3872}
     ],
     "avgSalaryHistory": [
-      {"year": 2021, "val": 5404},
-      {"year": 2022, "val": 5423},
       {"year": 2023, "val": 5677},
       {"year": 2024, "val": 5944},
       {"year": 2025, "val": 6189},
