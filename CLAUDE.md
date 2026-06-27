@@ -1,7 +1,7 @@
 # 공공기관 지도 프로젝트 — Claude 작업 가이드
 
 > 새 세션에서 이어서 작업할 때 반드시 읽어야 하는 문서입니다.
-> 마지막 업데이트: 2026-06-20
+> 마지막 업데이트: 2026-06-27
 
 ---
 
@@ -121,17 +121,18 @@ const fs = require('fs'), path = require('path');
 let src = fs.readFileSync('generate-org-pages.js','utf8');
 let dataSrc = fs.readFileSync('data-orgs.js','utf8')
   .replace(/^const ORGS\s*=/, 'var ORGS =')
-  .replace(/^window\.ORGS\s*=/, 'var ORGS =');
+  .replace(/window\.ORGS\s*=/, 'var ORGS =');  // ⚠️ ^ 없이 써야 함 (파일 중간에 위치)
 eval(dataSrc);
+const ORGS_DIR = path.join(__dirname, 'orgs');
 const cut = src.indexOf('\n// ── 페이지 생성 루프');
-const code = src.slice(0, cut) + `
+const helperCode = src.slice(0, cut) + `
 const target = ORGS.find(o => o.name === "기관명");
 const html = buildPage(target);
 const dir = path.join(ORGS_DIR, target.name);
 if (!fs.existsSync(dir)) fs.mkdirSync(dir, {recursive:true});
 fs.writeFileSync(path.join(dir, "index.html"), html);
 console.log("Generated:", target.name);`;
-fs.writeFileSync('_gen_xxx.js', code);
+eval(helperCode);
 // → node _gen_xxx.js && rm _gen_xxx.js
 ```
 
@@ -253,6 +254,14 @@ node generate-eval-page.js
 | 지사 안내 문구: "국가보안시설" → "국가중요시설 및 기관 사정으로... 불명확하게 표시되는" (346개 파일) | `268a8f7` |
 | evalYear 2026→2025 정정 + 개별 페이지 표시 "2025년도 실적 (2026년 발표)" (88개) | `9305e92` |
 
+### 세션 8 (기타공공기관 전면 업데이트 + 한전KPS·한국농어촌공사 지사 확장)
+
+| 기관/작업 | 커밋 | 주요 변경 |
+|-----------|------|-----------|
+| 한국농어촌공사 (KRC) | `96fb3e5`+`b1c2941` | branches 21→116개 (본사+115 지사·시설), allBranches 12그룹, 본사 📍 추가 |
+| 국가유산진흥원 | `f8af68b`+`37f217c` | 주소·homepage·recrutiUrl 정정, mainBusiness/welfare 전면 개편, branches 1→7개, NCS 4개 정정 (자원관리능력), examSubjects 3개 추가 (한국사·관련법령·문화예술상식) |
+| 한전KPS (KPS) | `1e19c2e` | branches 25→97개, allBranches 5→11그룹: 화력30·원자력15·양수7·전력지사6권역45·집단에너지14 전수 수집. 보령·삼천포·양양·예천 주소 정정 |
+
 ---
 
 ## 5. 경영평가(evalGrade) 관련 데이터
@@ -317,8 +326,8 @@ git add eval/index.html generate-eval-page.js
 > 연봉은 사용자가 ALIO 공시 기준으로 직접 수정하므로 **연봉 제외하고 수정**.
 
 ### 현재 작업 위치
-- **마지막 완료**: 한국방송광고진흥공사(KOBACO) 전면 업데이트 — `cedf66b`
-- **다음**: 준정부기관 데이터 업데이트 계속
+- **마지막 완료**: 한전KPS 지사 전면 확대 (branches 97개) — `1e19c2e` / 국가유산진흥원 NCS·시험과목 정정 — `37f217c`
+- **다음**: 준정부기관 데이터 업데이트 계속 (아래 목록 순서대로)
 
 ### 아직 수정 안 된 주요 준정부기관 (data-orgs.js 순)
 
@@ -333,6 +342,11 @@ git add eval/index.html generate-eval-page.js
 | 한국산업인력공단 | HRD | 울산 | — |
 | 한국고용정보원 | KEIS | 음성 | — |
 | 이후 계속 | — | — | 사용자 요청에 따라 결정 |
+
+### 기타공공기관 현황 메모
+- 사용자가 ALIO 공시 기준으로 기타공공기관 연봉(startingSalary·avgSalary·avgYears)을 직접 수정 중
+- 국가유산진흥원까지 반영 완료 (커밋 `a84b3e8`·`f212789`)
+- 국가유산진흥원의 시험과목은 **2025 하반기 채용공고** 기준으로 정정됨 (NCS 4개, 직무수행: 한국사·관련법령·문화예술상식)
 
 ---
 
@@ -358,7 +372,29 @@ git add eval/index.html generate-eval-page.js
 
 ### data-orgs.js 업데이트 스크립트 주의
 - JSON 블록 교체 시 regex가 중첩 `}`를 잘못 매칭해 이전 데이터 잔재가 남을 수 있음
-- 스크립트 실행 후 `node -e "eval(src); console.log(ORGS.find(...))"` 로 파싱 오류 반드시 확인
+- **배열 교체는 반드시 bracket-matching 방식 사용** (regex `\[[\s\S]*?\]` 는 첫 `]`에서 멈춰 오작동):
+
+```js
+function findArrayEnd(str, start) {
+  let depth = 0;
+  for (let i = start; i < str.length; i++) {
+    if (str[i] === '[') depth++;
+    else if (str[i] === ']') { depth--; if (depth === 0) return i; }
+  }
+  throw new Error('Unmatched bracket');
+}
+// 사용: end-to-start 순서로 교체해야 index 밀림 없음
+const arrKey = content.indexOf('"branches":', entryStart);
+const arrStart = content.indexOf('[', arrKey);
+const arrEnd = findArrayEnd(content, arrStart);
+result = content.substring(0, arrStart) + newArrayStr + content.substring(arrEnd + 1);
+```
+
+- **data-orgs.js는 CRLF 파일**: 다중행 문자열 패턴 매칭 시 `\r\n` 사용 (단순 `\n` 불일치 주의)
+- 스크립트 실행 후 반드시 파싱 검증:
+  ```bash
+  node -e "const fs=require('fs'); let src=fs.readFileSync('data-orgs.js','utf8').replace(/^const ORGS\s*=/,'var ORGS =').replace(/window\.ORGS\s*=/,'var ORGS ='); eval(src); console.log(ORGS.find(o=>o.name==='기관명').branches.length);"
+  ```
 - 오류 시 잔재 블록을 Edit 도구로 직접 제거
 
 ---
