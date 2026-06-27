@@ -2748,9 +2748,13 @@
 
         function renderTabExam(org) {
             const subjects = org.majorSubjects || {};
-            const subjectHTML = Object.entries(subjects).map(([cat, content]) => `
+            let subjectHTML = Object.entries(subjects).map(([cat, content]) => `
                 <div class="subject-section"><h4>${cat}</h4><p>${content}</p></div>
             `).join('');
+            // majorSubjects가 비어있으면 examSubjects 단일 목록으로 폴백
+            if (!subjectHTML && org.examSubjects && org.examSubjects.length > 0) {
+                subjectHTML = `<div class="ncs-list">${org.examSubjects.map(s => `<span class="ncs-tag" style="background:var(--purple-light,#ede9fe);color:var(--purple,#7c3aed);">${s}</span>`).join('')}</div>`;
+            }
 
             // NCS 직업기초능력 섹션: ncsOld(직렬별 구분) 우선, 없으면 ncs 단일 목록
             let ncsHTML = '';
