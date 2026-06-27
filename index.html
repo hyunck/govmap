@@ -2659,9 +2659,9 @@
                                     return `<li class="allbranch-item${isMapped ? ' mappable' : ''}"
                                         data-org-id="${org.id}"
                                         data-item-name="${item.name.replace(/"/g, '&quot;')}"
-                                        data-item-addr="${item.address.replace(/"/g, '&quot;')}">
+                                        data-item-addr="${(item.address||'').replace(/"/g, '&quot;')}">
                                         <div class="allbranch-name">${isMapped ? '📍 ' : ''}${item.name}</div>
-                                        <div class="allbranch-addr">${item.address}</div>
+                                        ${item.address ? `<div class="allbranch-addr">${item.address}</div>` : ''}
                                     </li>`;
                                 }).join('')}
                             </ul>
@@ -3650,9 +3650,9 @@
                                     <li class="allbranch-item${isMapped ? ' mappable' : ''}"
                                         data-gov-id="${gov.id}"
                                         data-item-name="${item.name.replace(/"/g, '&quot;')}"
-                                        data-item-addr="${item.address.replace(/"/g, '&quot;')}">
+                                        data-item-addr="${(item.address||'').replace(/"/g, '&quot;')}">
                                         <div class="allbranch-name">${isMapped ? '📍 ' : ''}${item.name}</div>
-                                        <div class="allbranch-addr">${item.address}</div>
+                                        ${item.address ? `<div class="allbranch-addr">${item.address}</div>` : ''}
                                     </li>
                                 `;
                             }).join('')}
