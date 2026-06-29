@@ -2496,7 +2496,7 @@
                             <span class="org-tag region">${org.region}</span>
                         </div>
                         <div class="org-card-address">📍 ${org.address}</div>
-                        <div class="org-card-salary">💰 초봉 ${org.startingSalary.toLocaleString()}만원</div>
+                        <div class="org-card-salary">💰 초봉 ${org.startingSalary != null ? org.startingSalary.toLocaleString() + '만원' : '미공개'}</div>
                     </div>
                 </li>
                 `;
