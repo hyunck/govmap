@@ -2501,7 +2501,7 @@
                             <span class="org-tag region">${org.region}</span>
                         </div>
                         <div class="org-card-address">📍 ${org.address}</div>
-                        <div class="org-card-salary">💰 초봉 ${org.startingSalary != null ? org.startingSalary.toLocaleString() + '만원' : '미공개'}</div>
+                        <div class="org-card-salary">💰 초봉 ${org.startingSalary == null ? '미공개' : org.startingSalary === 0 ? '공시 정보 없음' : org.startingSalary.toLocaleString() + '만원'}</div>
                     </div>
                 </li>
                 `;
@@ -2609,7 +2609,7 @@
                 <div class="salary-cards">
                     <div class="salary-card highlight">
                         <div class="salary-label">신입 초봉 (세전)</div>
-                        <div class="salary-value">${org.startingSalary.toLocaleString()}<span class="unit">만원</span></div>
+                        <div class="salary-value">${org.startingSalary === 0 ? '공시 정보 없음' : org.startingSalary.toLocaleString() + '<span class="unit">만원</span>'}</div>
                     </div>
                     <div class="salary-card">
                         <div class="salary-label">직원 평균 급여</div>

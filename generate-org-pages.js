@@ -42,7 +42,7 @@ function escHtml(s) {
     .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-function salary(n) { return n ? n.toLocaleString('ko-KR') + '만원' : '-'; }
+function salary(n) { if (n === 0) return '공시 정보 없음'; return n ? n.toLocaleString('ko-KR') + '만원' : '-'; }
 
 function cityFromAddress(addr) {
   if (!addr) return '';
