@@ -86,6 +86,21 @@
     .tag-blue   { background: #eff6ff; color: #1d4ed8; }
     .tag-purple { background: #f5f3ff; color: #6d28d9; }
     .tag-green  { background: #ecfdf5; color: #065f46; }
+    /* 경영평가 등급 뱃지 */
+    .eval-badge { display:inline-block; font-size:13px; font-weight:700; padding:3px 12px; border-radius:6px; }
+    .eval-S { background:#faf5ff; color:#7c3aed; border:1px solid #ddd6fe; }
+    .eval-A { background:#f0fdf4; color:#15803d; border:1px solid #bbf7d0; }
+    .eval-B { background:#eff6ff; color:#1d4ed8; border:1px solid #bfdbfe; }
+    .eval-C { background:#f9fafb; color:#4b5563; border:1px solid #e5e7eb; }
+    .eval-D { background:#fff7ed; color:#c2410c; border:1px solid #fed7aa; }
+    .eval-E { background:#fef2f2; color:#dc2626; border:1px solid #fecaca; }
+    /* 순환근무 뱃지 */
+    .rot-badge { display:inline-block; font-size:12px; font-weight:700; padding:4px 14px; border-radius:20px; vertical-align:middle; }
+    .rot-national { background:#fef2f2; color:#dc2626; border:1px solid #fecaca; }
+    .rot-regional { background:#fffbeb; color:#d97706; border:1px solid #fde68a; }
+    .rot-none     { background:#f0fdf4; color:#16a34a; border:1px solid #bbf7d0; }
+    .rot-row { display:flex; align-items:baseline; gap:8px; margin-bottom:8px; font-size:14px; }
+    .rot-label { color:#9ca3af; font-size:12px; font-weight:600; min-width:60px; }
     /* 테이블 */
     table { width: 100%; border-collapse: collapse; font-size: 14px; }
     th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #f3f4f6; }
@@ -126,7 +141,7 @@
     @media(max-width:500px){ .vchart { grid-template-columns: 1fr; } }
     .vc-block { border: 1px solid #e5e7eb; border-radius: 10px; padding: 14px 12px 10px; }
     .vc-block-title { font-size: 13px; font-weight: 700; color: #111827;
-                      border-left: 3px solid #1e3a5f; padding-left: 8px; margin-bottom: 12px; }
+                      border-left: 3px solid #1e3a5f; padding-left: 8px; margin-bottom: 24px; }
     .vc-block-title.avg-title { border-left-color: #2563eb; }
     .vc-bars-wrap { display: flex; align-items: flex-end; justify-content: center;
                     gap: 10px; height: 130px; }
@@ -135,9 +150,13 @@
                     align-items: center; justify-content: flex-end; width: 100%; }
     .vc-val-tag { font-size: 11px; font-weight: 700; color: #374151; margin-bottom: 4px; white-space: nowrap; }
     .vc-bar { width: 36px; border-radius: 4px 4px 0 0; }
-    .vc-bar-start { background: #1e3a5f; }
-    .vc-bar-avg   { background: #2563eb; }
+    .vc-bar-start { background: #1a6b46; }
+    .vc-bar-avg   { background: #1a346b; }
+    .vc-bar-current-start { background: #2ab374; }
+    .vc-bar-current-avg   { background: #2f5dbf; }
     .vc-year-tag  { font-size: 11px; color: #9ca3af; margin-top: 6px; }
+    .vc-year-current { color: #1d4ed8; font-weight: 700; }
+    .vc-note { font-size: 11px; color: #9ca3af; margin-top: 8px; }
     .vc-big { font-size: 20px; font-weight: 800; color: #1e3a5f; text-align: right;
               margin-top: 10px; padding-top: 8px; border-top: 1px solid #f3f4f6; }
     .vc-big.avg-big { color: #2563eb; }
@@ -216,6 +235,7 @@
       </div>
       <div class="info-item"><label>평균 근속연수</label><span>9년</span></div>
       <div class="info-item"><label>산업 분야</label><span>산업·R&amp;D</span></div>
+      
     </div>
   </div>
 
@@ -228,9 +248,9 @@
         <div class="vc-bars-wrap"><div class="vc-col">
        <div class="vc-col-inner">
          <div class="vc-val-tag">3,200</div>
-         <div class="vc-bar vc-bar-start" style="height:100px"></div>
+         <div class="vc-bar vc-bar-current-start" style="height:100px"></div>
        </div>
-       <div class="vc-year-tag">2025년</div>
+       <div class="vc-year-tag vc-year-current">2025년</div>
      </div></div>
         <div class="vc-big">3,200만원<span> 단위: 만원</span></div>
       </div>
@@ -239,14 +259,15 @@
         <div class="vc-bars-wrap"><div class="vc-col">
        <div class="vc-col-inner">
          <div class="vc-val-tag">5,800</div>
-         <div class="vc-bar vc-bar-avg" style="height:100px"></div>
+         <div class="vc-bar vc-bar-current-avg" style="height:100px"></div>
        </div>
-       <div class="vc-year-tag">2025년</div>
+       <div class="vc-year-tag vc-year-current">2025년</div>
      </div></div>
         <div class="vc-big avg-big">5,800만원<span> 단위: 만원</span></div>
       </div>
     </div>
-    <div class="sv-rank">📊 <strong>산업·R&amp;D</strong> 공기업 신입연봉 <strong>42개 기관 중 36위</strong></div>
+    <div class="sv-rank">📊 <strong>산업·R&amp;D</strong> 공기업 신입연봉 <strong>42개 기관 중 37위</strong></div>
+    
   </div>
 
   <!-- 주요 사업 -->
@@ -264,6 +285,9 @@
       <span class="tag tag-green">복지포인트</span><span class="tag tag-green">자녀 학자금</span>
     </div>
   </div>
+
+  <!-- 순환근무 -->
+  
 
   <!-- NCS 시험과목 -->
   <div class="card">
@@ -334,237 +358,237 @@
         </tr>
         <tr class="" data-ri="3">
           <td>4</td>
+          <td><a href="https://govmap.kr/orgs/%EA%B5%AD%EB%B0%A9%EA%B8%B0%EC%88%A0%ED%92%88%EC%A7%88%EC%9B%90/">국방기술품질원</a></td>
+          <td>4,847만원</td>
+          <td>9,388만원</td>
+        </tr>
+        <tr class="" data-ri="4">
+          <td>5</td>
+          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%84%B8%EB%9D%BC%EB%AF%B9%EA%B8%B0%EC%88%A0%EC%9B%90/">한국세라믹기술원</a></td>
+          <td>4,717만원</td>
+          <td>9,958만원</td>
+        </tr>
+        <tr class="" data-ri="5">
+          <td>6</td>
+          <td><a href="https://govmap.kr/orgs/%EA%B3%BC%ED%95%99%EA%B8%B0%EC%88%A0%EC%A0%95%EC%B1%85%EC%97%B0%EA%B5%AC%EC%9B%90/">과학기술정책연구원</a></td>
+          <td>4,697만원</td>
+          <td>7,441만원</td>
+        </tr>
+        <tr class="" data-ri="6">
+          <td>7</td>
+          <td><a href="https://govmap.kr/orgs/%EC%97%B0%EA%B5%AC%EA%B0%9C%EB%B0%9C%ED%8A%B9%EA%B5%AC%EC%A7%84%ED%9D%A5%EC%9E%AC%EB%8B%A8/">연구개발특구진흥재단</a></td>
+          <td>4,510만원</td>
+          <td>6,677만원</td>
+        </tr>
+        <tr class="" data-ri="7">
+          <td>8</td>
+          <td><a href="https://govmap.kr/orgs/%EC%82%B0%EC%97%85%EC%97%B0%EA%B5%AC%EC%9B%90/">산업연구원</a></td>
+          <td>4,440만원</td>
+          <td>8,149만원</td>
+        </tr>
+        <tr class="" data-ri="8">
+          <td>9</td>
           <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%82%B0%EC%97%85%EA%B8%B0%EC%88%A0%EA%B8%B0%ED%9A%8D%ED%8F%89%EA%B0%80%EC%9B%90/">한국산업기술기획평가원</a></td>
           <td>4,437만원</td>
           <td>9,453만원</td>
         </tr>
-        <tr class="" data-ri="4">
-          <td>5</td>
+        <tr class="" data-ri="9">
+          <td>10</td>
           <td><a href="https://govmap.kr/orgs/%EC%A4%91%EC%86%8C%EB%B2%A4%EC%B2%98%EA%B8%B0%EC%97%85%EC%A7%84%ED%9D%A5%EA%B3%B5%EB%8B%A8/">중소벤처기업진흥공단</a></td>
           <td>4,406만원</td>
           <td>8,838만원</td>
         </tr>
-        <tr class="" data-ri="5">
-          <td>6</td>
+        <tr class="" data-ri="10">
+          <td>11</td>
+          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B3%BC%ED%95%99%EA%B8%B0%EC%88%A0%EA%B8%B0%ED%9A%8D%ED%8F%89%EA%B0%80%EC%9B%90/">한국과학기술기획평가원</a></td>
+          <td>4,336만원</td>
+          <td>8,962만원</td>
+        </tr>
+        <tr class="" data-ri="11">
+          <td>12</td>
+          <td><a href="https://govmap.kr/orgs/%EA%B8%B0%EC%B4%88%EA%B3%BC%ED%95%99%EC%97%B0%EA%B5%AC%EC%9B%90/">기초과학연구원</a></td>
+          <td>4,296만원</td>
+          <td>8,863만원</td>
+        </tr>
+        <tr class="" data-ri="12">
+          <td>13</td>
+          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%94%94%EC%9E%90%EC%9D%B8%EC%A7%84%ED%9D%A5%EC%9B%90/">한국디자인진흥원</a></td>
+          <td>4,258만원</td>
+          <td>6,688만원</td>
+        </tr>
+        <tr class="" data-ri="13">
+          <td>14</td>
           <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%82%B0%EC%97%85%EA%B8%B0%EC%88%A0%EC%A7%84%ED%9D%A5%EC%9B%90/">한국산업기술진흥원</a></td>
           <td>4,165만원</td>
           <td>8,123만원</td>
         </tr>
-        <tr class="" data-ri="6">
-          <td>7</td>
+        <tr class="" data-ri="14">
+          <td>15</td>
           <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A1%B0%ED%8F%90%EA%B3%B5%EC%82%AC/">한국조폐공사</a></td>
-          <td>4,118만원</td>
+          <td>4,084만원</td>
           <td>9,389만원</td>
         </tr>
-        <tr class="" data-ri="7">
-          <td>8</td>
-          <td><a href="https://govmap.kr/orgs/%EA%B5%AD%EB%B0%A9%EA%B8%B0%EC%88%A0%ED%92%88%EC%A7%88%EC%9B%90/">국방기술품질원</a></td>
-          <td>3,950만원</td>
-          <td>8,100만원</td>
-        </tr>
-        <tr class="" data-ri="8">
-          <td>9</td>
-          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B3%BC%ED%95%99%EA%B8%B0%EC%88%A0%EA%B8%B0%ED%9A%8D%ED%8F%89%EA%B0%80%EC%9B%90/">한국과학기술기획평가원</a></td>
-          <td>3,950만원</td>
-          <td>8,000만원</td>
-        </tr>
-        <tr class="" data-ri="9">
-          <td>10</td>
-          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%84%B8%EB%9D%BC%EB%AF%B9%EA%B8%B0%EC%88%A0%EC%9B%90/">한국세라믹기술원</a></td>
-          <td>3,900만원</td>
-          <td>7,800만원</td>
-        </tr>
-        <tr class="" data-ri="10">
-          <td>11</td>
+        <tr class="" data-ri="15">
+          <td>16</td>
           <td><a href="https://govmap.kr/orgs/%EB%8C%80%EC%99%B8%EA%B2%BD%EC%A0%9C%EC%A0%95%EC%B1%85%EC%97%B0%EA%B5%AC%EC%9B%90/">대외경제정책연구원</a></td>
-          <td>3,850만원</td>
-          <td>8,200만원</td>
+          <td>3,855만원</td>
+          <td>7,775만원</td>
         </tr>
-        <tr class="" data-ri="11">
-          <td>12</td>
+        <tr class="" data-ri="16">
+          <td>17</td>
           <td><a href="https://govmap.kr/orgs/%EB%8C%80%ED%95%9C%EB%AC%B4%EC%97%AD%ED%88%AC%EC%9E%90%EC%A7%84%ED%9D%A5%EA%B3%B5%EC%82%AC(KOTRA)/">대한무역투자진흥공사(KOTRA)</a></td>
           <td>3,817만원</td>
           <td>10,940만원</td>
         </tr>
-        <tr class="" data-ri="12">
-          <td>13</td>
-          <td><a href="https://govmap.kr/orgs/%EA%B8%B0%EC%B4%88%EA%B3%BC%ED%95%99%EC%97%B0%EA%B5%AC%EC%9B%90/">기초과학연구원</a></td>
-          <td>3,800만원</td>
-          <td>7,200만원</td>
-        </tr>
-        <tr class="" data-ri="13">
-          <td>14</td>
+        <tr class="" data-ri="17">
+          <td>18</td>
           <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B5%AD%EB%B0%A9%EC%97%B0%EA%B5%AC%EC%9B%90/">한국국방연구원</a></td>
           <td>3,800만원</td>
           <td>7,000만원</td>
         </tr>
-        <tr class="" data-ri="14">
-          <td>15</td>
-          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A1%B0%EC%84%B8%EC%9E%AC%EC%A0%95%EC%97%B0%EA%B5%AC%EC%9B%90/">한국조세재정연구원</a></td>
-          <td>3,700만원</td>
-          <td>7,800만원</td>
+        <tr class="" data-ri="18">
+          <td>19</td>
+          <td><a href="https://govmap.kr/orgs/%EB%AC%B4%EC%97%AD%EC%95%88%EB%B3%B4%EA%B4%80%EB%A6%AC%EC%9B%90/">무역안보관리원</a></td>
+          <td>3,769만원</td>
+          <td>5,447만원</td>
         </tr>
-        <tr class="" data-ri="15">
-          <td>16</td>
-          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%94%94%EC%9E%90%EC%9D%B8%EC%A7%84%ED%9D%A5%EC%9B%90/">한국디자인진흥원</a></td>
-          <td>3,700만원</td>
-          <td>7,000만원</td>
+        <tr class="" data-ri="19">
+          <td>20</td>
+          <td><a href="https://govmap.kr/orgs/%EA%B3%BC%ED%95%99%EA%B8%B0%EC%88%A0%EC%82%AC%EC%97%85%ED%99%94%EC%A7%84%ED%9D%A5%EC%9B%90/">과학기술사업화진흥원</a></td>
+          <td>3,745만원</td>
+          <td>6,380만원</td>
         </tr>
-        <tr class="" data-ri="16">
-          <td>17</td>
-          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B8%B0%EC%83%81%EC%82%B0%EC%97%85%EA%B8%B0%EC%88%A0%EC%9B%90/">한국기상산업기술원</a></td>
-          <td>3,600만원</td>
-          <td>6,500만원</td>
+        <tr class="" data-ri="20">
+          <td>21</td>
+          <td><a href="https://govmap.kr/orgs/%EA%B3%B5%EA%B0%84%EC%A0%95%EB%B3%B4%EC%82%B0%EC%97%85%EC%A7%84%ED%9D%A5%EC%9B%90/">공간정보산업진흥원</a></td>
+          <td>3,721만원</td>
+          <td>5,104만원</td>
         </tr>
-        <tr class="" data-ri="17">
-          <td>18</td>
+        <tr class="" data-ri="21">
+          <td>22</td>
+          <td><a href="https://govmap.kr/orgs/(%EC%A3%BC)%EA%B3%B5%EC%98%81%ED%99%88%EC%87%BC%ED%95%91/">(주)공영홈쇼핑</a></td>
+          <td>3,681만원</td>
+          <td>7,627만원</td>
+        </tr>
+        <tr class="" data-ri="22">
+          <td>23</td>
           <td><a href="https://govmap.kr/orgs/%EC%86%8C%EC%83%81%EA%B3%B5%EC%9D%B8%EC%8B%9C%EC%9E%A5%EC%A7%84%ED%9D%A5%EA%B3%B5%EB%8B%A8/">소상공인시장진흥공단</a></td>
           <td>3,591만원</td>
           <td>5,644만원</td>
         </tr>
-        <tr class="" data-ri="18">
-          <td>19</td>
-          <td><a href="https://govmap.kr/orgs/%EA%B3%BC%ED%95%99%EA%B8%B0%EC%88%A0%EC%A0%95%EC%B1%85%EC%97%B0%EA%B5%AC%EC%9B%90/">과학기술정책연구원</a></td>
-          <td>3,500만원</td>
-          <td>6,500만원</td>
+        <tr class="" data-ri="23">
+          <td>24</td>
+          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B8%B0%EC%83%81%EC%82%B0%EC%97%85%EA%B8%B0%EC%88%A0%EC%9B%90/">한국기상산업기술원</a></td>
+          <td>3,516만원</td>
+          <td>5,584만원</td>
         </tr>
-        <tr class="" data-ri="19">
-          <td>20</td>
-          <td><a href="https://govmap.kr/orgs/%EC%82%B0%EC%97%85%EC%97%B0%EA%B5%AC%EC%9B%90/">산업연구원</a></td>
-          <td>3,500만원</td>
-          <td>6,800만원</td>
-        </tr>
-        <tr class="" data-ri="20">
-          <td>21</td>
+        <tr class="" data-ri="24">
+          <td>25</td>
           <td><a href="https://govmap.kr/orgs/%EC%A4%91%EC%86%8C%EB%B2%A4%EC%B2%98%EA%B8%B0%EC%97%85%EC%97%B0%EA%B5%AC%EC%9B%90/">중소벤처기업연구원</a></td>
           <td>3,500만원</td>
           <td>6,500만원</td>
         </tr>
-        <tr class="" data-ri="21">
-          <td>22</td>
+        <tr class="" data-ri="25">
+          <td>26</td>
           <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A7%80%EC%8B%9D%EC%9E%AC%EC%82%B0%EC%97%B0%EA%B5%AC%EC%9B%90/">한국지식재산연구원</a></td>
           <td>3,500만원</td>
           <td>6,500만원</td>
         </tr>
-        <tr class="" data-ri="22">
-          <td>23</td>
-          <td><a href="https://govmap.kr/orgs/(%EC%A3%BC)%EA%B3%B5%EC%98%81%ED%99%88%EC%87%BC%ED%95%91/">(주)공영홈쇼핑</a></td>
-          <td>3,300만원</td>
-          <td>6,000만원</td>
-        </tr>
-        <tr class="" data-ri="23">
-          <td>24</td>
-          <td><a href="https://govmap.kr/orgs/%EC%97%B0%EA%B5%AC%EA%B0%9C%EB%B0%9C%ED%8A%B9%EA%B5%AC%EC%A7%84%ED%9D%A5%EC%9E%AC%EB%8B%A8/">연구개발특구진흥재단</a></td>
-          <td>3,300만원</td>
-          <td>6,200만원</td>
-        </tr>
-        <tr class="" data-ri="24">
-          <td>25</td>
+        <tr class="" data-ri="26">
+          <td>27</td>
           <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%82%98%EB%85%B8%EA%B8%B0%EC%88%A0%EC%9B%90/">한국나노기술원</a></td>
           <td>3,300만원</td>
           <td>6,000만원</td>
         </tr>
-        <tr class="" data-ri="25">
-          <td>26</td>
+        <tr class="" data-ri="27">
+          <td>28</td>
           <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%82%B0%EC%97%85%EA%B8%B0%EC%88%A0%EC%8B%9C%ED%97%98%EC%9B%90/">한국산업기술시험원</a></td>
           <td>3,300만원</td>
           <td>6,200만원</td>
         </tr>
-        <tr class="" data-ri="26">
-          <td>27</td>
+        <tr class="" data-ri="28">
+          <td>29</td>
           <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%ED%8A%B9%ED%97%88%EC%A0%95%EB%B3%B4%EC%9B%90/">한국특허정보원</a></td>
           <td>3,300만원</td>
           <td>6,200만원</td>
         </tr>
-        <tr class="" data-ri="27">
-          <td>28</td>
-          <td><a href="https://govmap.kr/orgs/%EB%AC%B4%EC%97%AD%EC%95%88%EB%B3%B4%EA%B4%80%EB%A6%AC%EC%9B%90/">무역안보관리원</a></td>
-          <td>3,200만원</td>
-          <td>5,800만원</td>
-        </tr>
-        <tr class="" data-ri="28">
-          <td>29</td>
-          <td><a href="https://govmap.kr/orgs/%EC%A4%91%EC%86%8C%EA%B8%B0%EC%97%85%EA%B8%B0%EC%88%A0%EC%A0%95%EB%B3%B4%EC%A7%84%ED%9D%A5%EC%9B%90/">중소기업기술정보진흥원</a></td>
-          <td>3,200만원</td>
-          <td>6,000만원</td>
-        </tr>
         <tr class="" data-ri="29">
           <td>30</td>
-          <td><a href="https://govmap.kr/orgs/%EC%B0%BD%EC%97%85%EC%A7%84%ED%9D%A5%EC%9B%90/">창업진흥원</a></td>
+          <td><a href="https://govmap.kr/orgs/%EC%A4%91%EC%86%8C%EA%B8%B0%EC%97%85%EA%B8%B0%EC%88%A0%EC%A0%95%EB%B3%B4%EC%A7%84%ED%9D%A5%EC%9B%90/">중소기업기술정보진흥원</a></td>
           <td>3,200만원</td>
           <td>6,000만원</td>
         </tr>
         <tr class="" data-ri="30">
           <td>31</td>
-          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%A1%9C%EB%B4%87%EC%82%B0%EC%97%85%EC%A7%84%ED%9D%A5%EC%9B%90/">한국로봇산업진흥원</a></td>
+          <td><a href="https://govmap.kr/orgs/%EC%B0%BD%EC%97%85%EC%A7%84%ED%9D%A5%EC%9B%90/">창업진흥원</a></td>
           <td>3,200만원</td>
-          <td>5,800만원</td>
+          <td>6,000만원</td>
         </tr>
         <tr class="" data-ri="31">
           <td>32</td>
-          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%B0%9C%EB%AA%85%EC%A7%84%ED%9D%A5%ED%9A%8C/">한국발명진흥회</a></td>
+          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%A1%9C%EB%B4%87%EC%82%B0%EC%97%85%EC%A7%84%ED%9D%A5%EC%9B%90/">한국로봇산업진흥원</a></td>
           <td>3,200만원</td>
           <td>5,800만원</td>
         </tr>
         <tr class="" data-ri="32">
           <td>33</td>
-          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A0%9C%ED%92%88%EC%95%88%EC%A0%84%EA%B4%80%EB%A6%AC%EC%9B%90/">한국제품안전관리원</a></td>
+          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%B0%9C%EB%AA%85%EC%A7%84%ED%9D%A5%ED%9A%8C/">한국발명진흥회</a></td>
           <td>3,200만원</td>
           <td>5,800만원</td>
         </tr>
         <tr class="" data-ri="33">
           <td>34</td>
-          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A7%80%EC%8B%9D%EC%9E%AC%EC%82%B0%EB%B3%B4%ED%98%B8%EC%9B%90/">한국지식재산보호원</a></td>
+          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A0%9C%ED%92%88%EC%95%88%EC%A0%84%EA%B4%80%EB%A6%AC%EC%9B%90/">한국제품안전관리원</a></td>
           <td>3,200만원</td>
           <td>5,800만원</td>
         </tr>
         <tr class="" data-ri="34">
           <td>35</td>
+          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A7%80%EC%8B%9D%EC%9E%AC%EC%82%B0%EB%B3%B4%ED%98%B8%EC%9B%90/">한국지식재산보호원</a></td>
+          <td>3,200만원</td>
+          <td>5,800만원</td>
+        </tr>
+        <tr class="" data-ri="35">
+          <td>36</td>
           <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%ED%83%84%EC%86%8C%EC%82%B0%EC%97%85%EC%A7%84%ED%9D%A5%EC%9B%90/">한국탄소산업진흥원</a></td>
           <td>3,200만원</td>
           <td>5,800만원</td>
         </tr>
-        <tr class="rank-me" data-ri="35">
-          <td>36</td>
+        <tr class="rank-me" data-ri="36">
+          <td>37</td>
           <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%ED%8A%B9%ED%97%88%EA%B8%B0%EC%88%A0%EC%A7%84%ED%9D%A5%EC%9B%90/">한국특허기술진흥원 <span style="font-size:11px">(현재)</span></a></td>
           <td>3,200만원</td>
           <td>5,800만원</td>
         </tr>
-        <tr class="" data-ri="36">
-          <td>37</td>
+        <tr class="" data-ri="37">
+          <td>38</td>
           <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%ED%8A%B9%ED%97%88%EC%A0%84%EB%9E%B5%EA%B0%9C%EB%B0%9C%EC%9B%90/">한국특허전략개발원</a></td>
           <td>3,200만원</td>
           <td>6,000만원</td>
         </tr>
-        <tr class="" data-ri="37">
-          <td>38</td>
-          <td><a href="https://govmap.kr/orgs/%EA%B3%B5%EA%B0%84%EC%A0%95%EB%B3%B4%EC%82%B0%EC%97%85%EC%A7%84%ED%9D%A5%EC%9B%90/">공간정보산업진흥원</a></td>
-          <td>3,100만원</td>
-          <td>5,500만원</td>
-        </tr>
         <tr class="" data-ri="38">
           <td>39</td>
-          <td><a href="https://govmap.kr/orgs/%EA%B3%BC%ED%95%99%EA%B8%B0%EC%88%A0%EC%82%AC%EC%97%85%ED%99%94%EC%A7%84%ED%9D%A5%EC%9B%90/">과학기술사업화진흥원</a></td>
+          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%97%AC%EC%84%B1%EA%B3%BC%ED%95%99%EA%B8%B0%EC%88%A0%EC%9D%B8%EC%9C%A1%EC%84%B1%EC%9E%AC%EB%8B%A8/">한국여성과학기술인육성재단</a></td>
           <td>3,100만원</td>
-          <td>5,500만원</td>
+          <td>5,600만원</td>
         </tr>
         <tr class="" data-ri="39">
           <td>40</td>
-          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%97%AC%EC%84%B1%EA%B3%BC%ED%95%99%EA%B8%B0%EC%88%A0%EC%9D%B8%EC%9C%A1%EC%84%B1%EC%9E%AC%EB%8B%A8/">한국여성과학기술인육성재단</a></td>
+          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A4%91%EC%86%8C%EB%B2%A4%EC%B2%98%EA%B8%B0%EC%97%85%EC%9C%A0%ED%86%B5%EC%9B%90/">한국중소벤처기업유통원</a></td>
           <td>3,100만원</td>
           <td>5,600만원</td>
         </tr>
         <tr class="" data-ri="40">
           <td>41</td>
-          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A4%91%EC%86%8C%EB%B2%A4%EC%B2%98%EA%B8%B0%EC%97%85%EC%9C%A0%ED%86%B5%EC%9B%90/">한국중소벤처기업유통원</a></td>
-          <td>3,100만원</td>
-          <td>5,600만원</td>
+          <td><a href="https://govmap.kr/orgs/%EA%B3%B5%EA%B0%84%EC%A0%95%EB%B3%B4%ED%92%88%EC%A7%88%EA%B4%80%EB%A6%AC%EC%9B%90/">공간정보품질관리원</a></td>
+          <td>3,048만원</td>
+          <td>6,611만원</td>
         </tr>
         <tr class="" data-ri="41">
           <td>42</td>
-          <td><a href="https://govmap.kr/orgs/%EA%B3%B5%EA%B0%84%EC%A0%95%EB%B3%B4%ED%92%88%EC%A7%88%EA%B4%80%EB%A6%AC%EC%9B%90/">공간정보품질관리원</a></td>
-          <td>3,000만원</td>
-          <td>5,200만원</td>
+          <td><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A1%B0%EC%84%B8%EC%9E%AC%EC%A0%95%EC%97%B0%EA%B5%AC%EC%9B%90/">한국조세재정연구원</a></td>
+          <td>3,033만원</td>
+          <td>8,583만원</td>
         </tr>
       </tbody>
     </table>
@@ -574,29 +598,29 @@
   <!-- 관련 기관 -->
   <div class="card">
     <div class="card-title">같은 유형의 다른 기관</div>
-    <div class="related-grid"><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%86%8D%EC%B4%8C%EA%B2%BD%EC%A0%9C%EC%97%B0%EA%B5%AC%EC%9B%90/" class="rel-card">
+    <div class="related-grid"><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%88%98%EC%B6%9C%EC%9E%85%EC%9D%80%ED%96%89/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">한국농촌경제연구원</span>
-       <span class="rel-region">전라권</span>
-     </a><a href="https://govmap.kr/orgs/%EC%97%B0%EA%B5%AC%EA%B0%9C%EB%B0%9C%ED%8A%B9%EA%B5%AC%EC%A7%84%ED%9D%A5%EC%9E%AC%EB%8B%A8/" class="rel-card">
+       <span class="rel-name">한국수출입은행</span>
+       <span class="rel-region">수도권</span>
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%ED%88%AC%EC%9E%90%EA%B3%B5%EC%82%AC/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">연구개발특구진흥재단</span>
+       <span class="rel-name">한국투자공사</span>
+       <span class="rel-region">수도권</span>
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%85%B8%EB%8F%99%EC%97%B0%EA%B5%AC%EC%9B%90/" class="rel-card">
+       <span class="rel-badge" style="background:#059669">기타공공기관</span>
+       <span class="rel-name">한국노동연구원</span>
        <span class="rel-region">충청권</span>
-     </a><a href="https://govmap.kr/orgs/%EC%83%88%EB%A7%8C%EA%B8%88%EA%B0%9C%EB%B0%9C%EA%B3%B5%EC%82%AC/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%EC%84%9C%EB%AF%BC%EA%B8%88%EC%9C%B5%EC%A7%84%ED%9D%A5%EC%9B%90/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">새만금개발공사</span>
-       <span class="rel-region">전라권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%B3%B4%EA%B1%B4%EC%82%AC%ED%9A%8C%EC%97%B0%EA%B5%AC%EC%9B%90/" class="rel-card">
+       <span class="rel-name">서민금융진흥원</span>
+       <span class="rel-region">수도권</span>
+     </a><a href="https://govmap.kr/orgs/%EC%9A%B0%ED%8E%B8%EC%82%AC%EC%97%85%EC%A7%84%ED%9D%A5%EC%9B%90/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">한국보건사회연구원</span>
-       <span class="rel-region">충청권</span>
-     </a><a href="https://govmap.kr/orgs/%EB%8C%80%EC%99%B8%EA%B2%BD%EC%A0%9C%EC%A0%95%EC%B1%85%EC%97%B0%EA%B5%AC%EC%9B%90/" class="rel-card">
+       <span class="rel-name">우편사업진흥원</span>
+       <span class="rel-region">수도권</span>
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B3%BC%ED%95%99%EA%B8%B0%EC%88%A0%EA%B8%B0%ED%9A%8D%ED%8F%89%EA%B0%80%EC%9B%90/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">대외경제정책연구원</span>
-       <span class="rel-region">충청권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%8B%9D%ED%92%88%EC%95%88%EC%A0%84%EA%B4%80%EB%A6%AC%EC%9D%B8%EC%A6%9D%EC%9B%90/" class="rel-card">
-       <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">한국식품안전관리인증원</span>
+       <span class="rel-name">한국과학기술기획평가원</span>
        <span class="rel-region">충청권</span>
      </a></div>
   </div>
