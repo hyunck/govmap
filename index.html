@@ -2167,6 +2167,11 @@
             applyFilters();
 
             console.log(`✅ 로드 완료. 본사 ${ORGS.length}개, 총 마커 ${state.allMarkers.length}개`);
+
+            // 지도 클릭/드래그 시 검색창 포커스 해제 (모바일 키보드 내림)
+            const _si = document.getElementById('searchInput');
+            kakao.maps.event.addListener(state.map, 'click', () => { _si && _si.blur(); });
+            kakao.maps.event.addListener(state.map, 'dragstart', () => { _si && _si.blur(); });
         });
 
         // ====================================================
@@ -2931,10 +2936,6 @@
             clearBtn.classList.remove('visible');
             applyFilters();
         });
-
-        // 지도 클릭/드래그 시 검색창 포커스 해제 (모바일 키보드 내림)
-        kakao.maps.event.addListener(state.map, 'click', () => { searchInput.blur(); });
-        kakao.maps.event.addListener(state.map, 'dragstart', () => { searchInput.blur(); });
 
         document.getElementById('resetBtn').addEventListener('click', () => {
             state.currentType = '전체';
