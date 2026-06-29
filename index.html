@@ -2932,6 +2932,10 @@
             applyFilters();
         });
 
+        // 지도 클릭/드래그 시 검색창 포커스 해제 (모바일 키보드 내림)
+        kakao.maps.event.addListener(state.map, 'click', () => { searchInput.blur(); });
+        kakao.maps.event.addListener(state.map, 'dragstart', () => { searchInput.blur(); });
+
         document.getElementById('resetBtn').addEventListener('click', () => {
             state.currentType = '전체';
             state.currentIndustry = '전체';
