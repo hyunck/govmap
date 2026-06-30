@@ -1280,6 +1280,9 @@
             background: var(--gov-accent);
             border-color: var(--gov-accent);
         }
+        .detail-panel.gov-mode .bullet-list li::before {
+            color: var(--gov-accent);
+        }
         .detail-panel.gov-mode .action-btn.primary:hover {
             background: #5b21b6;
         }
@@ -3602,34 +3605,37 @@
             // 탭 콘텐츠 렌더링 - 정부기관 모드에서는 기존 4탭을 재활용
             // 기업정보 탭
             document.getElementById('tabCompany').innerHTML = `
-                <div class="company-section">
-                    <div class="section-title">📖 기관 소개</div>
-                    <p class="section-text">${gov.description}</p>
-                </div>
-                <div class="company-section">
-                    <div class="section-title">📌 주요 업무</div>
-                    <ul class="bullet-list">${gov.mainBusiness.map(b => `<li>${b}</li>`).join('')}</ul>
-                </div>
-                <div class="company-section">
-                    <div class="section-title">📍 본청 위치</div>
-                    <p class="section-text">${gov.address}</p>
+                <div class="info-section"><h3>기관 소개</h3><p>${gov.description}</p></div>
+                <div class="info-section"><h3>주요 업무</h3><ul class="bullet-list">${gov.mainBusiness.map(b => `<li>${b}</li>`).join('')}</ul></div>
+                <div class="info-section">
+                    <h3>본청 위치</h3>
+                    <div class="info-row"><span class="icon">📍</span><span>${gov.address}</span></div>
+                    <div class="info-row"><span class="icon">🔗</span><a href="${gov.homepage}" target="_blank" style="color:var(--gov-accent)">${gov.homepage}</a></div>
                 </div>
             `;
             // 연봉 탭 자리에 공무원 급여 정보 (간단 안내)
             document.getElementById('tabSalary').innerHTML = `
-                <div class="salary-info-msg" style="padding:24px 18px;background:linear-gradient(135deg,#f5f3ff,#ede9fe);border-radius:12px;margin-bottom:14px;">
-                    <div style="font-size:14px;font-weight:700;color:var(--gov-accent);margin-bottom:8px;">💼 공무원 보수 (2026년 기준 안내)</div>
-                    <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">공무원 보수는 직급·호봉제에 따라 결정되며, 매년 인사혁신처가 「공무원 보수규정」으로 고시해요. 정확한 호봉표는 사이버국가고시센터·인사혁신처 홈페이지에서 확인할 수 있어요.</p>
+                <div class="salary-cards">
+                    <div class="salary-card" style="background:linear-gradient(135deg,#f5f3ff,#ede9fe);border-color:#ddd6fe;">
+                        <div class="salary-label">9급 1호봉 초임</div>
+                        <div class="salary-value" style="font-size:22px;font-weight:800;color:var(--gov-accent);">약 1,900<span class="unit">만원</span></div>
+                    </div>
+                    <div class="salary-card">
+                        <div class="salary-label">7급 1호봉 초임</div>
+                        <div class="salary-value" style="font-size:22px;font-weight:800;color:var(--gov-accent);">약 2,300<span class="unit">만원</span></div>
+                    </div>
                 </div>
-                <div class="company-section">
-                    <div class="section-title">📊 직급별 초임 (참고)</div>
-                    <p class="section-text" style="line-height:1.8;">
-                        • 9급 1호봉: 약 1,900만원 (월 기본급 + 직급보조비)<br>
-                        • 7급 1호봉: 약 2,300만원<br>
-                        • 5급 1호봉: 약 3,000만원<br>
-                        <span style="color:var(--text-tertiary);font-size:11px;">* 각종 수당(정근·정액·가족·시간외 등) 별도. 실제 수령액은 직군·근무지·근무형태에 따라 차이.</span>
-                    </p>
+                <div class="salary-cards">
+                    <div class="salary-card">
+                        <div class="salary-label">5급 1호봉 초임</div>
+                        <div class="salary-value" style="font-size:22px;font-weight:800;color:var(--gov-accent);">약 3,000<span class="unit">만원</span></div>
+                    </div>
+                    <div class="salary-card">
+                        <div class="salary-label">보수 체계</div>
+                        <div class="salary-value" style="font-size:15px;font-weight:700;color:var(--gov-accent);">직급·호봉제</div>
+                    </div>
                 </div>
+                <div class="salary-context" style="background:#f5f3ff;color:#4c1d95;">💡 공무원 보수는 직급·호봉제로 결정되며 매년 인사혁신처가 「공무원 보수규정」으로 고시해요. 각종 수당(정근·가족·시간외 등) 별도.</div>
             `;
             // 소속기관 탭 — allBranches 데이터로 그룹화된 전체 목록 표시
             const allBranches = gov.allBranches || [];
@@ -3710,20 +3716,20 @@
             });
             // 시험과목 탭
             document.getElementById('tabExam').innerHTML = `
-                <div class="company-section">
-                    <div class="section-title">📚 채용 트랙 · 직군</div>
-                    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;">
+                <div class="info-section">
+                    <h3>채용 트랙 · 직군</h3>
+                    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">
                         ${gov.examTrack.map(t => `<span class="ncs-tag" style="background:#ede9fe;color:var(--gov-accent);border:1px solid #ddd6fe;">${t}</span>`).join('')}
                     </div>
                 </div>
-                <div class="company-section">
-                    <div class="section-title">📝 공채 시험 안내</div>
-                    <p class="section-text" style="line-height:1.8;">
+                <div class="info-section">
+                    <h3>공채 시험 안내</h3>
+                    <p style="font-size:14px;line-height:1.8;">
                         <strong>9급 공채</strong>: 국어, 영어, 한국사 + 직렬 전공 2과목<br>
                         <strong>7급 공채</strong>: 국어, 영어(검정시험 대체), 한국사(검정시험 대체) + PSAT + 직렬 전공 3과목<br>
-                        <strong>5급 공채</strong>: 1차 PSAT → 2차 직렬 전공 → 3차 면접<br>
-                        <span style="color:var(--text-tertiary);font-size:11px;">* 정확한 시험과목·합격선·일정은 사이버국가고시센터(gosi.kr)에서 확인 필수.</span>
+                        <strong>5급 공채</strong>: 1차 PSAT → 2차 직렬 전공 → 3차 면접
                     </p>
+                    <p style="font-size:11px;color:var(--text-tertiary);margin-top:8px;">* 정확한 시험과목·합격선·일정은 사이버국가고시센터(gosi.kr)에서 확인 필수.</p>
                 </div>
             `;
 
