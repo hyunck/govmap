@@ -3615,25 +3615,21 @@
             `;
             // 연봉 탭 자리에 공무원 급여 정보 (간단 안내)
             document.getElementById('tabSalary').innerHTML = `
-                <div class="salary-cards">
-                    <div class="salary-card" style="background:linear-gradient(135deg,#f5f3ff,#ede9fe);border-color:#ddd6fe;">
-                        <div class="salary-label">9급 1호봉 초임</div>
-                        <div class="salary-value" style="font-size:22px;font-weight:800;color:var(--gov-accent);">약 1,900<span class="unit">만원</span></div>
-                    </div>
-                    <div class="salary-card">
-                        <div class="salary-label">7급 1호봉 초임</div>
-                        <div class="salary-value" style="font-size:22px;font-weight:800;color:var(--gov-accent);">약 2,300<span class="unit">만원</span></div>
-                    </div>
+                <div class="salary-card" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;background:linear-gradient(135deg,#ede9fe,#ddd6fe);border-color:#c4b5fd;">
+                    <div class="salary-label" style="font-size:13px;font-weight:700;color:#4c1d95;">보수 체계</div>
+                    <div style="font-size:17px;font-weight:800;color:var(--gov-accent);">직급 · 호봉제</div>
                 </div>
-                <div class="salary-cards">
-                    <div class="salary-card">
-                        <div class="salary-label">5급 1호봉 초임</div>
-                        <div class="salary-value" style="font-size:22px;font-weight:800;color:var(--gov-accent);">약 3,000<span class="unit">만원</span></div>
-                    </div>
-                    <div class="salary-card">
-                        <div class="salary-label">보수 체계</div>
-                        <div class="salary-value" style="font-size:15px;font-weight:700;color:var(--gov-accent);">직급·호봉제</div>
-                    </div>
+                <div class="salary-card" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+                    <div class="salary-label" style="font-size:13px;font-weight:600;">5급 1호봉 초임</div>
+                    <div style="font-size:22px;font-weight:800;color:var(--gov-accent);">약 3,000<span class="unit">만원</span></div>
+                </div>
+                <div class="salary-card" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+                    <div class="salary-label" style="font-size:13px;font-weight:600;">7급 1호봉 초임</div>
+                    <div style="font-size:22px;font-weight:800;color:var(--gov-accent);">약 2,300<span class="unit">만원</span></div>
+                </div>
+                <div class="salary-card" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+                    <div class="salary-label" style="font-size:13px;font-weight:600;">9급 1호봉 초임</div>
+                    <div style="font-size:22px;font-weight:800;color:var(--gov-accent);">약 1,900<span class="unit">만원</span></div>
                 </div>
                 <div class="salary-context" style="background:#f5f3ff;color:#4c1d95;">💡 공무원 보수는 직급·호봉제로 결정되며 매년 인사혁신처가 「공무원 보수규정」으로 고시해요. 각종 수당(정근·가족·시간외 등) 별도.</div>
             `;
