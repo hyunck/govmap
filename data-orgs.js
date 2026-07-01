@@ -24925,6 +24925,8 @@ const ORGS = [
     "startingSalary": 4107,
     "avgSalary": 6365,
     "avgYears": 5.3,
+    "startingSalaryHistory": [{"year":2022,"val":3829},{"year":2023,"val":3885},{"year":2024,"val":3342},{"year":2025,"val":4107},{"year":2026,"val":4217}],
+    "avgSalaryHistory": [{"year":2022,"val":6233},{"year":2023,"val":6388},{"year":2024,"val":6206},{"year":2025,"val":6365},{"year":2026,"val":6107}],
     "homepage": "https://www.kepcomcs.co.kr",
     "recruitUrl": "https://recruit.incruit.com/kepcomcs",
     "description": "2019년 한국전력공사가 현장 전력서비스 업무의 직고용 전환을 위해 설립한 한전 자회사(MCS = Metering & Customer Service). 전국 196개 전력서비스 사업소와 65개 도서발전 사업소에서 약 3,900명이 근무하며, 2021년 기타공공기관으로 지정됐다. 전력량계 검침·AMI 구축·배전설비 유지보수 등 한전 위탁 전력서비스 현장 업무를 수행한다.",
