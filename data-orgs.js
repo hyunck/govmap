@@ -15029,6 +15029,8 @@ const ORGS = [
     "startingSalary": 3398,
     "avgSalary": 5799,
     "avgYears": 13.1,
+    "startingSalaryHistory": [{"year":2023,"val":3412},{"year":2024,"val":3217},{"year":2025,"val":3398},{"year":2026,"val":3401}],
+    "avgSalaryHistory": [{"year":2023,"val":5444},{"year":2024,"val":5379},{"year":2025,"val":5799},{"year":2026,"val":5862}],
     "homepage": "https://www.kpipa.or.kr",
     "recruitUrl": "https://kpipa.fairyhr.com",
     "description": "2012년 「출판문화산업 진흥법」 제16조에 따라 설립된 문화체육관광부 산하 기타공공기관. 출판콘텐츠 지원·독서문화 진흥·출판유통 인프라 구축·디지털출판 육성·해외진출 지원 등 국내 출판 산업 전반을 총괄 지원한다. 본원은 전북 전주 혁신도시에 위치하며 서울사무소(상암동)에 일부 인력이 파견된다.",
