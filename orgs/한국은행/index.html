@@ -595,10 +595,55 @@
 
 </div>
 
+<!-- 오류 신고 버튼 -->
+<div style="text-align:center;padding:16px 0 8px;">
+  <button onclick="openReportModal()" style="background:#f3f4f6;border:1px solid #d1d5db;border-radius:8px;padding:10px 20px;font-size:13px;color:#6b7280;cursor:pointer;">
+    ✏️ 오류 신고 · 정보 추가 요청
+  </button>
+</div>
+
 <footer class="site-footer">
   <p>© 2026 <a href="https://govmap.kr">GovMap 공공기관 지도</a> — 공무원·공기업 취준생을 위한 기관 정보 서비스</p>
   <p style="margin-top:6px">데이터 기준: 2026년 공채 공고 / 오류 제보 환영</p>
 </footer>
+
+<!-- 신고 모달 -->
+<div id="report-overlay" onclick="closeReportModal()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:1000;"></div>
+<div id="report-modal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;border-radius:16px;padding:28px 24px;width:min(480px,92vw);z-index:1001;box-shadow:0 8px 32px rgba(0,0,0,0.18);">
+  <h3 style="margin:0 0 6px;font-size:17px;color:#111827;">오류 신고 · 정보 추가 요청</h3>
+  <p style="margin:0 0 18px;font-size:13px;color:#6b7280;">한국은행 관련 내용을 남겨주시면 검토 후 반영합니다.</p>
+
+  <div style="margin-bottom:14px;">
+    <label style="font-size:13px;font-weight:600;color:#374151;display:block;margin-bottom:6px;">신고 유형</label>
+    <div style="display:flex;gap:10px;">
+      <label style="display:flex;align-items:center;gap:6px;font-size:14px;cursor:pointer;">
+        <input type="radio" name="report-type" value="오류 신고" checked> 오류 신고
+      </label>
+      <label style="display:flex;align-items:center;gap:6px;font-size:14px;cursor:pointer;">
+        <input type="radio" name="report-type" value="정보 추가 요청"> 정보 추가 요청
+      </label>
+    </div>
+  </div>
+
+  <div style="margin-bottom:20px;">
+    <label style="font-size:13px;font-weight:600;color:#374151;display:block;margin-bottom:6px;">내용 <span style="color:#ef4444;">*</span></label>
+    <textarea id="report-content" rows="5" placeholder="어떤 정보가 잘못되었거나 추가되면 좋을지 알려주세요." style="width:100%;box-sizing:border-box;border:1px solid #d1d5db;border-radius:8px;padding:10px 12px;font-size:14px;resize:vertical;font-family:inherit;outline:none;"></textarea>
+    <p id="report-error" style="display:none;color:#ef4444;font-size:12px;margin:4px 0 0;">내용을 입력해주세요.</p>
+  </div>
+
+  <div style="display:flex;gap:10px;justify-content:flex-end;">
+    <button onclick="closeReportModal()" style="padding:10px 18px;border:1px solid #d1d5db;background:#fff;border-radius:8px;font-size:14px;cursor:pointer;color:#374151;">취소</button>
+    <button onclick="submitReport()" style="padding:10px 18px;background:#2563eb;color:#fff;border:none;border-radius:8px;font-size:14px;cursor:pointer;font-weight:600;">접수하기</button>
+  </div>
+</div>
+
+<!-- 완료 모달 -->
+<div id="report-done" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;border-radius:16px;padding:32px 28px;width:min(360px,88vw);z-index:1002;box-shadow:0 8px 32px rgba(0,0,0,0.18);text-align:center;">
+  <div style="font-size:36px;margin-bottom:12px;">✅</div>
+  <h3 style="margin:0 0 8px;font-size:17px;color:#111827;">접수 완료</h3>
+  <p style="margin:0 0 20px;font-size:14px;color:#6b7280;">소중한 의견 감사합니다.<br>검토 후 반영하겠습니다.</p>
+  <button onclick="closeDoneModal()" style="padding:10px 28px;background:#2563eb;color:#fff;border:none;border-radius:8px;font-size:14px;cursor:pointer;font-weight:600;">확인</button>
+</div>
 
 <script>
 function toggleGroup(el) {
@@ -619,6 +664,45 @@ function showRankPage(pager, p) {
   Array.from(pager.querySelectorAll('.rp-btn')).forEach(function(btn) {
     btn.classList.toggle('rp-active', parseInt(btn.getAttribute('data-page'), 10) === p);
   });
+}
+
+// ── 오류 신고 모달 ──
+var REPORT_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfMsbC-vS8JdVa9CPVwo0LXrQ1Hl2uGvwG99KI-z0pPvEfWTw/formResponse';
+var REPORT_ORG_NAME = '한국은행';
+
+function openReportModal() {
+  document.getElementById('report-overlay').style.display = '';
+  document.getElementById('report-modal').style.display = '';
+  document.getElementById('report-content').value = '';
+  document.getElementById('report-error').style.display = 'none';
+  document.querySelector('input[name="report-type"][value="오류 신고"]').checked = true;
+}
+
+function closeReportModal() {
+  document.getElementById('report-overlay').style.display = 'none';
+  document.getElementById('report-modal').style.display = 'none';
+}
+
+function closeDoneModal() {
+  document.getElementById('report-overlay').style.display = 'none';
+  document.getElementById('report-done').style.display = 'none';
+}
+
+function submitReport() {
+  var content = document.getElementById('report-content').value.trim();
+  if (!content) {
+    document.getElementById('report-error').style.display = '';
+    return;
+  }
+  var type = document.querySelector('input[name="report-type"]:checked').value;
+  var body = new URLSearchParams();
+  body.append('entry.762690459', REPORT_ORG_NAME);
+  body.append('entry.211514498', type);
+  body.append('entry.211514498_sentinel', '');
+  body.append('entry.1534037353', content);
+  fetch(REPORT_FORM_URL, { method: 'POST', mode: 'no-cors', body: body });
+  document.getElementById('report-modal').style.display = 'none';
+  document.getElementById('report-done').style.display = '';
 }
 
 document.addEventListener('DOMContentLoaded', function() {
