@@ -218,6 +218,10 @@ const html = `<!DOCTYPE html>
 
     ${GRADES.map(g => gradeSection(g)).join('')}
   </div>
+  <footer style="text-align:center;font-size:12px;color:#9ca3af;padding:32px 16px;border-top:1px solid #e5e7eb;margin-top:40px;">
+    <p>© 2026 <a href="${BASE_URL}" style="color:#6b7280;">GovMap 공공기관 지도</a> — 공무원·공기업 취준생을 위한 기관 정보 서비스</p>
+    <p style="margin-top:6px"><a href="${BASE_URL}/privacy/" style="color:#6b7280;">개인정보처리방침</a> · 문의: <a href="mailto:changhyun0430@gmail.com" style="color:#6b7280;">changhyun0430@gmail.com</a></p>
+  </footer>
 </body>
 </html>`;
 
