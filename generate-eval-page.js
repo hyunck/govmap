@@ -95,6 +95,8 @@ function gradeSection(grade) {
 const html = `<!DOCTYPE html>
 <html lang="ko">
 <head>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4864032615853020" crossorigin="anonymous"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5Y011TCG81"></script>
   <script>
     window.dataLayer=window.dataLayer||[];
