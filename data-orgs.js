@@ -20608,6 +20608,8 @@ const ORGS = [
     "startingSalary": 5215,
     "avgSalary": 11641,
     "avgYears": 15,
+    "startingSalaryHistory": [{"year":2023,"val":4968},{"year":2024,"val":5116},{"year":2025,"val":5215},{"year":2026,"val":5455}],
+    "avgSalaryHistory": [{"year":2023,"val":10225},{"year":2024,"val":10837},{"year":2025,"val":11641},{"year":2026,"val":11641}],
     "homepage": "https://www.add.re.kr",
     "recruitUrl": "https://add.applyin.co.kr",
     "description": "국방 무기체계 연구개발을 전담하는 방위사업청 산하 기타공공기관. 1970년 설립, 직원 약 3,177명. 전차·함정·항공기·유도무기 국산화부터 AI·드론·레이저 등 미래 첨단전력 연구까지 담당.",
