@@ -137,9 +137,17 @@ function buildPage(org) {
   const city = cityFromAddress(org.address);
   const locationStr = city ? `${city}(${org.region})` : org.region;
   const branchSuffix = totalBranchCount > 1 ? ` 전국 ${totalBranchCount}개 지사·근무지를 지도로 확인.` : '';
+  // 타이틀용 연봉 문자열 — "초봉"이 실제 최상위 검색 키워드이므로 숫자를 기관명 바로 뒤에 배치
+  const fmtMan = n => n.toLocaleString('ko-KR');
+  let titleSalary = '';
+  if (org.startingSalary && org.avgSalary) titleSalary = ` 초봉 ${fmtMan(org.startingSalary)}·연봉 ${fmtMan(org.avgSalary)}만원 |`;
+  else if (org.avgSalary) titleSalary = ` 연봉 ${fmtMan(org.avgSalary)}만원 |`;
+  else if (org.startingSalary) titleSalary = ` 초봉 ${fmtMan(org.startingSalary)}만원 |`;
+  const pageTitle = `${org.name}${titleSalary} 발령지·근무지 지도 - GovMap`;
+
   let desc;
   if (org.avgSalary) {
-    desc = `${org.name} 초봉 ${salary(org.startingSalary)} · 평균연봉 ${salary(org.avgSalary)}`
+    desc = `${org.name}${org.startingSalary ? ` 초봉 ${salary(org.startingSalary)} ·` : ''} 평균연봉 ${salary(org.avgSalary)}`
       + (org.avgYears ? ` · 근속 ${org.avgYears}년` : '')
       + `. ${locationStr} 소재 ${org.type}.`
       + branchSuffix
@@ -214,14 +222,14 @@ function buildPage(org) {
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${escHtml(org.name)}${org.avgSalary ? ` 연봉 ${salary(org.avgSalary)} ·` : ''} 발령지·지사 지도 | GovMap</title>
+  <title>${escHtml(pageTitle)}</title>
   <meta name="description" content="${escHtml(desc)}">
-  <meta name="keywords" content="${escHtml(org.name)}, ${escHtml(org.name)} 연봉, ${escHtml(org.name)} 위치, ${escHtml(org.name)} 주소, ${escHtml(org.name)} 초임, ${escHtml(org.name)} 시험과목, ${escHtml(org.name)} NCS, ${escHtml(org.name)} 채용, ${escHtml(org.name)} 발령지, ${escHtml(org.shortName||'')}">
+  <meta name="keywords" content="${escHtml(org.name)}, ${escHtml(org.name)} 연봉, ${escHtml(org.name)} 위치, ${escHtml(org.name)} 주소, ${escHtml(org.name)} 초봉, ${escHtml(org.name)} 초임, ${escHtml(org.name)} 근무지, ${escHtml(org.name)} 시험과목, ${escHtml(org.name)} NCS, ${escHtml(org.name)} 채용, ${escHtml(org.name)} 발령지, ${escHtml(org.shortName||'')}">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="${BASE_URL}/orgs/${encodeURIComponent(org.name)}/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="${BASE_URL}/orgs/${encodeURIComponent(org.name)}/">
-  <meta property="og:title" content="${escHtml(org.name)}${org.avgSalary ? ` 연봉 ${salary(org.avgSalary)} ·` : ''} 발령지·지사 지도 | GovMap">
+  <meta property="og:title" content="${escHtml(pageTitle)}">
   <meta property="og:description" content="${escHtml(desc)}">
   <meta property="og:locale" content="ko_KR">
   <script type="application/ld+json">
