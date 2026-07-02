@@ -21199,7 +21199,7 @@ const ORGS = [
     "region": "강원권",
     "industry": "에너지",
     "address": "강원 원주시 중앙로 147",
-    "startingSalary": null,
+    "startingSalary": 0,
     "avgSalary": 4233,
     "avgYears": 19,
     "homepage": "http://www.kocoal.or.kr",
