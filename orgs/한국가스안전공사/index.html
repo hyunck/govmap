@@ -8,6 +8,8 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-5Y011TCG81');
+    var GA_ORG = '한국가스안전공사';
+    function gaEv(n){ gtag('event', n, { org_name: GA_ORG }); }
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -207,7 +209,7 @@
     <span class="badge" style="background:#7c3aed">준정부</span>
     <div class="org-name">한국가스안전공사 <small style="font-size:16px;color:#6b7280">(KGS)</small></div>
     <p class="org-desc">1974년 설립된 산업통상자원부 산하 준정부기관으로, 국내 유일의 가스안전관리 전문기관이다. 고압가스·LPG·도시가스 시설 검사·인증, 가스제품 검사·인증, 안전진단·교육 및 가스사고 조사·분석을 수행하며, 수소안전 전담기관으로도 지정되어 있다.</p>
-    <a class="map-btn" href="https://govmap.kr">
+    <a class="map-btn" href="https://govmap.kr" onclick="gaEv('map_click')">
       🗺 지도에서 위치 보기
     </a>
   </div>
@@ -556,9 +558,9 @@
   <div class="card">
     <div class="card-title">바로가기</div>
     <div class="tags">
-      <a href="https://www.kgs.or.kr" target="_blank" rel="noopener" class="tag">🏛 공식 홈페이지</a>
-      <a href="https://kgs.applyin.co.kr" target="_blank" rel="noopener" class="tag">📋 채용공고</a>
-      <a href="https://govmap.kr" class="tag">🗺 GovMap 지도</a>
+      <a href="https://www.kgs.or.kr" target="_blank" rel="noopener" class="tag" onclick="gaEv('homepage_click')">🏛 공식 홈페이지</a>
+      <a href="https://kgs.applyin.co.kr" target="_blank" rel="noopener" class="tag" onclick="gaEv('recruit_click')">📋 채용공고</a>
+      <a href="https://govmap.kr" class="tag" onclick="gaEv('map_click')">🗺 GovMap 지도</a>
     </div>
   </div>
 
@@ -763,30 +765,30 @@
   <!-- 관련 기관 -->
   <div class="card">
     <div class="card-title">같은 유형의 다른 기관</div>
-    <div class="related-grid"><a href="https://govmap.kr/orgs/%EA%B5%AD%ED%86%A0%EC%95%88%EC%A0%84%EA%B4%80%EB%A6%AC%EC%9B%90/" class="rel-card">
+    <div class="related-grid"><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A0%84%EA%B8%B0%EC%95%88%EC%A0%84%EA%B3%B5%EC%82%AC/" class="rel-card">
        <span class="rel-badge" style="background:#7c3aed">준정부</span>
-       <span class="rel-name">국토안전관리원</span>
-       <span class="rel-region">경상권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%9D%B8%ED%84%B0%EB%84%B7%EC%A7%84%ED%9D%A5%EC%9B%90/" class="rel-card">
-       <span class="rel-badge" style="background:#7c3aed">준정부</span>
-       <span class="rel-name">한국인터넷진흥원</span>
+       <span class="rel-name">한국전기안전공사</span>
        <span class="rel-region">전라권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A3%BC%ED%83%9D%EA%B8%88%EC%9C%B5%EA%B3%B5%EC%82%AC/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%82%B0%EC%97%85%EC%9D%B8%EB%A0%A5%EA%B3%B5%EB%8B%A8/" class="rel-card">
        <span class="rel-badge" style="background:#7c3aed">준정부</span>
-       <span class="rel-name">한국주택금융공사</span>
+       <span class="rel-name">한국산업인력공단</span>
        <span class="rel-region">경상권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B5%AD%ED%86%A0%EC%A0%95%EB%B3%B4%EA%B3%B5%EC%82%AC/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%82%B0%EC%97%85%EC%95%88%EC%A0%84%EB%B3%B4%EA%B1%B4%EA%B3%B5%EB%8B%A8/" class="rel-card">
        <span class="rel-badge" style="background:#7c3aed">준정부</span>
-       <span class="rel-name">한국국토정보공사</span>
+       <span class="rel-name">한국산업안전보건공단</span>
+       <span class="rel-region">경상권</span>
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%82%B0%EB%A6%BC%EB%B3%B5%EC%A7%80%EC%A7%84%ED%9D%A5%EC%9B%90/" class="rel-card">
+       <span class="rel-badge" style="background:#7c3aed">준정부</span>
+       <span class="rel-name">한국산림복지진흥원</span>
+       <span class="rel-region">충청권</span>
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%B2%95%EB%AC%B4%EB%B3%B4%ED%98%B8%EB%B3%B5%EC%A7%80%EA%B3%B5%EB%8B%A8/" class="rel-card">
+       <span class="rel-badge" style="background:#7c3aed">준정부</span>
+       <span class="rel-name">한국법무보호복지공단</span>
+       <span class="rel-region">수도권</span>
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A0%84%EB%A0%A5%EA%B1%B0%EB%9E%98%EC%86%8C/" class="rel-card">
+       <span class="rel-badge" style="background:#7c3aed">준정부</span>
+       <span class="rel-name">한국전력거래소</span>
        <span class="rel-region">전라권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%82%B0%EC%97%85%EA%B8%B0%EC%88%A0%EC%A7%84%ED%9D%A5%EC%9B%90/" class="rel-card">
-       <span class="rel-badge" style="background:#7c3aed">준정부</span>
-       <span class="rel-name">한국산업기술진흥원</span>
-       <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%ED%99%98%EA%B2%BD%EA%B3%B5%EB%8B%A8/" class="rel-card">
-       <span class="rel-badge" style="background:#7c3aed">준정부</span>
-       <span class="rel-name">한국환경공단</span>
-       <span class="rel-region">수도권</span>
      </a></div>
   </div>
 
@@ -898,6 +900,7 @@ function submitReport() {
   body.append('entry.211514498_sentinel', '');
   body.append('entry.1534037353', content);
   fetch(REPORT_FORM_URL, { method: 'POST', mode: 'no-cors', body: body });
+  gaEv('report_submit');
   document.getElementById('report-modal').style.display = 'none';
   document.getElementById('report-done').style.display = '';
 }

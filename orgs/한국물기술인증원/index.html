@@ -8,6 +8,8 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-5Y011TCG81');
+    var GA_ORG = '한국물기술인증원';
+    function gaEv(n){ gtag('event', n, { org_name: GA_ORG }); }
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -207,7 +209,7 @@
     <span class="badge" style="background:#059669">기타공공기관</span>
     <div class="org-name">한국물기술인증원 <small style="font-size:16px;color:#6b7280">(KWTC)</small></div>
     <p class="org-desc">물 기술 제품 인증과 검증을 담당하는 기후에너지환경부 산하 기타공공기관.</p>
-    <a class="map-btn" href="https://govmap.kr">
+    <a class="map-btn" href="https://govmap.kr" onclick="gaEv('map_click')">
       🗺 지도에서 위치 보기
     </a>
   </div>
@@ -325,9 +327,9 @@
   <div class="card">
     <div class="card-title">바로가기</div>
     <div class="tags">
-      <a href="https://www.kwtc.or.kr" target="_blank" rel="noopener" class="tag">🏛 공식 홈페이지</a>
-      <a href="https://job.alio.go.kr/recruit.do?keyword=한국물기술인증원" target="_blank" rel="noopener" class="tag">📋 채용공고</a>
-      <a href="https://govmap.kr" class="tag">🗺 GovMap 지도</a>
+      <a href="https://www.kwtc.or.kr" target="_blank" rel="noopener" class="tag" onclick="gaEv('homepage_click')">🏛 공식 홈페이지</a>
+      <a href="https://job.alio.go.kr/recruit.do?keyword=한국물기술인증원" target="_blank" rel="noopener" class="tag" onclick="gaEv('recruit_click')">📋 채용공고</a>
+      <a href="https://govmap.kr" class="tag" onclick="gaEv('map_click')">🗺 GovMap 지도</a>
     </div>
   </div>
 
@@ -586,30 +588,30 @@
   <!-- 관련 기관 -->
   <div class="card">
     <div class="card-title">같은 유형의 다른 기관</div>
-    <div class="related-grid"><a href="https://govmap.kr/orgs/%EA%B3%B5%EA%B0%84%EC%A0%95%EB%B3%B4%EC%82%B0%EC%97%85%EC%A7%84%ED%9D%A5%EC%9B%90/" class="rel-card">
+    <div class="related-grid"><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%B0%A9%EC%86%A1%EA%B4%91%EA%B3%A0%EC%A7%84%ED%9D%A5%EA%B3%B5%EC%82%AC/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">공간정보산업진흥원</span>
+       <span class="rel-name">한국방송광고진흥공사</span>
        <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%93%B1%EC%82%B0%C2%B7%ED%8A%B8%EB%A0%88%ED%82%B9%EC%A7%80%EC%9B%90%EC%84%BC%ED%84%B0/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%B3%B4%EA%B1%B4%EC%9D%98%EB%A3%8C%EC%9D%B8%EA%B5%AD%EA%B0%80%EC%8B%9C%ED%97%98%EC%9B%90/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">한국등산·트레킹지원센터</span>
+       <span class="rel-name">한국보건의료인국가시험원</span>
        <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%EB%8C%80%ED%95%9C%EC%84%9D%ED%83%84%EA%B3%B5%EC%82%AC/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%AC%B8%ED%95%99%EB%B2%88%EC%97%AD%EC%9B%90/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">대한석탄공사</span>
-       <span class="rel-region">강원권</span>
-     </a><a href="https://govmap.kr/orgs/%EA%B3%BC%ED%95%99%EA%B8%B0%EC%88%A0%EC%A0%95%EC%B1%85%EC%97%B0%EA%B5%AC%EC%9B%90/" class="rel-card">
-       <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">과학기술정책연구원</span>
-       <span class="rel-region">충청권</span>
-     </a><a href="https://govmap.kr/orgs/%EB%86%8D%EC%97%85%EC%A0%95%EC%B1%85%EB%B3%B4%ED%97%98%EA%B8%88%EC%9C%B5%EC%9B%90/" class="rel-card">
-       <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">농업정책보험금융원</span>
+       <span class="rel-name">한국문학번역원</span>
        <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%EA%B5%AD%ED%86%A0%EA%B5%90%ED%86%B5%EA%B3%BC%ED%95%99%EA%B8%B0%EC%88%A0%EC%A7%84%ED%9D%A5%EC%9B%90/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%82%B0%EC%97%85%EC%9D%80%ED%96%89/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">국토교통과학기술진흥원</span>
-       <span class="rel-region">충청권</span>
+       <span class="rel-name">한국산업은행</span>
+       <span class="rel-region">수도권</span>
+     </a><a href="https://govmap.kr/orgs/%EC%A0%84%EB%B6%81%EB%8C%80%ED%95%99%EA%B5%90%EB%B3%91%EC%9B%90/" class="rel-card">
+       <span class="rel-badge" style="background:#059669">기타공공기관</span>
+       <span class="rel-name">전북대학교병원</span>
+       <span class="rel-region">전라권</span>
+     </a><a href="https://govmap.kr/orgs/%EC%9E%AC%EB%8B%A8%EB%B2%95%EC%9D%B8%20%EC%9E%A5%EC%95%A0%EC%9D%B8%EA%B8%B0%EC%97%85%EC%A2%85%ED%95%A9%EC%A7%80%EC%9B%90%EC%84%BC%ED%84%B0/" class="rel-card">
+       <span class="rel-badge" style="background:#059669">기타공공기관</span>
+       <span class="rel-name">재단법인 장애인기업종합지원센터</span>
+       <span class="rel-region">수도권</span>
      </a></div>
   </div>
 
@@ -721,6 +723,7 @@ function submitReport() {
   body.append('entry.211514498_sentinel', '');
   body.append('entry.1534037353', content);
   fetch(REPORT_FORM_URL, { method: 'POST', mode: 'no-cors', body: body });
+  gaEv('report_submit');
   document.getElementById('report-modal').style.display = 'none';
   document.getElementById('report-done').style.display = '';
 }

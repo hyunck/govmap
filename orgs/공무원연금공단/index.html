@@ -8,6 +8,8 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-5Y011TCG81');
+    var GA_ORG = '공무원연금공단';
+    function gaEv(n){ gtag('event', n, { org_name: GA_ORG }); }
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -207,7 +209,7 @@
     <span class="badge" style="background:#7c3aed">준정부</span>
     <div class="org-name">공무원연금공단 <small style="font-size:16px;color:#6b7280">(GEPS)</small></div>
     <p class="org-desc">공무원의 퇴직·사망·재해에 대한 연금·급여를 지급하고 공무원 복지사업과 기금운용을 담당하는 준정부기관. 1960년 설립되어 전국 7개 지부를 통해 약 120만 명의 공무원과 수급자를 지원하며, 본부는 제주 서귀포시에 위치한다.</p>
-    <a class="map-btn" href="https://govmap.kr">
+    <a class="map-btn" href="https://govmap.kr" onclick="gaEv('map_click')">
       🗺 지도에서 위치 보기
     </a>
   </div>
@@ -463,9 +465,9 @@
   <div class="card">
     <div class="card-title">바로가기</div>
     <div class="tags">
-      <a href="https://www.geps.or.kr" target="_blank" rel="noopener" class="tag">🏛 공식 홈페이지</a>
-      <a href="https://www.geps.or.kr/notiCommunication_info_incruit" target="_blank" rel="noopener" class="tag">📋 채용공고</a>
-      <a href="https://govmap.kr" class="tag">🗺 GovMap 지도</a>
+      <a href="https://www.geps.or.kr" target="_blank" rel="noopener" class="tag" onclick="gaEv('homepage_click')">🏛 공식 홈페이지</a>
+      <a href="https://www.geps.or.kr/notiCommunication_info_incruit" target="_blank" rel="noopener" class="tag" onclick="gaEv('recruit_click')">📋 채용공고</a>
+      <a href="https://govmap.kr" class="tag" onclick="gaEv('map_click')">🗺 GovMap 지도</a>
     </div>
   </div>
 
@@ -850,29 +852,29 @@
   <!-- 관련 기관 -->
   <div class="card">
     <div class="card-title">같은 유형의 다른 기관</div>
-    <div class="related-grid"><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%86%8C%EB%B9%84%EC%9E%90%EC%9B%90/" class="rel-card">
+    <div class="related-grid"><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%B3%B4%ED%9B%88%EB%B3%B5%EC%A7%80%EC%9D%98%EB%A3%8C%EA%B3%B5%EB%8B%A8/" class="rel-card">
        <span class="rel-badge" style="background:#7c3aed">준정부</span>
-       <span class="rel-name">한국소비자원</span>
-       <span class="rel-region">충청권</span>
-     </a><a href="https://govmap.kr/orgs/%EA%B8%B0%EC%88%A0%EB%B3%B4%EC%A6%9D%EA%B8%B0%EA%B8%88/" class="rel-card">
+       <span class="rel-name">한국보훈복지의료공단</span>
+       <span class="rel-region">수도권</span>
+     </a><a href="https://govmap.kr/orgs/%EC%8B%A0%EC%9A%A9%EB%B3%B4%EC%A6%9D%EA%B8%B0%EA%B8%88/" class="rel-card">
        <span class="rel-badge" style="background:#7c3aed">준정부</span>
-       <span class="rel-name">기술보증기금</span>
+       <span class="rel-name">신용보증기금</span>
        <span class="rel-region">경상권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A0%84%EA%B8%B0%EC%95%88%EC%A0%84%EA%B3%B5%EC%82%AC/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B4%80%EA%B4%91%EA%B3%B5%EC%82%AC/" class="rel-card">
        <span class="rel-badge" style="background:#7c3aed">준정부</span>
-       <span class="rel-name">한국전기안전공사</span>
-       <span class="rel-region">전라권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%82%B0%EB%A6%BC%EB%B3%B5%EC%A7%80%EC%A7%84%ED%9D%A5%EC%9B%90/" class="rel-card">
+       <span class="rel-name">한국관광공사</span>
+       <span class="rel-region">강원권</span>
+     </a><a href="https://govmap.kr/orgs/%EA%B7%BC%EB%A1%9C%EB%B3%B5%EC%A7%80%EA%B3%B5%EB%8B%A8/" class="rel-card">
        <span class="rel-badge" style="background:#7c3aed">준정부</span>
-       <span class="rel-name">한국산림복지진흥원</span>
-       <span class="rel-region">충청권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B3%A0%EC%9A%A9%EC%A0%95%EB%B3%B4%EC%9B%90/" class="rel-card">
+       <span class="rel-name">근로복지공단</span>
+       <span class="rel-region">경상권</span>
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%82%B0%EC%97%85%EC%95%88%EC%A0%84%EB%B3%B4%EA%B1%B4%EA%B3%B5%EB%8B%A8/" class="rel-card">
        <span class="rel-badge" style="background:#7c3aed">준정부</span>
-       <span class="rel-name">한국고용정보원</span>
-       <span class="rel-region">충청권</span>
-     </a><a href="https://govmap.kr/orgs/%EA%B5%AD%EA%B0%80%EC%B2%A0%EB%8F%84%EA%B3%B5%EB%8B%A8/" class="rel-card">
+       <span class="rel-name">한국산업안전보건공단</span>
+       <span class="rel-region">경상권</span>
+     </a><a href="https://govmap.kr/orgs/%EC%86%8C%EC%83%81%EA%B3%B5%EC%9D%B8%EC%8B%9C%EC%9E%A5%EC%A7%84%ED%9D%A5%EA%B3%B5%EB%8B%A8/" class="rel-card">
        <span class="rel-badge" style="background:#7c3aed">준정부</span>
-       <span class="rel-name">국가철도공단</span>
+       <span class="rel-name">소상공인시장진흥공단</span>
        <span class="rel-region">충청권</span>
      </a></div>
   </div>
@@ -985,6 +987,7 @@ function submitReport() {
   body.append('entry.211514498_sentinel', '');
   body.append('entry.1534037353', content);
   fetch(REPORT_FORM_URL, { method: 'POST', mode: 'no-cors', body: body });
+  gaEv('report_submit');
   document.getElementById('report-modal').style.display = 'none';
   document.getElementById('report-done').style.display = '';
 }

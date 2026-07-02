@@ -209,6 +209,8 @@ function buildPage(org) {
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-5Y011TCG81');
+    var GA_ORG = '${escHtml(org.name).replace(/'/g, "\\'")}';
+    function gaEv(n){ gtag('event', n, { org_name: GA_ORG }); }
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -408,7 +410,7 @@ function buildPage(org) {
     <span class="badge" style="background:${color}">${escHtml(badge)}</span>
     <div class="org-name">${escHtml(org.name)}${org.shortName ? ` <small style="font-size:16px;color:#6b7280">(${escHtml(org.shortName)})</small>` : ''}</div>
     ${org.description ? `<p class="org-desc">${escHtml(org.description)}</p>` : ''}
-    <a class="map-btn" href="${BASE_URL}">
+    <a class="map-btn" href="${BASE_URL}" onclick="gaEv('map_click')">
       🗺 지도에서 위치 보기
     </a>
   </div>
@@ -522,9 +524,9 @@ function buildPage(org) {
   <div class="card">
     <div class="card-title">바로가기</div>
     <div class="tags">
-      ${org.homepage ? `<a href="${escHtml(org.homepage)}" target="_blank" rel="noopener" class="tag">🏛 공식 홈페이지</a>` : ''}
-      ${org.recruitUrl ? `<a href="${escHtml(org.recruitUrl)}" target="_blank" rel="noopener" class="tag">📋 채용공고</a>` : ''}
-      <a href="${BASE_URL}" class="tag">🗺 GovMap 지도</a>
+      ${org.homepage ? `<a href="${escHtml(org.homepage)}" target="_blank" rel="noopener" class="tag" onclick="gaEv('homepage_click')">🏛 공식 홈페이지</a>` : ''}
+      ${org.recruitUrl ? `<a href="${escHtml(org.recruitUrl)}" target="_blank" rel="noopener" class="tag" onclick="gaEv('recruit_click')">📋 채용공고</a>` : ''}
+      <a href="${BASE_URL}" class="tag" onclick="gaEv('map_click')">🗺 GovMap 지도</a>
     </div>
   </div>
 
@@ -660,6 +662,7 @@ function submitReport() {
   body.append('entry.211514498_sentinel', '');
   body.append('entry.1534037353', content);
   fetch(REPORT_FORM_URL, { method: 'POST', mode: 'no-cors', body: body });
+  gaEv('report_submit');
   document.getElementById('report-modal').style.display = 'none';
   document.getElementById('report-done').style.display = '';
 }

@@ -8,6 +8,8 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-5Y011TCG81');
+    var GA_ORG = '한국교육개발원';
+    function gaEv(n){ gtag('event', n, { org_name: GA_ORG }); }
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -207,7 +209,7 @@
     <span class="badge" style="background:#059669">기타공공기관</span>
     <div class="org-name">한국교육개발원 <small style="font-size:16px;color:#6b7280">(KEDI)</small></div>
     <p class="org-desc">교육정책 R&amp;D를 담당하는 국책 연구기관. 교육 분야 대표 출연연.</p>
-    <a class="map-btn" href="https://govmap.kr">
+    <a class="map-btn" href="https://govmap.kr" onclick="gaEv('map_click')">
       🗺 지도에서 위치 보기
     </a>
   </div>
@@ -325,9 +327,9 @@
   <div class="card">
     <div class="card-title">바로가기</div>
     <div class="tags">
-      <a href="https://www.kedi.re.kr" target="_blank" rel="noopener" class="tag">🏛 공식 홈페이지</a>
-      <a href="https://job.alio.go.kr/recruit.do?keyword=한국교육개발원" target="_blank" rel="noopener" class="tag">📋 채용공고</a>
-      <a href="https://govmap.kr" class="tag">🗺 GovMap 지도</a>
+      <a href="https://www.kedi.re.kr" target="_blank" rel="noopener" class="tag" onclick="gaEv('homepage_click')">🏛 공식 홈페이지</a>
+      <a href="https://job.alio.go.kr/recruit.do?keyword=한국교육개발원" target="_blank" rel="noopener" class="tag" onclick="gaEv('recruit_click')">📋 채용공고</a>
+      <a href="https://govmap.kr" class="tag" onclick="gaEv('map_click')">🗺 GovMap 지도</a>
     </div>
   </div>
 
@@ -760,29 +762,29 @@
   <!-- 관련 기관 -->
   <div class="card">
     <div class="card-title">같은 유형의 다른 기관</div>
-    <div class="related-grid"><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%85%B8%EC%9D%B8%EC%9D%B8%EB%A0%A5%EA%B0%9C%EB%B0%9C%EC%9B%90/" class="rel-card">
+    <div class="related-grid"><a href="https://govmap.kr/orgs/%EA%B5%AD%EB%A6%BD%EC%95%84%EC%8B%9C%EC%95%84%EB%AC%B8%ED%99%94%EC%A0%84%EB%8B%B9%EC%9E%AC%EB%8B%A8/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">한국노인인력개발원</span>
+       <span class="rel-name">국립아시아문화전당재단</span>
+       <span class="rel-region">전라권</span>
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A7%80%EC%8B%9D%EC%9E%AC%EC%82%B0%EC%97%B0%EA%B5%AC%EC%9B%90/" class="rel-card">
+       <span class="rel-badge" style="background:#059669">기타공공기관</span>
+       <span class="rel-name">한국지식재산연구원</span>
        <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%9B%90%EC%9E%90%EB%A0%A5%ED%86%B5%EC%A0%9C%EA%B8%B0%EC%88%A0%EC%9B%90/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%EA%B0%95%EC%9B%90%EB%8C%80%ED%95%99%EA%B5%90%EB%B3%91%EC%9B%90/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">한국원자력통제기술원</span>
-       <span class="rel-region">충청권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%97%90%EB%84%88%EC%A7%80%EA%B8%B0%EC%88%A0%ED%8F%89%EA%B0%80%EC%9B%90/" class="rel-card">
-       <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">한국에너지기술평가원</span>
-       <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%EB%8F%99%EB%B6%81%EC%95%84%EC%97%AD%EC%82%AC%EC%9E%AC%EB%8B%A8/" class="rel-card">
-       <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">동북아역사재단</span>
-       <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%EA%B0%95%EC%9B%90%EB%8C%80%ED%95%99%EA%B5%90%EC%B9%98%EA%B3%BC%EB%B3%91%EC%9B%90/" class="rel-card">
-       <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">강원대학교치과병원</span>
+       <span class="rel-name">강원대학교병원</span>
        <span class="rel-region">강원권</span>
-     </a><a href="https://govmap.kr/orgs/%EA%B5%AD%EC%95%85%EB%B0%A9%EC%86%A1/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/(%EC%9E%AC)%ED%95%9C%EA%B5%AD%ED%86%B5%EA%B3%84%EC%A7%84%ED%9D%A5%EC%9B%90/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">국악방송</span>
+       <span class="rel-name">(재)한국통계진흥원</span>
+       <span class="rel-region">수도권</span>
+     </a><a href="https://govmap.kr/orgs/%EC%88%98%EB%8F%84%EA%B6%8C%EB%A7%A4%EB%A6%BD%EC%A7%80%EA%B4%80%EB%A6%AC%EA%B3%B5%EC%82%AC/" class="rel-card">
+       <span class="rel-badge" style="background:#059669">기타공공기관</span>
+       <span class="rel-name">수도권매립지관리공사</span>
+       <span class="rel-region">수도권</span>
+     </a><a href="https://govmap.kr/orgs/%EA%B2%8C%EC%9E%84%EB%AC%BC%EA%B4%80%EB%A6%AC%EC%9C%84%EC%9B%90%ED%9A%8C/" class="rel-card">
+       <span class="rel-badge" style="background:#059669">기타공공기관</span>
+       <span class="rel-name">게임물관리위원회</span>
        <span class="rel-region">수도권</span>
      </a></div>
   </div>
@@ -895,6 +897,7 @@ function submitReport() {
   body.append('entry.211514498_sentinel', '');
   body.append('entry.1534037353', content);
   fetch(REPORT_FORM_URL, { method: 'POST', mode: 'no-cors', body: body });
+  gaEv('report_submit');
   document.getElementById('report-modal').style.display = 'none';
   document.getElementById('report-done').style.display = '';
 }

@@ -8,6 +8,8 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-5Y011TCG81');
+    var GA_ORG = '한국광해광업공단';
+    function gaEv(n){ gtag('event', n, { org_name: GA_ORG }); }
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -207,7 +209,7 @@
     <span class="badge" style="background:#2563eb">공기업</span>
     <div class="org-name">한국광해광업공단 <small style="font-size:16px;color:#6b7280">(KOMIR)</small></div>
     <p class="org-desc">2021년 한국광해관리공단과 한국광물자원공사 통합으로 출범한 준시장형 공기업. 광해 방지·복구, 핵심광물 확보, 폐광지역 진흥을 3대 미션으로 하며 산업통상자원부 산하에 있다.</p>
-    <a class="map-btn" href="https://govmap.kr">
+    <a class="map-btn" href="https://govmap.kr" onclick="gaEv('map_click')">
       🗺 지도에서 위치 보기
     </a>
   </div>
@@ -454,9 +456,9 @@
   <div class="card">
     <div class="card-title">바로가기</div>
     <div class="tags">
-      <a href="https://www.komir.or.kr" target="_blank" rel="noopener" class="tag">🏛 공식 홈페이지</a>
-      <a href="https://komir.saramin.co.kr/" target="_blank" rel="noopener" class="tag">📋 채용공고</a>
-      <a href="https://govmap.kr" class="tag">🗺 GovMap 지도</a>
+      <a href="https://www.komir.or.kr" target="_blank" rel="noopener" class="tag" onclick="gaEv('homepage_click')">🏛 공식 홈페이지</a>
+      <a href="https://komir.saramin.co.kr/" target="_blank" rel="noopener" class="tag" onclick="gaEv('recruit_click')">📋 채용공고</a>
+      <a href="https://govmap.kr" class="tag" onclick="gaEv('map_click')">🗺 GovMap 지도</a>
     </div>
   </div>
 
@@ -661,29 +663,29 @@
   <!-- 관련 기관 -->
   <div class="card">
     <div class="card-title">같은 유형의 다른 기관</div>
-    <div class="related-grid"><a href="https://govmap.kr/orgs/%ED%95%9C%EC%A0%84KPS/" class="rel-card">
+    <div class="related-grid"><a href="https://govmap.kr/orgs/%EC%A3%BC%ED%83%9D%EB%8F%84%EC%8B%9C%EB%B3%B4%EC%A6%9D%EA%B3%B5%EC%82%AC/" class="rel-card">
        <span class="rel-badge" style="background:#2563eb">공기업</span>
-       <span class="rel-name">한전KPS</span>
-       <span class="rel-region">전라권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A0%84%EB%A0%A5%EA%B8%B0%EC%88%A0/" class="rel-card">
-       <span class="rel-badge" style="background:#2563eb">공기업</span>
-       <span class="rel-name">한국전력기술</span>
+       <span class="rel-name">주택도시보증공사</span>
        <span class="rel-region">경상권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%8F%84%EB%A1%9C%EA%B3%B5%EC%82%AC/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%EC%9D%B8%EC%B2%9C%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD%EA%B3%B5%EC%82%AC/" class="rel-card">
        <span class="rel-badge" style="background:#2563eb">공기업</span>
-       <span class="rel-name">한국도로공사</span>
-       <span class="rel-region">경상권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%A7%88%EC%82%AC%ED%9A%8C/" class="rel-card">
-       <span class="rel-badge" style="background:#2563eb">공기업</span>
-       <span class="rel-name">한국마사회</span>
+       <span class="rel-name">인천국제공항공사</span>
        <span class="rel-region">수도권</span>
+     </a><a href="https://govmap.kr/orgs/%EC%A0%9C%EC%A3%BC%EA%B5%AD%EC%A0%9C%EC%9E%90%EC%9C%A0%EB%8F%84%EC%8B%9C%EA%B0%9C%EB%B0%9C%EC%84%BC%ED%84%B0/" class="rel-card">
+       <span class="rel-badge" style="background:#2563eb">공기업</span>
+       <span class="rel-name">제주국제자유도시개발센터</span>
+       <span class="rel-region">제주권</span>
      </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A4%91%EB%B6%80%EB%B0%9C%EC%A0%84/" class="rel-card">
        <span class="rel-badge" style="background:#2563eb">공기업</span>
        <span class="rel-name">한국중부발전</span>
        <span class="rel-region">충청권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A7%80%EC%97%AD%EB%82%9C%EB%B0%A9%EA%B3%B5%EC%82%AC/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%88%98%EB%A0%A5%EC%9B%90%EC%9E%90%EB%A0%A5/" class="rel-card">
        <span class="rel-badge" style="background:#2563eb">공기업</span>
-       <span class="rel-name">한국지역난방공사</span>
+       <span class="rel-name">한국수력원자력</span>
+       <span class="rel-region">경상권</span>
+     </a><a href="https://govmap.kr/orgs/%EC%97%90%EC%8A%A4%EC%95%8C(SR)/" class="rel-card">
+       <span class="rel-badge" style="background:#2563eb">공기업</span>
+       <span class="rel-name">에스알(SR)</span>
        <span class="rel-region">수도권</span>
      </a></div>
   </div>
@@ -796,6 +798,7 @@ function submitReport() {
   body.append('entry.211514498_sentinel', '');
   body.append('entry.1534037353', content);
   fetch(REPORT_FORM_URL, { method: 'POST', mode: 'no-cors', body: body });
+  gaEv('report_submit');
   document.getElementById('report-modal').style.display = 'none';
   document.getElementById('report-done').style.display = '';
 }

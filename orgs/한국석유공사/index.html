@@ -8,6 +8,8 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-5Y011TCG81');
+    var GA_ORG = '한국석유공사';
+    function gaEv(n){ gtag('event', n, { org_name: GA_ORG }); }
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -207,7 +209,7 @@
     <span class="badge" style="background:#2563eb">공기업</span>
     <div class="org-name">한국석유공사 <small style="font-size:16px;color:#6b7280">(KNOC)</small></div>
     <p class="org-desc">1979년 설립된 산업통상자원부 산하 시장형 공기업. 해외 석유·가스 자원개발(E&amp;P), 국내 석유 비축 및 관리, 석유유통구조 개선을 핵심 사업으로 한다. 17개국 30개 프로젝트에 참여해 일일 약 13.8만 배럴을 생산하며, 전국 9개 비축기지에서 약 1억 4,600만 배럴 규모의 석유를 비축·관리한다. 동해 가스전 개발 및 수소·암모니아 등 저탄소 신에너지 사업도 추진한다.</p>
-    <a class="map-btn" href="https://govmap.kr">
+    <a class="map-btn" href="https://govmap.kr" onclick="gaEv('map_click')">
       🗺 지도에서 위치 보기
     </a>
   </div>
@@ -440,9 +442,9 @@
   <div class="card">
     <div class="card-title">바로가기</div>
     <div class="tags">
-      <a href="https://www.knoc.co.kr" target="_blank" rel="noopener" class="tag">🏛 공식 홈페이지</a>
-      <a href="https://www.knoc.co.kr/sub01/sub01_7_9.jsp" target="_blank" rel="noopener" class="tag">📋 채용공고</a>
-      <a href="https://govmap.kr" class="tag">🗺 GovMap 지도</a>
+      <a href="https://www.knoc.co.kr" target="_blank" rel="noopener" class="tag" onclick="gaEv('homepage_click')">🏛 공식 홈페이지</a>
+      <a href="https://www.knoc.co.kr/sub01/sub01_7_9.jsp" target="_blank" rel="noopener" class="tag" onclick="gaEv('recruit_click')">📋 채용공고</a>
+      <a href="https://govmap.kr" class="tag" onclick="gaEv('map_click')">🗺 GovMap 지도</a>
     </div>
   </div>
 
@@ -647,30 +649,30 @@
   <!-- 관련 기관 -->
   <div class="card">
     <div class="card-title">같은 유형의 다른 기관</div>
-    <div class="related-grid"><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%B2%A0%EB%8F%84%EA%B3%B5%EC%82%AC(%EC%BD%94%EB%A0%88%EC%9D%BC)/" class="rel-card">
+    <div class="related-grid"><a href="https://govmap.kr/orgs/%EC%A3%BC%ED%83%9D%EB%8F%84%EC%8B%9C%EB%B3%B4%EC%A6%9D%EA%B3%B5%EC%82%AC/" class="rel-card">
+       <span class="rel-badge" style="background:#2563eb">공기업</span>
+       <span class="rel-name">주택도시보증공사</span>
+       <span class="rel-region">경상권</span>
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B0%80%EC%8A%A4%EA%B3%B5%EC%82%AC/" class="rel-card">
+       <span class="rel-badge" style="background:#2563eb">공기업</span>
+       <span class="rel-name">한국가스공사</span>
+       <span class="rel-region">경상권</span>
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%88%98%EB%A0%A5%EC%9B%90%EC%9E%90%EB%A0%A5/" class="rel-card">
+       <span class="rel-badge" style="background:#2563eb">공기업</span>
+       <span class="rel-name">한국수력원자력</span>
+       <span class="rel-region">경상권</span>
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%A7%88%EC%82%AC%ED%9A%8C/" class="rel-card">
+       <span class="rel-badge" style="background:#2563eb">공기업</span>
+       <span class="rel-name">한국마사회</span>
+       <span class="rel-region">수도권</span>
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%B2%A0%EB%8F%84%EA%B3%B5%EC%82%AC(%EC%BD%94%EB%A0%88%EC%9D%BC)/" class="rel-card">
        <span class="rel-badge" style="background:#2563eb">공기업</span>
        <span class="rel-name">한국철도공사(코레일)</span>
        <span class="rel-region">충청권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%8F%99%EC%84%9C%EB%B0%9C%EC%A0%84/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%88%98%EC%9E%90%EC%9B%90%EA%B3%B5%EC%82%AC/" class="rel-card">
        <span class="rel-badge" style="background:#2563eb">공기업</span>
-       <span class="rel-name">한국동서발전</span>
-       <span class="rel-region">경상권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EC%A0%84KDN/" class="rel-card">
-       <span class="rel-badge" style="background:#2563eb">공기업</span>
-       <span class="rel-name">한전KDN</span>
-       <span class="rel-region">전라권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%82%A8%EB%B6%80%EB%B0%9C%EC%A0%84/" class="rel-card">
-       <span class="rel-badge" style="background:#2563eb">공기업</span>
-       <span class="rel-name">한국남부발전</span>
-       <span class="rel-region">경상권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%8F%84%EB%A1%9C%EA%B3%B5%EC%82%AC/" class="rel-card">
-       <span class="rel-badge" style="background:#2563eb">공기업</span>
-       <span class="rel-name">한국도로공사</span>
-       <span class="rel-region">경상권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B3%B5%ED%95%AD%EA%B3%B5%EC%82%AC/" class="rel-card">
-       <span class="rel-badge" style="background:#2563eb">공기업</span>
-       <span class="rel-name">한국공항공사</span>
-       <span class="rel-region">수도권</span>
+       <span class="rel-name">한국수자원공사</span>
+       <span class="rel-region">충청권</span>
      </a></div>
   </div>
 
@@ -782,6 +784,7 @@ function submitReport() {
   body.append('entry.211514498_sentinel', '');
   body.append('entry.1534037353', content);
   fetch(REPORT_FORM_URL, { method: 'POST', mode: 'no-cors', body: body });
+  gaEv('report_submit');
   document.getElementById('report-modal').style.display = 'none';
   document.getElementById('report-done').style.display = '';
 }

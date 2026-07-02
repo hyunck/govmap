@@ -8,6 +8,8 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-5Y011TCG81');
+    var GA_ORG = '국방기술품질원';
+    function gaEv(n){ gtag('event', n, { org_name: GA_ORG }); }
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -207,7 +209,7 @@
     <span class="badge" style="background:#059669">기타공공기관</span>
     <div class="org-name">국방기술품질원 <small style="font-size:16px;color:#6b7280">(DTaQ)</small></div>
     <p class="org-desc">군수품 품질보증·무기체계 시험평가·방위산업기술보호를 전담하는 방위사업청 산하 기타공공기관. 1981년 국방품질검사소로 창설, 2006년 현재 명칭으로 개편. 직원 약 700명.</p>
-    <a class="map-btn" href="https://govmap.kr">
+    <a class="map-btn" href="https://govmap.kr" onclick="gaEv('map_click')">
       🗺 지도에서 위치 보기
     </a>
   </div>
@@ -390,9 +392,9 @@
   <div class="card">
     <div class="card-title">바로가기</div>
     <div class="tags">
-      <a href="https://www.dtaq.re.kr" target="_blank" rel="noopener" class="tag">🏛 공식 홈페이지</a>
-      <a href="https://dtaq.re.kr/km/career/notice.jsp" target="_blank" rel="noopener" class="tag">📋 채용공고</a>
-      <a href="https://govmap.kr" class="tag">🗺 GovMap 지도</a>
+      <a href="https://www.dtaq.re.kr" target="_blank" rel="noopener" class="tag" onclick="gaEv('homepage_click')">🏛 공식 홈페이지</a>
+      <a href="https://dtaq.re.kr/km/career/notice.jsp" target="_blank" rel="noopener" class="tag" onclick="gaEv('recruit_click')">📋 채용공고</a>
+      <a href="https://govmap.kr" class="tag" onclick="gaEv('map_click')">🗺 GovMap 지도</a>
     </div>
   </div>
 
@@ -663,30 +665,30 @@
   <!-- 관련 기관 -->
   <div class="card">
     <div class="card-title">같은 유형의 다른 기관</div>
-    <div class="related-grid"><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%82%AC%ED%95%99%EC%A7%84%ED%9D%A5%EC%9E%AC%EB%8B%A8/" class="rel-card">
+    <div class="related-grid"><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%B6%9C%ED%8C%90%EB%AC%B8%ED%99%94%EC%82%B0%EC%97%85%EC%A7%84%ED%9D%A5%EC%9B%90/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">한국사학진흥재단</span>
-       <span class="rel-region">경상권</span>
-     </a><a href="https://govmap.kr/orgs/%EC%95%84%EC%8B%9C%EC%95%84%C2%B7%ED%83%9C%ED%8F%89%EC%96%91%EA%B2%BD%EC%A0%9C%ED%98%91%EB%A0%A5%EC%B2%B4%20%EA%B8%B0%ED%9B%84%EC%84%BC%ED%84%B0/" class="rel-card">
-       <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">아시아·태평양경제협력체 기후센터</span>
-       <span class="rel-region">경상권</span>
-     </a><a href="https://govmap.kr/orgs/%EC%9A%B0%ED%8E%B8%EC%82%AC%EC%97%85%EC%A7%84%ED%9D%A5%EC%9B%90/" class="rel-card">
-       <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">우편사업진흥원</span>
-       <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%8B%9D%ED%92%88%EC%82%B0%EC%97%85%ED%81%B4%EB%9F%AC%EC%8A%A4%ED%84%B0%EC%A7%84%ED%9D%A5%EC%9B%90/" class="rel-card">
-       <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">한국식품산업클러스터진흥원</span>
+       <span class="rel-name">한국출판문화산업진흥원</span>
        <span class="rel-region">전라권</span>
-     </a><a href="https://govmap.kr/orgs/%EC%A0%95%EB%B3%B4%ED%86%B5%EC%8B%A0%EC%82%B0%EC%97%85%EC%A7%84%ED%9D%A5%EC%9B%90/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%97%AC%EC%84%B1%EA%B3%BC%ED%95%99%EA%B8%B0%EC%88%A0%EC%9D%B8%EC%9C%A1%EC%84%B1%EC%9E%AC%EB%8B%A8/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">정보통신산업진흥원</span>
-       <span class="rel-region">충청권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A1%B0%EC%84%B8%EC%9E%AC%EC%A0%95%EC%97%B0%EA%B5%AC%EC%9B%90/" class="rel-card">
+       <span class="rel-name">한국여성과학기술인육성재단</span>
+       <span class="rel-region">수도권</span>
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%86%8D%EC%97%85%EA%B8%B0%EC%88%A0%EC%A7%84%ED%9D%A5%EC%9B%90/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">한국조세재정연구원</span>
+       <span class="rel-name">한국농업기술진흥원</span>
+       <span class="rel-region">전라권</span>
+     </a><a href="https://govmap.kr/orgs/%ED%86%B5%EC%9D%BC%EC%97%B0%EA%B5%AC%EC%9B%90/" class="rel-card">
+       <span class="rel-badge" style="background:#059669">기타공공기관</span>
+       <span class="rel-name">통일연구원</span>
+       <span class="rel-region">수도권</span>
+     </a><a href="https://govmap.kr/orgs/%EC%98%A4%EC%86%A1%EC%B2%A8%EB%8B%A8%EC%9D%98%EB%A3%8C%EC%82%B0%EC%97%85%EC%A7%84%ED%9D%A5%EC%9E%AC%EB%8B%A8/" class="rel-card">
+       <span class="rel-badge" style="background:#059669">기타공공기관</span>
+       <span class="rel-name">오송첨단의료산업진흥재단</span>
        <span class="rel-region">충청권</span>
+     </a><a href="https://govmap.kr/orgs/%EC%8B%A0%EC%9A%A9%EB%B3%B4%EC%A6%9D%EC%9E%AC%EB%8B%A8%EC%A4%91%EC%95%99%ED%9A%8C/" class="rel-card">
+       <span class="rel-badge" style="background:#059669">기타공공기관</span>
+       <span class="rel-name">신용보증재단중앙회</span>
+       <span class="rel-region">수도권</span>
      </a></div>
   </div>
 
@@ -798,6 +800,7 @@ function submitReport() {
   body.append('entry.211514498_sentinel', '');
   body.append('entry.1534037353', content);
   fetch(REPORT_FORM_URL, { method: 'POST', mode: 'no-cors', body: body });
+  gaEv('report_submit');
   document.getElementById('report-modal').style.display = 'none';
   document.getElementById('report-done').style.display = '';
 }
