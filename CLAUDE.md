@@ -1,7 +1,7 @@
 # 공공기관 지도 프로젝트 — Claude 작업 가이드
 
 > 새 세션에서 이어서 작업할 때 반드시 읽어야 하는 문서입니다.
-> 마지막 업데이트: 2026-06-27
+> 마지막 업데이트: 2026-07-03
 
 ---
 
@@ -49,6 +49,8 @@
   "startingSalary": 만원,   // ⚠️ 수정 금지 (사용자 직접 관리)
   "avgSalary": 만원,        // ⚠️ 수정 금지
   "avgYears": 년,           // ⚠️ 수정 금지
+  "startingSalaryHistory": [{"year":2023,"val":4234}, ...],  // 선택. 연도별 초봉 이력 (만원). 알리오 공시 PDF에서 추출
+  "avgSalaryHistory": [{"year":2023,"val":6524}, ...],       // 선택. 연도별 평균연봉 이력 (만원). 알리오 공시 PDF에서 추출
   "evalGrade": "S"|"A"|"B"|"C"|"D"|"E",  // 2025년도 경영실적 평가등급 (2026년 발표)
   "evalYear": 2025,                       // 평가 대상 연도 (발표 연도 아님)
   "prevEvalGrade": "A"|"B"|...,           // 2024년도 경영실적 평가등급 (2025년 발표)
@@ -157,6 +159,39 @@ node generate-eval-page.js
 - `note`를 단일 문자열에 `\n` 넣으면 CRLF 파일에서 파싱 오류 → **배열로 저장**
 - 템플릿: `(Array.isArray(org.rotation.note) ? org.rotation.note : [org.rotation.note]).map(escHtml).join('<br>')`
 
+### 연봉 히스토리 패턴 (알리오 공시 PDF 기반)
+
+```json
+"startingSalaryHistory": [
+  {"year":2023,"val":4234},
+  {"year":2024,"val":4289},
+  {"year":2025,"val":4466},
+  {"year":2026,"val":4601}
+],
+"avgSalaryHistory": [
+  {"year":2023,"val":6524},
+  {"year":2024,"val":6774},
+  {"year":2025,"val":7018},
+  {"year":2026,"val":7423}
+]
+```
+- 사용자가 알리오 공시 PDF 또는 스크린샷을 제공하면 Claude가 읽고 추가
+- 단위: **만원** (PDF 값이 천원 단위이면 ÷10)
+- `startingSalary`/`avgSalary`/`avgYears`는 여전히 수정 금지 — 히스토리만 추가
+- generate-org-pages.js의 연봉 탭에서 4개년 이력 그래프/표로 렌더링됨
+
+### 오류 신고·정보 추가 요청 기능 (Google Forms 백그라운드 submit)
+
+- **구현 위치**: `generate-org-pages.js` footer 직전
+- **Google Forms URL**: `https://docs.google.com/forms/d/e/1FAIpQLSfMsbC-vS8JdVa9CPVwo0LXrQ1Hl2uGvwG99KI-z0pPvEfWTw/formResponse`
+- **entry IDs**:
+  - `entry.762690459` = 기관명 (자동 입력)
+  - `entry.211514498` = 신고유형 (라디오: "오류 신고" | "정보 추가 요청" | "기타")
+  - `entry.211514498_sentinel` = hidden 보조 필드 (빈 문자열)
+  - `entry.1534037353` = 내용
+- **submit 방식**: `fetch(URL, {method:'POST', mode:'no-cors', body: URLSearchParams})` — 사이트 이탈 없이 접수, 사용자에게는 완료 모달 표시
+- **전체 344개 기관 페이지** generate-org-pages.js 재실행으로 일괄 반영됨 (세션9 완료)
+
 ### evalType 오버라이드 패턴
 
 기관의 `type`이 바뀌었지만 경영평가 시점에는 다른 분류였을 때:
@@ -254,6 +289,18 @@ node generate-eval-page.js
 | 지사 안내 문구: "국가보안시설" → "국가중요시설 및 기관 사정으로... 불명확하게 표시되는" (346개 파일) | `268a8f7` |
 | evalYear 2026→2025 정정 + 개별 페이지 표시 "2025년도 실적 (2026년 발표)" (88개) | `9305e92` |
 
+### 세션 9 (시험과목 정정·오류신고 기능·기타공공기관 업데이트·연봉 히스토리)
+
+| 기관/작업 | 커밋 | 주요 변경 |
+|-----------|------|-----------|
+| 농업정책보험금융원 (APFS) | — | NCS 4개 정정(자원관리능력 포함), 전공없음 안내, 연봉 히스토리 4개년(23~26) 추가 |
+| 한전KDN | `5973200` | 26년 채용공고 기준: NCS 10개 전 직렬 공통, 직렬별 전공 8개, 코딩테스트 추가, ncsOld 제거 |
+| 한전KPS | `a37153c` | 26년 채용공고 기준: G4/G3/G2 등급별 전공 세분화(10개 항목), 중기실기 추가, ncsOld 제거 |
+| 오류신고 기능 (전체) | `3a867d6` | generate-org-pages.js에 Google Forms 백그라운드 submit 모달 추가, 344개 기관 일괄 재생성 |
+| 국방기술품질원 (DTaQ) | `fb20e05` | 주소 정정, branches 2→8개, NCS 5개, 전공없음 |
+| 한국보건복지인재원 (KOHI) | `bb5d94c` | 주소 정정(오송생명2로 187), branches 2→8개, NCS 5개, 전공논술 |
+| 국방과학연구소 (ADD) | — | 주소 정정(북유성대로488번길 160), branches 1→8개, ncs:[], 전공없음, 연봉 히스토리 4개년(23~26) |
+
 ### 세션 8 (기타공공기관 전면 업데이트 + 한전KPS·한국농어촌공사 지사 확장)
 
 | 기관/작업 | 커밋 | 주요 변경 |
@@ -326,7 +373,7 @@ git add eval/index.html generate-eval-page.js
 > 연봉은 사용자가 ALIO 공시 기준으로 직접 수정하므로 **연봉 제외하고 수정**.
 
 ### 현재 작업 위치
-- **마지막 완료**: 한전KPS 지사 전면 확대 (branches 97개) — `1e19c2e` / 국가유산진흥원 NCS·시험과목 정정 — `37f217c`
+- **마지막 완료**: 국방과학연구소 전면 업데이트 + 연봉 히스토리 추가 (세션9)
 - **다음**: 준정부기관 데이터 업데이트 계속 (아래 목록 순서대로)
 
 ### 아직 수정 안 된 주요 준정부기관 (data-orgs.js 순)
