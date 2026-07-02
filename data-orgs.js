@@ -20980,6 +20980,8 @@ const ORGS = [
     "startingSalary": 4466,
     "avgSalary": 7018,
     "avgYears": 7.5,
+    "startingSalaryHistory": [{"year":2023,"val":4234},{"year":2024,"val":4289},{"year":2025,"val":4466},{"year":2026,"val":4601}],
+    "avgSalaryHistory": [{"year":2023,"val":6524},{"year":2024,"val":6774},{"year":2025,"val":7018},{"year":2026,"val":7423}],
     "homepage": "https://www.apfs.kr",
     "recruitUrl": "https://apfs.recruiter.co.kr/career/job",
     "description": "농업재해보험과 농업정책금융을 전문적으로 관리·지원하는 농림축산식품부 산하 기타공공기관. 2004년 설립(2014년 현재 명칭), 직원 약 106명 규모로 농어업 위험관리와 정책금융 공급을 담당한다.",
