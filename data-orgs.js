@@ -20739,7 +20739,7 @@ const ORGS = [
     "address": "서울 마포구 상암산로 76",
     "startingSalary": 3199,
     "avgSalary": 6366,
-    "avgYears": 10.5,
+    "avgYears": 17,
     "homepage": "https://www.arirang.com",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국제방송교류재단",
     "description": "아리랑TV를 운영하며 한국 문화를 해외에 알리는 문화체육관광부 산하 기타공공기관.",
