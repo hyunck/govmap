@@ -126,6 +126,11 @@ function buildPage(org) {
       ${(org.ncs||[]).map(n=>`<span class="tag tag-blue">${escHtml(n)}</span>`).join('')}
     </div>
   </div>`;
+  } else if (org.ncsNote) {
+    ncsHtml = `<div class="card">
+    <div class="card-title">필기전형</div>
+    <p style="font-size:14px;color:#374151;line-height:1.6;">${escHtml(org.ncsNote)}</p>
+  </div>`;
   }
 
   // totalBranchCount는 desc와 HTML 본문 모두에서 사용되므로 먼저 계산
@@ -522,6 +527,9 @@ function buildPage(org) {
     <div class="tags">
       ${(org.examSubjects||[]).map(e=>`<span class="tag tag-purple">${escHtml(e)}</span>`).join('')}
     </div>
+  </div>` : org.examNote ? `<div class="card">
+    <div class="card-title">면접전형 평가방식</div>
+    <p style="font-size:14px;color:#374151;line-height:1.6;">${escHtml(org.examNote)}</p>
   </div>` : ''}
 
   <!-- 전국 사업장·지점 -->
