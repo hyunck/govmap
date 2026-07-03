@@ -19765,40 +19765,35 @@ const ORGS = [
     "type": "기타공공기관",
     "region": "수도권",
     "industry": "산업·R&D",
-    "address": "경기 성남시 분당구 분당수서로 501",
+    "address": "경기 안양시 동안구 부림로170번길 41-4",
     "startingSalary": 3721,
     "avgSalary": 5104,
     "avgYears": 7.1,
     "homepage": "http://www.spacen.or.kr",
-    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=공간정보산업진흥원",
-    "description": "공간정보산업 육성과 진흥을 담당하는 국토교통부 산하 기타공공기관.",
+    "recruitUrl": "http://www.spacen.or.kr/ntct_yard/ntct_yard_select.do?txtMenu=04",
+    "description": "「공간정보산업진흥법」에 근거해 2012년 설립된 국토교통부 산하 기타공공기관으로, 국가 공간정보 오픈플랫폼 '브이월드(V-World)' 운영을 핵심 사업으로 한다. 기본측량성과 검증기관 및 공개제한 공간정보 보안심사 전문기관으로도 지정되어 있다.",
     "mainBusiness": [
-      "공간정보 산업 지원",
-      "공간정보 표준화",
-      "공간정보 기업 육성"
+      "브이월드(V-World) 국가 공간정보 오픈플랫폼 운영",
+      "공간정보 인재양성",
+      "공간정보 창업지원",
+      "공간정보산업 조사·통계",
+      "공개제한 공간정보 보안심사",
+      "공간융합 빅데이터 사업"
     ],
     "welfare": [
-      "복지포인트",
-      "자녀 학자금"
+      "4대 보험",
+      "교통비 지원",
+      "식대 지원",
+      "건강검진",
+      "복지수당(입사 6개월 이후)"
     ],
     "branches": [
       {
-        "name": "본사 (성남)",
-        "address": "경기 성남시 분당구 분당수서로 501"
+        "name": "본사 (안양)",
+        "address": "경기 안양시 동안구 부림로170번길 41-4"
       }
     ],
-    "ncs": [
-      "의사소통능력",
-      "디지털능력"
-    ],
-    "majorSubjects": {
-      "사무": "행정, 경영",
-      "기술": "지리정보, IT, 공간정보"
-    },
-    "examSubjects": [
-      "경영학",
-      "행정학"
-    ]
+    "ncs": []
   },
   {
     "id": 192,
