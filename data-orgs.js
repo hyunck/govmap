@@ -25009,6 +25009,8 @@ const ORGS = [
     "startingSalary": 4415,
     "avgSalary": 7104,
     "avgYears": 9.8,
+    "startingSalaryHistory": [{"year":2023,"val":3962},{"year":2024,"val":4305},{"year":2025,"val":4415},{"year":2026,"val":4570}],
+    "avgSalaryHistory": [{"year":2023,"val":6533},{"year":2024,"val":6971},{"year":2025,"val":7104},{"year":2026,"val":7352}],
     "homepage": "https://www.kwwa.or.kr",
     "recruitUrl": "https://recruit.incruit.com/kwwa/",
     "description": "2002년 설립된 기후에너지환경부 산하 기타공공기관으로, 상하수도 분야의 건전한 발전과 수도에 관한 조사·연구, 기술 개발을 목적으로 한다. 단체표준·KS 인증, 법정의무교육, 상하수도시설 평가 등을 수행하며 물산업 인재교육원을 운영한다.",
