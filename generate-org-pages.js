@@ -577,7 +577,7 @@ function buildPage(org) {
 <footer class="site-footer">
   <p>© 2026 <a href="${BASE_URL}">GovMap 공공기관 지도</a> — 공무원·공기업 취준생을 위한 기관 정보 서비스</p>
   <p style="margin-top:6px">데이터 기준: 2026년 공채 공고 / 오류 제보 환영</p>
-  <p style="margin-top:6px"><a href="${BASE_URL}/privacy/">개인정보처리방침</a> · 문의: <a href="mailto:changhyun0430@gmail.com">changhyun0430@gmail.com</a></p>
+  <p style="margin-top:6px"><a href="${BASE_URL}/privacy/">개인정보처리방침</a> · 문의: <a href="mailto:acala8282@gmail.com">acala8282@gmail.com</a></p>
 </footer>
 
 <!-- 신고 모달 -->
