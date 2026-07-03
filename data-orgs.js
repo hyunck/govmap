@@ -14452,6 +14452,8 @@ const ORGS = [
     "startingSalary": 3403,
     "avgSalary": 5584,
     "avgYears": 13.8,
+    "startingSalaryHistory": [{"year":2023,"val":3220},{"year":2024,"val":3291},{"year":2025,"val":3403},{"year":2026,"val":3314}],
+    "avgSalaryHistory": [{"year":2023,"val":5319},{"year":2024,"val":5504},{"year":2025,"val":5584},{"year":2026,"val":5509}],
     "homepage": "https://www.korailretail.com",
     "recruitUrl": "https://www.korailretail.com/bbs/selectBbsList.do?bbsId=BBSMSTR_000000000028",
     "description": "2004년 '한국철도유통(주)'로 설립되어 2007년 현재 사명으로 변경된 한국철도공사(코레일) 자회사 기타공공기관. 전국 철도역 내 편의점(스토리웨이)·전문매장 등 유통사업과 철도 광고사업, 상생유통·임대사업을 수행한다.",
@@ -14538,8 +14540,8 @@ const ORGS = [
     },
     "industry": "SOC·건설",
     "examSubjects": [
-      "인성검사(40분) · NCS 직업기초능력(50분) · 직무수행능력/전공(50분)",
-      "IT개발 직렬은 전공시험 없이 NCS 100% 반영"
+      "인성검사(적/부) · 직업기초능력(NCS) 40문항 · 직무수행능력(전공) 40문항 — 각 50% 가중치",
+      "IT개발 직렬은 직무수행능력 없이 NCS 100% 반영, 필기 각 과목 만점의 40% 미만 득점 시 불합격"
     ]
   },
   {
