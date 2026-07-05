@@ -1,7 +1,7 @@
 # 공공기관 지도 프로젝트 — Claude 작업 가이드
 
 > 새 세션에서 이어서 작업할 때 반드시 읽어야 하는 문서입니다.
-> 마지막 업데이트: 2026-07-03
+> 마지막 업데이트: 2026-07-05
 
 ---
 
@@ -99,6 +99,8 @@
 |------|------|------|
 | `branches[]` | **지도 마커** + 리스트 표시 | Kakao Maps geocoding 대상. 실제 주소 필수. |
 | `allBranches[]` | **리스트 전용** 그룹화 | 그룹헤더로 묶어서 표시. 5개↑ 그룹은 기본 접힘. branches[]와 name+address 일치 시 📍 아이콘 + 지도 클릭 연동. |
+
+⚠️ **중요(세션10에서 재확인)**: `allBranches[]`에만 있고 `branches[]`에는 없는 지사는 **지도에 마커가 전혀 찍히지 않는다** (리스트에만 보임). 지사가 많아 `allBranches[]`로 그룹화하더라도, 지도 마커가 필요하면 **동일한 항목을 `branches[]`에도 반드시 중복 기재**해야 한다. 근로복지공단(84개), 한국산업인력공단(26개 지사, 커밋 `624ab93`) 등 대형 기관은 전부 이 방식(두 배열에 동일 name으로 전량 중복)을 사용 중. "지사가 지도에 안 나온다"는 사용자 지적을 받으면 이것부터 확인할 것.
 
 ### HQ 마커 dedup 로직 (index.html ~line 2338)
 
@@ -328,6 +330,32 @@ node generate-eval-page.js
 | 국가유산진흥원 | `f8af68b`+`37f217c` | 주소·homepage·recrutiUrl 정정, mainBusiness/welfare 전면 개편, branches 1→7개, NCS 4개 정정 (자원관리능력), examSubjects 3개 추가 (한국사·관련법령·문화예술상식) |
 | 한전KPS (KPS) | `1e19c2e` | branches 25→97개, allBranches 5→11그룹: 화력30·원자력15·양수7·전력지사6권역45·집단에너지14 전수 수집. 보령·삼천포·양양·예천 주소 정정 |
 
+### 세션10 (SEO·애드센스·기타공공기관+준정부 혼합 업데이트+배포 인프라 정비)
+
+**사이트 운영/수익화 작업:**
+
+| 작업 | 커밋 | 주요 변경 |
+|------|------|-----------|
+| GA 이벤트 계측 4종 | `28526d9` | recruit_click·homepage_click·map_click·report_submit — 344개 기관 페이지 일괄 반영 |
+| 타이틀 SEO 개선 | `073c7ca` | 전체 페이지 타이틀에 초봉 수치 삽입, "근무지" 키워드 반영 (서치어드바이저 분석 기반) |
+| 구글 애드센스 신청 | `7c30b51`+`d046a72`+`2412df7` | 인증 스크립트·메타태그·ads.txt 전체 페이지 삽입 (`ca-pub-4864032615853020`) |
+| 개인정보처리방침 페이지 | `2a7c63d` | `/privacy/` 신설, 전체 페이지 footer에 링크+문의 이메일 추가 |
+| ncsNote/examNote 필드 신설 | `2bf14e4` | NCS·전공필기 없는 기관용 (§3 참고) |
+| 배포 워크플로우 자체 구축 | `e718e2d`+`3204148`+`48dc0fd` | GitHub 자동관리 Jekyll 배포 → 자체 GitHub Actions 워크플로우로 전환. 상세는 **§11 배포 트러블슈팅** 참고 |
+
+**기관 데이터 업데이트 (연봉 3필드 제외):**
+
+| 기관 | shortName | 커밋 | 주요 변경 |
+|------|-----------|------|-----------|
+| 공간정보산업진흥원 | Spacen | `bc0527f` | 본사 이전 확인(성남 분당→안양 동안구), 단일조직(지사없음) 확인, ncsNote/examNote 최초 적용 |
+| 한국에너지공단 | KEA | `416e6c5` | branches 3→13개(본사+12개 지역본부), ncs 6개 전면교체, majorSubjects 11개 세부직무로 세분화, 서울·부산 구주소 정정 |
+| 한국상하수도협회 | KWWA | `192cd62`+`16546fd`+`11c9dd5` | **본사 주소 오류 발견**(송파구→영등포구 대림로244, 완전히 다른 지역), 단일조직 확인, 연봉 히스토리 4개년, 2026년 실제 채용공고로 NCS 5개·majorSubjects 재정정 |
+| 코레일유통 | Korail Retail | `11b7488`+`c2830da` | **본사 주소 오류**(용산구→영등포구 국회대로612), branches 2→14개(9개본부+4개지사), description 기관유형 오류 정정(준정부→기타공공기관), 연봉 히스토리 4개년, 실제 공고 기준 전공과목 정밀화 |
+| 한국산업인력공단 | HRDK | `5b8d901`+`624ab93` | branches 3→33개(본사+6개지역본부+26개지사, allBranches 6그룹), ncs 6개 전면교체, majorSubjects 4개 실제 모집분야로 교체, **지사 지도마커 누락 버그 수정**(allBranches만으론 마커 안 뜸) |
+| 한국산업기술기획평가원 | KEIT | `e3d5203`+`8c7b83e` | **서울사무소 주소가 실은 다른 기관(KIAT) 주소였던 오류 발견 및 정정**, branches 2→4개, description 기관유형 오류 정정(기타공공기관→준정부), NCS·전공과목 실제 채용공고 원문 대조로 정밀 재확정, **coords-cache.js 본사 좌표 캐시 오류 수정**(§11 참고) |
+
+**리서치 방법 관련 교훈**: Agent로 조사를 맡겼을 때, 에이전트가 스스로 하위 서브에이전트에 위임만 하고 "진행 중"이라며 결과 없이 끝내는 경우가 있었다(한국산업기술기획평가원 조사 시 발생). 이 경우 SendMessage로 같은 에이전트에 "직접 조사해라, 위임 금지"를 명시해 재요청하거나, 아예 새 Agent를 그 지시와 함께 다시 띄우는 게 빠르다. 또한 조사 결과가 여러 서브에이전트에서 나뉘어 도착할 수 있으니 취합 후 교차검증할 것 — 실제로 이번 세션에서 주소·기관유형·NCS를 각각 다른 에이전트가 조사해 서로 보완/검증되었다.
+
 ---
 
 ## 5. 경영평가(evalGrade) 관련 데이터
@@ -392,10 +420,10 @@ git add eval/index.html generate-eval-page.js
 > 연봉은 사용자가 ALIO 공시 기준으로 직접 수정하므로 **연봉 제외하고 수정**.
 
 ### 현재 작업 위치
-- **마지막 완료**: 국방과학연구소 전면 업데이트 + 연봉 히스토리 추가 (세션9)
-- **다음**: 준정부기관 데이터 업데이트 계속 (아래 목록 순서대로)
+- **마지막 완료**: 한국산업기술기획평가원 전면 업데이트 (세션10) — 준정부·기타공공기관 구분 없이 사용자가 개별 지목하는 기관을 그때그때 처리하는 방식으로 진행 중
+- **다음**: 사용자가 "이어서 [기관명]의 모든 정보를..." 형태로 계속 지목할 예정. 아래 준정부 목록은 참고용 후보일 뿐, 실제 순서는 사용자 지목을 따를 것
 
-### 아직 수정 안 된 주요 준정부기관 (data-orgs.js 순)
+### 아직 수정 안 된 주요 준정부기관 (data-orgs.js 순, 참고용)
 
 | 기관 | shortName | 본사 위치 | 비고 |
 |------|-----------|---------|------|
@@ -405,14 +433,18 @@ git add eval/index.html generate-eval-page.js
 | 한국벤처투자 | KVIC | 서울 | — |
 | 소상공인시장진흥공단 | SEMAS | 대전 | — |
 | 한국장학재단 | KOSAF | 대구 | — |
-| 한국산업인력공단 | HRD | 울산 | — |
 | 한국고용정보원 | KEIS | 음성 | — |
+| ~~한국산업인력공단 (HRD, 울산)~~ | — | — | ✅ 세션10에서 완료 |
 | 이후 계속 | — | — | 사용자 요청에 따라 결정 |
 
 ### 기타공공기관 현황 메모
 - 사용자가 ALIO 공시 기준으로 기타공공기관 연봉(startingSalary·avgSalary·avgYears)을 직접 수정 중
 - 국가유산진흥원까지 반영 완료 (커밋 `a84b3e8`·`f212789`)
 - 국가유산진흥원의 시험과목은 **2025 하반기 채용공고** 기준으로 정정됨 (NCS 4개, 직무수행: 한국사·관련법령·문화예술상식)
+- 세션10에서 공간정보산업진흥원·한국상하수도협회·코레일유통·한국산업기술기획평가원(기타공공기관/준정부 섞여 있음) 추가 완료 — §4 세션10 표 참고
+
+### ⚠️ 주소 오류가 매우 흔하다 (세션10 발견)
+이번 세션에서 업데이트한 5개 기관 중 **3개에서 본사 주소 자체가 틀려 있었다** (한국상하수도협회: 완전히 다른 구, 코레일유통: 완전히 다른 구, 한국산업기술기획평가원: 아예 다른 기관(KIAT)의 주소가 들어가 있었음). 기존 data-orgs.js의 주소를 무조건 신뢰하지 말고, **조사 단계에서 공식 사이트 footer/오시는길 페이지로 반드시 재검증**할 것. 의심스러우면 2개 이상 독립 출처로 교차확인 (에이전트 재파견 활용).
 
 ---
 
@@ -429,6 +461,13 @@ git add eval/index.html generate-eval-page.js
 - **원인**: org.lat/lng 미설정 시 geocoding이 branches[0]과 다른 좌표를 잡음
 - **해결**: org에 lat/lng 직접 지정 + branches에서 '본사' 중복 항목 제거
 - **적용 사례**: IIAC (인천국제공항공사) — `9c38e8a`
+
+### coords-cache.js 캐시 좌표 오류 → 본사 마커가 엉뚱한 지사에 표시 (세션10 신규)
+- **증상**: 리스트에서 본사가 아닌 다른 지사(예: 분원)에 "(본사)" 태그가 붙고, 진짜 본사에는 안 붙음
+- **원인**: `coords-cache.js`는 `{id}_hq_{기관명}` 키로 org의 HQ 좌표를 캐싱하는데, 이 캐시값이 (과거 잘못된 지오코딩 등으로) 실제 본사 위치가 아닌 엉뚱한 곳으로 저장돼 있었음. HQ 판정 로직(`Math.abs(br.lat-org.lat)<0.001 && Math.abs(br.lng-org.lng)<0.001`)은 좌표 근접성만 보므로, 캐시된 org 좌표가 우연히 다른 지사 좌표와 가까우면 그 지사가 "본사"로 오판정됨
+- **해결**: ~~data-orgs.js에 branch별 lat/lng를 직접 지정하는 것은 근본 해결이 아니다~~ (세션10에서 실제로 이렇게 했다가 삽질 — 원복함, 커밋 `dc1e7da`). **진짜 해결책은 `coords-cache.js`에서 `{id}_hq_{기관명}` 키를 찾아, 실제 본사 지사(`branches[0]`)의 캐시 키(`{id}_br0_...`)와 **정확히 동일한 값**으로 맞추는 것** — 조회 순서가 좌표 캐시(1순위) → 라이브 지오코딩이므로, 캐시부터 고쳐야 함
+- **점검 순서**: (1) 문제 기관의 `{id}_hq_...`와 `{id}_br0_...`(진짜 본사 지사) 캐시값을 coords-cache.js에서 grep으로 비교 → (2) 다르면 hq값을 br0값으로 교체 → (3) 절대 data-orgs.js의 branches[]에 개별 lat/lng를 넣지 말 것 (그건 다른 문제의 해결책이지 이 문제의 해결책이 아님)
+- **적용 사례**: KEIT (한국산업기술기획평가원) — 대전분원이 본사로 오표시, 커밋 `8c7b83e`에서 캐시 수정으로 해결, `c75dfec`(branch lat/lng 직접지정 시도)는 `dc1e7da`로 원복
 
 ### allBranches 동일 주소 중복 마커 패턴
 - **증상**: 영업본부와 해당 건물 지점이 동일 주소일 때 지도 마커 2개 생성
@@ -483,3 +522,46 @@ result = content.substring(0, arrStart) + newArrayStr + content.substring(arrEnd
 
 - **`CLAUDE.md`** (이 파일): 전체 프로젝트 맥락·데이터 업데이트 가이드
 - **`MOBILE_UI_NOTES.md`**: 모바일 UI 개선 작업 전용 노트 (바텀시트, 검색 자동완성 등)
+
+---
+
+## 11. 배포 (GitHub Pages / Actions) 가이드 — 세션10 신규
+
+### 배포 구조 (세션10에서 전면 교체됨)
+
+과거엔 GitHub Pages "Deploy from a branch" 설정으로 GitHub가 자동관리하는 Jekyll 빌드 파이프라인을 썼으나, **2026.07.02경부터 이 자동 워크플로우가 반복적으로 배포 실패**하기 시작했음(추정 원인: GitHub의 Node.js 20→24 강제전환 롤아웃이 `actions/deploy-pages` 등 내부 액션에 영향). 이를 우회하기 위해 **자체 GitHub Actions 워크플로우로 전환** (`e718e2d`):
+
+- **Settings → Pages → Source = "GitHub Actions"** (Deploy from a branch 아님)
+- 워크플로우 파일: **`.github/workflows/deploy.yml`**
+- 구조: `build`(checkout→configure-pages→upload-pages-artifact) / `deploy`(deploy-pages) **2개 job으로 분리** (`3204148`)
+  - ⚠️ 처음엔 build+deploy를 단일 job으로 합쳐놨었는데, 이 상태에서 "Re-run jobs"를 누르면 아티팩트 업로드가 중복 실행되어 `Multiple artifacts named "github-pages"` 에러가 남 → job을 분리해서 해결. **앞으로도 절대 build+deploy를 한 job에 합치지 말 것.**
+- 사용 액션 버전: `actions/checkout@v4`, `actions/configure-pages@v5`, `actions/upload-pages-artifact@v3`, `actions/deploy-pages@v4` (v3으로 다운그레이드 시도했으나 효과 없어서 v4로 복원 — 버전 문제가 아니었음)
+- `.nojekyll` 파일 루트에 존재 — Jekyll 처리 완전 비활성화 (순수 정적 HTML 사이트이므로)
+- `ads.txt` 루트에 존재 — 애드센스 게시자 인증용
+
+### 배포 실패 시 대응 순서
+
+1. **`build` job이 성공하고 `deploy` job만 실패**하는 경우가 대부분 — GitHub Pages 백엔드의 간헐적 문제로 보이며, 저장소 설정 문제가 아님
+2. **재시도 전에 Settings → Pages 화면에서 Custom domain의 "DNS Check" 상태를 확인**할 것
+   - "DNS Check in Progress"(진행 중)일 때 재시도하면 또 실패하는 경향이 관찰됨 (정확한 인과관계는 불확실하나 상관관계는 뚜렷함)
+   - **"✓ DNS check successful"(완료)로 바뀔 때까지 기다렸다가 재시도**
+3. **재시도 방법 — 경과 시간에 따라 다르게 선택**:
+   - 실패 직후 바로 재시도 → "Re-run jobs" 드롭다운 → **"Re-run failed jobs"**로 충분 (build 아티팩트를 재사용, 안전함— job 분리 덕분에 중복 문제 없음)
+   - **시간이 좀 지난 뒤(DNS 재검증 기다린 후 등) 재시도할 때는 반드시 "Re-run all jobs"(전체 재시도)** 사용. "Re-run failed jobs"만 누르면 `Cannot find any run with github.run_id ...` 에러로 또 실패함 — 오래된 빌드 아티팩트 참조가 GitHub Pages 쪽에서 무효화되는 것으로 추정
+   - 그래도 안 되면: 빈 커밋이라도 새로 푸시해서 완전히 새 워크플로우 run을 만드는 게 가장 확실함
+4. **절대 하지 말 것**: 배포가 안 된다고 Pages 설정(Source, Custom domain)을 임의로 바꾸지 말 것. 오늘 확인한 실패들은 전부 설정이 아니라 위 1~3번 절차로 해결됨
+5. **안심 포인트**: 배포가 실패해도 커밋·푸시된 코드/데이터 자체는 GitHub에 안전하게 있고, 라이브 사이트는 마지막 성공 배포 상태로 계속 정상 서비스됨 — 데이터 유실 위험 없음
+
+### 배포 상태 확인 (API, 인증 불필요 — public repo)
+
+```bash
+# 최신 워크플로우 run 상태
+curl -s "https://api.github.com/repos/hyunck/govmap/actions/runs?per_page=1" | python -c "
+import json,sys; d=json.load(sys.stdin); r=d['workflow_runs'][0]
+print(r['status'], r['conclusion'], r['head_sha'][:7])"
+
+# 라이브 반영 여부 직접 확인 (캐시 우회용 쿼리스트링 필수)
+curl -s "https://govmap.kr/orgs/[기관명 URL인코딩]/?_cb=$(date +%s)" | grep -c "확인할 텍스트"
+```
+- job별 성공/실패는 `/actions/runs/{id}/jobs` 엔드포인트로 확인
+- 정확한 실패 사유는 `/check-runs/{job_id}/annotations`로 확인 가능 (예: "Deployment failed, try again later.", "Multiple artifacts...", "Cannot find any run with github.run_id...")
