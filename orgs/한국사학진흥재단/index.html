@@ -354,13 +354,20 @@
     document.querySelectorAll('.ad-slot .adsbygoogle').forEach(function (ins) {
       var wrap = ins.closest('.ad-slot');
       if (!wrap) return;
-      var obs = new MutationObserver(function () {
-        if (ins.getAttribute('data-adsbygoogle-status') === 'done') {
-          if (ins.getAttribute('data-ad-status') === 'unfilled') wrap.style.display = 'none';
-          obs.disconnect();
+      var settled = false;
+      function settle() {
+        if (settled) return;
+        settled = true;
+        // 정상 응답(done)이 왔는데 unfilled였거나, 끝까지 응답 자체가 안 온 경우(사이트 미승인·광고차단 등) 모두 숨김
+        if (ins.getAttribute('data-ad-status') === 'unfilled' || !ins.getAttribute('data-adsbygoogle-status')) {
+          wrap.style.display = 'none';
         }
+      }
+      var obs = new MutationObserver(function () {
+        if (ins.getAttribute('data-adsbygoogle-status') === 'done') { obs.disconnect(); settle(); }
       });
       obs.observe(ins, { attributes: true, attributeFilter: ['data-adsbygoogle-status', 'data-ad-status'] });
+      setTimeout(function () { obs.disconnect(); settle(); }, 4000);
     });
   })();
   </script>
@@ -805,30 +812,30 @@
   <!-- 관련 기관 -->
   <div class="card">
     <div class="card-title">같은 유형의 다른 기관</div>
-    <div class="related-grid"><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%ED%8A%B9%ED%97%88%EC%A0%84%EB%9E%B5%EA%B0%9C%EB%B0%9C%EC%9B%90/" class="rel-card">
+    <div class="related-grid"><a href="https://govmap.kr/orgs/%EA%B5%AD%EA%B0%80%EC%95%84%EB%8F%99%EA%B6%8C%EB%A6%AC%EB%B3%B4%EC%9E%A5%EC%9B%90/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">한국특허전략개발원</span>
+       <span class="rel-name">국가아동권리보장원</span>
        <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%EC%9E%90%EB%8F%99%EC%B0%A8%EC%86%90%ED%95%B4%EB%B0%B0%EC%83%81%EC%A7%84%ED%9D%A5%EC%9B%90/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B0%9C%EB%B0%9C%EC%97%B0%EA%B5%AC%EC%9B%90/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">자동차손해배상진흥원</span>
-       <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%EC%A3%BC%ED%83%9D%EA%B4%80%EB%A6%AC%EA%B3%B5%EB%8B%A8(%EC%A3%BC)/" class="rel-card">
+       <span class="rel-name">한국개발연구원</span>
+       <span class="rel-region">충청권</span>
+     </a><a href="https://govmap.kr/orgs/(%EC%A3%BC)%EA%B3%B5%EC%98%81%ED%99%88%EC%87%BC%ED%95%91/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">주택관리공단(주)</span>
+       <span class="rel-name">(주)공영홈쇼핑</span>
        <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%86%B5%EC%9D%BC%EC%97%B0%EA%B5%AC%EC%9B%90/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%83%81%ED%95%98%EC%88%98%EB%8F%84%ED%98%91%ED%9A%8C/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">통일연구원</span>
+       <span class="rel-name">한국상하수도협회</span>
        <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%AC%B8%ED%95%99%EB%B2%88%EC%97%AD%EC%9B%90/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%EB%8C%80%EA%B5%AC%EA%B2%BD%EB%B6%81%EC%B2%A8%EB%8B%A8%EC%9D%98%EB%A3%8C%EC%82%B0%EC%97%85%EC%A7%84%ED%9D%A5%EC%9E%AC%EB%8B%A8/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">한국문학번역원</span>
-       <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A0%80%EC%9E%91%EA%B6%8C%EC%9C%84%EC%9B%90%ED%9A%8C/" class="rel-card">
+       <span class="rel-name">대구경북첨단의료산업진흥재단</span>
+       <span class="rel-region">경상권</span>
+     </a><a href="https://govmap.kr/orgs/%EB%86%8D%EB%A6%BC%EC%88%98%EC%82%B0%EC%8B%9D%ED%92%88%EA%B5%90%EC%9C%A1%EB%AC%B8%ED%99%94%EC%A0%95%EB%B3%B4%EC%9B%90/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">한국저작권위원회</span>
-       <span class="rel-region">수도권</span>
+       <span class="rel-name">농림수산식품교육문화정보원</span>
+       <span class="rel-region">충청권</span>
      </a></div>
   </div>
 

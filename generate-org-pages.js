@@ -603,13 +603,20 @@ function buildPage(org) {
     document.querySelectorAll('.ad-slot .adsbygoogle').forEach(function (ins) {
       var wrap = ins.closest('.ad-slot');
       if (!wrap) return;
-      var obs = new MutationObserver(function () {
-        if (ins.getAttribute('data-adsbygoogle-status') === 'done') {
-          if (ins.getAttribute('data-ad-status') === 'unfilled') wrap.style.display = 'none';
-          obs.disconnect();
+      var settled = false;
+      function settle() {
+        if (settled) return;
+        settled = true;
+        // 정상 응답(done)이 왔는데 unfilled였거나, 끝까지 응답 자체가 안 온 경우(사이트 미승인·광고차단 등) 모두 숨김
+        if (ins.getAttribute('data-ad-status') === 'unfilled' || !ins.getAttribute('data-adsbygoogle-status')) {
+          wrap.style.display = 'none';
         }
+      }
+      var obs = new MutationObserver(function () {
+        if (ins.getAttribute('data-adsbygoogle-status') === 'done') { obs.disconnect(); settle(); }
       });
       obs.observe(ins, { attributes: true, attributeFilter: ['data-adsbygoogle-status', 'data-ad-status'] });
+      setTimeout(function () { obs.disconnect(); settle(); }, 4000);
     });
   })();
   </script>
