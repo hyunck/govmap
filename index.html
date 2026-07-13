@@ -706,6 +706,16 @@
             height: 100vh;
         }
 
+        /* 클러스터 원(기관 개수를 보여주는 동그라미)이 지도 드래그를 가로채는 문제 방지.
+           disableClickZoom·hoverable 옵션만으로는 카카오 SDK가 클러스터 DOM에 붙이는
+           mousedown/touchstart 리스너 자체가 여전히 남아있어 드래그 시작 이벤트가
+           지도 캔버스까지 전달되지 않았음 — 클러스터 엘리먼트를 아예 클릭 투과 처리해
+           지도가 직접 이벤트를 받도록 함. 클러스터는 JS의 styles 배열로 border-radius를
+           인라인 스타일로 지정하므로 이 값을 가진 엘리먼트만 선택적으로 매치시킴 */
+        #map div[style*="border-radius"] {
+            pointer-events: none !important;
+        }
+
         /* 사이드바 토글 버튼 — 지도 영역의 왼쪽 가장자리에 부착 */
         .sidebar-toggle {
             position: absolute;
@@ -2385,6 +2395,15 @@
                     { width:'50px',height:'50px',background:'rgba(220,38,38,0.85)',borderRadius:'50%',color:'#fff',textAlign:'center',fontWeight:'700',fontSize:'15px',lineHeight:'50px',border:'3px solid rgba(220,38,38,0.3)' },
                     { width:'60px',height:'60px',background:'rgba(124,58,237,0.85)',borderRadius:'50%',color:'#fff',textAlign:'center',fontWeight:'700',fontSize:'16px',lineHeight:'60px',border:'3px solid rgba(124,58,237,0.3)' }
                 ]
+            });
+
+            // CSS의 [style*="border-radius"] 선택자가 카카오 SDK의 실제 인라인 스타일
+            // 표기 방식과 어긋나 매치되지 않는 경우를 대비해, 클러스터가 다시 그려질 때마다
+            // (확대/축소·이동 시) 클러스터 엘리먼트에 직접 pointer-events:none을 강제 적용
+            kakao.maps.event.addListener(state.clusterer, 'clustered', function () {
+                document.querySelectorAll('#map div[style*="border-radius"]').forEach(el => {
+                    el.style.pointerEvents = 'none';
+                });
             });
 
             state.geocoder = new kakao.maps.services.Geocoder();
