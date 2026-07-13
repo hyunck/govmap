@@ -530,6 +530,7 @@ result = content.substring(0, arrStart) + newArrayStr + content.substring(arrEnd
 
 - **`CLAUDE.md`** (이 파일): 전체 프로젝트 맥락·데이터 업데이트 가이드
 - **`MOBILE_UI_NOTES.md`**: 모바일 UI 개선 작업 전용 노트 (바텀시트, 검색 자동완성 등)
+- **`ADSENSE_PLAN.md`**: 구글 애드센스 광고 슬롯 배치 계획 (세션10, 승인 후 적용 예정)
 
 ---
 
