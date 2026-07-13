@@ -1832,12 +1832,14 @@
             .exam-filter-header { cursor: default; pointer-events: none; }
             .exam-chips-wrapper.collapsed { max-height: none !important; }
 
-            /* 필터 초기화 버튼 — 전체 필터 보기에서만 시트 하단 우측에 노출 */
+            /* 필터 초기화 버튼 — 전체 필터 보기에서만 헤더(✕) 바로 아래, 기관 유형 섹션 위쪽에
+               우측 정렬로 노출 */
             .mobile-filter-sheet-footer {
                 display: none;
                 justify-content: flex-end;
-                padding: 8px 16px 14px;
-                border-top: 1px solid var(--border);
+                padding: 0 16px 10px;
+                border-bottom: 1px solid var(--border);
+                margin-bottom: 10px;
                 flex-shrink: 0;
             }
             .mobile-filter-sheet-footer.show { display: flex; }
@@ -2250,8 +2252,8 @@
                 <span class="mobile-filter-sheet-title" id="mobileFilterSheetTitle"></span>
                 <button class="mobile-filter-sheet-close" id="mobileFilterSheetClose">✕</button>
             </div>
-            <div class="mobile-filter-sheet-content" id="mobileFilterSheetContent"></div>
             <div class="mobile-filter-sheet-footer" id="mobileFilterSheetFooter"></div>
+            <div class="mobile-filter-sheet-content" id="mobileFilterSheetContent"></div>
         </aside>
     </div>
 
