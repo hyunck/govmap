@@ -1,0 +1,65 @@
+name: Regenerate org detail pages
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate org detail pages + sitemap
+        run: node generate-org-pages.js
+
+      - name: Generate eval landing page
+        run: node generate-eval-page.js
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add orgs/ eval/ sitemap.xml
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: auto-regenerate detail pages from data-orgs.js"
+            git push
+          fi
+
+      # 위 git push는 GITHUB_TOKEN으로 이루어지므로 deploy.yml의 push 트리거를
+      # 발동시키지 않는다 (GitHub Actions 무한루프 방지 정책). 그래서 배포를
+      # 이 워크플로우 안에서 직접 수행한다.
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+  deploy:
+    needs: regenerate
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
