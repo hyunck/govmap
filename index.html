@@ -1740,7 +1740,12 @@
 
             .mobile-filter-sheet {
                 position: fixed;
-                left: 0; right: 0; bottom: 58px;
+                left: 0; right: 0;
+                /* 닫힌 상태: 필터가 선택되기 전엔 내용이 비어 있어 자체 높이가 매우 작음 —
+                   transform: translateY(100%)는 "자기 높이의 100%"만큼만 밀어내 화면 밖으로
+                   완전히 사라지지 않는 버그가 있었음. bottom을 뷰포트 밖 절대값으로 고정해
+                   내용 높이와 무관하게 항상 완전히 감춰지도록 함 */
+                bottom: -100vh;
                 background: #fff;
                 border-radius: 16px 16px 0 0;
                 box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.16);
@@ -1749,10 +1754,9 @@
                 max-height: 70dvh;
                 display: flex;
                 flex-direction: column;
-                transform: translateY(100%);
-                transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+                transition: bottom 0.3s cubic-bezier(0.32, 0.72, 0, 1);
             }
-            .mobile-filter-sheet.show { transform: translateY(0); }
+            .mobile-filter-sheet.show { bottom: 58px; }
             .mobile-filter-sheet-header {
                 display: flex;
                 align-items: center;
@@ -2130,11 +2134,11 @@
                 <div class="mobile-search-slot company-slot active" id="mobileSearchSlotCompany"></div>
                 <div class="mobile-search-slot gov-slot" id="mobileSearchSlotGov"></div>
                 <div class="mobile-filter-bar active" id="mobileFilterBar">
-                    <button class="mobile-filter-btn" data-mobile-filter="orgtype">기관 유형</button>
+                    <button class="mobile-filter-btn" data-mobile-filter="orgtype">유형</button>
                     <button class="mobile-filter-btn" data-mobile-filter="industry">산업 분야</button>
                     <button class="mobile-filter-btn" data-mobile-filter="region">지역</button>
                     <button class="mobile-filter-btn" data-mobile-filter="salary">초봉</button>
-                    <button class="mobile-filter-btn" data-mobile-filter="exam">NCS 시험과목</button>
+                    <button class="mobile-filter-btn" data-mobile-filter="exam">NCS</button>
                 </div>
             </div>
             <div class="pickmode-hint" id="pickmodeHint">🎯 지도 위 원하는 위치를 클릭해주세요</div>
