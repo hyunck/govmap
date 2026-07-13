@@ -1601,11 +1601,8 @@
             .results-area { min-width: 0; }
             .sidebar-scroll-area { min-width: 0; }
 
-            /* 모바일에서는 임의로 만든 사진(아이콘·텍스트)을 모두 가리고
-               컬러 배경만 얇은 띠 형태로 남김 — 공기업 탭은 아이콘+텍스트, 정부기관 탭은 텍스트만 가려짐 */
-            .detail-image { height: 28px; }
-            /* JS가 인라인 style="display:flex"로 아이콘/텍스트를 그려 넣으므로 !important로 덮어씀 */
-            .detail-image > div { display: none !important; }
+            /* 모바일에서는 임의로 만든 사진(아이콘·텍스트+컬러 배경 띠)을 완전히 숨김 */
+            .detail-image { display: none; }
 
             /* 사진과 드래그 시트 사이의 흰 여백 영역 — 뒤로가기(확장 시에만)·닫기 버튼이 위치 */
             .detail-sheet-toolbar {
@@ -1628,7 +1625,9 @@
                 background: var(--bg-light);
                 border: 1px solid var(--border);
                 color: var(--text-secondary);
-                font-size: 18px;
+                /* '‹' 글자가 '✕'보다 가늘고 작아 보여 X 버튼과 시각적으로 같은 크기가 되도록 키움 */
+                font-size: 26px;
+                font-weight: 700;
                 font-family: inherit;
                 cursor: pointer;
             }
