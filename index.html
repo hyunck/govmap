@@ -1533,12 +1533,11 @@
             /* 더 위로 올리면 화면 전체를 가득 채움 (네이버 지도 모바일 스타일) */
             .detail-panel.open.sheet-expanded {
                 transform: translateY(0);
+                /* top은 JS(setSheetState)가 검색창+필터바 높이만큼 동적으로 지정 — 상단바 바로 아래에 딱 붙게 함 */
                 top: 0;
                 bottom: 0;
-                height: 100vh;
-                height: 100dvh;
-                max-height: 100vh;
-                max-height: 100dvh;
+                height: auto;
+                max-height: none;
                 border-radius: 0;
                 z-index: 720;
             }
@@ -1774,13 +1773,17 @@
                 border-radius: 16px 16px 0 0;
                 box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.16);
                 z-index: 770;
-                max-height: 70vh;
-                max-height: 70dvh;
+                /* 내용에 맞춰 늘어나되, 상단바+하단 탭바를 뺀 가용 공간을 넘지 않도록 함
+                   (정확한 값은 JS가 상단바 실측 높이로 top을 직접 지정해 맞춤 — 아래 .sheet-fullscreen 참고) */
+                max-height: calc(100dvh - 150px);
                 display: flex;
                 flex-direction: column;
                 transition: bottom 0.3s cubic-bezier(0.32, 0.72, 0, 1);
             }
             .mobile-filter-sheet.show { bottom: 58px; }
+            /* 내용이 가용 공간을 꽉 채울 만큼 길어지면(=전체로 확장됨) 각진 모서리로 바꾸고
+               top을 상단바 바로 아래로 지정해 딱 붙게 함 (JS가 top 인라인 스타일을 채움) */
+            .mobile-filter-sheet.sheet-fullscreen { border-radius: 0; }
             .mobile-filter-sheet-header {
                 display: flex;
                 align-items: center;
@@ -1822,6 +1825,22 @@
 
             /* 필터가 상단 바 + 바텀시트로 이동했으므로 사이드바 내부의 기존 필터 섹션은 숨김 */
             .filters { display: none; }
+
+            /* 모바일에서는 NCS 시험과목 접기/펼치기 기능 자체를 없애고 항상 전체 항목을 펼쳐서 보여줌
+               (데스크톱 사이드바에서만 쓰이는 접기 기능 — .collapsed에 붙는 !important를 모바일에서 무력화) */
+            .exam-collapse-btn { display: none; }
+            .exam-filter-header { cursor: default; pointer-events: none; }
+            .exam-chips-wrapper.collapsed { max-height: none !important; }
+
+            /* 필터 초기화 버튼 — 전체 필터 보기에서만 시트 하단 우측에 노출 */
+            .mobile-filter-sheet-footer {
+                display: none;
+                justify-content: flex-end;
+                padding: 8px 16px 14px;
+                border-top: 1px solid var(--border);
+                flex-shrink: 0;
+            }
+            .mobile-filter-sheet-footer.show { display: flex; }
 
             /* 검색창 바로 아래에 뜨는 자동완성(검색 가능 내역) — 크롬 주소창 스타일 */
             .mobile-search-suggest {
@@ -2232,6 +2251,7 @@
                 <button class="mobile-filter-sheet-close" id="mobileFilterSheetClose">✕</button>
             </div>
             <div class="mobile-filter-sheet-content" id="mobileFilterSheetContent"></div>
+            <div class="mobile-filter-sheet-footer" id="mobileFilterSheetFooter"></div>
         </aside>
     </div>
 
@@ -3209,6 +3229,16 @@
             panel.classList.remove('sheet-expanded', 'sheet-collapsed', 'sheet-hidden');
             panel.classList.add('sheet-' + stateName);
             panel.style.transform = '';
+            // 설명창(상세패널)이 전체로 확장될 때는 화면 맨 위(y:0)가 아니라
+            // 검색창+필터바(상단바) 바로 아래에 딱 붙도록 top을 동적으로 지정 (탭에 따라 상단바 높이가 다름)
+            if (panel.id === 'detailPanel') {
+                if (stateName === 'expanded') {
+                    const topbar = document.getElementById('mobileTopbar');
+                    panel.style.top = topbar ? topbar.getBoundingClientRect().height + 'px' : '';
+                } else {
+                    panel.style.top = '';
+                }
+            }
         }
 
         // 모바일에서 지사·본사 항목을 눌러 지도가 이동할 때, 화면 전체로 확장돼있던
@@ -3246,15 +3276,42 @@
             });
             const allBtn = document.getElementById('mobileFilterAllBtn');
             if (allBtn) allBtn.classList.toggle('active-filter', key === 'all');
+
+            // 필터 초기화 버튼은 '전체 필터' 보기에서만 필요 — 하단 오른쪽에 노출
+            const footer = document.getElementById('mobileFilterSheetFooter');
+            if (footer) footer.classList.toggle('show', key === 'all');
+
+            updateMobileFilterSheetFullscreen();
         }
         function closeMobileFilterSheet() {
             const sheet = document.getElementById('mobileFilterSheet');
             const overlay = document.getElementById('mobileFilterOverlay');
-            if (sheet) sheet.classList.remove('show');
+            if (sheet) {
+                sheet.classList.remove('show', 'sheet-fullscreen');
+                sheet.style.top = '';
+            }
             if (overlay) overlay.classList.remove('show');
             document.querySelectorAll('.mobile-filter-btn').forEach(b => b.classList.remove('active-filter'));
             const allBtn = document.getElementById('mobileFilterAllBtn');
             if (allBtn) allBtn.classList.remove('active-filter');
+        }
+
+        // 필터 시트 내용이 상단바~하단 탭바 사이 가용 공간을 다 채울 만큼 길어지면
+        // '전체로 확장된' 상태로 보고 각진 모서리 + 상단바에 딱 붙는 위치로 전환
+        function updateMobileFilterSheetFullscreen() {
+            const sheet = document.getElementById('mobileFilterSheet');
+            const topbar = document.getElementById('mobileTopbar');
+            if (!sheet || !topbar) return;
+            requestAnimationFrame(() => {
+                sheet.classList.remove('sheet-fullscreen');
+                sheet.style.top = '';
+                const topbarHeight = topbar.getBoundingClientRect().height;
+                const available = window.innerHeight - topbarHeight - 58;
+                if (sheet.scrollHeight >= available - 1) {
+                    sheet.classList.add('sheet-fullscreen');
+                    sheet.style.top = topbarHeight + 'px';
+                }
+            });
         }
 
         // 시트가 '미리보기' 상태일 때 화면에 드러나는 높이(px)
@@ -3498,13 +3555,13 @@
                     mobileFilterSheetContent.appendChild(group);
                     group.style.display = 'none';
                 });
+                // NCS 시험과목 접기/펼치기는 모바일에서 CSS로 항상 펼침 처리(위 미디어쿼리 참고) —
+                // 자바스크립트로 클릭을 흉내내 펼치던 예전 방식은 더 이상 필요 없어 제거함
 
-                // NCS 시험과목 그룹은 기본이 접힘 상태 — 필터 시트에서는 처음부터 펼쳐서 보여줌
-                const examHeader = document.getElementById('examFilterHeader');
-                const examWrapper = document.getElementById('examChipsWrapper');
-                if (examHeader && examWrapper && examWrapper.classList.contains('collapsed')) {
-                    examHeader.click();
-                }
+                // 필터 초기화 버튼을 사이드바에서 필터 시트 하단(전체 필터 보기)으로 이동
+                const resetBtnEl = document.getElementById('resetBtn');
+                const filterFooter = document.getElementById('mobileFilterSheetFooter');
+                if (resetBtnEl && filterFooter) filterFooter.appendChild(resetBtnEl);
 
                 document.querySelectorAll('.mobile-filter-btn').forEach(btn => {
                     btn.addEventListener('click', () => {
