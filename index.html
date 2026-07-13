@@ -1519,9 +1519,20 @@
 
             /* 사이드바 — 기본은 살짝 보이는 '미리보기' 상태 */
             .sidebar { transform: translateY(calc(100% - 120px)); }
-            .sidebar.sheet-expanded { transform: translateY(0); }
             .sidebar.sheet-collapsed { transform: translateY(calc(100% - 120px)); }
             .sidebar.sheet-hidden { transform: translateY(100%); }
+
+            /* 기관 리스트가 있는 사이드바도 전체로 확장되면 설명창과 동일하게
+               top은 JS(setSheetState)가 상단바 높이만큼 지정해 딱 붙게 하고, 각진 모서리로 전환.
+               그림자는 딱 붙은 상태에서 상단바 쪽을 어둡게 물들이므로 제거 */
+            .sidebar.sheet-expanded {
+                transform: translateY(0);
+                top: 0;
+                height: auto;
+                max-height: none;
+                border-radius: 0;
+                box-shadow: none;
+            }
 
             /* 상세패널 — 닫혀있을 땐 화면 밖, 열리면 '기본 정보'(사진·제목·태그·버튼)만 보이는 미리보기로 등장
                --sheet-peek-height 는 JS가 기본 정보 영역의 실제 높이를 측정해 동적으로 채움 */
@@ -1539,6 +1550,8 @@
                 height: auto;
                 max-height: none;
                 border-radius: 0;
+                /* 딱 붙은 상태에서 그림자가 상단바 쪽을 어둡게 물들이므로 제거 */
+                box-shadow: none;
                 z-index: 720;
             }
 
@@ -1620,15 +1633,20 @@
                 visibility: visible;
                 pointer-events: auto;
             }
-            /* 화면 전체로 확장됐을 때는 두 버튼 모두 원형 배경 없이 아이콘만 표시 (네이버 지도 스타일) */
-            .detail-panel.open.sheet-expanded .detail-back,
-            .detail-panel.open.sheet-expanded .detail-close {
+            /* 화면 전체로 확장됐을 때는 뒤로가기 버튼도 원형 배경 없이 아이콘만 표시 (네이버 지도 스타일) */
+            .detail-panel.open.sheet-expanded .detail-back {
                 background: transparent;
                 border: none;
                 box-shadow: none;
             }
             .detail-sheet-toolbar .detail-close {
                 position: static;
+            }
+            /* X(닫기) 버튼은 상태와 무관하게 항상 원형 테두리·배경 없이 아이콘만 표시 */
+            .detail-close {
+                background: none;
+                border: none;
+                box-shadow: none;
             }
 
             /* ===== 모바일 상단 바 — 검색창을 사이드바에서 떼어내 페이지 상단에 고정 =====
@@ -1783,7 +1801,11 @@
             .mobile-filter-sheet.show { bottom: 58px; }
             /* 내용이 가용 공간을 꽉 채울 만큼 길어지면(=전체로 확장됨) 각진 모서리로 바꾸고
                top을 상단바 바로 아래로 지정해 딱 붙게 함 (JS가 top 인라인 스타일을 채움) */
-            .mobile-filter-sheet.sheet-fullscreen { border-radius: 0; }
+            .mobile-filter-sheet.sheet-fullscreen {
+                border-radius: 0;
+                /* 딱 붙은 상태에서 그림자가 상단바 쪽을 어둡게 물들이므로 제거 */
+                box-shadow: none;
+            }
             .mobile-filter-sheet-header {
                 display: flex;
                 align-items: center;
@@ -1796,8 +1818,8 @@
                 flex-shrink: 0;
                 width: 28px; height: 28px;
                 border-radius: 50%;
-                background: var(--bg-light);
-                border: 1px solid var(--border);
+                background: none;
+                border: none;
                 color: var(--text-secondary);
                 font-size: 15px;
                 display: flex;
@@ -1837,7 +1859,7 @@
             .mobile-filter-sheet-footer {
                 display: none;
                 justify-content: flex-end;
-                padding: 0 16px 10px;
+                padding: 14px 16px 10px;
                 border-bottom: 1px solid var(--border);
                 margin-bottom: 10px;
                 flex-shrink: 0;
@@ -3231,9 +3253,9 @@
             panel.classList.remove('sheet-expanded', 'sheet-collapsed', 'sheet-hidden');
             panel.classList.add('sheet-' + stateName);
             panel.style.transform = '';
-            // 설명창(상세패널)이 전체로 확장될 때는 화면 맨 위(y:0)가 아니라
+            // 사이드바(기관 리스트)·설명창(상세패널)이 전체로 확장될 때는 화면 맨 위(y:0)가 아니라
             // 검색창+필터바(상단바) 바로 아래에 딱 붙도록 top을 동적으로 지정 (탭에 따라 상단바 높이가 다름)
-            if (panel.id === 'detailPanel') {
+            if (panel.id === 'detailPanel' || panel.id === 'sidebar') {
                 if (stateName === 'expanded') {
                     const topbar = document.getElementById('mobileTopbar');
                     panel.style.top = topbar ? topbar.getBoundingClientRect().height + 'px' : '';
@@ -3303,16 +3325,21 @@
         function updateMobileFilterSheetFullscreen() {
             const sheet = document.getElementById('mobileFilterSheet');
             const topbar = document.getElementById('mobileTopbar');
+            const overlay = document.getElementById('mobileFilterOverlay');
             if (!sheet || !topbar) return;
             requestAnimationFrame(() => {
                 sheet.classList.remove('sheet-fullscreen');
                 sheet.style.top = '';
                 const topbarHeight = topbar.getBoundingClientRect().height;
                 const available = window.innerHeight - topbarHeight - 58;
-                if (sheet.scrollHeight >= available - 1) {
+                const isFullscreen = sheet.scrollHeight >= available - 1;
+                if (isFullscreen) {
                     sheet.classList.add('sheet-fullscreen');
                     sheet.style.top = topbarHeight + 'px';
                 }
+                // 전체로 확장되면 시트가 상단바 아래를 전부 채우므로 어둡게 가리는
+                // 배경 딤 효과는 상단바만 어둡게 보이게 만들 뿐이라 꺼줌
+                if (overlay) overlay.classList.toggle('show', sheet.classList.contains('show') && !isFullscreen);
             });
         }
 
