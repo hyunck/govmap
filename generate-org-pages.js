@@ -16,6 +16,10 @@ const ORGS_DIR  = path.join(__dirname, 'orgs');
 const BASE_URL  = 'https://govmap.kr';
 const TODAY     = new Date().toISOString().split('T')[0];
 
+// 애드센스 사이트 승인 전까지는 광고 슬롯을 정적으로 숨김 (빈 여백 깜빡임 방지).
+// 승인되면 true로 바꾸고 재실행하면 즉시 광고가 노출됨 — 코드 삭제 불필요.
+const ADS_ENABLED = false;
+
 if (!fs.existsSync(ORGS_DIR)) fs.mkdirSync(ORGS_DIR);
 
 // ── 유틸 ─────────────────────────────────────────────────────
@@ -517,7 +521,7 @@ function buildPage(org) {
   </div>` : ''}
 
   <!-- 광고 슬롯 ① 연봉 정보 카드 직후 (인아티클) -->
-  <div class="ad-slot" style="margin-bottom:16px;">
+  <div class="ad-slot" style="margin-bottom:16px;${ADS_ENABLED ? '' : ' display:none;'}">
     <ins class="adsbygoogle"
          style="display:block; text-align:center;"
          data-ad-layout="in-article"
@@ -587,7 +591,7 @@ function buildPage(org) {
   </div>` : ''}
 
   <!-- 광고 슬롯 ② 전국 지사·지점 카드 직후 (디스플레이) -->
-  <div class="ad-slot" style="margin-bottom:16px;">
+  <div class="ad-slot" style="margin-bottom:16px;${ADS_ENABLED ? '' : ' display:none;'}">
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-4864032615853020"
@@ -596,32 +600,6 @@ function buildPage(org) {
          data-full-width-responsive="true"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
-
-  <!-- 광고 미채움(no-fill) 시 빈 여백을 자동으로 숨김 -->
-  <!-- data-ad-status="unfilled"가 항상 세팅되는 건 아니어서(사이트 미승인 등), -->
-  <!-- 실제 광고 iframe이 삽입됐는지로 채움 여부를 직접 판단함 -->
-  <script>
-  (function () {
-    document.querySelectorAll('.ad-slot .adsbygoogle').forEach(function (ins) {
-      var wrap = ins.closest('.ad-slot');
-      if (!wrap) return;
-      var settled = false;
-      function settle() {
-        if (settled) return;
-        settled = true;
-        if (!ins.querySelector('iframe')) wrap.style.display = 'none';
-      }
-      var obs = new MutationObserver(function () {
-        if (ins.getAttribute('data-adsbygoogle-status') === 'done') {
-          obs.disconnect();
-          setTimeout(settle, 100);
-        }
-      });
-      obs.observe(ins, { attributes: true, attributeFilter: ['data-adsbygoogle-status'] });
-      setTimeout(function () { obs.disconnect(); settle(); }, 4000);
-    });
-  })();
-  </script>
 
   <!-- 링크 -->
   <div class="card">

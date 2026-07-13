@@ -312,7 +312,7 @@
   </div>
 
   <!-- 광고 슬롯 ① 연봉 정보 카드 직후 (인아티클) -->
-  <div class="ad-slot" style="margin-bottom:16px;">
+  <div class="ad-slot" style="margin-bottom:16px; display:none;">
     <ins class="adsbygoogle"
          style="display:block; text-align:center;"
          data-ad-layout="in-article"
@@ -434,7 +434,7 @@
   </div>
 
   <!-- 광고 슬롯 ② 전국 지사·지점 카드 직후 (디스플레이) -->
-  <div class="ad-slot" style="margin-bottom:16px;">
+  <div class="ad-slot" style="margin-bottom:16px; display:none;">
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-4864032615853020"
@@ -443,32 +443,6 @@
          data-full-width-responsive="true"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
-
-  <!-- 광고 미채움(no-fill) 시 빈 여백을 자동으로 숨김 -->
-  <!-- data-ad-status="unfilled"가 항상 세팅되는 건 아니어서(사이트 미승인 등), -->
-  <!-- 실제 광고 iframe이 삽입됐는지로 채움 여부를 직접 판단함 -->
-  <script>
-  (function () {
-    document.querySelectorAll('.ad-slot .adsbygoogle').forEach(function (ins) {
-      var wrap = ins.closest('.ad-slot');
-      if (!wrap) return;
-      var settled = false;
-      function settle() {
-        if (settled) return;
-        settled = true;
-        if (!ins.querySelector('iframe')) wrap.style.display = 'none';
-      }
-      var obs = new MutationObserver(function () {
-        if (ins.getAttribute('data-adsbygoogle-status') === 'done') {
-          obs.disconnect();
-          setTimeout(settle, 100);
-        }
-      });
-      obs.observe(ins, { attributes: true, attributeFilter: ['data-adsbygoogle-status'] });
-      setTimeout(function () { obs.disconnect(); settle(); }, 4000);
-    });
-  })();
-  </script>
 
   <!-- 링크 -->
   <div class="card">
@@ -748,30 +722,30 @@
   <!-- 관련 기관 -->
   <div class="card">
     <div class="card-title">같은 유형의 다른 기관</div>
-    <div class="related-grid"><a href="https://govmap.kr/orgs/%EA%B8%B0%EC%B4%88%EA%B3%BC%ED%95%99%EC%97%B0%EA%B5%AC%EC%9B%90/" class="rel-card">
+    <div class="related-grid"><a href="https://govmap.kr/orgs/%EA%B1%B4%EC%B6%95%EA%B3%B5%EA%B0%84%EC%97%B0%EA%B5%AC%EC%9B%90/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">기초과학연구원</span>
-       <span class="rel-region">충청권</span>
-     </a><a href="https://govmap.kr/orgs/%EC%A0%84%EA%B5%AD%EC%9E%AC%ED%95%B4%EA%B5%AC%ED%98%B8%ED%98%91%ED%9A%8C/" class="rel-card">
-       <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">전국재해구호협회</span>
+       <span class="rel-name">건축공간연구원</span>
        <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%EA%B1%B4%EC%84%A4%EA%B7%BC%EB%A1%9C%EC%9E%90%EA%B3%B5%EC%A0%9C%ED%9A%8C/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%96%B4%EC%B4%8C%EC%96%B4%ED%95%AD%EA%B3%B5%EB%8B%A8/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">건설근로자공제회</span>
-       <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%B3%B4%EA%B1%B4%EC%82%B0%EC%97%85%EC%A7%84%ED%9D%A5%EC%9B%90/" class="rel-card">
+       <span class="rel-name">한국어촌어항공단</span>
+       <span class="rel-region">전라권</span>
+     </a><a href="https://govmap.kr/orgs/%EA%B2%BD%EC%83%81%EA%B5%AD%EB%A6%BD%EB%8C%80%ED%95%99%EA%B5%90%EB%B3%91%EC%9B%90/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">한국보건산업진흥원</span>
-       <span class="rel-region">충청권</span>
-     </a><a href="https://govmap.kr/orgs/(%EC%9E%AC)%EC%98%88%EC%88%A0%EA%B2%BD%EC%98%81%EC%A7%80%EC%9B%90%EC%84%BC%ED%84%B0/" class="rel-card">
+       <span class="rel-name">경상국립대학교병원</span>
+       <span class="rel-region">경상권</span>
+     </a><a href="https://govmap.kr/orgs/%EA%B0%95%EC%9B%90%EB%8C%80%ED%95%99%EA%B5%90%EB%B3%91%EC%9B%90/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">(재)예술경영지원센터</span>
-       <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%99%EA%B5%90%EB%B2%95%EC%9D%B8%ED%95%9C%EA%B5%AD%ED%8F%B4%EB%A6%AC%ED%85%8D/" class="rel-card">
+       <span class="rel-name">강원대학교병원</span>
+       <span class="rel-region">강원권</span>
+     </a><a href="https://govmap.kr/orgs/%EC%82%AC%EB%A6%BD%ED%95%99%EA%B5%90%EA%B5%90%EC%A7%81%EC%9B%90%EC%97%B0%EA%B8%88%EA%B3%B5%EB%8B%A8/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">학교법인한국폴리텍</span>
-       <span class="rel-region">수도권</span>
+       <span class="rel-name">사립학교교직원연금공단</span>
+       <span class="rel-region">전라권</span>
+     </a><a href="https://govmap.kr/orgs/%EA%B5%AD%EB%A6%BD%EC%9A%B8%EC%A7%84%ED%95%B4%EC%96%91%EA%B3%BC%ED%95%99%EA%B4%80/" class="rel-card">
+       <span class="rel-badge" style="background:#059669">기타공공기관</span>
+       <span class="rel-name">국립울진해양과학관</span>
+       <span class="rel-region">경상권</span>
      </a></div>
   </div>
 
