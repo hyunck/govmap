@@ -74,6 +74,42 @@ function buildPage(org) {
     .sort((a, b) => b.startingSalary - a.startingSalary);
   const industryRank = industryPeers.findIndex(o => o.id === org.id) + 1;
 
+  // 업종 내 비교 코멘트 — 기관마다 실제 수치가 다르게 들어가는 자동 생성 해설 문장
+  // (순위표가 344개 페이지에서 구조만 반복되는 근사 중복 콘텐츠로 보이는 것을 완화하기 위함)
+  function buildRankComment() {
+    if (industryPeers.length <= 1) return '';
+    const total = industryPeers.length;
+    const peersWithYears = industryPeers.filter(o => o.avgYears);
+    const industryAvgYears = peersWithYears.length
+      ? peersWithYears.reduce((s, o) => s + o.avgYears, 0) / peersWithYears.length
+      : null;
+    const yearsDiff = (org.avgYears && industryAvgYears) ? org.avgYears - industryAvgYears : null;
+
+    const pct = industryRank / total;
+    let rankPhrase;
+    if (industryRank === 1) rankPhrase = `${escHtml(org.industry)} 산업군 ${total}개 기관 중 신입연봉 1위`;
+    else if (pct <= 0.3) rankPhrase = `${escHtml(org.industry)} 산업군 ${total}개 기관 중 신입연봉 상위권(${industryRank}위)`;
+    else if (pct >= 0.7) rankPhrase = `${escHtml(org.industry)} 산업군 ${total}개 기관 중 신입연봉 하위권(${industryRank}위)`;
+    else rankPhrase = `${escHtml(org.industry)} 산업군 ${total}개 기관 중 신입연봉 중위권(${industryRank}위)`;
+
+    let yearsPhrase;
+    if (yearsDiff !== null && Math.abs(yearsDiff) >= 0.5) {
+      yearsPhrase = yearsDiff > 0
+        ? `, 평균 근속연수는 업종 평균(${industryAvgYears.toFixed(1)}년)보다 ${Math.abs(yearsDiff).toFixed(1)}년 길어 장기 재직자 비중이 높은 편입니다.`
+        : `, 평균 근속연수는 업종 평균(${industryAvgYears.toFixed(1)}년)보다 ${Math.abs(yearsDiff).toFixed(1)}년 짧은 편입니다.`;
+    } else {
+      yearsPhrase = '입니다.';
+    }
+
+    let gradePhrase = '';
+    if (org.evalGrade === 'S' || org.evalGrade === 'A') {
+      gradePhrase = ` ${org.evalYear || 2025}년도 경영평가에서는 ${org.evalGrade}등급을 받아 우수한 평가를 받았습니다.`;
+    }
+
+    return `<p style="font-size:13px;color:#6b7280;line-height:1.6;margin-bottom:14px;">${rankPhrase}${yearsPhrase}${gradePhrase}</p>`;
+  }
+  const rankComment = buildRankComment();
+
   // 세로 막대 그래프용 히스토리 (나중에 org.startingSalaryHistory / avgSalaryHistory 필드 추가 예정)
   const CHART_PX = 100;
   const startHist = (org.startingSalaryHistory && org.startingSalaryHistory.length)
@@ -552,6 +588,7 @@ function buildPage(org) {
   <!-- 업종 연봉 순위 -->
   ${industryPeers.length > 1 ? `<div class="card">
     <div class="card-title">${escHtml(org.industry)} 공기업 신입 연봉 순위</div>
+    ${rankComment}
     <table class="rank-table" id="rt-${org.id}">
       <thead><tr><th>순위</th><th>기관명</th><th>신입연봉</th><th>평균연봉</th></tr></thead>
       <tbody>
