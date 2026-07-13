@@ -1604,6 +1604,15 @@
             /* 모바일에서는 임의로 만든 사진(아이콘·텍스트+컬러 배경 띠)을 완전히 숨김 */
             .detail-image { display: none; }
 
+            /* 기관명 아래에 있던 분류 태그(유형·산업·지역)를 기관명 오른쪽으로 이동 */
+            .detail-header {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .detail-title { margin-bottom: 0; }
+
             /* 사진과 드래그 시트 사이의 흰 여백 영역 — 뒤로가기(확장 시에만)·닫기 버튼이 위치 */
             .detail-sheet-toolbar {
                 display: flex;
@@ -2769,10 +2778,10 @@
                 applyFilters();
             }
 
-            // 모바일: 상세패널 바텀시트가 보이도록 사이드바 시트는 살짝 접고, 상세패널은 미리보기 상태로
+            // 모바일: 상세패널 바텀시트가 보이도록 사이드바 시트는 살짝 접고, 상세패널은 항상 전체 확장 상태로 열림
             if (isMobile()) {
                 setSheetState(document.getElementById('sidebar'), 'collapsed');
-                setSheetState(document.getElementById('detailPanel'), 'collapsed');
+                setSheetState(document.getElementById('detailPanel'), 'expanded');
             }
 
             const logoColor = getLogoColor(org.shortName);
@@ -3910,10 +3919,10 @@
             panel.classList.add('open');
             panel.classList.add('gov-mode'); // 보라색 톤으로
 
-            // 모바일: 상세패널 바텀시트가 보이도록 사이드바 시트는 살짝 접고, 상세패널은 '기본 정보' 미리보기 상태로
+            // 모바일: 상세패널 바텀시트가 보이도록 사이드바 시트는 살짝 접고, 상세패널은 항상 전체 확장 상태로 열림
             if (isMobile()) {
                 setSheetState(document.getElementById('sidebar'), 'collapsed');
-                setSheetState(panel, 'collapsed');
+                setSheetState(panel, 'expanded');
             }
 
             document.getElementById('detailTitle').textContent = gov.name;
