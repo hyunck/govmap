@@ -2377,6 +2377,9 @@
                 // 클러스터 원을 클릭하면 확대되는 기능이 지도 드래그(특히 모바일 터치 드래그)와
                 // 충돌해 드래그가 씹히는 경우가 많아 클릭-확대 기능 자체를 비활성화
                 disableClickZoom: true,
+                // hoverable: true(기본값)일 때 마우스오버 시 클러스터 마커에 별도 스타일 클래스를
+                // 적용하는 로직이 있어 이 역시 드래그 시작을 가로채는 원인이 될 수 있어 꺼줌
+                hoverable: false,
                 styles: [
                     { width:'40px',height:'40px',background:'rgba(37,99,235,0.85)',borderRadius:'50%',color:'#fff',textAlign:'center',fontWeight:'700',fontSize:'14px',lineHeight:'40px',border:'3px solid rgba(37,99,235,0.3)' },
                     { width:'50px',height:'50px',background:'rgba(220,38,38,0.85)',borderRadius:'50%',color:'#fff',textAlign:'center',fontWeight:'700',fontSize:'15px',lineHeight:'50px',border:'3px solid rgba(220,38,38,0.3)' },
