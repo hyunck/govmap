@@ -2170,6 +2170,9 @@
 
             state.geocoder = new kakao.maps.services.Geocoder();
 
+            // ⭐ 기관 리스트는 좌표와 무관하므로 지오코딩을 기다리지 않고 즉시 렌더링
+            applyFilters();
+
             // ⭐ 모든 주소를 카카오맵 정확한 좌표로 변환
             await geocodeAll();
 
