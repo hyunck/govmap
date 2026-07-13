@@ -516,6 +516,17 @@ function buildPage(org) {
     ${avgHist.some(d => d.year === 2026) ? `<p class="vc-note">* 2026년 평균 연봉은 경영평가 성과급이 미반영된 예산 기준으로, 실제 지급액과 차이가 있을 수 있습니다.</p>` : ''}
   </div>` : ''}
 
+  <!-- 광고 슬롯 ① 연봉 정보 카드 직후 (인아티클) -->
+  <div style="margin-bottom:16px;">
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center;"
+         data-ad-layout="in-article"
+         data-ad-format="fluid"
+         data-ad-client="ca-pub-4864032615853020"
+         data-ad-slot="7125354114"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
   <!-- 주요 사업 -->
   ${mainBiz ? `<div class="card">
     <div class="card-title">주요 사업</div>
@@ -574,6 +585,17 @@ function buildPage(org) {
     <p style="font-size:14px;color:#374151;line-height:1.7;margin-bottom:12px;">${escHtml(org.name)} 본사는 <strong>${escHtml(org.address)}</strong>에 위치합니다.${totalBranchCount > 1 ? ` 합격 후 발령 가능한 전국 근무지는 총 <strong>${totalBranchCount}개소</strong>이며, 지사·사업소별 위치를 지도에서 확인할 수 있습니다.` : ''}</p>
     ${allBranchesHtml || `<div class="branch-intro">⚠️ 국가중요시설 및 기관 사정으로 지도에 표시되지 않거나 불명확하게 표시되는 사업장·지사가 있을 수 있어요.</div><ul class="branch-list">${branchItems}</ul>`}
   </div>` : ''}
+
+  <!-- 광고 슬롯 ② 전국 지사·지점 카드 직후 (디스플레이) -->
+  <div style="margin-bottom:16px;">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-4864032615853020"
+         data-ad-slot="2176692457"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
 
   <!-- 링크 -->
   <div class="card">
