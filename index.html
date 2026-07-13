@@ -3264,7 +3264,11 @@
         }
 
         function setSheetState(panel, stateName) {
-            panel.classList.remove('sheet-expanded', 'sheet-collapsed', 'sheet-hidden');
+            // ⚠️ 'sheet-half'(지사·본사 클릭 시 절반 축소 상태)를 빼먹으면, 이후 다른 기관을 다시 열 때
+            // 'sheet-half'가 지워지지 않은 채 'sheet-expanded'가 함께 붙어 두 상태의 CSS가 충돌함
+            // (top은 JS가 새로 지정해 정상이지만 height/bottom/z-index는 source-order상 sheet-half 쪽이 이겨
+            // 패널이 절반 높이로만 렌더링되고 그 아래로 지도·사이드바가 비쳐 보이는 화면 깨짐 버그의 원인이었음)
+            panel.classList.remove('sheet-expanded', 'sheet-collapsed', 'sheet-hidden', 'sheet-half');
             panel.classList.add('sheet-' + stateName);
             panel.style.transform = '';
             // 사이드바(기관 리스트)·설명창(상세패널)이 전체로 확장될 때는 화면 맨 위(y:0)가 아니라
