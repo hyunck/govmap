@@ -1464,6 +1464,8 @@
            ============================================================ */
         .sheet-handle { display: none; }
         .mobile-topbar { display: none; }
+        .mobile-filter-overlay { display: none; }
+        .mobile-filter-sheet { display: none; }
 
         @media (max-width: 768px) {
             .app-container { display: block; height: 100vh; height: 100dvh; }
@@ -1630,7 +1632,8 @@
                 position: static;
             }
 
-            /* ===== 모바일 상단 바 — 검색창을 사이드바에서 떼어내 페이지 상단에 고정 ===== */
+            /* ===== 모바일 상단 바 — 검색창을 사이드바에서 떼어내 페이지 상단에 고정 =====
+               부동산플래닛 스타일: 좌우 화면을 꽉 채운 직사각형 바 2단(검색창 + 필터) */
             .sidebar-header .logo-area,
             .gov-sidebar-header .logo-area { display: none; }
 
@@ -1639,29 +1642,32 @@
                 position: fixed;
                 top: 0; left: 0; right: 0;
                 z-index: 750;
-                padding: calc(10px + env(safe-area-inset-top)) 14px 0;
-                pointer-events: none;
+                padding-top: env(safe-area-inset-top);
+                background: #fff;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.10);
+                pointer-events: auto;
             }
-            .mobile-search-slot { display: none; pointer-events: auto; }
+            .mobile-search-slot { display: none; padding: 10px 14px; }
             .mobile-search-slot.active { display: block; }
 
-            /* 사이드바 검색창 → 상단으로 이동 시 디자인 통일 (모드별 색상만 차이) */
+            /* 사이드바 검색창 → 상단으로 이동 시 디자인 통일 (모드별 색상만 차이)
+               둥근 플로팅 카드 → 화면 좌우를 꽉 채운 직사각형 형태로 변경 */
             .mobile-search-slot .search-box,
             .mobile-search-slot .gov-search-box {
                 position: relative;
                 display: flex;
                 align-items: center;
-                background: #fff;
-                border-radius: 24px;
-                box-shadow: 0 2px 14px rgba(0, 0, 0, 0.16);
+                background: var(--bg-light);
+                border-radius: 8px;
+                box-shadow: none;
             }
             .mobile-search-slot .search-box input,
             .mobile-search-slot .gov-search-box input {
                 width: 100%;
                 border: none;
-                border-radius: 24px;
+                border-radius: 8px;
                 background: transparent;
-                padding: 13px 40px 13px 42px;
+                padding: 12px 40px 12px 42px;
                 font-size: 14px;
                 outline: none;
                 font-family: inherit;
@@ -1683,6 +1689,100 @@
             }
             .mobile-search-slot.company-slot .search-box input:focus { box-shadow: inset 0 0 0 1.5px var(--primary); }
             .mobile-search-slot.gov-slot .gov-search-box input:focus { box-shadow: inset 0 0 0 1.5px var(--gov-accent); }
+
+            /* 검색창 아래 필터 바 — 5개 필터 버튼을 담은 직사각형 바 (공기업 탭 전용) */
+            .mobile-filter-bar {
+                display: none;
+                gap: 8px;
+                padding: 0 14px 10px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+            .mobile-filter-bar::-webkit-scrollbar { display: none; }
+            .mobile-filter-bar.active { display: flex; }
+            .mobile-filter-btn {
+                flex-shrink: 0;
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                padding: 7px 12px;
+                border: 1px solid var(--border);
+                border-radius: 7px;
+                background: #fff;
+                color: var(--text-secondary);
+                font-size: 12px;
+                font-weight: 600;
+                font-family: inherit;
+                cursor: pointer;
+                white-space: nowrap;
+            }
+            .mobile-filter-btn::after { content: '▾'; font-size: 8px; color: var(--text-tertiary); }
+            .mobile-filter-btn.active-filter {
+                border-color: var(--primary);
+                color: var(--primary);
+                background: #eff6ff;
+            }
+            .mobile-filter-btn.active-filter::after { color: var(--primary); }
+
+            /* 필터 버튼을 누르면 설명창(상세패널)과 동일한 형태로 아래에서 올라오는 바텀시트 */
+            .mobile-filter-overlay {
+                display: block;
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.35);
+                z-index: 760;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.25s ease;
+            }
+            .mobile-filter-overlay.show { opacity: 1; pointer-events: auto; }
+
+            .mobile-filter-sheet {
+                position: fixed;
+                left: 0; right: 0; bottom: 58px;
+                background: #fff;
+                border-radius: 16px 16px 0 0;
+                box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.16);
+                z-index: 770;
+                max-height: 70vh;
+                max-height: 70dvh;
+                display: flex;
+                flex-direction: column;
+                transform: translateY(100%);
+                transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+            }
+            .mobile-filter-sheet.show { transform: translateY(0); }
+            .mobile-filter-sheet-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 2px 16px 10px;
+                flex-shrink: 0;
+            }
+            .mobile-filter-sheet-title { font-size: 15px; font-weight: 700; color: var(--text-primary); }
+            .mobile-filter-sheet-close {
+                flex-shrink: 0;
+                width: 28px; height: 28px;
+                border-radius: 50%;
+                background: var(--bg-light);
+                border: 1px solid var(--border);
+                color: var(--text-secondary);
+                font-size: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                font-family: inherit;
+            }
+            .mobile-filter-sheet-content {
+                padding: 0 16px 24px;
+                overflow-y: auto;
+            }
+            .mobile-filter-sheet-content .filter-group { margin-bottom: 0; }
+
+            /* 필터가 상단 바 + 바텀시트로 이동했으므로 사이드바 내부의 기존 필터 섹션은 숨김 */
+            .filters { display: none; }
 
             /* 검색창 바로 아래에 뜨는 자동완성(검색 가능 내역) — 크롬 주소창 스타일 */
             .mobile-search-suggest {
@@ -1720,24 +1820,8 @@
             }
             .mobile-search-suggest li.no-suggest:hover { background: transparent; }
 
-            /* 범례 — 상단 검색창의 왼쪽 아래로 이동, 가리지 않도록 축소 */
-            .map-legend {
-                top: 64px;
-                bottom: auto;
-                right: auto;
-                left: 14px;
-                max-width: 42vw;
-                font-size: 10px;
-                padding: 7px 9px;
-                min-width: 0;
-                border-radius: 10px;
-            }
-            .legend-item { margin-bottom: 3px; gap: 5px; }
-            .legend-marker { width: 8px; height: 8px; }
-            .legend-text { font-size: 10px; }
-            .legend-toggle { width: 26px; height: 15px; }
-            .legend-toggle::after { width: 11px; height: 11px; }
-            .legend-toggle.on::after { transform: translateX(11px); }
+            /* 범례(본사·지사·지역본부) — 검색창·필터 바와 겹쳐 모바일에서는 완전히 숨김 */
+            .map-legend { display: none; }
 
             /* 준비 중(공기업 비교 등) 오버레이 — 사이드바·하단 탭바까지 모두 가려 화면 전체를 채움 */
             .coming-soon-overlay {
@@ -1800,7 +1884,7 @@
               </span>
             </a>
             <div class="filters">
-                <div class="filter-group">
+                <div class="filter-group" data-mobile-filter-group="orgtype">
                     <div class="filter-label">🏢 기관 유형</div>
                     <div class="filter-chips">
                         <button class="filter-chip active" data-filter-type="orgtype" data-value="전체">전체</button>
@@ -1810,7 +1894,7 @@
                         <button class="filter-chip" data-filter-type="orgtype" data-value="비공공기관">비공공기관</button>
                     </div>
                 </div>
-                <div class="filter-group">
+                <div class="filter-group" data-mobile-filter-group="industry">
                     <div class="filter-label">🏭 산업 분야</div>
                     <div class="filter-chips">
                         <button class="filter-chip active" data-filter-type="industry" data-value="전체">전체</button>
@@ -1825,7 +1909,7 @@
                         <button class="filter-chip" data-filter-type="industry" data-value="행정·고용">행정·고용</button>
                     </div>
                 </div>
-                <div class="filter-group">
+                <div class="filter-group" data-mobile-filter-group="region">
                     <div class="filter-label">📍 지역</div>
                     <div class="filter-chips">
                         <button class="filter-chip active" data-filter-type="region" data-value="전체">전체</button>
@@ -1837,7 +1921,7 @@
                         <button class="filter-chip" data-filter-type="region" data-value="제주권">제주권</button>
                     </div>
                 </div>
-                <div class="filter-group">
+                <div class="filter-group" data-mobile-filter-group="salary">
                     <div class="filter-label">💰 초봉 (세전)</div>
                     <div class="filter-chips">
                         <button class="filter-chip active" data-filter-type="salary" data-value="전체">전체</button>
@@ -1847,7 +1931,7 @@
                         <button class="filter-chip" data-filter-type="salary" data-value="over5000">5천 이상</button>
                     </div>
                 </div>
-                <div class="filter-group" id="examSubjectFilterGroup">
+                <div class="filter-group" id="examSubjectFilterGroup" data-mobile-filter-group="exam">
                     <div class="exam-filter-header" id="examFilterHeader">
                         <div class="filter-label">📚 NCS 시험과목 <span class="exam-filter-note">(공기업만 적용)</span></div>
                         <button class="exam-collapse-btn" id="examCollapseBtn">▼ 펼치기</button>
@@ -2045,6 +2129,13 @@
             <div class="mobile-topbar" id="mobileTopbar">
                 <div class="mobile-search-slot company-slot active" id="mobileSearchSlotCompany"></div>
                 <div class="mobile-search-slot gov-slot" id="mobileSearchSlotGov"></div>
+                <div class="mobile-filter-bar active" id="mobileFilterBar">
+                    <button class="mobile-filter-btn" data-mobile-filter="orgtype">기관 유형</button>
+                    <button class="mobile-filter-btn" data-mobile-filter="industry">산업 분야</button>
+                    <button class="mobile-filter-btn" data-mobile-filter="region">지역</button>
+                    <button class="mobile-filter-btn" data-mobile-filter="salary">초봉</button>
+                    <button class="mobile-filter-btn" data-mobile-filter="exam">NCS 시험과목</button>
+                </div>
             </div>
             <div class="pickmode-hint" id="pickmodeHint">🎯 지도 위 원하는 위치를 클릭해주세요</div>
             <div class="map-legend" id="mapLegend">
@@ -2083,6 +2174,17 @@
                 <button class="back-btn" id="csBack">공기업 탭으로 돌아가기</button>
             </div>
         </div>
+
+        <!-- 모바일 전용 — 상단 필터 버튼을 누르면 설명창과 동일한 형태로 아래에서 올라오는 필터 바텀시트 -->
+        <div class="mobile-filter-overlay" id="mobileFilterOverlay"></div>
+        <aside class="mobile-filter-sheet" id="mobileFilterSheet">
+            <div class="sheet-handle"></div>
+            <div class="mobile-filter-sheet-header">
+                <span class="mobile-filter-sheet-title" id="mobileFilterSheetTitle"></span>
+                <button class="mobile-filter-sheet-close" id="mobileFilterSheetClose">✕</button>
+            </div>
+            <div class="mobile-filter-sheet-content" id="mobileFilterSheetContent"></div>
+        </aside>
     </div>
 
     <!-- ⭐ 카카오 SDK + services 라이브러리 (Geocoder 사용) -->
@@ -2854,6 +2956,11 @@
                         slotGov.classList.toggle('active', navType === 'government');
                     }
 
+                    // 필터 버튼바는 공기업 탭 전용 — 다른 탭으로 전환 시 숨기고 열려있던 필터 시트도 닫음
+                    const filterBar = document.getElementById('mobileFilterBar');
+                    if (filterBar) filterBar.classList.toggle('active', navType === 'company');
+                    closeMobileFilterSheet();
+
                     if (navType === 'company' || navType === 'government') {
                         const sidebar = document.getElementById('sidebar');
                         if (sidebar && (sidebar.classList.contains('sheet-hidden') || (!sidebar.classList.contains('sheet-expanded') && !sidebar.classList.contains('sheet-collapsed')))) {
@@ -3064,6 +3171,31 @@
             if (panel && panel.classList.contains('open') && panel.classList.contains('sheet-expanded')) {
                 setSheetState(panel, 'half');
             }
+        }
+
+        // 모바일 상단 필터바(기관유형·산업분야·지역·초봉·NCS시험과목) — 버튼을 누르면
+        // 설명창과 동일한 형태의 바텀시트가 올라오고, 해당 필터의 filter-group만 보여줌
+        // (filter-group DOM 자체는 isMobile() 초기화 블록에서 시트 안으로 옮겨짐)
+        function openMobileFilterSheet(key, label) {
+            const sheet = document.getElementById('mobileFilterSheet');
+            const overlay = document.getElementById('mobileFilterOverlay');
+            if (!sheet || !overlay) return;
+            document.querySelectorAll('.filter-group[data-mobile-filter-group]').forEach(group => {
+                group.style.display = (group.dataset.mobileFilterGroup === key) ? 'block' : 'none';
+            });
+            document.getElementById('mobileFilterSheetTitle').textContent = label;
+            sheet.classList.add('show');
+            overlay.classList.add('show');
+            document.querySelectorAll('.mobile-filter-btn').forEach(b => {
+                b.classList.toggle('active-filter', b.dataset.mobileFilter === key);
+            });
+        }
+        function closeMobileFilterSheet() {
+            const sheet = document.getElementById('mobileFilterSheet');
+            const overlay = document.getElementById('mobileFilterOverlay');
+            if (sheet) sheet.classList.remove('show');
+            if (overlay) overlay.classList.remove('show');
+            document.querySelectorAll('.mobile-filter-btn').forEach(b => b.classList.remove('active-filter'));
         }
 
         // 시트가 '미리보기' 상태일 때 화면에 드러나는 높이(px)
@@ -3295,6 +3427,36 @@
                 },
                 (id) => selectGov(id)
             );
+
+            // ----------------------------------------------------------
+            // 모바일: 사이드바 안에 있던 필터(기관유형/산업분야/지역/초봉/NCS시험과목)를
+            // 상단 필터바 + 하단 필터 시트로 이동. 기존 filter-group DOM을 그대로 옮기므로
+            // 기존 필터 로직(이벤트 리스너)이 그대로 동작함 (검색창 이동과 동일한 패턴)
+            // ----------------------------------------------------------
+            const mobileFilterSheetContent = document.getElementById('mobileFilterSheetContent');
+            if (mobileFilterSheetContent) {
+                document.querySelectorAll('.filter-group[data-mobile-filter-group]').forEach(group => {
+                    mobileFilterSheetContent.appendChild(group);
+                    group.style.display = 'none';
+                });
+
+                // NCS 시험과목 그룹은 기본이 접힘 상태 — 필터 시트에서는 처음부터 펼쳐서 보여줌
+                const examHeader = document.getElementById('examFilterHeader');
+                const examWrapper = document.getElementById('examChipsWrapper');
+                if (examHeader && examWrapper && examWrapper.classList.contains('collapsed')) {
+                    examHeader.click();
+                }
+
+                document.querySelectorAll('.mobile-filter-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        openMobileFilterSheet(btn.dataset.mobileFilter, btn.textContent.trim());
+                    });
+                });
+                const filterSheetCloseBtn = document.getElementById('mobileFilterSheetClose');
+                const filterOverlayEl = document.getElementById('mobileFilterOverlay');
+                if (filterSheetCloseBtn) filterSheetCloseBtn.addEventListener('click', closeMobileFilterSheet);
+                if (filterOverlayEl) filterOverlayEl.addEventListener('click', closeMobileFilterSheet);
+            }
         }
 
         // ============================================================
