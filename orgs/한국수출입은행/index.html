@@ -276,7 +276,7 @@
   </div>
 
   <!-- 광고 슬롯 ① 연봉 정보 카드 직후 (인아티클) -->
-  <div style="margin-bottom:16px;">
+  <div class="ad-slot" style="margin-bottom:16px;">
     <ins class="adsbygoogle"
          style="display:block; text-align:center;"
          data-ad-layout="in-article"
@@ -338,7 +338,7 @@
   </div>
 
   <!-- 광고 슬롯 ② 전국 지사·지점 카드 직후 (디스플레이) -->
-  <div style="margin-bottom:16px;">
+  <div class="ad-slot" style="margin-bottom:16px;">
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-4864032615853020"
@@ -347,6 +347,23 @@
          data-full-width-responsive="true"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
+
+  <!-- 광고 미채움(no-fill) 시 빈 여백을 자동으로 숨김 -->
+  <script>
+  (function () {
+    document.querySelectorAll('.ad-slot .adsbygoogle').forEach(function (ins) {
+      var wrap = ins.closest('.ad-slot');
+      if (!wrap) return;
+      var obs = new MutationObserver(function () {
+        if (ins.getAttribute('data-adsbygoogle-status') === 'done') {
+          if (ins.getAttribute('data-ad-status') === 'unfilled') wrap.style.display = 'none';
+          obs.disconnect();
+        }
+      });
+      obs.observe(ins, { attributes: true, attributeFilter: ['data-adsbygoogle-status', 'data-ad-status'] });
+    });
+  })();
+  </script>
 
   <!-- 링크 -->
   <div class="card">
@@ -500,30 +517,30 @@
   <!-- 관련 기관 -->
   <div class="card">
     <div class="card-title">같은 유형의 다른 기관</div>
-    <div class="related-grid"><a href="https://govmap.kr/orgs/(%EC%9E%AC)%EC%9D%BC%EC%A0%9C%EA%B0%95%EC%A0%9C%EB%8F%99%EC%9B%90%ED%94%BC%ED%95%B4%EC%9E%90%EC%A7%80%EC%9B%90%EC%9E%AC%EB%8B%A8/" class="rel-card">
+    <div class="related-grid"><a href="https://govmap.kr/orgs/(%EC%9E%AC)%ED%95%9C%EA%B5%AD%EB%B3%B4%EA%B1%B4%EC%9D%98%EB%A3%8C%EC%A0%95%EB%B3%B4%EC%9B%90/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">(재)일제강제동원피해자지원재단</span>
+       <span class="rel-name">(재)한국보건의료정보원</span>
        <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%83%9D%EB%AA%85%EC%A1%B4%EC%A4%91%ED%9D%AC%EB%A7%9D%EC%9E%AC%EB%8B%A8/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%AC%BC%EA%B8%B0%EC%88%A0%EC%9D%B8%EC%A6%9D%EC%9B%90/" class="rel-card">
        <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">한국생명존중희망재단</span>
-       <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%ED%95%B4%EC%96%91%EC%88%98%EC%82%B0%EC%97%B0%EC%88%98%EC%9B%90/" class="rel-card">
-       <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">한국해양수산연수원</span>
-       <span class="rel-region">경상권</span>
-     </a><a href="https://govmap.kr/orgs/%EB%AC%B4%EC%97%AD%EC%95%88%EB%B3%B4%EA%B4%80%EB%A6%AC%EC%9B%90/" class="rel-card">
-       <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">무역안보관리원</span>
-       <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%EA%B5%AD%EB%A6%BD%EB%B6%80%EC%82%B0%EA%B3%BC%ED%95%99%EA%B4%80/" class="rel-card">
-       <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">국립부산과학관</span>
-       <span class="rel-region">경상권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%B3%B4%EA%B1%B4%EB%B3%B5%EC%A7%80%EC%9D%B8%EC%9E%AC%EC%9B%90/" class="rel-card">
-       <span class="rel-badge" style="background:#059669">기타공공기관</span>
-       <span class="rel-name">한국보건복지인재원</span>
+       <span class="rel-name">한국물기술인증원</span>
        <span class="rel-region">충청권</span>
+     </a><a href="https://govmap.kr/orgs/%EB%B6%80%EC%82%B0%EB%8C%80%ED%95%99%EA%B5%90%EC%B9%98%EA%B3%BC%EB%B3%91%EC%9B%90/" class="rel-card">
+       <span class="rel-badge" style="background:#059669">기타공공기관</span>
+       <span class="rel-name">부산대학교치과병원</span>
+       <span class="rel-region">경상권</span>
+     </a><a href="https://govmap.kr/orgs/(%EC%A3%BC)%EA%B3%B5%EC%98%81%ED%99%88%EC%87%BC%ED%95%91/" class="rel-card">
+       <span class="rel-badge" style="background:#059669">기타공공기관</span>
+       <span class="rel-name">(주)공영홈쇼핑</span>
+       <span class="rel-region">수도권</span>
+     </a><a href="https://govmap.kr/orgs/%EA%B5%AD%EB%A6%BD%EA%B4%91%EC%A3%BC%EA%B3%BC%ED%95%99%EA%B4%80/" class="rel-card">
+       <span class="rel-badge" style="background:#059669">기타공공기관</span>
+       <span class="rel-name">국립광주과학관</span>
+       <span class="rel-region">전라권</span>
+     </a><a href="https://govmap.kr/orgs/%EA%B2%8C%EC%9E%84%EB%AC%BC%EA%B4%80%EB%A6%AC%EC%9C%84%EC%9B%90%ED%9A%8C/" class="rel-card">
+       <span class="rel-badge" style="background:#059669">기타공공기관</span>
+       <span class="rel-name">게임물관리위원회</span>
+       <span class="rel-region">수도권</span>
      </a></div>
   </div>
 
