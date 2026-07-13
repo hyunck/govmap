@@ -1690,26 +1690,28 @@
             .mobile-search-slot.company-slot .search-box input:focus { box-shadow: inset 0 0 0 1.5px var(--primary); }
             .mobile-search-slot.gov-slot .gov-search-box input:focus { box-shadow: inset 0 0 0 1.5px var(--gov-accent); }
 
-            /* 검색창 아래 필터 바 — 5개 필터 버튼을 담은 직사각형 바 (공기업 탭 전용) */
+            /* 검색창 아래 필터 바 — 흰 배경에 텍스트+구분선만 있는 필터 목록 + 우측 전체 필터 아이콘 (공기업 탭 전용) */
             .mobile-filter-bar {
                 display: none;
-                gap: 8px;
-                padding: 0 14px 10px;
+                align-items: center;
+                padding: 0 10px 6px 14px;
+            }
+            .mobile-filter-bar.active { display: flex; }
+            .mobile-filter-bar-scroll {
+                flex: 1;
+                min-width: 0;
+                display: flex;
                 overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
                 scrollbar-width: none;
             }
-            .mobile-filter-bar::-webkit-scrollbar { display: none; }
-            .mobile-filter-bar.active { display: flex; }
+            .mobile-filter-bar-scroll::-webkit-scrollbar { display: none; }
             .mobile-filter-btn {
                 flex-shrink: 0;
-                display: flex;
-                align-items: center;
-                gap: 4px;
-                padding: 7px 12px;
-                border: 1px solid var(--border);
-                border-radius: 7px;
-                background: #fff;
+                position: relative;
+                padding: 5px 12px;
+                border: none;
+                background: none;
                 color: var(--text-secondary);
                 font-size: 12px;
                 font-weight: 600;
@@ -1717,13 +1719,35 @@
                 cursor: pointer;
                 white-space: nowrap;
             }
-            .mobile-filter-btn::after { content: '▾'; font-size: 8px; color: var(--text-tertiary); }
-            .mobile-filter-btn.active-filter {
-                border-color: var(--primary);
-                color: var(--primary);
-                background: #eff6ff;
+            /* 항목 사이 구분선 (마지막 항목엔 표시하지 않음) */
+            .mobile-filter-btn::after {
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 1px;
+                height: 11px;
+                background: var(--border);
             }
-            .mobile-filter-btn.active-filter::after { color: var(--primary); }
+            .mobile-filter-btn:last-child::after { display: none; }
+            .mobile-filter-btn.active-filter { color: var(--primary); }
+
+            /* 우측 끝 — 전체 필터를 한 번에 보여주는 아이콘 버튼 */
+            .mobile-filter-all-btn {
+                flex-shrink: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 26px; height: 26px;
+                margin-left: 2px;
+                border: none;
+                background: none;
+                color: var(--text-secondary);
+                cursor: pointer;
+            }
+            .mobile-filter-all-btn.active-filter { color: var(--primary); }
+            .mobile-filter-all-btn svg { width: 16px; height: 16px; }
 
             /* 필터 버튼을 누르면 설명창(상세패널)과 동일한 형태로 아래에서 올라오는 바텀시트 */
             .mobile-filter-overlay {
@@ -1783,7 +1807,18 @@
                 padding: 0 16px 24px;
                 overflow-y: auto;
             }
-            .mobile-filter-sheet-content .filter-group { margin-bottom: 0; }
+            /* 전체 필터 아이콘을 눌러 여러 filter-group이 동시에 보일 때 구분선으로 그룹을 나눔
+               (visible 순서상 마지막 그룹에는 JS가 no-divider 클래스를 붙여 구분선을 뺌) */
+            .mobile-filter-sheet-content .filter-group {
+                padding-bottom: 14px;
+                margin-bottom: 14px;
+                border-bottom: 1px solid var(--border);
+            }
+            .mobile-filter-sheet-content .filter-group.no-divider {
+                padding-bottom: 0;
+                margin-bottom: 0;
+                border-bottom: none;
+            }
 
             /* 필터가 상단 바 + 바텀시트로 이동했으므로 사이드바 내부의 기존 필터 섹션은 숨김 */
             .filters { display: none; }
@@ -2134,11 +2169,20 @@
                 <div class="mobile-search-slot company-slot active" id="mobileSearchSlotCompany"></div>
                 <div class="mobile-search-slot gov-slot" id="mobileSearchSlotGov"></div>
                 <div class="mobile-filter-bar active" id="mobileFilterBar">
-                    <button class="mobile-filter-btn" data-mobile-filter="orgtype">유형</button>
-                    <button class="mobile-filter-btn" data-mobile-filter="industry">산업 분야</button>
-                    <button class="mobile-filter-btn" data-mobile-filter="region">지역</button>
-                    <button class="mobile-filter-btn" data-mobile-filter="salary">초봉</button>
-                    <button class="mobile-filter-btn" data-mobile-filter="exam">NCS</button>
+                    <div class="mobile-filter-bar-scroll">
+                        <button class="mobile-filter-btn" data-mobile-filter="orgtype">유형</button>
+                        <button class="mobile-filter-btn" data-mobile-filter="industry">분야</button>
+                        <button class="mobile-filter-btn" data-mobile-filter="region">지역</button>
+                        <button class="mobile-filter-btn" data-mobile-filter="salary">초봉</button>
+                        <button class="mobile-filter-btn" data-mobile-filter="exam">NCS</button>
+                    </div>
+                    <button class="mobile-filter-all-btn" id="mobileFilterAllBtn" aria-label="전체 필터 보기" title="전체 필터 보기">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                            <line x1="3" y1="6" x2="9" y2="6"/><circle cx="12" cy="6" r="2.2"/><line x1="15" y1="6" x2="21" y2="6"/>
+                            <line x1="3" y1="12" x2="7" y2="12"/><circle cx="10" cy="12" r="2.2"/><line x1="13" y1="12" x2="21" y2="12"/>
+                            <line x1="3" y1="18" x2="11" y2="18"/><circle cx="14" cy="18" r="2.2"/><line x1="17" y1="18" x2="21" y2="18"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
             <div class="pickmode-hint" id="pickmodeHint">🎯 지도 위 원하는 위치를 클릭해주세요</div>
@@ -3177,22 +3221,31 @@
             }
         }
 
-        // 모바일 상단 필터바(기관유형·산업분야·지역·초봉·NCS시험과목) — 버튼을 누르면
-        // 설명창과 동일한 형태의 바텀시트가 올라오고, 해당 필터의 filter-group만 보여줌
+        // 모바일 상단 필터바(유형·분야·지역·초봉·NCS) — 버튼을 누르면 설명창과 동일한 형태의
+        // 바텀시트가 올라오고 해당 필터의 filter-group만 보여줌. key === 'all'이면(우측 필터 아이콘)
+        // 모든 filter-group을 한 번에 보여줌
         // (filter-group DOM 자체는 isMobile() 초기화 블록에서 시트 안으로 옮겨짐)
         function openMobileFilterSheet(key, label) {
             const sheet = document.getElementById('mobileFilterSheet');
             const overlay = document.getElementById('mobileFilterOverlay');
             if (!sheet || !overlay) return;
-            document.querySelectorAll('.filter-group[data-mobile-filter-group]').forEach(group => {
-                group.style.display = (group.dataset.mobileFilterGroup === key) ? 'block' : 'none';
+            const groups = Array.from(document.querySelectorAll('.filter-group[data-mobile-filter-group]'));
+            groups.forEach(group => {
+                const visible = (key === 'all' || group.dataset.mobileFilterGroup === key);
+                group.style.display = visible ? 'block' : 'none';
+                group.classList.remove('no-divider');
             });
+            // 구분선은 그룹 사이에만 필요 — 실제로 보이는 그룹들 중 마지막에는 구분선을 뺌
+            const visibleGroups = groups.filter(g => g.style.display === 'block');
+            if (visibleGroups.length) visibleGroups[visibleGroups.length - 1].classList.add('no-divider');
             document.getElementById('mobileFilterSheetTitle').textContent = label;
             sheet.classList.add('show');
             overlay.classList.add('show');
             document.querySelectorAll('.mobile-filter-btn').forEach(b => {
                 b.classList.toggle('active-filter', b.dataset.mobileFilter === key);
             });
+            const allBtn = document.getElementById('mobileFilterAllBtn');
+            if (allBtn) allBtn.classList.toggle('active-filter', key === 'all');
         }
         function closeMobileFilterSheet() {
             const sheet = document.getElementById('mobileFilterSheet');
@@ -3200,6 +3253,8 @@
             if (sheet) sheet.classList.remove('show');
             if (overlay) overlay.classList.remove('show');
             document.querySelectorAll('.mobile-filter-btn').forEach(b => b.classList.remove('active-filter'));
+            const allBtn = document.getElementById('mobileFilterAllBtn');
+            if (allBtn) allBtn.classList.remove('active-filter');
         }
 
         // 시트가 '미리보기' 상태일 때 화면에 드러나는 높이(px)
@@ -3456,6 +3511,8 @@
                         openMobileFilterSheet(btn.dataset.mobileFilter, btn.textContent.trim());
                     });
                 });
+                const filterAllBtn = document.getElementById('mobileFilterAllBtn');
+                if (filterAllBtn) filterAllBtn.addEventListener('click', () => openMobileFilterSheet('all', '전체 필터'));
                 const filterSheetCloseBtn = document.getElementById('mobileFilterSheetClose');
                 const filterOverlayEl = document.getElementById('mobileFilterOverlay');
                 if (filterSheetCloseBtn) filterSheetCloseBtn.addEventListener('click', closeMobileFilterSheet);
