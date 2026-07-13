@@ -512,7 +512,7 @@ function buildPage(org) {
         <div class="vc-big avg-big">${salary(org.avgSalary)}<span> 단위: 만원</span></div>
       </div>
     </div>
-    ${industryRank > 0 ? `<div class="sv-rank">📊 <strong>${escHtml(org.industry)}</strong> 공기업 신입연봉 <strong>${industryPeers.length}개 기관 중 ${industryRank}위</strong></div>` : ''}
+    ${industryRank > 0 ? `<div class="sv-rank">📊 <strong>${escHtml(org.industry)}</strong> 산업군 신입연봉 <strong>${industryPeers.length}개 기관 중 ${industryRank}위</strong></div>` : ''}
     ${avgHist.some(d => d.year === 2026) ? `<p class="vc-note">* 2026년 평균 연봉은 경영평가 성과급이 미반영된 예산 기준으로, 실제 지급액과 차이가 있을 수 있습니다.</p>` : ''}
   </div>` : ''}
 
@@ -587,7 +587,7 @@ function buildPage(org) {
 
   <!-- 업종 연봉 순위 -->
   ${industryPeers.length > 1 ? `<div class="card">
-    <div class="card-title">${escHtml(org.industry)} 공기업 신입 연봉 순위</div>
+    <div class="card-title">${escHtml(org.industry)} 산업군 신입 연봉 순위</div>
     ${rankComment}
     <table class="rank-table" id="rt-${org.id}">
       <thead><tr><th>순위</th><th>기관명</th><th>신입연봉</th><th>평균연봉</th></tr></thead>
