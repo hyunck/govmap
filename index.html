@@ -1819,14 +1819,16 @@
                 border-radius: 16px 16px 0 0;
                 box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.16);
                 z-index: 770;
-                /* 내용에 맞춰 늘어나되, 상단바+하단 탭바를 뺀 가용 공간을 넘지 않도록 함
+                /* 내용에 맞춰 늘어나되, 상단바를 뺀 가용 공간을 넘지 않도록 함
                    (정확한 값은 JS가 상단바 실측 높이로 top을 직접 지정해 맞춤 — 아래 .sheet-fullscreen 참고) */
-                max-height: calc(100dvh - 150px);
+                max-height: calc(100dvh - 92px);
                 display: flex;
                 flex-direction: column;
                 transition: bottom 0.3s cubic-bezier(0.32, 0.72, 0, 1);
             }
-            .mobile-filter-sheet.show { bottom: 58px; }
+            /* 설명창(상세패널)과 달리 필터 시트는 하단 탭바 위가 아니라 탭바를 덮으며
+               화면 맨 아래까지 올라옴 — z-index가 이미 탭바(700)보다 높아(770) 자연히 덮임 */
+            .mobile-filter-sheet.show { bottom: 0; }
             /* 내용이 가용 공간을 꽉 채울 만큼 길어지면(=전체로 확장됨) 각진 모서리로 바꾸고
                top을 상단바 바로 아래로 지정해 딱 붙게 함 (JS가 top 인라인 스타일을 채움) */
             .mobile-filter-sheet.sheet-fullscreen {
@@ -1859,7 +1861,9 @@
                 font-family: inherit;
             }
             .mobile-filter-sheet-content {
-                padding: 0 16px 24px;
+                /* 시트가 하단 탭바를 덮으며 화면 맨 아래까지 오므로, 홈 인디케이터 등
+                   기기 하단 제스처 영역에 내용이 가리지 않도록 안전 영역만큼 여백 추가 */
+                padding: 0 16px calc(24px + env(safe-area-inset-bottom));
                 overflow-y: auto;
             }
             /* 단일 필터 보기는 시트 제목(예: "유형")과 그 안의 필터 라벨(예: "🏢 기관 유형")이
@@ -3432,7 +3436,9 @@
                 sheet.classList.remove('sheet-fullscreen');
                 sheet.style.top = '';
                 const topbarHeight = topbar.getBoundingClientRect().height;
-                const available = window.innerHeight - topbarHeight - 58;
+                // 필터 시트는 하단 탭바를 덮으며 화면 끝까지 올라오므로(설명창과 달리 탭바 높이를
+                // 빼지 않음) 가용 공간은 상단바를 제외한 전체 높이
+                const available = window.innerHeight - topbarHeight;
                 const isFullscreen = sheet.scrollHeight >= available - 1;
                 if (isFullscreen) {
                     sheet.classList.add('sheet-fullscreen');
