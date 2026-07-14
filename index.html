@@ -1878,6 +1878,14 @@
             .mobile-filter-sheet.mode-all .mobile-filter-sheet-content .exam-filter-header {
                 display: flex;
             }
+            /* 전체 필터 보기에서는 제목 왼쪽의 이모지 아이콘은 빼고 텍스트만 표시 */
+            .mobile-filter-sheet.mode-all .filter-label-icon {
+                display: none;
+            }
+            /* 맨 첫 필터("기관 유형") 위의 구분선은 필터초기화 영역과 겹쳐 보이므로 제거 */
+            .mobile-filter-sheet.mode-all .mobile-filter-sheet-content .filter-group:first-child {
+                border-top: none;
+            }
 
             /* 필터가 상단 바 + 바텀시트로 이동했으므로 사이드바 내부의 기존 필터 섹션은 숨김 */
             .filters { display: none; }
@@ -2004,7 +2012,7 @@
             </a>
             <div class="filters">
                 <div class="filter-group" data-mobile-filter-group="orgtype">
-                    <div class="filter-label">🏢 기관 유형</div>
+                    <div class="filter-label"><span class="filter-label-icon">🏢</span> 기관 유형</div>
                     <div class="filter-chips">
                         <button class="filter-chip active" data-filter-type="orgtype" data-value="전체">전체</button>
                         <button class="filter-chip" data-filter-type="orgtype" data-value="공기업">공기업</button>
@@ -2014,7 +2022,7 @@
                     </div>
                 </div>
                 <div class="filter-group" data-mobile-filter-group="industry">
-                    <div class="filter-label">🏭 산업 분야</div>
+                    <div class="filter-label"><span class="filter-label-icon">🏭</span> 산업 분야</div>
                     <div class="filter-chips">
                         <button class="filter-chip active" data-filter-type="industry" data-value="전체">전체</button>
                         <button class="filter-chip" data-filter-type="industry" data-value="금융">금융</button>
@@ -2029,7 +2037,7 @@
                     </div>
                 </div>
                 <div class="filter-group" data-mobile-filter-group="region">
-                    <div class="filter-label">📍 지역</div>
+                    <div class="filter-label"><span class="filter-label-icon">📍</span> 지역</div>
                     <div class="filter-chips">
                         <button class="filter-chip active" data-filter-type="region" data-value="전체">전체</button>
                         <button class="filter-chip" data-filter-type="region" data-value="수도권">수도권</button>
@@ -2041,7 +2049,7 @@
                     </div>
                 </div>
                 <div class="filter-group" data-mobile-filter-group="salary">
-                    <div class="filter-label">💰 초봉 (세전)</div>
+                    <div class="filter-label"><span class="filter-label-icon">💰</span> 초봉 (세전)</div>
                     <div class="filter-chips">
                         <button class="filter-chip active" data-filter-type="salary" data-value="전체">전체</button>
                         <button class="filter-chip" data-filter-type="salary" data-value="under3000">3천 이하</button>
@@ -2052,7 +2060,7 @@
                 </div>
                 <div class="filter-group" id="examSubjectFilterGroup" data-mobile-filter-group="exam">
                     <div class="exam-filter-header" id="examFilterHeader">
-                        <div class="filter-label">📚 NCS 시험과목 <span class="exam-filter-note">(공기업만 적용)</span></div>
+                        <div class="filter-label"><span class="filter-label-icon">📚</span> NCS 시험과목 <span class="exam-filter-note">(공기업만 적용)</span></div>
                         <button class="exam-collapse-btn" id="examCollapseBtn">▼ 펼치기</button>
                     </div>
                     <div class="exam-chips-wrapper collapsed" id="examChipsWrapper">
@@ -2335,9 +2343,12 @@
             return palette[Math.abs(hash) % palette.length];
         }
 
-        // 모바일 상단 필터바 각 버튼의 기본(카테고리) 라벨 — 시트 제목에는 항상 이 고정값을 쓰고,
-        // 버튼 자체의 표시 텍스트만 선택된 값으로 바뀜 (updateMobileFilterBarLabels 참고)
+        // 모바일 상단 필터바 각 버튼의 기본(축약) 라벨 — 버튼 자체의 표시 텍스트 기본값이자
+        // 선택 해제(전체) 시 복원되는 텍스트 (updateMobileFilterBarLabels 참고)
         const MOBILE_FILTER_CATEGORY_LABELS = { orgtype: '유형', industry: '분야', region: '지역', salary: '초봉', exam: 'NCS' };
+        // 필터 버튼을 눌러 여는 단일 필터 시트의 제목(풀네임) — 필터바 버튼 텍스트와는 별개로
+        // 항상 이 고정값을 씀 (전체 필터 아이콘의 시트 제목 '전체 필터'는 별도 처리)
+        const MOBILE_FILTER_SHEET_TITLES = { orgtype: '기관 유형', industry: '산업 분야', region: '지역', salary: '초봉 (세전)', exam: 'NCS 시험 과목' };
 
         const state = {
             currentNav: 'company',
@@ -3684,8 +3695,8 @@
 
                 document.querySelectorAll('.mobile-filter-btn').forEach(btn => {
                     btn.addEventListener('click', () => {
-                        // 시트 제목은 버튼에 표시된 선택값이 아니라 항상 고정된 카테고리 이름을 씀
-                        openMobileFilterSheet(btn.dataset.mobileFilter, MOBILE_FILTER_CATEGORY_LABELS[btn.dataset.mobileFilter]);
+                        // 시트 제목은 버튼에 표시된 선택값·축약형이 아니라 항상 고정된 풀네임을 씀
+                        openMobileFilterSheet(btn.dataset.mobileFilter, MOBILE_FILTER_SHEET_TITLES[btn.dataset.mobileFilter]);
                     });
                 });
                 const filterAllBtn = document.getElementById('mobileFilterAllBtn');
