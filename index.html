@@ -1571,6 +1571,19 @@
                 z-index: 720;
             }
 
+            /* 리스트에서 기관을 눌러 설명창이 뜰 때(+ 뒤로가기로 닫힐 때)는 아래에서 밀려 올라오는
+               대신 제자리에서 페이드로 나타나고 사라짐 — 리스트 위에 얹혀있던 느낌을 주기 위해
+               위치(top/bottom 등은 이미 sheet-expanded가 고정)는 그대로 두고 opacity만 애니메이션.
+               X(닫기) 버튼은 기존 슬라이드 방식 그대로 유지(이 클래스가 안 붙음) */
+            .detail-panel.fade-transition {
+                transition: opacity 0.25s ease;
+                /* 공통 바텀시트 규칙의 opacity: 1 !important를 이겨야 실제로 페이드가 보임 */
+                opacity: 0 !important;
+            }
+            .detail-panel.fade-transition.fade-visible {
+                opacity: 1 !important;
+            }
+
             /* 지사·본사 항목을 눌러 지도가 이동할 때 — 화면 전체로 확장돼있던 설명창을
                화면 절반 정도만 채우도록 내려서 지도와 함께 보이게 함 (네이버 지도 모바일 스타일) */
             .detail-panel.open.sheet-half {
@@ -2873,10 +2886,11 @@
                 applyFilters();
             }
 
-            // 모바일: 상세패널 바텀시트가 보이도록 사이드바 시트는 살짝 접고, 상세패널은 항상 전체 확장 상태로 열림
+            // 모바일: 상세패널 바텀시트가 보이도록 사이드바 시트는 살짝 접고,
+            // 상세패널은 항상 전체 확장 상태로 (슬라이드 대신 페이드로) 열림
             if (isMobile()) {
                 setSheetState(document.getElementById('sidebar'), 'collapsed');
-                setSheetState(document.getElementById('detailPanel'), 'expanded');
+                openDetailPanelWithFade();
             }
 
             const logoColor = getLogoColor(org.shortName);
@@ -3342,10 +3356,54 @@
             closeDetailPanel('collapsed');
         });
 
+        // 설명창을 리스트 위에 얹힌 것처럼 슬라이드 없이 그 자리에서 페이드로 열어줌
+        // (openDetailPanel/openGovDetailPanel 공통 — 공기업·정부기관 탭 모두 동일 적용)
+        function openDetailPanelWithFade() {
+            const panel = document.getElementById('detailPanel');
+            panel.classList.add('fade-transition');
+            panel.classList.remove('fade-visible');
+            setSheetState(panel, 'expanded');
+            void panel.offsetHeight; // 강제 리플로우 — opacity:0·위치 고정 상태를 먼저 확정시킴
+            requestAnimationFrame(() => { panel.classList.add('fade-visible'); });
+            // 페이드가 끝나면 fade-transition을 떼어 원래(슬라이드) 트랜지션으로 복귀 —
+            // 지사 클릭으로 half 상태로 줄어드는 동작 등 다른 동작에 영향 없도록 함
+            const onFadeInEnd = (e) => {
+                if (e.propertyName !== 'opacity') return;
+                panel.classList.remove('fade-transition');
+                panel.removeEventListener('transitionend', onFadeInEnd);
+            };
+            panel.addEventListener('transitionend', onFadeInEnd);
+        }
+
         // 뒤로가기 버튼(전체 화면으로 확장됐을 때만 노출) — 닫기(X)와 달리 리스트를
-        // 최대로 확장된 상태로 보여줌 (공기업·정부기관 탭 공통, 같은 설명창을 공유하므로)
+        // 최대로 확장된 상태로 보여줌 (공기업·정부기관 탭 공통, 같은 설명창을 공유하므로).
+        // 모바일에서는 설명창을 슬라이드 대신 페이드로 닫고, 그 아래 리스트는 애니메이션 없이
+        // 미리 '확장' 상태로 만들어둬 리스트가 떠오르는 모션 없이 바로 드러나 보이게 함
         document.getElementById('detailBack').addEventListener('click', () => {
-            closeDetailPanel('expanded');
+            const panel = document.getElementById('detailPanel');
+            if (!isMobile()) {
+                closeDetailPanel('expanded');
+                return;
+            }
+            const sidebar = document.getElementById('sidebar');
+            const prevTransition = sidebar.style.transition;
+            sidebar.style.transition = 'none';
+            setSheetState(sidebar, 'expanded');
+            void sidebar.offsetHeight;
+            sidebar.style.transition = prevTransition;
+
+            panel.classList.add('fade-transition');
+            void panel.offsetHeight;
+            panel.classList.remove('fade-visible');
+            const cleanup = (e) => {
+                if (e.propertyName !== 'opacity') return;
+                panel.classList.remove('open', 'sheet-expanded', 'fade-transition');
+                panel.style.top = '';
+                state.selectedOrgId = null;
+                if (state.currentNav === 'company') applyFilters();
+                panel.removeEventListener('transitionend', cleanup);
+            };
+            panel.addEventListener('transitionend', cleanup);
         });
 
         // ⭐ 사이드바 토글 — grid-template-columns로 사이드바 너비를 0으로 (지도 영역은 그대로 유지)
@@ -4140,10 +4198,11 @@
             panel.classList.add('open');
             panel.classList.add('gov-mode'); // 보라색 톤으로
 
-            // 모바일: 상세패널 바텀시트가 보이도록 사이드바 시트는 살짝 접고, 상세패널은 항상 전체 확장 상태로 열림
+            // 모바일: 상세패널 바텀시트가 보이도록 사이드바 시트는 살짝 접고,
+            // 상세패널은 항상 전체 확장 상태로 (슬라이드 대신 페이드로) 열림
             if (isMobile()) {
                 setSheetState(document.getElementById('sidebar'), 'collapsed');
-                setSheetState(panel, 'expanded');
+                openDetailPanelWithFade();
             }
 
             document.getElementById('detailTitle').textContent = gov.name;
