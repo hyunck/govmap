@@ -1857,14 +1857,21 @@
                 padding: 0 16px 24px;
                 overflow-y: auto;
             }
-            /* 시트 제목(예: "유형")과 그 안의 필터 라벨(예: "🏢 기관 유형")이 중복돼 보이므로
-               라벨 텍스트는 숨기고 그 자리에 가로 구분선을 넣음. 여러 filter-group이 동시에
-               보일 때(전체 필터)도 이 구분선이 그룹 사이를 자연스럽게 나눠줌 */
+            /* 단일 필터 보기는 시트 제목(예: "유형")과 그 안의 필터 라벨(예: "🏢 기관 유형")이
+               중복돼 보이므로 라벨 텍스트는 숨기고 그 자리에 가로 구분선을 넣음 */
             .mobile-filter-sheet-content .filter-label,
             .mobile-filter-sheet-content .exam-filter-header { display: none; }
             .mobile-filter-sheet-content .filter-group {
                 padding-top: 14px;
                 border-top: 1px solid var(--border);
+            }
+            /* 예외: 필터 아이콘을 눌러 여러 filter-group을 한 번에 보는 '전체 필터' 보기에서는
+               시트 제목과 중복되지 않으므로 각 필터의 제목을 다시 보여줘 어느 필터인지 구분되게 함 */
+            .mobile-filter-sheet.mode-all .mobile-filter-sheet-content .filter-label {
+                display: block;
+            }
+            .mobile-filter-sheet.mode-all .mobile-filter-sheet-content .exam-filter-header {
+                display: flex;
             }
 
             /* 필터가 상단 바 + 바텀시트로 이동했으므로 사이드바 내부의 기존 필터 섹션은 숨김 */
@@ -3339,6 +3346,9 @@
             });
             document.getElementById('mobileFilterSheetTitle').textContent = label;
             sheet.classList.add('show');
+            // 필터 아이콘(전체 필터) 보기에서만 예외적으로 각 필터 제목을 다시 보여줌
+            // (단일 필터 보기는 시트 상단 제목과 중복돼 계속 숨김)
+            sheet.classList.toggle('mode-all', key === 'all');
             overlay.classList.add('show');
             document.querySelectorAll('.mobile-filter-btn').forEach(b => {
                 b.classList.toggle('active-filter', b.dataset.mobileFilter === key);
