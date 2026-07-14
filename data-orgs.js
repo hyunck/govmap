@@ -27222,6 +27222,8 @@ const ORGS = [
     "startingSalary": 4911,
     "avgSalary": 8738,
     "avgYears": 5.3,
+    "startingSalaryHistory": [{"year":2023,"val":4429},{"year":2024,"val":4582},{"year":2025,"val":4911},{"year":2026,"val":5477}],
+    "avgSalaryHistory": [{"year":2023,"val":8388},{"year":2024,"val":8388},{"year":2025,"val":8738},{"year":2026,"val":8583}],
     "homepage": "http://www.kobc.or.kr",
     "recruitUrl": "https://kobc.scout.co.kr",
     "description": "해운기업의 안정적인 선박 도입과 유동성 확보를 지원해 해운산업 경쟁력을 강화하는 해양수산부 산하 기타공공기관. 2018년 설립됐으며, 부산 본사를 중심으로 선박금융·보증, 친환경 선박 신조 지원, 중고선 매입 후 재리스(S&LB) 등 해운 정책금융 업무를 수행한다.",
