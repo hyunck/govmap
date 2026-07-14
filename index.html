@@ -1528,9 +1528,10 @@
             }
             .app-container.sidebar-collapsed .sidebar { box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.16); }
 
-            /* 사이드바 — 기본은 살짝 보이는 '미리보기' 상태 */
-            .sidebar { transform: translateY(calc(100% - 120px)); }
-            .sidebar.sheet-collapsed { transform: translateY(calc(100% - 120px)); }
+            /* 사이드바 — 기본은 살짝 보이는 '미리보기' 상태. "N개 기관" 텍스트+그 아래 구분선까지만
+               드러나도록 --sidebar-peek-height를 JS(updateSidebarPreviewHeight)가 실측해 채움 */
+            .sidebar { transform: translateY(calc(100% - var(--sidebar-peek-height, 120px))); }
+            .sidebar.sheet-collapsed { transform: translateY(calc(100% - var(--sidebar-peek-height, 120px))); }
             .sidebar.sheet-hidden { transform: translateY(100%); }
 
             /* 기관 리스트가 있는 사이드바도 전체로 확장되면 설명창과 동일하게
@@ -3520,12 +3521,16 @@
         }
 
         // 시트가 '미리보기' 상태일 때 화면에 드러나는 높이(px)
-        // · 사이드바는 고정 120px(살짝 보이는 정도)
+        // · 사이드바는 "N개 기관" 결과 헤더까지의 실제 높이를 따름 — updateSidebarPreviewHeight()가 채워줌
         // · 상세패널은 '기본 정보' 영역(사진·제목·태그·버튼)의 실제 높이를 따름 — updateDetailPreviewHeight()가 채워줌
         function getPeekPx(panel) {
             if (panel.id === 'detailPanel') {
                 const v = parseFloat(getComputedStyle(panel).getPropertyValue('--sheet-peek-height'));
                 return isNaN(v) ? 320 : v;
+            }
+            if (panel.id === 'sidebar') {
+                const v = parseFloat(getComputedStyle(panel).getPropertyValue('--sidebar-peek-height'));
+                return isNaN(v) ? 120 : v;
             }
             return 120;
         }
@@ -3544,11 +3549,28 @@
             });
         }
 
+        // 사이드바(기관 리스트)의 "N개 기관" 결과 헤더(그 아래 구분선 포함) 높이를 측정해
+        // 미리보기 상태에서 딱 그 지점까지만 드러나도록 --sidebar-peek-height 값을 갱신
+        function updateSidebarPreviewHeight() {
+            const panel = document.getElementById('sidebar');
+            const resultsHeader = panel && panel.querySelector('.results-header');
+            if (!panel || !resultsHeader) return;
+            requestAnimationFrame(() => {
+                const panelTop = panel.getBoundingClientRect().top;
+                const headerBottom = resultsHeader.getBoundingClientRect().bottom;
+                const height = Math.ceil(headerBottom - panelTop);
+                if (height > 0) panel.style.setProperty('--sidebar-peek-height', height + 'px');
+            });
+        }
+
         function initBottomSheet(panel, handle, defaultState) {
             let dragging = false;
             let startY = 0;
             let startTranslate = 0;
             let panelHeight = 0;
+            // 기관 리스트가 있는 사이드바는 드래그로 완전히 숨길 수 없게 함(설명창은 기존대로 숨김 가능) —
+            // 아래로 내려도 "N개 기관" 텍스트가 가려지는 지점까지만 움직이고, 손을 떼면 항상 미리보기로 복귀
+            const isSidebar = panel.id === 'sidebar';
 
             function currentTranslateY() {
                 const t = getComputedStyle(panel).transform;
@@ -3578,7 +3600,10 @@
                 const deltaY = point.clientY - startY;
                 const peekTranslate = panelHeight - getPeekPx(panel);
                 let next = startTranslate + deltaY;
-                next = Math.max(0, Math.min(next, peekTranslate + 80));
+                // 사이드바는 "N개 기관" 텍스트가 가려지는 지점(핸들만 겨우 보이는 정도)까지만
+                // 내려가도록 하향 이동량을 좁게 제한 — 설명창은 기존처럼 더 내려가 닫힘까지 허용
+                const maxDownOvershoot = isSidebar ? Math.max(0, getPeekPx(panel) - 24) : 80;
+                next = Math.max(0, Math.min(next, peekTranslate + maxDownOvershoot));
                 panel.style.transform = `translateY(${next}px)`;
                 if (e.cancelable) e.preventDefault();
             }
@@ -3601,12 +3626,13 @@
 
                 if (lastY < panelHeight * 0.18) {
                     setSheetState(panel, 'expanded');
-                } else if (lastY > peekTranslate + 40) {
+                } else if (!isSidebar && lastY > peekTranslate + 40) {
                     setSheetState(panel, 'hidden');
                     if (panel.id === 'detailPanel') {
                         document.getElementById('detailClose').click();
                     }
                 } else {
+                    // 사이드바는 아래로 내려도 숨김 상태로 가지 않고 항상 미리보기로 복귀
                     setSheetState(panel, 'collapsed');
                 }
             }
@@ -3645,6 +3671,7 @@
 
         initBottomSheet(document.getElementById('sidebar'), document.getElementById('sidebarSheetHandle'), 'collapsed');
         initBottomSheet(document.getElementById('detailPanel'), document.getElementById('detailSheetHandle'), 'collapsed');
+        if (isMobile()) updateSidebarPreviewHeight();
 
         // ============================================================
         // 모바일: 검색창을 사이드바에서 떼어내 페이지 상단 바로 이동
