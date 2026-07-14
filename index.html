@@ -2330,6 +2330,10 @@
             return palette[Math.abs(hash) % palette.length];
         }
 
+        // 모바일 상단 필터바 각 버튼의 기본(카테고리) 라벨 — 시트 제목에는 항상 이 고정값을 쓰고,
+        // 버튼 자체의 표시 텍스트만 선택된 값으로 바뀜 (updateMobileFilterBarLabels 참고)
+        const MOBILE_FILTER_CATEGORY_LABELS = { orgtype: '유형', industry: '분야', region: '지역', salary: '초봉', exam: 'NCS' };
+
         const state = {
             currentNav: 'company',
             currentType: '전체',
@@ -3153,6 +3157,7 @@
                             });
                         }
                     }
+                    updateMobileFilterBarLabels();
                     applyFilters();
                     return;
                 }
@@ -3177,6 +3182,7 @@
                             });
                         }
                     }
+                    updateMobileFilterBarLabels();
                     applyFilters();
                     return;
                 }
@@ -3196,6 +3202,7 @@
                 if (type === 'industry') state.currentIndustry = value;
                 if (type === 'region') state.currentRegion = value;
                 if (type === 'salary') state.currentSalary = value;
+                updateMobileFilterBarLabels();
                 applyFilters();
             });
         });
@@ -3225,6 +3232,7 @@
             searchInput.value = '';
             clearBtn.classList.remove('visible');
             document.querySelectorAll('.filter-chip').forEach(c => c.classList.toggle('active', c.dataset.value === '전체'));
+            updateMobileFilterBarLabels();
             applyFilters();
         });
 
@@ -3329,6 +3337,28 @@
             if (panel && panel.classList.contains('open') && panel.classList.contains('sheet-expanded')) {
                 setSheetState(panel, 'half');
             }
+        }
+
+        // 필터를 선택하면 필터바 버튼 텍스트를 선택된 값으로 바꿔줌 (예: "유형" → "공기업")
+        // 전체(기본값)로 돌아가면 다시 카테고리 이름으로 복원. NCS는 다중선택이라 1개면 그 이름,
+        // 여러 개면 "이름 외 N"으로 표시
+        function updateMobileFilterBarLabels() {
+            Object.keys(MOBILE_FILTER_CATEGORY_LABELS).forEach(key => {
+                const btn = document.querySelector(`.mobile-filter-btn[data-mobile-filter="${key}"]`);
+                if (!btn) return;
+                let label = MOBILE_FILTER_CATEGORY_LABELS[key];
+                if (key === 'exam') {
+                    const activeChips = Array.from(document.querySelectorAll(
+                        '[data-mobile-filter-group="exam"] .filter-chip.active:not([data-value="전체"])'
+                    ));
+                    if (activeChips.length === 1) label = activeChips[0].textContent.trim();
+                    else if (activeChips.length > 1) label = activeChips[0].textContent.trim() + ' 외 ' + (activeChips.length - 1);
+                } else {
+                    const activeChip = document.querySelector(`[data-mobile-filter-group="${key}"] .filter-chip.active`);
+                    if (activeChip && activeChip.dataset.value !== '전체') label = activeChip.textContent.trim();
+                }
+                btn.textContent = label;
+            });
         }
 
         // 모바일 상단 필터바(유형·분야·지역·초봉·NCS) — 버튼을 누르면 설명창과 동일한 형태의
@@ -3649,7 +3679,8 @@
 
                 document.querySelectorAll('.mobile-filter-btn').forEach(btn => {
                     btn.addEventListener('click', () => {
-                        openMobileFilterSheet(btn.dataset.mobileFilter, btn.textContent.trim());
+                        // 시트 제목은 버튼에 표시된 선택값이 아니라 항상 고정된 카테고리 이름을 씀
+                        openMobileFilterSheet(btn.dataset.mobileFilter, MOBILE_FILTER_CATEGORY_LABELS[btn.dataset.mobileFilter]);
                     });
                 });
                 const filterAllBtn = document.getElementById('mobileFilterAllBtn');
