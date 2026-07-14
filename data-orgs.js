@@ -23622,6 +23622,8 @@ const ORGS = [
     "startingSalary": 4682,
     "avgSalary": 7291,
     "avgYears": 9.3,
+    "startingSalaryHistory": [{"year":2023,"val":4468},{"year":2024,"val":4571},{"year":2025,"val":4682},{"year":2026,"val":4682}],
+    "avgSalaryHistory": [{"year":2023,"val":6745},{"year":2024,"val":6936},{"year":2025,"val":7291},{"year":2026,"val":7975}],
     "homepage": "https://www.kised.or.kr",
     "recruitUrl": "https://kised.recruitlab.co.kr",
     "description": "중소벤처기업부 산하 기타공공기관으로, 예비창업패키지·TIPS(민관공동창업자발굴육성)·창업중심대학 등 창업기업 성장단계별 지원사업을 총괄한다. 세종 본원을 중심으로 대전·서울 TIPS타운을 거점 삼아 창업 생태계 조성과 스타트업의 글로벌 진출을 지원한다.",
