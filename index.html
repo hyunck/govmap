@@ -1746,6 +1746,9 @@
                 scrollbar-width: none;
             }
             .mobile-filter-bar-scroll::-webkit-scrollbar { display: none; }
+            /* 탭(공기업/정부기관)에 따라 필터바 버튼 구성이 바뀜 — 둘 다 같은 스크롤 영역을 공유 */
+            .mobile-filter-btn-group { display: none; }
+            .mobile-filter-btn-group.active { display: flex; }
             .mobile-filter-btn {
                 flex-shrink: 0;
                 position: relative;
@@ -1867,16 +1870,20 @@
                 overflow-y: auto;
             }
             /* 단일 필터 보기는 시트 제목(예: "유형")과 그 안의 필터 라벨(예: "🏢 기관 유형")이
-               중복돼 보이므로 라벨 텍스트는 숨기고 그 자리에 가로 구분선을 넣음 */
+               중복돼 보이므로 라벨 텍스트는 숨기고 그 자리에 가로 구분선을 넣음
+               (공기업 탭 .filter-group·.filter-label, 정부기관 탭 .gov-filter-group·.gov-filter-label 공통 적용) */
             .mobile-filter-sheet-content .filter-label,
+            .mobile-filter-sheet-content .gov-filter-label,
             .mobile-filter-sheet-content .exam-filter-header { display: none; }
-            .mobile-filter-sheet-content .filter-group {
+            .mobile-filter-sheet-content .filter-group,
+            .mobile-filter-sheet-content .gov-filter-group {
                 padding-top: 14px;
                 border-top: 1px solid var(--border);
             }
             /* 예외: 필터 아이콘을 눌러 여러 filter-group을 한 번에 보는 '전체 필터' 보기에서는
                시트 제목과 중복되지 않으므로 각 필터의 제목을 다시 보여줘 어느 필터인지 구분되게 함 */
-            .mobile-filter-sheet.mode-all .mobile-filter-sheet-content .filter-label {
+            .mobile-filter-sheet.mode-all .mobile-filter-sheet-content .filter-label,
+            .mobile-filter-sheet.mode-all .mobile-filter-sheet-content .gov-filter-label {
                 display: block;
             }
             .mobile-filter-sheet.mode-all .mobile-filter-sheet-content .exam-filter-header {
@@ -1886,8 +1893,10 @@
             .mobile-filter-sheet.mode-all .filter-label-icon {
                 display: none;
             }
-            /* 맨 첫 필터("기관 유형") 위의 구분선은 필터초기화 영역과 겹쳐 보이므로 제거 */
-            .mobile-filter-sheet.mode-all .mobile-filter-sheet-content .filter-group:first-child {
+            /* 현재 탭(공기업/정부기관)에서 실제로 보이는 첫 번째 필터 위의 구분선은 필터초기화
+               영역과 겹쳐 보이므로 제거 — 탭마다 첫 필터가 달라(기관 유형 vs 분류) DOM상
+               :first-child로는 구분 못해 JS가 붙여주는 클래스를 사용 */
+            .mobile-filter-sheet-content [data-mobile-filter-group].mobile-filter-first-in-scope {
                 border-top: none;
             }
 
@@ -1914,6 +1923,17 @@
                 flex-shrink: 0;
             }
             .mobile-filter-sheet-footer.show { display: flex; }
+            /* 정부기관 탭의 초기화 버튼(.gov-reset-btn)은 원래 테두리 박스 스타일이지만
+               이 시트 안에서는 공기업 탭과 동일하게 밑줄 텍스트 형태로 통일 */
+            .mobile-filter-sheet-footer .gov-reset-btn {
+                background: none;
+                border: none;
+                padding: 0;
+                border-radius: 0;
+                font-size: 12px;
+                text-decoration: underline;
+                color: var(--text-secondary);
+            }
 
             /* 검색창 바로 아래에 뜨는 자동완성(검색 가능 내역) — 크롬 주소창 스타일 */
             .mobile-search-suggest {
@@ -2142,8 +2162,8 @@
 
                 <!-- 부처별 보기 패널 -->
                 <div class="gov-mode-panel active" id="govPanelMinistry">
-                    <div class="gov-filter-group">
-                        <div class="gov-filter-label">🏛️ 분류</div>
+                    <div class="gov-filter-group" data-mobile-filter-group="govrank">
+                        <div class="gov-filter-label"><span class="filter-label-icon">🏛️</span> 분류</div>
                         <div class="gov-category-filters" id="govRankFilters">
                             <button class="gov-cat-chip active" data-gov-rank="전체">전체</button>
                             <button class="gov-cat-chip" data-gov-rank="부">부 (19)</button>
@@ -2152,8 +2172,8 @@
                             <button class="gov-cat-chip" data-gov-rank="위원회">위원회 (6)</button>
                         </div>
                     </div>
-                    <div class="gov-filter-group">
-                        <div class="gov-filter-label">📂 분야</div>
+                    <div class="gov-filter-group" data-mobile-filter-group="govcat">
+                        <div class="gov-filter-label"><span class="filter-label-icon">📂</span> 분야</div>
                         <div class="gov-category-filters" id="govCategoryFilters">
                             <button class="gov-cat-chip active" data-gov-cat="전체">전체</button>
                             <button class="gov-cat-chip" data-gov-cat="경제·재정">경제·재정</button>
@@ -2262,11 +2282,17 @@
                 <div class="mobile-search-slot gov-slot" id="mobileSearchSlotGov"></div>
                 <div class="mobile-filter-bar active" id="mobileFilterBar">
                     <div class="mobile-filter-bar-scroll">
-                        <button class="mobile-filter-btn" data-mobile-filter="orgtype">유형</button>
-                        <button class="mobile-filter-btn" data-mobile-filter="industry">분야</button>
-                        <button class="mobile-filter-btn" data-mobile-filter="region">지역</button>
-                        <button class="mobile-filter-btn" data-mobile-filter="salary">초봉</button>
-                        <button class="mobile-filter-btn" data-mobile-filter="exam">NCS</button>
+                        <div class="mobile-filter-btn-group active" id="mobileFilterBtnGroupCompany">
+                            <button class="mobile-filter-btn" data-mobile-filter="orgtype">유형</button>
+                            <button class="mobile-filter-btn" data-mobile-filter="industry">분야</button>
+                            <button class="mobile-filter-btn" data-mobile-filter="region">지역</button>
+                            <button class="mobile-filter-btn" data-mobile-filter="salary">초봉</button>
+                            <button class="mobile-filter-btn" data-mobile-filter="exam">NCS</button>
+                        </div>
+                        <div class="mobile-filter-btn-group" id="mobileFilterBtnGroupGov">
+                            <button class="mobile-filter-btn" data-mobile-filter="govrank">분류</button>
+                            <button class="mobile-filter-btn" data-mobile-filter="govcat">분야</button>
+                        </div>
                     </div>
                     <button class="mobile-filter-all-btn" id="mobileFilterAllBtn" aria-label="전체 필터 보기" title="전체 필터 보기">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
@@ -2349,10 +2375,11 @@
 
         // 모바일 상단 필터바 각 버튼의 기본(축약) 라벨 — 버튼 자체의 표시 텍스트 기본값이자
         // 선택 해제(전체) 시 복원되는 텍스트 (updateMobileFilterBarLabels 참고)
-        const MOBILE_FILTER_CATEGORY_LABELS = { orgtype: '유형', industry: '분야', region: '지역', salary: '초봉', exam: 'NCS' };
+        // govrank/govcat = 정부기관 탭의 분류·분야 필터 (공기업 탭과 동일한 패턴 적용)
+        const MOBILE_FILTER_CATEGORY_LABELS = { orgtype: '유형', industry: '분야', region: '지역', salary: '초봉', exam: 'NCS', govrank: '분류', govcat: '분야' };
         // 필터 버튼을 눌러 여는 단일 필터 시트의 제목(풀네임) — 필터바 버튼 텍스트와는 별개로
         // 항상 이 고정값을 씀 (전체 필터 아이콘의 시트 제목 '전체 필터'는 별도 처리)
-        const MOBILE_FILTER_SHEET_TITLES = { orgtype: '기관 유형', industry: '산업 분야', region: '지역', salary: '초봉 (세전)', exam: 'NCS 시험 과목' };
+        const MOBILE_FILTER_SHEET_TITLES = { orgtype: '기관 유형', industry: '산업 분야', region: '지역', salary: '초봉 (세전)', exam: 'NCS 시험 과목', govrank: '분류', govcat: '분야' };
 
         const state = {
             currentNav: 'company',
@@ -3124,9 +3151,9 @@
                         slotGov.classList.toggle('active', navType === 'government');
                     }
 
-                    // 필터 버튼바는 공기업 탭 전용 — 다른 탭으로 전환 시 숨기고 열려있던 필터 시트도 닫음
-                    const filterBar = document.getElementById('mobileFilterBar');
-                    if (filterBar) filterBar.classList.toggle('active', navType === 'company');
+                    // 필터 버튼바는 공기업 탭·정부기관 탭(부처별 보기) 전용 — 그 외 탭(비교)으로
+                    // 전환 시 숨기고 열려있던 필터 시트도 닫음
+                    updateMobileFilterBarVisibility();
                     closeMobileFilterSheet();
 
                     if (navType === 'company' || navType === 'government') {
@@ -3361,7 +3388,22 @@
 
         // 필터를 선택하면 필터바 버튼 텍스트를 선택된 값으로 바꿔줌 (예: "유형" → "공기업")
         // 전체(기본값)로 돌아가면 다시 카테고리 이름으로 복원. NCS는 다중선택이라 1개면 그 이름,
-        // 여러 개면 "이름 외 N"으로 표시
+        // 여러 개면 "이름 외 N"으로 표시. 정부기관 탭의 분류·분야(govrank/govcat)도 동일 패턴 적용
+        // 상단 필터바 자체와 그 안의 버튼 그룹(공기업용 5개 / 정부기관용 2개) 노출 여부를
+        // 현재 탭·정부기관 모드에 맞춰 갱신. 정부기관 탭은 '부처별 보기'일 때만 필터바를 씀
+        // ('내 연고지 반경' 모드는 필터 칩이 아닌 별도 UI라 대상 아님)
+        function updateMobileFilterBarVisibility() {
+            const filterBar = document.getElementById('mobileFilterBar');
+            if (!filterBar) return;
+            const showCompany = state.currentNav === 'company';
+            const showGov = state.currentNav === 'government' && state.govMode === 'ministry';
+            filterBar.classList.toggle('active', showCompany || showGov);
+            const groupCompany = document.getElementById('mobileFilterBtnGroupCompany');
+            const groupGov = document.getElementById('mobileFilterBtnGroupGov');
+            if (groupCompany) groupCompany.classList.toggle('active', showCompany);
+            if (groupGov) groupGov.classList.toggle('active', showGov);
+        }
+
         function updateMobileFilterBarLabels() {
             Object.keys(MOBILE_FILTER_CATEGORY_LABELS).forEach(key => {
                 const btn = document.querySelector(`.mobile-filter-btn[data-mobile-filter="${key}"]`);
@@ -3373,6 +3415,12 @@
                     ));
                     if (activeChips.length === 1) label = activeChips[0].textContent.trim();
                     else if (activeChips.length > 1) label = activeChips[0].textContent.trim() + ' 외 ' + (activeChips.length - 1);
+                } else if (key === 'govrank') {
+                    const activeChip = document.querySelector('#govRankFilters .gov-cat-chip.active');
+                    if (activeChip && activeChip.dataset.govRank !== '전체') label = activeChip.textContent.trim();
+                } else if (key === 'govcat') {
+                    const activeChip = document.querySelector('#govCategoryFilters .gov-cat-chip.active');
+                    if (activeChip && activeChip.dataset.govCat !== '전체') label = activeChip.textContent.trim();
                 } else {
                     const activeChip = document.querySelector(`[data-mobile-filter-group="${key}"] .filter-chip.active`);
                     if (activeChip && activeChip.dataset.value !== '전체') label = activeChip.textContent.trim();
@@ -3381,19 +3429,31 @@
             });
         }
 
-        // 모바일 상단 필터바(유형·분야·지역·초봉·NCS) — 버튼을 누르면 설명창과 동일한 형태의
-        // 바텀시트가 올라오고 해당 필터의 filter-group만 보여줌. key === 'all'이면(우측 필터 아이콘)
-        // 모든 filter-group을 한 번에 보여줌
+        // 모바일 상단 필터바 — 버튼을 누르면 설명창과 동일한 형태의 바텀시트가 올라오고 해당
+        // 필터의 filter-group만 보여줌. key === 'all'이면(우측 필터 아이콘) 현재 탭(공기업/정부기관)에
+        // 해당하는 filter-group을 전부 한 번에 보여줌 — 탭 구분은 data-mobile-filter-group 값이
+        // 'gov'로 시작하는지로 판단(govrank/govcat vs orgtype/industry/region/salary/exam)
         // (filter-group DOM 자체는 isMobile() 초기화 블록에서 시트 안으로 옮겨짐)
         function openMobileFilterSheet(key, label) {
             const sheet = document.getElementById('mobileFilterSheet');
             const overlay = document.getElementById('mobileFilterOverlay');
             if (!sheet || !overlay) return;
-            const groups = Array.from(document.querySelectorAll('.filter-group[data-mobile-filter-group]'));
+            const isGovScope = state.currentNav === 'government';
+            const inScope = g => isGovScope ? g.dataset.mobileFilterGroup.startsWith('gov') : !g.dataset.mobileFilterGroup.startsWith('gov');
+            // 현재 탭과 무관한 그룹(예: 공기업 보기 중인 정부기관 분류·분야)은 이전에 보이던 상태가
+            // 남아있지 않도록 항상 먼저 숨김 — 안 그러면 탭을 오가며 서로 다른 필터가 섞여 보임
+            document.querySelectorAll('[data-mobile-filter-group]').forEach(group => {
+                if (!inScope(group)) group.style.display = 'none';
+            });
+            const groups = Array.from(document.querySelectorAll('[data-mobile-filter-group]')).filter(inScope);
             groups.forEach(group => {
                 const visible = (key === 'all' || group.dataset.mobileFilterGroup === key);
                 group.style.display = visible ? 'block' : 'none';
+                group.classList.remove('mobile-filter-first-in-scope');
             });
+            // 탭마다 첫 필터가 달라(기관 유형 vs 분류) 실제로 보이는 첫 그룹에만 표시해
+            // 그 위 구분선을 CSS에서 제거할 수 있게 함 (전체 필터 보기에서만 의미 있음)
+            if (key === 'all' && groups.length) groups[0].classList.add('mobile-filter-first-in-scope');
             document.getElementById('mobileFilterSheetTitle').textContent = label;
             sheet.classList.add('show');
             // 필터 아이콘(전체 필터) 보기에서만 예외적으로 각 필터 제목을 다시 보여줌
@@ -3406,9 +3466,16 @@
             const allBtn = document.getElementById('mobileFilterAllBtn');
             if (allBtn) allBtn.classList.toggle('active-filter', key === 'all');
 
-            // 필터 초기화 버튼은 '전체 필터' 보기에서만 필요 — 하단 오른쪽에 노출
+            // 필터 초기화 버튼은 '전체 필터' 보기에서만 필요 — 하단 오른쪽에 노출.
+            // 공기업/정부기관 탭에 맞는 초기화 버튼만 보이도록 전환
             const footer = document.getElementById('mobileFilterSheetFooter');
-            if (footer) footer.classList.toggle('show', key === 'all');
+            if (footer) {
+                footer.classList.toggle('show', key === 'all');
+                const resetBtnEl = document.getElementById('resetBtn');
+                const govResetBtnEl = document.getElementById('govResetBtn');
+                if (resetBtnEl) resetBtnEl.style.display = isGovScope ? 'none' : '';
+                if (govResetBtnEl) govResetBtnEl.style.display = isGovScope ? '' : 'none';
+            }
 
             updateMobileFilterSheetFullscreen();
         }
@@ -3681,23 +3748,29 @@
             );
 
             // ----------------------------------------------------------
-            // 모바일: 사이드바 안에 있던 필터(기관유형/산업분야/지역/초봉/NCS시험과목)를
-            // 상단 필터바 + 하단 필터 시트로 이동. 기존 filter-group DOM을 그대로 옮기므로
-            // 기존 필터 로직(이벤트 리스너)이 그대로 동작함 (검색창 이동과 동일한 패턴)
+            // 모바일: 사이드바 안에 있던 필터(공기업 탭 5종 + 정부기관 탭 분류·분야)를
+            // 상단 필터바 + 하단 필터 시트로 이동. 기존 filter-group/gov-filter-group DOM을
+            // 그대로 옮기므로 기존 필터 로직(이벤트 리스너)이 그대로 동작함 (검색창 이동과 동일한 패턴)
             // ----------------------------------------------------------
             const mobileFilterSheetContent = document.getElementById('mobileFilterSheetContent');
             if (mobileFilterSheetContent) {
-                document.querySelectorAll('.filter-group[data-mobile-filter-group]').forEach(group => {
+                document.querySelectorAll('[data-mobile-filter-group]').forEach(group => {
                     mobileFilterSheetContent.appendChild(group);
                     group.style.display = 'none';
                 });
                 // NCS 시험과목 접기/펼치기는 모바일에서 CSS로 항상 펼침 처리(위 미디어쿼리 참고) —
                 // 자바스크립트로 클릭을 흉내내 펼치던 예전 방식은 더 이상 필요 없어 제거함
 
-                // 필터 초기화 버튼을 사이드바에서 필터 시트 하단(전체 필터 보기)으로 이동
+                // 필터 초기화 버튼(공기업·정부기관 둘 다)을 사이드바에서 필터 시트 하단(전체 필터
+                // 보기)으로 이동 — 실제 노출 여부는 openMobileFilterSheet가 탭에 맞게 전환
                 const resetBtnEl = document.getElementById('resetBtn');
+                const govResetBtnEl = document.getElementById('govResetBtn');
                 const filterFooter = document.getElementById('mobileFilterSheetFooter');
                 if (resetBtnEl && filterFooter) filterFooter.appendChild(resetBtnEl);
+                if (govResetBtnEl && filterFooter) filterFooter.appendChild(govResetBtnEl);
+
+                // 초기 상태(공기업 탭)에 맞춰 필터바 노출 여부 설정
+                updateMobileFilterBarVisibility();
 
                 document.querySelectorAll('.mobile-filter-btn').forEach(btn => {
                     btn.addEventListener('click', () => {
@@ -4318,6 +4391,9 @@
                 state.govMode = mode;
                 document.getElementById('govPanelMinistry').classList.toggle('active', mode === 'ministry');
                 document.getElementById('govPanelRadius').classList.toggle('active', mode === 'radius');
+                // 모바일 필터바는 '부처별 보기'에서만 사용 — 반경 모드로 바뀌면 숨기고 열려있던 시트도 닫음
+                updateMobileFilterBarVisibility();
+                closeMobileFilterSheet();
 
                 if (mode === 'ministry') {
                     clearRadiusOverlays();
@@ -4337,6 +4413,7 @@
                 chip.classList.add('active');
                 state.govRank = chip.dataset.govRank;
                 state.govSelectedId = null;
+                updateMobileFilterBarLabels();
                 applyGovMinistryFilter();
             });
         });
@@ -4348,6 +4425,7 @@
                 chip.classList.add('active');
                 state.govCategory = chip.dataset.govCat;
                 state.govSelectedId = null;
+                updateMobileFilterBarLabels();
                 applyGovMinistryFilter();
             });
         });
@@ -4377,6 +4455,7 @@
             govClearBtn.classList.remove('visible');
             document.querySelectorAll('#govRankFilters .gov-cat-chip').forEach(c => c.classList.toggle('active', c.dataset.govRank === '전체'));
             document.querySelectorAll('#govCategoryFilters .gov-cat-chip').forEach(c => c.classList.toggle('active', c.dataset.govCat === '전체'));
+            updateMobileFilterBarLabels();
             applyGovMinistryFilter();
             state.map.setLevel(13);
             state.map.panTo(new kakao.maps.LatLng(36.2, 127.9));
