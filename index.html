@@ -3643,7 +3643,18 @@
                     });
                 });
                 const filterAllBtn = document.getElementById('mobileFilterAllBtn');
-                if (filterAllBtn) filterAllBtn.addEventListener('click', () => openMobileFilterSheet('all', '전체 필터'));
+                if (filterAllBtn) {
+                    filterAllBtn.addEventListener('click', () => {
+                        // 이미 전체 필터 보기로 열려있는 상태에서 다시 누르면 시트를 닫음(토글)
+                        const sheet = document.getElementById('mobileFilterSheet');
+                        const isAllOpen = sheet.classList.contains('show') && filterAllBtn.classList.contains('active-filter');
+                        if (isAllOpen) {
+                            closeMobileFilterSheet();
+                        } else {
+                            openMobileFilterSheet('all', '전체 필터');
+                        }
+                    });
+                }
                 const filterSheetCloseBtn = document.getElementById('mobileFilterSheetClose');
                 const filterOverlayEl = document.getElementById('mobileFilterOverlay');
                 if (filterSheetCloseBtn) filterSheetCloseBtn.addEventListener('click', closeMobileFilterSheet);
