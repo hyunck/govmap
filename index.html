@@ -712,7 +712,8 @@
            지도 캔버스까지 전달되지 않았음 — 클러스터 엘리먼트를 아예 클릭 투과 처리해
            지도가 직접 이벤트를 받도록 함. 클러스터는 JS의 styles 배열로 border-radius를
            인라인 스타일로 지정하므로 이 값을 가진 엘리먼트만 선택적으로 매치시킴 */
-        #map div[style*="border-radius"] {
+        #map div[style*="border-radius"],
+        #map div[style*="border-radius"] * {
             pointer-events: none !important;
         }
 
@@ -2403,6 +2404,12 @@
             kakao.maps.event.addListener(state.clusterer, 'clustered', function () {
                 document.querySelectorAll('#map div[style*="border-radius"]').forEach(el => {
                     el.style.pointerEvents = 'none';
+                    // 원 안의 숫자(텍스트) 등 자손 엘리먼트도 개별적으로 pointer-events가
+                    // 지정돼 상속이 씹히는 경우가 있어 자손 전체에 직접 강제 적용
+                    el.querySelectorAll('*').forEach(child => { child.style.pointerEvents = 'none'; });
+                    // 카카오가 원과 텍스트를 형제(sibling) 엘리먼트로 감싸는 경우까지 대비해
+                    // 부모 래퍼에도 동일하게 적용
+                    if (el.parentElement) el.parentElement.style.pointerEvents = 'none';
                 });
             });
 
