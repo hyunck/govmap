@@ -15633,13 +15633,26 @@ const ORGS = [
       "4대 보험 등 기본 복리후생"
     ],
     "branches": [
-      { "name": "본사 (서울)", "address": "서울 중구 퇴계로 100" },
-      { "name": "뉴욕사무소", "address": "(해외)" },
-      { "name": "런던사무소", "address": "(해외)" },
-      { "name": "싱가포르사무소", "address": "(해외)" },
-      { "name": "도쿄사무소", "address": "(해외)" },
-      { "name": "샌프란시스코사무소", "address": "(해외)" },
-      { "name": "뭄바이사무소", "address": "(해외)" }
+      { "name": "본사 (서울)", "address": "서울 중구 퇴계로 100" }
+    ],
+    "allBranches": [
+      {
+        "groupName": "본사",
+        "items": [
+          { "name": "본사 (서울)", "address": "서울 중구 퇴계로 100" }
+        ]
+      },
+      {
+        "groupName": "해외사무소",
+        "items": [
+          { "name": "뉴욕사무소", "address": "(해외)" },
+          { "name": "런던사무소", "address": "(해외)" },
+          { "name": "싱가포르사무소", "address": "(해외)" },
+          { "name": "도쿄사무소", "address": "(해외)" },
+          { "name": "샌프란시스코사무소", "address": "(해외)" },
+          { "name": "뭄바이사무소", "address": "(해외)" }
+        ]
+      }
     ],
     "rotation": {
       "type": "비순환",
