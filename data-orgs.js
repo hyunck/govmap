@@ -15645,12 +15645,12 @@ const ORGS = [
       {
         "groupName": "해외사무소",
         "items": [
-          { "name": "뉴욕사무소", "address": "(해외)" },
-          { "name": "런던사무소", "address": "(해외)" },
-          { "name": "싱가포르사무소", "address": "(해외)" },
-          { "name": "도쿄사무소", "address": "(해외)" },
-          { "name": "샌프란시스코사무소", "address": "(해외)" },
-          { "name": "뭄바이사무소", "address": "(해외)" }
+          { "name": "뉴욕사무소", "address": "6 Grand Central (666 3rd Ave.), Suite 1030, New York, NY 10017, USA" },
+          { "name": "런던사무소", "address": "9th Floor, Part South, 1 Angel Court, London, EC2R 7HJ, United Kingdom" },
+          { "name": "싱가포르사무소", "address": "#14-08 Asia Square Tower 1, 8 Marina View, Singapore 018960" },
+          { "name": "도쿄사무소", "address": "Maru Bldg. 34F, Suite 3415, 2-4-1 Marunouchi, Chiyoda-ku, Tokyo 100-6334, Japan" },
+          { "name": "샌프란시스코사무소", "address": "575 Market St., Suite 2050, San Francisco, CA 94105, USA" },
+          { "name": "뭄바이사무소", "address": "76B, 3 North Avenue, Maker Maxity, Bandra-Kurla Complex, Bandra (E), Mumbai, Maharashtra 400051" }
         ]
       }
     ],
