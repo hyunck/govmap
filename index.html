@@ -1477,6 +1477,7 @@
         .mobile-topbar { display: none; }
         .mobile-filter-overlay { display: none; }
         .mobile-filter-sheet { display: none; }
+        .mobile-map-expand-btn { display: none; }
 
         @media (max-width: 768px) {
             .app-container { display: block; height: 100vh; height: 100dvh; }
@@ -1993,6 +1994,36 @@
             /* 범례(본사·지사·지역본부) — 검색창·필터 바와 겹쳐 모바일에서는 완전히 숨김 */
             .map-legend { display: none; }
 
+            /* 지도 확대 토글 버튼 (부동산플래닛 참고) — 지도 우측 상단, 상단바 바로 아래에
+               떠 있다가 눌리면 검색창·필터바·하단 탭바를 숨기고 버튼 자신은 화면 맨 위로 올라옴 */
+            .mobile-map-expand-btn {
+                display: flex;
+                position: fixed;
+                top: 100px;
+                right: 14px;
+                z-index: 730;
+                width: 34px;
+                height: 34px;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
+                background: #fff;
+                border: none;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+                color: var(--text-secondary);
+                cursor: pointer;
+                transition: top 0.25s ease;
+            }
+            .mobile-map-expand-btn svg { width: 17px; height: 17px; }
+            .mobile-map-expand-btn .collapse-icon { display: none; }
+            .app-container.mobile-map-expanded .mobile-map-expand-btn .expand-icon { display: none; }
+            .app-container.mobile-map-expanded .mobile-map-expand-btn .collapse-icon { display: block; }
+
+            /* 지도 확대 모드 — 검색창·필터바(상단바)와 하단 탭바를 숨겨 지도가 화면을 꽉 채우게 함 */
+            .app-container.mobile-map-expanded .mobile-topbar { display: none; }
+            .app-container.mobile-map-expanded .nav-bar { display: none; }
+
             /* 준비 중(공기업 비교 등) 오버레이 — 사이드바·하단 탭바까지 모두 가려 화면 전체를 채움 */
             .coming-soon-overlay {
                 left: 0;
@@ -2322,6 +2353,23 @@
                     </button>
                 </div>
             </div>
+            <!-- 모바일 전용 — 지도 확대 토글: 검색창·필터바·하단 탭바를 숨기고 지도를 최대로 보여줌
+                 (부동산플래닛 스타일 참고). 위치는 JS(updateMobileMapExpandBtnPosition)가 상단바
+                 높이에 맞춰 동적으로 지정 -->
+            <button class="mobile-map-expand-btn" id="mobileMapExpandBtn" aria-label="지도 확대" title="지도 확대">
+                <svg class="expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 3 21 3 21 9"/>
+                    <polyline points="9 21 3 21 3 15"/>
+                    <line x1="21" y1="3" x2="14" y2="10"/>
+                    <line x1="3" y1="21" x2="10" y2="14"/>
+                </svg>
+                <svg class="collapse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="4 14 10 14 10 20"/>
+                    <polyline points="20 10 14 10 14 4"/>
+                    <line x1="14" y1="10" x2="21" y2="3"/>
+                    <line x1="10" y1="14" x2="3" y2="21"/>
+                </svg>
+            </button>
             <div class="pickmode-hint" id="pickmodeHint">🎯 지도 위 원하는 위치를 클릭해주세요</div>
             <div class="map-legend" id="mapLegend">
                 <div class="legend-default">
@@ -2401,6 +2449,7 @@
         const MOBILE_FILTER_SHEET_TITLES = { orgtype: '기관 유형', industry: '산업 분야', region: '지역', salary: '초봉 (세전)', exam: 'NCS 시험 과목', govrank: '분류', govcat: '분야' };
 
         const state = {
+            mobileMapExpanded: false,  // 모바일 지도 확대 토글(검색창·필터바·하단 탭바 숨김) 상태
             currentNav: 'company',
             currentType: '전체',
             currentIndustry: '전체',
@@ -3174,6 +3223,7 @@
                     // 필터 버튼바는 공기업 탭·정부기관 탭(부처별 보기) 전용 — 그 외 탭(비교)으로
                     // 전환 시 숨기고 열려있던 필터 시트도 닫음
                     updateMobileFilterBarVisibility();
+                    updateMobileMapExpandBtnPosition();
                     closeMobileFilterSheet();
 
                     if (navType === 'company' || navType === 'government') {
@@ -3453,8 +3503,13 @@
             // 검색창+필터바(상단바) 바로 아래에 딱 붙도록 top을 동적으로 지정 (탭에 따라 상단바 높이가 다름)
             if (panel.id === 'detailPanel' || panel.id === 'sidebar') {
                 if (stateName === 'expanded') {
-                    const topbar = document.getElementById('mobileTopbar');
-                    panel.style.top = topbar ? topbar.getBoundingClientRect().height + 'px' : '';
+                    // 지도 확대 모드(검색창·필터바 숨김)에서는 상단바 자체가 없으므로 화면 맨 위까지 채움
+                    if (state.mobileMapExpanded) {
+                        panel.style.top = '0px';
+                    } else {
+                        const topbar = document.getElementById('mobileTopbar');
+                        panel.style.top = topbar ? topbar.getBoundingClientRect().height + 'px' : '';
+                    }
                 } else {
                     panel.style.top = '';
                 }
@@ -3469,6 +3524,38 @@
             if (panel && panel.classList.contains('open') && panel.classList.contains('sheet-expanded')) {
                 setSheetState(panel, 'half');
             }
+        }
+
+        // 지도 확대 버튼의 위치(top)를 갱신 — 평소엔 상단바 바로 아래, 지도 확대 모드에서는
+        // 상단바 자체가 사라지므로 화면 맨 위로 올라옴 (탭에 따라 상단바 높이가 달라 동적으로 계산)
+        function updateMobileMapExpandBtnPosition() {
+            const btn = document.getElementById('mobileMapExpandBtn');
+            if (!btn) return;
+            if (state.mobileMapExpanded) {
+                btn.style.top = 'calc(env(safe-area-inset-top) + 10px)';
+            } else {
+                const topbar = document.getElementById('mobileTopbar');
+                const h = topbar ? topbar.getBoundingClientRect().height : 92;
+                btn.style.top = (h + 8) + 'px';
+            }
+        }
+
+        // 지도 확대 토글 — 검색창·필터바·하단 탭바를 숨기고 지도를 최대로 보여줌(부동산플래닛 참고).
+        // 이 상태에서 기관 리스트·설명창이 '전체 확장'되면 화면 맨 위(top:0)까지 꽉 채우게 됨
+        // (setSheetState 참고). 공기업·정부기관 탭 공통
+        function toggleMobileMapExpand() {
+            state.mobileMapExpanded = !state.mobileMapExpanded;
+            document.getElementById('appContainer').classList.toggle('mobile-map-expanded', state.mobileMapExpanded);
+            // 상단바가 사라지므로 열려있던 필터 시트는 의미가 없어져 닫음
+            closeMobileFilterSheet();
+            updateMobileMapExpandBtnPosition();
+            // 이미 전체 확장 상태로 열려있던 리스트·설명창이 있다면 top을 새 모드에 맞게 다시 계산
+            ['sidebar', 'detailPanel'].forEach(id => {
+                const panel = document.getElementById(id);
+                if (panel && panel.classList.contains('sheet-expanded')) {
+                    setSheetState(panel, 'expanded');
+                }
+            });
         }
 
         // 필터를 선택하면 필터바 버튼 텍스트를 선택된 값으로 바꿔줌 (예: "유형" → "공기업")
@@ -3882,6 +3969,12 @@
 
                 // 초기 상태(공기업 탭)에 맞춰 필터바 노출 여부 설정
                 updateMobileFilterBarVisibility();
+
+                const mapExpandBtn = document.getElementById('mobileMapExpandBtn');
+                if (mapExpandBtn) {
+                    mapExpandBtn.addEventListener('click', toggleMobileMapExpand);
+                    updateMobileMapExpandBtnPosition();
+                }
 
                 document.querySelectorAll('.mobile-filter-btn').forEach(btn => {
                     btn.addEventListener('click', () => {
@@ -4505,6 +4598,7 @@
                 document.getElementById('govPanelRadius').classList.toggle('active', mode === 'radius');
                 // 모바일 필터바는 두 모드 모두에서 유지 — 모드 전환 시 열려있던 시트만 닫음
                 updateMobileFilterBarVisibility();
+                updateMobileMapExpandBtnPosition();
                 closeMobileFilterSheet();
 
                 if (mode === 'ministry') {
