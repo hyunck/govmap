@@ -3397,11 +3397,25 @@
             panel.classList.remove('fade-visible');
             const cleanup = (e) => {
                 if (e.propertyName !== 'opacity') return;
-                panel.classList.remove('open', 'sheet-expanded', 'fade-transition');
+                panel.removeEventListener('transitionend', cleanup);
+                // ⚠️ 'sheet-expanded'와 'fade-transition'을 한 번에 같이 지우면, 지워지는 바로 그
+                // 순간 opacity가 (fade-transition이 사라지며) 공통 규칙의 opacity:1 !important로
+                // 즉시 튕겨 돌아가는 동시에 transform도 (fade-transition이 억눌러온 0.32s 트랜지션이
+                // 되살아나며) 닫힌 위치로 애니메이션돼, "잠깐 다시 보이며 아래로 슬라이드되는" 잔상이
+                // 생겼음. rAF로 한 프레임 미루는 방식은 타이밍에 따라 여전히 씹힐 수 있어,
+                // 대신 인라인 스타일로 "닫힌 위치"를 트랜지션 없이 먼저 확정한 뒤 클래스를
+                // 정리 — 클래스가 바뀌는 시점엔 transform 값 자체가 이미 동일해(델타 0)
+                // 애니메이션할 대상이 없으므로 타이밍과 무관하게 항상 안전함
+                panel.style.transition = 'none';
+                panel.style.transform = 'translateY(100%)';
+                panel.classList.remove('open', 'sheet-expanded');
                 panel.style.top = '';
+                void panel.offsetHeight;
+                panel.style.transform = '';
+                panel.style.transition = '';
+                panel.classList.remove('fade-transition');
                 state.selectedOrgId = null;
                 if (state.currentNav === 'company') applyFilters();
-                panel.removeEventListener('transitionend', cleanup);
             };
             panel.addEventListener('transitionend', cleanup);
         });
