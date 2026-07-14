@@ -3321,7 +3321,9 @@
             });
         });
 
-        document.getElementById('detailClose').addEventListener('click', () => {
+        // 설명창을 닫고 사이드바(기관 리스트)를 지정한 상태로 복원 — X와 뒤로가기 버튼이 공유
+        // (sidebarState만 다름: X는 미리보기로, 뒤로가기는 리스트를 최대로 확장해서 보여줌)
+        function closeDetailPanel(sidebarState) {
             const detailPanel = document.getElementById('detailPanel');
             detailPanel.classList.remove('open');
             detailPanel.classList.remove('sheet-expanded', 'sheet-collapsed', 'sheet-hidden');
@@ -3330,15 +3332,20 @@
             if (state.currentNav === 'company') {
                 applyFilters();
             }
-            // 모바일: 상세패널을 닫으면 사이드바 시트를 다시 미리보기 상태로 복원
+            // 모바일: 상세패널을 닫으면 사이드바 시트를 지정한 상태로 복원
             if (isMobile()) {
-                setSheetState(document.getElementById('sidebar'), 'collapsed');
+                setSheetState(document.getElementById('sidebar'), sidebarState);
             }
+        }
+
+        document.getElementById('detailClose').addEventListener('click', () => {
+            closeDetailPanel('collapsed');
         });
 
-        // 뒤로가기 버튼(전체 화면으로 확장됐을 때만 노출) — 닫기(X) 버튼과 완전히 동일하게 동작
+        // 뒤로가기 버튼(전체 화면으로 확장됐을 때만 노출) — 닫기(X)와 달리 리스트를
+        // 최대로 확장된 상태로 보여줌 (공기업·정부기관 탭 공통, 같은 설명창을 공유하므로)
         document.getElementById('detailBack').addEventListener('click', () => {
-            document.getElementById('detailClose').click();
+            closeDetailPanel('expanded');
         });
 
         // ⭐ 사이드바 토글 — grid-template-columns로 사이드바 너비를 0으로 (지도 영역은 그대로 유지)
