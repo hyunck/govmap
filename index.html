@@ -3396,13 +3396,13 @@
         // 전체(기본값)로 돌아가면 다시 카테고리 이름으로 복원. NCS는 다중선택이라 1개면 그 이름,
         // 여러 개면 "이름 외 N"으로 표시. 정부기관 탭의 분류·분야(govrank/govcat)도 동일 패턴 적용
         // 상단 필터바 자체와 그 안의 버튼 그룹(공기업용 5개 / 정부기관용 2개) 노출 여부를
-        // 현재 탭·정부기관 모드에 맞춰 갱신. 정부기관 탭은 '부처별 보기'일 때만 필터바를 씀
-        // ('내 연고지 반경' 모드는 필터 칩이 아닌 별도 UI라 대상 아님)
+        // 현재 탭에 맞춰 갱신. 정부기관 탭은 '부처별 보기'·'내 연고지 반경' 두 모드 모두에서
+        // 필터바를 그대로 유지(분류·분야로 반경 매칭 결과도 좁혀볼 수 있음 — applyRadiusFilter 참고)
         function updateMobileFilterBarVisibility() {
             const filterBar = document.getElementById('mobileFilterBar');
             if (!filterBar) return;
             const showCompany = state.currentNav === 'company';
-            const showGov = state.currentNav === 'government' && state.govMode === 'ministry';
+            const showGov = state.currentNav === 'government';
             filterBar.classList.toggle('active', showCompany || showGov);
             const groupCompany = document.getElementById('mobileFilterBtnGroupCompany');
             const groupGov = document.getElementById('mobileFilterBtnGroupGov');
@@ -4423,7 +4423,7 @@
                 state.govMode = mode;
                 document.getElementById('govPanelMinistry').classList.toggle('active', mode === 'ministry');
                 document.getElementById('govPanelRadius').classList.toggle('active', mode === 'radius');
-                // 모바일 필터바는 '부처별 보기'에서만 사용 — 반경 모드로 바뀌면 숨기고 열려있던 시트도 닫음
+                // 모바일 필터바는 두 모드 모두에서 유지 — 모드 전환 시 열려있던 시트만 닫음
                 updateMobileFilterBarVisibility();
                 closeMobileFilterSheet();
 
@@ -4438,7 +4438,8 @@
             });
         });
 
-        // 분류 필터 칩 (부/처/청/위원회)
+        // 분류 필터 칩 (부/처/청/위원회) — 모바일에서는 '내 연고지 반경' 모드에서도 필터바가
+        // 유지되므로, 현재 모드에 맞는 적용 함수를 호출 (반경 모드는 모바일에서만 실제로 좁혀짐)
         document.querySelectorAll('#govRankFilters .gov-cat-chip').forEach(chip => {
             chip.addEventListener('click', () => {
                 document.querySelectorAll('#govRankFilters .gov-cat-chip').forEach(c => c.classList.remove('active'));
@@ -4446,7 +4447,7 @@
                 state.govRank = chip.dataset.govRank;
                 state.govSelectedId = null;
                 updateMobileFilterBarLabels();
-                applyGovMinistryFilter();
+                if (state.govMode === 'radius') applyRadiusFilter(); else applyGovMinistryFilter();
             });
         });
 
@@ -4458,7 +4459,7 @@
                 state.govCategory = chip.dataset.govCat;
                 state.govSelectedId = null;
                 updateMobileFilterBarLabels();
-                applyGovMinistryFilter();
+                if (state.govMode === 'radius') applyRadiusFilter(); else applyGovMinistryFilter();
             });
         });
 
@@ -4488,7 +4489,7 @@
             document.querySelectorAll('#govRankFilters .gov-cat-chip').forEach(c => c.classList.toggle('active', c.dataset.govRank === '전체'));
             document.querySelectorAll('#govCategoryFilters .gov-cat-chip').forEach(c => c.classList.toggle('active', c.dataset.govCat === '전체'));
             updateMobileFilterBarLabels();
-            applyGovMinistryFilter();
+            if (state.govMode === 'radius') applyRadiusFilter(); else applyGovMinistryFilter();
             state.map.setLevel(13);
             state.map.panTo(new kakao.maps.LatLng(36.2, 127.9));
         });
@@ -4667,6 +4668,13 @@
             // 모든 정부기관의 본청+지사 중 반경 내 매칭
             const matches = [];
             GOVS.forEach(gov => {
+                // 모바일 전용: 상단 필터바(분류·분야)가 반경 모드에서도 그대로 유지되므로
+                // 선택된 분류·분야로 반경 매칭 대상 자체를 좁힘. 데스크톱은 반경 모드에 이
+                // 필터 UI가 없어 기존처럼 항상 전체 기관을 대상으로 매칭(동작 변경 없음)
+                if (isMobile()) {
+                    if (state.govRank !== '전체' && gov.rank !== state.govRank) return;
+                    if (state.govCategory !== '전체' && gov.category !== state.govCategory) return;
+                }
                 // 본청 검사
                 if (gov.lat && gov.lng) {
                     const d = haversineKm(state.radiusCenter.lat, state.radiusCenter.lng, gov.lat, gov.lng);
