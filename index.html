@@ -3393,7 +3393,11 @@
         function closeDetailPanel(sidebarState) {
             const detailPanel = document.getElementById('detailPanel');
             detailPanel.classList.remove('open');
-            detailPanel.classList.remove('sheet-expanded', 'sheet-collapsed', 'sheet-hidden');
+            detailPanel.classList.remove('sheet-expanded', 'sheet-collapsed', 'sheet-hidden', 'sheet-half');
+            // setSheetState가 'expanded' 상태에 진입할 때 top을 인라인으로 고정해두는데(지도 확대
+            // 모드에서는 top:0), 여기서 지워주지 않으면 닫힌 뒤에도 top:0이 남아 translateY(100%)가
+            // 패널 자신의 높이(80vh)만큼만 내려가 화면 하단에 패널 잔상이 걸쳐 보이는 버그가 생김
+            detailPanel.style.top = '';
             state.selectedOrgId = null;
             // 공기업 탭이면 전체 마커 복원
             if (state.currentNav === 'company') {
