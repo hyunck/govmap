@@ -1749,6 +1749,11 @@
             .mobile-filter-btn {
                 flex-shrink: 0;
                 position: relative;
+                /* 숫자가 섞인 텍스트(예: "3~4천")가 한글 전용 텍스트보다 줄높이 계산이 달라
+                   살짝 위로 떠 보이는 문제 — line-height 기반 정렬 대신 flex로 세로 중앙 정렬해
+                   글자 구성과 무관하게 항상 같은 높이에 오도록 함 */
+                display: flex;
+                align-items: center;
                 padding: 5px 12px;
                 border: none;
                 background: none;
