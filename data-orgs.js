@@ -25639,6 +25639,8 @@ const ORGS = [
     "startingSalary": 3533,
     "avgSalary": 5389,
     "avgYears": 5.5,
+    "startingSalaryHistory": [{"year":2023,"val":3330},{"year":2024,"val":3385},{"year":2025,"val":3533},{"year":2026,"val":3574}],
+    "avgSalaryHistory": [{"year":2023,"val":5102},{"year":2024,"val":5133},{"year":2025,"val":5389},{"year":2026,"val":5497}],
     "homepage": "https://www.wiset.or.kr",
     "recruitUrl": "https://recruit.incruit.com/wiset/",
     "description": "「여성과학기술인 육성 및 지원에 관한 법률」에 따라 2013년 설립된 과학기술정보통신부 소관 기타공공기관(복권기금 운영). 이공계 여성인재 육성, R&D 경력복귀 지원, 여성과학기술인 네트워크 조성 등을 통해 여성 과학기술인의 성장을 지원한다.",
