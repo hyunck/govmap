@@ -12372,6 +12372,12 @@ const ORGS = [
         "address": "Room 2502, Tower A, China Resources Building, No.286 Qingnian Street, Heping District, Shenyang, China",
         "lat": 41.775873,
         "lng": 123.434786
+      },
+      {
+        "name": "블라디보스토크지사 (러시아)",
+        "address": "102, Business Center, Floor 1, 17 Okeansky Prospekt, Vladivostok 690091, Russia",
+        "lat": 43.119524,
+        "lng": 131.886390
       }
     ],
     "ncs": [
