@@ -23364,6 +23364,8 @@ const ORGS = [
     "startingSalary": 3972,
     "avgSalary": 6622,
     "avgYears": 8,
+    "startingSalaryHistory": [{"year":2023,"val":3875},{"year":2024,"val":3972},{"year":2025,"val":3972},{"year":2026,"val":4109}],
+    "avgSalaryHistory": [{"year":2023,"val":6116},{"year":2024,"val":6379},{"year":2025,"val":6622},{"year":2026,"val":6607}],
     "homepage": "http://www.tipa.or.kr",
     "recruitUrl": "https://www.tipa.or.kr/s040401",
     "description": "중소벤처기업부 산하 기타공공기관으로, 중소기업 R&D 기획·평가·관리와 창업성장기술개발, 스마트제조혁신 등을 통해 중소벤처기업의 기술혁신과 스마트화를 지원한다. 2021년 5월 세종특별자치시로 이전했다.",
