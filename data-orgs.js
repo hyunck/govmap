@@ -12360,6 +12360,18 @@ const ORGS = [
         "address": "23F Twin 21 MID Tower, 2-1-61 Shiromi, Chuo-ku, Osaka 540-6123, Japan",
         "lat": 34.692204,
         "lng": 135.530971
+      },
+      {
+        "name": "베이징지사 (중국)",
+        "address": "3rd Fl., Korea Center Building, 1 Guanghua Xili, Chaoyang, Beijing 100020, China",
+        "lat": 39.907812,
+        "lng": 116.448641
+      },
+      {
+        "name": "선양지사 (중국)",
+        "address": "Room 2502, Tower A, China Resources Building, No.286 Qingnian Street, Heping District, Shenyang, China",
+        "lat": 41.775873,
+        "lng": 123.434786
       }
     ],
     "ncs": [
