@@ -12354,6 +12354,12 @@ const ORGS = [
         "address": "5F Asahi Bldg., 2-1-1 Hakata-ekimae, Hakata-ku, Fukuoka 812-0011, Japan",
         "lat": 33.589724,
         "lng": 130.418533
+      },
+      {
+        "name": "오사카지사 (일본)",
+        "address": "23F Twin 21 MID Tower, 2-1-61 Shiromi, Chuo-ku, Osaka 540-6123, Japan",
+        "lat": 34.692204,
+        "lng": 135.530971
       }
     ],
     "ncs": [
