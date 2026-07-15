@@ -25635,17 +25635,19 @@ const ORGS = [
     "type": "기타공공기관",
     "region": "수도권",
     "industry": "산업·R&D",
-    "address": "서울 마포구 월드컵북로 400",
+    "address": "서울특별시 강남구 테헤란로7길 22(역삼동) 한국과학기술회관 2관 6층",
     "startingSalary": 3533,
     "avgSalary": 5389,
     "avgYears": 5.5,
     "homepage": "https://www.wiset.or.kr",
-    "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국여성과학기술인육성재단",
-    "description": "여성 과학기술인 지원과 육성을 담당하는 과학기술정보통신부 산하 기타공공기관.",
+    "recruitUrl": "https://recruit.incruit.com/wiset/",
+    "description": "「여성과학기술인 육성 및 지원에 관한 법률」에 따라 2013년 설립된 과학기술정보통신부 소관 기타공공기관(복권기금 운영). 이공계 여성인재 육성, R&D 경력복귀 지원, 여성과학기술인 네트워크 조성 등을 통해 여성 과학기술인의 성장을 지원한다.",
     "mainBusiness": [
-      "여성 이공계 장학·지원",
-      "여성 과학기술인 경력 복귀",
-      "젠더 혁신 연구"
+      "이공계 여성인재 육성 (여성 멘토링, 지역 여성인재 양성)",
+      "R&D 경력복귀 지원 및 R&D 대체인력 지원",
+      "과학기술 여성 인재 아카데미 운영",
+      "글로벌 학술활동 지원",
+      "여성과학기술인 네트워크·문화 조성 (She Did It 캠페인, 여성과학기술인대회 등)"
     ],
     "welfare": [
       "복지포인트",
@@ -25654,7 +25656,7 @@ const ORGS = [
     "branches": [
       {
         "name": "본사 (서울)",
-        "address": "서울 마포구 월드컵북로 400"
+        "address": "서울특별시 강남구 테헤란로7길 22(역삼동) 한국과학기술회관 2관 6층"
       }
     ],
     "ncs": [
