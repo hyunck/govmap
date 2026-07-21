@@ -2909,6 +2909,7 @@
                         // 전국 뷰로
                         state.map.setLevel(13);
                         state.map.panTo(new kakao.maps.LatLng(36.2, 127.9));
+                        if (isMobile()) popMobileBackLayers(['detail', 'listExpanded']);
                         return;
                     }
 
@@ -3188,6 +3189,10 @@
 
         document.querySelectorAll('.nav-item').forEach(item => {
             item.addEventListener('click', () => {
+                // 다른 최상단 탭으로 전환하면 이전 탭에서 쌓인 뒤로가기 레이어(설명창·펼친 리스트)는
+                // 더 이상 의미가 없으므로 한 번에 정리 (안 그러면 하드웨어 뒤로가기가 이미 사라진
+                // 다른 탭의 설명창을 복원하려 시도하는 어긋남이 생김)
+                if (isMobile()) resetMobileBackStack();
                 const navType = item.dataset.nav;
                 document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
                 item.classList.add('active');
@@ -3406,6 +3411,9 @@
             // 모바일: 상세패널을 닫으면 사이드바 시트를 지정한 상태로 복원
             if (isMobile()) {
                 setSheetState(document.getElementById('sidebar'), sidebarState);
+                // 뒤로가기 히스토리 정리: X(닫기)로 닫을 땐 항상 기본 화면(리스트 접힘)으로
+                // 돌아가므로, 쌓여있던 'detail'·'listExpanded' 레이어를 한 번에 모두 소비한다
+                popMobileBackLayers(['detail', 'listExpanded']);
             }
         }
 
@@ -3430,18 +3438,33 @@
                 panel.removeEventListener('transitionend', onFadeInEnd);
             };
             panel.addEventListener('transitionend', onFadeInEnd);
+            // 뒤로가기 버튼 대응: 이미 설명창이 열려있는 채로 다른 기관을 다시 선택해도
+            // 'detail' 레이어가 중복으로 쌓이지 않도록 함
+            if (isMobile() && !mobileBackStack.some(l => l.name === 'detail')) {
+                pushMobileBackLayer('detail', onDetailLayerClosedByHardwareBack);
+            }
         }
 
-        // 뒤로가기 버튼(전체 화면으로 확장됐을 때만 노출) — 닫기(X)와 달리 리스트를
-        // 최대로 확장된 상태로 보여줌 (공기업·정부기관 탭 공통, 같은 설명창을 공유하므로).
-        // 모바일에서는 설명창을 슬라이드 대신 페이드로 닫고, 그 아래 리스트는 애니메이션 없이
-        // 미리 '확장' 상태로 만들어둬 리스트가 떠오르는 모션 없이 바로 드러나 보이게 함
-        document.getElementById('detailBack').addEventListener('click', () => {
-            const panel = document.getElementById('detailPanel');
-            if (!isMobile()) {
-                closeDetailPanel('expanded');
-                return;
+        // 하드웨어/제스처 뒤로가기로 'detail' 레이어가 팝될 때만 호출됨(popstate 리스너 참고).
+        // 시각적으로 리스트를 expanded로 복원한 뒤, 바로 아래에 'listExpanded' 레이어가 이미
+        // 없으면 새로 하나 쌓아둬야 다음 뒤로가기가 (지금 화면에 펼쳐진) 리스트를 접을 수 있다.
+        // popstate 핸들러 내부에서 실행되므로 — 즉 브라우저의 실제 뒤로 이동이 이미 끝난
+        // 뒤이므로 — 여기서 pushState를 호출해도 ‹ 버튼 쪽과 달리 history.back()과 겹치는
+        // 경합이 없어 안전함
+        function onDetailLayerClosedByHardwareBack() {
+            restoreListExpandedFromDetail();
+            if (!mobileBackStack.some(l => l.name === 'listExpanded')) {
+                pushMobileBackLayer('listExpanded', collapseSidebarListLayer);
             }
+        }
+
+        // ‹ 뒤로가기 버튼(전체 화면으로 확장됐을 때만 노출)과 하드웨어/제스처 뒤로가기가
+        // 공유하는 시각 동작 — 닫기(X)와 달리 리스트를 최대로 확장된 상태로 보여줌
+        // (공기업·정부기관 탭 공통, 같은 설명창을 공유하므로). 설명창을 슬라이드 대신
+        // 페이드로 닫고, 그 아래 리스트는 애니메이션 없이 미리 '확장' 상태로 만들어둬
+        // 리스트가 떠오르는 모션 없이 바로 드러나 보이게 함
+        function restoreListExpandedFromDetail() {
+            const panel = document.getElementById('detailPanel');
             const sidebar = document.getElementById('sidebar');
             const prevTransition = sidebar.style.transition;
             sidebar.style.transition = 'none';
@@ -3475,6 +3498,17 @@
                 if (state.currentNav === 'company') applyFilters();
             };
             panel.addEventListener('transitionend', cleanup);
+        }
+
+        document.getElementById('detailBack').addEventListener('click', () => {
+            if (!isMobile()) {
+                closeDetailPanel('expanded');
+                return;
+            }
+            restoreListExpandedFromDetail();
+            // 히스토리 정리: 이 클릭 자체가 'detail' 레이어를 소비 — 자세한 이유는
+            // transitionDetailLayerToListExpanded 주석 참고
+            transitionDetailLayerToListExpanded();
         });
 
         // ⭐ 사이드바 토글 — grid-template-columns로 사이드바 너비를 0으로 (지도 영역은 그대로 유지)
@@ -3497,6 +3531,82 @@
         function isMobile() {
             return window.matchMedia('(max-width: 768px)').matches;
         }
+
+        // ============================================================
+        // 모바일 하드웨어/제스처 뒤로가기 버튼 대응
+        // ============================================================
+        // 설명창이 열리거나(‘detail’) 기관 리스트가 전체로 펼쳐질 때(‘listExpanded’) 사용자
+        // 조작으로 history.pushState 엔트리를 하나씩 쌓아두고, 하드웨어 뒤로가기(popstate)가
+        // 오면 최상단 레이어 하나만 "시각적으로" 되돌린다 — 실제 내비게이션은 이미 브라우저가
+        // 처리했으므로 우리는 배열만 맞추면 됨.
+        // 반대로 화면 내 버튼(X, 핸들 탭, 드래그)으로 레이어를 닫을 때는 우리가 직접 history를
+        // 되돌려야 하는데(popMobileBackLayers), 이때 history.back()/go() 호출 직후 같은 틱에서
+        // pushState를 또 호출하면(비동기 이동이 아직 끝나지 않은 채로 새 엔트리가 끼어들어) 실제
+        // 위치가 어긋나는 위험이 있다 — 그런 경우(‹ 뒤로가기 버튼)엔 이동 없이 현재 엔트리의
+        // 의미만 바꾸는 history.replaceState를 대신 쓴다 (transitionDetailLayerToListExpanded 참고)
+        const mobileBackStack = [];
+        let suppressPopstateCount = 0;
+
+        function pushMobileBackLayer(name, onPop) {
+            if (!isMobile()) return;
+            mobileBackStack.push({ name, onPop });
+            history.pushState({ mobileBackLayer: name }, '', location.href);
+        }
+
+        // 화면 내 조작으로 레이어를 실제로 닫을 때 호출 — 안 그러면 나중에 하드웨어
+        // 뒤로가기를 눌렀을 때 이미 닫힌 레이어를 또 닫으려 시도해 반응이 없어 보이거나,
+        // 진짜 이탈에 여분의 클릭이 필요해짐. 여러 레이어를 한 번에 소비할 땐 반드시
+        // history.go()를 한 번만 호출해야 한다(back()을 여러 번 연달아 부르면 일부 브라우저가
+        // 이동을 합쳐버려 실제로 몇 단계 이동했는지 어긋날 수 있음)
+        function popMobileBackLayers(names) {
+            if (!mobileBackStack.length) return;
+            let count = 0;
+            names.forEach(n => {
+                const idx = mobileBackStack.map(l => l.name).lastIndexOf(n);
+                if (idx !== -1) { mobileBackStack.splice(idx, 1); count++; }
+            });
+            if (count > 0) {
+                suppressPopstateCount++;
+                history.go(-count);
+            }
+        }
+
+        // 탭 전환 등으로 열려있던 레이어가 전부 무효화될 때 — 한 번의 이동으로 정리
+        function resetMobileBackStack() {
+            popMobileBackLayers(mobileBackStack.map(l => l.name));
+        }
+
+        // ‹ 뒤로가기 버튼 클릭 시 호출 — 시각적으로는 이미 리스트를 expanded로 복원했으니
+        // (restoreListExpandedFromDetail), 히스토리 스택도 'detail' 엔트리를 'listExpanded'
+        // 의미로 정리해야 다음 하드웨어 뒤로가기가 리스트를 올바르게 접을 수 있다
+        function transitionDetailLayerToListExpanded() {
+            if (!isMobile()) return;
+            const idx = mobileBackStack.length - 1;
+            if (idx < 0 || mobileBackStack[idx].name !== 'detail') return;
+            const beneath = mobileBackStack[idx - 1];
+            if (beneath && beneath.name === 'listExpanded') {
+                // 바로 아래에 이미 펼쳐진 리스트 레이어가 있으면, 실제로 한 단계 뒤로 이동해
+                // 그 엔트리를 그대로 드러냄
+                mobileBackStack.pop();
+                suppressPopstateCount++;
+                history.back();
+            } else {
+                // 없으면 현재 엔트리(detail)를 이동 없이 listExpanded로 바꿔치기
+                mobileBackStack[idx] = { name: 'listExpanded', onPop: collapseSidebarListLayer };
+                history.replaceState({ mobileBackLayer: 'listExpanded' }, '', location.href);
+            }
+        }
+
+        function collapseSidebarListLayer() {
+            setSheetState(document.getElementById('sidebar'), 'collapsed');
+        }
+
+        window.addEventListener('popstate', () => {
+            if (suppressPopstateCount > 0) { suppressPopstateCount--; return; }
+            if (!mobileBackStack.length) return; // 쌓인 레이어가 없으면 정상적인 이전 페이지 이동/이탈 허용
+            const layer = mobileBackStack.pop();
+            layer.onPop();
+        });
 
         function setSheetState(panel, stateName) {
             // ⚠️ 'sheet-half'(지사·본사 클릭 시 절반 축소 상태)를 빼먹으면, 이후 다른 기관을 다시 열 때
@@ -3805,6 +3915,9 @@
 
                 if (lastY < panelHeight * 0.18) {
                     setSheetState(panel, 'expanded');
+                    if (panel.id === 'sidebar' && !mobileBackStack.some(l => l.name === 'listExpanded')) {
+                        pushMobileBackLayer('listExpanded', collapseSidebarListLayer);
+                    }
                 } else if (!isSidebar && lastY > peekTranslate + 40) {
                     setSheetState(panel, 'hidden');
                     if (panel.id === 'detailPanel') {
@@ -3813,6 +3926,7 @@
                 } else {
                     // 사이드바는 아래로 내려도 숨김 상태로 가지 않고 항상 미리보기로 복귀
                     setSheetState(panel, 'collapsed');
+                    if (panel.id === 'sidebar') popMobileBackLayers(['listExpanded']);
                 }
             }
 
@@ -3821,8 +3935,12 @@
                 if (!isMobile()) return;
                 if (panel.classList.contains('sheet-expanded')) {
                     setSheetState(panel, 'collapsed');
+                    if (panel.id === 'sidebar') popMobileBackLayers(['listExpanded']);
                 } else {
                     setSheetState(panel, 'expanded');
+                    if (panel.id === 'sidebar' && !mobileBackStack.some(l => l.name === 'listExpanded')) {
+                        pushMobileBackLayer('listExpanded', collapseSidebarListLayer);
+                    }
                 }
             });
 
