@@ -215,6 +215,26 @@ function buildPage(org) {
     `<li><strong>${escHtml(b.name)}</strong> — ${escHtml(b.address)}</li>`
   ).join('');
 
+  // 지사·사업소 그룹 구성 요약 문장 — 대량 주소 나열(예: 466개 사업소) 앞에 실제 그룹별
+  // 개수를 바탕으로 한 서술 문장을 추가해, 페이지가 "표만 나열된 콘텐츠"로 보이는 것을
+  // 완화하기 위함(업종 순위 코멘트=buildRankComment와 같은 취지). 그룹이 2개 미만이거나
+  // 전부 1곳짜리 그룹이면(요약할 만한 분포가 없으면) 빈 문자열 반환
+  function buildBranchSummary() {
+    if (allBranches.length < 2) return '';
+    const sorted = [...allBranches].sort((a, b) => b.items.length - a.items.length);
+    const top = sorted.slice(0, 3).filter(g => g.items.length > 1);
+    if (!top.length) return '';
+    // 일부 groupName엔 이미 "(N개)"가 이름 자체에 포함돼 있어(예: "경기·인천 지사 (11개)")
+    // 뒤에 개수를 또 붙이면 "(11개)(11곳)"처럼 중복돼 보임 — 끝의 괄호 표기를 지우고 통일된 형식으로 표시
+    const cleanName = (name) => name.replace(/\s*\([^)]*\)\s*$/, '');
+    const topStr = top.map(g => `${escHtml(cleanName(g.groupName))}(${g.items.length}곳)`).join(' · ');
+    // top이 1개뿐이면 "순으로"(나열/순서 뉘앙스)가 어색해 다른 어미로 분기 — 조사 "에"는
+    // 앞 명사에 바로 붙어야 하므로 공백 없이 이어붙임
+    const tailPhrase = top.length > 1 ? ' 순으로 사업장이 많습니다.' : '에 사업장이 가장 많습니다.';
+    return `<p style="font-size:13px;color:#6b7280;line-height:1.6;margin-bottom:12px;">전국 근무지는 <strong>${allBranches.length}개 그룹</strong>으로 나뉘며, 이 중 ${topStr}${tailPhrase}</p>`;
+  }
+  const branchSummary = buildBranchSummary();
+
   // 그룹화된 전국 근무지 HTML
   const allBranchesHtml = allBranches.length > 0 ? (() => {
     const totalItems = allBranches.reduce((s, g) => s + g.items.length, 0);
@@ -587,6 +607,7 @@ function buildPage(org) {
   ${(allBranchesHtml || branchItems) ? `<div class="card">
     <div class="card-title">전국 본사·지점·사업소</div>
     <p style="font-size:14px;color:#374151;line-height:1.7;margin-bottom:12px;">${escHtml(org.name)} 본사는 <strong>${escHtml(org.address)}</strong>에 위치합니다.${totalBranchCount > 1 ? ` 합격 후 발령 가능한 전국 근무지는 총 <strong>${totalBranchCount}개소</strong>이며, 지사·사업소별 위치를 지도에서 확인할 수 있습니다.` : ''}</p>
+    ${branchSummary}
     ${allBranchesHtml || `<div class="branch-intro">⚠️ 국가중요시설 및 기관 사정으로 지도에 표시되지 않거나 불명확하게 표시되는 사업장·지사가 있을 수 있어요.</div><ul class="branch-list">${branchItems}</ul>`}
   </div>` : ''}
 
