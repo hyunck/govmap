@@ -19,6 +19,10 @@ const TODAY     = new Date().toISOString().split('T')[0];
 // 애드센스 사이트 승인 전까지는 광고 슬롯을 정적으로 숨김 (빈 여백 깜빡임 방지).
 // 승인되면 true로 바꾸고 재실행하면 즉시 광고가 노출됨 — 코드 삭제 불필요.
 const ADS_ENABLED = false;
+// 애드센스 승인 대기가 길어져 임시로 카카오애드핏 배너를 병행 게재 (세션14).
+// 애드센스가 나중에 승인되면 이 플래그를 false로 내리고 ADS_ENABLED를 true로 올리면 됨 —
+// 두 네트워크를 동시에 켜지 않도록 주의(같은 자리에 광고가 두 번 뜨게 됨).
+const KAKAO_ADS_ENABLED = true;
 
 if (!fs.existsSync(ORGS_DIR)) fs.mkdirSync(ORGS_DIR);
 
@@ -331,6 +335,14 @@ function buildPage(org) {
     .back-btn:hover { background: #e5e7eb; }
     /* 본문 */
     .container { max-width: 780px; margin: 32px auto; padding: 0 16px 80px; }
+    /* 카카오애드핏 배너 — 모바일(320x100)/데스크탑(728x90) 두 유닛을 같이 넣고 화면 폭으로 전환.
+       728px 배너가 컨테이너(실제 폭 748px)를 넘치지 않도록 800px를 기준으로 나눔 */
+    .ad-desktop-unit { display: none; }
+    .ad-mobile-unit { display: block; text-align: center; }
+    @media (min-width: 800px) {
+      .ad-desktop-unit { display: block; text-align: center; }
+      .ad-mobile-unit { display: none; }
+    }
     /* 브레드크럼 */
     .breadcrumb { font-size: 13px; color: #9ca3af; margin-bottom: 20px; }
     .breadcrumb a { color: #6b7280; }
@@ -541,7 +553,7 @@ function buildPage(org) {
   </div>` : ''}
 
   <!-- 광고 슬롯 ① 연봉 정보 카드 직후 (인아티클) -->
-  <div class="ad-slot" style="margin-bottom:16px;${ADS_ENABLED ? '' : ' display:none;'}">
+  ${ADS_ENABLED ? `<div class="ad-slot" style="margin-bottom:16px;">
     <ins class="adsbygoogle"
          style="display:block; text-align:center;"
          data-ad-layout="in-article"
@@ -549,7 +561,23 @@ function buildPage(org) {
          data-ad-client="ca-pub-4864032615853020"
          data-ad-slot="7125354114"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  </div>
+  </div>` : ''}
+  ${KAKAO_ADS_ENABLED ? `<div class="ad-slot" style="margin-bottom:16px;">
+    <div class="ad-mobile-unit">
+      <ins class="kakao_ad_area" style="display:none;"
+           data-ad-unit="DAN-Domil802jSBoBIR3"
+           data-ad-width="320"
+           data-ad-height="100"></ins>
+      <script type="text/javascript" src="//t1.kakaocdn.net/kas/static/ba.min.js" async></script>
+    </div>
+    <div class="ad-desktop-unit">
+      <ins class="kakao_ad_area" style="display:none;"
+           data-ad-unit="DAN-Ec3zDvCrHyAvrOcS"
+           data-ad-width="728"
+           data-ad-height="90"></ins>
+      <script type="text/javascript" src="//t1.kakaocdn.net/kas/static/ba.min.js" async></script>
+    </div>
+  </div>` : ''}
 
   <!-- 주요 사업 -->
   ${mainBiz ? `<div class="card">
@@ -612,7 +640,7 @@ function buildPage(org) {
   </div>` : ''}
 
   <!-- 광고 슬롯 ② 전국 지사·지점 카드 직후 (디스플레이) -->
-  <div class="ad-slot" style="margin-bottom:16px;${ADS_ENABLED ? '' : ' display:none;'}">
+  ${ADS_ENABLED ? `<div class="ad-slot" style="margin-bottom:16px;">
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-4864032615853020"
@@ -620,7 +648,23 @@ function buildPage(org) {
          data-ad-format="auto"
          data-full-width-responsive="true"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  </div>
+  </div>` : ''}
+  ${KAKAO_ADS_ENABLED ? `<div class="ad-slot" style="margin-bottom:16px;">
+    <div class="ad-mobile-unit">
+      <ins class="kakao_ad_area" style="display:none;"
+           data-ad-unit="DAN-5vt8vniePe3562pe"
+           data-ad-width="320"
+           data-ad-height="100"></ins>
+      <script type="text/javascript" src="//t1.kakaocdn.net/kas/static/ba.min.js" async></script>
+    </div>
+    <div class="ad-desktop-unit">
+      <ins class="kakao_ad_area" style="display:none;"
+           data-ad-unit="DAN-2zgx2SfJueGQ7jS1"
+           data-ad-width="728"
+           data-ad-height="90"></ins>
+      <script type="text/javascript" src="//t1.kakaocdn.net/kas/static/ba.min.js" async></script>
+    </div>
+  </div>` : ''}
 
   <!-- 링크 -->
   <div class="card">

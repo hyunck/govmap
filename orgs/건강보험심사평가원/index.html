@@ -57,6 +57,14 @@
     .back-btn:hover { background: #e5e7eb; }
     /* 본문 */
     .container { max-width: 780px; margin: 32px auto; padding: 0 16px 80px; }
+    /* 카카오애드핏 배너 — 모바일(320x100)/데스크탑(728x90) 두 유닛을 같이 넣고 화면 폭으로 전환.
+       728px 배너가 컨테이너(실제 폭 748px)를 넘치지 않도록 800px를 기준으로 나눔 */
+    .ad-desktop-unit { display: none; }
+    .ad-mobile-unit { display: block; text-align: center; }
+    @media (min-width: 800px) {
+      .ad-desktop-unit { display: block; text-align: center; }
+      .ad-mobile-unit { display: none; }
+    }
     /* 브레드크럼 */
     .breadcrumb { font-size: 13px; color: #9ca3af; margin-bottom: 20px; }
     .breadcrumb a { color: #6b7280; }
@@ -312,14 +320,22 @@
   </div>
 
   <!-- 광고 슬롯 ① 연봉 정보 카드 직후 (인아티클) -->
-  <div class="ad-slot" style="margin-bottom:16px; display:none;">
-    <ins class="adsbygoogle"
-         style="display:block; text-align:center;"
-         data-ad-layout="in-article"
-         data-ad-format="fluid"
-         data-ad-client="ca-pub-4864032615853020"
-         data-ad-slot="7125354114"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  
+  <div class="ad-slot" style="margin-bottom:16px;">
+    <div class="ad-mobile-unit">
+      <ins class="kakao_ad_area" style="display:none;"
+           data-ad-unit="DAN-Domil802jSBoBIR3"
+           data-ad-width="320"
+           data-ad-height="100"></ins>
+      <script type="text/javascript" src="//t1.kakaocdn.net/kas/static/ba.min.js" async></script>
+    </div>
+    <div class="ad-desktop-unit">
+      <ins class="kakao_ad_area" style="display:none;"
+           data-ad-unit="DAN-Ec3zDvCrHyAvrOcS"
+           data-ad-width="728"
+           data-ad-height="90"></ins>
+      <script type="text/javascript" src="//t1.kakaocdn.net/kas/static/ba.min.js" async></script>
+    </div>
   </div>
 
   <!-- 주요 사업 -->
@@ -493,14 +509,22 @@
   </div>
 
   <!-- 광고 슬롯 ② 전국 지사·지점 카드 직후 (디스플레이) -->
-  <div class="ad-slot" style="margin-bottom:16px; display:none;">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-4864032615853020"
-         data-ad-slot="2176692457"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  
+  <div class="ad-slot" style="margin-bottom:16px;">
+    <div class="ad-mobile-unit">
+      <ins class="kakao_ad_area" style="display:none;"
+           data-ad-unit="DAN-5vt8vniePe3562pe"
+           data-ad-width="320"
+           data-ad-height="100"></ins>
+      <script type="text/javascript" src="//t1.kakaocdn.net/kas/static/ba.min.js" async></script>
+    </div>
+    <div class="ad-desktop-unit">
+      <ins class="kakao_ad_area" style="display:none;"
+           data-ad-unit="DAN-2zgx2SfJueGQ7jS1"
+           data-ad-width="728"
+           data-ad-height="90"></ins>
+      <script type="text/javascript" src="//t1.kakaocdn.net/kas/static/ba.min.js" async></script>
+    </div>
   </div>
 
   <!-- 링크 -->
@@ -895,30 +919,30 @@
   <!-- 관련 기관 -->
   <div class="card">
     <div class="card-title">같은 유형의 다른 기관</div>
-    <div class="related-grid"><a href="https://govmap.kr/orgs/%EC%8B%A0%EC%9A%A9%EB%B3%B4%EC%A6%9D%EA%B8%B0%EA%B8%88/" class="rel-card">
+    <div class="related-grid"><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%86%8D%EC%88%98%EC%82%B0%EC%8B%9D%ED%92%88%EC%9C%A0%ED%86%B5%EA%B3%B5%EC%82%AC/" class="rel-card">
        <span class="rel-badge" style="background:#7c3aed">준정부</span>
-       <span class="rel-name">신용보증기금</span>
-       <span class="rel-region">경상권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%B2%95%EB%AC%B4%EB%B3%B4%ED%98%B8%EB%B3%B5%EC%A7%80%EA%B3%B5%EB%8B%A8/" class="rel-card">
-       <span class="rel-badge" style="background:#7c3aed">준정부</span>
-       <span class="rel-name">한국법무보호복지공단</span>
-       <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%EA%B5%AD%EB%AF%BC%EC%97%B0%EA%B8%88%EA%B3%B5%EB%8B%A8/" class="rel-card">
-       <span class="rel-badge" style="background:#7c3aed">준정부</span>
-       <span class="rel-name">국민연금공단</span>
+       <span class="rel-name">한국농수산식품유통공사</span>
        <span class="rel-region">전라권</span>
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B5%AD%EC%A0%9C%ED%98%91%EB%A0%A5%EB%8B%A8/" class="rel-card">
+       <span class="rel-badge" style="background:#7c3aed">준정부</span>
+       <span class="rel-name">한국국제협력단</span>
+       <span class="rel-region">경기권</span>
+     </a><a href="https://govmap.kr/orgs/%EB%8C%80%ED%95%9C%EB%AC%B4%EC%97%AD%ED%88%AC%EC%9E%90%EC%A7%84%ED%9D%A5%EA%B3%B5%EC%82%AC(KOTRA)/" class="rel-card">
+       <span class="rel-badge" style="background:#7c3aed">준정부</span>
+       <span class="rel-name">대한무역투자진흥공사(KOTRA)</span>
+       <span class="rel-region">수도권</span>
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%9E%90%EC%82%B0%EA%B4%80%EB%A6%AC%EA%B3%B5%EC%82%AC/" class="rel-card">
+       <span class="rel-badge" style="background:#7c3aed">준정부</span>
+       <span class="rel-name">한국자산관리공사</span>
+       <span class="rel-region">경상권</span>
+     </a><a href="https://govmap.kr/orgs/%EC%98%88%EA%B8%88%EB%B3%B4%ED%97%98%EA%B3%B5%EC%82%AC/" class="rel-card">
+       <span class="rel-badge" style="background:#7c3aed">준정부</span>
+       <span class="rel-name">예금보험공사</span>
+       <span class="rel-region">수도권</span>
      </a><a href="https://govmap.kr/orgs/%EC%9A%B0%EC%B2%B4%EA%B5%AD%EA%B8%88%EC%9C%B5%EA%B0%9C%EB%B0%9C%EC%9B%90/" class="rel-card">
        <span class="rel-badge" style="background:#7c3aed">준정부</span>
        <span class="rel-name">우체국금융개발원</span>
        <span class="rel-region">수도권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%88%98%EB%AA%A9%EC%9B%90%EC%A0%95%EC%9B%90%EA%B4%80%EB%A6%AC%EC%9B%90/" class="rel-card">
-       <span class="rel-badge" style="background:#7c3aed">준정부</span>
-       <span class="rel-name">한국수목원정원관리원</span>
-       <span class="rel-region">충청권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B4%80%EA%B4%91%EA%B3%B5%EC%82%AC/" class="rel-card">
-       <span class="rel-badge" style="background:#7c3aed">준정부</span>
-       <span class="rel-name">한국관광공사</span>
-       <span class="rel-region">강원권</span>
      </a></div>
   </div>
 

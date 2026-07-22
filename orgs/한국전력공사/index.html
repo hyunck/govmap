@@ -57,6 +57,14 @@
     .back-btn:hover { background: #e5e7eb; }
     /* 본문 */
     .container { max-width: 780px; margin: 32px auto; padding: 0 16px 80px; }
+    /* 카카오애드핏 배너 — 모바일(320x100)/데스크탑(728x90) 두 유닛을 같이 넣고 화면 폭으로 전환.
+       728px 배너가 컨테이너(실제 폭 748px)를 넘치지 않도록 800px를 기준으로 나눔 */
+    .ad-desktop-unit { display: none; }
+    .ad-mobile-unit { display: block; text-align: center; }
+    @media (min-width: 800px) {
+      .ad-desktop-unit { display: block; text-align: center; }
+      .ad-mobile-unit { display: none; }
+    }
     /* 브레드크럼 */
     .breadcrumb { font-size: 13px; color: #9ca3af; margin-bottom: 20px; }
     .breadcrumb a { color: #6b7280; }
@@ -312,14 +320,22 @@
   </div>
 
   <!-- 광고 슬롯 ① 연봉 정보 카드 직후 (인아티클) -->
-  <div class="ad-slot" style="margin-bottom:16px; display:none;">
-    <ins class="adsbygoogle"
-         style="display:block; text-align:center;"
-         data-ad-layout="in-article"
-         data-ad-format="fluid"
-         data-ad-client="ca-pub-4864032615853020"
-         data-ad-slot="7125354114"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  
+  <div class="ad-slot" style="margin-bottom:16px;">
+    <div class="ad-mobile-unit">
+      <ins class="kakao_ad_area" style="display:none;"
+           data-ad-unit="DAN-Domil802jSBoBIR3"
+           data-ad-width="320"
+           data-ad-height="100"></ins>
+      <script type="text/javascript" src="//t1.kakaocdn.net/kas/static/ba.min.js" async></script>
+    </div>
+    <div class="ad-desktop-unit">
+      <ins class="kakao_ad_area" style="display:none;"
+           data-ad-unit="DAN-Ec3zDvCrHyAvrOcS"
+           data-ad-width="728"
+           data-ad-height="90"></ins>
+      <script type="text/javascript" src="//t1.kakaocdn.net/kas/static/ba.min.js" async></script>
+    </div>
   </div>
 
   <!-- 주요 사업 -->
@@ -1341,14 +1357,22 @@
   </div>
 
   <!-- 광고 슬롯 ② 전국 지사·지점 카드 직후 (디스플레이) -->
-  <div class="ad-slot" style="margin-bottom:16px; display:none;">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-4864032615853020"
-         data-ad-slot="2176692457"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  
+  <div class="ad-slot" style="margin-bottom:16px;">
+    <div class="ad-mobile-unit">
+      <ins class="kakao_ad_area" style="display:none;"
+           data-ad-unit="DAN-5vt8vniePe3562pe"
+           data-ad-width="320"
+           data-ad-height="100"></ins>
+      <script type="text/javascript" src="//t1.kakaocdn.net/kas/static/ba.min.js" async></script>
+    </div>
+    <div class="ad-desktop-unit">
+      <ins class="kakao_ad_area" style="display:none;"
+           data-ad-unit="DAN-2zgx2SfJueGQ7jS1"
+           data-ad-width="728"
+           data-ad-height="90"></ins>
+      <script type="text/javascript" src="//t1.kakaocdn.net/kas/static/ba.min.js" async></script>
+    </div>
   </div>
 
   <!-- 링크 -->
@@ -1563,30 +1587,30 @@
   <!-- 관련 기관 -->
   <div class="card">
     <div class="card-title">같은 유형의 다른 기관</div>
-    <div class="related-grid"><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B0%80%EC%8A%A4%EA%B3%B5%EC%82%AC/" class="rel-card">
+    <div class="related-grid"><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%82%A8%EB%8F%99%EB%B0%9C%EC%A0%84/" class="rel-card">
        <span class="rel-badge" style="background:#2563eb">공기업</span>
-       <span class="rel-name">한국가스공사</span>
+       <span class="rel-name">한국남동발전</span>
        <span class="rel-region">경상권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%84%9D%EC%9C%A0%EA%B3%B5%EC%82%AC/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A1%B0%ED%8F%90%EA%B3%B5%EC%82%AC/" class="rel-card">
        <span class="rel-badge" style="background:#2563eb">공기업</span>
-       <span class="rel-name">한국석유공사</span>
-       <span class="rel-region">경상권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%88%98%EB%A0%A5%EC%9B%90%EC%9E%90%EB%A0%A5/" class="rel-card">
-       <span class="rel-badge" style="background:#2563eb">공기업</span>
-       <span class="rel-name">한국수력원자력</span>
-       <span class="rel-region">경상권</span>
-     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EC%A4%91%EB%B6%80%EB%B0%9C%EC%A0%84/" class="rel-card">
-       <span class="rel-badge" style="background:#2563eb">공기업</span>
-       <span class="rel-name">한국중부발전</span>
+       <span class="rel-name">한국조폐공사</span>
        <span class="rel-region">충청권</span>
-     </a><a href="https://govmap.kr/orgs/%EC%A0%9C%EC%A3%BC%EA%B5%AD%EC%A0%9C%EC%9E%90%EC%9C%A0%EB%8F%84%EC%8B%9C%EA%B0%9C%EB%B0%9C%EC%84%BC%ED%84%B0/" class="rel-card">
+     </a><a href="https://govmap.kr/orgs/%EC%A3%BC%ED%83%9D%EB%8F%84%EC%8B%9C%EB%B3%B4%EC%A6%9D%EA%B3%B5%EC%82%AC/" class="rel-card">
        <span class="rel-badge" style="background:#2563eb">공기업</span>
-       <span class="rel-name">제주국제자유도시개발센터</span>
-       <span class="rel-region">제주권</span>
+       <span class="rel-name">주택도시보증공사</span>
+       <span class="rel-region">경상권</span>
+     </a><a href="https://govmap.kr/orgs/%EC%97%90%EC%8A%A4%EC%95%8C(SR)/" class="rel-card">
+       <span class="rel-badge" style="background:#2563eb">공기업</span>
+       <span class="rel-name">에스알(SR)</span>
+       <span class="rel-region">수도권</span>
      </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EB%A7%88%EC%82%AC%ED%9A%8C/" class="rel-card">
        <span class="rel-badge" style="background:#2563eb">공기업</span>
        <span class="rel-name">한국마사회</span>
        <span class="rel-region">수도권</span>
+     </a><a href="https://govmap.kr/orgs/%ED%95%9C%EA%B5%AD%EA%B0%80%EC%8A%A4%EA%B3%B5%EC%82%AC/" class="rel-card">
+       <span class="rel-badge" style="background:#2563eb">공기업</span>
+       <span class="rel-name">한국가스공사</span>
+       <span class="rel-region">경상권</span>
      </a></div>
   </div>
 
