@@ -1412,6 +1412,100 @@
 
         .coming-soon-overlay.show { display: flex; }
 
+        /* ── 인사이트 탭 ── */
+        .insight-overlay {
+            position: absolute;
+            top: 0;
+            left: var(--nav-width);
+            right: 0;
+            bottom: 0;
+            background: #fff;
+            display: none;
+            flex-direction: column;
+            z-index: 80;
+        }
+        .insight-overlay.show { display: flex; }
+        .insight-topbar {
+            display: flex;
+            gap: 4px;
+            padding: 0 24px;
+            border-bottom: 1px solid var(--border);
+            background: #fff;
+            flex-shrink: 0;
+        }
+        .insight-tab {
+            border: none;
+            background: none;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            padding: 16px 14px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+        .insight-tab.active { color: var(--primary); border-bottom-color: var(--primary); }
+        .insight-ad-slot { flex-shrink: 0; display: flex; justify-content: center; padding: 12px 24px 0; }
+        .insight-content { flex: 1; overflow-y: auto; padding: 20px 24px 40px; }
+        .insight-panel { display: none; }
+        .insight-panel.active { display: block; }
+        .insight-search {
+            width: 100%;
+            max-width: 360px;
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .insight-org-group-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1f2937;
+            margin: 20px 0 10px;
+        }
+        .insight-org-group-title:first-child { margin-top: 0; }
+        .insight-org-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 11px 14px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 6px;
+            text-decoration: none;
+            color: #1f2937;
+            font-size: 14px;
+        }
+        .insight-org-item:hover { border-color: var(--primary); background: #f0fdf4; }
+        .insight-org-item .type-tag { font-size: 11px; color: var(--text-secondary); }
+        .insight-card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+        .insight-card {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            min-height: 160px;
+            text-decoration: none;
+            color: inherit;
+        }
+        .insight-card:hover { border-color: var(--primary); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+        .insight-card-icon { font-size: 28px; margin-bottom: 10px; }
+        .insight-card-title { font-size: 15px; font-weight: 700; color: #1f2937; margin-bottom: 6px; }
+        .insight-card-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+        .insight-empty-state { display: none; text-align: center; color: var(--text-secondary); font-size: 14px; padding: 60px 0; }
+        .insight-empty-state.show { display: block; }
+        @media (max-width: 768px) {
+            .insight-overlay { left: 0; z-index: 900; }
+            .insight-topbar { padding: 0 12px; overflow-x: auto; }
+            .insight-content { padding: 16px 14px 32px; }
+            .insight-card-grid { grid-template-columns: 1fr; }
+        }
+
         .coming-soon-card {
             background: #fff;
             border-radius: 16px;
@@ -2057,9 +2151,9 @@
                 <span class="icon">🏛️</span>
                 <span class="label">정부기관</span>
             </button>
-            <button class="nav-item" data-nav="compare">
-                <span class="icon">⚖️</span>
-                <span class="label">공기업비교</span>
+            <button class="nav-item" data-nav="insight">
+                <span class="icon">📊</span>
+                <span class="label">인사이트</span>
             </button>
         </nav>
 
@@ -2419,6 +2513,36 @@
                 <p id="csDescription"></p>
                 <ul class="feature-list" id="csFeatures"></ul>
                 <button class="back-btn" id="csBack">공기업 탭으로 돌아가기</button>
+            </div>
+        </div>
+
+        <div class="insight-overlay" id="insightOverlay">
+            <div class="insight-topbar">
+                <button class="insight-tab active" data-insight-tab="orgs">기관 상세 정보</button>
+                <button class="insight-tab" data-insight-tab="disclosure">공시 정보</button>
+                <button class="insight-tab" data-insight-tab="blog">블로그</button>
+            </div>
+            <div class="insight-ad-slot" id="insightAdSlot" style="display:none;">
+                <!-- 배너 광고 자리 (추후 카카오애드핏 광고단위 코드 삽입 예정) -->
+            </div>
+            <div class="insight-content">
+                <div class="insight-panel active" id="insightPanelOrgs">
+                    <input type="text" class="insight-search" id="insightOrgSearch" placeholder="기관명을 검색해보세요">
+                    <div id="insightOrgGroups"></div>
+                </div>
+                <div class="insight-panel" id="insightPanelDisclosure">
+                    <div class="insight-card-grid">
+                        <a class="insight-card" href="/eval/">
+                            <div class="insight-card-icon">📊</div>
+                            <div class="insight-card-title">2025년도 경영평가 결과 발표</div>
+                            <div class="insight-card-desc">공기업 31개·준정부기관 57개, 총 88개 기관 등급·성과급·전년 비교</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="insight-panel" id="insightPanelBlog">
+                    <div class="insight-card-grid" id="insightBlogGrid"></div>
+                    <div class="insight-empty-state" id="insightBlogEmpty">아직 게시된 글이 없습니다. 곧 찾아뵙겠습니다.</div>
+                </div>
             </div>
         </div>
 
@@ -3210,23 +3334,24 @@
                 state.currentNav = navType;
 
                 const overlay = document.getElementById('comingSoonOverlay');
+                const insightOverlayEl = document.getElementById('insightOverlay');
                 if (navType === 'company') {
                     overlay.classList.remove('show');
+                    insightOverlayEl.classList.remove('show');
                     activateCompanyMode();
                 } else if (navType === 'government') {
                     overlay.classList.remove('show');
+                    insightOverlayEl.classList.remove('show');
                     activateGovernmentMode();
-                } else if (navType === 'compare') {
+                } else if (navType === 'insight') {
                     // 🐛 수정: 비교 탭으로 전환할 때 열려있던 설명창(상세패널)이 그대로 남아있던 버그 — 닫아줌
                     const detailPanelEl = document.getElementById('detailPanel');
                     if (detailPanelEl.classList.contains('open')) {
                         document.getElementById('detailClose').click();
                     }
-                    showComingSoon({
-                        emoji: '⚖️', title: '공기업 비교 탭', subtitle: '2개 이상 공기업 한눈에 비교',
-                        description: '관심 있는 공기업을 골라 연봉·복지·시험과목·근무지를 나란히 비교할 수 있어요.',
-                        features: ['최대 4개 기관 동시 비교', '초봉·평균연봉·근속연수 차트', '복지·휴가 항목별 비교표', '시험과목·합격 스펙 분석']
-                    });
+                    overlay.classList.remove('show');
+                    insightOverlayEl.classList.add('show');
+                    renderInsightOrgList();
                 }
 
                 // 모바일: 상단 검색바를 현재 탭에 맞는 검색창으로 전환하고,
@@ -3267,6 +3392,51 @@
         document.getElementById('csBack').addEventListener('click', () => {
             document.querySelector('.nav-item[data-nav="company"]').click();
         });
+
+        // ===== 인사이트 탭 =====
+        function renderInsightOrgList(filterText) {
+            const container = document.getElementById('insightOrgGroups');
+            if (!container) return;
+            const q = (filterText || '').trim().toLowerCase();
+            const typeOrder = ['공기업', '준정부', '기타공공기관', '비공공기관'];
+            const groups = typeOrder.map(type => ({
+                type,
+                items: ORGS.filter(o => o.type === type && (!q || o.name.toLowerCase().includes(q)))
+            })).filter(g => g.items.length > 0);
+            if (!groups.length) {
+                container.innerHTML = '<div class="insight-empty-state show">검색 결과가 없습니다.</div>';
+                return;
+            }
+            container.innerHTML = groups.map(g => `
+                <div class="insight-org-group-title">${g.type} (${g.items.length})</div>
+                ${g.items.map(o => `
+                    <a class="insight-org-item" href="/orgs/${encodeURIComponent(o.name)}/">
+                        <span>${o.name}</span>
+                        <span class="type-tag">${o.region || ''}</span>
+                    </a>`).join('')}
+            `).join('');
+        }
+
+        document.getElementById('insightOrgSearch').addEventListener('input', (e) => {
+            renderInsightOrgList(e.target.value);
+        });
+
+        document.querySelectorAll('.insight-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabName = tab.dataset.insightTab;
+                document.querySelectorAll('.insight-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                document.querySelectorAll('.insight-panel').forEach(p => p.classList.remove('active'));
+                const panelId = 'insightPanel' + tabName.charAt(0).toUpperCase() + tabName.slice(1);
+                const panelEl = document.getElementById(panelId);
+                if (panelEl) panelEl.classList.add('active');
+            });
+        });
+
+        // 블로그 탭 — 아직 게시글이 없어 항상 빈 상태 안내만 표시 (추후 BLOG_POSTS 배열을 만들어
+        // insightBlogGrid에 카드로 렌더하도록 확장 예정)
+        const insightBlogEmptyEl = document.getElementById('insightBlogEmpty');
+        if (insightBlogEmptyEl) insightBlogEmptyEl.classList.add('show');
 
         document.querySelectorAll('.filter-chip').forEach(chip => {
             chip.addEventListener('click', () => {
