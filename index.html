@@ -1601,43 +1601,43 @@
             #map { height: 100%; }
             .sidebar-toggle { display: none; }
 
-            /* 하단 탭바 — 데스크탑 상단바(흰 배경·가로 텍스트 버튼)와 완전히 다른 톤이라
+            /* 하단 탭바 — 데스크탑 상단바와 동일하게 흰 배경·텍스트 전용으로 통일
                베이스 .nav-bar/.nav-item 스타일을 상속하지 않고 여기서 전부 자체 정의함 */
             .nav-bar {
                 position: fixed;
                 left: 0; right: 0; bottom: 0;
                 width: 100%;
                 height: 58px;
-                background: var(--nav-bg);
+                background: #fff;
                 border-bottom: none;
                 flex-direction: row;
                 justify-content: space-around;
                 align-items: center;
                 padding: 6px 0 calc(6px + env(safe-area-inset-bottom));
                 z-index: 1000; /* 인사이트 오버레이(900)보다 위에 항상 표시 */
-                box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
+                box-shadow: 0 -1px 0 #e5e7eb;
             }
             .nav-logo { display: none; }
             .nav-item {
                 width: auto;
                 flex: 1;
                 flex-direction: column;
-                gap: 4px;
+                gap: 0;
                 padding: 4px 0 2px;
                 margin-left: 0 !important;
                 border-radius: 0;
-                color: #a3a3a3;
+                color: #9ca3af;
             }
-            .nav-item:hover { color: #fff; background: none; }
-            .nav-item.active { color: var(--nav-active); background: none; }
-            .nav-item .icon { display: inline-block; font-size: 20px; }
-            .nav-item .label { font-size: 10px; }
+            .nav-item:hover { color: #1f2937; background: #f3f4f6; }
+            .nav-item.active { color: var(--primary); background: #f0fdf4; }
+            .nav-item .icon { display: none; }
+            .nav-item .label { font-size: 13px; font-weight: 600; }
             .nav-item.active::before {
                 content: '';
                 position: absolute;
                 left: 50%; top: 0; transform: translateX(-50%);
                 width: 28px; height: 3px;
-                background: var(--nav-active);
+                background: var(--primary);
                 border-radius: 0 0 3px 3px;
             }
 
