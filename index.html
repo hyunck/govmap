@@ -1508,7 +1508,11 @@
         .insight-footer-links a:hover { color: var(--primary); }
         .insight-footer-copy { font-size: 11px; color: #9ca3af; }
         @media (max-width: 768px) {
-            .insight-overlay { z-index: 900; }
+            .insight-overlay {
+                z-index: 900;
+                top: 0; /* 모바일엔 상단 nav-bar 없으므로 top 여백 불필요 */
+                bottom: calc(58px + env(safe-area-inset-bottom)); /* 하단 탭바 위에 겹치지 않게 */
+            }
             .insight-topbar { padding: 0 12px; }
             .insight-topbar-inner { overflow-x: auto; }
             .insight-content-inner { padding: 16px 14px 32px; }
@@ -1605,7 +1609,7 @@
                 justify-content: space-around;
                 align-items: center;
                 padding: 6px 0 calc(6px + env(safe-area-inset-bottom));
-                z-index: 700;
+                z-index: 1000; /* 인사이트 오버레이(900)보다 위에 항상 표시 */
                 box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
             }
             .nav-logo { display: none; }
