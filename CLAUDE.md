@@ -1,7 +1,7 @@
 # 공공기관 지도 프로젝트 — Claude 작업 가이드
 
 > 새 세션에서 이어서 작업할 때 반드시 읽어야 하는 문서입니다.
-> 마지막 업데이트: 2026-07-15
+> 마지막 업데이트: 2026-07-22
 
 ---
 
@@ -223,6 +223,126 @@ node generate-eval-page.js
 - `generate-org-pages.js`(상세페이지)와 `index.html`의 `renderTabExam()`(지도 팝업 시험과목 탭) 양쪽에 모두 반영해야 함
 - 적용 사례: 공간정보산업진흥원 — NCS 필기 없이 "보고서 작성 능력 평가", 전공 필기 없이 "면접 중심 평가"
 
+### 좌표 누락 기관 확인 콘솔 코드
+
+**공기업 탭** (localStorage 키: `org_geocode_v1_places`, 배열: `ORGS`):
+```js
+const orgCache = JSON.parse(localStorage.getItem('org_geocode_v1_places') || '{}');
+const missing = [];
+ORGS.forEach(org => {
+    if (!org.lat || !org.lng) {
+        const key = `${org.id}_hq_${org.name}`;
+        if (!orgCache[key] && !window.COORDS_CACHE[key]) {
+            missing.push({ type: 'HQ', 기관: org.name, 주소: org.address });
+        }
+    }
+    (org.branches || []).forEach((br, idx) => {
+        if (!br.lat || !br.lng) {
+            const key = `${org.id}_br${idx}_${br.name}`;
+            if (!orgCache[key] && !window.COORDS_CACHE[key]) {
+                missing.push({ type: '지사', 기관: org.name, 지사명: br.name, 주소: br.address });
+            }
+        }
+    });
+});
+console.table(missing);
+missing.length;
+```
+
+**정부기관 탭** (localStorage 키: `gov_geocode_v14_places`, 배열: `GOVS`):
+```js
+const govCache = JSON.parse(localStorage.getItem('gov_geocode_v14_places') || '{}');
+const missing = [];
+GOVS.forEach(gov => {
+    if (!gov.lat || !gov.lng) {
+        const key = `${gov.id}_hq_${gov.name}`;
+        if (!govCache[key] && !window.COORDS_CACHE[key]) {
+            missing.push({ type: 'HQ', 기관: gov.name, 주소: gov.address });
+        }
+    }
+    (gov.branches || []).forEach((br, idx) => {
+        if (!br.lat || !br.lng) {
+            const key = `${gov.id}_br${idx}_${br.name}`;
+            if (!govCache[key] && !window.COORDS_CACHE[key]) {
+                missing.push({ type: '지사', 기관: gov.name, 지사명: br.name, 주소: br.address });
+            }
+        }
+    });
+});
+console.table(missing);
+missing.length;
+```
+
+### nav-bar 구조 (세션14에서 전면 개편)
+
+**데스크탑**: 기존 좌측 세로 아이콘바 → 상단 가로 텍스트 메뉴바로 전환.
+
+```css
+/* app-container: 3열 1행 → 2열 2행 */
+.app-container {
+    grid-template-columns: var(--sidebar-width) 1fr;
+    grid-template-rows: 60px 1fr;
+}
+/* nav-bar: 전체 폭 상단 60px 행 */
+.nav-bar {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    height: 60px;
+    z-index: 200;
+}
+/* .nav-logo: <a href="/"> 태그로 메인페이지 링크 */
+/* .nav-item:first-of-type { margin-left: auto; } → 메뉴 3개 우측 정렬 */
+```
+
+**모바일**: `@media (max-width: 768px)`에서 완전히 독립적으로 정의된 하단 탭바 (베이스 스타일 상속 없음):
+- `position: fixed; bottom: 0; z-index: 1000;` (인사이트 오버레이 900보다 위)
+- `--mobile-navbar-reserve` CSS 변수로 사이드바·상세패널의 bottom 여백 동적 제어
+
+⚠️ **데스크탑 nav-bar 스타일을 수정할 때 모바일 `@media` 블록이 완전히 override하는지 반드시 확인.** 이전 세션에서 데스크탑 스타일이 모바일까지 영향을 준 버그가 있었음 — 모바일은 완전 자체정의 블록이므로 서로 독립적으로 유지해야 함.
+
+### 인사이트 탭 (세션14 신규)
+
+`<div class="insight-overlay" id="insightOverlay">` 구조:
+- **기관 상세 정보 / 공시 정보 / 블로그** 3개 서브탭 (`.insight-topbar` 안의 `.insight-tab`)
+- **기관 상세 정보 탭**: `renderInsightOrgList()`로 공기업(30) 목록 렌더링
+- `.insight-content-inner { max-width: 1080px; margin: 0 auto; }` — 컨텐츠 가운데 정렬
+- JS: `switchInsightTab()`, `navType === 'insight'`일 때 `appContainerEl.classList.add('insight-active')`
+- `.app-container.insight-active .sidebar, .map-area { display: none; }` (nav-bar는 항상 표시)
+
+**모바일 인사이트 오버레이** (`@media (max-width: 768px)` 내):
+```css
+.insight-overlay {
+    z-index: 900;
+    top: 0;       /* 모바일 상단 nav-bar 없으므로 60px 여백 불필요 */
+    bottom: calc(58px + env(safe-area-inset-bottom)); /* 하단 탭바 가리지 않게 */
+}
+```
+→ 이 설정 덕분에 인사이트 탭 진입 시 하단 탭바가 계속 보임 (세션14에서 수정, 커밋 `459ce451`)
+
+### Kakao AdFit 광고 (세션14 신규, generate-org-pages.js)
+
+- **`KAKAO_ADS_ENABLED`** 플래그 (`generate-org-pages.js` 상단): 현재 `true` (승인 완료)
+- **4개 단위**: 모바일 320×100 × 2개 / 데스크탑 728×90 × 2개 (800px breakpoint 기준)
+- **게재 위치**: 연봉 카드 하단 / 지사 카드 하단 각 1쌍
+- **CSS 클래스**: `.ad-mobile-unit { display: block; }` / `.ad-desktop-unit { display: none; }` (800px 미만), 반대로 800px 이상
+- 구글 애드센스 슬롯(`ADS_ENABLED=false`)과 별개 — 승인 전이라 여전히 숨김 상태
+- Kakao AdFit script: `//t1.kakaocdn.net/kas/static/ba.min.js`
+
+### 모바일 하드웨어 뒤로가기 버튼 네비게이션 (세션14 신규)
+
+History API 기반으로 구현. 주요 함수:
+- `pushMobileBackLayer(type)` — `history.pushState({layer: type}, '')`로 레이어 스택에 추가
+- `popMobileBackLayers()` — popstate 이벤트 시 스택 최상단 레이어 닫기
+- `resetMobileBackStack()` — 탭 전환 시 스택 초기화
+- `suppressPopstateCount` — JS로 `history.back()` 호출 시 이벤트 이중 처리 방지
+- `window.addEventListener('popstate', ...)` — 레이어 스택 기반으로 닫기/이동 처리
+
+**동작 흐름**:
+1. 상세패널 열림 → `pushMobileBackLayer('detailOpen')`
+2. 뒤로가기 → 상세패널 닫기 + `pushMobileBackLayer('listExpanded')` (다음 뒤로가기를 위해 즉시 재등록)
+3. 다시 뒤로가기 → 리스트 접기 (바텀시트 내림)
+4. 다시 뒤로가기 → 사이트 이탈 (스택 비어있으면 `history.back()` 그대로)
+
 ### 안내 문구 (전체 기관 공통)
 
 ```
@@ -394,6 +514,27 @@ node generate-eval-page.js
 
 **교훈 (중요, 재사용 가능)**: hira.or.kr의 "본부약도·층별안내도" 페이지처럼 **탭 클릭으로 하위 콘텐츠가 바뀌는 SPA形 페이지는 WebFetch로 조회하면 매번 다른(혹은 항상 기본 탭인) 내용을 반환하는 신뢰불가 현상이 발생**한다 — 이번엔 "강원본부" 주소를 물었는데 WebFetch가 실제로는 서울본부·부산본부·심지어 본원 주소를 뒤섞어 반환했다. 이런 사이트는 **Claude Browser 도구로 실제 페이지에 들어가 read_page로 tab 링크들의 ref를 찾고 하나씩 computer 클릭 → get_page_text로 확인**하는 방식이 유일하게 신뢰할 수 있는 방법. 서브에이전트가 WebFetch만으로 보고한 지역본부 12곳 주소도 이 방식으로 4곳을 직접 클릭 재검증해 전부 일치함을 확인한 뒤에야 반영했음 — 서브에이전트 보고를 그대로 믿지 않고 직접 브라우저로 표본 검증한 것이 결정적이었음.
 
+### 세션14 (UI 전면 개편 + 기획예산처 데이터 + 광고 + 모바일 버그 수정)
+
+**UI 구조 개편 (index.html)**:
+
+| 작업 | 커밋 | 주요 변경 |
+|------|------|-----------|
+| 모바일 하드웨어 뒤로가기 | — | History API 기반 `mobileBackStack` 구현 (§3 참고) |
+| 인사이트 탭 신설 | — | `공기업비교` 탭 → `인사이트` 탭으로 교체. 3개 서브탭(기관 상세 정보/공시 정보/블로그), 공기업 목록+검색 렌더링, 1080px 컨텐츠 영역, 하단 푸터바 |
+| nav-bar 상단 전환 | — | 좌측 세로 64px 아이콘바 → 상단 가로 60px 텍스트바. CSS grid 3열1행→2열2행. 아이콘 제거, 우측 정렬, `공공기관 지도` 텍스트 로고 |
+| 사이드바 타이틀 제거 | — | 공기업·정부기관 사이드바 상단 `공공기관 지도`/`정부기관 지도` 헤더(아이콘 포함) 삭제 |
+| 경영평가 배너 제거 | `54bbf378` | 공기업 사이드바의 `/eval/` 바로가기 배너 삭제 (인사이트→공시 정보에서 접근 가능) |
+| Kakao AdFit 광고 | — | 4개 단위(모바일/데스크탑 × 연봉카드/지사카드), `KAKAO_ADS_ENABLED=true`, 승인 완료 (§3·§12 참고) |
+| nav-logo 링크화 | `d49fa273` | `<div>` → `<a href="/">` 로 변경, 클릭 시 메인페이지 이동 |
+| 모바일 인사이트 탭바 버그 | `459ce451` | insight-overlay(z-index:900)가 하단 탭바(기존 z-index:700)를 덮는 버그 수정 — 탭바 z-index→1000, 오버레이 bottom을 탭바 높이만큼 올림 |
+
+**기관 데이터 업데이트**:
+
+| 기관 | 커밋 | 주요 변경 |
+|------|------|-----------|
+| 기획예산처 (data-govs.js) | `66280d1c` | 주소 정정(다솜2로 94), homepage 정정(mpb.go.kr), description 확장, mainBusiness 5개, branches에 복권위원회 사무처 추가 |
+
 ---
 
 ## 5. 경영평가(evalGrade) 관련 데이터
@@ -458,9 +599,9 @@ git add eval/index.html generate-eval-page.js
 > 연봉은 사용자가 ALIO 공시 기준으로 직접 수정하므로 **연봉 제외하고 수정**.
 
 ### 현재 작업 위치
-- **마지막 완료**: 건강보험심사평가원(HIRA) 데이터 전면 업데이트 (세션13) — §4 세션13 참고.
-- **세션13에서 완료한 전체 목록** (시간순): 모바일 지도 확대 토글 버그 2건 수정 → 한국투자공사(KIC, 이후 해외사무소 allBranches 분리+실주소 추가) → 창업진흥원(KISED, 이후 연봉 히스토리 추가) → 한국해양진흥공사(KOBC, 이후 시험과목 원문 재정정+연봉 히스토리 추가) → 한국여성과학기술인육성재단(WISET, 이후 시험과목 원문 재정정+연봉 히스토리 추가) → 한국관광공사 해외지사 좌표 5곳 개별 추가(후쿠오카·오사카·베이징·선양·블라디보스토크)+30개 해외지사 실주소 반영 → 중소기업기술정보진흥원(TIPA, 이후 전체 지사 지도 마커화+연봉 히스토리 추가) → 한국고용정보원(KEIS) → 건강보험심사평가원(HIRA)
-- **다음**: 기관 데이터 업데이트를 사용자가 "이어서 [기관명]의 모든 정보를..." 형태로 다시 지목할 예정. §7 아래 준정부기관 후보 목록 참고(순서는 사용자 지목이 우선). 모바일 UX는 세션13에서 보고된 버그 2건까지는 해결된 상태 — 추가 이슈가 없다면 새 세션에서 굳이 `MOBILE_UI_NOTES.md`부터 먼저 읽을 필요는 없음
+- **마지막 완료**: 세션14 — UI 전면 개편(인사이트 탭·상단 nav-bar·모바일 뒤로가기) + 기획예산처 데이터 + Kakao AdFit 광고 + 모바일 인사이트 탭바 버그 수정 + nav-logo 링크화. §4 세션14 참고.
+- **세션14에서 완료한 전체 목록** (시간순): 모바일 하드웨어 뒤로가기 버튼 네비게이션 → 기획예산처(data-govs.js) 전면 업데이트 → 인사이트 탭 신설(공기업비교→인사이트) → nav-bar 상단 전환(전 탭 공통) → 사이드바 타이틀 제거 → 경영평가 배너 제거(`54bbf378`) → Kakao AdFit 광고 4단위 적용(승인 완료) → 모바일 인사이트 오버레이 탭바 가림 버그 수정(`459ce451`) → nav-logo `<a href="/">` 링크화(`d49fa273`)
+- **다음**: 기관 데이터 업데이트를 사용자가 "이어서 [기관명]의 모든 정보를..." 형태로 다시 지목할 예정. §7 아래 준정부기관 후보 목록 참고(순서는 사용자 지목이 우선). 모바일 UX는 세션14까지 주요 버그 해결 완료 — 추가 이슈가 없다면 새 세션에서 `MOBILE_UI_NOTES.md`부터 먼저 읽을 필요 없음
 
 ### 아직 수정 안 된 주요 준정부기관 (data-orgs.js 순, 참고용)
 
@@ -549,6 +690,13 @@ result = content.substring(0, arrStart) + newArrayStr + content.substring(arrEnd
   ```
 - 오류 시 잔재 블록을 Edit 도구로 직접 제거
 
+### 모바일 풀스크린 오버레이가 하단 탭바를 가리는 패턴 (세션14에서 수정)
+- **증상**: 인사이트 탭 진입 시 하단 탭바(공기업/정부기관/인사이트 메뉴)가 사라짐
+- **원인**: `.insight-overlay`가 `z-index: 900` + `bottom: 0`으로 하단 탭바(`z-index: 700`)를 완전히 덮음
+- **해결**: ① 모바일 미디어쿼리에서 `.insight-overlay { top: 0; bottom: calc(58px + env(safe-area-inset-bottom)); }` — 오버레이가 탭바 위까지만 차지하게 함. ② 모바일 `.nav-bar { z-index: 1000; }` — 탭바가 어떤 오버레이보다 위에 오도록 보장
+- **교훈**: 모바일에서 풀스크린 오버레이를 추가할 때는 항상 `bottom: 탭바높이`를 설정해야 함. z-index만으로는 부족 (오버레이 콘텐츠가 탭바 뒤에 숨겨져 스크롤해도 안 보임)
+- **적용 커밋**: `459ce451`
+
 ### 사지방(원격) 작업과 로컬 세션이 동시에 진행될 때의 merge 충돌 (세션12 신규)
 - **상황**: 사용자가 GitHub 웹 + `.github/workflows/regenerate-pages.yml`(§11)로 사지방 등 외부 환경에서 `data-orgs.js`를 직접 수정·푸시하는 동안, 로컬 Claude 세션에도 동일 파일에 uncommitted 변경이 남아있으면 `git pull` 시 merge 충돌 발생
 - **안전한 처리 순서**: (1) `git stash push -- data-orgs.js`로 로컬 변경만 분리 → (2) `git pull --no-rebase`로 원격 반영 → (3) `git stash pop`으로 복원 시도 → 충돌 나면 (4) 두 버전을 CRLF/LF 정규화해서 diff 떠보고(`diff <(tr -d '\r' < a) <(tr -d '\r' < b)`) **실질적으로 내용이 같은지부터 확인** (한쪽이 다른 쪽의 상위집합인 경우가 많음)
@@ -564,10 +712,10 @@ result = content.substring(0, arrStart) + newArrayStr + content.substring(arrEnd
 - **Google Search Console**: https://search.google.com/search-console/ → 속성: govmap.kr
 - **네이버 서치어드바이저**: searchadvisor.naver.com → 웹마스터 도구
 
-### SEO 현황 (2026-06-20 기준)
+### SEO 현황 (2026-07-22 기준)
 - `eval/index.html` — 구글 색인 요청 완료, 네이버 색인 완료 (네이버 검색 3페이지 노출 확인)
 - sitemap.xml — 346개 페이지, 구글·네이버 모두 제출 완료
-- 메인 페이지 사이드바에 `/eval/` 배너 링크 추가 (내부 링크 신호)
+- 메인 페이지 사이드바의 `/eval/` 배너는 세션14에서 삭제됨 → 인사이트 탭 > 공시 정보에서 접근 가능 (내부 링크 경로 변경)
 
 ---
 
@@ -648,6 +796,21 @@ curl -s "https://govmap.kr/orgs/[기관명 URL인코딩]/?_cb=$(date +%s)" | gre
 - 그렇게 고쳐도 근본적 UX 문제가 남음: MutationObserver+타임아웃(4초) 방식은 **최소 수백ms~4초간 빈 여백이 그대로 노출**되는데, 실사용자는 페이지에 처음 들어와서 강제 새로고침을 하지 않으므로 "몇 초 뒤 사라진다"는 게 사실상 의미가 없다는 사용자 지적으로 전체 방식을 정적 숨김(`ADS_ENABLED`)으로 전환
 - **테스트 환경 함정**: 로컬 프리뷰 sandbox에서는 Kakao Maps API가 도메인 제한으로 차단(`ERR_BLOCKED_BY_ORB`)되지만 `googlesyndication.com`/`doubleclick.net`은 차단되지 않아, 실제로는 no-fill인 상황에서도 프리뷰에서만 광고가 채워진 것처럼 보인 적이 있었음 — **광고 채움/미채움 판단은 반드시 실제 도메인(govmap.kr)에서 확인**할 것 (`preview_eval`로 `https://govmap.kr/...`에 직접 navigate해서 검증 가능)
 - 브라우저 자체의 광고 차단 확장 프로그램(uBlock 등)과 위 "사이트 미승인으로 인한 no-fill"은 증상이 똑같이 "빈 공간"이라 헷갈리기 쉬움 — DevTools Network 탭에서 `googlesyndication`/`pagead` 요청이 `ERR_BLOCKED_BY_CLIENT`인지 확인하면 구분 가능
+
+### Kakao AdFit (세션14 신규, 애드센스 대기 중 임시 운영)
+
+- **승인 상태**: 세션14에서 심사 완료 → 광고 게재 시작
+- **광고 단위 4개** (모두 `generate-org-pages.js`에서 `KAKAO_ADS_ENABLED=true`로 활성화):
+
+| 위치 | 크기 | data-ad-unit |
+|------|------|-------------|
+| 연봉카드 하단 (모바일) | 320×100 | DAN-... |
+| 연봉카드 하단 (데스크탑) | 728×90 | DAN-... |
+| 지사카드 하단 (모바일) | 320×100 | DAN-... |
+| 지사카드 하단 (데스크탑) | 728×90 | DAN-... |
+
+- **구글 애드센스 vs Kakao AdFit**: 수익은 애드센스가 통상 2~5배 높음. 애드센스 승인 후 `ADS_ENABLED=true`로 전환하면 애드센스 슬롯이 같은 위치에 들어감. 그 시점에 `KAKAO_ADS_ENABLED=false`로 Kakao를 끌지 병행할지 결정 필요.
+- **메인 페이지 광고**: 세션14에서 추가했다가 위치가 부적절해(리스트 아래 묻힘) 다시 숨김(`display:none`). 승인 검토용으로 코드는 남아있음.
 
 ### AdSense 검토 관련 일반 지식 (사용자 질의응답 기반 정리, 확답 아님 — 구글 비공개 정책 다수 포함)
 - 콘텐츠 검토는 **홈페이지만이 아니라 사이트 전체(사이트맵 기반 대표 샘플 크롤링으로 추정)**를 본다고 판단됨 — 사이트 상태가 URL 단위가 아니라 도메인 하나로 표시되는 게 근거
