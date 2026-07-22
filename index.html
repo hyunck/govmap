@@ -1434,7 +1434,7 @@
             align-items: center;
             justify-content: flex-end;
             gap: 4px;
-            height: 56px;
+            height: 60px;
             padding: 0 24px;
             background: #fff;
             border-bottom: 1px solid var(--border);
@@ -1452,6 +1452,7 @@
         .insight-mainnav .nav-item.active::before { content: none; }
         .insight-mainnav .nav-item .label { font-size: 14px; }
         .insight-topbar {
+            height: 60px;
             padding: 0 24px;
             border-bottom: 1px solid var(--border);
             background: #fff;
@@ -1459,18 +1460,23 @@
         }
         .insight-topbar-inner {
             max-width: 1080px;
+            height: 100%;
             margin: 0 auto;
             display: flex;
+            align-items: center;
             gap: 4px;
         }
         .insight-tab {
             position: relative;
+            display: flex;
+            align-items: center;
+            height: 100%;
             border: none;
             background: none;
             font-size: 15px;
             font-weight: 600;
             color: var(--text-secondary);
-            padding: 16px 14px;
+            padding: 0 14px;
             cursor: pointer;
         }
         .insight-tab::after {
@@ -1543,6 +1549,23 @@
         .insight-card-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
         .insight-empty-state { display: none; text-align: center; color: var(--text-secondary); font-size: 14px; padding: 60px 0; }
         .insight-empty-state.show { display: block; }
+        .insight-footer {
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+            padding-top: 24px;
+            text-align: center;
+        }
+        .insight-footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 12px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        .insight-footer-links a { color: var(--text-secondary); text-decoration: none; }
+        .insight-footer-links a:hover { color: var(--primary); }
+        .insight-footer-copy { font-size: 11px; color: #9ca3af; }
         @media (max-width: 768px) {
             .insight-overlay { z-index: 900; }
             .insight-mainnav { padding: 0 12px; overflow-x: auto; }
@@ -2607,6 +2630,13 @@
                     <div class="insight-panel" id="insightPanelBlog">
                         <div class="insight-card-grid" id="insightBlogGrid"></div>
                         <div class="insight-empty-state" id="insightBlogEmpty">아직 게시된 글이 없습니다. 곧 찾아뵙겠습니다.</div>
+                    </div>
+                    <div class="insight-footer">
+                        <div class="insight-footer-links">
+                            <a href="/privacy/">개인정보처리방침</a>
+                            <a href="mailto:acala8282@gmail.com">문의하기</a>
+                        </div>
+                        <div class="insight-footer-copy">© 2026 GovMap · 공무원·공기업 취준생을 위한 기관 정보 서비스</div>
                     </div>
                 </div>
             </div>
