@@ -108,16 +108,10 @@
         }
 
         .nav-logo {
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
-            border-radius: 8px;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            font-weight: 900;
+            font-size: 17px;
+            font-weight: 800;
+            color: #1f2937;
+            letter-spacing: -0.3px;
         }
 
         .nav-item {
@@ -175,23 +169,6 @@
             border-bottom: 1px solid var(--border);
             min-width: var(--sidebar-width);
         }
-
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 12px;
-        }
-
-        .logo-area .logo-icon { font-size: 22px; }
-
-        .logo-area .logo-text {
-            font-size: 16px;
-            font-weight: 800;
-            letter-spacing: -0.3px;
-        }
-
-        .logo-area .logo-text span { color: var(--primary); }
 
         .search-box {
             position: relative;
@@ -879,19 +856,6 @@
             border-bottom: 1px solid var(--border);
             background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
         }
-        .gov-sidebar-header .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 14px;
-        }
-        .gov-sidebar-header .logo-icon { font-size: 22px; }
-        .gov-sidebar-header .logo-text {
-            font-size: 18px;
-            font-weight: 800;
-            color: var(--text-primary);
-        }
-        .gov-sidebar-header .logo-text span { color: var(--gov-accent); }
         .gov-search-box {
             position: relative;
         }
@@ -1854,10 +1818,8 @@
 
             /* ===== 모바일 상단 바 — 검색창을 사이드바에서 떼어내 페이지 상단에 고정 =====
                부동산플래닛 스타일: 좌우 화면을 꽉 채운 직사각형 바 2단(검색창 + 필터) */
-            .sidebar-header .logo-area,
-            .gov-sidebar-header .logo-area { display: none; }
-            /* 로고·검색창이 사라진 정부기관 사이드바 헤더에도 남아있던 단색(연보라 그라데이션)
-               배너와 구분선을 정리 — 공기업 탭 .sidebar-header와 동일하게 처리 */
+            /* 정부기관 사이드바 헤더에 남아있던 단색(연보라 그라데이션) 배너와 구분선을 정리
+               — 공기업 탭 .sidebar-header와 동일하게 처리 */
             .gov-sidebar-header { border-bottom: none; background: none; padding: 2px 20px; }
 
             .mobile-topbar {
@@ -2208,7 +2170,7 @@
 
     <div class="app-container" id="appContainer">
         <nav class="nav-bar">
-            <div class="nav-logo">🗺️</div>
+            <div class="nav-logo">공공기관 지도</div>
             <button class="nav-item active" data-nav="company">
                 <span class="icon">🏢</span>
                 <span class="label">공기업</span>
@@ -2228,10 +2190,6 @@
             <!-- 공기업 탭 사이드바 (기존) -->
             <div class="sidebar-company">
             <div class="sidebar-header">
-                <div class="logo-area">
-                    <span class="logo-icon">🏢</span>
-                    <span class="logo-text">공공기관 <span>지도</span></span>
-                </div>
                 <div class="search-box">
                     <span class="search-icon">🔍</span>
                     <input type="text" id="searchInput" placeholder="기관명을 검색해보세요">
@@ -2367,10 +2325,6 @@
             <!-- 정부기관 탭 사이드바 (신규) -->
             <div class="sidebar-government">
                 <div class="gov-sidebar-header">
-                    <div class="logo-area">
-                        <span class="logo-icon">🏛️</span>
-                        <span class="logo-text">정부기관 <span>지도</span></span>
-                    </div>
                     <div class="gov-search-box">
                         <span class="search-icon">🔍</span>
                         <input type="text" id="govSearchInput" placeholder="부처명·청 이름으로 검색">
