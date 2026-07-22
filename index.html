@@ -1432,6 +1432,7 @@
         .insight-mainnav {
             display: flex;
             align-items: center;
+            justify-content: flex-end;
             gap: 4px;
             height: 56px;
             padding: 0 24px;
@@ -1449,17 +1450,21 @@
         .insight-mainnav .nav-item:hover { color: #1f2937; background: #f3f4f6; }
         .insight-mainnav .nav-item.active { color: var(--primary); background: #f0fdf4; }
         .insight-mainnav .nav-item.active::before { content: none; }
-        .insight-mainnav .nav-item .icon { font-size: 16px; }
         .insight-mainnav .nav-item .label { font-size: 14px; }
         .insight-topbar {
-            display: flex;
-            gap: 4px;
             padding: 0 24px;
             border-bottom: 1px solid var(--border);
             background: #fff;
             flex-shrink: 0;
         }
+        .insight-topbar-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: flex;
+            gap: 4px;
+        }
         .insight-tab {
+            position: relative;
             border: none;
             background: none;
             font-size: 15px;
@@ -1467,12 +1472,24 @@
             color: var(--text-secondary);
             padding: 16px 14px;
             cursor: pointer;
-            border-bottom: 2px solid transparent;
         }
-        .insight-tab.active { color: var(--primary); border-bottom-color: var(--primary); }
+        .insight-tab::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.2s ease, left 0.2s ease;
+        }
+        .insight-tab:hover { color: #1f2937; }
+        .insight-tab:hover::after { width: 100%; left: 0; }
+        .insight-tab.active { color: var(--primary); }
+        .insight-tab.active::after { width: 100%; left: 0; }
         .insight-ad-slot { flex-shrink: 0; display: flex; justify-content: center; padding: 12px 24px 0; background: #fff; }
-        .insight-content { flex: 1; overflow-y: auto; }
-        .insight-content-inner { max-width: 1100px; margin: 0 auto; padding: 24px; }
+        .insight-content { flex: 1; overflow-y: auto; scrollbar-gutter: stable; }
+        .insight-content-inner { max-width: 1080px; margin: 0 auto; padding: 24px; }
         .insight-panel { display: none; }
         .insight-panel.active { display: block; }
         .insight-search {
@@ -1529,7 +1546,8 @@
         @media (max-width: 768px) {
             .insight-overlay { z-index: 900; }
             .insight-mainnav { padding: 0 12px; overflow-x: auto; }
-            .insight-topbar { padding: 0 12px; overflow-x: auto; }
+            .insight-topbar { padding: 0 12px; }
+            .insight-topbar-inner { overflow-x: auto; }
             .insight-content-inner { padding: 16px 14px 32px; }
             .insight-card-grid { grid-template-columns: 1fr; }
         }
@@ -2552,22 +2570,21 @@
         <div class="insight-overlay" id="insightOverlay">
             <div class="insight-mainnav">
                 <button class="nav-item" data-nav="company">
-                    <span class="icon">🏢</span>
                     <span class="label">공기업</span>
                 </button>
                 <button class="nav-item" data-nav="government">
-                    <span class="icon">🏛️</span>
                     <span class="label">정부기관</span>
                 </button>
                 <button class="nav-item active" data-nav="insight">
-                    <span class="icon">📊</span>
                     <span class="label">인사이트</span>
                 </button>
             </div>
             <div class="insight-topbar">
-                <button class="insight-tab active" data-insight-tab="orgs">기관 상세 정보</button>
-                <button class="insight-tab" data-insight-tab="disclosure">공시 정보</button>
-                <button class="insight-tab" data-insight-tab="blog">블로그</button>
+                <div class="insight-topbar-inner">
+                    <button class="insight-tab active" data-insight-tab="orgs">기관 상세 정보</button>
+                    <button class="insight-tab" data-insight-tab="disclosure">공시 정보</button>
+                    <button class="insight-tab" data-insight-tab="blog">블로그</button>
+                </div>
             </div>
             <div class="insight-ad-slot" id="insightAdSlot" style="display:none;">
                 <!-- 배너 광고 자리 (추후 카카오애드핏 광고단위 코드 삽입 예정) -->
