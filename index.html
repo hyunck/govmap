@@ -2642,7 +2642,8 @@
             govAllMarkers: [],
             orgGeocoded: false,             // 공기업 좌표 변환 완료 여부
             govGeocoded: false,            // 정부기관 좌표 변환 완료 여부
-            govClusterer: null,            // 정부기관 전용 클러스터러
+            govClusterer: null,            // 정부기관 본청 클러스터러
+            govClustererBr: null,          // 정부기관 소속·지방기관 클러스터러
 
             // 반경 매칭
             radiusCenter: null,             // { lat, lng, label }
@@ -4580,10 +4581,17 @@
                 }
             });
 
-            // 모든 마커 끄기 → 레이어 토글에 따라 켜기
-            state.govAllMarkers.forEach(m => m.setMap(null));
-            if (state.govLayerHq) hqMarkers.forEach(m => m.setMap(state.map));
-            if (state.govLayerBr) brMarkers.forEach(m => m.setMap(state.map));
+            // 클러스터러 초기화 후 레이어 토글에 따라 추가
+            if (state.govClusterer) {
+                state.govClusterer.clear();
+                state.govClustererBr.clear();
+                if (state.govLayerHq) state.govClusterer.addMarkers(hqMarkers);
+                if (state.govLayerBr) state.govClustererBr.addMarkers(brMarkers);
+            } else {
+                state.govAllMarkers.forEach(m => m.setMap(null));
+                if (state.govLayerHq) hqMarkers.forEach(m => m.setMap(state.map));
+                if (state.govLayerBr) brMarkers.forEach(m => m.setMap(state.map));
+            }
 
             renderGovList(filtered);
             document.getElementById('govResultCount').textContent = filtered.length;
@@ -4882,7 +4890,11 @@
         function activateCompanyMode() {
             // 사이드바 모드 변경
             document.getElementById('sidebar').classList.remove('sidebar-mode-government');
-            // 마커 swap: 정부기관 마커 다 끄고, 공기업 마커 다시 켜기
+            // 마커 swap: 정부기관 마커 다 끄고 (클러스터러 포함), 공기업 마커 다시 켜기
+            if (state.govClusterer) {
+                state.govClusterer.clear();
+                state.govClustererBr.clear();
+            }
             state.govAllMarkers.forEach(m => m.setMap(null));
             // 반경 매칭 정리
             clearRadiusOverlays();
@@ -4917,6 +4929,34 @@
                 await geocodeAllGov();
                 createGovMarkers();
                 console.log(`✅ 정부기관 ${GOVS.length}개, 총 마커 ${state.govAllMarkers.length}개`);
+                // 클러스터러 초기화 (본청 / 소속·지방기관 분리)
+                const govClusteredFix = function() {
+                    document.querySelectorAll('#map div[style*="border-radius"]').forEach(el => {
+                        el.style.pointerEvents = 'none';
+                        el.querySelectorAll('*').forEach(child => { child.style.pointerEvents = 'none'; });
+                        if (el.parentElement) el.parentElement.style.pointerEvents = 'none';
+                    });
+                };
+                state.govClusterer = new kakao.maps.MarkerClusterer({
+                    map: state.map, averageCenter: true, minLevel: 7,
+                    disableClickZoom: true, hoverable: false,
+                    styles: [
+                        { width:'40px',height:'40px',background:'rgba(124,58,237,0.85)',borderRadius:'50%',color:'#fff',textAlign:'center',fontWeight:'700',fontSize:'14px',lineHeight:'40px',border:'3px solid rgba(124,58,237,0.3)' },
+                        { width:'50px',height:'50px',background:'rgba(109,40,217,0.85)',borderRadius:'50%',color:'#fff',textAlign:'center',fontWeight:'700',fontSize:'15px',lineHeight:'50px',border:'3px solid rgba(109,40,217,0.3)' },
+                        { width:'60px',height:'60px',background:'rgba(91,33,182,0.85)',borderRadius:'50%',color:'#fff',textAlign:'center',fontWeight:'700',fontSize:'16px',lineHeight:'60px',border:'3px solid rgba(91,33,182,0.3)' }
+                    ]
+                });
+                state.govClustererBr = new kakao.maps.MarkerClusterer({
+                    map: state.map, averageCenter: true, minLevel: 7,
+                    disableClickZoom: true, hoverable: false,
+                    styles: [
+                        { width:'36px',height:'36px',background:'rgba(167,139,250,0.85)',borderRadius:'50%',color:'#fff',textAlign:'center',fontWeight:'700',fontSize:'13px',lineHeight:'36px',border:'3px solid rgba(167,139,250,0.3)' },
+                        { width:'46px',height:'46px',background:'rgba(139,92,246,0.85)',borderRadius:'50%',color:'#fff',textAlign:'center',fontWeight:'700',fontSize:'14px',lineHeight:'46px',border:'3px solid rgba(139,92,246,0.3)' },
+                        { width:'56px',height:'56px',background:'rgba(109,40,217,0.85)',borderRadius:'50%',color:'#fff',textAlign:'center',fontWeight:'700',fontSize:'15px',lineHeight:'56px',border:'3px solid rgba(109,40,217,0.3)' }
+                    ]
+                });
+                kakao.maps.event.addListener(state.govClusterer, 'clustered', govClusteredFix);
+                kakao.maps.event.addListener(state.govClustererBr, 'clustered', govClusteredFix);
                 // 첫 진입 시 재정경제부(id=1001) 자동 선택 — 모든 마커가 뜨는 혼잡함 방지
                 state.govSelectedId = 1001;
             }
@@ -5186,7 +5226,11 @@
             const emptyMsg = document.getElementById('radiusEmptyMsg');
             const list = document.getElementById('radiusList');
 
-            // 모든 정부기관 마커 끄기
+            // 모든 정부기관 마커 끄기 (클러스터러 포함)
+            if (state.govClusterer) {
+                state.govClusterer.clear();
+                state.govClustererBr.clear();
+            }
             state.govAllMarkers.forEach(m => m.setMap(null));
 
             if (!state.radiusCenter) {
