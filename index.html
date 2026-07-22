@@ -1518,8 +1518,36 @@
                 top: 0; /* 모바일엔 상단 nav-bar 없으므로 top 여백 불필요 */
                 bottom: calc(58px + env(safe-area-inset-bottom)); /* 하단 탭바 위에 겹치지 않게 */
             }
-            .insight-topbar { padding: 0 12px; }
-            .insight-topbar-inner { overflow-x: auto; }
+            /* 인사이트 탑바: 2단 레이아웃 (1단: 검색창, 2단: 탭 3개) */
+            .insight-topbar { height: auto; padding: 0; }
+            .insight-topbar-inner {
+                flex-wrap: wrap;
+                overflow-x: visible;
+                gap: 0;
+                height: auto;
+                margin: 0;
+                max-width: none;
+            }
+            .insight-search {
+                order: -1;      /* 탭보다 위 행으로 */
+                flex: 0 0 100%;
+                width: 100%;
+                max-width: none;
+                height: 48px;
+                margin-left: 0;
+                border-radius: 0;
+                border: none;
+                border-bottom: 1px solid var(--border);
+                padding: 0 14px;
+                box-sizing: border-box;
+            }
+            .insight-tab {
+                flex: 1;
+                justify-content: center;
+                height: 48px;
+                font-size: 14px;
+                padding: 0 4px;
+            }
             .insight-content-inner { padding: 16px 14px 32px; }
             .insight-card-grid { grid-template-columns: 1fr; }
         }
@@ -1615,7 +1643,8 @@
                 align-items: center;
                 padding: 6px 0 calc(6px + env(safe-area-inset-bottom));
                 z-index: 1000; /* 인사이트 오버레이(900)보다 위에 항상 표시 */
-                box-shadow: 0 -1px 0 #e5e7eb;
+                border-top: 1px solid #e5e7eb;
+                box-shadow: none;
             }
             .nav-logo { display: none; }
             .nav-item {
@@ -1629,7 +1658,7 @@
                 color: #9ca3af;
             }
             .nav-item:hover { color: #1f2937; background: #f3f4f6; }
-            .nav-item.active { color: var(--primary); background: #f0fdf4; }
+            .nav-item.active { color: var(--primary); background: none; }
             .nav-item .icon { display: none; }
             .nav-item .label { font-size: 13px; font-weight: 600; }
             .nav-item.active::before {
