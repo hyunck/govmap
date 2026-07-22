@@ -2048,10 +2048,7 @@
             /* 필터가 상단 바 + 바텀시트로 이동했으므로 사이드바 내부의 기존 필터 섹션은 숨김 */
             .filters { display: none; }
 
-            /* 기관 리스트가 있는 사이드바(설명창)의 경영평가 결과 배너는 모바일에서 숨김 */
-            .eval-banner { display: none !important; }
-
-            /* 모바일에서는 NCS 시험과목 접기/펼치기 기능 자체를 없애고 항상 전체 항목을 펼쳐서 보여줌
+/* 모바일에서는 NCS 시험과목 접기/펼치기 기능 자체를 없애고 항상 전체 항목을 펼쳐서 보여줌
                (데스크톱 사이드바에서만 쓰이는 접기 기능 — .collapsed에 붙는 !important를 모바일에서 무력화) */
             .exam-collapse-btn { display: none; }
             .exam-filter-header { cursor: default; pointer-events: none; }
@@ -2198,13 +2195,6 @@
             </div>
 
             <div class="sidebar-scroll-area">
-            <a href="/eval/" class="eval-banner" style="display:flex;align-items:center;gap:10px;margin:0 0 4px;padding:10px 14px;background:linear-gradient(90deg,#f0fdf4,#eff6ff);border-bottom:1px solid #e5e7eb;text-decoration:none;">
-              <span style="font-size:20px;">📊</span>
-              <span style="flex:1;min-width:0;">
-                <span style="display:block;font-size:13px;font-weight:700;color:#1f2937;">2025년도 경영평가 결과 발표</span>
-                <span style="display:block;font-size:11px;color:#6b7280;margin-top:1px;">88개 기관 등급·성과급·전년 비교 →</span>
-              </span>
-            </a>
             <div class="filters">
                 <div class="filter-group" data-mobile-filter-group="orgtype">
                     <div class="filter-label"><span class="filter-label-icon">🏢</span> 기관 유형</div>
