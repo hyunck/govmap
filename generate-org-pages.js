@@ -109,12 +109,7 @@ function buildPage(org) {
       yearsPhrase = '입니다.';
     }
 
-    let gradePhrase = '';
-    if (org.evalGrade === 'S' || org.evalGrade === 'A') {
-      gradePhrase = ` ${org.evalYear || 2025}년도 경영평가에서는 ${org.evalGrade}등급을 받아 우수한 평가를 받았습니다.`;
-    }
-
-    return `<p style="font-size:13px;color:#6b7280;line-height:1.6;margin-bottom:14px;">${rankPhrase}${yearsPhrase}${gradePhrase}</p>`;
+    return `<p style="font-size:13px;color:#6b7280;line-height:1.6;margin-bottom:14px;">${rankPhrase}${yearsPhrase}</p>`;
   }
   const rankComment = buildRankComment();
 
@@ -144,6 +139,48 @@ function buildPage(org) {
        </div>
        <div class="vc-year-tag${d.year === 2025 ? ' vc-year-current' : ''}">${d.year}년</div>
      </div>`).join('');
+
+  // 초봉↔평균연봉 격차 문장 — 342/344 기관에서 계산 가능한, 실제 수치 기반 통찰.
+  // 임계값(61/80/101%)은 344개 기관 전체 격차%의 p25/p50/p75 실측값
+  function buildSalaryGapComment() {
+    if (!org.startingSalary || !org.avgSalary || org.startingSalary <= 0) return '';
+    const gapPct = (org.avgSalary - org.startingSalary) / org.startingSalary * 100;
+    const tier = gapPct >= 101 ? '매우 큰 편' : gapPct >= 80 ? '큰 편' : gapPct >= 61 ? '평균적인 수준' : '작은 편';
+    return `평균연봉이 초봉보다 ${gapPct.toFixed(0)}% 높아, 연차가 쌓일수록 임금이 상승하는 폭이 ${tier}입니다.`;
+  }
+  const salaryGapComment = buildSalaryGapComment();
+
+  // 초봉 4개년 추이(연평균 성장률) 문장 — 연봉 히스토리 있는 100/344 기관에서만 표시.
+  // 임계값(3.6/0.3%)은 히스토리 보유 기관 CAGR의 p75 실측값 기준
+  function buildSalaryTrendComment() {
+    if (startHist.length < 2) return '';
+    const first = startHist[0], last = startHist[startHist.length - 1];
+    const years = last.year - first.year;
+    if (years <= 0 || first.val <= 0) return '';
+    const cagr = (Math.pow(last.val / first.val, 1 / years) - 1) * 100;
+    if (cagr >= 3.6) return `최근 ${years}년간(${first.year}→${last.year}) 초봉이 연평균 ${cagr.toFixed(1)}%씩 상승해 증가세가 뚜렷합니다.`;
+    if (cagr > 0.3) return `최근 ${years}년간(${first.year}→${last.year}) 초봉이 연평균 ${cagr.toFixed(1)}%씩 완만하게 상승했습니다.`;
+    if (cagr >= -0.3) return `최근 ${years}년간(${first.year}→${last.year}) 초봉이 거의 변동 없이 유지되고 있습니다.`;
+    return `최근 ${years}년간(${first.year}→${last.year}) 초봉이 연평균 ${Math.abs(cagr).toFixed(1)}%씩 감소하는 추세입니다.`;
+  }
+  const salaryTrendComment = buildSalaryTrendComment();
+  const salaryInsightHtml = (salaryGapComment || salaryTrendComment)
+    ? `<p class="vc-insight">${salaryGapComment}${salaryGapComment && salaryTrendComment ? ' ' : ''}${salaryTrendComment}</p>`
+    : '';
+
+  // 경영평가 등급 전년 대비 변동 문장 — evalGrade·prevEvalGrade 둘 다 있는 86/344 기관에서만 표시.
+  // buildRankComment의 기존 S/A 전용 한 줄(우수 평가만 언급)을 상위호환하므로 그쪽 로직은 제거함
+  function buildEvalTransitionComment() {
+    if (!org.evalGrade || !org.prevEvalGrade) return '';
+    const order = ['S', 'A', 'B', 'C', 'D', 'E'];
+    const cur = order.indexOf(org.evalGrade), prev = order.indexOf(org.prevEvalGrade);
+    const trend = cur < prev ? `전년(${org.prevEvalGrade}등급) 대비 등급이 상승했습니다`
+      : cur > prev ? `전년(${org.prevEvalGrade}등급) 대비 등급이 하락했습니다`
+      : `전년과 동일한 ${org.evalGrade}등급을 유지했습니다`;
+    const bonusPhrase = (org.evalGrade === 'D' || org.evalGrade === 'E') ? '성과급은 미지급됩니다' : '성과급 지급 대상입니다';
+    return `<p style="font-size:13px;color:#6b7280;line-height:1.6;margin-top:10px;">${org.evalYear || 2025}년도 경영평가에서 ${trend}, ${bonusPhrase}.</p>`;
+  }
+  const evalTransitionComment = buildEvalTransitionComment();
 
   const ncsStr      = (org.ncs || []).join(', ');
   const examStr     = (org.examSubjects || []).join(', ');
@@ -448,6 +485,7 @@ function buildPage(org) {
     .vc-year-tag  { font-size: 11px; color: #9ca3af; margin-top: 6px; }
     .vc-year-current { color: #1d4ed8; font-weight: 700; }
     .vc-note { font-size: 11px; color: #9ca3af; margin-top: 8px; }
+    .vc-insight { margin-top: 10px; font-size: 13px; color: #374151; line-height: 1.6; }
     .vc-big { font-size: 20px; font-weight: 800; color: #1e3a5f; text-align: right;
               margin-top: 10px; padding-top: 8px; border-top: 1px solid #f3f4f6; }
     .vc-big.avg-big { color: #2563eb; }
@@ -531,6 +569,7 @@ function buildPage(org) {
       ${org.industry ? `<div class="info-item"><label>산업 분야</label><span>${escHtml(org.industry)}</span></div>` : ''}
       ${org.evalGrade ? `<div class="info-item"><label>경영평가 등급</label><span><span class="eval-badge eval-${escHtml(org.evalGrade)}">${escHtml(org.evalGrade)}등급</span><span style="font-size:12px;color:#9ca3af;margin-left:8px;">${{'S':'탁월','A':'우수','B':'양호','C':'보통','D':'미흡','E':'아주미흡'}[org.evalGrade]||''} · ${org.evalYear||2025}년도 실적 (${(org.evalYear||2025)+1}년 발표)</span></span></div>` : ''}
     </div>
+    ${evalTransitionComment}
   </div>
 
   <!-- 연봉 시각화 (세로 막대) -->
@@ -549,6 +588,7 @@ function buildPage(org) {
       </div>
     </div>
     ${industryRank > 0 ? `<div class="sv-rank">📊 <strong>${escHtml(org.industry)}</strong> 산업군 신입연봉 <strong>${industryPeers.length}개 기관 중 ${industryRank}위</strong></div>` : ''}
+    ${salaryInsightHtml}
     ${avgHist.some(d => d.year === 2026) ? `<p class="vc-note">* 2026년 평균 연봉은 경영평가 성과급이 미반영된 예산 기준으로, 실제 지급액과 차이가 있을 수 있습니다.</p>` : ''}
   </div>` : ''}
 
