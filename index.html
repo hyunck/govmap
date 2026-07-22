@@ -81,26 +81,30 @@
         /* === 앱 컨테이너: 그리드 레이아웃으로 변경 === */
         .app-container {
             display: grid;
-            grid-template-columns: var(--nav-width) var(--sidebar-width) 1fr;
-            grid-template-rows: 100vh;
+            grid-template-columns: var(--sidebar-width) 1fr;
+            grid-template-rows: 60px 1fr;
             height: 100vh;
             position: relative;
             transition: grid-template-columns 0.25s ease;
         }
 
         .app-container.sidebar-collapsed {
-            grid-template-columns: var(--nav-width) 0 1fr;
+            grid-template-columns: 0 1fr;
         }
 
-        /* === 네비게이션 바 === */
+        /* === 네비게이션 바 (상단 가로바 — 공기업/정부기관/인사이트 공통) === */
         .nav-bar {
-            background: var(--nav-bg);
+            grid-column: 1 / -1;
+            grid-row: 1;
+            background: #fff;
+            border-bottom: 1px solid var(--border);
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
-            padding: 12px 0;
+            height: 60px;
+            padding: 0 24px;
+            gap: 4px;
             z-index: 200;
-            grid-column: 1;
         }
 
         .nav-logo {
@@ -114,43 +118,36 @@
             justify-content: center;
             font-size: 20px;
             font-weight: 900;
-            margin-bottom: 16px;
         }
 
         .nav-item {
-            width: 100%;
-            padding: 14px 0 10px;
+            width: auto;
+            flex-direction: row;
+            padding: 8px 14px;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            gap: 4px;
+            gap: 6px;
             cursor: pointer;
-            color: #a3a3a3;
+            color: var(--text-secondary);
             transition: all 0.15s ease;
             position: relative;
             border: none;
+            border-radius: 8px;
             background: none;
             font-family: inherit;
         }
 
-        .nav-item:hover { color: #fff; }
+        /* 로고는 좌측 고정, 메뉴 3개는 첫 nav-item의 auto 마진으로 우측에 몰아 붙임 */
+        .nav-item:first-of-type { margin-left: auto; }
 
-        .nav-item.active { color: var(--nav-active); }
+        .nav-item:hover { color: #1f2937; background: #f3f4f6; }
 
-        .nav-item.active::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 3px;
-            height: 32px;
-            background: var(--nav-active);
-            border-radius: 0 2px 2px 0;
-        }
+        .nav-item.active { color: var(--primary); background: #f0fdf4; }
 
-        .nav-item .icon { font-size: 22px; line-height: 1; }
-        .nav-item .label { font-size: 10px; font-weight: 600; }
+        .nav-item .label { font-size: 14px; font-weight: 600; }
+        /* 인사이트 탭 상단바와 통일감 있게 데스크탑에선 아이콘 없이 텍스트만 — 모바일 하단
+           탭바에서는 아래 미디어쿼리가 다시 보이게 함(아이콘이 필요한 레이아웃이라) */
+        .nav-item .icon { display: none; }
 
         /* === 사이드바 === */
         .sidebar {
@@ -161,7 +158,8 @@
             z-index: 100;
             box-shadow: 2px 0 8px rgba(0, 0, 0, 0.04);
             overflow: hidden;
-            grid-column: 2;
+            grid-column: 1;
+            grid-row: 2;
             transition: opacity 0.2s ease;
         }
 
@@ -451,10 +449,10 @@
         /* === 상세 패널 === */
         .detail-panel {
             position: absolute;
-            top: 0;
-            left: calc(var(--nav-width) + var(--sidebar-width));
+            top: 60px;
+            left: var(--sidebar-width);
             width: var(--detail-width);
-            height: 100vh;
+            height: calc(100vh - 60px);
             background: #fff;
             border-right: 1px solid var(--border);
             z-index: 90;
@@ -468,7 +466,7 @@
         }
 
         .app-container.sidebar-collapsed .detail-panel {
-            left: var(--nav-width);
+            left: 0;
         }
 
         .detail-panel.open {
@@ -698,7 +696,8 @@
         /* === 지도 영역 === */
         .map-area {
             position: relative;
-            grid-column: 3;
+            grid-column: 2;
+            grid-row: 2;
         }
 
         #map {
@@ -1398,8 +1397,8 @@
         /* 준비중 오버레이 */
         .coming-soon-overlay {
             position: absolute;
-            top: 0;
-            left: var(--nav-width);
+            top: 60px;
+            left: 0;
             right: 0;
             bottom: 0;
             background: rgba(249, 250, 251, 0.95);
@@ -1417,7 +1416,7 @@
            JS에서 .app-container.insight-active일 때 display:none으로 직접 숨김(아래 참고) */
         .insight-overlay {
             position: absolute;
-            top: 0;
+            top: 60px;
             left: 0;
             right: 0;
             bottom: 0;
@@ -1427,30 +1426,8 @@
             z-index: 150;
         }
         .insight-overlay.show { display: flex; }
-        /* 좌측 세로 아이콘 메뉴바(.nav-item)를 인사이트 탭 안에서만 가로 상단바로 재사용 —
-           같은 .nav-item 클래스를 공유해 기존 nav-item 클릭 리스너를 그대로 재사용함 */
-        .insight-mainnav {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            gap: 4px;
-            height: 60px;
-            padding: 0 24px;
-            background: #fff;
-            border-bottom: 1px solid var(--border);
-            flex-shrink: 0;
-        }
-        .insight-mainnav .nav-item {
-            width: auto;
-            flex-direction: row;
-            padding: 8px 14px;
-            border-radius: 8px;
-            color: var(--text-secondary);
-        }
-        .insight-mainnav .nav-item:hover { color: #1f2937; background: #f3f4f6; }
-        .insight-mainnav .nav-item.active { color: var(--primary); background: #f0fdf4; }
-        .insight-mainnav .nav-item.active::before { content: none; }
-        .insight-mainnav .nav-item .label { font-size: 14px; }
+        /* nav-bar가 이제 모든 탭에서 항상 보이는 상단 가로바라, 인사이트 탭 전용 복제 메뉴는
+           더 이상 필요 없어 제거함(과거 .insight-mainnav) */
         .insight-topbar {
             height: 60px;
             padding: 0 24px;
@@ -1568,15 +1545,13 @@
         .insight-footer-copy { font-size: 11px; color: #9ca3af; }
         @media (max-width: 768px) {
             .insight-overlay { z-index: 900; }
-            .insight-mainnav { padding: 0 12px; overflow-x: auto; }
             .insight-topbar { padding: 0 12px; }
             .insight-topbar-inner { overflow-x: auto; }
             .insight-content-inner { padding: 16px 14px 32px; }
             .insight-card-grid { grid-template-columns: 1fr; }
         }
-        /* 인사이트 탭이 활성화된 동안엔 좌측 아이콘 메뉴바·사이드바·지도를 완전히 숨김
-           (.insight-overlay의 z-index만으로는 .nav-bar(200)를 못 이겨서 explicit hide 필요) */
-        .app-container.insight-active .nav-bar,
+        /* 인사이트 탭이 활성화된 동안엔 사이드바·지도만 숨김 — nav-bar는 이제 상단 가로바로
+           모든 탭에서 공통으로 항상 보이므로 더 이상 숨길 필요 없음 */
         .app-container.insight-active .sidebar,
         .app-container.insight-active .map-area { display: none; }
 
@@ -1653,26 +1628,43 @@
             #map { height: 100%; }
             .sidebar-toggle { display: none; }
 
-            /* 하단 탭바 */
+            /* 하단 탭바 — 데스크탑 상단바(흰 배경·가로 텍스트 버튼)와 완전히 다른 톤이라
+               베이스 .nav-bar/.nav-item 스타일을 상속하지 않고 여기서 전부 자체 정의함 */
             .nav-bar {
                 position: fixed;
                 left: 0; right: 0; bottom: 0;
                 width: 100%;
+                height: 58px;
+                background: var(--nav-bg);
+                border-bottom: none;
                 flex-direction: row;
                 justify-content: space-around;
                 align-items: center;
                 padding: 6px 0 calc(6px + env(safe-area-inset-bottom));
-                height: 58px;
                 z-index: 700;
                 box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
             }
             .nav-logo { display: none; }
-            .nav-item { width: auto; flex: 1; padding: 4px 0 2px; }
-            .nav-item .icon { font-size: 20px; }
+            .nav-item {
+                width: auto;
+                flex: 1;
+                flex-direction: column;
+                gap: 4px;
+                padding: 4px 0 2px;
+                margin-left: 0 !important;
+                border-radius: 0;
+                color: #a3a3a3;
+            }
+            .nav-item:hover { color: #fff; background: none; }
+            .nav-item.active { color: var(--nav-active); background: none; }
+            .nav-item .icon { display: inline-block; font-size: 20px; }
             .nav-item .label { font-size: 10px; }
             .nav-item.active::before {
+                content: '';
+                position: absolute;
                 left: 50%; top: 0; transform: translateX(-50%);
                 width: 28px; height: 3px;
+                background: var(--nav-active);
                 border-radius: 0 0 3px 3px;
             }
 
@@ -2591,17 +2583,6 @@
         </div>
 
         <div class="insight-overlay" id="insightOverlay">
-            <div class="insight-mainnav">
-                <button class="nav-item" data-nav="company">
-                    <span class="label">공기업</span>
-                </button>
-                <button class="nav-item" data-nav="government">
-                    <span class="label">정부기관</span>
-                </button>
-                <button class="nav-item active" data-nav="insight">
-                    <span class="label">인사이트</span>
-                </button>
-            </div>
             <div class="insight-topbar">
                 <div class="insight-topbar-inner">
                     <button class="insight-tab active" data-insight-tab="orgs">기관 상세 정보</button>
