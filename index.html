@@ -1443,12 +1443,15 @@
         .insight-panel.active { display: block; }
         .insight-search {
             width: 100%;
-            max-width: 360px;
-            padding: 10px 14px;
+            max-width: 280px;
+            padding: 0 14px;
+            height: 36px;
             border: 1px solid var(--border);
             border-radius: 8px;
             font-size: 14px;
-            margin-bottom: 20px;
+            margin-left: auto;
+            flex-shrink: 0;
+            box-sizing: border-box;
         }
         .insight-org-group-title {
             font-size: 14px;
@@ -2538,6 +2541,7 @@
                     <button class="insight-tab active" data-insight-tab="orgs">기관 상세 정보</button>
                     <button class="insight-tab" data-insight-tab="disclosure">공시 정보</button>
                     <button class="insight-tab" data-insight-tab="blog">블로그</button>
+                    <input type="text" class="insight-search" id="insightOrgSearch" placeholder="기관명을 검색해보세요">
                 </div>
             </div>
             <div class="insight-ad-slot" id="insightAdSlot" style="display:none;">
@@ -2546,7 +2550,6 @@
             <div class="insight-content">
                 <div class="insight-content-inner">
                     <div class="insight-panel active" id="insightPanelOrgs">
-                        <input type="text" class="insight-search" id="insightOrgSearch" placeholder="기관명을 검색해보세요">
                         <div id="insightOrgGroups"></div>
                     </div>
                     <div class="insight-panel" id="insightPanelDisclosure">
@@ -3473,6 +3476,8 @@
                 const panelId = 'insightPanel' + tabName.charAt(0).toUpperCase() + tabName.slice(1);
                 const panelEl = document.getElementById(panelId);
                 if (panelEl) panelEl.classList.add('active');
+                const searchEl = document.getElementById('insightOrgSearch');
+                if (searchEl) searchEl.style.display = tabName === 'orgs' ? '' : 'none';
             });
         });
 
