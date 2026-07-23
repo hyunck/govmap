@@ -683,7 +683,7 @@
 
         #map {
             width: 100%;
-            height: 100vh;
+            height: 100%; /* 그리드 셀(100vh-60px)에 딱 맞춤 — 100vh 쓰면 nav-bar만큼 페이지 overflow */
         }
 
         /* 클러스터 원(기관 개수를 보여주는 동그라미)이 지도 드래그를 가로채는 문제 방지.
@@ -2367,13 +2367,13 @@
                     <button class="reset-btn" id="resetBtn">필터 초기화</button>
                 </div>
                 <div class="intro-tagline" style="padding:12px 14px 10px;font-size:12px;color:#6b7280;line-height:1.6;">
-                    전국 344개 공기업·공공기관의 위치·연봉·채용정보를 지도에서 한눈에 비교하세요. 연봉·인원은 ALIO 공시 기준으로 매년 갱신됩니다.
+                    전국 344개 공기업·공공기관의 위치·연봉·채용정보를 지도에서 한눈에 비교하세요. 연봉·채용 정보는 ALIO 공시 기준으로 매년 갱신됩니다.
                 </div>
                 <ul class="org-list" id="orgList"></ul>
                 <div style="padding:16px 14px 4px;border-top:1px solid #f3f4f6;font-size:12px;color:#6b7280;line-height:1.7;">
                     <div style="font-size:12px;font-weight:700;color:#374151;margin-bottom:6px;">GovMap 소개</div>
                     <p style="margin-bottom:8px;">GovMap은 공기업·준정부기관·기타공공기관 344곳의 위치·연봉·채용 정보를 지도 위에서 한눈에 비교할 수 있는 서비스입니다. 기관 유형·산업 분야·지역·초봉 조건으로 필터링해 원하는 조건의 기관을 빠르게 찾을 수 있습니다.</p>
-                    <p style="margin-bottom:8px;">연봉·인원 정보는 공공기관 경영정보 공개시스템(ALIO) 공시자료를 기준으로 매년 갱신합니다. 초봉·평균연봉뿐 아니라 최근 4개년 연봉 추이, NCS 시험과목, 직렬별 전공과목, 순환근무 여부까지 기관별 상세페이지에서 확인할 수 있습니다.</p>
+                    <p style="margin-bottom:8px;">연봉·채용 정보는 공공기관 경영정보 공개시스템(ALIO) 공시자료를 기준으로 매년 갱신합니다. 초봉·평균연봉뿐 아니라 최근 4개년 연봉 추이, NCS 시험과목, 직렬별 전공과목, 순환근무 여부까지 기관별 상세페이지에서 확인할 수 있습니다.</p>
                     <p style="margin-bottom:8px;">지사가 많은 기관은 본사뿐 아니라 전국 지사·사업소 위치까지 지도 마커로 표시해, 입사 후 발령 가능한 근무지 범위를 미리 가늠해볼 수 있도록 했습니다.</p>
                     <p>이 사이트는 공공기관 채용을 준비하며 직접 정보를 찾아다녔던 경험을 바탕으로, 한 사람이 개인적으로 만들고 운영하고 있습니다. 오류나 개선 아이디어는 각 기관 상세페이지의 "오류 신고" 버튼이나 하단 문의 이메일로 알려주세요.</p>
                 </div>
@@ -2490,6 +2490,11 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div style="text-align:center;font-size:11px;color:#9ca3af;padding:12px 12px 20px;border-top:1px solid #f3f4f6;flex-shrink:0;">
+                © 2026 GovMap · <a href="/privacy/" style="color:#6b7280;">개인정보처리방침</a><br>
+                문의: <a href="mailto:acala8282@gmail.com" style="color:#6b7280;">acala8282@gmail.com</a>
+            </div>
             </div>
             <!-- /sidebar-government -->
         </aside>
