@@ -1462,7 +1462,7 @@
         .insight-org-group-title:first-child { margin-top: 0; }
         .insight-org-item {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: space-between;
             padding: 11px 14px;
             border: 1px solid var(--border);
@@ -1471,9 +1471,33 @@
             text-decoration: none;
             color: #1f2937;
             font-size: 14px;
+            transition: background 0.18s, border-color 0.18s;
         }
         .insight-org-item:hover { border-color: var(--primary); background: #f0fdf4; }
         .insight-org-item .type-tag { font-size: 11px; color: var(--text-secondary); }
+        .insight-org-left { display: flex; flex-direction: column; }
+        .insight-org-extra {
+            display: flex; gap: 8px;
+            font-size: 12px; color: var(--text-secondary);
+            max-height: 0; overflow: hidden; opacity: 0;
+            transition: max-height 0.2s ease, opacity 0.18s ease, margin-top 0.18s ease;
+            margin-top: 0;
+        }
+        .insight-org-right { display: flex; flex-direction: column; align-items: flex-end; flex-shrink: 0; }
+        .insight-org-industry {
+            font-size: 11px; color: var(--text-secondary);
+            max-height: 0; overflow: hidden; opacity: 0;
+            transition: max-height 0.2s ease, opacity 0.18s ease, margin-top 0.18s ease;
+            margin-top: 0;
+        }
+        @media (min-width: 769px) {
+            .insight-org-item:hover .insight-org-extra {
+                max-height: 24px; opacity: 1; margin-top: 5px;
+            }
+            .insight-org-item:hover .insight-org-industry {
+                max-height: 20px; opacity: 1; margin-top: 4px;
+            }
+        }
         .insight-card-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -3531,8 +3555,20 @@
                 <div class="insight-org-group-title">${g.type} (${g.items.length})</div>
                 ${g.items.map(o => `
                     <a class="insight-org-item" href="/orgs/${encodeURIComponent(o.name)}/">
-                        <span>${o.name}</span>
-                        <span class="type-tag">${o.region || ''}</span>
+                        <div class="insight-org-left">
+                            <span>${o.name}</span>
+                            <div class="insight-org-extra">
+                                <span>초봉 ${o.startingSalary ? o.startingSalary.toLocaleString() + '만원' : '—'}</span>
+                                <span style="color:#d1d5db">·</span>
+                                <span>평균연봉 ${o.avgSalary ? o.avgSalary.toLocaleString() + '만원' : '—'}</span>
+                                <span style="color:#d1d5db">·</span>
+                                <span>근속 ${o.avgYears ? o.avgYears + '년' : '—'}</span>
+                            </div>
+                        </div>
+                        <div class="insight-org-right">
+                            <span class="type-tag">${o.region || ''}</span>
+                            <span class="insight-org-industry">${o.industry || ''}</span>
+                        </div>
                     </a>`).join('')}
             `).join('');
         }
