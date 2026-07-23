@@ -82,7 +82,7 @@
         .app-container {
             display: grid;
             grid-template-columns: var(--sidebar-width) 1fr;
-            grid-template-rows: 60px 1fr;
+            grid-template-rows: 60px 1fr 44px;
             height: 100vh;
             position: relative;
             transition: grid-template-columns 0.25s ease;
@@ -683,8 +683,27 @@
 
         #map {
             width: 100%;
-            height: 100vh;
+            height: calc(100vh - 104px); /* 60px nav-bar + 44px app-footer */
         }
+
+        .app-footer {
+            grid-column: 1 / -1;
+            grid-row: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: 11px;
+            color: #9ca3af;
+            background: #fff;
+            border-top: 1px solid #f3f4f6;
+            z-index: 50;
+        }
+        .app-footer a { color: #9ca3af; text-decoration: none; }
+        .app-footer a:hover { color: #6b7280; }
+
+        /* 데스크탑에서 사이드바 내부 footer 숨김 (app-footer가 대체) */
+        .sidebar-footer { display: none; }
 
         /* 클러스터 원(기관 개수를 보여주는 동그라미)이 지도 드래그를 가로채는 문제 방지.
            disableClickZoom·hoverable 옵션만으로는 카카오 SDK가 클러스터 DOM에 붙이는
@@ -1671,6 +1690,8 @@
             .app-container { display: block; height: 100vh; height: 100dvh; }
             .map-area { position: fixed; inset: 0; grid-column: auto; }
             #map { height: 100%; }
+            .app-footer { display: none; }
+            .sidebar-footer { display: block; }
             .sidebar-toggle { display: none; }
 
             /* 하단 탭바 — 데스크탑 상단바와 동일하게 흰 배경·텍스트 전용으로 통일
@@ -2384,7 +2405,7 @@
                          data-ad-height="250"></ins>
                     <script type="text/javascript" src="//t1.kakaocdn.net/kas/static/ba.min.js" async></script>
                 </div>
-                <div style="text-align:center;font-size:11px;color:#9ca3af;padding:12px 12px 20px;border-top:1px solid #f3f4f6;">
+                <div class="sidebar-footer" style="text-align:center;font-size:11px;color:#9ca3af;padding:12px 12px 20px;border-top:1px solid #f3f4f6;">
                     © 2026 GovMap · <a href="/privacy/" style="color:#6b7280;">개인정보처리방침</a><br>
                     문의: <a href="mailto:acala8282@gmail.com" style="color:#6b7280;">acala8282@gmail.com</a>
                 </div>
@@ -2490,7 +2511,7 @@
                         </div>
                     </div>
                 </div>
-                <div style="text-align:center;font-size:11px;color:#9ca3af;padding:12px 12px 20px;border-top:1px solid #f3f4f6;flex-shrink:0;">
+                <div class="sidebar-footer" style="text-align:center;font-size:11px;color:#9ca3af;padding:12px 12px 20px;border-top:1px solid #f3f4f6;flex-shrink:0;">
                     © 2026 GovMap · <a href="/privacy/" style="color:#6b7280;">개인정보처리방침</a><br>
                     문의: <a href="mailto:acala8282@gmail.com" style="color:#6b7280;">acala8282@gmail.com</a>
                 </div>
@@ -2667,6 +2688,10 @@
             <div class="mobile-filter-sheet-footer" id="mobileFilterSheetFooter"></div>
             <div class="mobile-filter-sheet-content" id="mobileFilterSheetContent"></div>
         </aside>
+
+        <div class="app-footer">
+            © 2026 GovMap · <a href="/privacy/">개인정보처리방침</a> · 문의: <a href="mailto:acala8282@gmail.com">acala8282@gmail.com</a>
+        </div>
     </div>
 
     <!-- ⭐ 카카오 SDK + services 라이브러리 (Geocoder 사용) -->
