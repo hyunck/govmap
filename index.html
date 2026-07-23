@@ -2627,6 +2627,19 @@
     <script src="coords-cache.js"></script>
 
     <script>
+        // ===== URL 탭 라우팅 =====
+        // /gov/ 또는 /insight/ 직접 진입 시 ?tab= 파라미터를 읽어 초기 탭을 결정하고 URL을 정리
+        (function() {
+            const param = new URLSearchParams(location.search).get('tab');
+            const pathTab = location.pathname.startsWith('/gov') ? 'gov'
+                          : location.pathname.startsWith('/insight') ? 'insight' : null;
+            window._govmapInitTab = param || pathTab;
+            if (param) {
+                const clean = param === 'gov' ? '/gov/' : param === 'insight' ? '/insight/' : '/';
+                history.replaceState({}, '', clean);
+            }
+        })();
+
         function getLogoColor(shortName) {
             const palette = ['#2563eb','#dc2626','#16a34a','#ea580c','#7c3aed','#0891b2','#c026d3','#65a30d','#0d9488','#db2777','#9333ea','#0284c7','#f59e0b','#e11d48','#4f46e5','#059669','#d97706','#475569','#84cc16','#06b6d4'];
             let hash = 0;
@@ -3453,8 +3466,18 @@
                         }
                     }
                 }
+                // 탭 전환 시 브라우저 주소창에 해당 페이지 경로 반영
+                const _tabUrlMap = { company: '/', government: '/gov/', insight: '/insight/' };
+                if (_tabUrlMap[navType]) history.replaceState({}, '', _tabUrlMap[navType]);
             });
         });
+
+        // 초기 탭 활성화 — /gov/ 또는 /insight/로 직접 진입했을 때 해당 탭으로 이동
+        if (window._govmapInitTab && window._govmapInitTab !== 'company') {
+            const _initNavMap = { gov: 'government', insight: 'insight' };
+            const _initNavEl = document.querySelector(`.nav-item[data-nav="${_initNavMap[window._govmapInitTab]}"]`);
+            if (_initNavEl) _initNavEl.click();
+        }
 
         function showComingSoon({ emoji, title, subtitle, description, features }) {
             document.getElementById('csEmoji').textContent = emoji;
