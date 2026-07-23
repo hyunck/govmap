@@ -2839,6 +2839,14 @@
             const _si = document.getElementById('searchInput');
             kakao.maps.event.addListener(state.map, 'click', () => { _si && _si.blur(); });
             kakao.maps.event.addListener(state.map, 'dragstart', () => { _si && _si.blur(); });
+
+            // 초기 탭 활성화 — /gov/ 또는 /insight/로 직접 진입했을 때 해당 탭으로 이동
+            // map/geocoder 초기화 완료 후 실행해야 activateGovernmentMode 등이 정상 동작함
+            if (window._govmapInitTab && window._govmapInitTab !== 'company') {
+                const _initNavMap = { gov: 'government', insight: 'insight' };
+                const _initNavEl = document.querySelector(`.nav-item[data-nav="${_initNavMap[window._govmapInitTab]}"]`);
+                if (_initNavEl) _initNavEl.click();
+            }
         });
 
         // ====================================================
@@ -3532,13 +3540,6 @@
                 if (_tabUrlMap[navType]) history.replaceState({}, '', _tabUrlMap[navType]);
             });
         });
-
-        // 초기 탭 활성화 — /gov/ 또는 /insight/로 직접 진입했을 때 해당 탭으로 이동
-        if (window._govmapInitTab && window._govmapInitTab !== 'company') {
-            const _initNavMap = { gov: 'government', insight: 'insight' };
-            const _initNavEl = document.querySelector(`.nav-item[data-nav="${_initNavMap[window._govmapInitTab]}"]`);
-            if (_initNavEl) _initNavEl.click();
-        }
 
         function showComingSoon({ emoji, title, subtitle, description, features }) {
             document.getElementById('csEmoji').textContent = emoji;
@@ -5013,6 +5014,8 @@
 
         // ---------- 모드 활성화/비활성화 ----------
         function activateCompanyMode() {
+            // 인사이트 등 오버레이 탭에서 돌아올 때 지도 크기 재계산
+            if (state.map) setTimeout(() => state.map.relayout(), 50);
             // 사이드바 모드 변경
             document.getElementById('sidebar').classList.remove('sidebar-mode-government');
             // 마커 swap: 정부기관 마커 다 끄고 (클러스터러 포함), 공기업 마커 다시 켜기
@@ -5048,6 +5051,8 @@
         }
 
         async function activateGovernmentMode() {
+            // 인사이트 등 오버레이 탭에서 돌아올 때 지도 크기 재계산
+            if (state.map) setTimeout(() => state.map.relayout(), 50);
             document.getElementById('sidebar').classList.add('sidebar-mode-government');
             document.getElementById('mapLegend').classList.add('gov-mode');
 
@@ -5056,6 +5061,9 @@
 
             // 상세 패널 닫기
             document.getElementById('detailPanel').classList.remove('open');
+
+            // ⭐ 기관 리스트는 좌표와 무관하므로 geocoding 전에 즉시 렌더링
+            if (state.govMode === 'ministry') applyGovMinistryFilter();
 
             // 정부기관 좌표 변환 + 마커 생성 (최초 1회)
             const isFirstEntry = !state.govGeocoded;
