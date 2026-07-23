@@ -683,7 +683,7 @@
 
         #map {
             width: 100%;
-            height: calc(100vh - 60px); /* 그리드 셀 높이와 동일 — 100%는 Kakao Maps 초기화 시 0으로 읽힘 */
+            height: 100%; /* 그리드 셀(100vh-60px)에 딱 맞춤 — 100vh 쓰면 nav-bar만큼 페이지 overflow */
         }
 
         /* 클러스터 원(기관 개수를 보여주는 동그라미)이 지도 드래그를 가로채는 문제 방지.
@@ -2494,7 +2494,6 @@
             <div style="text-align:center;font-size:11px;color:#9ca3af;padding:12px 12px 20px;border-top:1px solid #f3f4f6;flex-shrink:0;">
                 © 2026 GovMap · <a href="/privacy/" style="color:#6b7280;">개인정보처리방침</a><br>
                 문의: <a href="mailto:acala8282@gmail.com" style="color:#6b7280;">acala8282@gmail.com</a>
-            </div>
             </div>
             <!-- /sidebar-government -->
         </aside>
