@@ -15643,6 +15643,18 @@ const ORGS = [
     "startingSalary": 5247,
     "avgSalary": 11443,
     "avgYears": 12.5,
+    "startingSalaryHistory": [
+      {"year": 2023, "val": 4789},
+      {"year": 2024, "val": 4871},
+      {"year": 2025, "val": 5040},
+      {"year": 2026, "val": 5247}
+    ],
+    "avgSalaryHistory": [
+      {"year": 2023, "val": 10786},
+      {"year": 2024, "val": 11292},
+      {"year": 2025, "val": 11443},
+      {"year": 2026, "val": 10885}
+    ],
     "homepage": "https://www.koreaexim.go.kr",
     "recruitUrl": "https://koreaexim.incruit.com/hire/hirelist.asp",
     "description": "1976년 설립된 정책금융기관으로 수출입·해외투자·대외경제협력(EDCF)·남북협력 등 대외경제 금융을 전담한다. 서울 본점과 전국 10개 지점·3개 출장소·해양금융단을 운영하며, 금융권 최고 수준의 처우로 공공기관 취업 선호도 최상위권 기관이다.",
