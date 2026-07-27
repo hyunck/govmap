@@ -108,7 +108,7 @@ const html = `<!DOCTYPE html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <!-- 검색 결과 (데스크탑·모바일 공통) -->
-  <title>2025년도 공공기관 경영실적 평가결과 (2026 발표) | 등급·성과급 | GovMap</title>
+  <title>2025년도 공공기관 경영실적 평가결과 (2026 발표) | 등급·성과급 | 공지도</title>
   <meta name="description" content="2025년도 공공기관 경영실적 평가결과 (2026년 6월 기획재정부 발표). 공기업·준정부기관 88개 A우수·B양호·C보통·D미흡·E아주미흡 등급과 성과급 지급 여부를 확인하세요.">
   <meta name="keywords" content="2025년도 공공기관 경영실적 평가,2025 경영평가 결과,2026 공공기관 경영평가,공공기관 경영평가 결과 2026,공공기관 경영평가 결과 2025,기획재정부 경영평가,공기업 경영평가,준정부기관 경영평가,경평 결과,경영평가 등급,경영평가 순위,경영평가 발표,공공기관 성과급,공기업 성과급,준정부기관 성과급,경영평가 성과급,경영평가 우수,경영평가 양호,경영평가 보통,경영평가 미흡,경영평가 아주미흡,A등급 공기업,B등급 공기업,D등급 공기업,공기업 취업">
   <meta name="robots" content="index,follow">
@@ -116,13 +116,13 @@ const html = `<!DOCTYPE html>
   <!-- OG (SNS·모바일 공유 — 짧고 핵심만) -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="${BASE_URL}/eval/">
-  <meta property="og:title" content="2025년도 공공기관 경영실적 평가결과 | GovMap">
+  <meta property="og:title" content="2025년도 공공기관 경영실적 평가결과 | 공지도">
   <meta property="og:description" content="공기업·준정부기관 88개 A~E등급 공개 (2026년 발표). 성과급 지급 여부까지 한눈에 확인하세요.">
   <meta property="og:locale" content="ko_KR">
   <!-- Twitter Card (X·카카오톡 등 모바일 앱 공유) -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="2025년도 공공기관 경영실적 평가결과 (2026 발표)">
-  <meta name="twitter:description" content="공기업·준정부기관 88개 A~E등급 + 성과급 지급 여부 | GovMap">
+  <meta name="twitter:description" content="공기업·준정부기관 88개 A~E등급 + 성과급 지급 여부 | 공지도">
   <meta property="og:locale" content="ko_KR">
   <script type="application/ld+json">
   {
@@ -131,7 +131,7 @@ const html = `<!DOCTYPE html>
     "name": "2025년도 공공기관 경영실적 평가결과 (2026년 발표)",
     "url": "${BASE_URL}/eval/",
     "description": "2025년도 공기업·준정부기관 경영실적 평가결과 전체 목록 (2026년 기획재정부 발표)",
-    "publisher": { "@type": "Organization", "name": "GovMap", "url": "${BASE_URL}" }
+    "publisher": { "@type": "Organization", "name": "공지도", "url": "${BASE_URL}" }
   }
   </script>
   <style>
@@ -195,12 +195,12 @@ const html = `<!DOCTYPE html>
 </head>
 <body>
   <header class="site-header">
-    <a class="logo" href="${BASE_URL}">Gov<span>Map</span></a>
+    <a class="logo" href="${BASE_URL}">공<span>지도</span></a>
     <a class="back-btn" href="${BASE_URL}">← 지도로 돌아가기</a>
   </header>
   <div class="container">
     <div class="breadcrumb">
-      <a href="${BASE_URL}">GovMap</a> &rsaquo; 2025년도 경영실적 평가결과
+      <a href="${BASE_URL}">공지도</a> &rsaquo; 2025년도 경영실적 평가결과
     </div>
 
     <div class="hero">
@@ -219,7 +219,7 @@ const html = `<!DOCTYPE html>
     ${GRADES.map(g => gradeSection(g)).join('')}
   </div>
   <footer style="text-align:center;font-size:12px;color:#9ca3af;padding:32px 16px;border-top:1px solid #e5e7eb;margin-top:40px;">
-    <p>© 2026 <a href="${BASE_URL}" style="color:#6b7280;">GovMap 공공기관 지도</a> — 공무원·공기업 취준생을 위한 기관 정보 서비스</p>
+    <p>© 2026 <a href="${BASE_URL}" style="color:#6b7280;">공지도</a> — 공무원·공기업 취준생을 위한 기관 정보 서비스</p>
     <p style="margin-top:6px"><a href="${BASE_URL}/privacy/" style="color:#6b7280;">개인정보처리방침</a> · 문의: <a href="mailto:acala8282@gmail.com" style="color:#6b7280;">acala8282@gmail.com</a></p>
   </footer>
 </body>

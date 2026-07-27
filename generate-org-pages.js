@@ -229,7 +229,7 @@ function buildPage(org) {
   if (org.startingSalary && org.avgSalary) titleSalary = ` 초봉 ${fmtMan(org.startingSalary)}·연봉 ${fmtMan(org.avgSalary)}만원 |`;
   else if (org.avgSalary) titleSalary = ` 연봉 ${fmtMan(org.avgSalary)}만원 |`;
   else if (org.startingSalary) titleSalary = ` 초봉 ${fmtMan(org.startingSalary)}만원 |`;
-  const pageTitle = `${org.name}${titleSalary} 발령지·근무지 지도 - GovMap`;
+  const pageTitle = `${org.name}${titleSalary} 발령지·근무지 지도 - 공지도`;
 
   let desc;
   if (org.avgSalary) {
@@ -528,7 +528,7 @@ function buildPage(org) {
 
   <!-- 브레드크럼 -->
   <nav class="breadcrumb">
-    <a href="${BASE_URL}">공공기관 지도</a> &rsaquo; ${escHtml(org.type)} &rsaquo; ${escHtml(org.name)}
+    <a href="${BASE_URL}">공지도</a> &rsaquo; ${escHtml(org.type)} &rsaquo; ${escHtml(org.name)}
   </nav>
 
   <!-- 타이틀 카드 -->
@@ -712,7 +712,7 @@ function buildPage(org) {
     <div class="tags">
       ${org.homepage ? `<a href="${escHtml(org.homepage)}" target="_blank" rel="noopener" class="tag" onclick="gaEv('homepage_click')">🏛 공식 홈페이지</a>` : ''}
       ${org.recruitUrl ? `<a href="${escHtml(org.recruitUrl)}" target="_blank" rel="noopener" class="tag" onclick="gaEv('recruit_click')">📋 채용공고</a>` : ''}
-      <a href="${BASE_URL}" class="tag" onclick="gaEv('map_click')">🗺 GovMap 지도</a>
+      <a href="${BASE_URL}" class="tag" onclick="gaEv('map_click')">🗺 공지도</a>
     </div>
   </div>
 
@@ -751,7 +751,7 @@ function buildPage(org) {
 </div>
 
 <footer class="site-footer">
-  <p>© 2026 <a href="${BASE_URL}">GovMap 공공기관 지도</a> — 공무원·공기업 취준생을 위한 기관 정보 서비스</p>
+  <p>© 2026 <a href="${BASE_URL}">공지도</a> — 공무원·공기업 취준생을 위한 기관 정보 서비스</p>
   <p style="margin-top:6px">데이터 기준: 2026년 공채 공고 / 오류 제보 환영</p>
   <p style="margin-top:6px"><a href="${BASE_URL}/privacy/">개인정보처리방침</a> · 문의: <a href="mailto:acala8282@gmail.com">acala8282@gmail.com</a></p>
 </footer>
