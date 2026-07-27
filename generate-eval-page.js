@@ -149,6 +149,8 @@ const html = `<!DOCTYPE html>
     .breadcrumb a:hover{color:#03c75a;}
     /* 히어로 */
     .hero{background:#fff;border-radius:16px;border:1px solid #e5e7eb;padding:32px 28px 28px;margin-bottom:16px;}
+    .hero-banner{margin:-32px -28px 24px;border-radius:14px 14px 0 0;overflow:hidden;height:200px;}
+    .hero-banner img{width:100%;height:100%;object-fit:cover;display:block;}
     .hero-eyebrow{font-size:12px;font-weight:700;color:#03c75a;letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px;}
     .hero-title{font-size:28px;font-weight:800;margin-bottom:10px;line-height:1.3;}
     .hero-sub{font-size:14px;color:#6b7280;margin-bottom:24px;line-height:1.75;}
@@ -186,6 +188,7 @@ const html = `<!DOCTYPE html>
     .prev-grade .arrow-dn{color:#dc2626;font-weight:700;}
     @media(max-width:500px){
       .hero{padding:24px 20px 20px;}
+      .hero-banner{margin:-24px -20px 20px;height:160px;}
       .hero-title{font-size:22px;}
       .grade-header{padding:14px 16px;}
       .grade-body{padding:4px 14px 16px;}
@@ -204,9 +207,12 @@ const html = `<!DOCTYPE html>
     </div>
 
     <div class="hero">
-      <div class="hero-eyebrow">기획재정부 · 2026.06.19 발표 · 2025년도 경영실적 평가</div>
+      <div class="hero-banner">
+        <img src="/insight/images/재정경제부.jpg" alt="재정경제부">
+      </div>
+      <div class="hero-eyebrow">재정경제부 · 2026.06.19 발표 · 2025년도 경영실적 평가</div>
       <h1 class="hero-title">2025년도 공공기관 경영실적 평가결과</h1>
-      <p class="hero-sub">2026년 6월 기획재정부가 발표한 2025년도 경영실적 평가결과.<br>공기업 31개 · 준정부기관 57개 총 <strong>88개 기관</strong> 등급 공개.<br>기관명을 클릭하면 연봉·지사·시험과목 상세 정보를 확인할 수 있습니다.</p>
+      <p class="hero-sub">2026년 6월 재정경제부가 발표한 2025년도 경영실적 평가결과.<br>공기업 31개 · 준정부기관 57개 총 <strong>88개 기관</strong> 등급 공개.<br>기관명을 클릭하면 연봉·지사·시험과목 상세 정보를 확인할 수 있습니다.</p>
       <div class="summary-row">
         ${gradeSummary()}
       </div>
