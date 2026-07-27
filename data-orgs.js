@@ -22407,6 +22407,18 @@ const ORGS = [
     "startingSalary": 4823,
     "avgSalary": 7500,
     "avgYears": 8.3,
+    "startingSalaryHistory": [
+      {"year":2023,"val":4293},
+      {"year":2024,"val":4358},
+      {"year":2025,"val":4823},
+      {"year":2026,"val":4655}
+    ],
+    "avgSalaryHistory": [
+      {"year":2023,"val":6967},
+      {"year":2024,"val":7432},
+      {"year":2025,"val":7500},
+      {"year":2026,"val":7317}
+    ],
     "homepage": "https://www.koreg.or.kr",
     "recruitUrl": "https://koreg.recruiter.co.kr/app/jobnotice/list",
     "description": "전국 17개 지역신용보증재단을 관리·지원하는 중소벤처기업부 산하 기타공공기관. 소기업·소상공인의 자금조달을 위한 재보증 업무와 17개 지역신보 공통 IT 시스템 구축·운영을 담당한다.",
