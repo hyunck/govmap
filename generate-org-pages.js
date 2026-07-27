@@ -363,7 +363,7 @@ function buildPage(org) {
     a { color: inherit; text-decoration: none; }
     /* 헤더 */
     .site-header { background: #fff; border-bottom: 1px solid #e5e7eb;
-                   padding: 0 24px; height: 56px; display: flex;
+                   padding: 0 24px; height: 60px; display: flex;
                    align-items: center; justify-content: space-between; position: sticky; top:0; z-index:10; }
     .logo { font-size: 18px; font-weight: 700; color: #03c75a; }
     .logo span { color: #1f2937; }
@@ -520,7 +520,7 @@ function buildPage(org) {
 <body>
 
 <header class="site-header">
-  <a class="logo" href="${BASE_URL}">Gov<span>Map</span></a>
+  <a class="logo" href="${BASE_URL}">공<span>지도</span></a>
   <a class="back-btn" href="${BASE_URL}">← 지도로 돌아가기</a>
 </header>
 

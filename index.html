@@ -5019,7 +5019,7 @@
         function activateCompanyMode() {
             // 인사이트 등 오버레이 탭에서 돌아올 때 지도 크기 재계산
             if (state.map) setTimeout(() => state.map.relayout(), 50);
-            appContainerEl.classList.remove('gov-mode');
+            document.getElementById('appContainer').classList.remove('gov-mode');
             // 사이드바 모드 변경
             document.getElementById('sidebar').classList.remove('sidebar-mode-government');
             // 마커 swap: 정부기관 마커 다 끄고 (클러스터러 포함), 공기업 마커 다시 켜기
@@ -5057,7 +5057,7 @@
         async function activateGovernmentMode() {
             // 인사이트 등 오버레이 탭에서 돌아올 때 지도 크기 재계산
             if (state.map) setTimeout(() => state.map.relayout(), 50);
-            appContainerEl.classList.add('gov-mode');
+            document.getElementById('appContainer').classList.add('gov-mode');
             document.getElementById('sidebar').classList.add('sidebar-mode-government');
             document.getElementById('mapLegend').classList.add('gov-mode');
 
