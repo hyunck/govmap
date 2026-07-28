@@ -367,9 +367,6 @@ function buildPage(org) {
     body { font-family: 'Pretendard', -apple-system, 'Malgun Gothic', sans-serif;
            background: #f9fafb; color: #1f2937; line-height: 1.6; }
     a { color: inherit; text-decoration: none; }
-    /* 콘텐츠 내 텍스트 링크 — 색상만으로 구분하지 않도록 밑줄 */
-    .container a:not(.map-btn):not(.rel-card):not(.recruit-btn) { text-decoration: underline; }
-    .site-header a, .site-footer a { text-decoration: underline; }
     /* 헤더 */
     .site-header { background: #fff; border-bottom: 1px solid #e5e7eb;
                    padding: 0 24px; height: 60px; display: flex;
