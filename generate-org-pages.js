@@ -316,6 +316,14 @@ function buildPage(org) {
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Preconnect: 외부 리소스 연결 미리 수립 -->
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.google-analytics.com">
+  <link rel="dns-prefetch" href="//t1.kakaocdn.net">
+  <link rel="dns-prefetch" href="//pagead2.googlesyndication.com">
   <!-- Google AdSense -->
   <meta name="google-adsense-account" content="ca-pub-4864032615853020">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4864032615853020" crossorigin="anonymous"></script>
@@ -329,8 +337,6 @@ function buildPage(org) {
     var GA_ORG = '${escHtml(org.name).replace(/'/g, "\\'")}';
     function gaEv(n){ gtag('event', n, { org_name: GA_ORG }); }
   </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${escHtml(pageTitle)}</title>
   <meta name="description" content="${escHtml(desc)}">
   <meta name="keywords" content="${escHtml(org.name)}, ${escHtml(org.name)} 연봉, ${escHtml(org.name)} 위치, ${escHtml(org.name)} 주소, ${escHtml(org.name)} 초봉, ${escHtml(org.name)} 초임, ${escHtml(org.name)} 근무지, ${escHtml(org.name)} 시험과목, ${escHtml(org.name)} NCS, ${escHtml(org.name)} 채용, ${escHtml(org.name)} 발령지, ${escHtml(org.shortName||'')}">
