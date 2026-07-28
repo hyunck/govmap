@@ -141,7 +141,7 @@ const html = `<!DOCTYPE html>
     .site-header{background:#fff;border-bottom:1px solid #e5e7eb;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;}
     .logo{font-size:17px;font-weight:800;color:#03c75a;letter-spacing:-0.3px;}
     .logo span{color:#1f2937;}
-    .back-btn{font-size:14px;font-weight:600;color:#6b7280;background:#f3f4f6;padding:6px 14px;border-radius:20px;}
+    .back-btn{font-size:14px;font-weight:600;color:#4b5563;background:#f3f4f6;padding:6px 14px;border-radius:20px;}
     .back-btn:hover{background:#e5e7eb;}
     .container{max-width:800px;margin:32px auto;padding:0 16px 80px;}
     .breadcrumb{font-size:13px;color:#9ca3af;margin-bottom:20px;}
