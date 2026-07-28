@@ -7,7 +7,7 @@ eval(src);
 const BASE_URL = 'https://govmap.kr';
 const GRADES = ['S','A','B','C','D','E'];
 const GRADE_LABEL  = {S:'탁월',A:'우수',B:'양호',C:'보통',D:'미흡',E:'아주미흡'};
-const GRADE_COLOR  = {S:'#7c3aed',A:'#15803d',B:'#1d4ed8',C:'#4b5563',D:'#c2410c',E:'#dc2626'};
+const GRADE_COLOR  = {S:'#7c3aed',A:'#15803d',B:'#1d4ed8',C:'#4b5563',D:'#c2410c',E:'#b91c1c'};
 const GRADE_BG     = {S:'#faf5ff',A:'#f0fdf4',B:'#eff6ff',C:'#f9fafb',D:'#fff7ed',E:'#fef2f2'};
 const GRADE_BORDER = {S:'#ddd6fe',A:'#bbf7d0',B:'#bfdbfe',C:'#e5e7eb',D:'#fed7aa',E:'#fecaca'};
 
@@ -187,7 +187,7 @@ const html = `<!DOCTYPE html>
     .org-row-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0;}
     .bonus-badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:10px;white-space:nowrap;}
     .bonus-badge.yes{background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0;}
-    .bonus-badge.no{background:#fef2f2;color:#dc2626;border:1px solid #fecaca;}
+    .bonus-badge.no{background:#fef2f2;color:#b91c1c;border:1px solid #fecaca;}
     .prev-grade{font-size:11px;color:#6b7280;white-space:nowrap;}
     .prev-grade .arrow-up{color:#15803d;font-weight:700;}
     .prev-grade .arrow-dn{color:#dc2626;font-weight:700;}
