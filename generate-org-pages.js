@@ -367,6 +367,9 @@ function buildPage(org) {
     body { font-family: 'Pretendard', -apple-system, 'Malgun Gothic', sans-serif;
            background: #f9fafb; color: #1f2937; line-height: 1.6; }
     a { color: inherit; text-decoration: none; }
+    /* 콘텐츠 내 텍스트 링크 — 색상만으로 구분하지 않도록 밑줄 */
+    .container a:not(.map-btn):not(.rel-card):not(.recruit-btn) { text-decoration: underline; }
+    .site-header a, .site-footer a { text-decoration: underline; }
     /* 헤더 */
     .site-header { background: #fff; border-bottom: 1px solid #e5e7eb;
                    padding: 0 24px; height: 60px; display: flex;
@@ -387,7 +390,7 @@ function buildPage(org) {
       .ad-mobile-unit { display: none; }
     }
     /* 브레드크럼 */
-    .breadcrumb { font-size: 13px; color: #9ca3af; margin-bottom: 20px; }
+    .breadcrumb { font-size: 13px; color: #6b7280; margin-bottom: 20px; }
     .breadcrumb a { color: #6b7280; }
     .breadcrumb a:hover { color: #03c75a; }
     /* 타이틀 카드 */
@@ -410,7 +413,7 @@ function buildPage(org) {
     /* 정보 그리드 */
     .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
     @media(max-width:500px){ .info-grid { grid-template-columns: 1fr; } }
-    .info-item label { font-size: 12px; color: #9ca3af; display: block; margin-bottom: 3px; }
+    .info-item label { font-size: 12px; color: #6b7280; display: block; margin-bottom: 3px; }
     .info-item span  { font-size: 15px; font-weight: 600; color: #111827; }
     .info-item.full  { grid-column: 1 / -1; }
     /* 태그 */
@@ -434,11 +437,11 @@ function buildPage(org) {
     .rot-regional { background:#fffbeb; color:#d97706; border:1px solid #fde68a; }
     .rot-none     { background:#f0fdf4; color:#16a34a; border:1px solid #bbf7d0; }
     .rot-row { display:flex; align-items:baseline; gap:8px; margin-bottom:8px; font-size:14px; }
-    .rot-label { color:#9ca3af; font-size:12px; font-weight:600; min-width:60px; }
+    .rot-label { color:#6b7280; font-size:12px; font-weight:600; min-width:60px; }
     /* 테이블 */
     table { width: 100%; border-collapse: collapse; font-size: 14px; }
     th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #f3f4f6; }
-    th { font-size: 12px; color: #9ca3af; font-weight: 600; background: #f9fafb; }
+    th { font-size: 12px; color: #6b7280; font-weight: 600; background: #f9fafb; }
     tr:last-child td { border-bottom: none; }
     /* 지점 */
     .branch-list { list-style: none; }
@@ -469,7 +472,7 @@ function buildPage(org) {
     .rel-badge { font-size: 10px; font-weight: 700; color: #fff;
                  padding: 2px 8px; border-radius: 20px; width: fit-content; }
     .rel-name   { font-size: 13px; font-weight: 700; color: #111827; line-height: 1.3; }
-    .rel-region { font-size: 11px; color: #9ca3af; }
+    .rel-region { font-size: 11px; color: #6b7280; }
     /* 세로 막대 그래프 */
     .vchart { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 4px 0 8px; }
     @media(max-width:500px){ .vchart { grid-template-columns: 1fr; } }
@@ -488,14 +491,14 @@ function buildPage(org) {
     .vc-bar-avg   { background: #1a346b; }
     .vc-bar-current-start { background: #2ab374; }
     .vc-bar-current-avg   { background: #2f5dbf; }
-    .vc-year-tag  { font-size: 11px; color: #9ca3af; margin-top: 6px; }
+    .vc-year-tag  { font-size: 11px; color: #6b7280; margin-top: 6px; }
     .vc-year-current { color: #1d4ed8; font-weight: 700; }
-    .vc-note { font-size: 11px; color: #9ca3af; margin-top: 8px; }
+    .vc-note { font-size: 11px; color: #6b7280; margin-top: 8px; }
     .vc-insight { margin-top: 10px; font-size: 13px; color: #374151; line-height: 1.6; }
     .vc-big { font-size: 20px; font-weight: 800; color: #1e3a5f; text-align: right;
               margin-top: 10px; padding-top: 8px; border-top: 1px solid #f3f4f6; }
     .vc-big.avg-big { color: #2563eb; }
-    .vc-big span { font-size: 12px; font-weight: 400; color: #9ca3af; }
+    .vc-big span { font-size: 12px; font-weight: 400; color: #6b7280; }
     .sv-rank { margin-top: 12px; font-size: 13px; color: #374151;
                background: #eff6ff; border-radius: 8px; padding: 10px 14px; }
     /* 페이지네이션 */
@@ -509,16 +512,16 @@ function buildPage(org) {
     .group-collapsible .allbranch-group-title { cursor: pointer; user-select: none;
       display: flex; align-items: center; justify-content: space-between; }
     .group-collapsible .allbranch-group-title:hover { background: #e9eaec; }
-    .toggle-icon { font-size: 11px; color: #9ca3af; }
+    .toggle-icon { font-size: 11px; color: #6b7280; }
     .group-collapsed .allbranch-list { display: none; }
     /* 업종 연봉 순위 */
     .rank-me td { background: #eff6ff; font-weight: 700; color: #1d4ed8; }
-    .rank-table td:first-child { text-align: center; color: #9ca3af; font-size: 13px; }
+    .rank-table td:first-child { text-align: center; color: #6b7280; font-size: 13px; }
     .rank-me td:first-child { color: #1d4ed8; }
     .rank-table a { color: inherit; }
     .rank-table a:hover { color: #2563eb; text-decoration: underline; }
     /* 푸터 */
-    .site-footer { text-align: center; font-size: 12px; color: #9ca3af;
+    .site-footer { text-align: center; font-size: 12px; color: #6b7280;
                    padding: 32px 16px; border-top: 1px solid #e5e7eb; margin-top: 40px; }
     .site-footer a { color: #03c75a; }
   </style>
@@ -530,6 +533,7 @@ function buildPage(org) {
   <a class="back-btn" href="${BASE_URL}">← 지도로 돌아가기</a>
 </header>
 
+<main>
 <div class="container">
 
   <!-- 브레드크럼 -->
@@ -573,7 +577,7 @@ function buildPage(org) {
       </div>
       ${org.avgYears ? `<div class="info-item"><label>평균 근속연수</label><span>${org.avgYears}년</span></div>` : ''}
       ${org.industry ? `<div class="info-item"><label>산업 분야</label><span>${escHtml(org.industry)}</span></div>` : ''}
-      ${org.evalGrade ? `<div class="info-item"><label>경영평가 등급</label><span><span class="eval-badge eval-${escHtml(org.evalGrade)}">${escHtml(org.evalGrade)}등급</span><span style="font-size:12px;color:#9ca3af;margin-left:8px;">${{'S':'탁월','A':'우수','B':'양호','C':'보통','D':'미흡','E':'아주미흡'}[org.evalGrade]||''} · ${org.evalYear||2025}년도 실적 (${(org.evalYear||2025)+1}년 발표)</span></span></div>` : ''}
+      ${org.evalGrade ? `<div class="info-item"><label>경영평가 등급</label><span><span class="eval-badge eval-${escHtml(org.evalGrade)}">${escHtml(org.evalGrade)}등급</span><span style="font-size:12px;color:#6b7280;margin-left:8px;">${{'S':'탁월','A':'우수','B':'양호','C':'보통','D':'미흡','E':'아주미흡'}[org.evalGrade]||''} · ${org.evalYear||2025}년도 실적 (${(org.evalYear||2025)+1}년 발표)</span></span></div>` : ''}
     </div>
     ${evalTransitionComment}
   </div>
@@ -649,7 +653,7 @@ function buildPage(org) {
       ${org.rotation.period ? `<span style="font-size:14px;color:#1f2937;">주기 <strong>${escHtml(org.rotation.period)}</strong></span>` : ''}
     </div>
     ${org.rotation.note ? `<p style="font-size:13px;color:#6b7280;line-height:1.6;margin-bottom:12px;">${(Array.isArray(org.rotation.note) ? org.rotation.note : [org.rotation.note]).map(escHtml).join('<br>')}</p>` : ''}
-    <p style="font-size:12px;color:#9ca3af;line-height:1.6;padding-top:10px;border-top:1px solid #f3f4f6;">
+    <p style="font-size:12px;color:#6b7280;line-height:1.6;padding-top:10px;border-top:1px solid #f3f4f6;">
       출처: ${escHtml(org.rotation.source || '기관 공개자료')} &nbsp;·&nbsp; 내부 운영기준에 따라 변경될 수 있으며, 정확한 내용은 채용공고 또는 기관에 직접 문의하세요.
     </p>
   </div>` : ''}
@@ -750,11 +754,12 @@ function buildPage(org) {
 </div>
 
 <!-- 오류 신고 버튼 -->
-<div style="text-align:center;padding:16px 0 8px;">
+<div style="text-align:center;padding:16px 0 8px;max-width:780px;margin:0 auto;">
   <button onclick="openReportModal()" style="background:#f3f4f6;border:1px solid #d1d5db;border-radius:8px;padding:10px 20px;font-size:13px;color:#6b7280;cursor:pointer;">
     ✏️ 오류 신고 · 정보 추가 요청
   </button>
 </div>
+</main>
 
 <footer class="site-footer">
   <p>© 2026 <a href="${BASE_URL}">공지도</a> — 공무원·공기업 취준생을 위한 기관 정보 서비스</p>

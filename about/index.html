@@ -25,8 +25,8 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Pretendard', -apple-system, 'Malgun Gothic', sans-serif;
            background: #f9fafb; color: #1f2937; line-height: 1.7; }
-    a { color: #2563eb; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a { color: #2563eb; text-decoration: underline; }
+    .logo, .back-btn { text-decoration: none; }
     .site-header { background: #fff; border-bottom: 1px solid #e5e7eb;
                    padding: 0 24px; height: 60px; display: flex;
                    align-items: center; justify-content: space-between; position: sticky; top:0; z-index:10; }
@@ -36,7 +36,7 @@
                 padding: 6px 14px; border-radius: 20px; }
     .container { max-width: 760px; margin: 0 auto; padding: 24px 16px 60px; }
     h1 { font-size: 24px; margin: 16px 0 8px; }
-    .updated { font-size: 13px; color: #9ca3af; margin-bottom: 24px; }
+    .updated { font-size: 13px; color: #6b7280; margin-bottom: 24px; }
     .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px;
             padding: 20px 22px; margin-bottom: 16px; }
     .card h2 { font-size: 16px; margin-bottom: 10px; color: #111827; }
@@ -46,7 +46,7 @@
     .card p + p { margin-top: 8px; }
     .highlight-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px;
                      padding: 12px 16px; margin-top: 10px; font-size: 14px; color: #15803d; }
-    .site-footer { text-align: center; font-size: 12px; color: #9ca3af;
+    .site-footer { text-align: center; font-size: 12px; color: #6b7280;
                    padding: 32px 16px; border-top: 1px solid #e5e7eb; margin-top: 40px; }
     .site-footer a { color: #6b7280; }
   </style>
@@ -58,7 +58,7 @@
   <a class="back-btn" href="https://govmap.kr">← 지도로 돌아가기</a>
 </header>
 
-<div class="container">
+<main class="container">
   <h1>공지도 소개</h1>
   <p class="updated">공기업·공무원 취준생을 위한 기관 정보 서비스</p>
 
@@ -125,7 +125,7 @@
     <h2>면책 사항</h2>
     <p>공지도에서 제공하는 정보는 공개 자료를 기반으로 하며, 채용 결과나 연봉을 보장하지 않습니다. 실제 채용 조건은 각 기관의 공고를 반드시 직접 확인하시기 바랍니다. 정보 오류에 대한 법적 책임은 지지 않으나, 발견 즉시 수정할 수 있도록 적극 신고해 주세요.</p>
   </div>
-</div>
+</main>
 
 <footer class="site-footer">
   <p>© 2026 <a href="https://govmap.kr">공지도</a> · <a href="/privacy/">개인정보처리방침</a> · <a href="/terms/">이용약관</a> · <a href="/contact/">문의하기</a></p>
