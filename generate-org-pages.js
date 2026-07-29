@@ -405,6 +405,32 @@ function buildPage(org) {
     "sameAs": "${escHtml(org.homepage||'')}"
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "공지도",
+        "item": "${BASE_URL}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "${escHtml(org.type === '준정부' ? '준정부기관' : org.type)}",
+        "item": "${BASE_URL}/?type=${encodeURIComponent(org.type)}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "${escHtml(org.name)}",
+        "item": "${BASE_URL}/orgs/${encodeURIComponent(org.name)}/"
+      }
+    ]
+  }
+  </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Pretendard', -apple-system, 'Malgun Gothic', sans-serif;
