@@ -4578,7 +4578,7 @@ const ORGS = [
     "avgYears": 12.2,
     "homepage": "https://www.icpa.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=인천항만공사",
-    "description": "인천항 관리·운영을 담당하는 공기업. 컨테이너·여객 항만 운영.",
+    "description": "인천항(북항·남항·신항)의 항만시설 건설·운영·관리를 전담하는 항만공사로, 수도권 최대 해상 물류 관문 역할을 담당합니다. 컨테이너·자동차·여객 터미널 운영과 항만 배후 물류단지 개발을 통해 인천항을 동북아 핵심 물류 거점으로 성장시키고 있습니다.",
     "mainBusiness": [
       "인천항 관리·운영",
       "항만시설 건설",
@@ -4637,7 +4637,7 @@ const ORGS = [
     "avgYears": 11,
     "homepage": "https://www.busanpa.com",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=부산항만공사",
-    "description": "부산항 관리·운영을 담당하는 공기업. 세계 2위 환적항.",
+    "description": "세계 7위권 컨테이너 처리량을 자랑하는 부산항의 항만시설 건설·운영 및 관리를 전담합니다. 북항·신항 컨테이너 터미널 운영, 해운선사·화물 유치, 항만 배후 물류단지 개발로 동북아 환적 허브 경쟁력을 강화합니다.",
     "mainBusiness": [
       "부산항 관리·운영",
       "신항만 개발",
@@ -4696,7 +4696,7 @@ const ORGS = [
     "avgYears": 9.3,
     "homepage": "https://www.ygpa.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=여수광양항만공사",
-    "description": "여수·광양항 통합 관리하는 공기업. 컨테이너·석유화학 물류 거점.",
+    "description": "여수항과 광양항을 통합 관리하는 항만공사로, 석유화학·컨테이너·벌크화물 처리를 담당합니다. 국내 최대 석유화학 물류 거점인 광양항과 여객·크루즈 기능의 여수항 개발·운영을 통해 남해안 물류 거점 역할을 수행합니다.",
     "mainBusiness": [
       "여수·광양항 운영",
       "항만시설 관리",
@@ -4751,7 +4751,7 @@ const ORGS = [
     "avgYears": 10.5,
     "homepage": "https://www.upa.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=울산항만공사",
-    "description": "울산항 관리·운영하는 공기업. 액체화물(석유·가스) 처리 1위 항만.",
+    "description": "국내 액체화물(원유·석유제품·LNG) 처리 1위 항만인 울산항의 시설 건설·운영을 전담합니다. 석유·화학·자동차 수출입 물류 인프라 구축과 스마트 항만 전환 사업을 통해 울산 산업경제 기반을 지원합니다.",
     "mainBusiness": [
       "울산항 운영",
       "액체화물 처리",
@@ -6632,7 +6632,7 @@ const ORGS = [
     "avgYears": 12.1,
     "homepage": "https://www.tp.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=사립학교교직원연금공단",
-    "description": "사립학교 교직원의 퇴직·재해·복지 사업을 운영하는 준정부기관.",
+    "description": "사립학교 교직원의 노후 소득 보장을 위한 연금·재해보상·퇴직급여 제도를 운영하는 공단입니다. 연금 급여 지급, 퇴직수당 관리, 맞춤형 복지 서비스 제공을 통해 전국 사학기관 교직원의 생활 안정과 복지 증진에 기여합니다.",
     "mainBusiness": [
       "사학연금 운영",
       "교직원 복지사업",
@@ -10103,7 +10103,7 @@ const ORGS = [
     "avgYears": 10.6,
     "homepage": "https://www.epis.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=농림수산식품교육문화정보원",
-    "description": "농림수산식품 분야 교육·홍보·정보화를 담당하는 준정부기관.",
+    "description": "농림수산식품 분야의 교육·문화·홍보·정보화 사업을 종합 담당하는 기관입니다. 농업인 교육, 식생활 문화 진흥, 농식품 정보 서비스 플랫폼 운영을 통해 농림수산식품 산업의 역량 강화와 소비자 연결을 지원합니다.",
     "mainBusiness": [
       "농식품 교육",
       "농촌 정보화",
@@ -13077,7 +13077,7 @@ const ORGS = [
     "avgYears": 7.8,
     "homepage": "https://www.kofpi.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국임업진흥원",
-    "description": "산림산업 진흥과 임산물 품질관리를 담당하는 준정부기관.",
+    "description": "임업 경쟁력 강화와 임산물 품질·유통 관리를 전담하는 기관으로, 산림청 산하에서 임업 분야의 기술 지원과 진흥 사업을 수행합니다. 목재산업 지원, 임산물 인증·유통 체계 구축, 임업인 교육을 통해 산림 자원의 경제적 가치를 높입니다.",
     "mainBusiness": [
       "산림산업 진흥",
       "임산물 품질관리",
@@ -13719,7 +13719,7 @@ const ORGS = [
     "avgYears": 9.5,
     "homepage": "https://www.kasfo.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국사학진흥재단",
-    "description": "사립학교 진흥과 사학재정 관리를 담당하는 준정부기관.",
+    "description": "사립학교의 건전한 발전을 지원하고 사학 재정 투명성을 제고하는 기관입니다. 사립대학 적립금 운용·관리 지원, 사학 감사 역량 강화, 폐교 자산 처리 지원 사업을 통해 사학 기관의 건전한 운영 체계 확립을 돕습니다.",
     "mainBusiness": [
       "사학 재정지원",
       "사학 경영진단",
@@ -13767,7 +13767,7 @@ const ORGS = [
     "avgYears": 13.6,
     "homepage": "https://www.keris.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국교육학술정보원",
-    "description": "교육정보화와 학술정보 서비스를 담당하는 준정부기관.",
+    "description": "교육 정보화 인프라 구축과 학술 정보 서비스를 제공하는 기관으로, 에듀넷·RISS·학교망 운영을 담당합니다. 원격교육 플랫폼 고도화, 교육 빅데이터 분석, 대학 학술정보 DB 구축을 통해 디지털 교육 환경 조성을 선도합니다.",
     "mainBusiness": [
       "교육정보화",
       "학술정보 서비스",
@@ -13821,7 +13821,7 @@ const ORGS = [
     "avgYears": 11,
     "homepage": "https://www.kyci.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국청소년상담복지개발원",
-    "description": "청소년 상담과 복지 사업을 담당하는 준정부기관.",
+    "description": "전국 청소년 상담 복지 서비스 체계를 운영하는 기관으로, 위기 청소년 발굴·개입·지원을 담당합니다. 청소년 상담사 자격 관리, 1388 위기상담 시스템, 학교 밖 청소년 지원 사업을 통해 위기 청소년의 건강한 성장을 돕습니다.",
     "mainBusiness": [
       "청소년 상담",
       "위기청소년 지원",
@@ -13868,7 +13868,7 @@ const ORGS = [
     "avgYears": 11.5,
     "homepage": "https://www.kywa.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국청소년활동진흥원",
-    "description": "청소년 활동 진흥과 수련시설 운영을 담당하는 준정부기관.",
+    "description": "청소년의 자립·성장을 지원하는 활동 프로그램과 수련시설 운영을 담당하는 기관입니다. 국립청소년수련시설 운영, 청소년 국제 교류, 청소년 자원봉사·체험 활동 지원을 통해 미래 세대의 역량 개발과 글로벌 감각 함양을 돕습니다.",
     "mainBusiness": [
       "청소년활동 진흥",
       "수련활동 인증",
@@ -13914,7 +13914,7 @@ const ORGS = [
     "avgYears": 10.2,
     "homepage": "https://www.kordi.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국노인인력개발원",
-    "description": "노인일자리 사업을 운영하는 준정부기관.",
+    "description": "노인 일자리 창출과 사회 참여를 지원하는 전담 기관으로, 노인 일자리·사회활동 지원 사업의 기획·관리를 담당합니다. 노인 공익 활동·사회서비스형·시장형 일자리 운영 지원과 시니어 창업·취업 연계 사업을 통해 고령자의 경제 활동 참여를 촉진합니다.",
     "mainBusiness": [
       "노인일자리 사업",
       "노인 사회참여",
@@ -14110,7 +14110,7 @@ const ORGS = [
     "avgYears": 14.9,
     "homepage": "https://www.kopo.ac.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국폴리텍",
-    "description": "직업기술 교육을 담당하는 준정부기관. 전국 35개 캠퍼스 운영.",
+    "description": "전국 35개 캠퍼스를 운영하는 직업기술 교육기관으로, 고졸 취업자와 재직자·구직자를 위한 실무 중심 기능·기술 교육을 제공합니다. 기계·전기·IT·바이오 등 산업 수요 기반 훈련 과정 운영과 취업 연계를 통해 숙련 기술 인력 양성에 기여합니다.",
     "mainBusiness": [
       "직업기술 교육",
       "재직자 직업훈련",
@@ -14177,7 +14177,7 @@ const ORGS = [
     "avgYears": 13.4,
     "homepage": "https://www.kpda.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=우편사업진흥원",
-    "description": "우편사업 진흥과 우표·우편 관련 사업을 담당하는 준정부기관.",
+    "description": "우편 산업 진흥과 우편 문화 확산을 담당하는 기관으로, 우표 제조·발행, 우편 관련 연구개발, 우편 유통망 지원 사업을 수행합니다. 우체국 소포·택배 물량 증대를 위한 기술 고도화와 우편 서비스 품질 향상 사업을 통해 공공 물류 경쟁력을 강화합니다.",
     "mainBusiness": [
       "우편서비스 운영지원",
       "우표 발행·판매",
@@ -14487,7 +14487,7 @@ const ORGS = [
     "avgYears": 16.7,
     "homepage": "https://www.nipa.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=정보통신산업진흥원",
-    "description": "ICT·SW 산업 진흥을 담당하는 준정부기관.",
+    "description": "ICT·소프트웨어 산업 육성을 위한 정책 지원과 사업 관리를 담당하는 기관입니다. SW 인재 양성, 스타트업 창업 지원, ICT 수출 촉진, 디지털 전환 사업 관리를 통해 대한민국 소프트웨어 경쟁력 강화와 디지털 혁신 생태계 조성을 선도합니다.",
     "mainBusiness": [
       "ICT 산업 진흥",
       "SW 산업 육성",
@@ -14604,7 +14604,7 @@ const ORGS = [
     "avgYears": 8.53,
     "homepage": "https://www.kmi.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국기상산업기술원",
-    "description": "기상산업 진흥과 기상관측 장비 인증을 담당하는 준정부기관.",
+    "description": "기상 산업 육성과 기상 관측 장비 인증·검정을 담당하는 기관입니다. 기상 기업 R&D 지원, 날씨 경영 컨설팅, 기상관측 장비 표준화·인증 사업을 통해 기상 산업의 기술 경쟁력 강화와 민간 기상 서비스 시장 확대를 지원합니다.",
     "mainBusiness": [
       "기상산업 진흥",
       "기상장비 인증",
@@ -15258,7 +15258,7 @@ const ORGS = [
     "avgYears": 15.4,
     "homepage": "https://www.kdb.co.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국산업은행",
-    "description": "국가 산업정책을 지원하는 정책 금융기관. 산업의 개발·육성과 사회기반시설 확충, 기업구조조정을 지원한다. 금융공기업 A매치 최고 인기. 메가뱅크급 IB 업무.",
+    "description": "국가 산업정책을 지원하는 정책금융기관으로, 기업 구조조정·인수합병·장기 투자금융 등 IB 업무를 담당합니다. 에너지 전환, 반도체·이차전지 등 전략산업 금융 지원과 국내외 프로젝트 파이낸싱을 통해 대한민국 산업 경쟁력 강화에 기여합니다.",
     "mainBusiness": [
       "산업·기업 정책금융(대출·투자·보증)",
       "국가기반시설(SOC) 및 대형 프로젝트 금융",
@@ -16046,7 +16046,7 @@ const ORGS = [
     "avgYears": 7.1,
     "homepage": "https://www.kvic.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국벤처투자",
-    "description": "모태펀드를 운용하는 벤처투자 전문 기타공공기관. VC 업계 핵심 LP.",
+    "description": "모태펀드를 운용하여 벤처·스타트업 생태계에 정책 자본을 공급하는 전문 기관입니다. 창업 초기 기업 발굴·투자, VC 펀드 결성 지원, 해외 벤처캐피탈 협력 네트워크 구축을 통해 혁신 창업 생태계 활성화와 유니콘 기업 육성을 지원합니다.",
     "mainBusiness": [
       "모태펀드 운용",
       "벤처투자 출자",
@@ -16154,7 +16154,7 @@ const ORGS = [
     "avgYears": 11,
     "homepage": "https://www.kofac.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국과학창의재단",
-    "description": "과학문화 진흥과 수학·과학 교육을 담당하는 기타공공기관.",
+    "description": "과학 문화 확산과 수학·과학 교육 혁신을 지원하는 기관으로, 교육부·과기부 산하에서 STEAM 교육과 과학 체험 사업을 담당합니다. 과학관 콘텐츠 개발, 과학 영재교육 지원, 메이커 운동·소프트웨어 교육 확산을 통해 미래 과학 인재 양성에 기여합니다.",
     "mainBusiness": [
       "과학문화 진흥",
       "수학·과학 교육",
@@ -16200,7 +16200,7 @@ const ORGS = [
     "avgYears": 12.7,
     "homepage": "https://www.kedi.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국교육개발원",
-    "description": "교육정책 R&D를 담당하는 국책 연구기관. 교육 분야 대표 출연연.",
+    "description": "교육 분야 정책 연구를 수행하는 대표 국책 연구기관으로, 교육부 산하에서 교육 제도·학교 운영·교원 정책 연구를 담당합니다. 교육 종단 데이터 구축, 학교 통계 조사, 원격교육·평생학습 정책 연구를 통해 교육 정책 수립의 지식 기반을 제공합니다.",
     "mainBusiness": [
       "교육정책 연구",
       "교육통계",
@@ -16246,7 +16246,7 @@ const ORGS = [
     "avgYears": 12.9,
     "homepage": "https://www.kice.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국교육과정평가원",
-    "description": "수능 출제기관. 교육과정·교과서·교육평가 연구 담당.",
+    "description": "대학수학능력시험 출제·시행과 교육과정·교과서·교육 평가 연구를 담당하는 국책기관입니다. 수능 출제 보안 체계 운용, 국가수준 학업성취도 평가, 교과서 검정·심의를 통해 공정하고 신뢰할 수 있는 교육 평가 체계를 운영합니다.",
     "mainBusiness": [
       "수능 출제·관리",
       "교육과정 연구",
@@ -16292,7 +16292,7 @@ const ORGS = [
     "avgYears": 12.1,
     "homepage": "https://www.kdi.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국개발연구원",
-    "description": "국가 경제정책 자문 연구기관. 대한민국 대표 싱크탱크.",
+    "description": "국가 경제 정책 수립을 지원하는 대표 싱크탱크로, 경제·재정·산업 분야 정책 연구와 자문을 수행합니다. 중장기 경제 전망, 재정 지속가능성 분석, 규제 영향 평가, 국제 경제 협력 연구를 통해 정부 주요 경제 정책 결정에 기여합니다.",
     "mainBusiness": [
       "거시경제 분석",
       "경제정책 자문",
@@ -16340,7 +16340,7 @@ const ORGS = [
     "avgYears": 10.1,
     "homepage": "https://www.kipf.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국조세재정연구원",
-    "description": "조세·재정 분야 정책 연구를 수행하는 국책연구기관.",
+    "description": "조세·재정 분야 정책 연구를 전문으로 하는 국책연구기관입니다. 세제 개편 효과 분석, 재정 수지 전망, 공공지출 평가, 지방재정 연구를 통해 합리적인 조세·재정 정책 수립을 지원하며, 납세자와 국민을 위한 세정 혁신 방향을 제시합니다.",
     "mainBusiness": [
       "조세정책 연구",
       "재정정책 연구",
@@ -16390,7 +16390,7 @@ const ORGS = [
     "avgYears": 11.8,
     "homepage": "https://www.kiep.go.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=대외경제정책연구원",
-    "description": "대외경제·국제경제 정책 연구기관. 통상·FTA·국제금융 분석.",
+    "description": "대외경제·통상·국제경제 분야 정책 연구를 수행하는 국책연구기관으로, FTA·WTO·지역 무역협정 효과 분석을 담당합니다. 신흥국 경제 동향 분석, 글로벌 공급망 연구, ODA 정책 평가를 통해 대한민국 통상 전략과 외교·경제 협력 정책 수립을 지원합니다.",
     "mainBusiness": [
       "국제경제 분석",
       "통상정책 연구",
@@ -16437,7 +16437,7 @@ const ORGS = [
     "avgYears": 14.8,
     "homepage": "https://www.krivet.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국직업능력연구원",
-    "description": "직업교육·진로 정책 연구기관. NCS 개발·관리도 담당.",
+    "description": "직업교육·훈련·진로 분야 정책 연구와 NCS(국가직무능력표준) 개발·관리를 담당하는 국책연구기관입니다. 직업교육 실태 조사, 자격 제도 연구, 진로교육 정책 개발을 통해 산업 수요에 맞는 인재 양성 체계 구축과 평생직업능력 개발을 지원합니다.",
     "mainBusiness": [
       "직업교육 연구",
       "진로 정책",
@@ -16483,7 +16483,7 @@ const ORGS = [
     "avgYears": 12.2,
     "homepage": "https://www.kicet.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국세라믹기술원",
-    "description": "세라믹 소재 R&D 출연연구기관. 첨단 세라믹 산업 핵심.",
+    "description": "세라믹 소재 분야 R&D와 기술 지원을 전담하는 정부출연연구기관입니다. 첨단 세라믹(전자·에너지·바이오 세라믹), 전통 도자기·내화물 기술 개발, 기업 소재 성능 시험·평가를 통해 세라믹 산업 경쟁력 강화와 소재 국산화를 지원합니다.",
     "mainBusiness": [
       "세라믹 소재",
       "에너지 세라믹",
@@ -16532,7 +16532,7 @@ const ORGS = [
     "avgYears": 12.8,
     "homepage": "https://www.kisdi.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=정보통신정책연구원",
-    "description": "ICT·방송통신 정책 연구기관. 디지털 전환 정책 핵심.",
+    "description": "ICT·방송통신 분야 정책 연구를 수행하는 국책연구기관으로, 디지털 경제·인공지능·플랫폼 규제 정책을 연구합니다. 통신시장 경쟁 분석, 미디어 산업 정책, 개인정보 보호 규제 연구를 통해 디지털 전환 시대 정보통신 정책의 방향성을 제시합니다.",
     "mainBusiness": [
       "ICT 정책",
       "방송통신 정책",
@@ -17135,7 +17135,7 @@ const ORGS = [
     "avgYears": 13.6,
     "homepage": "https://www.arko.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국문화예술위원회",
-    "description": "문화예술 진흥과 예술가 지원을 담당하는 기타공공기관.",
+    "description": "예술 창작과 문화예술 진흥을 지원하는 기관으로, 예술 분야 공적 지원금 심의·배분과 문예 진흥 사업을 담당합니다. 문학·시각·공연·다원예술 창작 지원, 아르코예술극장 운영, 예술인 복지 연계 사업을 통해 예술 생태계 기반을 강화합니다.",
     "mainBusiness": [
       "예술인 지원",
       "공연·전시 지원",
@@ -17185,7 +17185,7 @@ const ORGS = [
     "avgYears": 14.2,
     "homepage": "https://www.kofic.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=영화진흥위원회",
-    "description": "한국영화 진흥과 영화산업 발전을 담당하는 기타공공기관.",
+    "description": "한국 영화 산업 육성과 진흥을 담당하는 기관으로, 영화 제작 지원, 독립·예술영화 배급 지원, 영화인 교육을 수행합니다. 영화관입장권통합전산망 운영, 국제 영화제 참가 지원, 한국 영화의 해외 진출 마케팅을 통해 K-시네마 글로벌 경쟁력을 강화합니다.",
     "mainBusiness": [
       "영화제작 지원",
       "독립영화 진흥",
@@ -17231,7 +17231,7 @@ const ORGS = [
     "avgYears": 14.5,
     "homepage": "https://www.kpf.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국언론진흥재단",
-    "description": "언론산업 진흥과 미디어 정책을 담당하는 기타공공기관.",
+    "description": "건강한 미디어 생태계 조성과 언론 발전을 지원하는 기관입니다. 언론 보도 품질 향상, 미디어 리터러시 교육, 저널리즘 연구, 신문·방송 구독 지원 사업을 통해 시민의 알 권리 보장과 언론 자유·독립성 강화에 기여합니다.",
     "mainBusiness": [
       "언론인 교육·연수",
       "신문산업 지원",
@@ -17276,7 +17276,7 @@ const ORGS = [
     "avgYears": 12.1,
     "homepage": "https://www.dtaq.re.kr",
     "recruitUrl": "https://dtaq.re.kr/km/career/notice.jsp",
-    "description": "군수품 품질보증·무기체계 시험평가·방위산업기술보호를 전담하는 방위사업청 산하 기타공공기관. 1981년 국방품질검사소로 창설, 2006년 현재 명칭으로 개편. 직원 약 700명.",
+    "description": "방산물자 품질 관리와 국방 기술 기획을 담당하는 기관으로, 전력지원체계(무기체계 외 장비·물자)의 품질 보증을 수행합니다. 방산업체 품질 관리 체계 심사, 규격·시험 기준 제정, 방산 기술 수준 조사를 통해 군 전력의 신뢰성과 가용성을 보장합니다.",
     "mainBusiness": [
       "군수품 품질보증·검사",
       "무기체계 시험평가",
@@ -17416,7 +17416,7 @@ const ORGS = [
     "avgYears": 15.9,
     "homepage": "https://www.sac.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=예술의전당",
-    "description": "한국 최대의 종합 예술 공연·전시 시설을 운영하는 기타공공기관.",
+    "description": "국내 최대 복합 문화예술 시설로, 오페라하우스·음악당·서예관·미술관을 운영합니다. 클래식·오페라·연극·무용 등 장르를 아우르는 공연 기획과 전시 개최, 예술 교육 프로그램 운영을 통해 대한민국 문화예술의 중심 플랫폼 역할을 수행합니다.",
     "mainBusiness": [
       "공연 기획·제작",
       "전시 운영",
@@ -17461,7 +17461,7 @@ const ORGS = [
     "avgYears": 10.5,
     "homepage": "https://www.cultural.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립박물관문화재단",
-    "description": "국립박물관 운영 지원과 문화상품·교육 사업을 담당하는 기타공공기관.",
+    "description": "국립박물관 문화 상품 개발과 문화 향유 사업을 담당하는 기관입니다. 국립중앙박물관을 비롯한 전국 국립박물관 내 문화 상품점·레스토랑 운영, 교육·체험 프로그램 기획, 박물관 브랜드 상품 개발을 통해 박물관 방문 경험과 문화 확산을 지원합니다.",
     "mainBusiness": [
       "박물관 문화상품",
       "박물관 식음 운영",
@@ -17506,7 +17506,7 @@ const ORGS = [
     "avgYears": 10.6,
     "homepage": "https://www.kcti.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국문화관광연구원",
-    "description": "문화·관광 분야 정책 연구를 담당하는 기타공공기관.",
+    "description": "문화·관광·여가·스포츠 분야 정책 연구를 수행하는 국책연구기관입니다. 관광 동향 분석, 문화산업 정책 연구, 여가 실태 조사, 스포츠 산업 진흥 방향 연구를 통해 문화체육관광부 정책 수립과 문화 경제 발전 방향 도출을 지원합니다.",
     "mainBusiness": [
       "문화정책 연구",
       "관광정책 연구",
@@ -17619,7 +17619,7 @@ const ORGS = [
     "avgYears": 10.8,
     "homepage": "https://www.kocca.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국콘텐츠진흥원",
-    "description": "방송영상·게임·음악·만화 등 콘텐츠 산업 진흥을 담당하는 기타공공기관.",
+    "description": "게임·웹툰·영상·음악·캐릭터 등 문화콘텐츠 산업 육성을 전담하는 기관입니다. K-콘텐츠 제작 지원, 해외 시장 진출 마케팅, 콘텐츠 창업 인큐베이팅, 콘텐츠 인재 양성 사업을 통해 한류 콘텐츠의 글로벌 경쟁력 강화와 수출 확대를 선도합니다.",
     "mainBusiness": [
       "콘텐츠산업 진흥",
       "방송영상 지원",
@@ -17671,7 +17671,7 @@ const ORGS = [
     "avgYears": 3.6,
     "homepage": "https://www.acc.go.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립아시아문화전당재단",
-    "description": "2025년 신규 지정 기타공공기관. 아시아 문화 교류·창작 거점 시설 운영.",
+    "description": "광주 국립아시아문화전당의 운영과 아시아 문화 교류를 담당하는 재단입니다. 아시아 예술·전통문화 아카이브 구축, 창제작 콘텐츠 제작·배포, 국제 문화 교류 프로그램 운영을 통해 광주를 아시아 문화 허브 도시로 발전시키는 데 기여합니다.",
     "mainBusiness": [
       "아시아 문화 교류",
       "공연·전시 기획",
@@ -17783,7 +17783,7 @@ const ORGS = [
     "avgYears": 9.4,
     "homepage": "https://www.ketep.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국에너지기술평가원",
-    "description": "에너지 R&D 기획·관리·평가를 담당하는 기타공공기관.",
+    "description": "에너지 분야 R&D 기획·관리와 에너지 기술 평가를 담당하는 기관입니다. 신재생에너지·수소·에너지효율화 기술 개발 사업 관리, 에너지 R&D 성과 평가, 에너지 기술 로드맵 수립을 통해 탄소중립 실현과 에너지 전환 기술 혁신을 지원합니다.",
     "mainBusiness": [
       "에너지 R&D 기획",
       "R&D 평가·관리",
@@ -17832,7 +17832,7 @@ const ORGS = [
     "avgYears": 12.5,
     "homepage": "https://www.kistep.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국과학기술기획평가원",
-    "description": "국가과학기술 R&D 정책·기획·평가를 담당하는 기타공공기관.",
+    "description": "국가 R&D 사업 기획·평가·성과 분석을 담당하는 기관으로, 과학기술정보통신부 산하에서 국가 R&D 투자 효율화를 지원합니다. 국가 과학기술 발전 전략 수립, R&D 사업 타당성 검토, 과학기술 통계·지표 분석을 통해 국가 혁신 체계 고도화에 기여합니다.",
     "mainBusiness": [
       "국가 R&D 기획",
       "기술영향평가",
@@ -17879,7 +17879,7 @@ const ORGS = [
     "avgYears": 13.5,
     "homepage": "https://www.kihasa.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국보건사회연구원",
-    "description": "보건·복지 정책 연구를 담당하는 기타공공기관.",
+    "description": "보건·복지·인구 정책 연구를 수행하는 대표 국책연구기관으로, 건강보험·연금·사회보장 제도 전반을 연구합니다. 저출산·고령화 대응 연구, 복지 수요 실태 조사, 사회보장 재정 분석을 통해 지속가능한 사회 안전망 구축을 위한 정책 방향을 제시합니다.",
     "mainBusiness": [
       "보건정책 연구",
       "복지정책 연구",
@@ -17929,7 +17929,7 @@ const ORGS = [
     "avgYears": 9.5,
     "homepage": "https://www.neca.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국보건의료연구원",
-    "description": "근거중심 보건의료 연구를 담당하는 기타공공기관.",
+    "description": "의료 기술과 임상 의학의 근거 생성·평가를 담당하는 기관으로, 의약품·의료기기·의료 행위의 임상적·경제적 효과를 분석합니다. 신의료기술 평가, 건강기술평가(HTA), 의료 데이터 분석을 통해 근거 중심 의료 정책 수립과 건강보험 급여 결정을 지원합니다.",
     "mainBusiness": [
       "의료기술 평가",
       "신의료기술 평가",
@@ -17977,7 +17977,7 @@ const ORGS = [
     "avgYears": 10.3,
     "homepage": "https://www.khidi.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국보건산업진흥원",
-    "description": "보건산업 육성과 해외 진출을 담당하는 기타공공기관.",
+    "description": "제약·의료기기·화장품·식품 등 보건산업 육성과 글로벌 진출 지원을 담당하는 기관입니다. 해외 병원·의료 서비스 수출 지원, 보건의료 스타트업 육성, 임상시험 인프라 구축 사업을 통해 대한민국 보건산업의 국제 경쟁력 강화를 선도합니다.",
     "mainBusiness": [
       "제약·의료기기 산업 육성",
       "의료해외진출",
@@ -18030,7 +18030,7 @@ const ORGS = [
     "avgYears": 3.5,
     "homepage": "https://www.kfsp.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국생명존중희망재단",
-    "description": "2025년 신규 지정 기타공공기관. 자살예방·생명존중 사업 담당.",
+    "description": "자살 예방과 생명 존중 문화 확산을 위해 설립된 기관으로, 자살 예방 사업의 기획·교육·연구를 담당합니다. 게이트키퍼 교육, 자살 고위험군 발굴·개입 지원, 자살 예방 콘텐츠 개발을 통해 사회 전반의 생명 안전망 강화와 정신 건강 인식 개선에 기여합니다.",
     "mainBusiness": [
       "자살예방 정책",
       "생명존중 캠페인",
@@ -18076,7 +18076,7 @@ const ORGS = [
     "avgYears": 13.2,
     "homepage": "https://www.kei.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국환경연구원",
-    "description": "환경정책 연구를 담당하는 기타공공기관.",
+    "description": "환경 정책의 과학적 기반을 제공하는 국책연구기관으로, 기후변화·생태계·환경위해성 등 환경 전 분야 연구를 수행합니다. 국가 환경 종합 계획 수립 지원, 탄소 감축 시나리오 분석, 환경 영향 평가 기준 연구를 통해 지속가능한 환경 정책 방향을 제시합니다.",
     "mainBusiness": [
       "환경정책 연구",
       "환경영향평가",
@@ -18125,7 +18125,7 @@ const ORGS = [
     "avgYears": 12.8,
     "homepage": "https://www.krei.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국농촌경제연구원",
-    "description": "농업·농촌·식품 정책 연구를 담당하는 기타공공기관.",
+    "description": "농업·농촌·식품 분야 경제 정책 연구를 수행하는 국책연구기관으로, 농업 관측·통계와 농정 평가를 담당합니다. 농산물 수급 전망, 식품 소비 동향 분석, 농촌 공간 정책 연구, 농식품 국제 협력 연구를 통해 농업·농촌의 지속가능한 발전 방향을 제시합니다.",
     "mainBusiness": [
       "농업정책 연구",
       "농촌경제 분석",
@@ -18175,7 +18175,7 @@ const ORGS = [
     "avgYears": 5.7,
     "homepage": "https://www.lemi.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=축산환경관리원",
-    "description": "축산환경(악취·분뇨) 관리를 담당하는 기타공공기관.",
+    "description": "축산업에서 발생하는 환경 오염(악취·분뇨·수질)을 관리하고 친환경 축산 전환을 지원하는 기관입니다. 가축 분뇨 처리시설 설치 지원, 축산 악취 저감 컨설팅, 퇴비·액비 품질 검사를 통해 축산업과 환경이 공존하는 지속가능한 농축산 생태계를 조성합니다.",
     "mainBusiness": [
       "축산 악취 관리",
       "가축분뇨 자원화",
@@ -18293,7 +18293,7 @@ const ORGS = [
     "avgYears": 15.6,
     "homepage": "https://www.slc.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=수도권매립지관리공사",
-    "description": "수도권 폐기물 매립지 운영을 담당하는 기타공공기관.",
+    "description": "수도권(서울·인천·경기) 3개 시도의 쓰레기를 매립·관리하는 공사로, 인천 서구 수도권매립지를 운영합니다. 매립가스 발전, 침출수 처리, 생활폐기물 매립 최소화 사업을 통해 자원 순환형 매립지 운영과 환경 친화적 폐기물 처리 시스템 구축을 추진합니다.",
     "mainBusiness": [
       "매립지 운영·관리",
       "폐기물 자원화",
@@ -18345,7 +18345,7 @@ const ORGS = [
     "avgYears": 12,
     "homepage": "https://www.koreatech.ac.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국기술교육대학교",
-    "description": "산업기술 인력 양성을 위해 설립된 국립 특수대학.",
+    "description": "재직자 직업능력개발 교육과 HRD 전문 인력 양성을 담당하는 특수 목적 대학입니다. 공학계열 학부 교육과 함께 원격훈련 콘텐츠 심사·인정, 직업능력개발 훈련교사 양성을 수행하며, 고용노동부 산하 유일의 기술공학 특성화 대학으로 운영됩니다.",
     "mainBusiness": [
       "기술인력 양성",
       "능력개발 교육",
@@ -18391,7 +18391,7 @@ const ORGS = [
     "avgYears": 4.4,
     "homepage": "https://www.koreatech.ac.kr/klii",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국고용노동교육원",
-    "description": "고용·노동 분야 공직자·노사 교육을 담당하는 기타공공기관.",
+    "description": "고용노동 분야 공무원과 전문 인력의 직무 교육을 전담하는 기관입니다. 노동 행정 전문성 강화를 위한 집합·온라인 교육 과정 운영, 노동 관계법 해설, 산업안전 교육을 통해 고용노동부 및 산하 기관 직원의 역량 개발을 지원합니다.",
     "mainBusiness": [
       "공직자 교육",
       "노사관계 교육",
@@ -18434,7 +18434,7 @@ const ORGS = [
     "avgYears": 12.3,
     "homepage": "https://www.kli.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국노동연구원",
-    "description": "노동·고용 분야 정책 연구를 담당하는 기타공공기관.",
+    "description": "노동 시장·고용·임금·노사관계 분야 정책 연구를 수행하는 국책연구기관입니다. 노동 시장 구조 변화 분석, 최저임금 영향 연구, 일·가정 양립 정책 연구, 미래 일자리 전망 수립을 통해 고용 정책 방향과 노사 관계 제도 개선 방안을 제시합니다.",
     "mainBusiness": [
       "고용·노동 정책 연구",
       "임금·근로조건 연구",
@@ -18481,7 +18481,7 @@ const ORGS = [
     "avgYears": 7.8,
     "homepage": "https://www.socialenterprise.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국사회적기업진흥원",
-    "description": "사회적기업·협동조합 육성을 담당하는 기타공공기관.",
+    "description": "사회적기업 육성과 사회적경제 생태계 활성화를 담당하는 기관입니다. 사회적기업 인증·지원, 소셜벤처 투자 연계, 사회적경제 교육, 사회적기업 판로 개척 지원을 통해 취약계층 일자리 창출과 지역 사회 문제 해결을 위한 사회혁신 기업 성장을 지원합니다.",
     "mainBusiness": [
       "사회적기업 육성",
       "협동조합 지원",
@@ -18527,7 +18527,7 @@ const ORGS = [
     "avgYears": 11,
     "homepage": "https://www.cw.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=건설근로자공제회",
-    "description": "건설근로자 퇴직공제·복지를 담당하는 기타공공기관.",
+    "description": "건설 현장 일용근로자의 퇴직공제 제도를 운영하는 기관으로, 건설 노동자의 복지 향상을 담당합니다. 퇴직공제 적립금 관리와 퇴직공제금 지급, 건설 근로자 취업 지원, 교육 장학 사업을 통해 건설 현장 종사자의 경제적 안전망을 제공합니다.",
     "mainBusiness": [
       "건설근로자 퇴직공제",
       "건설노동자 복지",
@@ -18574,7 +18574,7 @@ const ORGS = [
     "avgYears": 12.9,
     "homepage": "https://www.kidp.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국디자인진흥원",
-    "description": "디자인 산업 진흥을 담당하는 기타공공기관.",
+    "description": "산업 디자인 진흥과 디자인 혁신 지원을 담당하는 기관으로, 경기도 성남 판교에 한국디자인진흥원 본원을 두고 있습니다. 우수 디자인(Good Design) 선정, 디자인 기업 지원, 디자인 교육·인재 양성, 해외 디자인 시장 진출 지원을 통해 K-디자인의 글로벌 경쟁력을 강화합니다.",
     "mainBusiness": [
       "디자인 산업 진흥",
       "디자인 R&D",
@@ -18620,7 +18620,7 @@ const ORGS = [
     "avgYears": 9.8,
     "homepage": "https://www.haccp.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국식품안전관리인증원",
-    "description": "식품·축산물 HACCP 인증을 담당하는 기타공공기관.",
+    "description": "식품 제조 현장의 위해요소중점관리기준(HACCP) 인증과 식품 안전 교육을 담당하는 기관입니다. 식품·축산물 제조업체 HACCP 심사·인증, 위생 교육 이수 관리, 식품 안전 기준 개발을 통해 먹거리 안전성을 보장하고 국민 건강 보호에 기여합니다.",
     "mainBusiness": [
       "HACCP 인증",
       "식품안전 교육",
@@ -18671,7 +18671,7 @@ const ORGS = [
     "avgYears": 5.2,
     "homepage": "https://www.foodpolis.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국식품산업클러스터진흥원",
-    "description": "국가식품클러스터 운영을 담당하는 기타공공기관.",
+    "description": "전북 익산 국가식품산업클러스터의 운영과 입주기업 지원을 담당하는 기관입니다. 식품 기업 연구개발 지원, 식품 안전 시험·분석 서비스, 식품 수출 마케팅 지원을 통해 국내 식품 기업의 기술 경쟁력 강화와 해외 시장 진출을 돕습니다.",
     "mainBusiness": [
       "식품기업 입주 지원",
       "식품 R&D",
@@ -19401,7 +19401,7 @@ const ORGS = [
     "avgYears": 7.9,
     "homepage": "http://www.sonosa.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=남북교류협력지원협회",
-    "description": "남북교류협력 활성화를 지원하는 통일부 산하 기타공공기관.",
+    "description": "남북 경제협력과 인도적 지원 사업을 지원하는 기관으로, 남북협력기금 집행과 사업자 승인 지원을 담당합니다. 대북 반출입 승인 절차 안내, 남북 교류 협력 사업 심사 지원, 남북 경협 법제 정보 제공을 통해 민간의 남북 교류 활동을 지원합니다.",
     "mainBusiness": [
       "남북교류협력 컨설팅",
       "대북 지원사업",
@@ -19441,7 +19441,7 @@ const ORGS = [
     "avgYears": 7.1,
     "homepage": "http://www.gokams.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=예술경영지원센터",
-    "description": "예술경영 역량 강화와 예술시장 활성화를 지원하는 문화체육관광부 산하 기타공공기관.",
+    "description": "예술 경영 역량 강화와 예술 시장 활성화를 지원하는 기관입니다. 공연예술 유통 플랫폼 운영, 예술 기업 경영 컨설팅, 공연 수출 지원, 예술 마케팅 교육을 통해 예술 생산자와 소비자를 연결하고 공연·전시 산업의 지속가능한 생태계를 조성합니다.",
     "mainBusiness": [
       "공연·시각예술 유통 지원",
       "해외 진출 지원",
@@ -19481,7 +19481,7 @@ const ORGS = [
     "avgYears": 11.9,
     "homepage": "http://www.poma.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=우체국시설관리단",
-    "description": "우정사업 부동산 관리·운영을 담당하는 과학기술정보통신부 산하 기타공공기관.",
+    "description": "전국 우체국 시설의 유지·관리와 청소·경비 서비스를 담당하는 기관입니다. 우체국 건물 유지보수, 에너지 관리, 시설 안전 점검 등 우편 인프라 운영 지원 업무를 수행하며, 우정사업본부의 안정적인 서비스 제공을 뒷받침합니다.",
     "mainBusiness": [
       "우체국 부동산 관리",
       "시설 임대·운영",
@@ -19523,7 +19523,7 @@ const ORGS = [
     "avgYears": 8.4,
     "homepage": "https://www.fomo.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=일제강제동원피해자지원재단",
-    "description": "일제 강제동원 피해자 지원과 역사 조사를 담당하는 행정안전부 산하 기타공공기관.",
+    "description": "일제강점기 강제동원 피해자와 유족의 위로와 지원을 담당하는 재단입니다. 강제동원 역사 조사·기록, 피해자 유족 지원금 지급, 추도 사업과 역사교육 프로그램 운영을 통해 강제동원 피해 사실을 기억하고 희생자를 추모합니다.",
     "mainBusiness": [
       "강제동원 피해자 지원",
       "역사 조사·연구",
@@ -19613,7 +19613,7 @@ const ORGS = [
     "avgYears": 8.5,
     "homepage": "https://www.kosii.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국통계정보원",
-    "description": "통계 정보시스템 구축·운영을 담당하는 국가데이터처 산하 기타공공기관.",
+    "description": "통계청 산하 기관으로, 국가 통계 서비스 플랫폼 운영과 통계 데이터 보급을 담당합니다. KOSIS(국가통계포털)·마이크로데이터통합서비스(MDIS) 운영, 통계 데이터 공개·활용 지원, 통계 교육을 통해 국민 누구나 쉽게 통계 정보를 활용할 수 있는 환경을 구축합니다.",
     "mainBusiness": [
       "통계 정보시스템 운영",
       "통계 데이터 품질 관리",
@@ -19656,7 +19656,7 @@ const ORGS = [
     "avgYears": 7.6,
     "homepage": "https://www.stat.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국통계진흥원",
-    "description": "통계 교육·홍보 및 민간통계 발전을 지원하는 국가데이터처 산하 기타공공기관.",
+    "description": "통계 교육과 통계 활용 문화 확산을 담당하는 기관으로, 통계청 산하에서 통계 전문 인력 양성을 지원합니다. 사회조사·통계자료 처리 실습 교육, 통계 자격시험 운영, 통계 홍보 콘텐츠 제작을 통해 공공 부문과 민간의 통계 역량 강화를 지원합니다.",
     "mainBusiness": [
       "통계 교육",
       "통계 인식 제고",
@@ -19698,7 +19698,7 @@ const ORGS = [
     "avgYears": 8.4,
     "homepage": "http://www.gongyoung.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=공영홈쇼핑",
-    "description": "중소기업·농수산물 판로 지원을 위한 공영 TV홈쇼핑. 중소벤처기업부 산하 기타공공기관.",
+    "description": "중소기업·농어업인의 판로 확대를 위한 공영 홈쇼핑 채널을 운영하는 기관입니다. 중소기업 제품 우선 편성, 농축수산물 특별 판매, 온라인 몰 연계 판매를 통해 대기업 중심 유통 구조에서 소외된 소상공인·중소기업의 방송 판매 기회를 확대합니다.",
     "mainBusiness": [
       "중소기업 판로 지원",
       "농수산물 TV홈쇼핑",
@@ -19740,7 +19740,7 @@ const ORGS = [
     "avgYears": 19,
     "homepage": "http://www.88countryclub.co.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=88관광개발",
-    "description": "88컨트리클럽 등 체육시설을 운영하는 국가보훈부 산하 기타공공기관.",
+    "description": "1988년 서울올림픽 기념 시설인 88컨트리클럽·리조트를 운영하는 기관입니다. 경기도 안산에 위치한 골프장과 부대 시설 운영을 통해 국민 여가 및 스포츠 활동을 지원하며, 한국마사회 자회사로서 체육 진흥 재원 마련에 기여합니다.",
     "mainBusiness": [
       "골프장 운영",
       "체육시설 관리",
@@ -19819,7 +19819,7 @@ const ORGS = [
     "avgYears": 13,
     "homepage": "https://www.lhca.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=가축위생방역지원본부",
-    "description": "가축 방역 및 위생 검사를 지원하는 농림축산식품부 산하 기타공공기관.",
+    "description": "가축 전염병 예방과 동물 방역을 지원하는 기관으로, 구제역·조류인플루엔자 등 주요 가축 전염병의 예찰·방역 업무를 수행합니다. 가축 사체 처리, 소독 약품 공급, 방역 인력 지원을 통해 축산 농가의 피해를 최소화하고 동물 방역 체계를 강화합니다.",
     "mainBusiness": [
       "가축방역 지원",
       "가축질병 예찰",
@@ -19862,7 +19862,7 @@ const ORGS = [
     "avgYears": 9,
     "homepage": "https://www.knuh.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=강원대학교병원",
-    "description": "강원특별자치도 거점 국립대학 병원. 교육부 산하 기타공공기관.",
+    "description": "강원대학교 의과대학 부속 국립대학병원으로, 강원 영서 권역의 중증 의료 서비스를 담당합니다. 권역 응급의료센터·권역외상센터 운영과 암·심장·뇌혈관 등 중증 질환 진료를 통해 강원 지역 의료 접근성 향상과 공공 의료 서비스 강화에 기여합니다.",
     "mainBusiness": [
       "진료·의료서비스",
       "임상 교육",
@@ -19906,7 +19906,7 @@ const ORGS = [
     "avgYears": 9.7,
     "homepage": "http://www.knudh.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=강원대학교치과병원",
-    "description": "강원대학교 부속 치과병원. 교육부 산하 기타공공기관.",
+    "description": "강원대학교 치의학대학원 부속 국립 치과병원으로, 강원 지역 주민의 구강 의료 서비스를 제공합니다. 보존·보철·교정·구강외과 등 전 치과 진료 과목을 운영하며, 치의학 교육 실습 기관으로서 지역 치과 의료 인력 양성에 기여합니다.",
     "mainBusiness": [
       "치과 진료",
       "치의학 교육",
@@ -19949,7 +19949,7 @@ const ORGS = [
     "avgYears": 9.5,
     "homepage": "https://www.auri.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=건축공간연구원",
-    "description": "건축·공간 환경 정책 연구를 수행하는 국무조정실 산하 기타공공기관.",
+    "description": "건축·도시·공간 분야 정책 연구를 수행하는 국책연구기관으로, 건축 문화 진흥과 공공 건축 품질 향상을 지원합니다. 공공 건축 설계 기준 개발, 노후 건축물 재생 정책 연구, 스마트 공간 계획 연구를 통해 인간 중심의 삶의 공간 조성을 위한 지식 기반을 제공합니다.",
     "mainBusiness": [
       "건축·도시 정책 연구",
       "공간복지 연구",
@@ -19993,7 +19993,7 @@ const ORGS = [
     "avgYears": 9.1,
     "homepage": "http://www.grac.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=게임물관리위원회",
-    "description": "게임물 등급 분류와 사후 관리를 담당하는 문화체육관광부 산하 기타공공기관.",
+    "description": "게임물의 등급 분류와 불법 게임물 유통 단속을 담당하는 기관입니다. 출시 전 게임물 심사·등급 부여, 등급 분류 기준 개발, 청소년 보호를 위한 게임 이용 환경 개선 사업을 통해 건전한 게임 문화 조성과 게임 산업의 신뢰성 확보에 기여합니다.",
     "mainBusiness": [
       "게임물 등급 분류",
       "불법 게임물 단속",
@@ -20036,7 +20036,7 @@ const ORGS = [
     "avgYears": 10.3,
     "homepage": "http://knuh.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=경북대학교병원",
-    "description": "경북권 거점 국립대학 병원. 교육부 산하 기타공공기관.",
+    "description": "경북대학교 의과대학 부속 국립대학병원으로, 대구·경북 권역의 최상위 의료 서비스를 담당합니다. 권역 외상센터·심뇌혈관센터 운영과 희귀 난치 질환 진료, 첨단 의료 기술 연구를 통해 대경권 의료 수준 향상과 공공 의료 역할을 수행합니다.",
     "mainBusiness": [
       "진료·의료서비스",
       "임상 교육",
@@ -20080,7 +20080,7 @@ const ORGS = [
     "avgYears": 7,
     "homepage": "http://www.knudh.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=경북대학교치과병원",
-    "description": "경북대학교 부속 치과병원. 교육부 산하 기타공공기관.",
+    "description": "경북대학교 치의학대학원 부속 국립 치과병원으로, 대구·경북 지역의 구강 의료 서비스를 제공합니다. 구강암·턱관절 질환 등 특수 치과 진료와 임플란트·교정 등 전문 진료를 운영하며, 치과 의료 인력 양성과 치의학 연구 기반 강화에 기여합니다.",
     "mainBusiness": [
       "치과 진료",
       "치의학 교육",
@@ -20123,7 +20123,7 @@ const ORGS = [
     "avgYears": 10.1,
     "homepage": "http://www.gnuh.co.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=경상국립대학교병원",
-    "description": "경남권 국립대학 병원. 교육부 산하 기타공공기관.",
+    "description": "경상국립대학교 의과대학 부속 국립대학병원으로, 경남 서부 권역의 의료 서비스 거점 역할을 담당합니다. 권역 응급의료센터 운영, 암·심장·뇌졸중 등 중증 질환 진료, 농어촌 의료 취약 지역 공공 의료 지원을 통해 경남 지역 의료 형평성 향상에 기여합니다.",
     "mainBusiness": [
       "진료·의료서비스",
       "임상 교육",
@@ -20167,7 +20167,7 @@ const ORGS = [
     "avgYears": 10.8,
     "homepage": "http://www.nrc.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=경제인문사회연구회",
-    "description": "경제·인문·사회 분야 정부출연연구기관을 관리·지원하는 국무조정실 산하 기타공공기관.",
+    "description": "국책 경제·인문사회 계열 연구기관을 총괄 지원하는 기관으로, 산하 26개 출연연구기관의 운영을 관리합니다. 연구기관 기관평가, 융합 연구 과제 조정, 연구 성과 확산 지원을 통해 사회과학 분야 국책 연구의 효율성과 공공성을 제고합니다.",
     "mainBusiness": [
       "출연연 관리",
       "융합연구 지원",
@@ -20249,7 +20249,7 @@ const ORGS = [
     "avgYears": 5.2,
     "homepage": "http://www.siqms.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=공간정보품질관리원",
-    "description": "공간정보 데이터 품질 검사·관리를 담당하는 국토교통부 산하 기타공공기관.",
+    "description": "공간정보(지도·측량 데이터)의 품질 검사와 인증을 담당하는 기관입니다. 국가 기본도·수치지형도·항공사진 등 공간정보 데이터의 정확도 검증, 품질 기준 개발, 민간 공간정보 업체의 성과 심사를 통해 신뢰할 수 있는 공간정보 인프라 구축을 지원합니다.",
     "mainBusiness": [
       "공간정보 품질검사",
       "국가기본도 관리",
@@ -20290,7 +20290,7 @@ const ORGS = [
     "avgYears": 7.5,
     "homepage": "https://www.compa.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=과학기술사업화진흥원",
-    "description": "연구성과의 사업화·기술이전 촉진을 지원하는 과학기술정보통신부 산하 기타공공기관.",
+    "description": "공공 연구기관의 기술 이전과 사업화를 촉진하는 기관으로, 연구 성과의 산업화와 기술 창업을 지원합니다. 기술 이전 계약 지원, 연구소기업 설립 지원, 기술 창업 보육, 사업화 자금 연계를 통해 공공 기술이 시장에서 가치를 창출할 수 있도록 돕습니다.",
     "mainBusiness": [
       "기술이전 촉진",
       "연구성과 사업화",
@@ -20331,7 +20331,7 @@ const ORGS = [
     "avgYears": 10.6,
     "homepage": "http://www.stepi.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=과학기술정책연구원",
-    "description": "과학기술혁신 정책 연구를 수행하는 국무조정실 산하 기타공공기관.",
+    "description": "과학기술·혁신·연구개발 정책 연구를 수행하는 국책연구기관입니다. 국가 R&D 전략 수립 지원, 기술 예측·평가, 혁신 생태계 분석, 과학기술 인력 정책 연구를 통해 대한민국 과학기술 경쟁력 강화와 지속가능한 혁신 성장 체계 구축을 지원합니다.",
     "mainBusiness": [
       "과학기술정책 연구",
       "기술혁신 분석",
@@ -20372,7 +20372,7 @@ const ORGS = [
     "avgYears": 5.6,
     "homepage": "https://nibp.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국가생명윤리정책원",
-    "description": "생명윤리 정책 연구·지원을 담당하는 보건복지부 산하 기타공공기관.",
+    "description": "생명윤리 관련 법·제도 운영과 정책 연구를 담당하는 기관입니다. 기관생명윤리위원회(IRB) 지원, 인체유래물 연구 윤리 심의, 유전자 치료·줄기세포 연구 윤리 가이드라인 개발을 통해 생명과학 연구의 윤리적 기반을 확립하고 연구 참여자를 보호합니다.",
     "mainBusiness": [
       "생명윤리 정책 연구",
       "기관생명윤리위원회 지원",
@@ -20414,7 +20414,7 @@ const ORGS = [
     "avgYears": 4.3,
     "homepage": "http://www.ncrc.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국가아동권리보장원",
-    "description": "아동 권리 보장과 복지 정책 지원을 담당하는 보건복지부 산하 기타공공기관.",
+    "description": "아동 권리 보호와 아동복지 서비스 체계 강화를 담당하는 기관입니다. 아동학대 예방·피해 지원, 가정위탁·입양 서비스 관리, 드림스타트 사업 지원, 아동 정책 연구를 통해 모든 아동이 안전하고 건강하게 성장할 수 있는 환경 조성에 기여합니다.",
     "mainBusiness": [
       "아동보호서비스 지원",
       "입양·가정위탁 지원",
@@ -20455,7 +20455,7 @@ const ORGS = [
     "avgYears": 12.7,
     "homepage": "http://www.nile.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국가평생교육진흥원",
-    "description": "평생교육 진흥과 학점은행제 운영을 담당하는 교육부 산하 기타공공기관.",
+    "description": "평생학습 진흥과 학력 인정 체계 운영을 담당하는 기관으로, 교육부 산하에서 전 국민의 평생 학습권을 지원합니다. 독학학위제·학점은행제·평생학습계좌제 운영, 지역 평생학습도시 지원, 성인 문해 교육 사업을 통해 언제 어디서나 배울 수 있는 사회를 구현합니다.",
     "mainBusiness": [
       "평생교육 진흥",
       "학점은행제 운영",
@@ -20496,7 +20496,7 @@ const ORGS = [
     "avgYears": 7.1,
     "homepage": "http://www.sciencecenter.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립광주과학관",
-    "description": "광주·전남 권역 과학문화 확산을 담당하는 과학기술정보통신부 산하 기타공공기관.",
+    "description": "광주·전남 지역 주민의 과학 문화 향유와 STEAM 교육을 담당하는 과학관입니다. 상설·기획 전시, 천체 투영 프로그램, 청소년 과학 실험 교실 운영을 통해 어린이와 청소년의 과학적 호기심을 자극하고 지역 과학 문화 저변을 넓히는 역할을 합니다.",
     "mainBusiness": [
       "과학 전시·체험",
       "과학교육 프로그램",
@@ -20538,7 +20538,7 @@ const ORGS = [
     "avgYears": 6.9,
     "homepage": "https://www.nnibr.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립낙동강생물자원관",
-    "description": "낙동강 수계 생물자원 조사·연구를 담당하는 기후에너지환경부 산하 기타공공기관.",
+    "description": "낙동강 수계 민물 생물자원의 조사·수집·보전·연구를 담당하는 기관입니다. 담수 생물 표본 확보와 DB 구축, 외래종·멸종위기종 모니터링, 생물자원 활용 기술 개발을 통해 낙동강 생태계 보전과 수생 생물다양성 지식 기반 구축에 기여합니다.",
     "mainBusiness": [
       "담수생물 자원 조사",
       "생물자원 보전·연구",
@@ -20581,7 +20581,7 @@ const ORGS = [
     "avgYears": 3.1,
     "homepage": "https://namuk.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립농업박물관",
-    "description": "농업 역사와 문화를 보존·전시하는 농림축산식품부 산하 기타공공기관. 2026년 신규 지정.",
+    "description": "농업 역사·문화·기술을 보존하고 전시하는 국립 박물관으로, 경기도 수원에 위치합니다. 농경 유물 수집·전시, 농업 체험 교육 프로그램 운영, 농업 아카이브 구축을 통해 국민이 농업의 가치와 역사를 체험하고 이해할 수 있는 문화 공간을 제공합니다.",
     "mainBusiness": [
       "농업 유물 수집·전시",
       "농업 역사 연구",
@@ -20622,7 +20622,7 @@ const ORGS = [
     "avgYears": 8.5,
     "homepage": "http://www.dnsm.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립대구과학관",
-    "description": "대구·경북 권역 과학문화 확산을 담당하는 과학기술정보통신부 산하 기타공공기관.",
+    "description": "대구·경북 지역의 과학 문화 향유와 STEAM 교육을 담당하는 과학관입니다. 자동차·로봇·에너지 주제 상설 전시, 이동 과학 교실, 기업 연계 체험 프로그램 운영을 통해 지역 내 과학 기술 기반 산업과 연계한 이공계 진로 탐색 기회를 제공합니다.",
     "mainBusiness": [
       "과학 전시·체험",
       "과학교육 프로그램",
@@ -20664,7 +20664,7 @@ const ORGS = [
     "avgYears": 7.2,
     "homepage": "http://www.sciport.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립부산과학관",
-    "description": "부산·울산·경남 권역 과학문화 확산을 담당하는 과학기술정보통신부 산하 기타공공기관.",
+    "description": "부산·경남·울산 동남권 지역의 과학 문화 보급과 체험 교육을 담당하는 과학관입니다. 우주·에너지·조선·항공 주제 전시와 체험 시설, 창의 과학 교실, 야외 체험마당 운영을 통해 어린이부터 성인까지 과학 기술에 친숙하게 접근할 수 있는 공간을 제공합니다.",
     "mainBusiness": [
       "과학 전시·체험",
       "과학교육 프로그램",
@@ -20706,7 +20706,7 @@ const ORGS = [
     "avgYears": 10.5,
     "homepage": "http://www.ncc.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립암센터",
-    "description": "암 연구·예방·치료를 전담하는 보건복지부 산하 기타공공기관.",
+    "description": "암 연구·예방·진료를 전담하는 국가 암 통합 거점 기관입니다. 암 발생률·생존율 국가 통계 관리, 최신 암 치료 임상 연구, 암 검진 표준 지침 개발, 지역 암센터 지원을 통해 국민 암 발생률 감소와 암 생존율 향상을 위한 정책·의료·연구 허브 역할을 수행합니다.",
     "mainBusiness": [
       "암 진료",
       "암 연구",
@@ -20750,7 +20750,7 @@ const ORGS = [
     "avgYears": 3.5,
     "homepage": "http://www.kosm.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립울진해양과학관",
-    "description": "해양과학 교육·전시를 담당하는 해양수산부 산하 기타공공기관.",
+    "description": "경북 울진에 위치한 해양 생태·과학 체험 전시 기관입니다. 동해 해양 생태계 전시, 수중 체험 시설, 해양 환경 교육 프로그램 운영을 통해 동해안 해양 자원의 가치를 알리고 지역 주민과 관광객에게 해양 과학 문화 향유 기회를 제공합니다.",
     "mainBusiness": [
       "해양과학 전시",
       "해양교육 프로그램",
@@ -20793,7 +20793,7 @@ const ORGS = [
     "avgYears": 1.2,
     "homepage": "https://www.inmm.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립인천해양박물관",
-    "description": "인천 해양 역사·문화를 보존·전시하는 해양수산부 산하 기타공공기관. 2026년 신규 지정.",
+    "description": "인천 항만과 해양 역사·문화를 보존하고 전시하는 국립 박물관입니다. 인천 개항 역사, 항로 개척, 해운·항만 발전사 전시와 교육 프로그램 운영을 통해 해양 강국으로서 대한민국의 정체성을 알리고 바다에 대한 국민적 관심을 높이는 데 기여합니다.",
     "mainBusiness": [
       "해양 유물 수집·전시",
       "해양 역사 연구",
@@ -20834,7 +20834,7 @@ const ORGS = [
     "avgYears": 7.4,
     "homepage": "http://www.nmc.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립중앙의료원",
-    "description": "공공보건의료 중추기관으로 취약계층 의료서비스를 담당하는 보건복지부 산하 기타공공기관.",
+    "description": "공공 의료 정책 수행과 의료 취약 계층 진료를 담당하는 국가 중앙 의료 기관입니다. 감염병·재난 의료 대응 총괄, 외국인 근로자·노숙인 등 취약 계층 의료 지원, 공공 병원 지원 사업을 통해 의료 안전망 강화와 의료 형평성 실현에 앞장섭니다.",
     "mainBusiness": [
       "공공의료 서비스",
       "재난의료 지원",
@@ -20878,7 +20878,7 @@ const ORGS = [
     "avgYears": 4,
     "homepage": "http://www.aviation.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립항공박물관",
-    "description": "항공 역사·문화를 보존·전시하는 국토교통부 산하 기타공공기관.",
+    "description": "대한민국 항공 역사와 항공 기술을 보존·전시하는 국립 박물관으로, 서울 강서구 김포공항 인근에 위치합니다. 항공기 실물·모형 전시, 비행 시뮬레이터 체험, 항공 역사 아카이브 구축을 통해 국민의 항공 문화 이해를 높이고 항공·우주 분야 미래 인재 양성에 기여합니다.",
     "mainBusiness": [
       "항공 유물 수집·전시",
       "항공 역사 연구",
@@ -20919,7 +20919,7 @@ const ORGS = [
     "avgYears": 7.5,
     "homepage": "http://www.mmk.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립해양박물관",
-    "description": "해양 역사·문화를 보존·전시하는 해양수산부 산하 기타공공기관.",
+    "description": "부산 영도구에 위치한 국내 최대 해양 종합 박물관으로, 해양 역사·과학·생태·문화 전시를 담당합니다. 고선박 유물 전시, 해양 생태 수족관, 해양 도서관 운영을 통해 바다와 관련된 인류의 역사와 문화를 생생하게 전달하고 해양 문화 확산에 기여합니다.",
     "mainBusiness": [
       "해양 유물 수집·전시",
       "해양 역사 연구",
@@ -20960,7 +20960,7 @@ const ORGS = [
     "avgYears": 7.8,
     "homepage": "http://www.mabik.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립해양생물자원관",
-    "description": "해양생물자원 조사·보전·연구를 담당하는 해양수산부 산하 기타공공기관.",
+    "description": "해양 생물자원의 조사·발굴·보전·연구를 담당하는 기관으로, 충남 서천에 위치합니다. 해양 생물 표본 수집과 유전자원 확보, 해양 생물 DB 구축, 해양 생물 기반 바이오소재 개발 지원을 통해 국가 해양 생물자원 주권 강화와 생물다양성 보전에 기여합니다.",
     "mainBusiness": [
       "해양생물 자원 조사",
       "해양생물 보전·연구",
@@ -21003,7 +21003,7 @@ const ORGS = [
     "avgYears": 3.8,
     "homepage": "http://hnibr.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립호남권생물자원관",
-    "description": "호남 도서·연안 생물자원 조사·연구를 담당하는 기후에너지환경부 산하 기타공공기관.",
+    "description": "서해안·갯벌·도서 지역의 생물자원 조사·수집·보전을 담당하는 기관으로, 전남 목포에 위치합니다. 도서·연안 생태계 특산 생물자원 DB 구축, 멸종위기종 보전 연구, 갯벌 생물 기능성 소재 발굴을 통해 호남·도서 지역 생물자원의 가치를 발굴하고 보전합니다.",
     "mainBusiness": [
       "섬·연안 생물자원 조사",
       "생물자원 보전·연구",
@@ -21178,7 +21178,7 @@ const ORGS = [
     "avgYears": 9.5,
     "homepage": "http://www.igbf.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국악방송",
-    "description": "국악 전문 방송을 운영하는 문화체육관광부 산하 기타공공기관.",
+    "description": "한국 전통 음악과 공연 예술 방송을 전담하는 국악 전문 라디오 방송국입니다. 판소리·민요·국악 합주 등 전통 음악 방송, 국악 관련 교육 프로그램 제작, 온라인 콘텐츠 확산을 통해 국악의 대중화와 전통 문화 예술 보존·진흥에 기여합니다.",
     "mainBusiness": [
       "국악 라디오 방송",
       "국악 영상 제작",
@@ -21220,7 +21220,7 @@ const ORGS = [
     "avgYears": 17,
     "homepage": "https://www.arirang.com",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국제방송교류재단",
-    "description": "아리랑TV를 운영하며 한국 문화를 해외에 알리는 문화체육관광부 산하 기타공공기관.",
+    "description": "한국 방송의 국제 교류와 해외 한류 방송 콘텐츠 보급을 담당하는 기관입니다. 아리랑TV·아리랑라디오 운영, 해외 방송국과의 방송 콘텐츠 교류, K-드라마·K-팝 해외 송출 지원을 통해 한국 방송 문화의 세계화와 국가 이미지 제고에 기여합니다.",
     "mainBusiness": [
       "해외 TV 방송",
       "한국 문화 홍보",
@@ -21260,7 +21260,7 @@ const ORGS = [
     "avgYears": 7,
     "homepage": "http://www.ipab.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국제식물검역인증원",
-    "description": "수출 식물의 검역·인증 서비스를 제공하는 농림축산식품부 산하 기타공공기관.",
+    "description": "수출 농산물의 국제 식물검역 인증과 해외 검역 기준 대응을 지원하는 기관입니다. 수출 식물의 병해충 검사·인증, 수입국 식물검역 정보 제공, 검역 인프라 개선 컨설팅을 통해 한국 농산물의 수출 통관 원활화와 국제 검역 경쟁력 강화를 지원합니다.",
     "mainBusiness": [
       "식물 검역 서비스",
       "해외 인증 지원",
@@ -21302,7 +21302,7 @@ const ORGS = [
     "avgYears": 18.6,
     "homepage": "http://www.kaia.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국토교통과학기술진흥원",
-    "description": "국토교통 R&D 기획·관리를 담당하는 국토교통부 산하 기타공공기관.",
+    "description": "국토·교통 분야 R&D 기획·평가·관리를 담당하는 기관입니다. 도로·철도·항공·수자원 등 SOC 기술 개발 사업 관리, 스마트시티·자율주행 기술 연구 지원, 국토 R&D 성과 확산을 통해 안전하고 편리한 국토 교통 환경 구현을 지원합니다.",
     "mainBusiness": [
       "국토교통 R&D 기획·관리",
       "교통·건설 기술 지원",
@@ -21347,7 +21347,7 @@ const ORGS = [
     "avgYears": 12.7,
     "homepage": "http://www.krihs.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국토연구원",
-    "description": "국토·도시·주택 분야 정책 연구를 수행하는 국무조정실 산하 기타공공기관.",
+    "description": "국토·도시·지역·주택·교통 분야 정책 연구를 수행하는 국책연구기관입니다. 국토 종합 계획 수립 지원, 부동산 시장 동향 분석, 수도권 집중 완화 방안 연구, 스마트 국토 전략 수립을 통해 균형 있는 국토 발전과 삶의 질 향상을 위한 정책 방향을 제시합니다.",
     "mainBusiness": [
       "국토 정책 연구",
       "도시·주거 연구",
@@ -21389,7 +21389,7 @@ const ORGS = [
     "avgYears": 8.4,
     "homepage": "http://ibs.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=기초과학연구원",
-    "description": "기초과학 연구 지원·육성을 담당하는 과학기술정보통신부 산하 기타공공기관.",
+    "description": "기초과학 분야 세계 수준의 연구를 수행하는 국가 연구기관으로, 전국 30여 개 연구단에서 물리·화학·생명·수학 분야 첨단 연구를 담당합니다. 대형 연구 시설 구축과 국제 공동 연구 활성화를 통해 노벨상 수준의 원천 기초 연구 성과 창출을 목표로 합니다.",
     "mainBusiness": [
       "기초과학 연구",
       "연구단 운영·지원",
@@ -21433,7 +21433,7 @@ const ORGS = [
     "avgYears": 13.6,
     "homepage": "https://www.nosa.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=노사발전재단",
-    "description": "노사 협력 문화 조성과 노사관계 선진화를 지원하는 고용노동부 산하 기타공공기관.",
+    "description": "노사 관계 발전과 일터 혁신을 지원하는 기관으로, 고용노동부 산하에서 노사 협력 문화 확산을 담당합니다. 노사 갈등 예방 컨설팅, 단체협약 지원, 일·생활 균형 사업장 인증, 고령자·장애인 고용 지원 사업을 통해 건강한 노사 관계 조성에 기여합니다.",
     "mainBusiness": [
       "노사관계 컨설팅",
       "일·가정 양립 지원",
@@ -21475,7 +21475,7 @@ const ORGS = [
     "avgYears": 8.5,
     "homepage": "https://www.ipet.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=농림식품기술기획평가원",
-    "description": "농림수산식품 분야 R&D 기획·관리·평가를 담당하는 농림축산식품부 산하 기타공공기관.",
+    "description": "농림·식품 분야 R&D 기획·평가·관리를 담당하는 기관입니다. 스마트팜·바이오식품·동식물 방역 기술 개발 사업 관리, 농식품 R&D 성과 실용화 지원, 국제 농업 기술 협력을 통해 농림수산식품 분야의 기술 혁신과 식량 안보 강화에 기여합니다.",
     "mainBusiness": [
       "농림식품 R&D 기획",
       "연구과제 관리·평가",
@@ -21574,7 +21574,7 @@ const ORGS = [
     "avgYears": 6.8,
     "homepage": "https://www.kmedihub.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=대구경북첨단의료산업진흥재단",
-    "description": "첨단의료복합단지 내 의료기기·신약 개발 지원을 담당하는 보건복지부 산하 기타공공기관.",
+    "description": "대구·경북 첨단의료복합단지의 운영과 의료산업 육성을 담당하는 재단입니다. 의료기기·제약 기업 입주 지원, 임상시험 인프라 제공, 의료 R&D 기술 사업화 지원을 통해 대구경북을 글로벌 의료산업 클러스터로 육성하는 데 기여합니다.",
     "mainBusiness": [
       "의료기기 개발 지원",
       "신약 개발 지원",
@@ -21616,7 +21616,7 @@ const ORGS = [
     "avgYears": 17.6,
     "homepage": "https://www.klac.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=대한법률구조공단",
-    "description": "법률 취약계층에 법률 서비스를 제공하는 법무부 산하 기타공공기관.",
+    "description": "경제적으로 어렵거나 법률적 지식이 부족한 취약 계층에 법률 서비스를 제공하는 기관입니다. 무료 법률 상담, 소송 대리, 형사 변호 지원을 통해 법 앞의 평등을 실현하고, 국선 변호인 제도와 법률 구조 서비스를 통해 사회적 약자의 법적 권리를 보호합니다.",
     "mainBusiness": [
       "법률 상담",
       "소송 대리",
@@ -21658,7 +21658,7 @@ const ORGS = [
     "avgYears": 19,
     "homepage": "http://www.kocoal.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=대한석탄공사",
-    "description": "국내 석탄 생산·공급을 담당하는 산업통상자원부 산하 기타공공기관.",
+    "description": "국내 석탄 자원 개발과 탄광 운영을 담당하는 기관으로, 강원도 삼척·태백 지역 탄광을 운영합니다. 무연탄 생산과 공급 안정화, 폐광 지역 경제 지원, 광산 안전 관리 및 갱내 구조 활동을 통해 에너지 자원 공급과 탄광 지역 고용 유지에 기여합니다.",
     "mainBusiness": [
       "석탄 채굴·생산",
       "탄광 운영·관리",
@@ -21703,7 +21703,7 @@ const ORGS = [
     "avgYears": 10.7,
     "homepage": "http://www.koreanpc.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=대한장애인체육회",
-    "description": "장애인 스포츠 활성화와 선수 육성을 담당하는 문화체육관광부 산하 기타공공기관.",
+    "description": "장애인 스포츠 경기단체 관리와 장애인 체육 진흥을 담당하는 기관입니다. 장애인 국가대표 선발·지원, 전국장애인체육대회 운영, 장애인 생활체육 보급을 통해 장애인의 스포츠 참여 기회를 확대하고 대한민국 패럴림픽 경쟁력 강화에 기여합니다.",
     "mainBusiness": [
       "장애인 스포츠 지원",
       "패럴림픽 준비",
@@ -21745,7 +21745,7 @@ const ORGS = [
     "avgYears": 12.8,
     "homepage": "https://www.redcross.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=대한적십자사",
-    "description": "인도주의 활동과 혈액 관리를 담당하는 보건복지부 산하 기타공공기관.",
+    "description": "인도주의 정신에 따라 재난 구호·헌혈 사업·사회봉사를 수행하는 기관입니다. 혈액 공급 체계 운영, 재해 피해자 지원, 국제 인도주의 활동, 이산가족 찾기 지원을 통해 전쟁·재난·의료 위기 상황에서 인명 보호와 취약 계층 지원을 담당합니다.",
     "mainBusiness": [
       "혈액 수급 관리",
       "재난 구호",
@@ -21789,7 +21789,7 @@ const ORGS = [
     "avgYears": 12.4,
     "homepage": "http://www.sports.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=대한체육회",
-    "description": "국내 스포츠 진흥과 올림픽 선수 육성을 담당하는 문화체육관광부 산하 기타공공기관.",
+    "description": "전국 경기단체를 총괄하며 국내 스포츠 진흥과 올림픽 등 국제 대회 참가를 지원하는 기관입니다. 국가대표 선발·훈련·지원, 전국체육대회·전국소년체육대회 운영, 생활체육 보급 사업을 통해 엘리트 스포츠 경쟁력 강화와 스포츠 국민화를 선도합니다.",
     "mainBusiness": [
       "엘리트 체육 지원",
       "생활체육 진흥",
@@ -21832,7 +21832,7 @@ const ORGS = [
     "avgYears": 13.5,
     "homepage": "http://www.i815.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=독립기념관",
-    "description": "독립운동 역사를 보존·전시하는 국가보훈부 산하 기타공공기관.",
+    "description": "대한민국 독립 운동의 역사를 수집·보존·전시하는 국가 기관으로, 충남 천안에 위치합니다. 독립 운동 유물 소장과 상설·기획 전시, 독립운동사 교육 프로그램, 학술 연구를 통해 일제 강점기 독립 운동의 정신을 계승하고 애국심 함양과 역사 교육에 기여합니다.",
     "mainBusiness": [
       "독립운동 유물 전시",
       "역사 교육",
@@ -21873,7 +21873,7 @@ const ORGS = [
     "avgYears": 10.4,
     "homepage": "http://www.nahf.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=동북아역사재단",
-    "description": "동북아 역사 연구·홍보를 담당하는 교육부 산하 기타공공기관.",
+    "description": "동북아시아 역사 왜곡에 대응하고 올바른 역사 인식을 확립하는 연구·교육 기관입니다. 독도·동해 표기·역사 교과서 문제 등 한·중·일 역사 갈등 연구, 국제 역사 학술 교류, 동북아 역사 지도 편찬을 통해 한국의 역사 주권 확립과 평화로운 역사 공동체 형성에 기여합니다.",
     "mainBusiness": [
       "동북아 역사 연구",
       "독도·위안부 대응",
@@ -21913,7 +21913,7 @@ const ORGS = [
     "avgYears": 7.8,
     "homepage": "http://www.kosti.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=무역안보관리원",
-    "description": "전략물자 수출통제와 무역안보를 지원하는 산업통상자원부 산하 기타공공기관.",
+    "description": "전략 물자·이중 용도 품목의 수출 통제와 무역 안보 관리를 담당하는 기관입니다. 전략 물자 수출 허가 지원, 기업 내부 통제 체계 구축 컨설팅, 불법 수출 감시를 통해 핵·미사일·화학 무기 확산 방지를 위한 국제 비확산 체제 이행을 지원합니다.",
     "mainBusiness": [
       "전략물자 수출허가 지원",
       "무역안보 교육",
@@ -21956,7 +21956,7 @@ const ORGS = [
     "avgYears": 8.5,
     "homepage": "https://www.kdemo.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=민주화운동기념사업회",
-    "description": "민주화운동 정신 계승·발전을 위한 사업을 담당하는 행정안전부 산하 기타공공기관.",
+    "description": "민주화 운동의 역사를 계승·발전시키고 민주주의 가치를 확산하는 기관입니다. 민주화 운동 관련 기록물 수집·보존·전시, 민주 시민 교육, 민주주의 연구 지원을 통해 대한민국 민주화 역사의 교훈을 현재와 미래 세대에 전달하는 역할을 합니다.",
     "mainBusiness": [
       "민주화운동 기념·교육",
       "민주주의 연구",
@@ -21996,7 +21996,7 @@ const ORGS = [
     "avgYears": 9.5,
     "homepage": "http://www.pnuh.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=부산대학교병원",
-    "description": "부산권 거점 국립대학 병원. 교육부 산하 기타공공기관.",
+    "description": "부산대학교 의과대학 부속 국립대학병원으로, 부산·경남 권역의 최상위 공공 의료 서비스를 담당합니다. 권역 심뇌혈관센터·암센터·외상센터 운영과 첨단 의료 연구를 통해 동남권 의료 수준 향상과 취약 계층 의료 안전망 강화에 기여합니다.",
     "mainBusiness": [
       "진료·의료서비스",
       "임상 교육",
@@ -22040,7 +22040,7 @@ const ORGS = [
     "avgYears": 8.5,
     "homepage": "http://www.pnudh.co.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=부산대학교치과병원",
-    "description": "부산대학교 부속 치과병원. 교육부 산하 기타공공기관.",
+    "description": "부산대학교 치의학대학원 부속 국립 치과병원으로, 부산·경남 지역의 구강 의료 서비스 거점 기관입니다. 구강악안면외과·치주·보존 등 전문 진료와 임플란트 재활 치료를 제공하며, 치과 의료 인력 교육 기관으로서 지역 치과 의료 발전을 지원합니다.",
     "mainBusiness": [
       "치과 진료",
       "치의학 교육",
@@ -22083,7 +22083,7 @@ const ORGS = [
     "avgYears": 12.2,
     "homepage": "http://www.koreahana.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=북한이탈주민지원재단",
-    "description": "북한이탈주민의 사회 정착을 지원하는 통일부 산하 기타공공기관.",
+    "description": "북한 이탈 주민의 사회 정착과 자립을 지원하는 기관입니다. 하나원 자립 교육, 취업·창업 연계, 심리 상담, 법률 지원, 지역 사회 적응 프로그램 운영을 통해 북한 이탈 주민이 대한민국 사회의 구성원으로 건강하게 정착할 수 있도록 돕습니다.",
     "mainBusiness": [
       "탈북민 정착 지원",
       "취업·교육 지원",
@@ -22124,7 +22124,7 @@ const ORGS = [
     "avgYears": 12,
     "homepage": "http://www.kiet.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=산업연구원",
-    "description": "산업·통상 정책 연구를 수행하는 국무조정실 산하 기타공공기관.",
+    "description": "제조업·산업 정책·무역·기술 혁신 분야 연구를 수행하는 국책연구기관입니다. 주력 산업 구조 전환 방향 연구, 첨단 제조업 육성 전략 수립, 지역 산업 발전 연구, 산업 통상 정책 분석을 통해 대한민국 산업 정책 수립과 미래 성장 동력 발굴을 지원합니다.",
     "mainBusiness": [
       "산업·통상 정책 연구",
       "산업구조 분석",
@@ -22166,7 +22166,7 @@ const ORGS = [
     "avgYears": 4.8,
     "homepage": "https://www.sdco.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=새만금개발공사",
-    "description": "새만금 간척지 개발과 투자 유치를 담당하는 국토교통부 산하 기타공공기관.",
+    "description": "새만금 지구의 개발·관리를 전담하는 공사로, 대규모 간척지를 활용한 복합 도시·산업 단지 개발을 담당합니다. 새만금 국제협력용지·산업단지·관광레저용지 개발, 투자 유치, 기반 시설 구축을 통해 새만금을 글로벌 경제특구로 육성하는 사업을 추진합니다.",
     "mainBusiness": [
       "새만금 개발·운영",
       "투자 유치",
@@ -22212,7 +22212,7 @@ const ORGS = [
     "avgYears": 11,
     "homepage": "http://snuh.org",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=서울대학교병원",
-    "description": "국내 최고 수준의 국립대학 병원. 교육부 산하 기타공공기관.",
+    "description": "서울대학교 의과대학 부속 국립대학병원으로, 대한민국 의료의 중심 기관입니다. 희귀·난치 중증 질환 진료, 국가 의료 위기 대응, 의학 연구·교육 선도를 통해 최첨단 의료 기술 개발과 공공 의료 책임을 동시에 수행하며, 국내외 의료 기준 확립을 선도합니다.",
     "mainBusiness": [
       "진료·의료서비스",
       "임상 교육",
@@ -22256,7 +22256,7 @@ const ORGS = [
     "avgYears": 9.7,
     "homepage": "http://www.snudh.org",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=서울대학교치과병원",
-    "description": "서울대학교 부속 치과병원. 교육부 산하 기타공공기관.",
+    "description": "서울대학교 치의학대학원 부속 국립 치과병원으로, 국내 최고 수준의 치과 의료 서비스를 제공합니다. 구강악안면·교정·치주·임플란트 분야 첨단 진료와 함께 구강암 등 복잡 증례 치료를 담당하며, 치의학 연구와 전문 인력 양성의 중심 기관으로 기능합니다.",
     "mainBusiness": [
       "치과 진료",
       "치의학 교육",
@@ -22299,7 +22299,7 @@ const ORGS = [
     "avgYears": 6.5,
     "homepage": "http://www.ksif.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=세종학당재단",
-    "description": "전 세계 한국어·한국문화 보급을 위한 세종학당을 운영하는 문화체육관광부 산하 기타공공기관.",
+    "description": "전 세계 한국어·한국 문화 보급을 위한 세종학당의 운영·지원을 담당하는 기관입니다. 84개국 270여 개 세종학당 관리, 한국어 교원 파견, 한국어 교재 개발, 온라인 한국어 교육 플랫폼 운영을 통해 한류를 기반으로 한국어와 한국 문화의 세계화를 선도합니다.",
     "mainBusiness": [
       "세종학당 운영",
       "한국어 교육 지원",
@@ -22340,7 +22340,7 @@ const ORGS = [
     "avgYears": 3,
     "homepage": "https://www.k-sec.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=스포츠윤리센터",
-    "description": "스포츠 비리 신고·조사와 윤리 문화 확산을 담당하는 문화체육관광부 산하 기타공공기관.",
+    "description": "스포츠 현장의 폭력·성폭력·비위 행위를 조사하고 피해자를 지원하는 기관입니다. 스포츠 인권 침해 신고 접수·조사, 가해자 제재 권고, 피해 선수 심리 지원, 스포츠 인권 교육을 통해 공정하고 안전한 스포츠 환경 조성에 기여합니다.",
     "mainBusiness": [
       "스포츠 비리 조사",
       "피해자 지원",
@@ -22383,7 +22383,7 @@ const ORGS = [
     "avgYears": 6.9,
     "homepage": "http://www.kcmf.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=시청자미디어재단",
-    "description": "시청자 권익 보호와 미디어 교육을 담당하는 방송미디어통신위원회 산하 기타공공기관.",
+    "description": "시청자 미디어 권익 증진과 미디어 교육을 담당하는 기관으로, 전국 시청자미디어센터를 운영합니다. 방송 프로그램 제작 체험, 미디어 리터러시 교육, 시청자 불만 처리 지원을 통해 국민이 미디어를 능동적으로 활용하는 시청자 주권 실현에 기여합니다.",
     "mainBusiness": [
       "미디어 교육",
       "시청자 제작 지원",
@@ -22424,7 +22424,7 @@ const ORGS = [
     "avgYears": 6.3,
     "homepage": "http://www.foodinfo.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=식품안전정보원",
-    "description": "식품 안전 정보 수집·분석·제공을 담당하는 식품의약품안전처 산하 기타공공기관.",
+    "description": "식품 안전 정보의 통합 관리와 위해 정보 수집·분석을 담당하는 기관입니다. 식품 이력 추적 시스템 운영, 수입 식품 정보 제공, 식품 안전 빅데이터 구축, 소비자 식품 위해 신고 창구 운영을 통해 국민의 식품 안전 알 권리 보장과 예방적 식품 위해 관리를 지원합니다.",
     "mainBusiness": [
       "식품 안전 정보 제공",
       "위해식품 정보 분석",
@@ -22529,7 +22529,7 @@ const ORGS = [
     "avgYears": 11.3,
     "homepage": "http://www.apcc21.org",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=APCC기후센터",
-    "description": "APEC 회원국 기후변화 대응 정보 제공을 담당하는 기상청 산하 기타공공기관.",
+    "description": "APEC 회원국의 기후 정보 공유와 기후 변화 대응 역량 강화를 지원하는 국제기구 성격의 기관입니다. 기후 예측 데이터 제공, 기후 변화 적응 훈련, 아태 지역 기상 재해 대응 협력 네트워크 구축을 통해 아시아·태평양 지역 기후 리질리언스 강화를 지원합니다.",
     "mainBusiness": [
       "APEC 기후예측 서비스",
       "기후변화 연구",
@@ -22571,7 +22571,7 @@ const ORGS = [
     "avgYears": 7.8,
     "homepage": "https://www.childsupport.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=양육비이행관리원",
-    "description": "양육비 이행 확보 지원을 담당하는 성평등가족부 산하 기타공공기관. 2026년 신규 지정.",
+    "description": "이혼 후 양육비 비지급 문제를 해결하고 한부모 가족을 지원하는 기관입니다. 양육비 채무자에 대한 이행 지원·강제 조치 신청 대행, 미지급 양육비 대지급, 법률 상담을 통해 양육비 미지급으로 인한 아동과 한부모 가족의 경제적 어려움 해소를 지원합니다.",
     "mainBusiness": [
       "양육비 이행 상담",
       "법적 지원 연계",
@@ -22613,7 +22613,7 @@ const ORGS = [
     "avgYears": 10.8,
     "homepage": "http://www.keei.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=에너지경제연구원",
-    "description": "에너지·자원 분야 정책 연구를 수행하는 국무조정실 산하 기타공공기관.",
+    "description": "에너지·자원 분야 정책 연구를 전담하는 국책연구기관으로, 에너지 수급 전망과 정책 효과 분석을 담당합니다. 전력·가스·석유·신재생에너지 시장 분석, 에너지 전환 정책 평가, 국제 에너지 동향 연구를 통해 탄소중립 시대 에너지 정책 수립을 지원합니다.",
     "mainBusiness": [
       "에너지 정책 연구",
       "에너지 수요·공급 분석",
@@ -22654,7 +22654,7 @@ const ORGS = [
     "avgYears": 9.5,
     "homepage": "https://www.innopolis.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=연구개발특구진흥재단",
-    "description": "연구개발특구 육성 및 기술 사업화 지원을 담당하는 과학기술정보통신부 산하 기타공공기관.",
+    "description": "대덕·광주·대구·부산·전북 연구개발특구의 관리·운영과 기술 사업화를 지원하는 기관입니다. 첨단 기술 기업 입주 지원, 연구소기업 설립·육성, 특구 내 연구 성과 사업화 촉진을 통해 출연연구기관 기술이 시장으로 이어지는 혁신 생태계를 구축합니다.",
     "mainBusiness": [
       "특구 입주기업 지원",
       "기술 사업화 촉진",
@@ -22695,7 +22695,7 @@ const ORGS = [
     "avgYears": 12,
     "homepage": "http://www.kmrb.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=영상물등급위원회",
-    "description": "영화·비디오·광고 영상물 등급 분류를 담당하는 문화체육관광부 산하 기타공공기관.",
+    "description": "영화·비디오물·게임물 이외의 비디오·공연 영상물의 등급 분류와 청소년 유해성 심의를 담당하는 기관입니다. 방송·OTT·DVD 영상물 청소년 관람가 여부 심의, 공연 연령 등급 분류, 청소년 유해 영상물 유통 단속 지원을 통해 건전한 영상 문화 환경을 조성합니다.",
     "mainBusiness": [
       "영화 등급 분류",
       "비디오물 등급 심의",
@@ -22736,7 +22736,7 @@ const ORGS = [
     "avgYears": 6.8,
     "homepage": "http://www.kbiohealth.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=오송첨단의료산업진흥재단",
-    "description": "오송 첨단의료복합단지 내 의약품·의료기기 개발 지원을 담당하는 보건복지부 산하 기타공공기관.",
+    "description": "충북 오송 첨단의료복합단지의 운영과 의료·바이오 기업 지원을 담당하는 재단입니다. 의약품·의료기기 임상 지원, 첨단 의료 장비 공동 이용, R&D 기업 보육을 통해 오송을 국내외 바이오헬스 산업 중심지로 육성하는 클러스터 운영을 담당합니다.",
     "mainBusiness": [
       "신약 개발 지원",
       "의료기기 개발 지원",
@@ -22778,7 +22778,7 @@ const ORGS = [
     "avgYears": 6.6,
     "homepage": "http://www.koiha.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=의료기관평가인증원",
-    "description": "의료기관 인증 심사를 담당하는 보건복지부 산하 기타공공기관.",
+    "description": "병원과 의료기관의 의료 질과 환자 안전을 평가·인증하는 기관입니다. 급성기·요양·정신의료기관 인증 심사, 환자 안전 기준 개발, 의료 질 향상 컨설팅을 통해 의료기관이 일정 수준 이상의 안전·품질 기준을 유지하도록 관리하여 환자 보호에 기여합니다.",
     "mainBusiness": [
       "의료기관 인증 심사",
       "환자안전 기준 관리",
@@ -22822,7 +22822,7 @@ const ORGS = [
     "avgYears": 4,
     "homepage": "https://www.tacss.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=자동차손해배상진흥원",
-    "description": "자동차 손해배상 보장 업무와 피해자 지원을 담당하는 국토교통부 산하 기타공공기관.",
+    "description": "자동차 사고 피해자 지원과 자동차 보험 제도 운영을 담당하는 기관입니다. 무보험·뺑소니 사고 피해자 보상, 자동차 손해배상 분쟁 조정, 자동차 사고 의료 재활 지원을 통해 교통사고 피해자가 적절한 보상과 재활 서비스를 받을 수 있도록 지원합니다.",
     "mainBusiness": [
       "자동차사고 피해자 지원",
       "뺑소니·무보험 보상",
@@ -22864,7 +22864,7 @@ const ORGS = [
     "avgYears": 13.7,
     "homepage": "https://www.kicte.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=건설기술교육원",
-    "description": "건설 기술인 교육·훈련을 담당하는 국토교통부 산하 기타공공기관.",
+    "description": "건설 분야 전문 인력 교육과 기술 자격 교육을 담당하는 기관입니다. 건설기술인 법정 의무 교육, 건설 안전 교육, 토목·건축·설비 직종 기술 향상 과정 운영을 통해 건설 현장 종사자의 전문 역량 강화와 건설 사고 예방 역량 제고에 기여합니다.",
     "mainBusiness": [
       "건설기술인 법정교육",
       "건설안전 교육",
@@ -22907,7 +22907,7 @@ const ORGS = [
     "avgYears": 11.6,
     "homepage": "http://www.kcesi.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=대한건설기계안전관리원",
-    "description": "건설기계 안전검사와 등록 업무를 담당하는 국토교통부 산하 기타공공기관.",
+    "description": "굴착기·크레인 등 건설 기계의 검사와 조종사 면허 관리를 담당하는 기관입니다. 건설 기계 정기·구조 변경 검사, 조종사 적성 검사, 건설 기계 안전 기준 개발을 통해 건설 현장의 기계 안전사고 예방과 건설 기계 관리 체계의 신뢰성을 확보합니다.",
     "mainBusiness": [
       "건설기계 안전검사",
       "건설기계 등록 관리",
@@ -22949,7 +22949,7 @@ const ORGS = [
     "avgYears": 7.5,
     "homepage": "http://www.debc.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=장애인기업종합지원센터",
-    "description": "장애인 창업·경영 지원을 담당하는 중소벤처기업부 산하 기타공공기관.",
+    "description": "장애인 창업과 장애인 기업 성장을 지원하는 기관입니다. 장애인 창업 교육·컨설팅, 창업 자금 연계, 장애인 기업 제품 판로 개척, 공공 구매 지원을 통해 장애인의 경제적 자립과 장애인 기업의 경쟁력 강화를 돕습니다.",
     "mainBusiness": [
       "장애인 창업 지원",
       "장애인기업 판로 지원",
@@ -22991,7 +22991,7 @@ const ORGS = [
     "avgYears": 4.6,
     "homepage": "https://kptb.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국공공조직은행",
-    "description": "인체 조직 기증·이식 지원을 담당하는 보건복지부 산하 기타공공기관.",
+    "description": "인체 조직(뼈·피부·혈관·연골 등)의 기증·처리·보관·배분을 담당하는 기관입니다. 조직 기증자 유족 지원, 조직은행 인증 체계 운영, 조직 이식재 품질 관리를 통해 안전한 인체 조직 공급 체계를 구축하고 이식 수술 환자의 치료를 지원합니다.",
     "mainBusiness": [
       "인체 조직 기증 관리",
       "조직 이식 연계",
@@ -23033,7 +23033,7 @@ const ORGS = [
     "avgYears": 5.7,
     "homepage": "http://www.koref.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국에너지재단",
-    "description": "에너지 취약계층 지원과 에너지 복지 확대를 담당하는 기후에너지환경부 산하 기타공공기관.",
+    "description": "에너지 취약 계층 지원과 에너지 복지 사업을 담당하는 기관입니다. 저소득·취약 가구 에너지 바우처 지원, 단열 시공 등 에너지 효율 주거 개선 사업, 에너지 절약 교육을 통해 에너지 빈곤 문제를 해소하고 사회적 에너지 형평성 실현에 기여합니다.",
     "mainBusiness": [
       "에너지 취약계층 지원",
       "에너지 효율 개선",
@@ -23074,7 +23074,7 @@ const ORGS = [
     "avgYears": 4.6,
     "homepage": "https://www.kdissw.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국자활복지개발원",
-    "description": "저소득층 자활 지원 사업 개발·관리를 담당하는 보건복지부 산하 기타공공기관.",
+    "description": "국민기초생활 수급자와 차상위계층의 자활 지원 사업을 총괄하는 기관입니다. 전국 자활센터 지원·관리, 자활 프로그램 개발·보급, 자활 기업 육성, 자활 사업 성과 평가를 통해 취약 계층의 자립 역량을 강화하고 빈곤 탈출을 지원합니다.",
     "mainBusiness": [
       "자활근로 사업 지원",
       "자활기업 육성",
@@ -23116,7 +23116,7 @@ const ORGS = [
     "avgYears": 6,
     "homepage": "http://www.koda1458.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국장기조직기증원",
-    "description": "장기 기증 활성화와 이식 연계를 지원하는 보건복지부 산하 기타공공기관.",
+    "description": "장기·인체 조직 기증 문화 확산과 기증 희망자 등록 관리를 담당하는 기관입니다. 장기 기증 희망 등록 시스템 운영, 기증 홍보·교육, 유가족 지원을 통해 이식 대기 환자에게 생명의 기회를 제공하고 나눔과 생명 존중 문화 확산에 기여합니다.",
     "mainBusiness": [
       "장기 기증 홍보",
       "뇌사자 장기 기증 관리",
@@ -23158,7 +23158,7 @@ const ORGS = [
     "avgYears": 2.5,
     "homepage": "http://www.okocc.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=재외동포협력센터",
-    "description": "재외동포 지원과 교류 협력을 담당하는 재외동포청 산하 기타공공기관.",
+    "description": "재외 동포의 모국과의 연계 강화와 동포 사회 발전을 지원하는 기관입니다. 재외 동포 교육 지원, 모국 방문 프로그램, 동포 네트워크 구축, 차세대 동포 정체성 교육을 통해 전 세계 750만 재외 동포가 한민족 정체성을 유지하고 한국과 긍정적 관계를 맺도록 돕습니다.",
     "mainBusiness": [
       "재외동포 교류 사업",
       "동포 귀국 지원",
@@ -23198,7 +23198,7 @@ const ORGS = [
     "avgYears": 7.3,
     "homepage": "https://hopebridge.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=전국재해구호협회",
-    "description": "재해 구호 물자 관리와 이재민 지원을 담당하는 행정안전부 산하 기타공공기관. 2026년 신규 지정.",
+    "description": "자연재해 피해자 구호 활동을 전담하는 기관으로, 재난 발생 시 이재민 긴급 구호 물자 지원을 담당합니다. 재해 구호 기금 운용, 피해 주민 임시 주거·생활 지원, 재해 의연금 모금·배분을 통해 태풍·홍수·산불 등 재난 피해자의 빠른 일상 회복을 지원합니다.",
     "mainBusiness": [
       "재해 구호 물자 관리",
       "이재민 생활 지원",
@@ -23239,7 +23239,7 @@ const ORGS = [
     "avgYears": 13,
     "homepage": "http://www.cnuh.com",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=전남대학교병원",
-    "description": "광주·전남권 거점 국립대학 병원. 교육부 산하 기타공공기관.",
+    "description": "전남대학교 의과대학 부속 국립대학병원으로, 광주·전남 권역의 최상위 공공 의료 서비스를 담당합니다. 권역 심뇌혈관센터·소아청소년암센터 운영, 희귀 난치 질환 진료, 의학 연구·교육을 통해 호남 권역 의료 수준 향상과 취약 계층 공공 의료 강화에 기여합니다.",
     "mainBusiness": [
       "진료·의료서비스",
       "임상 교육",
@@ -23283,7 +23283,7 @@ const ORGS = [
     "avgYears": 11.5,
     "homepage": "https://www.jbuh.co.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=전북대학교병원",
-    "description": "전북권 거점 국립대학 병원. 교육부 산하 기타공공기관.",
+    "description": "전북대학교 의과대학 부속 국립대학병원으로, 전북 권역의 중증 의료 서비스 거점 역할을 담당합니다. 권역 외상·응급 의료센터 운영, 암·심장 질환 전문 진료, 농촌 취약 계층 의료 지원을 통해 전북 지역 의료 접근성 향상과 공공 의료 사각지대 해소에 기여합니다.",
     "mainBusiness": [
       "진료·의료서비스",
       "임상 교육",
@@ -23327,7 +23327,7 @@ const ORGS = [
     "avgYears": 13.8,
     "homepage": "http://www.warmemo.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=전쟁기념사업회",
-    "description": "호국정신 고양과 전쟁 역사 보존을 담당하는 국방부 산하 기타공공기관.",
+    "description": "6·25전쟁을 비롯한 대한민국 호국·안보 역사를 기리는 기관으로, 서울 용산 전쟁기념관을 운영합니다. 전쟁 유물·무기 전시, 호국 영령 추모 행사, 안보 교육 프로그램 운영을 통해 자유와 평화를 지키기 위한 선열의 희생을 기억하고 올바른 역사 의식을 함양합니다.",
     "mainBusiness": [
       "전쟁기념관 운영",
       "호국 역사 교육",
@@ -23368,7 +23368,7 @@ const ORGS = [
     "avgYears": 9.7,
     "homepage": "http://www.kgls.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=정부법무공단",
-    "description": "정부 법무 서비스 제공을 담당하는 법무부 산하 기타공공기관.",
+    "description": "정부 기관의 법률 소송 대리와 법무 업무를 지원하는 기관으로, 국가 소송에서 국가를 대표합니다. 행정 소송·민사 소송 대리, 법률 자문, 국제 중재 대응을 통해 정부 기관이 법률 분쟁에서 효과적으로 권리를 보호하고, 국가 법무 비용 절감에 기여합니다.",
     "mainBusiness": [
       "정부 소송 대리",
       "법령 해석 지원",
@@ -23409,7 +23409,7 @@ const ORGS = [
     "avgYears": 10.2,
     "homepage": "http://www.jejunuh.co.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=제주대학교병원",
-    "description": "제주 거점 국립대학 병원. 교육부 산하 기타공공기관.",
+    "description": "제주대학교 의과대학 부속 국립대학병원으로, 제주 도민의 중증 의료 서비스를 담당합니다. 권역 응급의료센터 운영, 도서 지역 특성을 고려한 공공 의료 서비스 제공, 관광 의료 사고 대응을 통해 제주 의료 인프라 강화와 섬 지역 의료 안전망 구축에 기여합니다.",
     "mainBusiness": [
       "진료·의료서비스",
       "임상 교육",
@@ -23453,7 +23453,7 @@ const ORGS = [
     "avgYears": 13.8,
     "homepage": "http://www.kohom.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=주택관리공단",
-    "description": "영구임대주택 등 공공임대주택 관리를 담당하는 국토교통부 산하 기타공공기관.",
+    "description": "공공임대주택 단지의 시설 관리와 임차인 서비스를 전담하는 기관으로, LH 산하 자회사입니다. 공공임대 아파트 단지의 유지보수·청소·경비 서비스 제공, 입주민 민원 처리, 임대주택 환경 개선을 통해 서민 주거 안정과 공공임대 주거 품질 향상에 기여합니다.",
     "mainBusiness": [
       "공공임대주택 관리",
       "주거복지 서비스",
@@ -23719,7 +23719,7 @@ const ORGS = [
     "avgYears": 9.3,
     "homepage": "http://www.kosi.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=중소벤처기업연구원",
-    "description": "중소·벤처기업 정책 연구를 수행하는 중소벤처기업부 산하 기타공공기관.",
+    "description": "중소기업·벤처기업·소상공인 분야 정책 연구를 수행하는 국책연구기관입니다. 중소기업 경기 동향 분석, 창업·벤처 생태계 연구, 소상공인 실태 조사, 중소기업 정책 평가를 통해 중소벤처기업부의 정책 수립과 중소기업 육성 방향 도출을 지원합니다.",
     "mainBusiness": [
       "중소·벤처기업 정책 연구",
       "창업 생태계 분석",
@@ -23761,7 +23761,7 @@ const ORGS = [
     "avgYears": 3.2,
     "homepage": "https://www.kcpass.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=중앙사회서비스원",
-    "description": "사회서비스 품질 향상과 지원 체계 구축을 담당하는 보건복지부 산하 기타공공기관. 2026년 신규 지정.",
+    "description": "사회서비스 분야의 품질 관리와 종사자 역량 강화를 담당하는 기관입니다. 지역 사회서비스투자사업 관리, 사회서비스 제공 기관 평가·지원, 사회복지 종사자 처우 개선 연구를 통해 돌봄·교육·의료 등 사회서비스의 품질 향상과 이용자 보호를 지원합니다.",
     "mainBusiness": [
       "사회서비스 지원 체계 구축",
       "사회서비스 질 관리",
@@ -23802,7 +23802,7 @@ const ORGS = [
     "avgYears": 3.9,
     "homepage": "https://www.kiaps.org",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=차세대수치예보모델개발사업단",
-    "description": "한국형 수치예보모델 개발을 전담하는 기상청 산하 기타공공기관.",
+    "description": "기상청 차세대 수치예보 모델 개발을 담당하는 전문 기관입니다. 한국형 수치예보 모델(KIM) 고도화, 앙상블 예보 기술 개발, 기후 예측 시스템 개선을 통해 한반도 기상 예보의 정확도를 높이고 집중호우·태풍 등 기상 재해 대응 역량을 강화합니다.",
     "mainBusiness": [
       "수치예보모델 개발",
       "기상예측 시스템 고도화",
@@ -23897,7 +23897,7 @@ const ORGS = [
     "avgYears": 9.1,
     "homepage": "http://www.cnuh.co.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=충남대학교병원",
-    "description": "대전·충남권 거점 국립대학 병원. 교육부 산하 기타공공기관.",
+    "description": "충남대학교 의과대학 부속 국립대학병원으로, 대전·충남 권역의 최상위 의료 서비스를 담당합니다. 권역 심뇌혈관센터·화상센터 운영, 중증 외상·암 전문 진료, 의학 교육·연구를 통해 충청 권역 의료 수준 향상과 공공 의료 강화에 기여합니다.",
     "mainBusiness": [
       "진료·의료서비스",
       "임상 교육",
@@ -23941,7 +23941,7 @@ const ORGS = [
     "avgYears": 10.5,
     "homepage": "http://www.cbnuh.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=충북대학교병원",
-    "description": "충북권 거점 국립대학 병원. 교육부 산하 기타공공기관.",
+    "description": "충북대학교 의과대학 부속 국립대학병원으로, 충북 권역의 중증 의료 서비스를 담당합니다. 권역 외상센터·응급의료센터 운영, 암·심혈관 전문 진료, 의학 교육·연구를 통해 충북 지역 의료 접근성 향상과 공공 의료 인프라 강화에 기여합니다.",
     "mainBusiness": [
       "진료·의료서비스",
       "임상 교육",
@@ -23985,7 +23985,7 @@ const ORGS = [
     "avgYears": 12,
     "homepage": "http://www.korailtravel.com",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=코레일관광개발",
-    "description": "철도 연계 여행·숙박 서비스를 운영하는 국토교통부 산하 기타공공기관.",
+    "description": "코레일 계열사로, 철도 여행·관광 사업과 역사 내 유통·편의 시설 운영을 담당합니다. 관광열차(O-train·S-train 등) 기획·운영, 기차여행 패키지 상품 개발, 역사 내 편의점·식음료 매장 운영을 통해 철도 여행 문화 활성화와 지역 관광 연계를 지원합니다.",
     "mainBusiness": [
       "철도여행 패키지",
       "관광열차 운영",
@@ -24027,7 +24027,7 @@ const ORGS = [
     "avgYears": 12.5,
     "homepage": "http://www.korailnetworks.com",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=코레일네트웍스",
-    "description": "철도역 광고·편의점·부동산 임대를 운영하는 국토교통부 산하 기타공공기관.",
+    "description": "코레일 계열사로, 철도역 시설 관리와 여객 서비스 지원 업무를 담당합니다. 철도역 매표·수화물 서비스, 역사 청소·경비, 철도 시설 위탁 운영을 통해 코레일의 여객 운송 서비스 품질을 지원하며, 철도 역사 이용객에게 편리한 환경을 제공합니다.",
     "mainBusiness": [
       "역사 광고 운영",
       "역사 편의시설 운영",
@@ -24147,7 +24147,7 @@ const ORGS = [
     "avgYears": 6,
     "homepage": "http://www.korailtech.com",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=코레일테크",
-    "description": "철도 차량 정비·검사를 담당하는 국토교통부 산하 기타공공기관.",
+    "description": "코레일 계열사로, 철도 차량과 시설의 유지보수 기술 서비스를 담당합니다. 고속열차·전동차 부품 정비, 선로·전기 시설 유지보수, 철도 안전 점검을 통해 코레일 운영 차량과 철도 인프라의 안전성·신뢰성 유지를 지원합니다.",
     "mainBusiness": [
       "철도차량 정비·검사",
       "철도 시설 유지보수",
@@ -24191,7 +24191,7 @@ const ORGS = [
     "avgYears": 8.3,
     "homepage": "https://www.tpf.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=태권도진흥재단",
-    "description": "태권도 세계화와 태권도원 운영을 담당하는 문화체육관광부 산하 기타공공기관.",
+    "description": "태권도 세계화와 태권도 문화 진흥을 담당하는 기관으로, 전북 무주에 태권도원을 운영합니다. 태권도원 수련·체험 시설 운영, 해외 태권도 지도자 교육, 태권도 역사·문화 아카이브 구축을 통해 태권도를 세계적인 무도·스포츠 문화로 발전시킵니다.",
     "mainBusiness": [
       "태권도원 운영",
       "태권도 세계화 지원",
@@ -24233,7 +24233,7 @@ const ORGS = [
     "avgYears": 12.2,
     "homepage": "http://www.kinu.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=통일연구원",
-    "description": "남북관계·통일 분야 정책 연구를 수행하는 국무조정실 산하 기타공공기관.",
+    "description": "북한·남북관계·한반도 통일 정책 연구를 수행하는 국책연구기관입니다. 북한 실태 분석, 대북 정책 평가, 통일 비용·편익 연구, 한반도 평화 프로세스 방안 연구를 통해 통일부 정책 수립과 국제 사회의 한반도 평화 논의를 지원합니다.",
     "mainBusiness": [
       "남북관계 연구",
       "통일 정책 연구",
@@ -24273,7 +24273,7 @@ const ORGS = [
     "avgYears": 8.1,
     "homepage": "http://www.kihf.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국건강가정진흥원",
-    "description": "가족 서비스 지원과 다문화가족 지원 사업을 담당하는 성평등가족부 산하 기타공공기관.",
+    "description": "가족 정책 지원과 건강한 가정 문화 확산을 담당하는 기관으로, 가족 센터 운영과 다양한 가족 지원 서비스를 제공합니다. 한부모·다문화·1인 가구 등 다양한 가족 형태를 위한 상담·교육·돌봄 서비스, 가족 친화 인증 사업을 통해 모든 가족이 행복하게 생활할 수 있는 환경을 조성합니다.",
     "mainBusiness": [
       "가족센터 운영 지원",
       "다문화가족 지원",
@@ -24314,7 +24314,7 @@ const ORGS = [
     "avgYears": 8.5,
     "homepage": "https://www.khepi.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국건강증진개발원",
-    "description": "건강증진 사업 기획·지원을 담당하는 보건복지부 산하 기타공공기관.",
+    "description": "국민 건강 증진 사업의 기획·지원과 건강 문화 확산을 담당하는 기관입니다. 금연 지원 서비스, 절주 캠페인, 비만 예방 프로그램, 건강 생활 실천 사업을 통해 질병 예방 중심의 공중보건 체계를 강화하고 국민의 자기 건강 관리 역량 향상을 지원합니다.",
     "mainBusiness": [
       "건강증진 사업 지원",
       "금연 지원 사업",
@@ -24356,7 +24356,7 @@ const ORGS = [
     "avgYears": 12.5,
     "homepage": "http://www.itkc.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국고전번역원",
-    "description": "한국 고전 번역·보급을 담당하는 교육부 산하 기타공공기관.",
+    "description": "한국 고전 문헌의 번역과 보급을 담당하는 기관으로, 조선왕조실록·승정원일기 등 한문 고전의 현대어 번역을 수행합니다. 국역 고전 문헌 DB 구축, 한국 고전학 연구자 육성, 고전 번역 아카데미 운영을 통해 한국 문화유산의 접근성을 높이고 고전학 발전에 기여합니다.",
     "mainBusiness": [
       "고전 번역·출판",
       "고전 정보화",
@@ -24396,7 +24396,7 @@ const ORGS = [
     "avgYears": 9.3,
     "homepage": "http://www.kcdf.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국공예디자인문화진흥원",
-    "description": "공예·디자인 산업 육성과 문화 진흥을 담당하는 문화체육관광부 산하 기타공공기관.",
+    "description": "전통 공예와 현대 디자인의 진흥을 통해 공예 문화산업 발전을 지원하는 기관입니다. 공예 작가 지원, 공예 트렌드 페어 개최, 공예 기업 판로 개척, 공예 교육 프로그램 운영을 통해 전통 공예의 현대적 계승과 공예 산업의 경제적 가치 창출을 지원합니다.",
     "mainBusiness": [
       "공예·디자인 전시",
       "공예·디자인 지원 사업",
@@ -24497,7 +24497,7 @@ const ORGS = [
     "avgYears": 1.4,
     "homepage": "https://kcits.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국관세정보원",
-    "description": "관세 정보화 시스템 구축·운영을 담당하는 관세청 산하 기타공공기관.",
+    "description": "관세청 관세 정보 시스템의 운영과 관세 행정 정보화를 담당하는 기관입니다. 전자통관시스템(UNI-PASS) 운영·고도화, 수출입 통관 빅데이터 분석, 관세 행정 정보 서비스 제공을 통해 신속하고 안전한 통관 환경 구축과 무역 편의 향상에 기여합니다.",
     "mainBusiness": [
       "관세 정보 시스템 운영",
       "통관 정보 서비스",
@@ -24537,7 +24537,7 @@ const ORGS = [
     "avgYears": 13.6,
     "homepage": "https://www.koti.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국교통연구원",
-    "description": "교통·물류 정책 연구를 수행하는 국무조정실 산하 기타공공기관.",
+    "description": "교통·물류·모빌리티 분야 정책 연구를 수행하는 국책연구기관입니다. 도로·철도·항공·해운 교통 수요 분석, 자율주행·스마트 모빌리티 정책 연구, 물류 체계 효율화 방안 연구를 통해 안전하고 지속가능한 교통 체계 구현을 위한 정책 방향을 제시합니다.",
     "mainBusiness": [
       "교통 정책 연구",
       "도로·철도 분석",
@@ -24579,7 +24579,7 @@ const ORGS = [
     "avgYears": 11.7,
     "homepage": "https://www.kida.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국국방연구원",
-    "description": "국방 정책 연구를 수행하는 국방부 산하 기타공공기관.",
+    "description": "국방 정책·전략·전력 분야 연구를 전담하는 국방부 산하 국책연구기관입니다. 안보 위협 분석, 국방 예산·획득 체계 연구, 군사 전략 개발 지원, 한미 동맹 및 국방 외교 연구를 통해 대한민국 국방 정책 수립과 미래 전략 방향 도출을 지원합니다.",
     "mainBusiness": [
       "국방 정책 연구",
       "군사전략 분석",
@@ -24622,7 +24622,7 @@ const ORGS = [
     "avgYears": 10,
     "homepage": "http://www.kf.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국국제교류재단",
-    "description": "한국과 해외 상호이해 증진을 위한 교류 사업을 담당하는 외교부 산하 기타공공기관.",
+    "description": "대한민국 공공외교와 한국 문화의 세계 홍보를 담당하는 기관입니다. 외국 지한파 인사 교류, 한국학 해외 보급, 국제 문화 교류 행사 개최, 해외 한국 문화원 지원을 통해 한국에 대한 올바른 이해와 우호적 국제 환경 조성에 기여합니다.",
     "mainBusiness": [
       "문화 교류 사업",
       "한국학 지원",
@@ -24663,7 +24663,7 @@ const ORGS = [
     "avgYears": 8.5,
     "homepage": "http://www.kofih.org",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국국제보건의료재단",
-    "description": "개발도상국 보건의료 지원을 담당하는 보건복지부 산하 기타공공기관.",
+    "description": "개발도상국의 보건 의료 역량 강화를 위한 공적개발원조(ODA) 보건 사업을 담당하는 기관입니다. 해외 의료인 연수, 의료 봉사단 파견, 모자보건·감염병 예방 사업을 통해 취약국 보건 시스템 강화와 건강한 삶을 위한 국제 보건 협력을 선도합니다.",
     "mainBusiness": [
       "ODA 보건의료 사업",
       "해외 의료봉사",
@@ -24706,7 +24706,7 @@ const ORGS = [
     "avgYears": 15,
     "homepage": "https://www.kanc.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국나노기술원",
-    "description": "나노 기술 연구개발과 기업 지원을 담당하는 과학기술정보통신부 산하 기타공공기관.",
+    "description": "나노 소재·부품 분야 연구와 기업 기술 지원을 담당하는 기관으로, 경기도 수원 광교테크노밸리에 위치합니다. 나노 소재 분석·계측 서비스, 나노 기업 공동 장비 활용, 나노 기술 인력 양성을 통해 나노 기반 차세대 반도체·소재 산업 경쟁력 강화를 지원합니다.",
     "mainBusiness": [
       "나노 소자 개발 지원",
       "나노 장비 공동 활용",
@@ -24748,7 +24748,7 @@ const ORGS = [
     "avgYears": 8.2,
     "homepage": "https://www.koat.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국농업기술진흥원",
-    "description": "농업 기술 보급과 농업인 역량 강화를 지원하는 농촌진흥청 산하 기타공공기관.",
+    "description": "농업 기술의 보급·사업화와 농업인 기술 지원을 담당하는 기관으로, 농촌진흥청 산하에서 농업 R&D 성과 확산을 담당합니다. 스마트팜 기술 보급, 농업 기술 이전·사업화, 귀농 귀촌 기술 교육을 통해 농업 현장의 기술 혁신과 농가 소득 향상을 지원합니다.",
     "mainBusiness": [
       "농업 기술 이전",
       "농업인 교육",
@@ -24792,7 +24792,7 @@ const ORGS = [
     "avgYears": 9.3,
     "homepage": "https://www.kdata.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국데이터산업진흥원",
-    "description": "데이터 산업 육성과 데이터 경제 활성화를 담당하는 과학기술정보통신부 산하 기타공공기관.",
+    "description": "데이터 산업 진흥과 데이터 거래·유통 활성화를 담당하는 기관입니다. 데이터 바우처 지원, 데이터 품질 인증, 빅데이터 플랫폼 구축 지원, 데이터 전문 인력 양성을 통해 데이터 경제 활성화와 AI·디지털 전환을 위한 데이터 기반 혁신 생태계 조성을 선도합니다.",
     "mainBusiness": [
       "데이터 산업 지원",
       "데이터 거래 활성화",
@@ -24834,7 +24834,7 @@ const ORGS = [
     "avgYears": 5.5,
     "homepage": "http://www.exservice.co.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국도로공사서비스",
-    "description": "고속도로 휴게소·주유소 운영을 담당하는 국토교통부 산하 기타공공기관.",
+    "description": "한국도로공사 자회사로, 고속도로 휴게소 운영과 고속도로 관련 서비스 사업을 담당합니다. 전국 고속도로 직영 휴게소 운영, 하이패스 단말기 보급, 고속도로 유지보수 지원 서비스를 통해 장거리 운전자에게 편리하고 안전한 고속도로 이용 환경을 제공합니다.",
     "mainBusiness": [
       "고속도로 휴게소 운영",
       "주유소 운영",
@@ -24875,7 +24875,7 @@ const ORGS = [
     "avgYears": 7.7,
     "homepage": "https://www.kcgp.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국도박문제예방치유원",
-    "description": "도박 중독 예방·치유 지원을 담당하는 문화체육관광부 산하 기타공공기관.",
+    "description": "도박 중독 예방과 도박 문제 치유를 담당하는 기관으로, 전국 도박문제예방치유센터를 운영합니다. 도박 중독자 상담·치유 프로그램 제공, 도박 피해 가족 지원, 도박 중독 예방 교육을 통해 건전한 사행산업 이용 문화 조성과 도박 중독으로 인한 사회적 피해 감소에 기여합니다.",
     "mainBusiness": [
       "도박 중독 예방 교육",
       "치유 상담",
@@ -24916,7 +24916,7 @@ const ORGS = [
     "avgYears": 5.3,
     "homepage": "https://komount.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국등산트레킹지원센터",
-    "description": "등산·트레킹 문화 진흥과 안전 지원을 담당하는 산림청 산하 기타공공기관.",
+    "description": "등산로 안전 관리와 등산 문화 진흥을 담당하는 기관으로, 국가 등산로 정보 시스템 운영을 담당합니다. 등산로 실태 조사·DB 구축, 국가 등산로 인증, 안전 등산 교육, 트레킹 루트 개발을 통해 안전하고 지속가능한 산악 여가 문화 조성에 기여합니다.",
     "mainBusiness": [
       "등산로 정비 지원",
       "등산 문화 진흥",
@@ -24958,7 +24958,7 @@ const ORGS = [
     "avgYears": 8.5,
     "homepage": "http://www.kiria.org",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국로봇산업진흥원",
-    "description": "로봇 산업 육성과 로봇 기술 보급을 담당하는 산업통상자원부 산하 기타공공기관.",
+    "description": "로봇 산업 육성과 로봇 기술 보급을 담당하는 기관으로, 대구에 위치합니다. 제조·서비스·의료·국방 로봇 기업 지원, 로봇 실증 인프라 제공, 로봇 전문 인력 양성, 로봇 산업 통계 조사를 통해 대한민국 로봇 산업 경쟁력 강화와 로봇 활용 확산을 지원합니다.",
     "mainBusiness": [
       "로봇 산업 지원",
       "로봇 실증·테스트베드",
@@ -25003,7 +25003,7 @@ const ORGS = [
     "avgYears": 3.3,
     "homepage": "http://drugfree.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국마약퇴치운동본부",
-    "description": "마약류 오남용 예방 교육과 중독 상담을 담당하는 식품의약품안전처 산하 기타공공기관.",
+    "description": "마약 류 오남용 예방과 마약 중독자 치료·재활을 지원하는 기관입니다. 마약 예방 교육, 중독자 상담·재활 프로그램 운영, 마약 피해 가족 지원을 통해 마약 없는 사회 실현에 기여하며, 청소년·학부모 대상 마약 위험 인식 제고 캠페인을 전국적으로 추진합니다.",
     "mainBusiness": [
       "마약 예방 교육",
       "중독 상담·치료 연계",
@@ -25044,7 +25044,7 @@ const ORGS = [
     "avgYears": 9.1,
     "homepage": "https://www.ltikorea.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국문학번역원",
-    "description": "한국문학의 해외 번역·보급을 담당하는 문화체육관광부 산하 기타공공기관.",
+    "description": "한국 문학의 해외 번역과 보급을 담당하는 기관으로, 외국어 번역 지원과 번역가 양성을 수행합니다. 한국 소설·시·희곡의 해외 출판 지원, 번역가 아카데미 운영, 해외 출판사 연계를 통해 한강 작가를 비롯한 한국 작가의 작품이 세계 독자들에게 닿을 수 있도록 지원합니다.",
     "mainBusiness": [
       "한국문학 번역 지원",
       "번역가 육성",
@@ -25085,7 +25085,7 @@ const ORGS = [
     "avgYears": 10.6,
     "homepage": "http://www.arte.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국문화예술교육진흥원",
-    "description": "문화예술교육 진흥과 지원을 담당하는 문화체육관광부 산하 기타공공기관.",
+    "description": "학교 안팎에서 예술 교육을 지원하는 기관으로, 문화예술교육 정책 기획과 예술강사 파견 사업을 담당합니다. 초·중·고 예술강사 지원 사업, 지역 문화예술교육 활성화, 사회 취약 계층 예술 교육 접근성 강화를 통해 모든 국민의 문화적 삶의 질 향상에 기여합니다.",
     "mainBusiness": [
       "예술강사 지원",
       "문화예술교육 사업",
@@ -25126,7 +25126,7 @@ const ORGS = [
     "avgYears": 8,
     "homepage": "http://www.kcisa.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국문화정보원",
-    "description": "문화 분야 정보화와 공공데이터 개방을 담당하는 문화체육관광부 산하 기타공공기관.",
+    "description": "문화 분야 공공 데이터와 문화 정보 서비스를 담당하는 기관입니다. 문화 빅데이터 플랫폼 운영, 공공 문화 콘텐츠 개방, 문화 시설 정보 통합 포털 운영을 통해 국민이 문화 정보에 쉽게 접근하고 문화 산업의 데이터 기반 혁신을 가능하게 하는 디지털 인프라를 구축합니다.",
     "mainBusiness": [
       "문화 공공데이터 개방",
       "문화 정보 시스템 운영",
@@ -25167,7 +25167,7 @@ const ORGS = [
     "avgYears": 11,
     "homepage": "https://newseoulgolf.co.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국문화진흥",
-    "description": "뉴서울컨트리클럽 등 체육문화시설을 운영하는 문화체육관광부 산하 기타공공기관.",
+    "description": "국립극장 등 국가 문화 시설 내 부대 사업과 공연 지원 서비스를 담당하는 기관입니다. 공연장 음향·조명 기술 지원, 무대 장치 운영, 문화 시설 편의 서비스 제공을 통해 국가 공연 예술 시설의 운영 품질을 높이고 관람객에게 쾌적한 공연 관람 환경을 제공합니다.",
     "mainBusiness": [
       "골프장 운영",
       "문화체육시설 관리"
@@ -25208,7 +25208,7 @@ const ORGS = [
     "avgYears": 4.2,
     "homepage": "https://www.kwtc.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국물기술인증원",
-    "description": "물 기술 제품 인증과 검증을 담당하는 기후에너지환경부 산하 기타공공기관.",
+    "description": "수처리·상하수도 관련 기자재와 서비스의 성능 인증을 담당하는 기관입니다. 정수·하수 처리 기자재 성능 시험, 물 기술 인증 제도 운영, 물 산업 기업 수출 인증 지원을 통해 대한민국 물 산업 제품의 품질 신뢰성을 확보하고 글로벌 물 시장 진출을 지원합니다.",
     "mainBusiness": [
       "물 관련 제품 인증",
       "물 기술 검증",
@@ -25252,7 +25252,7 @@ const ORGS = [
     "avgYears": 13,
     "homepage": "http://www.kipa.org",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국발명진흥회",
-    "description": "발명 장려와 지식재산 교육을 담당하는 지식재산처 산하 기타공공기관.",
+    "description": "발명·지식재산 문화 진흥과 발명 교육·사업화 지원을 담당하는 기관입니다. 학생 발명 대회 개최, 발명 특허 상담, 우수 발명품 사업화 연계, IP 창업 지원을 통해 국민의 창의적 발명 역량을 계발하고 지식재산 기반 혁신 창업 생태계 조성에 기여합니다.",
     "mainBusiness": [
       "발명 교육·경진대회",
       "IP 창업 지원",
@@ -25294,7 +25294,7 @@ const ORGS = [
     "avgYears": 12.4,
     "homepage": "http://www.klri.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국법제연구원",
-    "description": "법령 연구와 법제 지원을 담당하는 국무조정실 산하 기타공공기관.",
+    "description": "법령 체계 연구와 입법 지원을 수행하는 국책연구기관으로, 법무부·국회 등의 법제 정비 활동을 지원합니다. 법령 정비 연구, 비교 법제 분석, 규제 영향 분석, 법령 정보 서비스 제공을 통해 합리적이고 체계적인 법제 환경 조성과 법치주의 강화에 기여합니다.",
     "mainBusiness": [
       "법령 연구·분석",
       "입법 지원",
@@ -25335,7 +25335,7 @@ const ORGS = [
     "avgYears": 12.5,
     "homepage": "https://www.kuksiwon.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국보건의료인국가시험원",
-    "description": "의사·간호사·약사 등 보건의료인 국가시험을 담당하는 보건복지부 산하 기타공공기관.",
+    "description": "의사·간호사·약사 등 보건의료 면허 국가시험을 기획·시행하는 기관입니다. 의료·약학·한의·치의·간호 분야 국가시험 출제·시행·채점, 응시자 면허 관리, 시험 기준 개발을 통해 보건의료 인력의 기초 역량을 검증하고 국민에게 안전한 의료 서비스를 보장합니다.",
     "mainBusiness": [
       "보건의료인 국가시험 출제·시행",
       "시험 관련 연구",
@@ -25378,7 +25378,7 @@ const ORGS = [
     "avgYears": 12.5,
     "homepage": "http://www.bokji.net",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국사회복지협의회",
-    "description": "사회복지 증진과 민간 사회복지 지원을 담당하는 보건복지부 산하 기타공공기관.",
+    "description": "사회복지 분야 민간 기관의 협력과 사회복지 서비스 증진을 담당하는 기관입니다. 사회복지 자원봉사 관리, 사회복지공동모금회 연계, 사회복지 정보·통계 제공, 국제 사회복지 교류를 통해 민관 협력 기반의 사회복지 서비스 생태계 강화에 기여합니다.",
     "mainBusiness": [
       "사회복지 진흥",
       "자원봉사 지원",
@@ -25420,7 +25420,7 @@ const ORGS = [
     "avgYears": 13.4,
     "homepage": "http://www.ktl.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국산업기술시험원",
-    "description": "제품 시험·인증·검사 서비스를 제공하는 산업통상자원부 산하 기타공공기관.",
+    "description": "제품 안전 시험·인증과 교정 서비스를 담당하는 기관으로, KTL(Korea Testing Laboratory)로 알려져 있습니다. 전기·기계·화학·소비재 제품의 KC 인증 시험, 해외 안전 인증(UL·CE) 대행, 국가 표준 교정 서비스를 통해 국내 제품의 안전성과 수출 경쟁력 강화를 지원합니다.",
     "mainBusiness": [
       "제품 시험·인증",
       "산업 현장 검사",
@@ -25516,7 +25516,7 @@ const ORGS = [
     "avgYears": 11.5,
     "homepage": "http://www.kfi.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국소방산업기술원",
-    "description": "소방 제품 검정·인증과 소방 기술 연구를 담당하는 소방청 산하 기타공공기관.",
+    "description": "소방 기자재의 성능 시험·인증과 소방 기술 개발을 담당하는 기관입니다. 소화기·스프링클러·화재 경보기 등 소방 제품 형식 승인·검정, 소방 기술 개발 사업 관리를 통해 소방 제품의 안전 기준을 관리하고 화재로부터 국민의 생명과 재산을 보호합니다.",
     "mainBusiness": [
       "소방 제품 검정·인증",
       "소방 기술 연구",
@@ -25650,7 +25650,7 @@ const ORGS = [
     "avgYears": 6,
     "homepage": "http://www.kihs.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국수자원조사기술원",
-    "description": "수자원 조사·분석과 수문 정보 제공을 담당하는 기후에너지환경부 산하 기타공공기관.",
+    "description": "하천·수자원 조사와 수문 데이터 수집·관리를 담당하는 기관입니다. 전국 하천 유량 측정, 강수·지하수 관측망 운영, 홍수 예보 기반 데이터 제공, 수자원 현황 통계 작성을 통해 수해 예방과 물 관리 정책 수립을 위한 신뢰할 수 있는 수문 데이터 인프라를 구축합니다.",
     "mainBusiness": [
       "수자원 조사·측정",
       "홍수 예경보 지원",
@@ -25693,7 +25693,7 @@ const ORGS = [
     "avgYears": 0.5,
     "homepage": "http://www.kospole.co.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국스포츠레저",
-    "description": "체육시설 운영을 담당하는 문화체육관광부 산하 기타공공기관.",
+    "description": "국민체육진흥공단 자회사로, 경정(보트 경기)장 운영과 스포츠 레저 관련 사업을 담당합니다. 경정 경기 운영, 스포츠 시설 관리, 레저 프로그램 운영을 통해 체육 진흥 재원을 마련하고, 수상 레저 스포츠 저변 확대와 건전한 스포츠 여가 문화 조성에 기여합니다.",
     "mainBusiness": [
       "골프장 운영",
       "스포츠레저시설 관리"
@@ -25734,7 +25734,7 @@ const ORGS = [
     "avgYears": 8.5,
     "homepage": "http://www.kigepe.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국양성평등교육진흥원",
-    "description": "성평등 교육 진흥과 성희롱 예방 교육을 담당하는 성평등가족부 산하 기타공공기관.",
+    "description": "성평등 교육과 폭력 예방 교육을 전담하는 기관으로, 여성가족부 산하에서 젠더 교육 정책을 담당합니다. 성희롱·성폭력·가정폭력·성매매 예방 법정 의무 교육 운영, 성평등 교육 강사 양성, 교육 콘텐츠 개발을 통해 차별 없는 평등 사회 실현에 기여합니다.",
     "mainBusiness": [
       "성평등 교육 지원",
       "성희롱 예방 교육",
@@ -25774,7 +25774,7 @@ const ORGS = [
     "avgYears": 7.5,
     "homepage": "http://www.fipa.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국어촌어항공단",
-    "description": "어촌·어항 개발 및 어촌관광 진흥을 담당하는 해양수산부 산하 기타공공기관.",
+    "description": "어촌 지역 개발과 어항 시설의 운영·관리를 담당하는 기관입니다. 국가 어항 시설 정비, 어촌 뉴딜 사업 지원, 어항 배후 어촌 마을 정주 환경 개선을 통해 어업인의 생활 기반을 강화하고, 어촌을 생태·체험 관광 거점으로 육성하는 데 기여합니다.",
     "mainBusiness": [
       "어항 개발·관리",
       "어촌 뉴딜 지원",
@@ -25819,7 +25819,7 @@ const ORGS = [
     "avgYears": 17.3,
     "homepage": "https://e-policy.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국에너지정보문화재단",
-    "description": "에너지 정보 제공과 에너지 문화 확산을 담당하는 기후에너지환경부 산하 기타공공기관.",
+    "description": "에너지 분야 국민 소통과 에너지 문화 확산을 담당하는 기관입니다. 에너지 절약 캠페인, 에너지 정책 홍보, 에너지 교육 프로그램 운영을 통해 국민이 에너지의 가치를 이해하고 자발적인 절약과 전환 에너지 수용을 실천할 수 있도록 에너지 인식 개선을 지원합니다.",
     "mainBusiness": [
       "에너지 정보 제공",
       "에너지 절약 캠페인",
@@ -25902,7 +25902,7 @@ const ORGS = [
     "avgYears": 5,
     "homepage": "https://www.stop.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국여성인권진흥원",
-    "description": "성매매 피해 지원과 성폭력 예방을 담당하는 성평등가족부 산하 기타공공기관.",
+    "description": "성폭력·가정폭력·성매매 피해자 지원과 여성 인권 보호를 담당하는 기관입니다. 피해자 긴급 지원 서비스 총괄, 1366 위기 상담 전화 운영, 성폭력 상담소·보호시설 지원을 통해 폭력 피해 여성이 안전하게 회복하고 일상으로 돌아올 수 있도록 지원합니다.",
     "mainBusiness": [
       "성매매 피해자 지원",
       "성폭력 예방 교육",
@@ -25943,7 +25943,7 @@ const ORGS = [
     "avgYears": 14.1,
     "homepage": "http://www.kwdi.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국여성정책연구원",
-    "description": "여성·가족 정책 연구를 수행하는 국무조정실 산하 기타공공기관.",
+    "description": "여성·가족·성평등 분야 정책 연구를 수행하는 국책연구기관입니다. 여성 고용 실태 분석, 일·생활 균형 정책 연구, 성인지 예산 분석, 젠더 폭력 예방 정책 연구를 통해 실질적 성평등 실현을 위한 정책 방향과 제도 개선 방안을 제시합니다.",
     "mainBusiness": [
       "여성 정책 연구",
       "젠더 통계 분석",
@@ -25984,7 +25984,7 @@ const ORGS = [
     "avgYears": 13.6,
     "homepage": "http://www.koreafilm.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국영상자료원",
-    "description": "한국 영상 문화유산 수집·보존·활용을 담당하는 문화체육관광부 산하 기타공공기관.",
+    "description": "한국 영화와 영상 자료의 수집·보존·복원을 담당하는 기관으로, 서울 상암동 시네마테크KOFA를 운영합니다. 국내외 영화 필름·디지털 자료 아카이브 구축, 원로 영화인 구술 채록, 한국 영화 역사 전시와 상영을 통해 한국 영화 유산 보전과 대중의 영화 문화 향유를 지원합니다.",
     "mainBusiness": [
       "영화 필름 수집·보존",
       "시네마테크 운영",
@@ -26025,7 +26025,7 @@ const ORGS = [
     "avgYears": 6,
     "homepage": "http://www.kcpi.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국영유아보육교육진흥원",
-    "description": "어린이집·유치원 보육·교육 질 향상을 지원하는 교육부 산하 기타공공기관.",
+    "description": "어린이집·유치원의 보육·교육 품질 향상과 영유아 발달 지원 사업을 담당하는 기관입니다. 보육교사 보수 교육, 어린이집 평가제 운영 지원, 영유아 발달 프로그램 개발·보급을 통해 영유아의 건강한 성장과 보육 서비스의 질적 향상에 기여합니다.",
     "mainBusiness": [
       "보육·교육 평가",
       "보육교사 교육",
@@ -26065,7 +26065,7 @@ const ORGS = [
     "avgYears": 6.2,
     "homepage": "http://www.kawf.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국예술인복지재단",
-    "description": "예술인 복지 증진과 창작 지원을 담당하는 문화체육관광부 산하 기타공공기관.",
+    "description": "예술인의 사회 보험 가입 지원과 생활 안정을 위한 복지 사업을 담당하는 기관입니다. 예술인 산재보험·고용보험 적용 지원, 예술인 생활 안정 자금 대여, 표준계약서 보급, 불공정 계약 상담을 통해 예술인의 창작 환경 개선과 사회적 안전망 강화에 기여합니다.",
     "mainBusiness": [
       "예술인 복지 지원",
       "창작준비금 지원",
@@ -26106,7 +26106,7 @@ const ORGS = [
     "avgYears": 8.5,
     "homepage": "http://www.origin.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국원산지정보원",
-    "description": "FTA 원산지 증명과 원산지 정보 지원을 담당하는 관세청 산하 기타공공기관.",
+    "description": "원산지 증명과 수출입 원산지 규정 지원을 담당하는 기관으로, FTA 활용 지원 서비스를 제공합니다. FTA 원산지 증명서 발급 지원, 원산지 자율 검증 컨설팅, 원산지 판정 기준 교육을 통해 국내 기업이 FTA 특혜 관세를 적극 활용하고 수출 경쟁력을 높이도록 지원합니다.",
     "mainBusiness": [
       "원산지 증명 지원",
       "FTA 활용 지원",
@@ -26224,7 +26224,7 @@ const ORGS = [
     "avgYears": 7.9,
     "homepage": "http://www.kofons.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국원자력안전재단",
-    "description": "방사선 안전 문화 확산과 원자력 안전 교육을 담당하는 원자력안전위원회 산하 기타공공기관.",
+    "description": "원자력 안전 문화 확산과 방사선 안전 교육을 담당하는 기관입니다. 원자력 종사자 안전 교육, 방사선 방호 전문가 양성, 원자력 안전 홍보 및 주민 소통 지원을 통해 원자력 시설의 안전 문화를 정착시키고 방사선 사고 예방과 사회적 수용성 제고에 기여합니다.",
     "mainBusiness": [
       "원자력 안전 교육",
       "방사선 안전 홍보",
@@ -26265,7 +26265,7 @@ const ORGS = [
     "avgYears": 15.2,
     "homepage": "http://www.kirams.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국원자력의학원",
-    "description": "방사선 의학 연구와 방사선 암 치료를 담당하는 과학기술정보통신부 산하 기타공공기관.",
+    "description": "방사선 의학 진료와 방사성 의약품 연구를 담당하는 기관으로, 서울 노원구에 국립암센터와 연계해 운영됩니다. 방사선 치료·핵의학 진료, 방사성 동위원소 기반 의약품 개발, 방사선 비상 의료 대응을 통해 암 치료 기술 혁신과 방사선 의학의 국내외 발전을 선도합니다.",
     "mainBusiness": [
       "방사선 암 치료",
       "방사선 의학 연구",
@@ -26309,7 +26309,7 @@ const ORGS = [
     "avgYears": 10.9,
     "homepage": "https://www.kinac.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국원자력통제기술원",
-    "description": "핵물질 및 원자력시설 물리적방호와 국제 핵비확산 체제 지원을 담당하는 원자력안전위원회 산하 기타공공기관.",
+    "description": "핵비확산 체제 이행과 핵물질 계량 관리를 담당하는 기관입니다. 원자력 시설 핵물질 사찰·검증, IAEA 협력, 수출 통제 기술 지원을 통해 대한민국이 국제 핵비확산 의무를 이행하고, 원자력의 평화적 이용과 핵 안보 체계 강화를 지원합니다.",
     "mainBusiness": [
       "핵비확산 기술 지원",
       "핵물질 계량 관리",
@@ -26352,7 +26352,7 @@ const ORGS = [
     "avgYears": 5.3,
     "homepage": "http://www.nids.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국의료기기안전정보원",
-    "description": "의료기기 안전 정보 관리와 부작용 모니터링을 담당하는 식품의약품안전처 산하 기타공공기관.",
+    "description": "의료기기의 안전 정보 수집·분석·제공을 담당하는 기관입니다. 의료기기 부작용 보고 체계 운영, 의료기기 안전 정보 DB 구축, 의료기기 사용 오류 예방 교육을 통해 환자 안전을 위협하는 의료기기 위해 사례를 신속히 파악하고 예방 조치 확산을 지원합니다.",
     "mainBusiness": [
       "의료기기 안전 정보 관리",
       "부작용 모니터링",
@@ -26393,7 +26393,7 @@ const ORGS = [
     "avgYears": 6.9,
     "homepage": "https://www.k-medi.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국의료분쟁조정중재원",
-    "description": "의료사고 피해 구제와 분쟁 조정을 담당하는 보건복지부 산하 기타공공기관.",
+    "description": "의료 사고 피해자와 의료인 사이의 분쟁을 조정·중재하는 기관입니다. 의료 사고 상담·조정 신청 접수, 감정·조정·중재 절차 운영, 의료 사고 피해 구제 지원을 통해 소송 없이 신속하고 공정하게 의료 분쟁을 해결하고 의료 피해자의 권리를 보호합니다.",
     "mainBusiness": [
       "의료분쟁 조정·중재",
       "의료사고 감정",
@@ -26437,7 +26437,7 @@ const ORGS = [
     "avgYears": 5.3,
     "homepage": "https://www.drugsafe.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국의약품안전관리원",
-    "description": "의약품 부작용 모니터링과 의약품 안전 정보 관리를 담당하는 식품의약품안전처 산하 기타공공기관.",
+    "description": "의약품 부작용 보고 체계와 의약품 안전 사용 정보 제공을 담당하는 기관입니다. 의약품 부작용 모니터링, 약물 역학 연구, 의약품 안전 정보 DB 운영을 통해 부작용 의약품을 조기에 발견하고 처방·복용 안전성을 높여 국민의 약물 안전 사용을 보장합니다.",
     "mainBusiness": [
       "의약품 이상사례 모니터링",
       "약물 안전 정보 제공",
@@ -26478,7 +26478,7 @@ const ORGS = [
     "avgYears": 8.7,
     "homepage": "http://www.koreajobworld.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국잡월드",
-    "description": "청소년 직업 체험과 진로 교육을 담당하는 고용노동부 산하 기타공공기관.",
+    "description": "청소년의 직업 체험과 진로 탐색을 지원하는 기관으로, 경기도 성남에 국내 최대 직업 체험관을 운영합니다. 어린이·청소년 직업 체험 시설 운영, 진로 교육 콘텐츠 개발, 직업 상담 프로그램 운영을 통해 청소년이 다양한 직업 세계를 체험하고 미래 진로를 설계하도록 돕습니다.",
     "mainBusiness": [
       "청소년 직업 체험",
       "진로 상담 교육",
@@ -26519,7 +26519,7 @@ const ORGS = [
     "avgYears": 10.3,
     "homepage": "https://www.koddi.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국장애인개발원",
-    "description": "장애인 복지 정책 연구와 장애인 서비스 지원을 담당하는 보건복지부 산하 기타공공기관.",
+    "description": "장애인 복지 정책 연구와 장애인 복지 시설·서비스 지원을 담당하는 기관입니다. 장애인 실태 조사, 장애인 복지관 운영 지원, 장애인 재활 서비스 기준 개발, 발달 장애인 지원 체계 연구를 통해 장애인의 자립과 사회 참여를 촉진하는 정책 기반을 강화합니다.",
     "mainBusiness": [
       "장애인 복지 정책 연구",
       "활동지원 사업 관리",
@@ -26560,7 +26560,7 @@ const ORGS = [
     "avgYears": 7,
     "homepage": "http://www.kcopa.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국저작권보호원",
-    "description": "저작권 침해 단속과 보호 업무를 담당하는 문화체육관광부 산하 기타공공기관.",
+    "description": "저작권 침해 단속과 불법 복제물 유통 차단을 담당하는 기관입니다. 온라인·오프라인 저작권 침해 모니터링, 침해 신고 접수·처리, 저작권 보호 교육을 통해 창작자의 권리를 실질적으로 보호하고 건전한 저작권 이용 문화 조성에 기여합니다.",
     "mainBusiness": [
       "온라인 저작권 침해 단속",
       "저작권 보호 교육",
@@ -26601,7 +26601,7 @@ const ORGS = [
     "avgYears": 13.3,
     "homepage": "http://www.copyright.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국저작권위원회",
-    "description": "저작권 분쟁 조정과 저작권 등록·교육을 담당하는 문화체육관광부 산하 기타공공기관.",
+    "description": "저작권 분쟁 조정과 저작권 정보 서비스를 담당하는 기관입니다. 저작권 분쟁 조정·심의, 저작물 이용 허락 체계 지원, 저작권 교육·홍보, 저작권 통계 발간을 통해 저작권자와 이용자 모두의 권리를 균형 있게 보호하고 창작 생태계 활성화에 기여합니다.",
     "mainBusiness": [
       "저작권 분쟁 조정",
       "저작권 등록 관리",
@@ -26642,7 +26642,7 @@ const ORGS = [
     "avgYears": 11.4,
     "homepage": "https://kings.ac.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국전력국제원자력대학원대학교",
-    "description": "원자력 분야 국제 전문인력 양성을 담당하는 기후에너지환경부 산하 기타공공기관.",
+    "description": "원자력 분야 국제 전문 인력 양성을 담당하는 특수 목적 대학원 대학교로, 경기도 의왕에 위치합니다. 원자력 공학·정책·비확산 분야 석사 과정 운영과 해외 원자력 전문가 교육 지원을 통해 한국 원자력 기술 수출과 국제 원자력 역량 강화에 기여합니다.",
     "mainBusiness": [
       "원자력 전문인력 교육",
       "국제 원자력 대학원 운영",
@@ -26684,7 +26684,7 @@ const ORGS = [
     "avgYears": 3.8,
     "homepage": "http://www.kips.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국제품안전관리원",
-    "description": "제품 안전 검사·인증과 리콜 관리를 담당하는 산업통상자원부 산하 기타공공기관.",
+    "description": "소비자 제품의 안전 기준 준수 여부 조사와 위해 제품 시장 감시를 담당하는 기관입니다. 리콜 제품 수거·파기, 해외 제품 안전 정보 모니터링, 제품 안전 교육을 통해 불량 제품으로부터 소비자를 보호하고 제품 안전 문화 확산에 기여합니다.",
     "mainBusiness": [
       "제품 안전 검사",
       "리콜 관리·지원",
@@ -26729,7 +26729,7 @@ const ORGS = [
     "avgYears": 11.2,
     "homepage": "http://www.kodma.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국중소벤처기업유통원",
-    "description": "중소기업 판로 개척과 유통 지원을 담당하는 중소벤처기업부 산하 기타공공기관.",
+    "description": "중소기업 제품의 유통과 판로 개척을 지원하는 기관으로, 공공 구매와 대형 유통망 연계를 담당합니다. 공공기관 중소기업 제품 우선 구매 지원, 중소기업 유통센터 운영, 온라인 판로 확대 지원을 통해 중소기업이 안정적인 판매 채널을 확보하도록 돕습니다.",
     "mainBusiness": [
       "중소기업 판로 지원",
       "온라인 유통 지원",
@@ -26769,7 +26769,7 @@ const ORGS = [
     "avgYears": 10.3,
     "homepage": "https://www.koipa.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국지식재산보호원",
-    "description": "지식재산 침해 방지와 보호 지원을 담당하는 지식재산처 산하 기타공공기관.",
+    "description": "지식재산권 침해 감시와 해외 IP 분쟁 대응 지원을 담당하는 기관입니다. 온라인 상표·특허 침해 모니터링, 해외 지식재산권 침해 대응 컨설팅, 위조 상품 단속 지원을 통해 국내 기업의 지식재산권을 보호하고 글로벌 시장에서 K-브랜드 신뢰성을 높입니다.",
     "mainBusiness": [
       "지식재산 침해 조사",
       "IP 보호 지원",
@@ -26811,7 +26811,7 @@ const ORGS = [
     "avgYears": 11,
     "homepage": "http://www.kiip.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국지식재산연구원",
-    "description": "지식재산 정책 연구를 수행하는 지식재산처 산하 기타공공기관.",
+    "description": "지식재산 정책 연구와 특허 제도 개선을 담당하는 국책연구기관입니다. 특허·상표·디자인 제도 연구, 지식재산 통계 분석, IP 금융 제도 연구, 국제 지식재산 정책 동향 분석을 통해 지식재산 기반의 혁신 성장 정책 방향을 제시합니다.",
     "mainBusiness": [
       "지식재산 정책 연구",
       "특허 제도 연구",
@@ -26853,7 +26853,7 @@ const ORGS = [
     "avgYears": 15,
     "homepage": "http://www.nypi.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국청소년정책연구원",
-    "description": "청소년 정책 연구를 수행하는 국무조정실 산하 기타공공기관.",
+    "description": "청소년 정책 연구와 청소년 관련 법·제도 개선을 담당하는 국책연구기관입니다. 청소년 실태 조사, 학교 밖 청소년 정책 연구, 청소년 자립·참여 활성화 방안 연구를 통해 여성가족부의 청소년 정책 수립과 청소년 삶의 질 향상을 위한 정책 기반을 제공합니다.",
     "mainBusiness": [
       "청소년 정책 연구",
       "청소년 실태 조사",
@@ -26893,7 +26893,7 @@ const ORGS = [
     "avgYears": 14.6,
     "homepage": "https://www.ksponco.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국체육산업개발",
-    "description": "올림픽공원과 체육시설을 운영하는 문화체육관광부 산하 기타공공기관.",
+    "description": "국민체육진흥공단 자회사로, 체육 관련 사업과 스포츠 시설 운영을 담당합니다. 올림픽 파크텔·올림픽홀 등 체육 문화 시설 운영, 스포츠 용품 유통, 체육 프로그램 기획을 통해 국민의 스포츠 참여 기반을 확대하고 체육 진흥 재원 마련에 기여합니다.",
     "mainBusiness": [
       "올림픽공원 운영",
       "체육시설 관리",
@@ -26936,7 +26936,7 @@ const ORGS = [
     "avgYears": 6.4,
     "homepage": "https://www.kafet.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국치산기술협회",
-    "description": "사방·산지 보전 기술 보급과 교육을 담당하는 산림청 산하 기타공공기관.",
+    "description": "산사태·토석류 등 사면 재해 예방과 산지 훼손 복구를 위한 치산 기술 개발을 담당하는 기관입니다. 산사태 위험 지역 조사·분석, 사면 보강 기술 지원, 치산 사업 시공 품질 관리를 통해 산지 재해로부터 국민의 생명과 재산을 보호합니다.",
     "mainBusiness": [
       "사방공사 기술 지원",
       "산지 재해 예방",
@@ -26980,7 +26980,7 @@ const ORGS = [
     "avgYears": 9.4,
     "homepage": "http://www.kcarbon.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국탄소산업진흥원",
-    "description": "탄소 소재 산업 육성과 기업 지원을 담당하는 산업통상자원부 산하 기타공공기관.",
+    "description": "탄소 소재 산업 육성과 탄소 소재 기반 기술 개발을 지원하는 기관으로, 전북 전주에 위치합니다. 탄소 섬유·복합 재료 기업 지원, 탄소 소재 시험·분석 서비스, 탄소 소재 인력 양성을 통해 경량화·친환경 소재 분야 대한민국 경쟁력 강화를 지원합니다.",
     "mainBusiness": [
       "탄소 소재 R&D 지원",
       "탄소 산업 기업 육성",
@@ -27024,7 +27024,7 @@ const ORGS = [
     "avgYears": 20.1,
     "homepage": "http://www.kipro.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국특허기술진흥원",
-    "description": "특허 기술 사업화와 발명 진흥을 지원하는 지식재산처 산하 기타공공기관.",
+    "description": "중소기업의 특허 기술 사업화와 지식재산 역량 강화를 지원하는 기관입니다. 특허 기술 이전·거래 중개, IP 경영 컨설팅, 특허 조사·분석 지원을 통해 중소기업이 보유한 기술 특허를 실질적인 사업 성과로 연결하고 지식재산 기반 기업 성장을 돕습니다.",
     "mainBusiness": [
       "특허 기술 사업화 지원",
       "발명 진흥 사업",
@@ -27065,7 +27065,7 @@ const ORGS = [
     "avgYears": 10.7,
     "homepage": "http://www.kista.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국특허전략개발원",
-    "description": "국가 특허 전략 수립과 IP 정보 분석을 담당하는 지식재산처 산하 기타공공기관.",
+    "description": "국가 특허 전략 수립과 선행 기술 조사·분석 서비스를 담당하는 기관입니다. 선행기술 조사 전문 기관으로서 특허 심사 지원, 기술 분야별 특허 맵 작성, 국가 전략 기술의 IP 포트폴리오 구축 지원을 통해 산업 경쟁력 강화를 위한 전략적 특허 관리를 지원합니다.",
     "mainBusiness": [
       "국가 특허 전략 수립",
       "IP 정보 분석",
@@ -27106,7 +27106,7 @@ const ORGS = [
     "avgYears": 13.4,
     "homepage": "http://www.kipi.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국특허정보원",
-    "description": "특허 정보 시스템 구축·운영과 특허 데이터 제공을 담당하는 지식재산처 산하 기타공공기관.",
+    "description": "특허 정보 DB 구축·운영과 특허 정보 서비스를 담당하는 기관입니다. 키프리스(KIPRIS) 특허 정보 검색 서비스, 특허 빅데이터 분석 플랫폼 운영, 국제 특허 정보 교환을 통해 국민과 기업이 국내외 특허 정보를 자유롭게 활용하고 IP 경영에 활용할 수 있도록 지원합니다.",
     "mainBusiness": [
       "특허 정보 시스템 운영",
       "특허 데이터 관리",
@@ -27147,7 +27147,7 @@ const ORGS = [
     "avgYears": 12,
     "homepage": "http://www.aks.ac.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국학중앙연구원",
-    "description": "한국학 연구와 한국학대학원 운영을 담당하는 교육부 산하 기타공공기관.",
+    "description": "한국학 연구와 한국 문화 자원 보존·보급을 담당하는 대표 한국학 연구기관입니다. 한국민족문화대백과사전 편찬·운영, 한국학 전문 인력 양성, 해외 한국학 지원, 고문헌 조사·데이터베이스 구축을 통해 한국의 역사·문화 연구와 세계화에 기여합니다.",
     "mainBusiness": [
       "한국학 연구",
       "한국학 대학원 운영",
@@ -27187,7 +27187,7 @@ const ORGS = [
     "avgYears": 8.2,
     "homepage": "http://www.nikom.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국한의약진흥원",
-    "description": "한의약 연구·산업화와 한의약 세계화를 담당하는 보건복지부 산하 기타공공기관.",
+    "description": "한의학 산업 육성과 한의약 기술 연구·보급을 담당하는 기관으로, 경북 경산에 위치합니다. 한의약 임상 연구 지원, 한의약 표준화·제품화 지원, 한의사 교육 연수, 전통 의학 국제 협력을 통해 한의학의 과학화·산업화와 세계 전통 의학 시장 진출을 지원합니다.",
     "mainBusiness": [
       "한의약 R&D 지원",
       "한의약 산업화",
@@ -27229,7 +27229,7 @@ const ORGS = [
     "avgYears": 9.4,
     "homepage": "http://www.katon.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국항로표지기술원",
-    "description": "항로표지 시설 개발·유지와 항해 안전 지원을 담당하는 해양수산부 산하 기타공공기관.",
+    "description": "등대·부표·레이더비콘 등 항로 표지 시설의 성능 인증과 기술 개발을 담당하는 기관입니다. 항로 표지 기자재 형식 승인·검정, 항행 안전을 위한 항로 표지 기술 연구, 항로 표지 전문 인력 교육을 통해 선박의 안전 항행과 해양 사고 예방에 기여합니다.",
     "mainBusiness": [
       "항로표지 시설 관리",
       "등대 운영·유지",
@@ -27274,7 +27274,7 @@ const ORGS = [
     "avgYears": 12.9,
     "homepage": "http://www.kiost.ac.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국해양과학기술원",
-    "description": "해양 과학기술 연구를 수행하는 해양수산부 산하 기타공공기관.",
+    "description": "해양 과학 기술 연구와 해양 조사를 담당하는 정부출연연구기관입니다. 해양 기후 변화 모니터링, 심해 자원 탐사, 해양 생태계 연구, 해양 방재 기술 개발을 통해 해양 강국 실현을 위한 기초·응용 연구를 수행하며 국가 해양 경쟁력 강화에 기여합니다.",
     "mainBusiness": [
       "해양 기초과학 연구",
       "해양 환경 연구",
@@ -27318,7 +27318,7 @@ const ORGS = [
     "avgYears": 11.5,
     "homepage": "http://www.kmi.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국해양수산개발원",
-    "description": "해양·수산·항만 분야 정책 연구를 수행하는 국무조정실 산하 기타공공기관.",
+    "description": "해양·수산·항만·물류 분야 정책 연구를 수행하는 국책연구기관입니다. 수산 자원 관리 방안 연구, 해운·항만 경쟁력 분석, 해양 공간 계획 연구, 북방 해양 경제권 연구를 통해 해양수산부 정책 수립과 대한민국의 해양 중심 국가 전략 도출을 지원합니다.",
     "mainBusiness": [
       "해양·수산 정책 연구",
       "항만 물류 연구",
@@ -27360,7 +27360,7 @@ const ORGS = [
     "avgYears": 9.2,
     "homepage": "http://www.seaman.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국해양수산연수원",
-    "description": "해기사와 항만 인력 교육·훈련을 담당하는 해양수산부 산하 기타공공기관.",
+    "description": "해기사·도선사·수산·항만 분야 전문 인력 교육과 자격 관리를 담당하는 기관입니다. 선원 적무·안전 교육, 해기사 면허 취득 교육, 수산 기술 교육을 통해 해양수산 산업 현장의 안전을 확보하고 국제 기준에 부합하는 해양 전문 인력 양성에 기여합니다.",
     "mainBusiness": [
       "해기사 교육·훈련",
       "항만 인력 양성",
@@ -27403,7 +27403,7 @@ const ORGS = [
     "avgYears": 9.5,
     "homepage": "http://www.khra.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국해양조사협회",
-    "description": "해양 조사와 해양 공간 정보 서비스를 담당하는 해양수산부 산하 기타공공기관.",
+    "description": "해양 조사 사업자의 기술 역량 강화와 해양 조사 데이터 품질 관리를 담당하는 기관입니다. 해양 조사 기술 인증, 해양 조사 데이터 검증·보급, 해양 측량·탐사 전문 교육을 통해 해양 공간 정보의 정확성을 높이고 해양 자원 개발과 해양 안전 확보를 지원합니다.",
     "mainBusiness": [
       "해양 수심 측량",
       "해양 환경 조사",
@@ -27512,7 +27512,7 @@ const ORGS = [
     "avgYears": 4.6,
     "homepage": "https://www.kindkorea.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국해외인프라도시개발지원공사",
-    "description": "해외 인프라·도시 개발 사업 지원과 투자를 담당하는 국토교통부 산하 기타공공기관.",
+    "description": "개발도상국 인프라·도시개발 사업의 투자·금융 지원을 담당하는 기관으로, KIND로 알려져 있습니다. 해외 교통·에너지·수자원 인프라 사업 금융 구조화 지원, 타당성 조사, 국내 기업 해외 수주 연계를 통해 K-인프라의 글로벌 진출과 신흥국 도시 개발 협력을 선도합니다.",
     "mainBusiness": [
       "해외 인프라 사업 지원",
       "해외 도시 개발 투자",
@@ -27558,7 +27558,7 @@ const ORGS = [
     "avgYears": 10,
     "homepage": "http://www.kipa.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국행정연구원",
-    "description": "행정·정책 분야 연구를 수행하는 국무조정실 산하 기타공공기관.",
+    "description": "행정·정책·공공 관리 분야 연구를 수행하는 국책연구기관으로, 정부 혁신과 공공 서비스 품질 향상을 지원합니다. 정부 조직 진단, 규제 개혁 연구, 전자정부 정책 연구, 공무원 역량 개발 방안 연구를 통해 효율적이고 국민 중심의 정부 운영 체계 구축을 지원합니다.",
     "mainBusiness": [
       "행정 정책 연구",
       "정부 혁신 연구",
@@ -27599,7 +27599,7 @@ const ORGS = [
     "avgYears": 11.8,
     "homepage": "http://www.kicj.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국형사법무정책연구원",
-    "description": "형사사법 정책 연구를 수행하는 국무조정실 산하 기타공공기관.",
+    "description": "범죄 예방과 형사 사법 제도 개선을 위한 연구를 수행하는 국책연구기관입니다. 범죄 동향 분석, 재범 예방 프로그램 연구, 형사 정책 비교 연구, 피해자 지원 정책 연구를 통해 안전한 사회 실현과 공정한 형사 사법 체계 구축을 위한 정책 방향을 제시합니다.",
     "mainBusiness": [
       "형사 정책 연구",
       "범죄 예방 연구",
@@ -27640,7 +27640,7 @@ const ORGS = [
     "avgYears": 9.2,
     "homepage": "http://www.keci.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국환경보전원",
-    "description": "환경 보전 교육과 환경 문화 확산을 담당하는 기후에너지환경부 산하 기타공공기관.",
+    "description": "환경 교육과 환경 보전 활동 지원을 담당하는 기관으로, 환경부 산하에서 환경 교육 정책을 총괄합니다. 환경 교육 프로그램 개발·보급, 환경 교육센터 지원, 기업·학교 환경 교육 지원, 탄소 중립 생활 실천 캠페인을 통해 국민의 환경 감수성을 높이고 친환경 생활 문화 확산에 기여합니다.",
     "mainBusiness": [
       "환경 교육·체험",
       "환경 리더 양성",
@@ -27681,7 +27681,7 @@ const ORGS = [
     "avgYears": 7.1,
     "homepage": "https://www.hansik.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한식진흥원",
-    "description": "한식 세계화와 한식 산업 육성을 담당하는 농림축산식품부 산하 기타공공기관.",
+    "description": "한식의 세계화와 한식 산업 경쟁력 강화를 담당하는 기관입니다. 해외 한식 홍보·교육, 한식 조리사 양성, 한식 브랜드 마케팅, 한식 관련 기준·규격 개발을 통해 K-푸드 열풍을 이어가고 한식이 세계인의 일상 식탁에 자리 잡을 수 있도록 한식 세계화를 선도합니다.",
     "mainBusiness": [
       "한식 세계화 지원",
       "한식 조리사 교육",
@@ -29930,7 +29930,7 @@ const ORGS = [
     "avgYears": 6.3,
     "homepage": "http://www.kiast.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=항공안전기술원",
-    "description": "항공 안전 기술 개발과 항공기 인증 지원을 담당하는 국토교통부 산하 기타공공기관.",
+    "description": "항공기 및 항공 시스템의 기술 기준 개발과 안전성 인증을 담당하는 기관입니다. 항공기·드론 형식 증명 지원, 항공 안전 기술 연구, 항공 정비사 자격 기준 개발을 통해 항공 기술 안전성을 확보하고 국내 항공 산업과 UAM(도심항공모빌리티) 기술 발전을 지원합니다.",
     "mainBusiness": [
       "항공기 인증 기술 지원",
       "항공 안전 연구",
@@ -29975,7 +29975,7 @@ const ORGS = [
     "avgYears": 10.2,
     "homepage": "https://www.kimst.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=해양수산과학기술진흥원",
-    "description": "해양수산 R&D 기획·관리·평가를 담당하는 해양수산부 산하 기타공공기관.",
+    "description": "해양수산 분야 R&D 기획·평가·관리를 담당하는 기관입니다. 수산 양식·가공 기술, 해양 에너지·자원 개발, 해양 환경 보전 기술 개발 사업 관리, 해양수산 R&D 성과 사업화를 통해 대한민국 해양수산 기술 혁신과 글로벌 경쟁력 강화를 지원합니다.",
     "mainBusiness": [
       "해양수산 R&D 기획·관리",
       "해양 기술 성과 확산",
