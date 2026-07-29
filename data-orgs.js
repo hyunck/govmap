@@ -21144,8 +21144,22 @@ const ORGS = [
     "branches": [
       {
         "name": "본원",
-        "address": "경기도 성남시 수정구 위례대로 83"
+        "address": "경기도 성남시 수정구 위례대로 83",
+        "lat": 37.4677672,
+        "lng": 127.1431077
       }
+    ],
+    "startingSalaryHistory": [
+      {"year": 2023, "val": 3023},
+      {"year": 2024, "val": 3098},
+      {"year": 2025, "val": 3141},
+      {"year": 2026, "val": 3141}
+    ],
+    "avgSalaryHistory": [
+      {"year": 2023, "val": 4863},
+      {"year": 2024, "val": 4966},
+      {"year": 2025, "val": 5199},
+      {"year": 2026, "val": 5199}
     ],
     "ncs": [],
     "ncsNote": "NCS 필기시험 없음 — 서류전형 후 인·적성검사(인성검사 PASS·직무능력검사)와 면접전형으로 선발",

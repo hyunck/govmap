@@ -1902,7 +1902,7 @@
             }
 
             /* ===== 모바일 상단 바 — 검색창을 사이드바에서 떼어내 페이지 상단에 고정 =====
-               부동산플래닛 스타일: 좌우 화면을 꽉 채운 직사각형 바 2단(검색창 + 필터) */
+               스타일: 좌우 화면을 꽉 채운 직사각형 바 2단(검색창 + 필터) */
             /* 정부기관 사이드바 헤더에 남아있던 단색(연보라 그라데이션) 배너와 구분선을 정리
                — 공기업 탭 .sidebar-header와 동일하게 처리 */
             .gov-sidebar-header { border-bottom: none; background: none; padding: 2px 20px; }
@@ -2577,7 +2577,7 @@
                 </div>
             </div>
             <!-- 모바일 전용 — 지도 확대 토글: 검색창·필터바·하단 탭바를 숨기고 지도를 최대로 보여줌
-                 (부동산플래닛 스타일 참고). 위치는 JS(updateMobileMapExpandBtnPosition)가 상단바
+                 (스타일 참고). 위치는 JS(updateMobileMapExpandBtnPosition)가 상단바
                  높이에 맞춰 동적으로 지정 -->
             <button class="mobile-map-expand-btn" id="mobileMapExpandBtn" aria-label="지도 확대" title="지도 확대">
                 <svg class="expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -4026,7 +4026,7 @@
             }
         }
 
-        // 지도 확대 토글 — 검색창·필터바·하단 탭바를 숨기고 지도를 최대로 보여줌(부동산플래닛 참고).
+        // 지도 확대 토글 — 검색창·필터바·하단 탭바를 숨기고 지도를 최대로 보여줌.
         // 이 상태에서 기관 리스트·설명창이 '전체 확장'되면 화면 맨 위(top:0)까지 꽉 채우게 됨
         // (setSheetState 참고). 공기업·정부기관 탭 공통
         function toggleMobileMapExpand() {
