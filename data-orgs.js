@@ -4506,7 +4506,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":7366},{"year":2024,"val":7269},{"year":2025,"val":7238},{"year":2026,"val":6429}],
     "homepage": "https://www.grandkorea.com",
     "recruitUrl": "https://gkl.careerlink.kr/",
-    "description": "외국인 전용 카지노 '세븐럭(Seven Luck)'을 서울 강남·용산, 부산 3개소에서 운영하는 준시장형 공기업. 관광진흥개발기금 납부 및 사회공헌기금 출연 등 공공성을 수행하며, 국내 유일의 상장 공기업이다.",
+    "description": "한국관광공사가 설립한 외국인 전용 카지노·복합엔터테인먼트 기업으로, 서울 코엑스와 부산 파라다이스시티 인근에서 강남·부산 GKL 카지노를 운영합니다. 외래관광객 유치와 관광외화 획득을 통해 국가 관광 경쟁력 강화에 기여하며, 게임·호텔·컨벤션·F&B를 아우르는 복합 위락시설을 운영합니다.",
     "mainBusiness": [
       "외국인 전용 카지노 '세븐럭' 운영 (서울강남·서울드래곤시티·부산 3개소)",
       "관광진흥개발기금 납부를 통한 관광 진흥 기여",
@@ -4807,7 +4807,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":8642},{"year":2024,"val":8553},{"year":2025,"val":8376},{"year":2026,"val":9240}],
     "homepage": "https://www.komir.or.kr",
     "recruitUrl": "https://komir.saramin.co.kr/",
-    "description": "2021년 한국광해관리공단과 한국광물자원공사 통합으로 출범한 준시장형 공기업. 광해 방지·복구, 핵심광물 확보, 폐광지역 진흥을 3대 미션으로 하며 산업통상자원부 산하에 있다.",
+    "description": "과거 광업 활동으로 인한 피해 복구와 폐광 지역 경제 활성화를 담당하는 준정부기관으로, 2021년 한국광해관리공단과 한국광업공단이 통합되어 출범했습니다. 광해방지·토양복원 사업 외에도 국내외 광물자원 개발과 비축을 추진하며, 자원 안보와 환경 복원을 동시에 수행합니다.",
     "mainBusiness": [
       "광해방지·복구사업 (광산개발로 인한 환경오염 방지 및 복원)",
       "핵심광물 확보 및 해외자원개발 지원",
@@ -4911,7 +4911,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":7196},{"year":2024,"val":7383},{"year":2025,"val":7265},{"year":2026,"val":7482}],
     "homepage": "https://www.srail.or.kr",
     "recruitUrl": "https://www.srail.or.kr/hpg/hba/01/selectRecruitAnncList.do?pageId=KR0604000000",
-    "description": "2016년 수서고속철도(SRT) 개통과 함께 출범한 시장형 공기업. 수서-부산·광주·여수·목포 등 5개 노선을 운영하며 수서·동탄·평택지제 3개 전용역사를 직접 관리한다.",
+    "description": "SRT(수서발 고속철도)를 운영하는 공기업으로, 수서·동탄·지제역을 기점으로 부산·목포·여수·포항·진주까지 고속철도 서비스를 제공합니다. KTX 대비 10% 이상 저렴한 운임과 동남권 환승망 연계로 수도권 남부 고속철 수요를 담당하며, 안전하고 경제적인 고속 이동 서비스를 제공합니다.",
     "mainBusiness": [
       "SRT(수서고속철도) 여객운송 서비스 운영 (경부·호남·전라·경전·동해선)",
       "수서·동탄·평택지제 전용역사 운영 및 역무 서비스",
@@ -4990,7 +4990,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":8277},{"year":2024,"val":8720},{"year":2025,"val":8802},{"year":2026,"val":8547}],
     "homepage": "https://www.kps.co.kr",
     "recruitUrl": "https://www.kps.co.kr/about/about_06_03.do",
-    "description": "한국전력공사의 발전설비 정비 전문 자회사(준시장형 공기업). 원자력·화력·양수발전소와 송변전설비 경상·계획예방정비를 담당하며 전국 원전 5그룹, 화력 26개소, 양수 7개소, 전력지사 6개소에 걸쳐 운영된다.",
+    "description": "한국전력공사 자회사로, 발전설비 정비·운영을 전문으로 하는 공기업입니다. 원자력·화력·양수 발전소와 송변전 시설의 예방·보수 정비를 수행하며, 국내외 발전소 건설·운영 지원도 담당합니다. 전국 97개 사업장에 걸쳐 에너지 설비의 안정적 운용을 뒷받침합니다.",
     "mainBusiness": [
       "원자력발전소 정비 (고리·새울·월성·한빛·한울 5개 원전그룹)",
       "화력·복합화력발전소 경상·계획예방정비 (전국 26개소)",
@@ -6208,7 +6208,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":7097},{"year":2024,"val":7308},{"year":2025,"val":7645},{"year":2026,"val":7623}],
     "homepage": "https://www.nps.or.kr",
     "recruitUrl": "https://nps.recruiter.co.kr/career/home",
-    "description": "국민연금 운영을 담당하는 준정부기관. 세계 3대 연기금 중 하나로 1,000조원 이상 규모의 기금을 운용하며, 전국 7개 지역본부·100여 개 지사에서 가입자 및 수급자를 지원한다.",
+    "description": "전 국민의 노후 소득을 보장하는 국민연금 제도를 운영하는 공단으로, 보험료 징수·급여 지급·기금 운용의 전 과정을 담당합니다. 1000조 원 이상의 기금을 운용하며 지역본부와 지사를 통해 전국 어디서나 연금 상담 및 신청 서비스를 제공합니다.",
     "mainBusiness": [
       "국민연금 가입자 관리 및 보험료 징수",
       "노령·장애·유족연금 지급",
@@ -6687,7 +6687,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":7481},{"year":2024,"val":7492},{"year":2025,"val":7582},{"year":2026,"val":7680}],
     "homepage": "https://www.kspo.or.kr",
     "recruitUrl": "https://kspo.recruiton.kr/recruit/",
-    "description": "1989년 설립된 문화체육관광부 산하 기금관리형 준정부기관. 경륜·경정·스포츠토토 사업으로 국민체육진흥기금을 조성·운용하며, 올림픽공원 관리와 전국 스포츠시설 운영을 통해 생활체육 인프라를 제공한다.",
+    "description": "1988 서울올림픽 정신을 계승하고 국민 체육진흥을 위해 설립된 공단으로, 경정·경륜 수익금을 체육 발전 재원으로 활용합니다. 국민체육진흥기금 조성·배분, 스포츠 시설 운영, 선수 육성 지원 등을 통해 전 국민의 스포츠 참여와 생활체육 활성화를 지원합니다.",
     "mainBusiness": [
       "경륜·경정·스포츠토토 사업 운영 및 국민체육진흥기금 조성·운용",
       "생활체육·전문체육·장애인체육 진흥 사업 지원",
@@ -8970,7 +8970,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":6250},{"year":2024,"val":6439},{"year":2025,"val":6572},{"year":2026,"val":6610}],
     "homepage": "https://www.keco.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국환경공단",
-    "description": "환경시설 운영 및 환경 인프라 관리를 담당하는 준정부기관.",
+    "description": "환경부 산하 준정부기관으로, 기후변화 대응·환경시설 운영·환경오염 방지를 위한 기술 지원 및 사업 시행을 담당합니다. 상하수도 운영, 폐기물 처리시설 관리, 대기·토양·지하수 오염 복원 사업 등 생활환경 전 분야에 걸쳐 환경 인프라 구축을 지원합니다.",
     "mainBusiness": [
       "환경시설 운영",
       "환경오염 관리",
@@ -12227,7 +12227,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":6956},{"year":2024,"val":7113},{"year":2025,"val":7333},{"year":2026,"val":7804}],
     "homepage": "https://www.hira.or.kr",
     "recruitUrl": "https://www.hira.or.kr/dummy.do?pgmid=HIRAA040078000000",
-    "description": "요양급여비용(진료비) 심사와 요양급여 적정성 평가를 수행하는 준정부기관. 의료자원 통합관리, 보건의료 빅데이터 개방·분석, 신포괄수가제 등 지불제도 관리 업무도 담당한다.",
+    "description": "국민건강보험공단의 요양급여 청구에 대한 심사·평가를 통해 의료비 적정성을 검토하고 의료 질 향상을 촉진하는 준정부기관입니다. 전국 의료기관이 청구하는 진료비 심사와 의료기관 평가를 담당하며, 빅데이터 기반의 의료정보 분석으로 보건의료 정책 수립도 지원합니다.",
     "mainBusiness": [
       "요양급여비용(진료비) 심사",
       "요양급여 적정성 평가",
@@ -12518,7 +12518,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":7740},{"year":2024,"val":7935},{"year":2025,"val":8021},{"year":2026,"val":7689}],
     "homepage": "https://www.kotsa.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국교통안전공단",
-    "description": "자동차·항공·철도 교통안전을 담당하는 준정부기관.",
+    "description": "자동차·항공·철도·선박 등 전 교통수단의 안전 관리를 담당하는 준정부기관으로, 자동차 검사와 결함조사, 운전자 교육, 교통사고 원인 분석 등의 업무를 수행합니다. 교통사고 사망자 감소와 첨단 모빌리티 안전 기준 마련을 통해 안전한 교통 환경 조성에 기여합니다.",
     "mainBusiness": [
       "자동차 검사",
       "교통안전 진단",
@@ -12702,7 +12702,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":7734},{"year":2024,"val":7536},{"year":2025,"val":7945},{"year":2026,"val":8223}],
     "homepage": "https://www.kicox.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국산업단지공단",
-    "description": "전국 산업단지의 관리와 입주기업 지원을 담당하는 준정부기관.",
+    "description": "전국 국가·일반산업단지의 관리·운영 및 입주기업 지원을 담당하는 준정부기관입니다. 산업단지 인프라 구축과 스마트그린산업단지 전환을 추진하며, 중소·중견기업의 투자 유치와 수출 촉진을 위한 종합 지원 서비스를 제공합니다.",
     "mainBusiness": [
       "산업단지 관리",
       "입주기업 지원",
@@ -12935,7 +12935,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":5508},{"year":2024,"val":5789},{"year":2025,"val":5966},{"year":2026,"val":6175}],
     "homepage": "https://www.koelsa.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국승강기안전공단",
-    "description": "승강기 안전 검사·인증·교육을 담당하는 준정부기관.",
+    "description": "엘리베이터·에스컬레이터 등 승강기의 설치검사, 정기검사, 수시검사를 통해 이용자 안전을 확보하는 준정부기관입니다. 승강기 사고 예방, 기술 기준 개발, 검사 인력 양성을 통해 연간 90만 대 이상의 국내 승강기 안전 관리 체계를 운용합니다.",
     "mainBusiness": [
       "승강기 안전검사",
       "안전인증",
@@ -13134,7 +13134,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":7557},{"year":2024,"val":7638},{"year":2025,"val":7864},{"year":2026,"val":7808}],
     "homepage": "https://www.at.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국농수산식품유통공사",
-    "description": "농수산식품 유통·수출 진흥을 담당하는 준정부기관.",
+    "description": "농수산물과 식품의 유통 혁신 및 수출 확대를 지원하는 준정부기관으로, 공영도매시장 관리·운영과 농식품 수출 마케팅을 담당합니다. aT센터·사이버거래소 운영, 할랄 인증 지원, 해외 식품박람회 참가 등을 통해 국내 농식품 기업의 글로벌 시장 진출을 돕습니다.",
     "mainBusiness": [
       "농수산물 유통",
       "수출 진흥",
@@ -13204,7 +13204,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":7062},{"year":2024,"val":7318},{"year":2025,"val":7537},{"year":2026,"val":6973}],
     "homepage": "https://www.kca.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국방송통신전파진흥원",
-    "description": "방송·통신·전파 산업 진흥을 담당하는 준정부기관.",
+    "description": "방송통신 기자재 인증, 전파자원 관리, 방송통신 정책 기술 지원을 수행하는 준정부기관입니다. 전파 혼신 방지·주파수 할당 지원, 방송통신 기기 적합성 평가, 전파 진흥 사업을 통해 디지털 방송·통신 인프라의 안정적 운용을 뒷받침합니다.",
     "mainBusiness": [
       "방송통신 진흥",
       "전파관리",
@@ -13340,7 +13340,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":6910},{"year":2024,"val":7203},{"year":2025,"val":7414},{"year":2026,"val":7513}],
     "homepage": "https://www.kisa.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국인터넷진흥원",
-    "description": "사이버보안과 인터넷 진흥을 담당하는 준정부기관.",
+    "description": "인터넷 이용 환경 개선과 사이버 보안 역량 강화를 위해 설립된 준정부기관으로, 개인정보 보호·침해사고 대응·인터넷 주소 자원 관리 등을 담당합니다. 사이버위협 모니터링 및 대응 체계 운영, 보안 취약점 분석, 인터넷 서비스 안전성 향상 사업을 통해 디지털 신뢰 환경 조성에 기여합니다.",
     "mainBusiness": [
       "사이버 침해대응",
       "개인정보보호",
@@ -13408,7 +13408,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":7186},{"year":2024,"val":7288},{"year":2025,"val":7490},{"year":2026,"val":7122}],
     "homepage": "https://www.nia.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국지능정보사회진흥원",
-    "description": "정보화·디지털 정부·AI 산업 진흥을 담당하는 준정부기관.",
+    "description": "국가 디지털 전환과 인공지능·빅데이터 기반 지능정보사회 구현을 지원하는 준정부기관입니다. 디지털 격차 해소, AI 윤리·활용 가이드라인 개발, 공공 데이터 개방 촉진, 스마트시티·디지털 뉴딜 사업 관리 등을 통해 대한민국 디지털 역량 강화를 선도합니다.",
     "mainBusiness": [
       "전자정부 구축",
       "AI·빅데이터 진흥",
@@ -13472,7 +13472,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":5861},{"year":2024,"val":5848},{"year":2025,"val":6066},{"year":2026,"val":6219}],
     "homepage": "https://www.pls.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=우체국물류지원단",
-    "description": "우체국 택배 운송과 우편물류 사업을 지원하는 준정부기관.",
+    "description": "우정사업본부 산하 준정부기관으로, 전국 우체국 소포·택배·물류 운영을 지원하고 우편물류 인프라 효율화를 담당합니다. 우체국 물류센터 운영과 택배 배송망 최적화를 통해 공공 물류 서비스의 품질 향상과 안정적인 전국 배송망 유지에 기여합니다.",
     "mainBusiness": [
       "우편물 운송",
       "택배 운송",
@@ -13535,7 +13535,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":5611},{"year":2024,"val":5778},{"year":2025,"val":5814},{"year":2026,"val":6018}],
     "homepage": "https://www.kpf.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=우체국금융개발원",
-    "description": "우체국 예금·보험 사업개발을 담당하는 준정부기관.",
+    "description": "우정사업본부 산하 준정부기관으로, 우체국 예금·보험 상품 개발과 금융 정보시스템 운영을 담당합니다. 우체국 금융의 안정적 운용과 금융 서비스 품질 향상을 위한 시스템 개발·유지보수, 금융 리스크 관리, 신상품 설계 업무를 수행합니다.",
     "mainBusiness": [
       "우체국 예금·보험 개발",
       "리스크 관리",
@@ -14045,7 +14045,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":6649},{"year":2024,"val":6586},{"year":2025,"val":7000},{"year":2026,"val":7531}],
     "homepage": "https://www.keis.or.kr",
     "recruitUrl": "https://keis.recruiter.co.kr/appsite/company/index",
-    "description": "고용노동부 산하 준정부기관으로 워크넷·고용보험시스템 등 고용전산망을 운영하고 고용동향 분석·직업정보 제공·고용정책 연구를 수행한다.",
+    "description": "고용 동향 조사·분석, 직업 정보 제공, 고용 서비스 지원을 담당하는 준정부기관으로, 고용노동부 산하에서 노동시장 정보 인프라 구축을 담당합니다. 취업포털 워크넷 운영, 직업·진로 정보 DB 구축, 고용보험 데이터 분석 등을 통해 구직자·구인기업·정책 입안자 모두를 위한 고용 정보 플랫폼 역할을 수행합니다.",
     "mainBusiness": [
       "고용24·워크넷·고용보험시스템 등 고용전산망 개발·운영",
       "고용동향 조사·분석 (청년패널, 대졸자직업이동경로조사 등)",
@@ -14307,7 +14307,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":6491},{"year":2024,"val":6509},{"year":2025,"val":6549},{"year":2026,"val":6434}],
     "homepage": "https://www.ekape.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=축산물품질평가원",
-    "description": "축산물 등급판정과 유통정보를 담당하는 준정부기관.",
+    "description": "축산물의 등급 판정과 이력 관리를 통해 소비자에게 안심 먹거리를 제공하는 준정부기관입니다. 쇠고기·돼지고기·닭고기 등급제를 운용하고, 축산물 이력시스템을 관리하며, 식육 유통 단계별 위생·안전 정보를 제공하여 축산물 유통 신뢰성을 제고합니다.",
     "mainBusiness": [
       "축산물 등급판정",
       "축산물 이력관리",
@@ -14429,7 +14429,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":5757},{"year":2024,"val":5919},{"year":2025,"val":6144},{"year":2026,"val":7485}],
     "homepage": "https://www.koagi.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국수목원정원관리원",
-    "description": "국립수목원·국가정원 관리를 담당하는 준정부기관.",
+    "description": "국립 수목원과 국가정원의 운영·관리를 담당하는 준정부기관으로, 식물 유전자원 보전과 정원 문화 확산을 추진합니다. 광릉수목원·세종수목원 등 주요 시설을 관리하며, 희귀·특산식물 보전, 정원사 자격증 운영, 녹색 생활문화 교육 사업을 통해 생물다양성 보전에 기여합니다.",
     "mainBusiness": [
       "수목원 관리",
       "국가정원 운영",
@@ -14546,7 +14546,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":5756},{"year":2024,"val":5750},{"year":2025,"val":5979},{"year":2026,"val":6022}],
     "homepage": "https://www.fowi.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국산림복지진흥원",
-    "description": "산림복지 서비스와 자연휴양림·치유의숲 운영을 담당하는 준정부기관.",
+    "description": "산림 치유·교육·레포츠 등 산림복지 서비스를 기획·운영하는 준정부기관으로, 전국 국립자연휴양림과 산림복지단지를 관리합니다. 산림치유 프로그램 개발·운영, 숲유치원 인증, 산림복지 전문가 양성을 통해 국민 건강 증진과 삶의 질 향상에 기여합니다.",
     "mainBusiness": [
       "자연휴양림 운영",
       "치유의 숲",
@@ -14658,7 +14658,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":6918},{"year":2024,"val":6920},{"year":2025,"val":7120},{"year":2026,"val":7221}],
     "homepage": "https://www.kalis.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국토안전관리원",
-    "description": "시설물·건설현장 안전관리를 담당하는 준정부기관.",
+    "description": "SOC 시설물의 안전 점검·진단과 건설 품질 관리를 담당하는 준정부기관으로, 교량·터널·항만 등 1·2종 시설물의 정기 안전진단을 수행합니다. 재난 예방을 위한 시설물 이력 관리, 내진 성능 평가, 건설 현장 품질 및 안전 지도를 통해 국민 생활 기반 시설의 안전성을 확보합니다.",
     "mainBusiness": [
       "시설물 안전점검",
       "지하시설물 관리",
@@ -14956,7 +14956,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":6512},{"year":2024,"val":6864},{"year":2025,"val":7172},{"year":2026,"val":7310}],
     "homepage": "https://www.bohun.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국보훈복지의료공단",
-    "description": "보훈대상자 의료·복지를 담당하는 준정부기관. 보훈병원 6곳 운영.",
+    "description": "국가유공자와 보훈 대상자의 의료·복지·재활 서비스를 제공하는 준정부기관입니다. 전국 보훈병원 운영, 요양원·요양병원 관리, 재활 치료 및 심리 지원을 통해 참전 유공자와 상이군경 등 보훈 가족의 의료 접근성과 생활 안정을 지원합니다.",
     "mainBusiness": [
       "보훈병원 운영",
       "보훈 요양시설",
@@ -16099,7 +16099,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":7398},{"year":2024,"val":7793},{"year":2025,"val":8123},{"year":2026,"val":8775}],
     "homepage": "https://www.kiat.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국산업기술진흥원",
-    "description": "산업기술 R&D 정책·사업기획을 담당하는 기타공공기관. 산자부 산하.",
+    "description": "산업기술 R&D 기획·관리 및 기술 혁신 생태계 조성을 지원하는 준정부기관으로, 산업통상자원부 산하에서 기업·대학·연구소의 기술 개발 사업을 관리합니다. 소재·부품·장비 기술 자립화, 스타트업 기술 지원, 국제 기술 협력을 통해 대한민국 산업 경쟁력 강화를 담당합니다.",
     "mainBusiness": [
       "R&D 기획·관리",
       "산업기술 정책",
@@ -17067,7 +17067,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":7928},{"year":2024,"val":8087},{"year":2025,"val":8189},{"year":2026,"val":8267}],
     "homepage": "https://www.lx.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국국토정보공사",
-    "description": "국토·지적 측량과 공간정보를 담당하는 기타공공기관. 디지털 트윈 핵심.",
+    "description": "공간정보(지적·측량) 분야 전문 공기업으로, 지적 조사·측량·지리공간 정보 구축을 담당합니다. 도심 재개발과 토지 경계 분쟁 해소를 위한 지적재조사 사업, 드론·위성측량 기반 공간정보 갱신, 스마트시티 데이터 플랫폼 구축 등을 통해 국토 디지털 전환을 선도합니다.",
     "mainBusiness": [
       "지적측량",
       "공간정보 구축",
@@ -18229,7 +18229,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":6948},{"year":2024,"val":7117},{"year":2025,"val":7350},{"year":2026,"val":7360}],
     "homepage": "https://www.nie.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국립생태원",
-    "description": "생태 보전·연구를 담당하는 기타공공기관. 서천 에코리움 운영.",
+    "description": "생태계 조사·연구와 생태환경 교육을 담당하는 준정부기관으로, 충남 서천에 국내 최대 생태 체험·연구 시설을 운영합니다. 에코리움(5대 기후대 식물원) 관리, 한반도 생태계 변화 모니터링, 생물다양성 보전 정책 지원을 통해 인간과 자연의 공존을 위한 지식 기반을 구축합니다.",
     "mainBusiness": [
       "생태계 연구",
       "멸종위기종 보전",
@@ -18724,7 +18724,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":7344},{"year":2024,"val":7703},{"year":2025,"val":8089},{"year":2026,"val":8120}],
     "homepage": "https://www.kr.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=국가철도공단",
-    "description": "철도 건설·관리를 담당하는 준정부기관 (구 한국철도시설공단).",
+    "description": "철도 시설의 건설·관리를 전담하는 준정부기관으로, 고속철도·일반철도·광역철도의 선로·교량·터널·역사 등 인프라 구축과 유지보수를 담당합니다. GTX·수도권 광역급행철도 등 대형 철도 프로젝트를 추진하며, 철도 안전 기술 개발과 국제 협력을 통해 미래 철도 인프라 구축을 선도합니다.",
     "mainBusiness": [
       "철도 건설",
       "철도시설 유지보수",
@@ -18883,7 +18883,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":5120},{"year":2024,"val":5308},{"year":2025,"val":5644},{"year":2026,"val":5742}],
     "homepage": "https://www.semas.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=소상공인시장진흥공단",
-    "description": "소상공인 및 전통시장 지원을 위한 중소벤처기업부 산하 준정부기관. 소상공인시장진흥기금을 관리하는 기금관리형 준정부기관이다.",
+    "description": "소상공인과 전통시장을 지원하는 준정부기관으로, 경영 컨설팅·자금 지원·판로 개척·교육 등 종합 지원 서비스를 제공합니다. 전국 중소벤처기업진흥공단 지역센터를 통해 창업·재기 자금 대출, 전통시장 현대화 사업, 소상공인 온라인 진출 지원 사업을 수행합니다.",
     "mainBusiness": [
       "소상공인 정책자금",
       "전통시장 활성화",
@@ -18941,7 +18941,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":7064},{"year":2024,"val":7317},{"year":2025,"val":7469},{"year":2026,"val":7626}],
     "homepage": "https://www.koica.go.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국국제협력단",
-    "description": "개발도상국에 대한 무상 원조와 국제개발협력 사업을 수행하는 외교부 산하 위탁집행형 준정부기관.",
+    "description": "대외 공적개발원조(ODA)를 전담하는 준정부기관으로, 개발도상국의 경제성장과 빈곤 퇴치를 지원합니다. 봉사단 파견, 프로젝트 원조, 연수생 초청, 긴급구호 등 다양한 협력 방식을 통해 50여 개국에서 지속가능발전 목표 달성을 지원하며, 한국의 개발 경험을 공유합니다.",
     "mainBusiness": [
       "ODA 무상원조",
       "해외봉사단 파견",
@@ -18997,7 +18997,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":7714},{"year":2024,"val":7741},{"year":2025,"val":7877},{"year":2026,"val":8135}],
     "homepage": "https://www.keiti.re.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국환경산업기술원",
-    "description": "환경기술 개발·지원 및 환경산업 육성을 담당하는 기후에너지환경부 산하 위탁집행형 준정부기관.",
+    "description": "환경 기술 개발 R&D 지원과 녹색 제품·서비스 인증을 담당하는 준정부기관으로, 환경부 산하에서 환경 기업의 기술 경쟁력 강화를 돕습니다. 환경 기술 사업화 지원, 환경표지·녹색구매 인증 제도 운용, 환경 성능 시험·검사를 통해 지속가능한 녹색 경제 전환을 지원합니다.",
     "mainBusiness": [
       "환경기술 R&D 지원",
       "녹색제품 인증",
@@ -19056,7 +19056,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":8212},{"year":2024,"val":8285},{"year":2025,"val":8511},{"year":2026,"val":8784}],
     "homepage": "https://www.korad.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국원자력환경공단",
-    "description": "방사성폐기물의 안전한 관리를 담당하는 산업통상자원부 산하 위탁집행형 준정부기관. 경주 방폐장 운영.",
+    "description": "방사성폐기물의 안전한 처분을 위한 시설 건설·운영을 전담하는 준정부기관으로, 경주 방폐물처분장을 운영합니다. 중·저준위 방사성폐기물 영구 처분, 사용후핵연료 임시 저장, 방사성폐기물 안전 관리 기술 개발을 통해 원자력의 안전한 사용을 뒷받침합니다.",
     "mainBusiness": [
       "방사성폐기물 처분",
       "중저준위 방폐장 운영",
@@ -19135,7 +19135,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":6648},{"year":2024,"val":6815},{"year":2025,"val":6978},{"year":2026,"val":7222}],
     "homepage": "https://www.kpetro.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국석유관리원",
-    "description": "석유제품의 품질 검사와 가짜석유 단속을 담당하는 산업통상자원부 산하 위탁집행형 준정부기관.",
+    "description": "석유류 품질 검사와 가짜 석유 유통 단속을 담당하는 준정부기관으로, 주유소·석유 저장시설의 정기 검사와 불법 혼합 연료 근절 활동을 수행합니다. 바이오연료·전기·수소 등 친환경 에너지 보급 지원과 석유 유통 시장 정보 제공을 통해 소비자 보호와 에너지 시장 투명성 확보에 기여합니다.",
     "mainBusiness": [
       "석유품질 검사·관리",
       "가짜석유 단속",
@@ -19194,7 +19194,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":5852},{"year":2024,"val":5959},{"year":2025,"val":6132},{"year":2026,"val":6009}],
     "homepage": "https://www.kead.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국장애인고용공단",
-    "description": "장애인 고용 촉진과 직업 재활을 지원하는 고용노동부 산하 위탁집행형 준정부기관.",
+    "description": "장애인의 안정적인 취업과 직장 적응을 지원하는 준정부기관으로, 직업 훈련·취업 알선·보조공학기기 지원·장애인 표준사업장 육성 등 고용 촉진 사업을 수행합니다. 사업주 대상 장애인 고용 컨설팅과 장려금 지원을 통해 통합 고용 환경 조성에 기여하며, 장애인 자립 기반 마련에 앞장섭니다.",
     "mainBusiness": [
       "장애인 취업 지원",
       "장애인 직업재활",
@@ -19247,7 +19247,7 @@ const ORGS = [
     "avgSalaryHistory": [{"year":2023,"val":5493},{"year":2024,"val":5772},{"year":2025,"val":5887},{"year":2026,"val":5823}],
     "homepage": "https://www.koreha.or.kr",
     "recruitUrl": "https://job.alio.go.kr/recruit.do?keyword=한국법무보호복지공단",
-    "description": "출소자 등 범죄인의 사회복귀를 지원하는 법무부 산하 위탁집행형 준정부기관. 2026년 기타공공기관에서 준정부기관으로 변경.",
+    "description": "출소자와 범죄 피해자 등 사회 취약계층의 사회 복귀를 지원하는 준정부기관으로, 숙식·직업훈련·취업 알선·가족 관계 회복 프로그램을 운영합니다. 재범 방지와 건전한 사회 복귀를 위한 법무보호 서비스를 통해 사회 안전망 강화와 범죄 예방에 기여합니다.",
     "mainBusiness": [
       "출소자 사회복귀 지원",
       "숙소·취업 연계",
