@@ -276,6 +276,49 @@ function buildPage(org) {
   }
   const branchSummary = buildBranchSummary();
 
+  // 지사 현황 맥락 문단 — 규모·순환근무 정책·취업자 관점 시사점을 서술형 문장으로 제공해
+  // 각 페이지가 "주소 나열"만이 아닌 실질적 정보를 담도록 함 (AdSense 콘텐츠 품질 개선 목적)
+  function buildBranchContext() {
+    const total = totalBranchCount;
+    const rot = org.rotation;
+    const groupCount = allBranches.length;
+    const parts = [];
+
+    // 규모 및 발령 시사점
+    if (total <= 1) {
+      parts.push(`본사 단일 사업장으로 운영되며, 별도 지방 발령 없이 본사 근무가 기본입니다.`);
+    } else if (total < 5) {
+      // 소수 지사 — 총 개수는 이미 위 문장에 있으므로 추가 시사점만
+      parts.push(`지사 수가 적어 발령 가능 근무지가 한정적이며, 지원 전 각 사업장 위치를 미리 확인하는 것을 권장합니다.`);
+    } else if (total < 20) {
+      parts.push(`전국 주요 지역에 사업장이 분포하며, 합격 후 발령지는 기관 사정에 따라 배정됩니다. 지원 전 각 근무지의 위치를 미리 확인하는 것이 좋습니다.`);
+    } else if (total < 60) {
+      parts.push(`전국 광역 단위로 사업장이 고르게 분포해, 합격 후 전국 어느 지역으로도 발령될 가능성이 있습니다. 거주지 이동 가능성을 입사 전에 미리 고려하는 것이 좋습니다.`);
+    } else {
+      parts.push(`전국 규모의 대형 기관으로, 합격 후 발령지는 기관 수요에 따라 전국 어느 지역이든 배정될 수 있습니다. 거주지 이동에 유연한 지원자에게 유리하며, 발령 희망 지역을 채용 과정에서 확인하는 것을 권장합니다.`);
+    }
+
+    // 순환근무 정책 (rotation 필드 있을 때만)
+    if (rot) {
+      if (rot.type === '전국순환') {
+        parts.push(`인사 정책상 전국 순환 발령을 원칙으로 하며, 입사 후 수년 주기로 근무지가 변경됩니다.`);
+      } else if (rot.type === '권역순환') {
+        parts.push(`권역 내 순환 발령을 원칙으로 하며, 지원 희망 권역을 미리 검토하는 것이 좋습니다.`);
+      } else if (rot.type === '비순환') {
+        parts.push(`발령지 변경 없이 장기 근무하는 비순환 방식으로 운영되어, 생활 안정성을 중시하는 지원자에게 적합합니다.`);
+      }
+    }
+
+    // 권역 그룹 구조 (rotation 없고 그룹이 충분할 때만 — rotation이 있으면 위 문장으로 충분)
+    if (!rot && groupCount >= 4) {
+      parts.push(`전국 근무지는 ${groupCount}개 권역·그룹으로 구분되어 운영됩니다.`);
+    }
+
+    if (!parts.length) return '';
+    return `<p style="font-size:14px;color:#374151;line-height:1.7;margin-bottom:12px;">${parts.join(' ')}</p>`;
+  }
+  const branchContext = buildBranchContext();
+
   // 그룹화된 전국 근무지 HTML
   const allBranchesHtml = allBranches.length > 0 ? (() => {
     const totalItems = allBranches.reduce((s, g) => s + g.items.length, 0);
@@ -682,6 +725,7 @@ function buildPage(org) {
   ${(allBranchesHtml || branchItems) ? `<div class="card">
     <div class="card-title">전국 본사·지점·사업소</div>
     <p style="font-size:14px;color:#374151;line-height:1.7;margin-bottom:12px;">${escHtml(org.name)} 본사는 <strong>${escHtml(org.address)}</strong>에 위치합니다.${totalBranchCount > 1 ? ` 합격 후 발령 가능한 전국 근무지는 총 <strong>${totalBranchCount}개소</strong>이며, 지사·사업소별 위치를 지도에서 확인할 수 있습니다.` : ''}</p>
+    ${branchContext}
     ${branchSummary}
     ${allBranchesHtml || `<div class="branch-intro">⚠️ 국가중요시설 및 기관 사정으로 지도에 표시되지 않거나 불명확하게 표시되는 사업장·지사가 있을 수 있어요.</div><ul class="branch-list">${branchItems}</ul>`}
   </div>` : ''}
