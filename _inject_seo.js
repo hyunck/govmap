@@ -13,26 +13,28 @@ ORGS.forEach(o => { if (typeMap[o.type]) typeMap[o.type].push(o); });
 
 const typeLabel = { '공기업': '공기업', '준정부': '준정부기관', '기타공공기관': '기타공공기관' };
 
-// 링크 섹션 HTML 생성
+// 링크 섹션 HTML 생성 — <details>로 감싸 기본 접힘 (사용자 눈에 안 띄지만 크롤러는 읽음)
 let html = '\n                <!-- SEO: 전체 기관 목록 (정적 크롤링용, _inject_seo.js 자동 생성) -->\n';
-html += '                <div id="org-sitemap" style="padding:12px 14px 16px;border-top:1px solid #f3f4f6;">\n';
-html += '                  <h2 style="font-size:12px;font-weight:700;color:#374151;margin-bottom:10px;">전체 기관 상세 정보 (344개)</h2>\n';
+html += '                <details id="org-sitemap" style="padding:4px 14px 6px;border-top:1px solid #f3f4f6;">\n';
+html += '                  <summary style="font-size:11px;color:#c4c9d4;cursor:pointer;user-select:none;list-style:none;padding:4px 0;">전체 기관 목록</summary>\n';
+html += '                  <div style="margin-top:6px;">\n';
 
 ['공기업', '준정부', '기타공공기관'].forEach(type => {
   const orgs = typeMap[type];
   if (!orgs.length) return;
-  html += `                  <div style="margin-bottom:10px;">\n`;
-  html += `                    <p style="font-size:11px;font-weight:600;color:#6b7280;margin-bottom:5px;">${typeLabel[type]} (${orgs.length}개)</p>\n`;
-  html += `                    <div style="display:flex;flex-wrap:wrap;gap:3px 10px;">\n`;
+  html += `                    <div style="margin-bottom:8px;">\n`;
+  html += `                      <p style="font-size:10px;font-weight:600;color:#9ca3af;margin-bottom:4px;">${typeLabel[type]} (${orgs.length}개)</p>\n`;
+  html += `                      <div style="display:flex;flex-wrap:wrap;gap:2px 8px;">\n`;
   orgs.forEach(o => {
     const href = '/orgs/' + encodeURIComponent(o.name) + '/';
-    html += `                      <a href="${href}" style="font-size:12px;color:#374151;">${o.name}</a>\n`;
+    html += `                        <a href="${href}" style="font-size:11px;color:#6b7280;">${o.name}</a>\n`;
   });
+  html += `                      </div>\n`;
   html += `                    </div>\n`;
-  html += `                  </div>\n`;
 });
 
-html += '                </div>\n';
+html += '                  </div>\n';
+html += '                </details>\n';
 
 // index.html 수정
 let indexSrc = fs.readFileSync('index.html', 'utf8');
